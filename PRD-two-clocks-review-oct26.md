@@ -39,15 +39,26 @@ Ship a revised model (`graph-v9.json`) and a revised Two Clocks page that resolv
 
 ---
 
-## 2. Inputs you need that are not in this repo
+## 2. Inputs, and where each one comes from
 
-Get these before starting WS2–WS4 and WS9. If one is unavailable, do everything else, leave a `TODO(source)` marker in the affected copy, and list it in `review/RESPONSE.md`.
+The **Mach33 MCP server** is connected to this project (tools `list_models`, `get_model`, `search_all`, `list_posts`, `get_post`, `list_news`, `get_news`, `whats_new`). On 27 Oct it was queried for everything below; the figures it returned are recorded in [review/inputs/mach33-mcp-inputs.md](review/inputs/mach33-mcp-inputs.md) so you can cite them without re-fetching. Read that file before WS2–WS4.
 
-1. **Launch Keystone v1.4 (wave 45, ratified 21 Oct 2026)**: the internal-cost and customer-price series by year, the hinge-year distribution, flight-cadence series, and the rulings PRICE-01, TAIL-01 and the W45 docket 10 rule on 2040 mass. Reach it through the `mach33-model-lookup` skill, but note W45 open item 7: the client package it reads still says v1.3, so verify the version string on every figure you pull and prefer the v1.4 status note (`claude/launch-keystone-w45-status-1021.md` in the Mach33 repo). The June 2026 GigaModel and the Sep 2026 "Starship's first orbital cargo" post must not be the source.
-2. **AI1 reconstruction** (public): https://research.33fg.com/analysis/spacex-ai1-a-subsystem-level-reconstruction (Jun 2026). Also the 16 Oct orbit ruling (`claude/note-for-ai-compute-keystone-orbit-1016.md`) and the AI Compute model's X card 05 (437.9 GW by 2040) and its 1 GW crossing year.
-3. **Connectivity Keystone**: V2 D2C and V3 D2C dates and naming conventions, and the keystone's current capacity-utilisation stance.
-4. **Brand MCP**: `get_brand_tokens` (brand version 23 Oct 2026), the Mach 33 Grotesk woff2 files, the white wordmark SVG.
-5. **SpaceNews rideshare-closure item** (late June 2026) and the SpaceX S-1 orbital-compute figures, both cited in `launch-monthly-research-handoff.md`.
+| Input | Status | Source |
+|---|---|---|
+| AI1 reconstruction (150 kW peak, 120 kW average, 2.1 t, 71 kW/t, dawn-dusk orbit, subsystem split) | **Have it** | MCP post 96; inputs file §3 |
+| AI Compute Keystone headline path (437.9 GW orbital by 2040, crossover 2029 in all lenses) | **Have it** | MCP model 62 / post 117; inputs file §2 |
+| AI Compute model's 1 GW orbital crossing year (OC-4) | In the package, not the post | Download model 62 (10 MB zip) into an empty directory and read `model_series.csv` with `python3 -I` |
+| Launch Keystone **v1.3** published series (internal cost path, customer realized and spot prices, opening-year tests, internal-first wording) | **Have it** | MCP model 67, posts 126, 127, 133; inputs file §1 |
+| Launch Keystone **v1.4 / wave 45** (hinge 2030, $677/kg entry-year internal cost, $12.6B 2030 external revenue, rulings PRICE-01, TAIL-01, docket 10) | **Not on the MCP**; the connector serves v1.3, as the review warned (W45 open item 7) | Alex, from `claude/launch-keystone-w45-status-1021.md` in the Mach33 repo. Until supplied, pin to v1.3 wave 44 and tag every launch figure with its version |
+| Direct-to-cell naming and Oct 2026 status (V1 on V2 Mini, Starlink Mobile brand, V2 "5G-like" 2027–28, spectrum news) | **Have it** | MCP news 403, 411, 681, 723, 750 and post 154; inputs file §4 |
+| Connectivity Keystone V2 D2C and V3 D2C **dates and odds** | **Not on the MCP**; the keystone model is unreleased (post 154 says so) | Alex or the keystone team. Until supplied, date V2 D2C from the public 2027–28 window with a `TODO(source)` marker |
+| Brand tokens, Mach 33 Grotesk woff2, wordmark SVG | **Not on this MCP** | Alex, via the Brand MCP (`get_brand_tokens`, brand version 23 Oct 2026) |
+| SpaceNews rideshare closure (late June 2026), SpaceX S-1 orbital-compute figures | Not on the MCP | `launch-monthly-research-handoff.md` in the Mach33 repo |
+| AI Compute Keystone SSO re-base (W45 open item 5), 16 Oct orbit ruling | Not on the MCP | `claude/note-for-ai-compute-keystone-orbit-1016.md` |
+
+If an item marked "Alex" is still missing when you reach it, do everything else, leave a `TODO(source)` marker in the affected copy, and list it in `review/RESPONSE.md`.
+
+**Also found on the MCP:** Mach33 published a brief on 27 Oct 2026, [How AI Changes the Timeline for Space Technology](https://research.33fg.com/analysis/how-ai-changes-the-timeline-for-space-technology) (post 160): "We traced how cheaper mathematical work could change space technology through 2035, across 478 milestones in 13 branches." That settles FR-1 (the tree is Mach33's own work; write "we") and means the public brief must agree with the page once v9 changes the counts.
 
 ---
 
@@ -82,14 +93,15 @@ Order matters: WS1–WS5 change the model, and every number downstream regenerat
 
 **Re-pin.** The model dates launch-cost thresholds "about a year after Mach33's path", from a pre-W45 curve ($4,900/kg expended 2026 → $650 in 2027 → $300 in 2028; see `doc/04-two-clocks.md` and the quotable row in `doc/12-quotable.md`). Wave 45 moved the near term: price hinge 2031 → 2030 (passed by 2030 in 53% of worlds, was 20%); Starship entry-year internal cost $412 → $677/kg; 2030 external revenue median $28.5B → $12.6B; open item: 9.1 Starships modelled in 2026 against about 4–5 flown.
 
-- Add `meta.launch_source = "Mach33 Launch Keystone v1.4 (wave 45, 2026-10-21)"` to the graph.
+- What the MCP shows: the model's current chain ($4,900 expended 2026 → about $650 in 2027 → about $300 in 2028, then $13/kg by 2035) is the v1.3 wave-44 base from the 23 Sep post, not the June GigaModel, so the internal-cost curve needs only the W45 nudge ($656 → $677 entry year) and a version tag. The substantive W45 changes are the hinge year (2031 → 2030) and the smaller 2030 external market, which bear on `physclock-cheap-mass-customer` and every `launch-external` node, not on the internal path.
+- Add `meta.launch_source = "Mach33 Launch Keystone v1.4 (wave 45, 2026-10-21)"` to the graph once Alex supplies the v1.4 figures; until then `"v1.3 wave 44 (2026-09-23), pending v1.4"`.
 - Re-derive, with the v1.4 series, the years and odds of: `physclock-cheap-mass-internal` (internal < $300/kg, now 2029 all scenarios), `capability-35-internal-cost-100`, `physclock-cheap-mass-customer` (customers < $1,000/kg, S2 2031 Low/High), `physclock-flight-test-cadence`, `physclock-starship-full-reuse`, `physclock-heavy-cadence-100`, `capability-35-heavy-cadence-300`, `physclock-pad-propellant-infra`, `physclock-reusable-competition`, `capability-compute-launch-demand`. Keep the model's own slip convention (threshold dated after Mach33's median) but state it against v1.4 in each `why`.
 - Rewrite the "Space has its own exponential" paragraph in `doc/04-two-clocks.md`, the trunk narrative `doc/branches/trunk.md`, and the quotable row. Footer of the page names "Mach33 Launch Keystone v1.4" as the source of the launch curve (LK-1).
 - Price discipline (LK-4): every $/kg on the page or in the doc says purchased or delivered; no p95 masses; no 2040 figures (horizon is 2035, so none should appear).
 - LK-5: the orbital compute card's "AI math saves 2–9% of launched mass; launch sets the date" stops reading as a launch-market driver. Keep the 2–9% as a side note or drop it from the card.
 - LK-3: the refuelling card's "more than 10 tanker flights" is restated in the MOONCITY framing if Mach33 is cited: tankers launched per delivered load fall from about 30× early to about 7× at maturity.
 
-**Split the gate.** Thesis: cheap launch reaches SpaceX's own programs first; the external market is what remains after internal allocation, and new Transporter and Bandwagon bookings beyond late 2028 or early 2029 were closed as of late June 2026 (SpaceNews, nine partners and customers).
+**Split the gate.** Thesis, in Mach33's published words (Launch Keystone post): "an activity can become viable for a provider using spare capacity on its own rocket before it becomes viable for a customer buying a flight." The keystone books Starlink, SpaceX's own orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account; customers wait for the opening year (v1.3 reference 2031, tested 2029 to 2033; W45 moved the hinge to 2030) and pay the spot price ($5,634/kg in 2030 falling to $820 in 2031 in the v1.3 reference case). New Transporter and Bandwagon bookings beyond late 2028 or early 2029 were closed as of late June 2026 (SpaceNews, nine partners and customers).
 
 - Replace the gate value `launch` with two values: `launch-internal` (SpaceX's own manifest: Starlink, AI1/orbital compute flown by SpaceX, HLS tankers, Mars) and `launch-external` (anyone buying launch: outside orbital compute operators, small lunar and cislunar missions, science missions, other constellations). Update `doc/02-method.md` "Binding gates" list, `build_facts.py: outcome_gates`, the bottleneck chart (two rows, or one row split in two colours with a legend), `build_tree.py` and the viewer.
 - Classify all 45 launch-gated nodes (list in `review/RESPONSE.md`; `python3 -I -c` on the graph prints them). External ones get `physclock-cheap-mass-customer` as a hard prerequisite (or a new tier-6 node "Rideshare and dedicated manifest slots reopen for outside customers", with the SpaceNews closure as status) and are re-dated so no external outcome precedes customer access. Internal ones keep `physclock-cheap-mass-internal`.
@@ -113,7 +125,7 @@ Order matters: WS1–WS5 change the model, and every number downstream regenerat
 
 ### WS4. Direct-to-cell milestones in "Links and spectrum" (CK-1 to CK-4)
 
-- Add to the `networks` branch (lane "Links and spectrum" in the hero): `comms-d2c-v2-service` (tier 6, V2 D2C service), `comms-d2c-v3` (tier 6, V3 D2C), `comms-starlink-mobile` (tier 7 outcome, Starlink Mobile). Naming per the Connectivity Keystone: V1 D2C flies today on the V2 Mini bus; V2 D2C is the filed next generation; V3 D2C follows. Dates and odds from the keystone. Hard prerequisites as the keystone implies (V3 on Starship → `launch-internal`; spectrum → regulatory), soft edge from the existing `comms-d2d-coexistence-scheduling` ("Phone-to-satellite service scheduled around interference"). Pathway "P7 (exogenous)" like the launch anchors. Update `doc/branches/networks.md`.
+- Add to the `networks` branch (lane "Links and spectrum" in the hero): `comms-d2c-v2-service` (tier 6, V2 D2C service), `comms-d2c-v3` (tier 6, V3 D2C), `comms-starlink-mobile` (tier 7 outcome, Starlink Mobile). Naming per the Connectivity Keystone: V1 D2C flies today on the V2 Mini bus; V2 D2C is the filed next generation; V3 D2C follows. `status_oct2026` from the MCP (inputs file §4): about 650 D2C-enabled satellites, 22M monthly Starlink Mobile users through 36 operators (Aug 2026), V2 framed as "5G-like" at about 100× V1's data density for 2027–28 on the EchoStar 2 GHz band, plus the October spectrum items (AWS-3, 800 MHz, Brazil S-band, the CTIA objection). Dates and odds from the keystone when Alex supplies them; otherwise V2 D2C at the public 2027–28 window with a `TODO(source)` marker and V3 D2C dated after the V3 Starlink ramp. Hard prerequisites as the keystone implies (V3 on Starship → `launch-internal`; spectrum → regulatory), soft edge from the existing `comms-d2d-coexistence-scheduling` ("Phone-to-satellite service scheduled around interference"). Pathway "P7 (exogenous)" like the launch anchors. Update `doc/branches/networks.md`.
 - CK-2: reword the tier-7 node "Software adds 10%+ capacity on the same hardware" as capacity per satellite at fixed spectrum, and check its `why` does not assume a utilisation the keystone has dropped.
 - CK-3: the branch narrative and the page cards link to the Connectivity Keystone model page; the orbital compute and "AI chips in orbit" items link to the AI Compute model page.
 - CK-4: on the page, viewer and model doc, "base case" becomes "central scenario" (`tree.js: READER`, `page.src.html` footer and lede, `build_page.py` copy, `doc/*.md`). Tool docstrings may keep "base case".
@@ -136,7 +148,7 @@ Node, milestone and outcome counts (478, 250, 228, 164) all regenerate; do not t
 
 ### WS7. Provenance, authorship and sources (FR-1, FR-2, IN-1 to IN-4, LK-1)
 
-- FR-1: the page speaks as Mach33: "we built the Space Unlock Tree… we supplied the launch-cost curve". **Assumption to confirm with Alex:** the tree is Mach33's own model. If not, name the author and frame Mach33 as a contributor.
+- FR-1: the page speaks as Mach33: "we built the Space Unlock Tree… we supplied the launch-cost curve". Settled: Mach33's own brief of 27 Oct 2026 (post 160 on the MCP) says "We traced…". Link the page and the brief to each other.
 - FR-2: cite in place: "$200 to $2,000 of compute a result" (The Decoder, as in `doc/12-quotable.md`), "none of the October 2026 results has been independently verified" (the openai/math repository's own unchecked-proof note and the model doc's trust tiers), the 2024 lunar oxygen ground rig 0.07 kg/h (ICES 2026 DOI in `doc/12-quotable.md`). Name the release in words ("OpenAI's October 2026 mathematics release") with a link.
 - IN-1: replace "an example figure from the Anatomy skill, by Ryan (MIT)" and "drawn with the Anatomy skill for Claude Code" with a plain credit: "Raptor illustration: Ryan, MIT license." Keep the license attribution.
 - IN-2: "the openai/math release" → the release's public title, linked.
@@ -236,11 +248,11 @@ Write `review/RESPONSE.md`: a table of every finding ID, what changed, where (fi
 - The headline "The proof is ready. The rocket isn't." stays, as the reviews allow.
 
 **Needs Alex:**
-1. FR-1: is the Space Unlock Tree Mach33's own model ("we built")? The PRD assumes yes.
-2. IN-4: should the page stay open to anyone with the link?
-3. ST-1: hyphen or "to" in large display numerals (Aaron's call).
-4. Access to the inputs in section 2 (Launch Keystone v1.4, Connectivity Keystone, AI Compute model, Brand MCP, fonts, wordmark). Without them WS2–WS4 and WS9 are blocked.
-5. OC-2: if SpaceX's Starmind 250 kW unit is still to be mentioned as a later generation, or dropped in favour of AI1 only.
+1. IN-4: should the page stay open to anyone with the link? (The Mach33 brief is already public, so the question is only whether the artifact link itself should be.)
+2. ST-1: hyphen or "to" in large display numerals (Aaron's call).
+3. The inputs section 2 marks "Alex": Launch Keystone v1.4 figures, Connectivity Keystone D2C dates, Brand MCP tokens, fonts and wordmark, the SpaceNews item, the SSO re-base note. The MCP has covered the rest. Without v1.4 the launch re-pin lands on v1.3 with a version tag; without the D2C dates the three nodes carry `TODO(source)`; without brand assets WS9 is blocked.
+4. OC-2: whether SpaceX's Starmind 250 kW unit is still to be mentioned as a later generation, or dropped in favour of AI1 only.
+5. OC-4: permission to download the AI Compute Keystone package (10 MB zip from the MCP) to read the 1 GW crossing year; the PRD assumes yes.
 
 ---
 
