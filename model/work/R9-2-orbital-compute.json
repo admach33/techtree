@@ -1,0 +1,98 @@
+{
+ "notes": "R9 WS3: orbital compute re-based on AI1 (150 kW peak / 120 kW average, 2.1 t) in dawn-dusk SSO; 1 GW re-rated.",
+ "update": [
+  {
+   "id": "struct-gw-orbital-compute",
+   "patch": {
+    "description": "Cumulative at least 1 GW of compute power in orbit, counted at peak rating, on AI1-class satellites in dawn-dusk sun-synchronous orbit (SSO). At AI1's 150 kW peak that is about 6,700 satellites (about 8,300 at its 120 kW average); at about 2.1 t each (Mach33's reconstruction, 71 kW/t) about 14,000 t, or about 10,000 t at the 100 kW/t SpaceX's S-1 cites. A Starship carries about 60-90 t to SSO, so 1 GW is about 155-235 flights at AI1 density and 110-170 at S-1 density. The array is about 4 km2 at 250 W/m2, and the radiators about 0.7 km2 at 1,400 W/m2 two-sided. A 250 kW unit, if SpaceX flies one, is a later generation at S-1 density (about 2.5 t), not AI1.",
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": "2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "SpaceX's own launch cadence to SSO binds (155-235 flights per GW); satellite and array production is the runner-up; launch price is not, since the AI Compute Keystone's cost crossover does not move with it.",
+    "why": "Re-based on AI1 in dawn-dusk SSO (R9). 1 GW at AI1 density is about 6,700 satellites and 14,000 t, or 155-235 Starship flights at 60-90 t to SSO; the figure rests on the AI Compute Keystone's 1.5x SSO delivery placeholder (ODC_HEO_LEO_X) while the keystone's SSO re-base is open (wave 45 open item 5; TODO(source): the 16 Oct orbit ruling note). Fewer tonnes per GW than the earlier Starmind-class basis (16,000-18,000 t) but less payload per flight to SSO, so the flight count rises; the odds rise for a different reason. Mach33's own paths run well ahead of the tree: the AI Compute Keystone (v1.0, Aug 2026, model_series.csv) installs 1.5 GW in orbit in 2028 in its base and three other lenses and in 2029 in the cadence-bound lens, and reaches 437.9 GW by 2040; Launch Keystone v1.3's reference case books 38,600 t of SpaceX's own compute in 2030 and 71,500 t in 2031. Those are model paths, and this node is the odds that the milestone has happened. Chain (S2): AI1's first flight 2028 (struct-highflux-radiator-flight; SpaceX target Q4 2027, slipped per the tree's 1.5-3x calibration) -> paying operations 2029 (materials-cots-orbital-compute-ops) -> internal launch cost under ~$300/kg 2029 (physclock-cheap-mass-internal) and 100+ heavy flights a year 2030 (physclock-heavy-cadence-100) -> 155-235 SSO flights through 2030-31, about half of SpaceX's heavy flights, which matches the share v1.3 gives its own compute. Earliest 2031 in S2 (2030 in S3 and S4, where heavy cadence comes a year earlier). Odds (judgment): applying the tree's slip convention of one to two years to the keystone's cadence-bound 2029 crossing puts the 30% point in 2031, so S2 is Medium from 2031 (it was Low against the 16,000-18,000 t Starmind basis and without the keystone paths) and High from 2034 once SpaceX has had three years at 100+ heavy flights. S3 and S4 reach High in 2033 on a year's head start in cadence. S1 is Medium only in 2035 because a capability plateau weakens demand. Launch cadence sets the date; launch price does not move the cost crossover (in the AI Compute Keystone, x1.5 on launch price leaves the 2029 crossover in place, per the 26 Oct AI Compute review). AI math is second-order: AI radiator design saves ~350-1,400 t per GW at the old basis (~2-9% of launched mass), hotter qualified chips about as much again (struct-hot-chip-hbm-qualification), and right-sized radiation mitigation ~5-20% compute per watt (assumption). Catalog family 107 (matrix multiplication exponent at most 9/4, Lean, T3) is a galactic algorithm and contributes nothing (P4 nil). Launch cadence, satellite and array fabrication, and chip supply bind.",
+    "status_oct2026": "SpaceX filed for up to 1 million orbital data-center satellites (Jan 2026). Musk (Aug 25 2026) targeted first AI satellites in Q4 2027, 'significant scale' in 2028 and 1 GW in orbit by end-2027, then ~10x a year, and cautioned listeners to treat the projections skeptically. SpaceX's Sep 16 2026 FCC response bounds each satellite under 4,000 kg. Mach33's AI1 reconstruction (Jun 2026): 150 kW peak, 120 kW average, about 2.1 t, dawn-dusk SSO; SpaceX's S-1 cites over 100 kW per tonne and deployment 'as early as 2028'. Starcloud raised $170M (Mar 2026); Google's first Suncatcher prototype launched Oct 1 2026; Starship reached orbit Sep 28 2026. Mach33 places scaled orbital-compute deployment in the early 2030s. Orbital compute in Oct 2026 is at kilowatt scale (general).",
+    "signpost": "AI1 production rate and dedicated SSO Starship flights per year; FCC authorization of a first AI1 tranche; SpaceX reporting deployed orbital compute in the hundreds of MW by 2030.",
+    "revision_note_add": "R9-orbital-compute (2026-10-27): re-based on AI1 in dawn-dusk SSO (150 kW peak / 120 kW average, 2.1 t; Mach33 post of 17 Jun 2026); per-GW count, tonnes and SSO flights restated; odds re-rated up against the AI Compute Keystone's 1 GW crossing (2028 base, 2029 cadence-bound) and Launch Keystone v1.3's own-compute tonnage: S2 Medium from 2031 and High from 2034, S3/S4 earliest 2030 and High from 2033, S1 Medium in 2035 (reviews OC-1 to OC-5)."
+   }
+  },
+  {
+   "id": "materials-cots-orbital-compute-ops",
+   "patch": {
+    "description": "Operational orbital AI compute with paying customers on commercial accelerators, rated on SpaceX's AI1: 100 kW-class satellites (150 kW peak, 120 kW average, about 2.1 t) in dawn-dusk sun-synchronous orbit, flown on SpaceX's own manifest. Outside operators (Starcloud, Google) buy launch and come later.",
+    "why_add": "Basis (R9): AI1 as Mach33 reconstructed it (150 kW peak / 120 kW average, 2.1 t, dawn-dusk SSO); the 100 kW class matches Mach33's 'Debunking the Cooling Constraint in Space Data Centers' (17 Dec 2025). The 2029 earliest year sits a year after the S-1's 'as early as 2028' deployment start, per the tree's slip calibration.",
+    "revision_note_add": "R9-orbital-compute (2026-10-27): description names AI1, its power, mass, orbit and the operator rated (SpaceX, launch-internal); S-1 and cooling-constraint sources cited (reviews OC-1, OC-6, LK-2)."
+   }
+  },
+  {
+   "id": "struct-highflux-radiator-flight",
+   "patch": {
+    "why_add": "Basis (R9): SpaceX's AI1 (the Starmind program's compute satellite) as Mach33 reconstructed it (17 Jun 2026): 150 kW peak and 120 kW average compute power, about 2.1 t (71 kW/t on peak), flying in dawn-dusk sun-synchronous orbit (SSO). AI1's radiator is a 110 m2 deployable liquid loop at 1,400 W/m2 (two-sided) and its array 600 m2 at 250 W/m2; a later 250 kW generation would need the larger filed envelope.",
+    "revision_note_add": "R9-orbital-compute (2026-10-27): AI1/SSO basis stated (review OC-1)."
+   }
+  },
+  {
+   "id": "struct-formation-compute-clusters",
+   "patch": {
+    "why_add": "Basis (R9): SpaceX's AI1 (the Starmind program's compute satellite) as Mach33 reconstructed it (17 Jun 2026): 150 kW peak and 120 kW average compute power, about 2.1 t (71 kW/t on peak), flying in dawn-dusk sun-synchronous orbit (SSO). A ten-satellite AI1 cluster is about 1.5 MW peak; clusters stay in the dawn-dusk band where the fleet flies.",
+    "revision_note_add": "R9-orbital-compute (2026-10-27): AI1/SSO basis stated (review OC-1)."
+   }
+  },
+  {
+   "id": "struct-35-mw-class-compute-satellite",
+   "patch": {
+    "description": "A compute satellite with at least 1 MW of solar power flies and operates in dawn-dusk sun-synchronous orbit. That is nearly seven times AI1's 150 kW peak (four times a later 250 kW generation), with roughly 4,000-6,000 m2 of array and a high-voltage power bus.",
+    "why": "Not an AI-math implication in its timing: satellite size is a SpaceX design choice on the hardware clock, so the P7 Speculative default does not apply. Cheap launch removes the reason to keep satellites small, and a larger satellite holds more GPUs inside one coherent domain, which cuts the penalty of splitting a model across satellites (up to 44% of serving output for one 72-GPU satellite, 33FG). At 1 MW a 250 V bus would carry 4,000 A, so the design pulls in 300-800 V buses (materials-wbg-rad-hard-power, struct-hv-power-bus-stability) and 4,000-6,000 m2 deployable arrays whose shape and loads must be predicted (struct-deployment-mechanics). That array is 1.6-2.4 times the ISS total (about 2,500 m2) on one free-flyer. These are the AI-math inputs, all soft. A 1 MW satellite falls outside the filed per-satellite envelope (4,000 kg, 200 m2 radiator, 1,500 m2 solar) by about 3-4 times, so it needs an FCC modification; the Gen2 amendment took about 16 months to a partial grant. Starlink's major size steps took 3-4 years each (V1 2019, V2 mini 2023, V3 2026). Chain (S2): first Starmind flights 2028 -> yearly generations from 2030 -> a MW-class design after two generations of telemetry -> FCC modification and array qualification -> first flight 2033. S3 is a year earlier through faster generations. Bands (judgment): Medium by 2035 in S2-S4 because SpaceX's stated architecture is ten-satellite formation clusters of 150-250 kW satellites (AI1 at 150 kW peak, then a later generation) and no filing covers MW-class satellites; S1 Low.",
+    "revision_note_add": "R9-orbital-compute (2026-10-27): sized against AI1 (150 kW peak) with the 250 kW unit named as a later generation (review OC-2)."
+   }
+  },
+  {
+   "id": "struct-35-beyond-dawn-dusk-compute",
+   "patch": {
+    "why_add": "Basis (R9): early fleets are AI1-class satellites (150 kW peak, 120 kW average, about 2.1 t) in dawn-dusk SSO, the orbit the AI1 reconstruction and the 16 Oct orbit ruling use.",
+    "revision_note_add": "R9-orbital-compute (2026-10-27): SSO basis stated (review OC-3)."
+   }
+  },
+  {
+   "id": "struct-35-10gw-orbital-compute",
+   "patch": {
+    "description": "Orbital data centers with at least 10 GW of combined power operate in orbit: about 67,000 AI1-class satellites at 150 kW peak, or fewer larger later generations. At AI1 density (about 14,000 t per GW) that is about 140,000 t, or about 100,000 t at the S-1's 100 kW/t: about 1,100-2,350 Starship flights at 60-90 t to dawn-dusk sun-synchronous orbit.",
+    "why": "Not an AI-math implication: an exogenous anchor on launch, satellite production, chip supply and capital, so the P7 Speculative default does not apply. At AI1 density (about 14,000 t per GW; Mach33's reconstruction, 150 kW peak, 2.1 t) 10 GW is about 140,000 t, or about 100,000 t at the S-1's 100 kW/t: about 1,100-2,350 Starship flights at 60-90 t to dawn-dusk SSO. Only the Florida pads reach these orbits; Starbase cannot fly south. At a third to a half of 300 flights a year and 60-90 t per flight to SSO, compute gets about 0.4-1.4 GW a year at AI1 density and 0.6-2.0 GW at S-1 density. Chain (S3): 1 GW in 2031 -> 300+ heavy flights a year from 2032 (capability-35-heavy-cadence-300) -> cadence keeps growing by about 100 flights a year -> compute takes about half -> Starship V4 lifts about 150 t to dawn-dusk orbit and new satellites reach 100 kW/t -> 3-4 GW a year by 2034-35 -> 10 GW in 2035. Every link is an upside case. S2 runs a year behind on cadence and reaches 10 GW only after 2035. A rough simulation on the trunk's launch clock (calculation, ranges as above) puts a central case near 5-6 GW at end-2035 in S3 and 4-5 GW in S2. Chips and packaging co-bind: about 2.9 million GPU packages at 250 kW per 72-GPU satellite (a later generation), more at AI1's 150 kW. Capital is large but reachable: Mach33's base case puts orbital capex at $46B per GW, falling toward $24B over a decade, so 10 GW is roughly $240-460B (a single commercial forecaster's model). Mach33's own paths run far ahead: the AI Compute Keystone installs about 9 GW by 2032 and 29 GW by 2035 in its base case (1.8 GW in 2035 in the cadence-bound lens), on a launch clock several times faster than the model's trunk. AI math is second-order: hotter chips, lighter radiators and right-sized radiation mitigation cut launched mass by a few percent to about 10%. S4 gets no credit. Robot-built pads and plants arrive only about 2035 in Embodied (Low), too late to add launch capacity before end-2035.2-2 GW by end-2035 (calculation); that leaves S4 at Low, and airspace, approvals, chips and capital do not compress. Satellite and array lines already run ahead of flights. Bands (judgment): S3 and S4 Low by 2035; S2 and S1 Speculative, after 2035.",
+    "revision_note_add": "R9-orbital-compute (2026-10-27): re-based on AI1 density and SSO payload (60-90 t a flight); AI Compute Keystone paths cited; odds unchanged (the tree's launch clock binds) (reviews OC-1, OC-2, OC-4)."
+   }
+  },
+  {
+   "id": "capability-compute-launch-demand",
+   "patch": {
+    "why": "Not an AI-math implication: an exogenous demand anchor that couples the launch clock to the AI capability curve, not to AI mathematics, so the P7 Speculative default does not apply. Full chain (S2): both Starship stages reflown 2027 -> first 100-kW-class compute satellites flown 2028 (struct-highflux-radiator-flight) -> paying 100-kW-class operations in orbit 2029 (materials-cots-orbital-compute-ops) -> internal launch cost under ~$300/kg, Mach33's orbital-compute base-case input, 2029 -> 10 or more compute flights in one year, 2030, with little slack. At AI1's 2.1 t (Mach33's reconstruction: 150 kW peak, 120 kW average, dawn-dusk SSO), 10 flights at 60-90 t to SSO carry roughly 290-430 satellites, about 40-60 MW at peak. This is where the AI curve meets the launch clock: frontier training compute grows ~5x a year and a GW-scale ground site takes ~2.1 years (Epoch), so S2 and S3 raise demand for compute that needs no grid interconnection. S3 is a year earlier because demand and the physical multiplier both rise from 2028; S1 is later because a capability plateau slows the build-out. More flights also speed Starship production learning. Mach33 projections are a single commercial forecaster's model estimates, not independent research (an equity disclosure was reported on its pages; unverified here). Medium in S2 and S3 (judgment): the chain has little slack and the economics are unproven (strongest case).",
+    "revision_note_add": "R9-orbital-compute (2026-10-27): flight arithmetic re-based on AI1 in SSO (review OC-2)."
+   }
+  }
+ ]
+}
