@@ -106,8 +106,18 @@ def main():
         think = [sp[i] for _, _, k, sp in AMDAHL if k == 'think']
         am.append({'scenario': s, 'length': round(length, 3), 'shorter_pct': round(100 * (1 - length)),
                    'speedup': round(1 / length, 1), 'think_min': min(think), 'think_max': max(think)})
+    # The hero's range: thinking a third of the path at 5 to 10x faster, the rest 10 to 20% faster (review IC-1).
+    ts = sum(sh for _, sh, k, _ in AMDAHL if k == 'think')
+    rng = [round(1 / (ts / t + (1 - ts) / d), 1) for t, d in ((5, 1.1), (10, 1.2))]
     f['amdahl'] = {'rows': [{'activity': a, 'share': sh, 'kind': k, 'speedup': sp} for a, sh, k, sp in AMDAHL],
-                   'scenarios': am, 'think_share': sum(sh for _, sh, k, _ in AMDAHL if k == 'think')}
+                   'scenarios': am, 'think_share': ts, 'hero_range': rng}
+
+    # How far the AI path moves the outcomes (tiers 6 and 7), Plateau to Exponential, in years
+    sh = [sum(yr(n, 'S1') - yr(n, 'S2') for n in outcomes if n['tier'] == t) / sum(1 for n in outcomes if n['tier'] == t) for t in (6, 7)]
+    f['outcome_shift'] = [round(min(sh), 1), round(max(sh), 1)]
+    ev = N['physclock-credibility-evidence-standard']
+    f['evidence_rule'] = {'year': ev['earliest_year']['S2'], 'medium': ev['odds_by']['S2']['medium'],
+                          'band_2031': ev['band_2031']['S2'], 'band_2035': ev['band_2035']['S2']}
 
     cards = []
     for nid, fig in CARDS:
