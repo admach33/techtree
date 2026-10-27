@@ -1,4 +1,4 @@
-**The premise is an assumption.** Exponential is the base case because it is the premise this study was asked to test, and the capability record supports it. The analyst framework's own default is closer to Plateau. Readers should treat Exponential as a conditional forecast: if capability keeps compounding at about the measured rate, this is what follows.
+**The premise is an assumption.** Exponential is the central scenario because it is the premise this study was asked to test, and the capability record supports it. The analyst framework's own default is closer to Plateau. Readers should treat Exponential as a conditional forecast: if capability keeps compounding at about the measured rate, this is what follows.
 
 **Bands are judgments.** They are not probabilities, and they are not independent. Many nodes share prerequisites, above all public access to research-grade models in 2027 and applied math the same year. If those slip, up to {{reach_public}} nodes, about three-fifths of the tree, slip together. Do not multiply bands along a chain.
 
@@ -31,7 +31,7 @@ Sectors judged to change little are listed in section 7.
 
 **Open questions the model cannot settle.**
 
-- *Certification route.* Certification bodies may accept AI-written proofs checked by an already-qualified tool early (2028–29, the upside case) or on the base-case date (about 2030). Or they may wait until the AI toolchain itself is qualified, which would come later still.
+- *Certification route.* Certification bodies may accept AI-written proofs checked by an already-qualified tool early (2028–29, the upside case) or on the central-scenario date (about 2030). Or they may wait until the AI toolchain itself is qualified, which would come later still.
 - *Posing.* The binding constraint for applied work may stay posing and trust, or labs may start posing applied problems at the scale they posed pure ones.
 - *Data versus theory.* It is open how much proprietary flight data, rather than theory, closes the physics models that gate heat shields, engines and space weather.
 - *The recursive case.* It may not arrive at all, and if it does, labs may hold capability back.

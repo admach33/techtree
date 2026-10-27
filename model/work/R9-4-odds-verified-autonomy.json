@@ -1,0 +1,1121 @@
+{
+ "notes": "R9 WS1/WS5 branch review: verified-autonomy",
+ "update": [
+  {
+   "id": "astro-formal-astrodynamics-library",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Formalization labor binds; agreement on frames, time systems and definitions across GNC groups (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2027, Medium 2028, High 2029: a library can exist in 2027 but adoption by a NASA, ESA or university GNC group takes a year more, and High waits for it to be the agreed reference. S1 lags S2 by two to three years (High 2032)."
+   }
+  },
+  {
+   "id": "verif-code-proof-agents",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Formal semantics and proof labor bind; the agents' task horizon on repository-scale code (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium already in 2027 (63% repository-scale success in Aug 2026, SPARK evidence), High 2028 once 10-50 KLOC codebases verify routinely. S1 a year behind each crossing (High 2030)."
+   }
+  },
+  {
+   "id": "infra-tool-qualification",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Regulator plan acceptance binds; an applicant choosing to submit a checker-route plan (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2030, Medium 2031, High 2034; S3 one year earlier. A first plan acceptance is credible in 2030 but not yet 30% likely in the same year; High needs several accepted plans and the first completed certifications 2-4 years later, through DO-333 with DO-330-qualified checkers (named mechanism, so High by 2035 stands; Medium cap by 2031 holds). Skeptic (later: committee caution) vs advocate (a 2028-29 plan could pull it forward): kept the premise year as Low, Medium a year on."
+   }
+  },
+  {
+   "id": "astro-scp-guarantees",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Research math binds; machine-checking the convergence proofs (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium in 2027 (expert-scarce, solved-in-principle math on tap), High 2028 as the constraint types accumulate. S1 Medium 2030, High 2034 behind cap-applied-math's S1 High."
+   }
+  },
+  {
+   "id": "verif-spec-engineering",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Human spec review and program adoption bind; drafting specs that say what the mission needs (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2027 (first use possible), Medium 2028, High 2029: first use on a flight program for a safety-critical function is an adoption step, not a capability step. S1 one year later (High 2030)."
+   }
+  },
+  {
+   "id": "astro-hybrid-rpo-verification",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Certificate construction (cognitive) binds; kernel checking under state explosion (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2028 once the formal astrodynamics library is Medium; High 2029 a year later. S1 Medium 2031, High 2034 (cap-applied-math S1 High)."
+   }
+  },
+  {
+   "id": "verif-onboard-optimizer-certificates",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Proof coverage of solver termination and feasibility binds; timing characterization and HIL qualification on rad-tolerant processors is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2028, Medium 2029, High 2030: the math is quick but certificates need timing evidence on the flight processor. S1 Medium 2031, High 2034 behind infra-verified-numerics. The why reads as if qualification binds; I kept formalization because the S2 year follows the verified-numerics chain."
+   }
+  },
+  {
+   "id": "verif-closed-loop-guarantees",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Machine-checking the stability certificate binds; the bespoke stability math for a loop with saturation, delay and mode logic (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2027, Medium 2028, High 2029: KeYmaera X and SOS routes are mature, but a certificate delivered for a flight-representative loop is likelier a year after the capability. S1 Medium 2031, High 2034."
+   }
+  },
+  {
+   "id": "verif-verified-gnc-numerics",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Verified numerics libraries bind; program review and use of round-off proofs (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2028, Medium 2029, High 2030: verified linear algebra and filter libraries land in 2028, coverage of real GNC modules a year later. S1 High 2034 behind infra-verified-numerics."
+   }
+  },
+  {
+   "id": "verif-nn-verification-scale",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2032",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Verification math for large networks (cognitive) binds; data-defined properties and operational-domain specs (data) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium crossing S2 2034, S3-S4 2032: the cognitive gate is where S3's near-free research pays most, so S3 crosses two years ahead; S2 needs verification-friendly architectures and ED-324/ARP6983 domain specs to mature. Skeptic (NP-hardness and data-defined properties keep S2 Low to 2035) vs advocate (domain-limited specs make it tractable by 2032 in S2): S2 at 2034 keeps Medium by 2035 with little slack. S1 Low 2035, its earliest year."
+   }
+  },
+  {
+   "id": "verif-environment-assumption-models",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Sensor characterization tests bind; truth data from lunar landings (data) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030, a year after the first credible year; High 2034 once dozens of lunar landings supply truth data; S3 High 2033 because autonomous labs speed ground sensor characterization. S1 Medium 2032. Skeptic (landing data accrues slowly, 2035) vs advocate (CLPS cadence gives dozens by 2032): settled at 2034 in S2."
+   }
+  },
+  {
+   "id": "verif-assumption-falsification",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Simulator and sensor-model fidelity (data) binds; validation tests of those simulators (experiment) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2027 (falsification runs on existing requirements with public models), High 2028. S1 a year later."
+   }
+  },
+  {
+   "id": "verif-fdir-model-checking",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Hardware-behavior characterization data binds; model extraction from code and interface documents (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2027, Medium 2028, High 2029, following its hard prerequisite verif-spec-engineering. S1 one year later."
+   }
+  },
+  {
+   "id": "astro-certified-gnc-toolchain",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Organizational adoption binds; proof coverage of GNC modules and the astrodynamics library (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2028, Medium 2029, High 2030: adoption follows its library, numerics and stability-proof parents by about a year. S1 Medium 2031, High 2034."
+   }
+  },
+  {
+   "id": "verif-runtime-assurance",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "HIL and flight evidence that the backup recovers binds; uncrewed programs choosing proven Simplex wrappers (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2028, Medium 2029, High 2030: proofs are cheap from 2027-28; the rig and flight evidence takes one to two years. No regulator cap applies (uncrewed use). S1 Medium 2031, High 2034."
+   }
+  },
+  {
+   "id": "prop-verified-engine-software",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "A human-rating review accepting the evidence binds; crewed programs choosing a block update of slowly changing engine software (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium S2 2034, S3-S4 2033: general credit is Medium in 2031 (S2) and 2030 (S3), then a crewed engine baseline must take a block update and pass a human-rating review, about three years. Capped at Medium (no named route for AI proofs in human rating). Skeptic (post-Starliner caution, few programs) vs advocate (SpaceX changes Raptor and Merlin software often and owns an AI lab): the advocate's route is the uncertified verif-launch-fsw-per-flight, so 2034 stands."
+   }
+  },
+  {
+   "id": "hyper-certified-edl-guidance",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "regulatory",
+    "gate_note": "Qualification of the guidance baseline binds; acceptance of proofs by the EDL program's authority (regulatory) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3 Medium 2031 (general credit Medium 2030 plus one EDL project within a year); S2 Medium 2033, two years after its general credit, as CLPS, HLS and capsule programs reach new guidance baselines. Capped at Medium. Skeptic (no aerocapture mission before 2031, slow baselines) vs advocate (commercial reentry capsules iterate quickly): 2033 in S2, earlier than the crewed engine and lander nodes because uncrewed EDL routes count."
+   }
+  },
+  {
+   "id": "verif-verified-onboard-stack",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Qualification and platform ports bind; missions choosing to fly or upload a verified component (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2029, Medium 2030, High 2032: a first operational parser or update-authentication upload is credible in 2029 but needs a year to be likelier than 30%; High once several missions use one. S3 High 2031 keeps its High-by-2031 band. S1 Medium 2033."
+   }
+  },
+  {
+   "id": "verif-lander-verified-gnc-flight",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "One lander team's adoption binds; the software freeze 12-18 months before flight (qualification) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2029, Medium 2030, High 2032 as several landers fly each year; S3 High 2031. S1 Medium 2032 after its toolchain."
+   }
+  },
+  {
+   "id": "verif-rpo-assured-autonomy",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Flight demonstrations bind; the operator or NASA safety review and software freeze (qualification) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030 (first flight using proofs as primary safety evidence 2029-30), High 2032 once Starship transfer, servicing and inspection flights multiply; flights bind, so S3 equals S2. S1 Medium 2033."
+   }
+  },
+  {
+   "id": "verif-constellation-verified-updates",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Operator adoption and disclosure bind; writing reviewed invariant specs for the fleet (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2031 and High 2033, each one year after astro-proof-backed-flight-software-ops, of which this is a stricter fleet-wide instance; S3 equal to that node (High 2031). S1 Medium 2034."
+   }
+  },
+  {
+   "id": "astro-proof-backed-flight-software-ops",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Operator cost decisions bind; proof coverage from the GNC toolchain (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030, a year after the first operator statement is credible; High 2032 as proof-backed GNC spreads across uncrewed fleets. S3 High 2031 (near-free cognition from 2029). S1 Medium 2033."
+   }
+  },
+  {
+   "id": "verif-afss-part450",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "FAA AST acceptance of a proof-backed means of compliance binds; applicants' weak incentive to seek it (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3-S4 Medium 2030, a year after the first credible acceptance; S2 stays Low through 2035 because applicants gain no license time and RCC-319's next edition falls before S2 practice matures. Medium cap holds."
+   }
+  },
+  {
+   "id": "verif-hls-autonomy-certification",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "NASA technical-authority acceptance binds; the human-rating test campaign for a crewed lander block upgrade (qualification) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium S2 2034, S3-S4 2033: general credit (Medium 2031 in S2) plus a crewed block upgrade for a 2032-34 landing and a human-rating review. Capped at Medium. Skeptic (post-Starliner caution, baselines frozen early) vs advocate (Artemis block upgrades every landing): resolved at three years after general credit, same as the crewed engine node."
+   }
+  },
+  {
+   "id": "verif-assurance-cost-collapse",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Adoption on uncrewed programs binds; the residual human spec review (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2028, Medium 2029, High 2030: vendor case studies with more than 50% fewer verification hours need a year of use after adoption. S1 Medium 2031, High 2033."
+   }
+  },
+  {
+   "id": "verif-new-entrant-advantage",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Procurement adoption binds; RFP-to-award cycles and appropriations (capital) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2031, a year after the first credible award; High 2034 after several procurement cycles; S3 a year earlier. S1 Medium 2034."
+   }
+  },
+  {
+   "id": "astro-gnc-assurance-cost",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2030",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2030",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Adoption of proof-backed GNC at program scale binds; integration and system test cost that proofs do not remove (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2031 (band_2031 Medium), High 2033 as published program comparisons accumulate two years after the first; S3 2032. S1 Low 2034 only."
+   }
+  },
+  {
+   "id": "verif-mission-loss-rate",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Flight count binds; statistical power and validated environment assumptions (data) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium S2 2034, S3-S4 2033: six clean verified landings are possible in 2032 (S2) but a 30% chance of a visible rate change needs 10+ landings; S3 has more flights. Skeptic (low test power and risk homeostasis keep it Low) vs advocate (dozens of landings by 2033 in S3): settled one year apart, both Medium by 2035."
+   }
+  },
+  {
+   "id": "verif-launch-fsw-per-flight",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Adoption and public disclosure bind; proof-repair turnaround inside the vehicle pipeline (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Medium 2030, a year after the first credible stated flight; disclosure keeps High out of reach by 2035. S1 Medium 2033."
+   }
+  },
+  {
+   "id": "verif-onboard-ai-guardrails",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Operators adopting agent-commanded missions binds; showing the guard holds on HIL rigs and in flight (qualification) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030, High 2033 as onboard agents become common on orbital-compute and defense missions; S3 High 2031 (near-free cognition plus defense demand). S1 Medium 2033."
+   }
+  },
+  {
+   "id": "verif-ml-statistical-guarantees",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Representative calibration data and shift assumptions bind; bespoke applied probability for each sensor (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2028, Medium 2029, High 2030: the math is on tap in 2027-28, use in a flight evidence package a year or two later. S1 High 2034."
+   }
+  },
+  {
+   "id": "verif-adaptive-control-proofs",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Partly open adaptive-control theory (cognitive) binds; machine-checking the stability proofs (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2029, High 2032 as large flexible structures fly more often; S3 High 2030 when cognitive work is near-free. S1 Medium 2033."
+   }
+  },
+  {
+   "id": "verif-35-mars-verified-landing",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Mars windows bind; the carrier choosing to fly and disclose proof-checked logic (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Low 2033 (the late-2031 landing carrying disclosed proof-checked logic is under 10%; the 2033 window passes it); stays Low by 2035 as a joint event."
+   }
+  },
+  {
+   "id": "verif-35-proven-timing-isolation",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": "2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": "2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Qualification and beam time bind; tape-out and fabrication runs (fabrication) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3-S4 Low 2033, Medium 2035 (seed 2034): the earliest year already uses the short end of fab, radiation-test and qualification lags, so a 30% chance needs a year of slip margin. S2 Low 2034. Skeptic (qualification slips 1-2 years) vs advocate (AI-designed processors come a year sooner in S3): Medium by 2035 kept, crossing moved to 2035."
+   }
+  },
+  {
+   "id": "verif-35-standards-proof-route",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Standards revision cycles bind; several programs banking credit on the route (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3-S4 Medium 2034, a year after the earliest revision, because several bodies (NASA, ESA, RTCA, RCC) each revise inside the window after completed certifications in 2031-33. S2 Low 2034. Medium cap: no revision addressing AI proofs is in motion."
+   }
+  },
+  {
+   "id": "verif-35-verification-calendar-halved",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "HIL rig and integrated-vehicle test time binds; buying more rigs (capital) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Low 2033, Medium 2034 at robot-first firms after one release cycle on requalified robot test lines; S3 Low 2035 only."
+   }
+  }
+ ]
+}

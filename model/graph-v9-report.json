@@ -1,0 +1,164 @@
+{
+ "dangling": {},
+ "dangling_soft": {},
+ "monotonic_violations": [],
+ "cycles": [],
+ "unparsed_years": [],
+ "bad_bands": [],
+ "unresolved_gt2031": [],
+ "late_but_likely_2031": [],
+ "late_but_likely_2035": [],
+ "band_time_order": [],
+ "scenario_order_violations": [],
+ "missing_odds_by": [],
+ "bad_odds_by": [],
+ "odds_before_earliest": [],
+ "odds_order": [],
+ "odds_prereq_order": [],
+ "odds_scenario_order": [],
+ "bad_gate": [],
+ "missing_runner_up": [],
+ "bad_runner_up": [],
+ "band_changes_without_revision": [],
+ "band_changes": {
+  "astro-ai-designed-trajectory-flown": {
+   "band_2031": {
+    "S1": [
+     "Medium",
+     "Low"
+    ],
+    "S2": [
+     "High",
+     "Medium"
+    ],
+    "S3": [
+     "High",
+     "Medium"
+    ],
+    "S4": [
+     "High",
+     "Medium"
+    ]
+   }
+  },
+  "hyper-thinner-tps-flown": {
+   "band_2031": {
+    "S2": [
+     "Medium",
+     "Low"
+    ],
+    "S3": [
+     "Medium",
+     "Low"
+    ],
+    "S4": [
+     "Medium",
+     "Low"
+    ]
+   }
+  },
+  "struct-100kw-per-tonne-fleet": {
+   "band_2031": {
+    "S3": [
+     "Medium",
+     "Low"
+    ],
+    "S4": [
+     "Medium",
+     "Low"
+    ]
+   }
+  },
+  "struct-gw-orbital-compute": {
+   "band_2031": {
+    "S2": [
+     "Low",
+     "Medium"
+    ]
+   },
+   "band_2035": {
+    "S1": [
+     "Low",
+     "Medium"
+    ],
+    "S2": [
+     "Medium",
+     "High"
+    ]
+   }
+  }
+ },
+ "branch_unknown_nodes": [],
+ "nodes_without_branch": [],
+ "nodes_in_two_branches": [],
+ "summary": {
+  "n_nodes": 482,
+  "n_hard_edges": 707,
+  "n_soft_edges": 1040,
+  "by_tier": {
+   "0": 27,
+   "1": 36,
+   "2": 75,
+   "3": 44,
+   "4": 68,
+   "5": 64,
+   "6": 106,
+   "7": 62
+  },
+  "reached_by_2031": {
+   "S1": 251,
+   "S2": 375,
+   "S3": 391,
+   "S4": 396
+  },
+  "reached_by_2035": {
+   "S1": 415,
+   "S2": 461,
+   "S3": 467,
+   "S4": 471
+  },
+  "n_branches": 13,
+  "counts": {
+   "dangling": 0,
+   "dangling_soft": 0,
+   "monotonic_violations": 0,
+   "cycles": 0,
+   "unparsed_years": 0,
+   "bad_bands": 0,
+   "unresolved_gt2031": 0,
+   "late_but_likely_2031": 0,
+   "late_but_likely_2035": 0,
+   "band_time_order": 0,
+   "scenario_order_violations": 0,
+   "missing_odds_by": 0,
+   "bad_odds_by": 0,
+   "odds_before_earliest": 0,
+   "odds_order": 0,
+   "odds_prereq_order": 0,
+   "odds_scenario_order": 0,
+   "bad_gate": 0,
+   "missing_runner_up": 0,
+   "bad_runner_up": 0,
+   "band_changes_without_revision": 0,
+   "branch_unknown_nodes": 0,
+   "nodes_without_branch": 0,
+   "nodes_in_two_branches": 0
+  },
+  "n_band_changes": {
+   "nodes": 4,
+   "cells": 12
+  }
+ },
+ "band_changes_recorded": 4,
+ "apply_log": [],
+ "autofixes": [
+  {
+   "node": "plasma-stellarator-design-loop",
+   "scenario": "S1",
+   "odds": "medium",
+   "from": "2030",
+   "to": "2031",
+   "band_needs_review": false
+  }
+ ]
+}

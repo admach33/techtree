@@ -1,0 +1,73 @@
+{
+ "notes": "R9 CK-4: \"base case\" -> \"central scenario\" in branch theses and reader hooks (reader-facing in the viewer and doc).",
+ "branch_update": [
+  {
+   "branch": "trunk",
+   "patch": {
+    "thesis": "If research-grade AI math reaches outside teams in 2027 (central scenario), space engineers use it on demand by 2028. Tests, factories and launches run on physical time, so schedules shrink 20-30% by 2031 and about a third by 2035. In Embodied, leading firms halve cycles about 2034 (Medium by 2035)."
+   }
+  },
+  {
+   "branch": "math-frontier",
+   "patch": {
+    "thesis": "If AI settles famous fluid problems, almost no engine, heat shield or orbit changes. Engineers get proof tools and on-demand error bars from about 2028 (central scenario). Math stops limiting leading programs about 2029, suppliers about 2032. Certifiers audit AI analysis instead of redoing it about 2033. Embodied adds nothing."
+   }
+  },
+  {
+   "branch": "verified-autonomy",
+   "patch": {
+    "reader_hook": "A fully verified line of flight code falls from about $300-600 to about $5-20 by 2028-29 (central scenario), yet a highest-criticality (Level A) program gets only about 2x cheaper (1.8-2.4x). And in all 9 software- or logic-related losses and near-losses among 12 notable cases, from Ariane 501 to Athena, a wrong assumption or spec was the missing piece.",
+    "thesis": "Verified flight code gets 15-120x cheaper per line by 2028-29 and flies on landers and constellations about 2029 (central scenario). By 2035 certifiers accept AI-written proofs (High). Crewed credit stays Medium and a proof-checked Mars landing Low. In Embodied, robot-run tests halve verification time about 2033, two years early."
+   }
+  },
+  {
+   "branch": "networks",
+   "patch": {
+    "thesis": "Certified routing and interference bounds put meshes and phone-to-satellite service on proven plans by 2029-30 (central scenario). Then the 2031 defense post-quantum deadline, WRC-31, standards and launches set the pace, so the base and Recursive cases end close together by 2035. Robots (Embodied) gain one year, on laser-terminal supply."
+   }
+  },
+  {
+   "branch": "certification",
+   "patch": {
+    "reader_hook": "Much of what 'certification by analysis' promises exists without AI: NASA-STD-5001B lets some metal structures skip strength tests. Skipping a launch vehicle's primary-structure qualification article saves tens of millions of dollars and up to a year. The central scenario puts the first AI-backed government credit beyond today's allowances around 2030-31, against 2040-2050 in NASA-sponsored studies of aircraft certification by analysis.",
+    "thesis": "Operators fly hardware qualified mainly by AI analysis about 2029 (central scenario, High by 2035). Government credit follows in 2030-31. Test standards and new government designs follow about 2033, still Low. Qualification 15% shorter stays capped at Medium by 2035. Embodied lifts 30% shorter campaigns at leading firms to High."
+   }
+  },
+  {
+   "branch": "engines-materials",
+   "patch": {
+    "thesis": "Certified flow and materials models give engines reuse life by analysis from about 2029 (central scenario). Hot fire and flights set the pace. In 2032-35, 50-flight engines and reusable lunar landers are likeliest. An AI-designed alloy may fly, likely in Recursive. Robots (Embodied) lift one band: a four-year large engine."
+   }
+  },
+  {
+   "branch": "entry",
+   "patch": {
+    "thesis": "AI uncertainty analysis lets commercial capsules fly thinner heat shields around 2030 (central scenario, Medium). Ship heat shields reach five reflights by 2030. Three-day turnaround and crewed reusable ships stay Low by 2035. Windows, budgets and certifiers pace Mars landings and crewed margins. Robots (Embodied) speed only arc-jet testing."
+   }
+  },
+  {
+   "branch": "moon-mars",
+   "patch": {
+    "thesis": "AI-planned, machine-checked operations give Moon and Mars robots severalfold more work per operator about 2029 (central scenario). A self-running Moon base and tonne-scale lunar oxygen are Medium by 2035. Landed mass, night power, funding and Mars windows set the pace. Robots (Embodied) lift one band, on lunar robot fleet size."
+   }
+  },
+  {
+   "branch": "science",
+   "patch": {
+    "reader_hook": "The waveform physics LISA needs to hear small bodies spiral into giant black holes (second-order self-force) exists today only for circular orbits around non-spinning black holes. The central scenario finishes it around 2030, roughly three to five years ahead of the pre-AI path (analyst judgment). LISA's launch is still planned for 2035."
+   }
+  },
+  {
+   "branch": "safe-orbits",
+   "patch": {
+    "thesis": "AI makes orbit, collision and storm forecasts honest. Certified million-object screening and AI-designed trajectories arrive by 2029 (central scenario), recurring paid debris removal about 2030. Safe low orbit waits on small-debris sensors, standards and US-China politics through 2035. Storm forecasts reach 8 hours, then need Vigil. Embodied adds nothing."
+   }
+  },
+  {
+   "branch": "plasma-nuclear",
+   "patch": {
+    "thesis": "If AI and diagnostics solve Hall-thruster electron transport around 2030 (central scenario), thrusters are designed before being built. Cheap full-thruster simulations add a second design route by 2033 (Recursive). Analysis-based life credit and a U.S. reactor launch stay Low by 2035. Fusion propulsion waits past 2035. Robots (Embodied) move nothing."
+   }
+  }
+ ]
+}

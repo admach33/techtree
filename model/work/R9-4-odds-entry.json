@@ -1,0 +1,1152 @@
+{
+ "notes": "R9 WS1/WS5 branch review: entry",
+ "update": [
+  {
+   "id": "hyper-flight-data-pipeline",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Flight cadence binds; capital and classification that limit shared-data flights (capital) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): High 2028, not 2027: shared-data flights (Varda, Talon-A, MACH-TB) fly in 2026, but W-4's loss and MACH-TB's ramp make high cadence likely only from 2028. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-optimal-test-design",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Program adoption binds; the sequential test-design mathematics (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2029, High 2030 (adoption follows the 2027 capability). S1 High 2034 when its cognition reaches S2's 2029-30 level. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-stability-analysis-on-demand",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "The 3D stability analysis itself binds; diffusion into design teams (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Cognitive: Medium at the earliest year and High a year later in S2-S4 (base flow, HPC and publication). S1 High 2034 (cap-applied-math). Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-certified-margin-uq",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Joint margin UQ binds; trusted model-form error data (data) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Cognitive: Medium at the earliest year, High a year later. S1 High 2034. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-tps-inverse-nde",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Seeded-defect specimen data bind; an operator or NASA choosing to publish a POD scheme (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year: the published POD scheme needs seeded-defect campaigns. Never High because disclosure binds. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-kinetic-solver-certification",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "The solver-to-Boltzmann error analysis binds; machine-checked certification of the bounds (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year. High 2033 in S2 and 2032 in S3, spread from the old 2034 as cheap cognition produces certified codes. S1 Medium 2034 kept. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-verified-aerothermal-numerics",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Kernel-level proofs bind; production-code adoption with weak demand pull (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2033: production adoption follows the 2028 toolchain by 2-4 years and numerical error is a minor TPS uncertainty, so the late end. S3 Medium 2030 (was 2029, its earliest year), High 2034. Skeptic (no demand pull, Low) and advocate (2031) weighed. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-tile-damage-accumulation",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Reflight data bind; the operator's choice to state tile life limits (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year. High 2033 in S2 and 2032 in S3 as 100+ heavy flights a year accumulate reflight data; S1 High 2034 (cap-applied-math). Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-ablator-multiscale-response",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Arc-jet time binds; formulating failure criteria from micro-CT microstructure (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year in S2-S4 (a blind arc-jet campaign after the model). S3 High 2034, held by cap-physics-theory. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-gas-surface-chemistry",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Molecular-beam and plasma-tunnel measurements bind; AI-built surface mechanisms (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year in S2-S4. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-radiation-kinetics",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "EAST shock-tube time binds; AI-built rate sets for heavy-particle excitation (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2032: theory from 2029 meets roughly annual EAST campaigns, and S2 stands are not AI-run. S3 Medium 2030, High 2034. Skeptic (shot time follows mission pull, 2034) and advocate (2031) weighed. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-sbli-heating-closure",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "DNS training data bind; blind ground validation on unseen geometries (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2032: learned closures from 2030 need a validation cycle on unseen geometries. S3 Medium 2030. Skeptic (wall-modeled LES makes it moot) and advocate (compute growth, 2031) weighed. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-transition-prediction-theory",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Flight transition datasets bind; a transition theory that handles the flight disturbance environment (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2033: defense datasets grow toward dozens a year but much stays classified and a blind test needs a new instrumented article (~14 months). S3 Medium 2031, a year after its earliest year. Skeptic (2034) and advocate (2032) weighed. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-blackout-prediction-tools",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Plasma flight data bind; the coupled electron-density analysis (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2029, High 2030. S1 High 2034. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-probabilistic-tps-sizing",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Design-review adoption and disclosure bind; the joint margin UQ method (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium 2030 in S2-S4: adoption happens at a design review about a year after the 2028 method. High 2034 in S2 and 2033 in S3, when several makers have disclosed it. S1 Medium 2031. Bands unchanged."
+   }
+  },
+  {
+   "id": "materials-uhtc-tps-design",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Arc-jet slots bind; synthesizing, densifying and machining coupons (fabrication) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year. S2 High 2033 when new arc-jet capacity (Helios) is in service; S3 High 2031 (was 2029) on closed-loop labs. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-aerothermal-design-loop",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2032",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Design-review adoption binds; the agents and surrogates that compress the loop (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): High two years after the earliest year (S2 2031, S3 2030), not at it: a design review citing AI-surrogate trade studies needs a cycle. S1 Medium 2032, High 2034 (cap-design-optimization). Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-srp-aeropropulsive-models",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "SpaceX-held flight data bind; reduced-order models with uncertainty bounds (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year in S2-S4. S1 Medium 2032 (was 2033): data access is scenario-independent and S1 models lag about two years. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-aerocapture-demo",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-external",
+    "gate_note": "Funding binds; a rideshare launch for the demo vehicle (launch-external) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Low 2030 -> 2031: the 2030 floor needs an FY2028 award, a modified vehicle and a ride with no slip. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-rapid-reuse-heatshield",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2029",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2029",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Flight count binds; tile hardware iteration (fabrication) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium kept at the earliest year, since Mach33's base path puts ~20-day turnarounds in 2030 (and twin-reflight clearance depends on it). S3/S4 High 2034 -> 2033, a year ahead on the launch clock. High rests on the tile concept. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-thinner-tps-flown",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Customer launch access binds; the operator's choice to thin the shield and disclose it (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): BAND CHANGE band_2031 S2-S4 Medium -> Low (Medium 2031 -> 2032): the hard prerequisite physclock-customer-launch-access (added in WS2) only reaches 30% in 2031, and this node also needs adoption, a thinner shield and published confirmation, so its own odds pass 30% a year later. band_2035 Medium kept. Skeptic (operators spend margin on reliability) and advocate (capsules iterate in months) weighed."
+   }
+  },
+  {
+   "id": "materials-tps-new-material-flight",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2030",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-external",
+    "gate_note": "Arc-jet screening binds; a coupon slot on a capsule or Starship reentry (launch-external) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2031, High 2033 when coupon slots are plentiful; S3 High 2031 (was 2030). S1 Medium 2032 (was 2033). Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-heavy-deployable-decelerator",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-external",
+    "gate_note": "Funding for a 10 m-class flight binds; a secondary ride on a LEO launch (launch-external) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Low 2030 -> 2031: nothing is funded as of Oct 2026 and the build takes years. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-12kms-entry-design-basis",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Mission pull and appropriations bind; EAST and arc-jet validation time (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3/S4 Low 2030 -> 2031: with no mission pulling the work, the earliest year is not 10% likely. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-mars-heavy-landing",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Launch windows and the tanker campaign bind; SpaceX's Moon-first priority (capital) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: arrivals come only in late 2031 and late 2033 (the mid-2035 window arrives in 2036), so the odds step only in those years. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-p2p-cargo-demo",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Range, landing-site and host-nation approvals bind; a ship that can land and be recovered at a remote site (fabrication) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: Low at or near the earliest year, never Medium because regulatory gates do not compress. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-reentry-cadence-economy",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-external",
+    "gate_note": "Demand for returned products binds; rideshare slots (launch-external) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2034 (was 2033): reaching 50+ needs >10x growth and announced cadences have missed by 1.5-3x, so 30% comes a year after cheap customer launch (2031) plus three years of ramp. S3 Medium 2033. Skeptic (2035) and advocate (four operators at monthly cadence, 2032) weighed. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-outer-planet-aerocapture-baseline",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Flagship appropriations bind; flight heritage from a successful Earth demo (qualification) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Speculative through 2035 in every scenario; its demo prerequisite is only Low. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-model-form-error-bounds",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Paired ground and flight data bind; discrepancy frameworks with coverage guarantees (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (the first flight-calibrated application needs a capsule campaign). High 2034 in S2 and 2033 in S3 as instrumented-tile data accumulate. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-fleet-aerothermal-twin",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Instrumented reentries bind; the operator's statement that entries are set from a fleet model (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium 2030, a year after ~50 reentries accumulate. High 2033 in S2, 2032 in S3 (cadence a year ahead), 2034 in S1. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-35-ship-heatshield-72h",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Data-based reflight clearance binds; pad-side tile refurbishment rate (fabrication) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: S3 Medium 2034 with two years of slack after the 2033 earliest year. Skeptic (Falcon 9 took 8 years from first reflight to a 9-day record, 2035) and advocate (launch-clock pressure, 2033) weighed. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-35-ai-tps-primary-zone",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Flight heritage for regular service binds; arc-jet qualification of the full material (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: S3 Medium 2034 (coupon High by 2031, then about three years of qualification, scale-up and three missions). Skeptic (2035) and advocate (2033) weighed. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-35-planetary-aerocapture",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Funding binds; flight heritage from the Earth demo (qualification) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Speculative through 2035 in every scenario. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-35-mars-pinpoint-landing",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Launch windows bind; SpaceX's priority and funding for a second ship to the same site (capital) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: Low from the late-2033 arrival, which is the only one inside the window. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-35-crewed-probabilistic-shield",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Certifier acceptance binds; a crewed heat-shield qualification of 3+ years (qualification) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3/S4 Low 2034 -> 2035: the 2034 floor needs every step on time, and the Artemis I precedent took about five years from finding to a modified shield. Skeptic (Speculative) and advocate (2034) weighed; band_2035 Low kept. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-35-arcjet-throughput-2x",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": "2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Facility capital binds; labor-bound model change and turnaround between runs (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Medium 2034 -> 2035: the S4 review's typical-facility figure (0.56-0.64 of 2026 queue time) does not double runs without new capital, so doubling at a facility is 30% only at the horizon. Skeptic (Low) and advocate (2034) weighed; band_2035 Medium kept. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-35-crewed-ship-reentry",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "regulatory",
+    "gate_note": "The ship's flight record binds; an FAA crewed licence and risk acceptance (regulatory) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: S3 Medium 2034 (100+ flights a year from 2029 give ~229 entries by 2032, then crew systems and a licence). Skeptic (no abort system, 2035) and advocate (Moon-first demand, 2033) weighed. Bands unchanged."
+   }
+  }
+ ]
+}

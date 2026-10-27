@@ -1,0 +1,1369 @@
+{
+ "notes": "R9 WS1/WS5 branch review: moon-mars",
+ "update": [
+  {
+   "id": "auton-mass-action-permanence",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2027",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "An independent Comparator run and statement audit bind; whether the T1 proof itself holds (the mathematics) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium from 2028 in S2-S4, a year after the formal statement exists, because a niche check must first be picked up; S1 Medium from 2032 when checking bandwidth reaches niche CRN results. High never: the premise is T1 and conditional. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-contact-wellposedness",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2032",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "The mathematics itself binds; checking a nonsmooth-mechanics convergence proof (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2029 and High 2032: a hard open problem rarely falls in the first year capability allows it, and High follows three years of 6-9 month doublings. S3 equals S2 through 2028, then recursion brings High to 2030. S1 trails S2 by four years (2032/2033). Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-granular-wellposedness",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "The mathematics binds; a machine-checked well-posedness proof (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (S2 2030, S3 2029); a theorem for a named rheology is High by 2033 in S2 and 2032 in S3, not the seed's 2034. S1 2033/2034. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-ecls-reliability-uq",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Failure data release binds; NASA programs choosing to run and use the model in-house (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2029, a year after the earliest year, since a credible result waits on released data or NASA in-house work; High 2033 once the full ISS record is in hand after retirement. S3 High 2030 with near-free in-house cognition, not in its earliest year. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-ops-planning-ceilings",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2030"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Planners' adoption binds; checking the conditional T1 parts (families 124, 110, 111) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): The T3 ceilings (UGC, k-median) exist now, so Medium in 2027 in S2-S4; High a year later once planners use them. S1 adopts more slowly: Medium 2028, High 2030. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-temporal-logic-synthesis",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Supplier adoption binds; emitting machine-checked certificates for realistic abstractions (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): The tools exist from 2027 in S2, but a realistic certified multi-day planner at under 10% specialist effort is Medium only in 2028 and High in 2029. S1 Medium 2030 and High 2032 (it catches up about 2031). Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-isru-rom-control",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Reactor and melt-property data bind; build-and-test cycles on 1,600 C rigs (experiment) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Medium 2029 and High 2030: routine ROMs from 2028, but trustworthy error bounds need a year of reactor data; S3 equals S2 because the node is data-gated. S1 High 2034, held at cap-applied-math's seeded S1 High (2034); 2033 would fit if the trunk review's 2032 stands. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-certified-contact-sim",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Dusty-vacuum validation runs bind; the contact theory itself (cognitive) is the runner-up, and in S1 it binds first.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (S2 2030, S3 2029), after the contact theorem reaches Medium; High once validation campaigns are done on AI-run stands, S2 2033 and S3 2032. S1 stays Low by 2035. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "materials-microgravity-process-models",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Flight validation data bind; the convection and nucleation modeling (cognitive) is the runner-up, cheap from 2028 in S2.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030 (a handful of flights a year), S3 2029 with earlier cadence; High 2033 once free-flyer and return flights multiply after 2030. S1 Medium 2033. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-blss-stability-theory",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Access to closed-run data binds; the reduced models and stability certificates (cognitive, after cap-physics-theory) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium 2030 in S2-S4, a year after the physics-theory capability; S3 High 2034, held at cap-physics-theory's seeded S3 High (2034); 2033 would fit if the trunk review's 2032 stands. S2 stays Medium on data access. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-granular-regolith-model",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2031",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "In-situ ice data bind; lab calibration on representative icy simulants (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium 2031 in S2-S4, a year after the first usable polar dataset reaches Medium (2030), because the model must be tested blind against it; High 2034, a year after ground truth is High. S3 equals S2 because the ground-truth missions set the date. S1 Medium 2033. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "prop-psi-models",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Instrumented landing data bind; the coupled gas-ejecta numerics (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium 2030 once the first heavy and CLPS landings are instrumented; High 2033 in S2 and 2032 in S3, where heavy landings start a year earlier. S1 Medium 2034. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-mre-anode-materials",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2032",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Multi-thousand-hour endurance tests at 1,600 C bind; fabricating refractory candidates that autonomous labs cannot yet process is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium 2031 (published with endurance data 2030-31). High needs 10,000 h runs of about 14 months: S3 2033; S2 2034, held at materials-closed-loop-discovery's S2 High 2034. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-radiation-risk-uq",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "In-vivo biological endpoints bind; beam time at NSRL (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3 Medium 2034. Skeptic: in-vivo cancer endpoints take years and NSRL beam time is scarce, so 2035. Advocate: S3 autonomous labs scale organoid and in-vitro work, so 2033. Resolved 2034: cohorts started about 2029-30 reach endpoints about 2033-34. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-earth-independent-fdir",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "NASA crew-safety acceptance binds; programs choosing to fly the assistant on ISS or Artemis (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium 2029 in S2-S4, not 2028: flying a crew-facing assistant needs a flight opportunity after the tools exist. S1 Medium 2031. Capped at Medium in every scenario. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-verified-surface-autonomy",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Supplier adoption binds; cheap machine-checked proofs for planners and monitors (formalization) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium 2029 and High 2030 in S2-S4, as Moon Base Phase 1 suppliers adopt cheap proof tooling. S1 High 2034, held at verif-runtime-assurance's S1 High 2034. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-sinter-process-control",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Vacuum-thermal tests bind; the coupled electromagnetic-thermal-stress modeling (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3 High 2031, three years after its earliest year rather than in it; S2 Medium 2030 and High 2033 once plume-tested pads exist. S1 Medium 2033. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-certified-assembly-skills",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Envelope validation in vacuum and microgravity analogs binds; acceptance of analysis-based qualification is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (S2 2031, S3 2030), after certified contact simulation; High a year after it (S2 2034, S3 2033). Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-excavation-design",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2031",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "In-situ ice data bind; dig tests in representative simulant (experiment) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium 2031 with the validated regolith model (S2 and S3 alike, since ice data set the date); High 2035 in S2 and 2034 in S3. S1 Medium 2034. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-icy-regolith-ground-truth",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2030",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Lander manifests and landing success bind; whether a drill reaches ice-bearing regolith (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Same in every scenario because the gate is physical: Low from the 2027-28 attempts, Medium 2030 (VIPER realistically 2029 plus LUPEX and Chang'e-8 at CLPS-era landing odds), High 2033 as Moon Base landers add chances. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-lunar-o2-flight-demo",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "CLPS manifests and landing success bind; funding a qualifying oxygen payload (capital) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest landing (S2 2030, S3 2029); S3 High 2031 as more attempts fit; S2 High 2033 and S1 2034 once several ISRU payloads have flown. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-verified-autonomy-lunar-flight",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2031",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Landings bind; a payload provider choosing proofs without customer pull (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium 2031 in S2-S4: a 2028 tool, a 12-18 month freeze, a willing provider and a 50-65% landing; S3 equals S2 because cheap cognition raises neither landing odds nor demand. High 2033 as dozens of robots land. S1 Medium 2033. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-blss-closed-test",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "A funded facility campaign binds; months-long crop cycles and recovery observations (experiment) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2032: theory Medium 2030, a year to fit controllers to a funded facility, then a 180-day run. Skeptic: the US gap is funding and no facility is committed, so 2034. Advocate: a MELiSSA or Lunar Palace successor run could finish 2031. Resolved 2032 because non-US facilities exist. S3 Medium 2031. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-mars-isru-demo",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "SpaceX's Mars manifest and windows bind; funding a MOMS-class payload on a ship (capital) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Low from 2034, not 2033: a unit landed on the Apr 2033 window arrives late 2033 and runs at kg/h in 2034. The early-2031 window stays under 10%. S1 stays under 10% by 2035. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-assembly-flight-demo",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "A host and flight slot bind; acceptance of simulation-based qualification is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2033, S3 2032. Skeptic: OSAM-1's cancellation and the need for a host willing to risk a paying mission, so 2034. Advocate: a software upload to MRV or an FFR follow-on, so 2031-32. Resolved two years after certified skills reach Medium. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-ai-planned-ops-routine",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Flight-rule and operations-culture change binds; formal plan checking of command sequences (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): High is reached one to two years after the earliest year, not in it: S2 Medium 2029 and High 2030; S3 High 2029 with near-free plan checks; S1 High 2031. Skeptic (routine needs a culture change) and advocate (Perseverance already did it) resolved at a one-year Medium lag. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-crew-optional-lunar-ops",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-internal",
+    "gate_note": "Enough base to operate (capital) binds; heavy cargo landings on SpaceX's manifest are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2034, a year after its hard prerequisite auton-moon-base-infrastructure reaches Medium (2033). Skeptic: Phase 3 from 2032 plus slips, so 2035. Advocate: SpaceX's Moon-first city, so 2033. Resolved 2034. S3 Medium 2031 as before. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "materials-in-space-mfg-product",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-external",
+    "gate_note": "Free-flyers, return capsules and buyers (capital) bind; launch and return cadence bought by outside customers is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium 2032 in S2-S4, a year after recurring sales start (Low 2031). Skeptic: no published quality advantage yet (ZBLAN attenuation unmeasured), so 2034. Advocate: Varda already flies several crystal capsules a year and return gets cheap after 2031, so 2032. Resolved 2032 on the crystal route; S3 equals S2 because demand binds. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-closed-loop-habitat",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Flight reliability hours bind; building and flying the 75%+ oxygen-recovery hardware (fabrication) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3 Medium 2034. Skeptic: ISS retires 2030-32 and commercial-station hours start late, so 2035. Advocate: the Exploration ECLSS testbed is already being integrated and model-based priors cut hours to 18-36k, so 2033. Resolved 2034: about three years of flight hours after a 2031 start. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-lunar-oxygen-ops",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Pilot-plant funding binds; run-hour endurance and anode life (experiment) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2034, S3 2033. Skeptic: no LIFT-2-class plant is funded and anode life and dark-period melts bind, so 2035. Advocate: SpaceX's Moon priority and routine cargo, so 2033. Resolved two years after the first landing date. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-mars-propellant-plant",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Mars windows bind; designing a plant before any Mars ISRU run data (data) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Under 10% by 2035 in every scenario: only the Apr 2033 window can land a plant, which then needs about 1 MW and 1 t of water a day. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-surface-productivity",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Operator adoption binds; automated plan checks (formalization) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030, a year after its earliest year since public reporting of the ratio lags, and High 2032; S3 High 2031; S1 High 2033. Skeptic (reporting uncertain) and advocate (Perseverance already shows it) resolved at those dates. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-mars-architecture-close",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Mars landings and ISRU bind; flight-qualified closed-loop life support is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): The joint chance of three hard parents stays under 10% by 2035 in every scenario, so no crossing inside the horizon. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-lunar-heavy-cargo-landing",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Starship refuelling and SpaceX's lunar manifest bind; landing reliability of a new vehicle class on polar terrain (qualification) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest landing (S2 2030, S3 2029) because first landings slip and carry tip-over risk; High S3 2032 as cargo landings become routine. S2 and S1 High 2034 are held at prop-hls-refuel-campaign's High 2034; if that moves earlier, 2033 fits the text. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-moon-base-infrastructure",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-internal",
+    "gate_note": "Appropriations and flagship slips (capital) bind; heavy cargo landings on SpaceX's manifest are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2033. Skeptic: 2-7 year flagship slips, so 2034. Advocate: SpaceX's Moon-first plan and the $30B bulk buys, so 2032. Resolved 2033, two years after the Phase 2 window opens. S3 Medium 2031; S1 2034. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-robotic-landing-pad",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "A flight slot and landing bind; sintering power, thermal cracking and plume survival (experiment) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2033, S3 2032. Skeptic: no flight manifested and Olympus slipped from 2026, so 2034. Advocate: repeated heavy landings at one site create demand, so 2032. Resolved two years after the earliest landing. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "materials-ecls-isru-sorbents-catalysts",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Thousand-hour rig tests and program acceptance bind; ECLSS programs choosing a new material over heritage designs (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium three years after the earliest year (S2 2034, S3 2033): thousand-hour rig tests run on the test clock and ECLSS programs fly heritage designs, so a first customer comes from commercial stations or lunar ISRU late in the horizon. S1 stays Low. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-35-polar-water-pilot",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2032",
+      "medium": "2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2032",
+      "medium": "2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Funding binds; delivering power by cable into a 40 K crater and building a first-of-kind plant (fabrication) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3 Medium 2035. Skeptic: no extraction payload is funded and ISRU payloads take about five years to fly, so under 30% by 2035. Advocate: SpaceX's Moon priority, so 2033. Resolved 2035, keeping Medium by 2035 only just. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-35-lunar-oxygen-propellant",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Plant funding and a buyer bind; anode life and run hours (experiment) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Low from the earliest year (S3 2034, S2 2035); stays Low by 2035. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-35-lunar-robot-fleet",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": "2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "The supply of lunar-rated robots binds; programs funding robots and base power (capital) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Low from 2033 in S3-S4 and 2034 in S2 (a year after the earliest year). S4 Medium 2035. Skeptic: lunar units need new actuators, seals and night survival, so Low. Advocate: the S4 path puts hundreds of robots off Earth by 2035, so 2034. Resolved 2035. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-35-lunar-long-stay",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Appropriations and a habitat bind; human rating, life support and a ride home (qualification) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Low a year after the earliest year (S2 2034, S3 2033): Artemis stays are planned at about a week, and a 90-day stay needs a habitat and night power first. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-35-lunar-crop-harvests",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Funding binds; three 60-120 day crop cycles (experiment) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Low a year after the earliest year (S3 2034, S2 2035): a module must land and then grow three harvests. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-35-mars-robot-site-prep",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Mars windows on SpaceX's manifest bind; SpaceX's priority and funding for Mars cargo (capital) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Low from 2034, not 2033: the early-2031 landing is itself a long shot (Mars heavy landing Low), so 10% comes with the late-2033 landing and work in 2034. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "auton-35-lunar-cargo-cadence",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": "2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Launch and refuelling cadence bind; customer budgets and lander production (capital) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2035, S3 2034. Skeptic: ten landings need 100+ tankers and one or two customers' budgets, so 2035. Advocate: SpaceX's self-growing city plan, so 2033. Resolved two years after the earliest year. Bands at 2031 and 2035 unchanged."
+   }
+  }
+ ]
+}

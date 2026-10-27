@@ -1,0 +1,1338 @@
+{
+ "notes": "R9 WS1/WS5 branch review: science",
+ "update": [
+  {
+   "id": "science-energy-condition-nogo",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Deriving sharp constants across warp classes binds; certified (interval or Lean) checking is the runner-up, since Mathlib lacks Lorentzian geometry.",
+    "revision_note_add": "R9-odds (2026-10-27): High one year after the earliest year (S2-S4 2028, S1 2029): the general theorem with certified checks is cognitive but needs a year of outside-team work after public access. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-gr-foundations",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Referee bandwidth binds; formal checking is the runner-up, and it waits on Lorentzian geometry in Lean.",
+    "revision_note_add": "R9-odds (2026-10-27): Low crossing moved from 2028 to 2029 in S2-S4: independent confirmation of the Jun-Sep 2026 proofs (hundreds of pages) is not 10% likely within 2028; the joint-T1 rule keeps Medium beyond 2035. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-beyond-gr-wellposed",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "The PDE analysis binds; uptake by numerical-relativity groups is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2029 (a year after capability, as strong-coupling results may be partial), High 2033 as cheap analysis settles strong-coupling cases before LISA; S3 High 2030 (recursive from 2028); S1 Medium 2032, three years after public applied math. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-qei-curved",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "The analysis of interacting four-dimensional fields binds; acceptance by the few mathematical physicists who can referee it is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2032: skeptic (target may not be rigorously statable, so later) against advocate (a perturbative interacting result is well-posed and research math is routine by 2029); resolved at 2032, three years after the earliest year and before Plateau reaches the problem. S3 Medium 2029, High 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-coronagraph-limits",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "The cross-architecture bound is cognitive; its uptake in HWO's architecture down-select is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): High one year after the earliest year in S2-S4 (2028); S1 Medium 2029, High 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-vlbi-identifiability",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "The identifiability theorem is cognitive; uptake by BHEX and ngEHT design teams is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): High one year after the earliest year in S2-S4 (2028); S1 Medium 2029, High 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-cosmo-certified-inference",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Blinded key-project validation binds; simulator misspecification and Stage-IV data timing are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030 (pipelines freeze 1-2 years before unblinding, so even odds only near 2031), High 2033 in the 2032-35 Rubin/Euclid/Roman window; S3 Medium 2029, High 2031; S1 Medium 2031, High 2034. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-helio-tomography",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Too few viewpoints (data) bind; operational adoption by forecast centers is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium two years after the theory in S2 (2030) because the signpost is operational adoption; S3 Medium 2029, High 2031. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-retrieval-identifiability",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Community adoption binds; spectra quality and telescope time are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): High two years after the earliest year in S2-S4 (2030) rather than at once, since adoption gates it; S1 Medium 2031, High 2034 (after cap-applied-math). Bands unchanged."
+   }
+  },
+  {
+   "id": "science-second-order-self-force",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Open Kerr second-order formalism binds; the compute campaign and cross-code validation are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after first results (S2 2031, S3 2030): results in 2030 still need cross-code agreement before they are 30% likely complete; High S2 2033, S3 2032, with slack before the 2035 launch. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-nr-precision",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Compute allocations bind; new formulations, error estimators and GPU ports (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (S2 2031, S3 2030) because ~400x accuracy needs large allocations after the code work; High S2 2033, S3 2032. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-dark-energy-verdict",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Survey photons bind; the analysis lag on systematics (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after first data (S2-S4 2030), High 2033 when later Euclid and early Rubin and Roman data are in; S1 a year later through slower analysis. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-biosignature-false-positive-theory",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Laboratory rate constants bind; the photochemical theory (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2033: skeptic (AND of physics theory, line lists and lab rates, experiment-gated) against advocate (theory cheap from 2029, so 2032); resolved at 2033, two years after the first map and two after line lists reach Medium. S3 Medium 2031, High 2034 (after cap-physics-theory High). Bands unchanged."
+   }
+  },
+  {
+   "id": "science-coronal-heating-theory",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "A later encounter for the blind test (data) binds; theory-building (cognitive) is the runner-up, as the node's why says it is the bottleneck once data exist.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2032: a model built about 2030 meets its blind test at 2031-32 perihelia; skeptic (several mechanisms may leave no clean prediction) against advocate (many encounters a year) resolved at 2032. S3 Medium 2030, a year after the model. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-opacity-line-lists",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Laboratory validation binds; ab initio line-list computation (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (S2 2031, S3 2030) because lab validation of 50+ species is the slow link; High S2 2034, S3 2033 as the backlog clears. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-archival-discovery-engine",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Community absorption binds; finite archives and new photons are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): High a year after the earliest year (S2-S4 2028; S1 2029), since a confirmed AI-led archival discovery needs a follow-up observation. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-claims-audit",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Journals and agencies requiring re-analysis (adoption) bind; formal checking of relativity claims is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year and High S2 2030 (S3 2029, AI-assisted refereeing), because the signpost is a formal journal or agency requirement; S1 High 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-lightsail-stability",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Laboratory force and torque tests bind; the stability proofs and designs (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium 2029 and High 2030 in S2-S4, as lab tests on membranes follow the 2028 designs; S1 High 2034 (after cap-applied-math). Bands unchanged."
+   }
+  },
+  {
+   "id": "science-quantum-sensor-design",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Ground and ISS validation binds; error budgets and robust control (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium 2029 and High 2030 in S2-S4, as ground and ISS validation follows the 2028 designs; S1 High 2034 (after cap-applied-math). Bands unchanged."
+   }
+  },
+  {
+   "id": "science-helio-constellation-design",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2032",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Study-team adoption binds; the tomography input's thin viewpoints (data) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium 2030 in S2-S4, following the tomography input; S3 High 2031; S1 Low from its 2032 earliest year (note_2035 says Plateau lands about 2032). Bands unchanged."
+   }
+  },
+  {
+   "id": "science-wfsc-certified",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2030",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Vacuum-testbed campaigns bind; HWO-line funding for testbed time is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium two years after the earliest year (S2 2031, S3 2030), because proof needs multi-year vacuum campaigns and comparison with Roman coronagraph data. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-hwo-design-closure",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Appropriations bind; the agency choosing to rely on AI-run integrated modeling is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged from the seed: Low from 2030, Medium beyond 2035 (budget gate at Medium AND a freeze AND material AI use). Bands unchanged."
+   }
+  },
+  {
+   "id": "science-lisa-readiness",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Consortium data-challenge acceptance binds; the second-order self-force waveforms (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2033: inputs reach Medium in 2031, then a data-challenge round and acceptance take about two years; skeptic (AND of two inputs plus a round, so 2034) against advocate (a 2032 round) resolved at 2033. S3 Medium 2031, High 2034. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-quantum-sensor-flight",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2032",
+      "high": "2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2032",
+      "high": "2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Flight qualification binds; laser, vacuum and atom-source hardware (fabrication) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2033: the 2030 gradiometer flight froze hardware early, so 30% needs a second chance (next-generation clocks 2032-33); skeptic (hardware-limited, later) against advocate (several chances, 2032) resolved at 2033. S3 Medium 2032 (AI design routine from 2029), High 2035. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-lightsail-demo",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "A sponsor (capital) binds; beam-riding in free fall (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged from the seed: Low 2034 in S2-S4, no sponsor named. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-bhex-flight",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Selection and the science budget bind; the 5-6 year Small Explorer build and test is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged from the seed: Low from 2033 in every scenario (selection 2027-28, launch 2032-34); skeptic (selection odds under a 47% SMD cut) and advocate (on-time SMEX) leave it Low. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-lisa-precision-science",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "The 2035 Ariane 6 launch binds; analysis-stack readiness (consortium acceptance) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: first-year science after 2035 in every scenario. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-propulsion-funding-redirect",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Funders' belief (adoption) binds; a minimum-mass theorem for positive-energy shells (cognitive), which would give funders an exclusion criterion, is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Low crossing moved a year after the earliest year (S2-S4 2029, S1 2030): the record (no redirect after the 2021 theorem) makes 10% at zero lag after the theorem too high. Skeptic and advocate both keep it Low through 2035. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-return-per-dollar",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Referee and journal absorption bind; research-and-analysis grant money (cut in the FY2027 request) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030 (not 2028: it cannot lead its certified-inference input) and High 2034 (a measured doubling after the 2032-33 survey analyses); S3 Medium 2029, High 2031; S1 Medium 2031, High 2034. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-portfolio-shift",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Appropriations bind; the decadal survey's choice to favor photons (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Medium 2033: the decadal report lands about 2032 and the first budget that can follow it is FY2034 (decided in 2033); skeptic (FY2027 cuts confound attribution, 2034) against advocate (the report itself is the test, 2032) resolved at 2033. S3 cannot lead S2 because appropriations bind. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-smd-budget-restored",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2027",
+      "medium": "2027",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2027",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2027",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2027",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "regulatory",
+    "gate_note": "Appropriations bind; the budget-request and authorization process is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: Medium from the FY2027 appropriation, never High because funding must hold through FY2031. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-stage4-survey-data",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Survey photons bind; collaboration validation before each release is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): High a year after the earliest year (2029) to allow a release slip; identical across scenarios. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-private-observatories",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Mirror and detector fabrication binds; thermal-vacuum test and integration are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Low 2030 (launch late 2029 at the earliest, then commissioning) and Medium 2031 (even odds by 2031 with a 1.5-3x slip) in every scenario; one first-of-kind program keeps it below High. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-onboard-science-inference",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Science-team acceptance binds; flight-software assurance for discarding raw data is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (S2-S4 2030), High S2 2033 and S3 2031 (two years of slack); S1 Medium 2032. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-eo-retrieval-uq",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Field validation campaigns bind; adoption by an operational provider is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (S2-S4 2029); High S2 2033 once CO2M and repeated controlled releases make coverage routine, S3 2030; S1 Medium 2032. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-eo-ghg-enforcement-grade",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Regulator acceptance binds; blind-release validation and wind truth (data) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2032: EU methane-intensity rules apply from 2030 and the first compliance year is reported in 2031, so verifier use is 30% likely only by 2032; skeptic ('pragmatic implementation' politics) against advocate (S3 already Medium 2031) resolved at 2032. S3 Medium 2031, not its 2029 earliest year. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-35-lisa-launch",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "ESA's Ariane 6 launch slot binds; ESA budget phasing and the US share are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: Low only in 2035, since any slip moves LISA past the horizon; launch-external with no customer-access prerequisite. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-35-eo-routine-mrv",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Regulator acceptance binds; satellites seeing only large plumes (data) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged from the seed: Low from 2034 in S2 and 2033 in S3-S4, a band below first use. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-35-ariel-census",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-external",
+    "gate_note": "Survey photons bind; ARIEL's 2031 Ariane 6 launch is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium 2034 in S2-S4: population papers in 2033-34 need ARIEL to launch within about a year of 2031; skeptic (ARIEL already slipped three years, so 2035) against advocate (AI pipelines turn spectra into retrievals in weeks) resolved at 2034. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-35-answer-first-missions",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": "2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": "2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Mission selection binds; the build and test after selection is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3/S4 Medium moved from 2034 to 2035: a 2030 selection flies 2033-36, and only a Scout or cubesat-class mission makes 2034; skeptic (Explorer build times) over advocate (non-NASA agencies add chances). Band_2035 unchanged."
+   }
+  },
+  {
+   "id": "science-35-helio-constellation-flight",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-external",
+    "gate_note": "Selection and budgets bind; the launch date plus 1-3 years of cruise to off-line viewpoints is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: after 2035 in every scenario. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-35-second-private-observatory",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "A second funder (capital) binds; mirror, detector and integration work is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged from the seed: Low from 2034 in S2 and 2033 in S3-S4; no second funder is named. Bands unchanged."
+   }
+  },
+  {
+   "id": "science-35-earth-twin-rv",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Observing seasons and telescope time bind; stellar-activity modelling to about 10 cm/s (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged from the seed: Low from 2034 in S2 and 2033 in S3-S4. Bands unchanged."
+   }
+  }
+ ]
+}

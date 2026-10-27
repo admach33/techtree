@@ -51,7 +51,7 @@ Each node also names its **binding gate** (the slowest thing between it and real
    - the physical clock.
 
    Each started from what its field actually spends mathematical effort on, not from the release's catalog, and searched current sources. Together they cited about 600 sources.
-2. *Integration.* Duplicate nodes were merged and cross-domain dependencies added. Timings were calibrated against a lag ladder for the base case, measured from design-complete rather than program start, to first flight:
+2. *Integration.* Duplicate nodes were merged and cross-domain dependencies added. Timings were calibrated against a lag ladder for the central scenario, measured from design-complete rather than program start, to first flight:
    - small satellite or derivative payload: 12–18 months;
    - new launch-vehicle subsystem: 2–3 years;
    - new engine: 4–6 years;

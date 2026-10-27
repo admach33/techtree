@@ -1,7 +1,7 @@
 ## Bottom line
 
 - **The release matters to space for what it shows a machine can do.** That is research-grade mathematics on request, and machine-checked proofs at scale. The 372 result families barely touch spacecraft. {{fam_hw_sentence}}
-- **If the capability keeps compounding (the Exponential base case), the cognitive half of space engineering changes fast.** By about 2028 these become routine, each rated High:
+- **If the capability keeps compounding (the Exponential case, our central scenario), the cognitive half of space engineering changes fast.** By about 2028 these become routine, each rated High:
   - on-demand applied mathematics in space engineering;
   - guaranteed error bars for smooth-regime simulations;
   - verified flight code, 15–120x cheaper per line on the model's cost assumptions;

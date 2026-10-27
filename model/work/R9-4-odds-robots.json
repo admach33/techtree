@@ -1,0 +1,718 @@
+{
+ "notes": "R9 WS1/WS5 branch review: robots",
+ "update": [
+  {
+   "id": "robo-foundation-models-field",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Diverse real-world training data bind; the learning methods themselves (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): High one year after the earliest year in each scenario (S4 2029, S3 2030, S2 2031), not in it; S4 Low from 2027 on the fast path (robots branch exception). S1 High 2033. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-safety-standard",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "ISO committee stages bind; test evidence for falls and contact forces of balancing robots (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Same in every scenario: 2028 is the optimistic ISO track (Low), Medium 2029 and High 2030 allow the usual year or two of slip. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-proven-safety-envelopes",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "A maker publishing a safety case binds; machine-checked bounds for learned whole-body controllers (formalization) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (S2 2030, S3-S4 2029); High once routine, S2 2033 and S3-S4 2032. S4 equals S3 because the method rides the cognitive clock. S1 Medium 2033. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-contact-sim-to-real",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Contact data bind; tactile hands from the next 12-30 month hardware generation (fabrication) are the runner-up, with contact math cheap from 2027 in S2.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in the base-path earliest year (S4 2029, S3 2030, S2 2031); High three years later (S4 2032, S3 2033, S2 2034), keeping S4 a year ahead through fleet contact data. S1 Medium 2034. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-requal-standard",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Requalification under AS9100 and NADCAP binds; firms putting enough robots on flight hardware to be worth requalifying (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Medium 2030, a year after the first requalified inspection or handling process, and High 2033. S2-S3 Medium 2033: few slow-path robots are worth requalifying before 2031-32; skeptic (2034) and advocate (2032) resolved at the year after the earliest year. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-mtbi-1000h",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Failure-free field hours bind; hardware generations that fix wear-out modes (fabrication) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in the earliest year (S4 2030, S2-S3 2031) since a large fleet logs 2,300 h in days once reliability is there; High two years later as the next hardware generation lands (S4 2032, S2-S3 2033). S1 Medium 2033. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-actuator-magnet-supply",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": "2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2033",
+      "high": "2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2033",
+      "high": "2035"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2030",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Roller-screw grinding capacity binds; capital for the build-out against uncertain demand is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Medium 2030, not 2029: only reducer capacity is sourced and the slow path (a quarter of S4's weight) does not need it before 2033; High 2032. S2-S3 Medium 2033 as built to demand, High 2035. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-structured-factory-useful",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2030",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Adoption at paid sites binds; 12-30 month hardware generations (fabrication) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Medium 2030 and High 2031, one and two years after the base-path date, since maker targets have missed by about 10x. S2-S3 Medium 2031 and High 2033. S1 Medium 2033. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-fleet-1m",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2032",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2032"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Production ramp binds; demand from useful work (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4: the base path crosses in late 2029 and the fast path early 2029, so Medium 2029 and High 2030 (not 2029). S2-S3 slow path: 0.86M in 2030 (Low), 1.37M in 2031 (Medium), High 2032. S1 a year behind. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-fleet-10m",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2032",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Capital for the ramp binds after 2031; magnets and the loop's own lead times (fabrication) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Low 2031 (fast path mid-2031), Medium 2032 (base path late 2032) and High 2034, since the slow path (25% weight) never reaches 10M and High needs the base path nearly certain. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-mfg-10pct",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Capital for the fleet binds; robot and actuator production (fabrication) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Low from 2034 when the fast path crosses; about 30% by 2035, at the top of Low. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-lab-bench-useful",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2031",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Lab adoption binds; bench dexterity, harder than factory handling (data), is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Medium 2031, a year after the base-path date (0.12M lab robots in 2031), and High 2033 (0.6M by 2035). S2-S3 Low only in 2035, just short of 50,000. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-launch-refurb",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2031",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "A leading firm's adoption binds; requalifying turnaround processes on its own vehicle (qualification) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Medium 2031, after multi-task factory robots reach Medium (2030), and High 2033. S2-S3 Medium 2033. Skeptic: specialized machines already do it, so 2035. Advocate: Optimus at SpaceX, so 2032. Resolved 2033, when structured factory work is High on the slow path. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-aerospace-tolerance-work",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2031",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Requalification binds; robot precision and reliability at aerospace tolerances (data) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Medium 2031 (after the requalification route, Medium 2030) and High 2034. S2-S3 Medium 2034. Skeptic: the route is only Medium in 2033, so 2035. Advocate: tolerance work could follow the route in the same year, 2033. Resolved a year after the route. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-24x7-integration-test",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2032",
+      "high": "2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Requalifying the line's processes binds; fleets at 1,000 h between interventions (data) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Medium 2032, a year after a robot-first firm first could, and High 2035. S2-S3 Medium 2035, a year after tolerance work. Skeptic: requalifying every process on the line, so after 2035. Advocate: parallel requalification, so 2034. Resolved 2035. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-supply-chain-loop",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2032",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Robot production capacity binds; capital for robot-staffed parts plants is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Medium 2032 when robots enter reducer and motor plants on the base path, High 2034; structured plants come before construction. S2-S3 Low only in 2035. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-construction-trades",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2033",
+      "high": "2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "regulatory",
+    "gate_note": "Contractor adoption binds; safety cases for live, uncaged sites (regulatory) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Medium 2033, a year after the base-path date, because sites are unstructured; High 2035 with about 3.7M construction robots. Skeptic (5-9 year gap): 2034. Advocate (fast path): 2032. Resolved 2033. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-earth-pads-plants",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "regulatory",
+    "gate_note": "Equipment lead times and materials (capital) bind; permits (regulatory) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Low only in 2035, at about half the 2026 calendar. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-lunar-construction",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": "2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Cargo landings bind; lunar-rated robots and sintering power (fabrication) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Medium 2035, after ten cargo landings a year reach Medium (2034). Skeptic: power and night survival, so Low. Advocate: robot variants from 2032, so 2034. Resolved 2035. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-in-space-assembly",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Launch and a buyer bind; space qualification of mechanisms is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Low from the earliest year (S4 2033, S3 2035); stays Low by 2035. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-aerospace-labor-quarter",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Supplier adoption under FAA and EASA approvals binds; per-process requalification (qualification) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Low from 2034 on the fast path; the base path gives 24.9% in 2035 before requalification, so Low by 2035. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-aerospace-supplier-tier",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Per-supplier requalification binds; supplier capital, thin margins and audit capacity are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Medium 2034. Skeptic: thin supplier margins and audit capacity, so 2035. Advocate: primes write robot workmanship into specs about 2032, so 2033. Resolved a year after the earliest year. Bands at 2031 and 2035 unchanged."
+   }
+  },
+  {
+   "id": "robo-capital-goods-loop",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Robots for custom heavy assembly (fabrication) bind; capital for robot-staffed equipment plants is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Low only in 2035. Bands at 2031 and 2035 unchanged."
+   }
+  }
+ ]
+}
