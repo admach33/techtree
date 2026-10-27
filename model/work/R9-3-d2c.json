@@ -1,0 +1,207 @@
+{
+ "notes": "R9 WS4: direct-to-cell milestones in the networks branch (Connectivity Keystone naming; dates pending its release).",
+ "add_nodes": [
+  {
+   "catalog_families": [],
+   "premise_tier": "n/a",
+   "odds_source": "review",
+   "revisions": [],
+   "year_num": {},
+   "unlocks": [],
+   "domain": "comms",
+   "pathway": "P7 (exogenous; AI math enters only through coexistence scheduling and link design)",
+   "id": "comms-d2c-v2-service",
+   "tier": 6,
+   "kind": "system",
+   "title": "Second-generation direct-to-cell service (V2 D2C) in commercial use",
+   "description": "SpaceX's V2 direct-to-cell satellites, the filed next generation after the V1 D2C payloads flying today on the V2 Mini bus, carry a '5G-like' service with about 100 times V1's data density to unmodified or lightly modified phones, on the EchoStar 2 GHz MSS band among others, sold through partner operators (naming per Mach33's Connectivity Keystone).",
+   "status_oct2026": "V1 D2C flies today: about 650 D2C-enabled satellites on the V2 Mini bus carry texting, IoT and light data; 22M monthly Starlink Mobile users through 36 operators (Aug 2026) against 7.4M monthly unique devices in the S-1 (Mach33, State of Connectivity, 14 Oct 2026). V2 D2C is framed for 2027 to 2028, with the EchoStar 2 GHz band roadmap aiming at video, voice and cellular broadband at up to 150 Mbps per user (Mach33 news, 2026). Spectrum in Oct 2026: the FCC approved SpaceX's purchase of three AWS-3 licenses (21 Oct); SpaceX agreed to buy up to 14 MHz of 800 MHz (8 Oct); ANATEL granted 15+15 MHz of 2 GHz S-band in Brazil (9 Oct); CTIA and carriers urged the FCC to drop 2.5 and 3.45 GHz from the satellite-to-phone plan (22 Oct).",
+   "prerequisites": [],
+   "accelerated_by": [
+    "comms-d2d-coexistence-scheduling"
+   ],
+   "binding_gate": "adoption",
+   "runner_up_gate": "regulatory",
+   "gate_note": "Handset silicon and operator go-to-market bind (Mach33's named gating items); spectrum approvals are the runner-up.",
+   "earliest_year": {
+    "S1": "2028",
+    "S2": "2028",
+    "S3": "2028",
+    "S4": "2028"
+   },
+   "odds_by": {
+    "S1": {
+     "low": "2028",
+     "medium": "2029",
+     "high": "2031"
+    },
+    "S2": {
+     "low": "2028",
+     "medium": "2029",
+     "high": "2031"
+    },
+    "S3": {
+     "low": "2028",
+     "medium": "2029",
+     "high": "2031"
+    },
+    "S4": {
+     "low": "2028",
+     "medium": "2029",
+     "high": "2031"
+    }
+   },
+   "why": "Not an AI-math implication: an exogenous connectivity anchor, dated from the public 2027 to 2028 window for V2 D2C (TODO(source): replace with the Connectivity Keystone's dates and odds when released; Mach33 post 154 says the model is not yet out). The tree's 1.5-3x slip calibration on announced SpaceX schedules puts the earliest year at 2028, Medium from 2029 and High from 2031. Mach33 names handset silicon and go-to-market as the gating items, so the binding gate is adoption; spectrum (EchoStar 2 GHz, AWS-3, 800 MHz) is the runner-up and is largely in hand by Oct 2026. AI math enters only through certified coexistence scheduling (comms-d2d-coexistence-scheduling), an accelerator. All scenarios share the date because the gates are handsets, operators and spectrum.",
+   "strongest_case_small": "V1 already reaches 22M monthly users; V2's gain is data density, which demand and handset support may not use for years.",
+   "signpost": "A V2 D2C launch; a partner operator selling a data plan above 10 Mbps per user over satellite; 2 GHz MSS handset chipsets shipping.",
+   "note_2035": "High from 2031 in every scenario. S4 equals S3 because handsets, operators and spectrum bind.",
+   "revision_note": "R9-d2c (2026-10-27): new node (review CK-1). Dated from the public 2027 to 2028 V2 D2C window pending the Connectivity Keystone (TODO(source)).",
+   "link": "https://research.33fg.com/analysis/state-of-connectivity-where-starlink-sits-in-the-world-s-network"
+  },
+  {
+   "catalog_families": [],
+   "premise_tier": "n/a",
+   "odds_source": "review",
+   "revisions": [],
+   "year_num": {},
+   "unlocks": [],
+   "domain": "comms",
+   "pathway": "P7 (exogenous; AI math enters only through coexistence scheduling and link design)",
+   "id": "comms-d2c-v3",
+   "tier": 6,
+   "kind": "system",
+   "title": "Third-generation direct-to-cell satellites (V3 D2C) in service",
+   "description": "V3 D2C satellites, launched on Starship after the V3 Starlink ramp, enter commercial service with an order of magnitude more direct-to-cell speed and two orders more capacity than today's V1 payloads (Mach33, Oct 2025).",
+   "status_oct2026": "Not yet. Starship's first orbital flight (Flight 14, 28 Sep 2026) deployed 26 V3 Starlink satellites; Mach33's base case puts V3 at about 1 Tbps per satellite, ten times a V2 Mini (State of Connectivity, 14 Oct 2026). SpaceX is seeking 80,000 US cell sites (22 Oct 2026); Verizon's CEO says SpaceX needs 4 to 6 years and $300B to $500B for a US network (26 Oct 2026).",
+   "prerequisites": [
+    "comms-d2c-v2-service",
+    "physclock-heavy-cadence-100"
+   ],
+   "accelerated_by": [
+    "comms-d2d-coexistence-scheduling"
+   ],
+   "binding_gate": "launch-internal",
+   "runner_up_gate": "regulatory",
+   "gate_note": "V3 D2C rides Starship on SpaceX's own manifest, so internal launch cadence binds; spectrum for broadband to phones is the runner-up.",
+   "earliest_year": {
+    "S1": "2030",
+    "S2": "2030",
+    "S3": "2029",
+    "S4": "2029"
+   },
+   "odds_by": {
+    "S1": {
+     "low": "2030",
+     "medium": "2032",
+     "high": "2034"
+    },
+    "S2": {
+     "low": "2030",
+     "medium": "2031",
+     "high": "2033"
+    },
+    "S3": {
+     "low": "2029",
+     "medium": "2031",
+     "high": "2033"
+    },
+    "S4": {
+     "low": "2029",
+     "medium": "2031",
+     "high": "2033"
+    }
+   },
+   "why": "Not an AI-math implication: an exogenous connectivity anchor dated after the V3 Starlink ramp (TODO(source): replace with the Connectivity Keystone's dates and odds when released). V3 satellites need Starship, and a D2C variant follows V2 D2C in service and 100+ heavy flights a year (physclock-heavy-cadence-100: S2 2030, S3 2029), so the earliest year is 2030 in S2, Medium from 2031 and High from 2033. Internal launch binds; spectrum for broadband to phones (2 GHz, AWS-3, 800 MHz, and the contested 2.5 and 3.45 GHz bands) is the runner-up. AI math enters only through coexistence scheduling, an accelerator.",
+   "strongest_case_small": "SpaceX may fold D2C into later broadband satellites rather than fly a distinct V3 D2C generation, which would blur the milestone without changing capacity.",
+   "signpost": "A filing or launch of V3-class D2C satellites; Starship flights carrying D2C payloads; US cell-site agreements.",
+   "note_2035": "High from 2033 in S2 to S4 (2034 in S1). S4 equals S3 because launch and spectrum bind.",
+   "revision_note": "R9-d2c (2026-10-27): new node (review CK-1). Dated after the V3 Starlink ramp pending the Connectivity Keystone (TODO(source)).",
+   "link": "https://research.33fg.com/analysis/state-of-connectivity-where-starlink-sits-in-the-world-s-network"
+  },
+  {
+   "catalog_families": [],
+   "premise_tier": "n/a",
+   "odds_source": "review",
+   "revisions": [],
+   "year_num": {},
+   "unlocks": [],
+   "domain": "comms",
+   "pathway": "P7 (exogenous; AI math enters only through coexistence scheduling and link design)",
+   "id": "comms-starlink-mobile",
+   "tier": 7,
+   "kind": "outcome",
+   "title": "Starlink Mobile serves 100 million phones a month",
+   "description": "Starlink Mobile, SpaceX's direct-to-cell brand since MWC Barcelona (Mar 2026), reaches at least 100 million monthly users through partner operators, with broadband-class data (video and voice) available, not only texting.",
+   "status_oct2026": "22M monthly Starlink Mobile users through 36 operators (Aug 2026), against 7.4M monthly unique devices in the S-1 (Mach33, 14 Oct 2026); 13M users in 12 countries at an ITU session (Feb 2026); VEON passed 11M users in under a year (Oct 2026); Starlink Mobile went live nationwide in Brazil with Vivo (26 Oct 2026). Mach33 'Starlink Mobile: Bundling Unit Economics' covers the pricing.",
+   "prerequisites": [
+    "comms-d2c-v2-service"
+   ],
+   "accelerated_by": [
+    "comms-d2c-v3",
+    "comms-d2d-coexistence-scheduling"
+   ],
+   "binding_gate": "adoption",
+   "runner_up_gate": "regulatory",
+   "gate_note": "Operator bundling and handset support bind the user count; spectrum approvals are the runner-up.",
+   "earliest_year": {
+    "S1": "2029",
+    "S2": "2029",
+    "S3": "2029",
+    "S4": "2029"
+   },
+   "odds_by": {
+    "S1": {
+     "low": "2029",
+     "medium": "2030",
+     "high": "2033"
+    },
+    "S2": {
+     "low": "2029",
+     "medium": "2030",
+     "high": "2033"
+    },
+    "S3": {
+     "low": "2029",
+     "medium": "2030",
+     "high": "2033"
+    },
+    "S4": {
+     "low": "2029",
+     "medium": "2030",
+     "high": "2033"
+    }
+   },
+   "why": "Not an AI-math implication: an exogenous adoption outcome. Users roughly doubled from 13M (Feb 2026) to 22M monthly (Aug 2026) through 36 operators; with V2 D2C's broadband-class service from 2028, a further 4.5x to 100M is credible from 2029 and Medium from 2030 (judgment). High from 2033, after V3 D2C lifts capacity two orders of magnitude. TODO(source): replace with the Connectivity Keystone's user path when released; post 154 says direct-to-device enters its model alongside other uses of the fleet. All scenarios share the date because operators, handsets and spectrum bind.",
+   "strongest_case_small": "Most of these users are occasional texters in coverage gaps; monthly users can grow fast without much traffic or revenue.",
+   "signpost": "Reported monthly users above 50M; a major US or European operator selling satellite data as a standard plan feature.",
+   "note_2035": "High from 2033 in every scenario. S4 equals S3 because adoption binds.",
+   "revision_note": "R9-d2c (2026-10-27): new tier-7 outcome (review CK-1); user path pending the Connectivity Keystone (TODO(source)).",
+   "link": "https://research.33fg.com/analysis/state-of-connectivity-where-starlink-sits-in-the-world-s-network"
+  }
+ ],
+ "update": [
+  {
+   "id": "comms-capacity-per-dollar-share",
+   "patch": {
+    "title": "Software adds 10%+ capacity per satellite at fixed spectrum",
+    "description": "AI-produced mathematics and software (certified optimization, coexistence scheduling, custom codes) raise a major constellation's sellable capacity per satellite by at least 10% at fixed hardware and spectrum, compared with the same hardware run with 2026-era software, disclosed by the operator or measured independently. The node counts capacity the operator can sell, not traffic delivered, which demand sets.",
+    "why_add": "CK-2 check (R9): the node does not assume a utilisation. Mach33's Connectivity Keystone evidence base has sellable busy-hour capacity rising from 204 Tbps in 2026 to about 5,436 Tbps in 2030 while customers use about 590 Tbps (State of Connectivity, 14 Oct 2026), so satellites do not run near full; the 10% is capacity per satellite at fixed spectrum, which matters where cells are supply-bound (dense urban), not fleet-average delivered traffic.",
+    "revision_note_add": "R9-d2c (2026-10-27): retitled and redefined as sellable capacity per satellite at fixed spectrum; utilisation check against the Connectivity Keystone evidence base (review CK-2)."
+   }
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "networks",
+   "nodes": [
+    "comms-d2c-v2-service",
+    "comms-d2c-v3",
+    "comms-starlink-mobile"
+   ],
+   "spine": [
+    "comms-d2c-v2-service",
+    "comms-starlink-mobile"
+   ]
+  }
+ ]
+}
