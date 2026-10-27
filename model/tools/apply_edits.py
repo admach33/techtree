@@ -8,13 +8,24 @@ Usage:
   python3 apply_edits.py index GRAPH.json OUT.txt
 
 Scenarios: S1 Plateau, S2 Exponential (base case), S3 Recursive, S4 Embodied (S3 + general-purpose robots at scale).
-Each node has earliest_year {S1..S4} ("2029", or ">2035" for beyond the horizon), band_2031 {S1..S4} and
-band_2035 {S1..S4} (likelihood of being achieved by end-2031 / end-2035: High, Medium, Low, Speculative).
+Each node has earliest_year {S1..S4} ("2029", or ">2035" for beyond the horizon) and odds_by {S1..S4}: the first year
+by which the likelihood of being achieved reaches each band, {"low": "2029", "medium": "2030", "high": ">2035"}
+(Speculative before low). The tool derives band_by_year {S1..S4} (ten bands, 2026..2035) from odds_by, and from it
+band_2031 and band_2035 (likelihood by end-2031 / end-2035: High, Medium, Low, Speculative). A node without odds_by
+keeps hand-set band_2031/band_2035 (graphs before v9).
+
+Each node names a binding_gate (one of GATES) and, from v9, a runner_up_gate and a one-clause gate_note. The rule
+(model doc, "Binding gates"): the binding gate is the gate whose removal would move the node's earliest year the most
+in the central scenario (S2); the runner-up is the next; ties go to the gate later in the physical chain.
+
+  check GRAPH.json [--against BASE.json]  # with a base graph, lists every node whose band_2031/band_2035 changed
+                                          # and flags changes without a matching revisions[] entry
 
 Edit file format (every key optional):
 {
   "merge":        [{"keep": "id", "drop": ["id", ...], "patch": {...}}],
-  "update":       [{"id": "id", "patch": {"field": value, "earliest_year": {"S4": "2033"}, "band_2035": {"S2": "High"}}}],
+  "update":       [{"id": "id", "patch": {"field": value, "earliest_year": {"S4": "2033"}, "odds_by": {"S2": {"medium": "2032"}},
+                                          "revision_note_add": "R9-odds: appended to revision_note with ' | '"}}],
   "add_nodes":    [{...full node...}],
   "remove_nodes": ["id", ...],
   "add_edges":    [{"from": "prereq-id", "to": "node-id"}],          # hard prerequisite
@@ -25,12 +36,15 @@ Edit file format (every key optional):
   "branch_new":   [{"id": "...", "title": "...", "nodes": [...], "spine": [...], ...}],  # appends a branch
   "branch_add":   [{"branch": "id", "nodes": ["id", ...], "spine": ["id", ...]}],      # append members
   "branch_update":[{"branch": "id", "patch": {"thesis": "...", ...}}],
+  "meta":         {"launch_source": "..."},                          # merged into graph meta; a "version" here is kept as is
   "notes":        "free text"
 }
 --autofix raises a node's year to its latest hard prerequisite's year in each scenario (an unlock cannot precede
-its prerequisites) and records the change in node['autofix']; band changes are left to reviewers.
+its prerequisites), raises any odds_by year below a hard prerequisite's (a node is never likelier by a year than
+what it needs) or below the new earliest year, and records the change in
+node['autofix']. Every band_2031/band_2035 the derivation changes gets a revisions[] entry written by apply.
 """
-import json, re, sys, os, collections
+import json, re, sys, os, collections, datetime
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -39,6 +53,13 @@ HORIZON = 2035
 BEYOND = 2036.0
 NESTED = ('earliest_year', 'band_2031', 'band_2035')
 RANK = {'Speculative': 0, 'Low': 1, 'Medium': 2, 'High': 3}
+BANDS = ['Speculative', 'Low', 'Medium', 'High']
+YEARS = list(range(2026, HORIZON + 1))
+THRESH = ('low', 'medium', 'high')
+# Gates in physical-chain order (later = further downstream), for the tie rule.
+GATES = ['cognitive', 'formalization', 'data', 'experiment', 'fabrication', 'qualification', 'regulatory', 'capital',
+         'launch-internal', 'launch-external', 'adoption']
+EXEMPT_BRANCH = 'robots'  # years follow the base robot path, odds also weigh the faster path
 
 
 def year(s):
@@ -73,8 +94,23 @@ def ystr(y):
     return str(int(y)) if float(y).is_integer() else f'{int(y)}-{str(int(y) + 1)[2:]}'
 
 
+def band_series(ob):
+    """odds_by for one scenario -> ten bands, 2026..2035."""
+    ys = [year(ob.get(t)) for t in THRESH]
+    return [BANDS[sum(1 for y in ys if y is not None and y <= yr)] for yr in YEARS]
+
+
+def derive_bands(n):
+    if not n.get('odds_by'):
+        return
+    n['band_by_year'] = {s: band_series(n['odds_by'].get(s, {})) for s in SCEN}
+    n['band_2031'] = {s: n['band_by_year'][s][YEARS.index(2031)] for s in SCEN}
+    n['band_2035'] = {s: n['band_by_year'][s][-1] for s in SCEN}
+
+
 def recompute(nodes):
     for n in nodes.values():
+        derive_bands(n)
         n['year_num'] = {s: year((n.get('earliest_year') or {}).get(s)) for s in SCEN}
         n['prerequisites'] = [p for p in dict.fromkeys(n.get('prerequisites', [])) if p != n['id']]
         n['accelerated_by'] = [p for p in dict.fromkeys(n.get('accelerated_by', [])) if p != n['id']]
@@ -127,7 +163,7 @@ def topo(nodes):
     return out
 
 
-def autofix(nodes):
+def autofix(nodes, exempt=()):
     fixes = []
     for k in topo(nodes):
         n = nodes[k]
@@ -141,13 +177,105 @@ def autofix(nodes):
                 y = n['year_num'][s]
                 flag = (y > 2031 and n.get('band_2031', {}).get(s) in ('High', 'Medium')) or (y > HORIZON and n.get('band_2035', {}).get(s) in ('High', 'Medium'))
                 fixes.append({'node': k, 'scenario': s, 'from': old, 'to': n['earliest_year'][s], 'band_needs_review': flag})
+            ob = (n.get('odds_by') or {}).get(s)
+            # a node is never likelier by a year than any of its hard prerequisites
+            for t in THRESH:
+                pre = [(nodes[p]['odds_by'][s][t], p) for p in n['prerequisites'] if p in nodes and nodes[p].get('odds_by')]
+                if ob and pre:
+                    py, pid = max(pre, key=lambda x: year(x[0]))
+                    if year(py) > year(ob[t]):
+                        old = ob[t]
+                        ob[t] = py
+                        n.setdefault('autofix', []).append(f'{s}: odds_by.{t} {old} -> {py} (prerequisite {pid} later)')
+                        fixes.append({'node': k, 'scenario': s, 'odds': t, 'from': old, 'to': py, 'band_needs_review': False})
+            if ob and k not in exempt and n['year_num'][s] is not None:
+                for t in THRESH:
+                    if year(ob.get(t)) is not None and year(ob[t]) < n['year_num'][s]:
+                        old = ob[t]
+                        ob[t] = n['earliest_year'][s]
+                        n.setdefault('autofix', []).append(f'{s}: odds_by.{t} {old} -> {ob[t]} (earliest year later)')
+                        fixes.append({'node': k, 'scenario': s, 'odds': t, 'from': old, 'to': ob[t], 'band_needs_review': False})
+        derive_bands(n)
     return fixes
 
 
-def check(g):
+def band_changes(base, nodes):
+    """Nodes whose band_2031/band_2035 differ from a base graph's: {id: {field: {scenario: [old, new]}}}."""
+    out = {}
+    for k, n in nodes.items():
+        b = base.get(k)
+        if not b:
+            continue
+        for f in ('band_2031', 'band_2035'):
+            d = {s: [b[f][s], n[f][s]] for s in SCEN if b.get(f, {}).get(s) != n.get(f, {}).get(s)}
+            if d:
+                out.setdefault(k, {})[f] = d
+    return out
+
+
+def record_band_revisions(base, nodes, by):
+    """Write a revisions[] entry for every band the edits changed, citing the node's latest R9 note."""
+    today = datetime.date.today().isoformat()
+    ch = band_changes(base, nodes)
+    for k, d in ch.items():
+        n = nodes[k]
+        notes = [x.strip() for x in str(n.get('revision_note', '')).split(' | ') if x.strip().startswith('R9')]
+        n.setdefault('revisions', []).append({
+            'by': by, 'date': today, 'fields': sorted(d),
+            'reason': (notes[-1] if notes else 'R9: bands derived from per-year odds (odds_by)') + ' Changes: ' + '; '.join(
+                f"{f}: " + ', '.join(f"{s} {a} -> {b}" for s, (a, b) in v.items()) for f, v in d.items()),
+            'from': {f: {s: a for s, (a, _) in v.items()} for f, v in d.items()}})
+    return ch
+
+
+def check(g, base=None):
     nodes = g['nodes']
     rep = {'dangling': {}, 'dangling_soft': {}, 'monotonic_violations': [], 'cycles': [], 'unparsed_years': [], 'bad_bands': [],
            'unresolved_gt2031': [], 'late_but_likely_2031': [], 'late_but_likely_2035': [], 'band_time_order': [], 'scenario_order_violations': []}
+    v9 = any(n.get('odds_by') for n in nodes.values())
+    exempt = {nid for b in g.get('branches', []) if b['id'] == EXEMPT_BRANCH for nid in b.get('nodes', [])}
+    if v9:
+        rep.update({'missing_odds_by': [], 'bad_odds_by': [], 'odds_before_earliest': [], 'odds_order': [], 'odds_prereq_order': [], 'odds_scenario_order': [],
+                    'bad_gate': [], 'missing_runner_up': [], 'bad_runner_up': [], 'band_changes_without_revision': []})
+        for k, n in nodes.items():
+            ob = n.get('odds_by') or {}
+            if sorted(ob) != SCEN or any(sorted(ob[s]) != sorted(THRESH) for s in ob):
+                rep['missing_odds_by'].append(k)
+                continue
+            for s in SCEN:
+                ys = [year(ob[s][t]) for t in THRESH]
+                if None in ys or any(not re.match(r'^(20\d\d|>2035)$', str(ob[s][t])) for t in THRESH):
+                    rep['bad_odds_by'].append([k, s, ob[s]])
+                    continue
+                if not (ys[0] <= ys[1] <= ys[2]):
+                    rep['odds_order'].append([k, s, ob[s]])
+                for p in n['prerequisites']:
+                    po = (nodes.get(p) or {}).get('odds_by', {}).get(s)
+                    if po and any(year(po[t]) is not None and year(po[t]) > ys[i] for i, t in enumerate(THRESH)):
+                        rep['odds_prereq_order'].append([k, p, s, ob[s], po])
+                e = n['year_num'][s]
+                if k not in exempt and e is not None and e < BEYOND and ys[0] < e:
+                    rep['odds_before_earliest'].append([k, s, n['earliest_year'][s], ob[s]])
+            for t in THRESH:
+                ys = [year(ob[s][t]) for s in SCEN]
+                if None not in ys and not (ys[3] <= ys[2] <= ys[1] <= ys[0]):
+                    rep['odds_scenario_order'].append([k, t, {s: ob[s][t] for s in SCEN}])
+            if n.get('binding_gate') not in GATES:
+                rep['bad_gate'].append([k, n.get('binding_gate')])
+            ru = n.get('runner_up_gate')
+            if n['tier'] >= 5 and (not ru or not n.get('gate_note')):
+                rep['missing_runner_up'].append(k)
+            if ru and (ru not in GATES or ru == n.get('binding_gate')):
+                rep['bad_runner_up'].append([k, n.get('binding_gate'), ru])
+        if base is not None:
+            ch = band_changes(base['nodes'], nodes)
+            rep['band_changes'] = ch
+            for k, d in ch.items():
+                recorded = {f for r in nodes[k].get('revisions', []) if str(r.get('by', '')).startswith('R9')
+                            for f in r.get('fields', [r.get('field')])}
+                miss = sorted(set(d) - recorded)
+                if miss:
+                    rep['band_changes_without_revision'].append([k, miss])
     for k, n in nodes.items():
         miss = [p for p in n['prerequisites'] if p not in nodes]
         if miss:
@@ -195,8 +323,11 @@ def check(g):
         'reached_by_2031': {s: sum(1 for n in nodes.values() if n['year_num'][s] is not None and n['year_num'][s] <= 2031) for s in SCEN},
         'reached_by_2035': {s: sum(1 for n in nodes.values() if n['year_num'][s] is not None and n['year_num'][s] <= HORIZON) for s in SCEN},
         'n_branches': len(g.get('branches', [])),
-        'counts': {k: len(v) for k, v in rep.items() if isinstance(v, (list, dict))},
+        'counts': {k: len(v) for k, v in rep.items() if isinstance(v, (list, dict)) and k != 'band_changes'},
     }
+    if 'band_changes' in rep:
+        rep['summary']['n_band_changes'] = {'nodes': len(rep['band_changes']),
+                                           'cells': sum(len(v) for d in rep['band_changes'].values() for v in d.values())}
     return rep
 
 
@@ -240,6 +371,8 @@ def apply(g, e):
             patch_node(nodes[n['id']], n)
         else:
             n = dict(n)
+            if 'revision_note_add' in n:
+                n['revision_note'] = n.pop('revision_note_add')
             n.setdefault('prerequisites', [])
             n.setdefault('accelerated_by', [])
             n.setdefault('catalog_families', [])
@@ -299,7 +432,12 @@ def apply(g, e):
 
 def patch_node(n, patch):
     for f, v in patch.items():
-        if f in NESTED and isinstance(v, dict):
+        if f == 'odds_by' and isinstance(v, dict):
+            for s_, ob in v.items():
+                n.setdefault('odds_by', {}).setdefault(s_, {}).update(ob)
+        elif f == 'revision_note_add':
+            n['revision_note'] = (str(n.get('revision_note') or '') + ' | ' + v).lstrip(' |')
+        elif f in NESTED and isinstance(v, dict):
             n.setdefault(f, {}).update(v)
         elif f in ('prerequisites_add',):
             n.setdefault('prerequisites', []).extend(v)
@@ -364,24 +502,33 @@ def main():
         return
     if cmd == 'check':
         g = json.load(open(sys.argv[2]))
+        base = json.load(open(sys.argv[sys.argv.index('--against') + 1])) if '--against' in sys.argv else None
         recompute(g['nodes'])
-        rep = check(g)
+        rep = check(g, base)
         print(json.dumps(rep, indent=1, default=list))
         return
     if cmd == 'apply':
         args = [a for a in sys.argv[2:] if not a.startswith('--')]
         inp, out, edits = args[0], args[1], args[2:]
         g = json.load(open(inp))
-        all_log = []
+        base = json.loads(json.dumps(g['nodes']))
+        recompute(base)
+        v0 = g.get('meta', {}).get('version', 0)
+        all_log, set_version = [], False
         for ef in edits:
             e = json.load(open(ef))
+            set_version |= 'version' in e.get('meta', {})
             all_log += [f'{os.path.basename(ef)}: {x}' for x in apply(g, e)]
         recompute(g['nodes'])
-        fixes = autofix(g['nodes']) if '--autofix' in sys.argv else []
+        exempt = {nid for b in g.get('branches', []) if b['id'] == EXEMPT_BRANCH for nid in b.get('nodes', [])}
+        fixes = autofix(g['nodes'], exempt) if '--autofix' in sys.argv else []
         recompute(g['nodes'])
-        g.setdefault('meta', {})['version'] = g['meta'].get('version', 0) + 1
+        changed = record_band_revisions(base, g['nodes'], 'R9') if any(n.get('odds_by') for n in g['nodes'].values()) else {}
+        if not set_version:
+            g.setdefault('meta', {})['version'] = v0 + 1
         json.dump(g, open(out, 'w'), indent=1)
-        rep = check(g)
+        rep = check(g, {'nodes': base})
+        rep['band_changes_recorded'] = len(changed)
         rep['apply_log'] = all_log
         rep['autofixes'] = fixes
         rpt = os.path.splitext(out)[0] + '-report.json'

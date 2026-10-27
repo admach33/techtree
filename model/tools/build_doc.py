@@ -102,7 +102,8 @@ def spine_tree(g, b):
         again = ' (see above)' if k in seen else ''
         y2, y3, y4 = n['earliest_year']['S2'], n['earliest_year']['S3'], n['earliest_year']['S4']
         s4 = (f"; Recursive {y3}" if y3 != y2 else '') + (f"; Embodied {y4}" if y4 != y3 else '')
-        lines.append('  ' * depth + f"- {arrow}**{n['title']}** ({tag(n)}{s4}; gate: {n['binding_gate']}){again}")
+        gate = n['binding_gate'] + (f", then {n['runner_up_gate']}" if n.get('runner_up_gate') else '')
+        lines.append('  ' * depth + f"- {arrow}**{n['title']}** ({tag(n)}{s4}; gate: {gate}){again}")
         if k in seen:
             return
         seen.add(k)
@@ -172,7 +173,7 @@ def gen(g, an, debates31, debates35):
     blocks['gap_2035_phys_hm'] = str(sum(1 for n in N.values() if 5 <= n['tier'] <= 6 and yv(n, 'S2') <= 2035 and RANK[n['band_2035']['S2']] >= 2))
     blocks['gap_2035_phys_hm_s3'] = str(sum(1 for n in N.values() if 5 <= n['tier'] <= 6 and yv(n, 'S3') <= 2035 and RANK[n['band_2035']['S3']] >= 2))
     def likely_cp(n, s, yr):
-        b = n['band_2031'][s] if yr <= 2031 else n['band_2035'][s]
+        b = n['band_by_year'][s][YEARS.index(yr)] if 'band_by_year' in n else (n['band_2031'][s] if yr <= 2031 else n['band_2035'][s])
         return yv(n, s) < BEYOND and int(yv(n, s)) <= yr and RANK[b] >= 2
     nonrobo_phys = [n for n in N.values() if n['tier'] >= 5 and n.get('domain') != 'robots' and not n['id'].startswith('robo-')]
     for s in ('S3', 'S4'):
@@ -183,7 +184,7 @@ def gen(g, an, debates31, debates35):
     cc = an['clock_curve']
     rows = []
     for yr in YEARS:
-        row = [str(yr) + (' *' if yr > 2031 else '')]
+        row = [str(yr)]
         for s in SCEN:
             v = cc[s][str(yr)] if str(yr) in cc[s] else cc[s][yr]
             row += [pct(v['cognitive']), pct(v['physical'])]
@@ -198,6 +199,9 @@ def gen(g, an, debates31, debates35):
     blocks['n_t67'] = str(len(t67))
     gc = collections.Counter(n['binding_gate'] for n in t67).most_common()
     blocks['gates_t67'] = ', '.join(f'{k} ({v})' for k, v in gc[:-1]) + f' and {gc[-1][0]} ({gc[-1][1]})'
+    ru = collections.Counter(n.get('runner_up_gate') for n in t67 if n.get('runner_up_gate'))
+    blocks['runner_up_thinking_t67'] = str(sum(v for k, v in ru.items() if k in ('cognitive', 'formalization')))
+    blocks['runner_up_t67'] = ', '.join(f'{k} ({v})' for k, v in ru.most_common())
     fam_nodes = [n for n in N.values() if n.get('catalog_families')]
     blocks['n_fam_nodes'] = str(len(fam_nodes))
     blocks['n_fam'] = str(len({f for n in fam_nodes for f in n['catalog_families']}))

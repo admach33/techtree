@@ -48,8 +48,6 @@
 .tt-row-tag { fill: var(--ink-4); font-size: 9px; letter-spacing: 1.2px; font-weight: 600; }
 .tt-lane-name { fill: var(--ink-2); font-size: 12px; font-weight: 600; }
 .tt-lane-name.c { font-size: 10.5px; paint-order: stroke; stroke: var(--card); stroke-width: 4px; stroke-linejoin: round; }
-.tt-ckpt { stroke: rgba(255,255,255,0.16); stroke-dasharray: 3 4; }
-.tt-ckpt-t { fill: var(--ink-3); font-size: 10.5px; }
 .tt-lane-icon { fill: none; stroke: var(--ink-3); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .tt-front { stroke: var(--think); stroke-width: 1.5; filter: drop-shadow(0 0 6px rgba(34,207,255,.8)); transition: transform .45s cubic-bezier(.32,.72,0,1); }
 /* only links between unlocked techs show, so the network grows as the turns pass */

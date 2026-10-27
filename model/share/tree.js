@@ -1,7 +1,7 @@
 /* Tech tree hero: the whole Space Unlock Tree as a game research screen.
    Lanes are branches; each lane has a research row (thinking techs) and a build row (hardware techs).
-   A tech sits in the column of its earliest credible year; it is unlocked once that year has come and it is
-   rated Medium or better at the next checkpoint (the same rule as the gap chart). */
+   A tech sits in the column of its earliest credible year; it is unlocked once that year has come and its odds for
+   that year are Medium or better (odds are rated for every year; the same rule as the gap chart). */
 const TechTree = (() => {
   const NS = 'http://www.w3.org/2000/svg';
   const BAND = ['Speculative', 'Low', 'Medium', 'High'];
@@ -24,8 +24,6 @@ const TechTree = (() => {
     atom: 'M12 10.8a1.2 1.2 0 1 1 0 2.4a1.2 1.2 0 1 1 0-2.4z M3 12c0-2 4-3.6 9-3.6s9 1.6 9 3.6-4 3.6-9 3.6-9-1.6-9-3.6z M7.5 4.2c1.7-1 5 1.6 7.5 6s3.1 8.6 1.4 9.6-5-1.6-7.5-6-3.1-8.6-1.4-9.6z',
     arm: 'M4 20h8 M8 20v-3 M8 17l3-6 5 2 M11 11a1.4 1.4 0 1 1 0 .1 M16 13l2.5-3 M16 13l3 1.2',
   };
-  const CHECKPOINT = 2032; // first turn whose odds are judged at end-2035
-
   function el(tag, attrs, parent) {
     const e = document.createElementNS(NS, tag);
     for (const k in attrs) e.setAttribute(k, attrs[k]);
@@ -54,10 +52,13 @@ const TechTree = (() => {
     const PAD_R = 14, HEAD = 32, STEP = 11;
 
     const scen = () => D.scenarios[si];
+    const odds = (n, t = turn) => +n.o[si][Math.min(LAST, Math.max(FIRST, t)) - FIRST];
     const state = (n, t = turn) => {
       if (n.y[si] > t) return 'lock';
-      return (t < CHECKPOINT ? n.a[si] : n.b[si]) >= 2 ? 'on' : 'res';
+      return odds(n, t) >= 2 ? 'on' : 'res';
     };
+    // first year each band is reached, for the card: "Medium from 2031 · High from 2034"
+    const crossings = n => [1, 2, 3].map(b => { const k = n.o[si].split('').findIndex(c => +c >= b); return k < 0 ? null : FIRST + k; });
     const wTitle = n => (n.wt && n.wt[si]) || n.t;
 
     // ---------- layout ----------
@@ -121,11 +122,6 @@ const TechTree = (() => {
       svg = el('svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, role: 'img' }, stage);
       gCols = el('g', {}, svg);
       YEARS.forEach((y, c) => el('rect', { class: 'tt-col', x: LW + c * colW + 1, y: HEAD - 6, width: colW - 2, height: H - HEAD - 10, rx: 4, 'data-y': y }, gCols));
-      // the checkpoint switch, marked exactly as on the gap chart
-      const ck = LW + YEARS.indexOf(CHECKPOINT) * colW;
-      el('line', { class: 'tt-ckpt', x1: ck, x2: ck, y1: HEAD - 6, y2: H - 16 }, gCols);
-      const ckt = el('text', { class: 'tt-ckpt-t', x: ck + 6, y: H - 6 }, gCols);
-      ckt.textContent = compact ? 'odds to 2035 →' : 'odds rated to end-2035 →';
       gHead = el('g', {}, svg);
       YEARS.forEach((y, c) => {
         const t = el('text', { class: 'tt-yr', x: LW + c * colW + colW / 2, y: 18, 'text-anchor': 'middle', 'data-y': y }, gHead);
@@ -242,7 +238,7 @@ const TechTree = (() => {
       if (focusI >= 0) highlight(focusI);
     }
 
-    // ---------- toasts: wonders, the checkpoint switch, and the end of the run ----------
+    // ---------- toasts: wonders and the end of the run ----------
     function announce(prev, st, fromTurn) {
       const rows = [];
       const fresh = N.map((n, i) => (n.w && prev[i] !== 'on' && st[i] === 'on') ? i : -1).filter(i => i >= 0);
@@ -251,10 +247,6 @@ const TechTree = (() => {
         const pic = n.img ? `<img src="${esc(n.img)}" alt="">` : `<b>${esc((n.wb && n.wb[si]) || '')}</b>`;
         rows.push(`<div class="row"><div class="pic">${pic}</div><div><div class="t">★ ${esc(n.w)}</div><div class="y">${esc(wTitle(n))}</div></div></div>`);
       });
-      if (fromTurn < CHECKPOINT && turn >= CHECKPOINT) {
-        const woke = N.filter((n, i) => n.y[si] < CHECKPOINT && prev[i] !== 'on' && st[i] === 'on').length;
-        rows.push(`<div class="note">Odds are now judged at end-2035, so ${woke} earlier techs light up. That step is the rating switch, not new events.</div>`);
-      }
       let head = fresh.length ? `${fresh.length === 1 ? 'Wonder' : fresh.length + ' wonders'} unlocked · ${turn}` : `Turn ${turn}`;
       let ms = 2800 + 900 * Math.max(0, fresh.length - 1);
       if (turn >= LAST && fromTurn < LAST) {
@@ -317,7 +309,7 @@ const TechTree = (() => {
         ${n.img ? `<div class="img"><img src="${esc(n.img)}" alt=""></div>` : ''}
         <div>${esc(n.d)}</div>
         <dl><dt>Earliest</dt><dd>${yr} <span class="dim">(${NAMES[scen()]})</span></dd>
-        <dt>Odds</dt><dd>${BAND[n.a[si]]} by 2031 · ${BAND[n.b[si]]} by 2035</dd>
+        <dt>Odds</dt><dd>${BAND[odds(n)]} in ${turn}${oddsLine(n)}</dd>
         <dt>Waits on</dt><dd>${GATE[n.g] || n.g}</dd>
         <dt>Turn ${turn}</dt><dd>${status}</dd></dl>
         <div class="path">${nPath ? `Lit: the ${nPath} tech${nPath === 1 ? '' : 's'} on its research path.` : 'A root tech: nothing comes before it.'}${n.w && !sheet ? ' Click the wonder to see its card.' : ''}</div>${toCard}`;
@@ -335,6 +327,11 @@ const TechTree = (() => {
         card.style.left = Math.max(10, x) + 'px'; card.style.top = y + 'px';
       }
       card.classList.add('show');
+    }
+    function oddsLine(n) {
+      const c = crossings(n), parts = [];
+      ['Low', 'Medium', 'High'].forEach((b, k) => { if (c[k] != null && c[k] > turn && (k === 0 || c[k] !== c[k - 1])) parts.push(`${b} from ${c[k]}`); });
+      return parts.length ? ' · ' + parts.join(' · ') : '';
     }
     const toCardOf = id => { const h = document.getElementById('h-' + id); if (h) h.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' }); };
 

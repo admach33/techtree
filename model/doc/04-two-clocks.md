@@ -20,7 +20,7 @@ The tree measures it directly.
 
 The physical layers move at all mainly because their cognitive prerequisites arrive sooner. Tests, factories and launches do not themselves get much faster before robots arrive.
 
-**The two clocks, year by year.** The table shows the share of each half of the tree that is unlocked: its year has arrived and it is rated High or Medium at the next checkpoint (2031 for years through 2031, 2035 after; rows after the checkpoint change are starred). It covers {{n_cog_nodes}} cognitive and {{n_phys_nodes}} physical nodes, and it is the series behind the viewer's headline chart. Most of the jump between 2031 and 2032 comes from the change of checkpoint, not from new events. Many nodes dated 2031 or earlier are Low by 2031 but Medium or better by 2035. The curves flatten after 2033 because nodes that could first happen in 2034–35 are rarely more likely than not by 2035.
+**The two clocks, year by year.** The table shows the share of each half of the tree that is unlocked: its year has arrived and its odds for that year are High or Medium. Every node records the first year its odds reach Low, Medium and High in each scenario, so it carries a rating for every year from 2026 to 2035, not only at end-2031 and end-2035. The table covers {{n_cog_nodes}} cognitive and {{n_phys_nodes}} physical nodes, and it is the series behind the viewer's headline chart. A node that is Low by 2031 and Medium by 2035 crosses into Medium in the year its reviewers judged it passes 30%, so the curves rise through the early 2030s rather than in one step.
 
 {{clock_curve_table}}
 
@@ -45,7 +45,7 @@ The reviewers settled on 20–30% as the realistic Exponential gain by 2031, and
 
 The exponential shows up first as a stock of solved problems waiting on hardware, data and approval, and the hardware catches up through the early 2030s.
 
-**What binds at the outcome end.** Of the {{n_t67}} operational systems and strategic outcomes in the tree, the binding gates are {{gates_t67}}. Cognition binds none of them.
+**What binds at the outcome end.** Of the {{n_t67}} operational systems and strategic outcomes in the tree, the binding gates are {{gates_t67}}. Cognition binds none of them. It is the runner-up gate for {{runner_up_thinking_t67}} of them: removing the binding gate would leave thinking as the next thing holding the date. The runner-up gates are {{runner_up_t67}}. That is how thinking can be about a third of a program's critical path and bind no outcome: a third of the path can run fast without ever being the slowest step.
 
 **Space has its own exponential, and it is physical.** Launch cost is falling fast for reasons that owe nothing to AI mathematics: reuse, larger payloads and production learning.
 

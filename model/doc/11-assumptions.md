@@ -2,7 +2,7 @@
 
 **Bands are judgments.** They are not probabilities, and they are not independent. Many nodes share prerequisites, above all public access to research-grade models in 2027 and applied math the same year. If those slip, up to {{reach_public}} nodes, about three-fifths of the tree, slip together. Do not multiply bands along a chain.
 
-**Earliest year is optimistic by construction.** It marks the first credible year, not the expected year, and the likelihood band carries the expectation. The viewer counts a node as unlocked only when its year has arrived and it is rated at least Medium at the next checkpoint (2031 for years through 2031, 2035 after).
+**Earliest year is optimistic by construction.** It marks the first credible year, not the expected year, and the likelihood band carries the expectation. The viewer counts a node as unlocked only when its year has arrived and its odds for that year are at least Medium.
 
 **The catalog is unverified.** Every openai/math result used here is T1, T2 or T3. An independent check might find a statement gap or an error. The nodes resting on that family (mostly P3 ceilings and P5 confidence effects) would then weaken. The main conclusions would not, because they rest on the capability rather than the catalog.
 
@@ -18,7 +18,7 @@
 
 **The Embodied case rests on one assumption more than any other.** It assumes that Recursive-grade AI makes robot dexterity mainly a software problem by about 2028. Field reliability still accrues on the physical clock, so usefulness is dated by hardware generation. Plateau, Exponential and Recursive use a slow robot path. The robots branch places Plateau slightly behind the other two, because its cognition lags. In the robots branch, years follow the base robot path while bands also weigh the faster path, so a robot node dated after 2031 can still be Low by 2031. Robot fleet numbers come from shipment data through mid-2026 and from production-ramp analogues. The 2035 values are scenario estimates, not forecasts of record.
 
-**The 2035 checkpoint is less certain than the 2031 one.** A nine-year horizon compounds every uncertainty in the model. Nodes first credible in 2034–35 are almost never rated more likely than not by 2035, and the tree says little about what happens just after its horizon.
+**Odds for the 2030s are less certain than those for the 2020s.** A nine-year horizon compounds every uncertainty in the model. Nodes first credible in 2034–35 are almost never rated more likely than not by 2035, and the tree says little about what happens just after its horizon.
 
 **Coverage limits.** The model does not cover:
 

@@ -1,4 +1,4 @@
-Read down the years to see the waterfall unfold in the Exponential case. Bands in parentheses are likelihoods at the next checkpoint: end-2031 for years through 2031, end-2035 after.
+Read down the years to see the waterfall unfold in the Exponential case. Bands in parentheses are the likelihoods by end-2031 and end-2035, read off each node's year-by-year odds.
 
 - **2026.** The capability exists inside the labs. Agents formalize mathematics at scale, and outside checking of AI results begins. None of this is yet available to space engineers.
 - **2027.** Research-grade mathematics reaches outside teams, and with it research-grade applied mathematics (High). The first engineering uses are the ones with no physical gate, all High:

@@ -9,7 +9,7 @@ HERE = 'share'
 SITE = os.path.join(HERE, 'site')
 FIGS = os.path.join(HERE, 'figs')
 
-# Card copy. Every number here is from graph-v8.json node text or the model doc (appendix A).
+# Card copy. Every number here is from graph-v9.json node text or the model doc (appendix A).
 COPY = {
     'verif-assurance-cost-collapse': {
         'kind': 'think',
@@ -94,7 +94,7 @@ def tree_caption():
 
     def share(k, t):
         ns = [n for n in d['nodes'] if n['k'] == k]
-        on = sum(1 for n in ns if n['y'][si] <= t and (n['a'][si] if t <= 2031 else n['b'][si]) >= 2)
+        on = sum(1 for n in ns if n['y'][si] <= t and int(n['o'][si][t - 2026]) >= 2)
         return round(100 * on / len(ns))
     later = [n for n in d['nodes'] if n['y'][si] > 2035]
     return (f"Watch the two rows (base case): research techs are {share(0, 2029)}% lit by 2029; build techs reach "
@@ -117,7 +117,7 @@ def hero_html():
 
 def main():
     facts = json.load(open(os.path.join(HERE, 'data', 'facts.json')))
-    graph = json.load(open('graph-v8.json'))
+    graph = json.load(open('graph-v9.json'))
     tiers = {n['id']: n['tier'] for n in graph['nodes'].values()}
     tree = json.load(open(os.path.join(HERE, 'data', 'tree.json')))
     lanes = {n['id']: tree['lanes'][n['l']]['name'] for n in tree['nodes']}
