@@ -1,0 +1,813 @@
+{
+  "topic": "S4 'Embodied' theory and evidence: the industrial-explosion literature, the history of general-purpose technologies (GPTs), energy limits to 2031, a check on the '1 of 3 dumps' rumor, and what three dumps would mean for S2 versus S3",
+  "as_of": "2026-10-07",
+  "scope_note": "This is the theory strand for the S4 Embodied scenario (S3 Recursive cognition plus general-purpose robotics at scale). Gate-by-gate robotics evidence is covered by other strands. 'verified' = read from a primary or near-primary page in this session. 'reported' = secondary coverage. 'estimate' = this analysis's own arithmetic, with stated inputs. 'general' = unsourced background knowledge.",
+  "key_findings": [
+    "RUMOR CHECK: No reporting or OpenAI statement was found that calls the Oct 6, 2026 openai/math release one of three planned or completed 'dumps'. The repository has a single commit and no batch or 'part 1' language. It promises only to keep adding Lean formalizations, to keep the release history, and to improve citations and exposition 'for future releases'. The rumor most likely comes from three sources. (a) There have been three OpenAI math releases in about 9.5 weeks: Astra's ten results (Aug 1), the Navier-Stokes claim (Sep 8) with a secondhand claim of '100+ problems' (Sep 21), and openai/math (Oct 6). (b) Scientific American reported that remarks by OpenAI staff led mathematicians to believe the model had more results OpenAI was hesitant to publish. (c) Fortune reported progress, short of solutions, on three other Millennium problems. No new AI-math release from any lab was found between Oct 6 and 7, 2026.",
+    "Every model in which AI produces explosive physical growth requires physical labor to be automated, not just cognition. That holds for Davidson 2021, Erdil-Besiroglu 2023/24, Epoch GATE 2025 and Forethought's 'Industrial Explosion' 2025. So the user's intuition matches the models' own mechanism: cognition by itself reaches the physical world mainly through robots, and secondarily through AI-directed human labor. The debate is about how soon general-purpose robots arrive and how badly the last non-automated tasks bottleneck output (Baumol cost disease, or 'weak links').",
+    "Implied doubling times for physical output. Today the world economy doubles in about 23 years (general), and the robot stock doubled in about 6-7 years (IFR: 5.0M at end-2025, more than double seven years earlier). In-demand physical goods such as solar, phones and EVs have doubled about every 2 years (Forethought). Forethought puts the first doublings of self-replicating robots at about 1 year (range: months to a few years), at under 1 year once AI makes factories 2-4x more productive, and at days to weeks only in the far, nanotech- or biology-like limit. Davidson's 'explosive growth' threshold of more than 30%/yr is a doubling every 2-3 years. GATE needs about 50-70% of tasks automated to exceed 30%/yr.",
+    "The skeptical end is just as quantitative. Acemoglu (2024/25) estimates US TFP +0.53-0.66% and GDP +0.9-1.6% over ten years. Jones and Tonetti (preliminary, 2026) find output only 4% above the no-AI path by 2040 and 19% by 2060. Their fastest 'Moore's law everywhere' case reaches about 13% growth by 2040, with substitutability between tasks of σ≈0.2. Aghion, Jones and Jones show that growth is capped by essential, hard-to-automate tasks unless every task is automated.",
+    "The crux is the date of general-purpose robots, which is exactly the variable S4 sets. A July 2026 critique of Jones traces almost all of the gap between 13% and 30%+ growth by 2040 to one assumption: whether human-level general-purpose robots arrive around 2030 or in the 2040s. Once robots do the 'weak-link' tasks, σ stops binding. S4 therefore removes the main reason economists give for slow growth, but only after the robot stock is large relative to the human workforce in the sectors that matter.",
+    "History says GPT payoffs lag by 20-40 years. Electric motors drove under 5% of factory mechanical power around 1900. Gains came only after factories were redesigned around unit drive, and electrification then accounted for about half of manufacturing productivity growth in the 1920s (David 1990). Computers: Solow's 1987 paradox was followed by the 1995-2004 surge, and Brynjolfsson, Rock and Syverson's J-curve shows early gains being under-measured. AI can compress the co-invention part of the lag, the redesign and process engineering, because that work is cognitive. It cannot compress physical capital turnover: building new factories, fabs and grids, with asset lives of 10-40 years. Measured US productivity is +2.2% year on year in Q2 2026, a modest rise rather than a surge.",
+    "The fastest near-term way into the physical world is not robots but AI-directed human labor. Forethought estimates up to about 10x physical output per worker in the limit: about 2x from best-worker practice, 3x from best-firm practice and 2x from retrained cognitive workers. Realized gains would be far smaller. Even so, this channel needs no new hardware, so it is the S4 effect most likely to show up by 2027-2029.",
+    "Robots-build-robots arithmetic to 2031. General-purpose and humanoid shipments were about 13k-18k in 2025 (Omdia, IDC; IFR counts about 7k under a narrower scope). They topped 22k in H1 2026 and are forecast above 50k for 2026 (Counterpoint; Bank of America about 90k). Sustained 3x/yr growth (fast) gives about 12M/yr of production and a stock of about 18M by end-2031. 2x/yr (central) gives about 1.6M/yr and 3.2M. 1.6x/yr (slow) gives about 0.5M/yr and 1.3M. Even the fast case is about 0.5% of the world labor force (general: about 3.5B), so most robots in 2031 are still built by human-run supply chains. The self-replication loop is at most starting to close by 2031. By 2035 the fast case reaches more than 100M (the loop can plausibly close) and the central case about 50M.",
+    "ENERGY: Energy does not cap the robots themselves by 2031. 18M robots at about 0.4 kW average draw is about 7 GW, or about 0.2% of world electricity. A billion robots would be about 400 GW, or about 11% of world and about 82% of US electricity. Energy does cap the energy-intensive parts of an industrial explosion (fabs, smelting, AI compute) and the grid's growth rate.",
+    "Grid supply is fixed to about 2030-31. Gas turbines are sold out: GE Vernova is taking reservations for 2031 delivery, with backlog plus slot reservations of 116 GW at Q2 2026 against about 20 GW/yr of output, and global turbine manufacturing capacity is about 60-70 GW/yr. Power transformers take 128-160+ weeks and the US ran about a 30% deficit in 2025. The median interconnection takes more than 5 years. Nuclear restarts add only about 2.3 GW (Palisades, Crane, Duane Arnold), none had restarted by Oct 2026, and Palisades suffered a fuel-loading incident in Sep 2026. US solar is flat at about 44 GWdc/yr through 2031. Global solar was 664 GW in 2025 and is forecast at 612 GW for 2026. Even installing all of the world's roughly 1.1 TW/yr of module output would add only about 4-5% a year to world electricity, a doubling time of 14 years or more.",
+    "Energy therefore permits robot-economy doublings only while that economy is a small share of energy use, or where robots build their own solar and storage behind the meter, off the queued grid. Energy is the binding cap of the early 2030s, not of 2031.",
+    "S4 Amdahl ceiling, using the model's own critical-path shares. Keep S3 cognition and raise the 2031 physical multipliers to 1.5-2.0x for fabrication, 1.5-2.0x for integration and test, 1.5-1.7x for qualification and 1.0-1.2x for launch. The schedule-compression ceiling for a new program rises from 51% (S3) to about 54-64%. With 2035 multipliers (3x fabrication, 2.5x integration and test, 2x qualification, 1.5x launch) it is about 72%. With cognition at infinite speed and fabrication at 5x, holding qualification at 1.5x and launch at 1.0x caps the ceiling at about 75%. Robotics adds about 3-13 points by 2031 and about 20 points by 2035. Realized gains would be lower: the S2 rule of thumb, realized at about 55-65% of the ceiling, suggests about 35-45% by 2031 under S4, against 35-45% for S3. The difference by 2031 is small and concentrated in a few vertically integrated firms.",
+    "Three dumps in quick succession: output went from 10 results (Aug 1) to 372 families (Oct 6), about 37x in 66 days or a 12.6-day doubling. That growth is throughput: about 4,000 problems posed, about 3 h of ChatGPT Pro compute per result, roughly 9% kept. It is not task-horizon capability, which is what separates S2 from S3. If one model produced all three releases (Gizmodo says the Oct 6 model is the one behind Navier-Stokes), the evidence fits S2 capability at the S2/S3 boundary but is not evidence of recursion. A third dump from a newer model within weeks, together with the reported Aug 28 training start and 100+ results by Sep 21, would point toward S3.",
+    "Recommended handling of the three-dump hypothesis: shift scenario weight modestly toward S3, for example S3 +10-15 points mostly taken from S1, and run a sensitivity that pulls S3's recursion onset from 2028 to 2027. For space schedules it barely matters. Even infinitely fast cognition moves the Amdahl ceiling only from 51.1% to 52.4%. More dumps strengthen the two-clocks finding, and they raise the marginal value of S4 robotics rather than of more mathematics.",
+    "What robotics cannot compress, ranked roughly by how much schedule it holds: (1) statistics: about 230 zero-failure trials for 0.99 reliability at 90% confidence, unless model-based priors are accepted; (2) physics time constants: real-time creep, fatigue and radiation ageing, thermal-vacuum soaks, cure and anneal times, hot-fire durations; (3) celestial mechanics: launch windows, Mars synodic period about 26 months, transfer times; (4) biology's clocks: cell doubling, animal lifespans, human-trial follow-up; (5) institutions: statutory review clocks, comment periods, appropriations, litigation, liability for autonomous machines; (6) energy and materials supply chains with 3-15 year lead times; (7) the first several doublings of robot production itself, which humans must build."
+  ],
+  "quantitative_anchors": [
+    {
+      "metric": "openai/math release size",
+      "value": "722 manuscripts in 372 families; about 4,000 problems posed; about 3 h ChatGPT Pro thinking per result on average; single commit; Apache-2.0",
+      "date": "2026-10-06",
+      "source_url": "https://github.com/openai/math",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Statement about further OpenAI math batches",
+      "value": "None found. Only 'we will continue to update this repository with Lean formalizations' and 'For future releases, we are committed to further improving the quality of the papers'",
+      "date": "2026-10-07",
+      "source_url": "https://www.engadget.com/2279815/openai-just-posted-hundreds-more-results-on-major-math-problems/",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Reported held-back results",
+      "value": "Comments from OpenAI personnel led some mathematicians to believe the model had produced additional results that OpenAI was hesitant to publicize",
+      "date": "2026-10-06",
+      "source_url": "https://www.scientificamerican.com/article/openai-unleashes-hundreds-more-math-results-upon-a-field-already-in-shock/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "OpenAI '100+ open problems' claim and training start",
+      "value": "More than 100 problems claimed Sep 21, 2026; training reportedly began Aug 28 (about 24 days); no OpenAI primary page found",
+      "date": "2026-09-22",
+      "source_url": "https://tech-insider.org/openai-100-math-problems-solved-24-days-2026/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Growth in OpenAI math output count",
+      "value": "10 results (Aug 1) to 372 families (Oct 6): about 37x in 66 days, a doubling time of about 12.6 days (throughput, not capability)",
+      "date": "2026-10-07",
+      "source_url": "https://github.com/openai/math",
+      "confidence": "estimate"
+    },
+    {
+      "metric": "Forethought initial robot-stock doubling time (self-replicating robots, current physical tech, abundant AI cognition)",
+      "value": "About 1 year (a few years in real-world frictions; under 1 year with 2-4x AI factory productivity); eventually days to weeks",
+      "date": "2025-05-21",
+      "source_url": "https://forethought.org/research/the-industrial-explosion",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Forethought stage-1 AI-directed human labor productivity ceiling",
+      "value": "About 10x physical output (about 2x best-worker, 3x best-firm, 2x from switching cognitive workers to manual work)",
+      "date": "2025-05-21",
+      "source_url": "https://forethought.org/research/the-industrial-explosion",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Forethought robot technology efficiency doubling vs AI",
+      "value": "Robots 1-4 years vs chips FLOP/$ about 2 years and algorithms about 1 year or less",
+      "date": "2025-05-21",
+      "source_url": "https://forethought.org/research/the-industrial-explosion",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Forethought: production doublings needed before experience curves speed up robot doubling",
+      "value": "About 1-5 doublings",
+      "date": "2025-05-21",
+      "source_url": "https://forethought.org/research/the-industrial-explosion",
+      "confidence": "verified"
+    },
+    {
+      "metric": "MacAskill & Moorhouse: AI research effort growth vs human",
+      "value": "About 25x/yr AI 'population' growth (up to 75x with post-training) vs about 4%/yr human research effort; 'century in a decade' even with a 10x penalty for physical headwinds",
+      "date": "2025-03-11",
+      "source_url": "https://www.forethought.org/research/preparing-for-the-intelligence-explosion",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Forethought full-stack intelligence explosion headroom",
+      "value": "About 23 OOMs of effective compute (Earth energy), 32 OOMs (all solar); chip-production loop adds about 5 OOMs on Earth; lag of years to build fabs",
+      "date": "2025-03-17",
+      "source_url": "https://www.forethought.org/research/three-types-of-intelligence-explosion",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Epoch GATE default growth",
+      "value": "About 23% GWP growth in 2027 in the default (authors: 'extremely unlikely'); >20%/yr at 30% of tasks automated; >30%/yr needs 50-70% automated; GATE B about 12%/yr at 40% automation",
+      "date": "2025-06-20",
+      "source_url": "https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Davidson explosive-growth threshold",
+      "value": ">30%/yr GWP growth (economy doubling every 2-3 years); judged plausible by 2100; >=10% probability cited secondhand",
+      "date": "2021-06",
+      "source_url": "https://coefficientgiving.org/research/could-advanced-ai-drive-explosive-economic-growth/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Davidson compute-centric takeoff",
+      "value": "Median about 3 years from AI automating 20% to 100% of cognitive tasks (about 10% <3 months, about 50% <3 years, about 80% <10 years)",
+      "date": "2023-06",
+      "source_url": "https://forum.nunosempere.com/posts/3vDarp6adLPBTux5g/what-a-compute-centric-framework-says-about-ai-takeoff",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Acemoglu macro effect of AI",
+      "value": "TFP +0.53-0.66% over 10 years; GDP +0.9-1.16% (up to about 1.4-1.6% with an investment boom)",
+      "date": "2024-05 (Economic Policy 2025)",
+      "source_url": "https://www.nber.org/papers/w32487",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Jones & Tonetti weak-links forecast (preliminary)",
+      "value": "Output +4% vs no-acceleration path by 2040, +19% by 2060; fastest 'Moore's law everywhere' case about 13% growth by 2040; sigma about 0.2; automation about 2%/yr of tasks",
+      "date": "2026-02-12 (MR); 2026-07-09 (critique)",
+      "source_url": "https://marginalrevolution.com/marginalrevolution/2026/02/past-automation-and-future-a-i-how-weak-links-tame-the-growth-explosion.html",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Korinek & Suh fixed-factor result",
+      "value": "With a fixed factor (share 0.10), automation outpaces capital accumulation; wages peak after about 10 years; AGI scenarios give much faster output growth than business-as-usual",
+      "date": "2024-03",
+      "source_url": "https://arxiv.org/abs/2403.12107",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Restrepo AGI growth",
+      "value": "With AGI, output scales linearly with compute; growth tracks compute growth; exponential but no singularity; labor share tends to zero",
+      "date": "2025 (NBER w34423)",
+      "source_url": "https://www.nber.org/papers/w34423",
+      "confidence": "reported"
+    },
+    {
+      "metric": "IFR industrial robot stock and installations",
+      "value": "Stock 5.0M end-2025 (+9%), more than double seven years earlier (doubling about 6-7 years); 603,307 installed in 2025 (+11%); forecast 655k (2026), 806k (2029); China 59% of installs",
+      "date": "2026-09-24",
+      "source_url": "https://ifr.org/news/five-million-robots-now-operate-in-factories-globally/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Humanoid shipments",
+      "value": "2025: about 13k (Omdia), about 18k (IDC), about 7k (IFR narrow scope); H1 2026 >22k (+~300% y/y); 2026 forecast >50k (Counterpoint), about 90k (BofA)",
+      "date": "2026-08-20",
+      "source_url": "https://counterpointresearch.com/en/insights/global-humanoid-robot-shipments-soar-nearly-300-percent-yoy-in-h1-2026",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Tesla Optimus 2026 ramp",
+      "value": "Fremont production from late Jul/Aug 2026; reportedly several hundred per week by Aug; target >1,000/week by end-2026; parts for about 15k units; 1M/yr Fremont and 10M/yr Texas are aspirations",
+      "date": "2026-04-22 to 2026-09",
+      "source_url": "https://electrek.co/2026/04/22/tesla-optimus-production/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "S4 general-purpose robot stock end-2031 (production growth from 50k in 2026)",
+      "value": "Slow 1.6x/yr: about 1.3M (0.5M/yr); central 2x/yr: about 3.2M (1.6M/yr); fast 3x/yr: about 18M (12M/yr). End-2035: about 9M / about 51M / >150M (fast case needs loop closure)",
+      "date": "2026-10-07",
+      "source_url": "https://counterpointresearch.com/en/insights/global-humanoid-robot-shipments-soar-nearly-300-percent-yoy-in-h1-2026",
+      "confidence": "estimate"
+    },
+    {
+      "metric": "Robot operating energy",
+      "value": "18M robots x 0.4 kW = about 7 GW (about 63 TWh/yr, about 0.2% of world electricity); 1B robots = about 400 GW (about 11% of world, about 82% of US)",
+      "date": "2026-10-07",
+      "source_url": "https://boereport.com/2026/09/09/us-power-use-to-beat-record-highs-in-2026-and-2027-as-ai-use-surges-eia-says-6/",
+      "confidence": "estimate"
+    },
+    {
+      "metric": "US electricity demand (EIA STEO Sep 2026)",
+      "value": "4,195 TWh (2025) to 4,270 (2026) to 4,349 (2027); about 1.8%/yr; about 487 GW average load",
+      "date": "2026-09-09",
+      "source_url": "https://boereport.com/2026/09/09/us-power-use-to-beat-record-highs-in-2026-and-2027-as-ai-use-surges-eia-says-6/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Data-center electricity (IEA)",
+      "value": "Global 415 TWh (2024), about 485 TWh (2025), 945 TWh (2030 base, just under 3% of world); US 224 to 426 TWh 2025-2030",
+      "date": "2025-04-10; 2026 update",
+      "source_url": "https://www.spglobal.com/commodity-insights/en/news-research/latest-news/electric-power/041025-global-data-center-power-demand-to-double-by-2030-on-ai-surge-iea",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Gas turbine supply",
+      "value": "GE Vernova backlog plus slot reservations 116 GW (Q2 2026); output about 20 GW/yr, 24 GW by 2028, about 30 GW by 2030; new orders deliver 2031; Siemens Energy 69 GW backlog, lead time 3+ years; MHI 35 GW, deliveries 2028-2030; global capacity about 60-70 GW/yr; prices about $600/kW by 2027 (+195% since 2019); combined-cycle lead time 5 years (BNEF 2025)",
+      "date": "2026-08",
+      "source_url": "https://www.utilitydive.com/news/ge-vernova-gas-turbine-backlog-climbs-to-116-gw/826039/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Power transformer supply",
+      "value": "Lead times about 128 weeks (power) and 144 weeks (GSU) in WoodMac Q2 2025; GSU >160 weeks by Q1 2026; high-capacity up to 4 years; 2025 US deficit about 30% (power), about 10% (distribution); prices +77% since 2019",
+      "date": "2026-05-11",
+      "source_url": "https://pv-magazine-usa.com/2026/05/11/u-s-transformer-market-faces-severe-supply-constraints-as-lead-times-extend-to-four-years/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "US interconnection queue",
+      "value": "End-2025: 1,312 GW generation and 749 GW storage queued; median request-to-operation >5 years for 2025 projects (22 months in 2008); only 13% of 2000-2019 requests built",
+      "date": "2026 edition (data to end-2025)",
+      "source_url": "https://emp.lbl.gov/queues",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Nuclear restarts",
+      "value": "Palisades (about 0.8 GW): fuel load from late Aug 2026, reported fuel-handling incident, no restart date; Crane/TMI-1 (about 0.8 GW): H2 2027 target, full deliverability by 2030; Duane Arnold (about 0.6 GW): end-2028/early-2029, $1.9B DOE loan closed Sep 8 2026; none restarted as of Sep 2026",
+      "date": "2026-09",
+      "source_url": "https://www.ans.org/news/article-8355/fuel-loading-process-begins-at-palisades/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "US solar and storage",
+      "value": "43.2 GWdc solar 2025 (-14%); H1 2026 19.2 GWdc; WoodMac about 44 GWdc/yr through 2031; cumulative 279 GWdc (2025) to 769 GWdc (2036); storage 57.6 GWh in 2025 (+30%)",
+      "date": "2026-09-11",
+      "source_url": "https://www.pv-magazine.com/2026/09/11/solar-industry-delivers-11-4-gw-in-q2-but-growth-remains-constrained/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Global solar installations",
+      "value": "664 GW in 2025 (+12%); 612 GW forecast for 2026 (-8%, first decline in 20+ years); >3 TW cumulative; >6.6 TW by 2030",
+      "date": "2026-06-22",
+      "source_url": "https://www.solarpowereurope.org/press-releases/new-report-global-solar-market-hits-new-record-of-664-gw-installation-in-2025-as-global-solar-fleet-passes-3-tw",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Maximum electricity growth from solar",
+      "value": "664 GWdc/yr adds about 2.4-3.2% of world electricity per year; installing about 1.1 TW/yr of module output adds about 4-5%/yr (doubling of 14 years or more)",
+      "date": "2026-10-07",
+      "source_url": "https://www.solarpowereurope.org/press-releases/new-report-global-solar-market-hits-new-record-of-664-gw-installation-in-2025-as-global-solar-fleet-passes-3-tw",
+      "confidence": "estimate"
+    },
+    {
+      "metric": "US labor productivity",
+      "value": "Nonfarm business +2.2% y/y Q2 2026; +1.4% annualized q/q; manufacturing +2.4% annualized",
+      "date": "2026-09-03",
+      "source_url": "https://www.bls.gov/news.release/archives/prod2_09032026.htm",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Electrification lag",
+      "value": "Electric motors <5% of factory mechanical drive about 1900; electrification about half of manufacturing productivity growth in the 1920s; about 40 years after the first central stations (1881-82)",
+      "date": "1990 (David, AER P&P)",
+      "source_url": "https://www.gwern.net/doc/economics/automation/1990-david.pdf",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Computer/software J-curve",
+      "value": "Adjusted TFP 11.3% above official measures at end-2004 and 15.9% at end-2017 once computer and software intangibles are counted",
+      "date": "2021 (AEJ: Macro 13(1))",
+      "source_url": "https://www.nber.org/papers/w25148",
+      "confidence": "reported"
+    },
+    {
+      "metric": "S4 Amdahl schedule-compression ceiling (new space program)",
+      "value": "S1 17.5%, S2 37.6%, S3 51.1%, S3 with infinite cognition 52.4%; S4-2031 low 53.7%, S4-2031 high 63.7%, S4-2035 72.0%, saturation about 75% while qualification is 1.5x and launch 1.0x",
+      "date": "2026-10-07",
+      "source_url": "file:///Users/alex/projects/openai%20math%20paper/model/Space%20Unlock%20Tree%20-%20model.md",
+      "confidence": "estimate"
+    },
+    {
+      "metric": "Manifold market: industrial explosion before 2040",
+      "value": "About 71% in the snapshot seen (forecast, not evidence)",
+      "date": "2026-10",
+      "source_url": "https://manifold.markets/deletedaccount001/industrial-explosion-before-2040",
+      "confidence": "reported"
+    }
+  ],
+  "what_robotics_compresses": [
+    "Fabrication labor and throughput: robots run about 3x the hours of a human shift pattern (24/7) and can be redeployed by software. Under S4 the model's fabrication multiplier rises from 1.3x (S3) to 1.5-2.0x by 2031 and about 3x by 2035 at firms that run robot-first factories.",
+    "Production ramps and experience curves: more units built sooner means the 1-5 production doublings Forethought says precede faster learning happen sooner. Robots plus S3 design make 'build the factory that builds the thing' a faster loop, while factory construction still takes 1-2 years.",
+    "Integration and test operations: robots build and run more test stands in parallel, turn stands around faster and inspect automatically. This shortens facility queues and stand turnaround, and moves integration and test from 1.5x (S3) to about 1.5-2.0x (2031) and about 2.5x (2035).",
+    "Rebuild time after mishaps: the hardware-fix share of return-to-flight, plus rebuild of test articles and pads, shortens where the work is labor-limited.",
+    "Lab experiment throughput (biology, materials, chemistry): autonomous labs parallelize experiments and run them around the clock. This multiplies experiments per unit time, though not the duration of each experiment. It suits screening-heavy searches such as alloys, catalysts and protein variants.",
+    "Construction labor for pads, propellant plants, fabs, solar farms and transmission: the share of schedule set by labor and shift patterns shrinks. Robots installing behind-the-meter solar and storage is the one route around grid queues.",
+    "Manufacture of grid equipment itself (turbines, transformers) in the 2030s, once robots reach those supply chains. This is the indirect route by which robotics loosens the energy cap after 2031.",
+    "AI-directed human labor, available before general-purpose robots: AR- or voice-guided workers can raise physical output per worker by up to about 10x in Forethought's ceiling. This is the earliest physical bleed-through of AI cognition."
+  ],
+  "what_robotics_cannot_compress": [
+    "Statistics: reliability by demonstration needs about 230 zero-failure trials for 0.99 reliability at 90% confidence. Robots can run trials faster, but the trial count stays unless regulators accept model-based priors.",
+    "Physics time constants: real-time creep, fatigue, corrosion and radiation ageing; thermal-vacuum soak and cycle times; cure, anneal and heat-treat cycles; hot-fire durations; outgassing.",
+    "Celestial mechanics: launch windows, the 26-month Mars synodic period, transfer times, and orbital-debris decay times.",
+    "Biology's clocks: cell doubling times, organism lifespans for ageing studies, animal studies of months, and human-trial follow-up of years. Autonomous labs raise parallelism, not the speed of the organism.",
+    "Institutions: statutory review clocks such as the 180-day FAA Part 450 review, NEPA comment periods, ITU coordination, appropriations cycles, litigation, and new liability and safety certification for autonomous machines working near people.",
+    "Energy supply growth to 2031: turbines are booked to about 2031, large transformers take 2-4 years, interconnection takes more than 5 years, nuclear restarts total about 2.3 GW, and solar adds only about 2.5-5% of world electricity a year. Robots cannot speed the delivery of equipment ordered from supply chains they do not yet run.",
+    "Materials and mining: new mines and refineries take about 7-15 years (general). Rare-earth magnets, battery materials and chips feed robot production, with concentrated Chinese supply and export-control risk.",
+    "The bootstrap: the first several doublings of robot production are built by human-run factories, each needing 1-2 years of construction. The loop cannot close until robots are a large share of labor in their own supply chain, which happens about 2032-2035 in the fast case and later in the central case.",
+    "Flight-test learning: wear and failure modes revealed only by flight cycles still cost one flight per data point, however fast the next vehicle is built."
+  ],
+  "timeline_view": "2026-2028: S4 looks the same as S3. Humanoid production grows from about 50k to about 0.2-0.5M a year, mostly for data collection and pilot lines. Physical multipliers stay at S3's 1.3-1.5x. The visible effect is AI-directed human labor and AI-run test planning. 2029-2031: if S3 cognition solves dexterous control by about 2028, robots enter robot-first factories and test stands at a few vertically integrated firms (SpaceX/Tesla-type, Chinese makers). The general-purpose robot stock reaches about 1-3M (central) or 18M (fast). Fabrication and integration-and-test multipliers reach 1.5-2x for those firms. The Amdahl ceiling for new programs rises from 51% to about 54-64%, with realized gains of about 35-45%. The industry-wide average barely moves. Energy is not yet binding for robots, but grid equipment caps AI compute and fabs. Macro growth stays below about 5%/yr. 2032-2035: the loop where robots build robots can close in the fast case, with a stock above 100M and a production doubling time of about 1 year or less. Energy, materials and regulation become the binding gates. Physical multipliers reach about 2-3x and the program ceiling about 70-75%. Statistics, physics time constants, launch windows, biology and statutory clocks set floors that no amount of robots moves. Answer to '2031 vs 2035': by 2031 robotics is a firm-level step change, not an economy-wide loop. By 2035 the loop matters in the fast case, and in the central case it is just beginning.",
+  "strongest_case_fast": "S3-level cognition turns robot control and dexterity into mainly a software problem by 2027-28. Robot hardware reuses EV and phone supply chains: Tesla is converting Fremont car lines, and Chinese makers took humanoid shipments from about 13-18k (2025) to more than 50k (2026), roughly 3x a year, at list prices of $6k-16k. Capital is abundant: AI capex runs at hundreds of billions of dollars a year and SpaceX holds about $100B in cash. Forethought estimates initial robot doubling at about 1 year, falling below 1 year with 2-4x more productive AI-designed factories. In-demand goods have historically doubled about every 2 years, and the WWII retooling of car plants is a precedent (general). Robots work about 3x the hours of a human shift pattern. Energy does not constrain robots themselves at the scale of tens of millions. Regulators are already loosening process clocks (EO 14335; the FCC's Oct 2026 NEPA exclusion for space activities). On these assumptions, about 18M robots by 2031 and a closed loop by about 2033 are possible. A firm like SpaceX could then run fabrication and integration-and-test about 2x faster, pushing new-program compression toward about 60%. The Jones-Tonetti 'weak links', the main economic argument for slow growth, dissolve once robots perform the weak-link tasks.",
+  "strongest_case_slow": "Every past general-purpose technology took 20-40 years to show up in productivity, because it needed factories and organizations rebuilt. Measured US productivity is only +2.2% year on year in 2026. Calibrated task models (Jones-Tonetti, σ≈0.2) give output just 4% higher by 2040, and Acemoglu gives about 1% of GDP over a decade. Robot learning is short of data: robots still struggle to fold shirts (Feb 2026), the IFR counted only about 7k humanoids sold for real work in 2025, and Tesla's 2026 Optimus output is in the low thousands to about 15k, against million-unit targets. The first doublings of robot production must come from human-run factories that take 1-2 years each to build. Grid equipment is booked to about 2031: turbines, 2-4 year transformers, and interconnection queues of more than 5 years. Rare-earth magnets and batteries are concentrated in China. Liability and safety rules for autonomous machines near people are unwritten. Most importantly for space, the gates that dominate program schedules are untouched by robots: qualification statistics, physics time constants, launch windows and statutory review. So even if robots arrive on time, S4 adds only about 3-13 points to the 2031 schedule ceiling (51% to 54-64%), confined to a few vertically integrated firms.",
+  "models_survey": [
+    {
+      "model": "Davidson (Open Philanthropy) 'Could Advanced AI Drive Explosive Economic Growth?'",
+      "date": "2021-06",
+      "mechanism": "AI substituting for labor restores the increasing-returns accumulation loop (output to more AI 'workers' to more output)",
+      "implied_physical_doubling": "Explosive means >30%/yr GWP growth, a doubling every 2-3 years; plausible before 2100",
+      "delay": "Requires AI that can replace human labor broadly, including physical tasks; no fixed date",
+      "binding_constraints": "Non-automatable bottleneck tasks, diminishing returns to R&D, physical capital, expert priors",
+      "url": "https://coefficientgiving.org/research/could-advanced-ai-drive-explosive-economic-growth/",
+      "confidence": "reported"
+    },
+    {
+      "model": "Davidson 'What a compute-centric framework says about takeoff speeds'",
+      "date": "2023-06",
+      "mechanism": "Compute plus algorithms automate cognitive tasks; AI R&D feedback",
+      "implied_physical_doubling": "Not modeled; cognitive automation goes from 20% to 100% in a median of about 3 years",
+      "delay": "Median full cognitive automation about 2043 in 2023 settings (now likely earlier)",
+      "binding_constraints": "Compute and investment; physical tasks are outside the cognitive clock",
+      "url": "https://forum.nunosempere.com/posts/3vDarp6adLPBTux5g/what-a-compute-centric-framework-says-about-ai-takeoff",
+      "confidence": "reported"
+    },
+    {
+      "model": "Erdil & Besiroglu 'Explosive growth from AI automation: a review of the arguments'",
+      "date": "2023-09 (v3 2024-07)",
+      "mechanism": "Scalable AI labor restores increasing returns; rapid expansion of the AI labor force",
+      "implied_physical_doubling": "About 10x acceleration of frontier growth (about 20-30%/yr), a doubling of about 2-4 years",
+      "delay": "Conditional on AI able to substitute broadly for human labor",
+      "binding_constraints": "Regulation, physical inputs (land, energy, capital), the value of superhuman ability, automation speed; 'high confidence unwarranted'",
+      "url": "https://arxiv.org/abs/2309.11690",
+      "confidence": "verified"
+    },
+    {
+      "model": "Epoch AI GATE (Erdil, Ho, Potlogea et al.)",
+      "date": "2025-03 (paper); 2025-06-20 (redux post)",
+      "mechanism": "Compute investment, AI capability, task automation and semi-endogenous growth, with adjustment costs",
+      "implied_physical_doubling": "Default about 23% GWP growth in 2027 (authors: extremely unlikely); >30% needs 50-70% of tasks automated; GATE B about 12% at 40% automation",
+      "delay": "Growth accelerates within the first 5 years in the default; robotics not explicitly modeled",
+      "binding_constraints": "Baumol effects weaker than expected; investor uncertainty, R&D wedge and labor-reallocation frictions slow but do not stop growth; no explicit robotics or energy module",
+      "url": "https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux",
+      "confidence": "verified"
+    },
+    {
+      "model": "Forethought: Davidson & Hadshar 'The Industrial Explosion'",
+      "date": "2025-05-21",
+      "mechanism": "Stage 1 AI-directed human labor; stage 2 fully autonomous robot factories (robots build robots); stage 3 nanotechnology",
+      "implied_physical_doubling": "Stage 1: up to about 10x output per worker (level effect). Stage 2: about 1 year at first (real-world a few years; under 1 year with AI productivity 2-4x); speeds up after 1-5 production doublings. Limit: days to weeks. Carrying capacity about 1e14 human-equivalent robots on 5% of sunlight",
+      "delay": "Starts after the intelligence explosion; slower at first; humans must build the first robots",
+      "binding_constraints": "Energy (the main long-run cap), physical capital and factory build time (1-2 years now; weeks would need about 50x), regulation, human factors, experiment infrastructure",
+      "url": "https://forethought.org/research/the-industrial-explosion",
+      "confidence": "verified"
+    },
+    {
+      "model": "Forethought: Davidson, Hadshar & MacAskill 'Three Types of Intelligence Explosion'",
+      "date": "2025-03-17",
+      "mechanism": "Software, then chip technology, then full stack (AI and robots build fabs)",
+      "implied_physical_doubling": "Full-stack loop has the longest lags (years to build fabs) and is the least sudden; can reach doubling times of months or less",
+      "delay": "Years",
+      "binding_constraints": "Fab build time, energy (about 23 OOM headroom on Earth)",
+      "url": "https://www.forethought.org/research/three-types-of-intelligence-explosion",
+      "confidence": "verified"
+    },
+    {
+      "model": "MacAskill & Moorhouse 'Preparing for the Intelligence Explosion'",
+      "date": "2025-03-11",
+      "mechanism": "AI research effort grows about 25x/yr vs about 4%/yr for human effort, giving a 'century in a decade'",
+      "implied_physical_doubling": "Material economy could double every few years, or months at peak",
+      "delay": "Early robot ramp gradual because humans build the first robots",
+      "binding_constraints": "Physical experiments, slow trials and capital (they apply a 10x penalty); energy and materials not binding near term",
+      "url": "https://www.forethought.org/research/preparing-for-the-intelligence-explosion",
+      "confidence": "verified"
+    },
+    {
+      "model": "AI 2027 (Kokotajlo, Alexander et al.)",
+      "date": "2025-04",
+      "mechanism": "Superintelligence converts car plants into robot factories (wartime retooling)",
+      "implied_physical_doubling": "About 1M robots per month by late 2028-2029 (as summarized by secondary sources); authors now about 1 year behind, AGI median 2029",
+      "delay": "About 1 year after superintelligence",
+      "binding_constraints": "Not detailed in sources reached",
+      "url": "https://forum.effectivealtruism.org/s/mPpSq94MooY5Gx3DW/p/denCo2BEaYRtvowpw",
+      "confidence": "reported"
+    },
+    {
+      "model": "Aghion, Jones & Jones 'Artificial Intelligence and Economic Growth'",
+      "date": "2017 (NBER w23928); 2019 book chapter",
+      "mechanism": "Task automation with Baumol cost disease",
+      "implied_physical_doubling": "Growth is constrained by essential tasks that are hard to improve; a singularity needs all tasks automated",
+      "delay": "n/a",
+      "binding_constraints": "Baumol: the non-automated share of costs rises and dominates",
+      "url": "https://www.nber.org/papers/w23928",
+      "confidence": "reported"
+    },
+    {
+      "model": "Jones & Tonetti 'Past Automation and Future A.I.: How Weak Links Tame the Growth Explosion' (preliminary)",
+      "date": "2026-01/03",
+      "mechanism": "Calibrated task-based growth accounting; capital productivity grows at least 3pp/yr faster than labor at the task level",
+      "implied_physical_doubling": "Output +4% by 2040 and +19% by 2060 vs no acceleration; fastest case about 13% growth by 2040",
+      "delay": "Slow acceleration over 75 years",
+      "binding_constraints": "Weak links (σ about 0.2), automation rate about 2%/yr of tasks; critics say this assumes general robots only in the 2040s",
+      "url": "https://marginalrevolution.com/marginalrevolution/2026/02/past-automation-and-future-a-i-how-weak-links-tame-the-growth-explosion.html",
+      "confidence": "reported"
+    },
+    {
+      "model": "Acemoglu 'The Simple Macroeconomics of AI'",
+      "date": "2024-05 (Economic Policy 2025)",
+      "mechanism": "Hulten's theorem: share of tasks exposed times cost savings",
+      "implied_physical_doubling": "TFP +0.53-0.66% and GDP +0.9-1.6% over 10 years; no change in doubling time",
+      "delay": "10-year horizon",
+      "binding_constraints": "Only about 4.6% of GDP exposed and profitably automatable; hard tasks; no robotics",
+      "url": "https://www.nber.org/papers/w32487",
+      "confidence": "verified"
+    },
+    {
+      "model": "Korinek & Suh 'Scenarios for the Transition to AGI'",
+      "date": "2024-03 (NBER w32255)",
+      "mechanism": "Race between automation and capital accumulation across a task-complexity distribution",
+      "implied_physical_doubling": "AGI scenarios give much faster output growth than business-as-usual; a fixed factor bottlenecks capital accumulation",
+      "delay": "5-year and 20-year AGI scenarios",
+      "binding_constraints": "Fixed factors (land, energy, minerals); compute",
+      "url": "https://arxiv.org/abs/2403.12107",
+      "confidence": "reported"
+    },
+    {
+      "model": "Restrepo 'We Won't Be Missed: Work and Growth in the AGI World'",
+      "date": "2025 (NBER w34423)",
+      "mechanism": "AGI performs bottleneck tasks with compute; output linear in compute",
+      "implied_physical_doubling": "Growth equals compute growth; exponential, no singularity",
+      "delay": "n/a",
+      "binding_constraints": "Compute; critics add scarce physical inputs",
+      "url": "https://www.nber.org/papers/w34423",
+      "confidence": "reported"
+    },
+    {
+      "model": "Bara 'Moravec's Paradox and Restrepo's Model'",
+      "date": "2025-09-29",
+      "mechanism": "Physical (sensorimotor) tasks with very high or infinite compute cost",
+      "implied_physical_doubling": "Labor share converges to a positive constant in the finite-compute regime; cognitive-economy growth preserved",
+      "delay": "n/a",
+      "binding_constraints": "Physical-task automation cost (the robotics gap)",
+      "url": "https://arxiv.org/abs/2509.24466",
+      "confidence": "verified"
+    },
+    {
+      "model": "Amodei 'Machines of Loving Grace'",
+      "date": "2024-10",
+      "mechanism": "Marginal returns to intelligence limited by the speed of the outside world, data, complexity, human constraints and physical laws",
+      "implied_physical_doubling": "Biology: 50-100 years of progress in 5-10 years ('compressed 21st century'); at least 10x discovery rate; about 20%/yr GDP growth in a developing-economy 'dream scenario'",
+      "delay": "After 'powerful AI'",
+      "binding_constraints": "Cell, animal and human experiment durations; clinical-trial rules; an end-to-end drug timeline of about 1 year is the floor",
+      "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
+      "confidence": "verified"
+    }
+  ],
+  "historical_gpt_evidence": {
+    "electricity": "Central stations from 1881-82. Electric motors were under 5% of factory mechanical drive around 1900. Early adopters swapped motors into group-drive layouts and got little gain. Gains came when factories were rebuilt as single-story, unit-drive plants, and electrification then accounted for about half of manufacturing productivity growth in the 1920s. The lag was about 30-40 years and was set by capital turnover and organizational co-invention (David 1990; Brynjolfsson et al. describe it as lasting a generation).",
+    "computers": "Mainframes in the 1960s and PCs from the 1980s. Solow's 1987 'computers everywhere but in the productivity statistics' was followed by the 1995-2004 US productivity surge to about 2.5-3%/yr, against about 1.4-1.5% in 1973-95 (general). The J-curve adjustment puts TFP 11.3% (2004) and 15.9% (2017) above official measures once software intangibles are counted.",
+    "steam": "The British Industrial Revolution was followed by about 50 years of capital build-up and wage stagnation (Engels' pause), per Brynjolfsson, Rock and Syverson.",
+    "ai_so_far": "ChatGPT launched Nov 2022 (general). US nonfarm productivity was +2.2% y/y in Q2 2026 and +1.4% annualized q/q: modestly above the 2005-2019 average of about 1.5% (general), with no surge visible.",
+    "wartime_precedent": "(general) US WWII mobilization converted car plants to aircraft and tank production within about 1-2 years. Aircraft output rose from about 6k (1939) to about 96k (1944), and Liberty ship build times fell from about 230 days to under 50. This shows physical output can multiply about 10x in about 4 years when capital, labor and regulation are all directed, but it relied on existing plants and a large pool of human labor.",
+    "lesson_for_S4": "AI compresses the co-invention lag, because redesigning processes, layouts and software is cognitive work that S3 makes nearly free. It does not compress the capital-turnover lag: building robot-first factories, fabs and grids with 1-5 year build times and 10-40 year asset lives. The electricity analogue of 'robots' is rebuilding the factory around the new prime mover, and that is what took a generation."
+  },
+  "energy_analysis": {
+    "robots_themselves": "Robot operating power is small. At about 0.4 kW average per general-purpose robot (estimate; humanoid packs are about 2-2.5 kWh per shift, general), 18M robots draw about 7 GW (about 0.2% of world electricity) and 100M draw about 40 GW (about 1.1% of world, about 8% of US). Energy to build a robot is also small: at an assumed 6-12 GJ each, 10M robots/yr is about 17-33 TWh/yr (estimate). Energy does not cap the robot stock before roughly the hundreds of millions.",
+    "what_energy_caps": "Energy caps the energy-intensive complements of an industrial explosion: AI compute (data centers 945 TWh by 2030 in the IEA base case, before any S3/S4 surge), chip fabs, aluminum, steel and silicon refining, cement, and propellant production. If physical output doubles every year, energy use must roughly double too unless energy intensity falls. Global electricity has never grown faster than about 5-7%/yr (general).",
+    "supply_to_2031": "Gas: about 60-70 GW/yr of turbine manufacturing globally, booked to about 2030-31, with prices about +195% since 2019. Wood Mackenzie expects about 63 GW of US gas additions over 2026-2030. Solar: US about 44 GWdc/yr; global 664 GW (2025) and 612 GW (2026F), with module manufacturing capacity of about 1.1 TW/yr or more (general). Storage: US 57.6 GWh in 2025. Nuclear: restarts total about 2.3 GW by 2029, and SMRs are not material before about 2030 (general). Grid: power transformers 2-4 years, interconnection more than 5 years median.",
+    "max_growth": "If every module the world can make were installed, electricity would grow about 4-5%/yr, a doubling time of about 14-17 years. Even a war-footing ramp of firm power by 2031 does not get global electricity much past about 6-8%/yr (estimate).",
+    "verdict": "By 2031, energy is not the binding constraint on robotics itself. The binding constraints are robot production capacity, dexterity and reliability, components (actuators, reducers, magnets, batteries, chips) and factory build time. Energy is binding for AI compute and heavy industry now, and becomes binding for an industrial explosion once the robot economy's share of energy demand is more than about 5-10%, which happens in the early-to-mid 2030s in the fast case. The escape route is robots building behind-the-meter solar and storage on cheap land in permissive jurisdictions, bypassing the interconnection queue, though not land, permitting or battery supply."
+  },
+  "rumor_check": {
+    "claim": "The Oct 6 2026 openai/math release is 1 of 3 solved-math-problem dumps",
+    "finding": "Not substantiated. Searches across mainstream coverage (Scientific American, Engadget, Fortune, Gizmodo, Washington Post), the repository and aggregators found no OpenAI statement and no named reporting of three planned or completed dumps. The repository has one commit and no batch language.",
+    "likely_origins": [
+      "Three OpenAI math releases in about 9.5 weeks: Astra 'Ten advances' (Aug 1, 2026; 249 pages, Lean certificates); the Navier-Stokes claim (Sep 8, 2026) with a secondhand '100+ open problems' claim (Sep 21); and openai/math (Oct 6, 2026). If the Erdos unit-distance disproof (May 20) is counted, Oct 6 is the fourth.",
+      "Scientific American (Oct 6): comments from OpenAI staff led mathematicians to believe more results existed that OpenAI hesitated to publish.",
+      "Fortune (Oct 7): OpenAI reported progress, short of full solutions, on three other Millennium Prize problems.",
+      "Engadget (Oct 7): OpenAI wrote 'For future releases, we are committed to further improving the quality of the papers', which implies more releases but no number or schedule."
+    ],
+    "count_discrepancy": "Gizmodo and The Hill report 377 results; most outlets report 372 families. Dates are given as Oct 6 (most) or Oct 7 (some).",
+    "newer_releases_since_oct6": "None found from OpenAI, Google DeepMind, Anthropic or xAI as of Oct 7, 2026. Unverified math-news aggregator reports of independent preprints claiming the KLS conjecture and Hilbert's 12th problem were not checked.",
+    "sources": [
+      "https://github.com/openai/math",
+      "https://www.scientificamerican.com/article/openai-unleashes-hundreds-more-math-results-upon-a-field-already-in-shock/",
+      "https://www.engadget.com/2279815/openai-just-posted-hundreds-more-results-on-major-math-problems/",
+      "https://fortune.com/2026/10/07/openai-math-controversy-solutions-370-outstanding-challenges-published-criticisms-celebration/",
+      "https://gizmodo.com/openai-dumps-377-new-math-results-on-github-publishes-hand-wringing-blog-post-2000822613",
+      "https://tech-insider.org/openai-100-math-problems-solved-24-days-2026/",
+      "https://www.washingtonpost.com/technology/2026/10/07/openai-releases-progress-more-than-300-math-research-problems/"
+    ]
+  },
+  "three_dumps_implications": {
+    "what_three_dumps_measure": "Throughput and selection, not capability doubling. The Oct 6 release came from about 4,000 posed problems at about 3 h of ChatGPT Pro compute each, with about 9% kept as significant families. Output count grew about 37x in 66 days (12.6-day doubling), which reflects compute allocation and problem posing.",
+    "S2_vs_S3_discriminators": [
+      "Same model or new model? If one model (Gizmodo: the same model as Navier-Stokes) produced all three dumps, the evidence supports S2 capability at a research-grade threshold. A new, stronger model per dump at intervals of weeks points to S3.",
+      "Training-to-results interval: the reported Aug 28 training start to 100+ results by Sep 21 (about 24 days) suggests post-training cycles of weeks. That is a weak S3 indicator if it is confirmed.",
+      "Difficulty frontier: a move from Erdos-tier to Millennium-tier results across dumps indicates capability, not just throughput.",
+      "Verification yield: the share Lean-checked by outsiders (Comparator) and surviving review.",
+      "Transfer to AI R&D: AlphaEvolve-style algorithm discoveries that speed training or inference are the actual mechanism of S3 recursion."
+    ],
+    "recommended_update": "Treat three dumps as moderate evidence for the upper end of S2 or an earlier S3. Shift about 10-15 points of probability toward S3, mostly from S1, and add a sensitivity case with S3 recursion onset in 2027 instead of 2028. Do not change the physical multipliers on this evidence.",
+    "effect_on_space_schedules": "Negligible. The Amdahl ceiling moves from 51.1% (S3) to 52.4% even with infinitely fast cognition. The binding constraint is fully physical, which raises the marginal value of S4 robotics, and of regulatory acceptance of model-based evidence, relative to more mathematics."
+  },
+  "s4_amdahl_table": {
+    "critical_path_shares": {
+      "requirements_trades": 0.1,
+      "design_analysis": 0.15,
+      "software_verification": 0.1,
+      "fabrication_procurement": 0.25,
+      "integration_test": 0.25,
+      "qualification_reviews": 0.1,
+      "launch_campaign": 0.05
+    },
+    "cases": [
+      {
+        "case": "S1",
+        "multipliers": "cog 2/2/2; fab 1.0, I&T 1.0, qual 1.0, launch 1.0",
+        "ceiling_compression": "17.5%",
+        "speedup": "1.21x"
+      },
+      {
+        "case": "S2",
+        "multipliers": "cog 5/10/5; fab 1.1, I&T 1.2, qual 1.2, launch 1.0",
+        "ceiling_compression": "37.6%",
+        "speedup": "1.60x"
+      },
+      {
+        "case": "S3",
+        "multipliers": "cog 20/50/20; fab 1.3, I&T 1.5, qual 1.5, launch 1.0",
+        "ceiling_compression": "51.1%",
+        "speedup": "2.05x"
+      },
+      {
+        "case": "S3, infinite cognition",
+        "multipliers": "cog infinite; physical as S3",
+        "ceiling_compression": "52.4%",
+        "speedup": "2.10x"
+      },
+      {
+        "case": "S4 2031 low (robots late or confined)",
+        "multipliers": "cog as S3; fab 1.5, I&T 1.5, qual 1.5, launch 1.0",
+        "ceiling_compression": "53.7%",
+        "speedup": "2.16x"
+      },
+      {
+        "case": "S4 2031 high (robot-first firm)",
+        "multipliers": "cog as S3; fab 2.0, I&T 2.0, qual 1.7, launch 1.2",
+        "ceiling_compression": "63.7%",
+        "speedup": "2.75x"
+      },
+      {
+        "case": "S4 2035",
+        "multipliers": "cog as S3; fab 3.0, I&T 2.5, qual 2.0, launch 1.5",
+        "ceiling_compression": "72.0%",
+        "speedup": "3.58x"
+      },
+      {
+        "case": "S4 saturation (qualification and launch held)",
+        "multipliers": "cog infinite; fab 5.0, I&T 3.0, qual 1.5, launch 1.0",
+        "ceiling_compression": "75.0%",
+        "speedup": "4.00x"
+      }
+    ],
+    "note": "Multipliers for S4 are this analysis's judgment, anchored on Forethought's 24/7 operation (about 3x hours) and 2-4x AI factory productivity, discounted for bootstrap timing and the parts of integration and test and of qualification set by physics, statistics and statute. Robotics adds about 3-13 points by 2031 and about 21 points by 2035 over S3."
+  },
+  "robot_loop_model": {
+    "inputs": "2026 general-purpose/humanoid production of about 50k (Counterpoint forecast); stock at end-2026 about 75k including 2025's 13-18k; retirements ignored.",
+    "paths": [
+      {
+        "path": "slow (1.6x/yr, similar to EV/solar ramps)",
+        "end_2031_production": "0.52M/yr",
+        "end_2031_stock": "1.3M",
+        "end_2035_stock": "9.1M"
+      },
+      {
+        "path": "central (2x/yr)",
+        "end_2031_production": "1.6M/yr",
+        "end_2031_stock": "3.2M",
+        "end_2035_stock": "51M"
+      },
+      {
+        "path": "fast (3x/yr, the 2025-26 rate sustained)",
+        "end_2031_production": "12M/yr",
+        "end_2031_stock": "18M",
+        "end_2035_stock": ">150M (impossible without loop closure and about 1B+/yr production; treat as an upper bound)"
+      }
+    ],
+    "loop_closure_condition": "Robots must supply most of the labor in their own supply chain: assembly, components, chips, magnets, batteries, metals and the factories that make them. The robot stock needs to be in the tens of millions, deployed in those sectors (estimate). Fast path: about 2031-2033. Central: about 2034-2036. Slow: after 2035.",
+    "capital_check": "12M robots/yr at about $25k each is about $300B/yr, similar to 2025-26 AI capex, so capital is not binding in the fast case (estimate).",
+    "materials_check": "At an assumed 2-4 kg of NdFeB magnet per humanoid, 12M/yr needs about 24-48 kt, against global magnet output of about 200-300 kt/yr (general). That is a material but feasible share, with China-concentration and export-control risk (estimate)."
+  },
+  "sources": [
+    {
+      "title": "openai/math repository",
+      "url": "https://github.com/openai/math",
+      "date": "2026-10-06"
+    },
+    {
+      "title": "OpenAI unleashes hundreds more math results upon a field already in shock (Scientific American)",
+      "url": "https://www.scientificamerican.com/article/openai-unleashes-hundreds-more-math-results-upon-a-field-already-in-shock/",
+      "date": "2026-10-06"
+    },
+    {
+      "title": "OpenAI just posted hundreds more results on major math problems (Engadget)",
+      "url": "https://www.engadget.com/2279815/openai-just-posted-hundreds-more-results-on-major-math-problems/",
+      "date": "2026-10-07"
+    },
+    {
+      "title": "OpenAI publishes solutions to more than 370 outstanding math challenges (Fortune)",
+      "url": "https://fortune.com/2026/10/07/openai-math-controversy-solutions-370-outstanding-challenges-published-criticisms-celebration/",
+      "date": "2026-10-07"
+    },
+    {
+      "title": "OpenAI Dumps 377 New Math Results on GitHub (Gizmodo)",
+      "url": "https://gizmodo.com/openai-dumps-377-new-math-results-on-github-publishes-hand-wringing-blog-post-2000822613",
+      "date": "2026-10-06"
+    },
+    {
+      "title": "OpenAI Claims 100+ Math Problems Solved in 24 Days (Tech Insider)",
+      "url": "https://tech-insider.org/openai-100-math-problems-solved-24-days-2026/",
+      "date": "2026-09-22"
+    },
+    {
+      "title": "OpenAI releases progress on more than 300 math research problems (Washington Post)",
+      "url": "https://www.washingtonpost.com/technology/2026/10/07/openai-releases-progress-more-than-300-math-research-problems/",
+      "date": "2026-10-07"
+    },
+    {
+      "title": "The Industrial Explosion (Davidson & Hadshar, Forethought)",
+      "url": "https://forethought.org/research/the-industrial-explosion",
+      "date": "2025-05-21"
+    },
+    {
+      "title": "Three Types of Intelligence Explosion (Forethought)",
+      "url": "https://www.forethought.org/research/three-types-of-intelligence-explosion",
+      "date": "2025-03-17"
+    },
+    {
+      "title": "Preparing for the Intelligence Explosion (MacAskill & Moorhouse)",
+      "url": "https://www.forethought.org/research/preparing-for-the-intelligence-explosion",
+      "date": "2025-03-11"
+    },
+    {
+      "title": "GATE: An Integrated Assessment Model for AI Automation (Epoch AI)",
+      "url": "https://arxiv.org/abs/2503.04941",
+      "date": "2025-03"
+    },
+    {
+      "title": "AI and explosive growth redux (Potlogea & Ho, Epoch AI)",
+      "url": "https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux",
+      "date": "2025-06-20"
+    },
+    {
+      "title": "Could Advanced AI Drive Explosive Economic Growth? (Davidson)",
+      "url": "https://coefficientgiving.org/research/could-advanced-ai-drive-explosive-economic-growth/",
+      "date": "2021-06"
+    },
+    {
+      "title": "What a compute-centric framework says about AI takeoff speeds (Davidson; mirror)",
+      "url": "https://forum.nunosempere.com/posts/3vDarp6adLPBTux5g/what-a-compute-centric-framework-says-about-ai-takeoff",
+      "date": "2023-06"
+    },
+    {
+      "title": "Explosive growth from AI automation: A review of the arguments (Erdil & Besiroglu)",
+      "url": "https://arxiv.org/abs/2309.11690",
+      "date": "2023-09 / 2024-07"
+    },
+    {
+      "title": "The Simple Macroeconomics of AI (Acemoglu)",
+      "url": "https://www.nber.org/papers/w32487",
+      "date": "2024-05"
+    },
+    {
+      "title": "Scenarios for the Transition to AGI (Korinek & Suh)",
+      "url": "https://arxiv.org/abs/2403.12107",
+      "date": "2024-03"
+    },
+    {
+      "title": "Artificial Intelligence and Economic Growth (Aghion, Jones & Jones)",
+      "url": "https://www.nber.org/papers/w23928",
+      "date": "2017-10"
+    },
+    {
+      "title": "We Won't Be Missed: Work and Growth in the AGI World (Restrepo)",
+      "url": "https://www.nber.org/papers/w34423",
+      "date": "2025"
+    },
+    {
+      "title": "Moravec's Paradox and Restrepo's Model (Bara)",
+      "url": "https://arxiv.org/abs/2509.24466",
+      "date": "2025-09-29"
+    },
+    {
+      "title": "Past Automation and Future A.I.: How Weak Links Tame the Growth Explosion (Jones & Tonetti; via Marginal Revolution)",
+      "url": "https://marginalrevolution.com/marginalrevolution/2026/02/past-automation-and-future-a-i-how-weak-links-tame-the-growth-explosion.html",
+      "date": "2026-02-12"
+    },
+    {
+      "title": "Weak links and limits to economic growth (critique)",
+      "url": "https://bayesianinvestor.com/blog/index.php/2026/07/09/weak-links-and-limits-to-economic-growth/",
+      "date": "2026-07-09"
+    },
+    {
+      "title": "Machines of Loving Grace (Amodei)",
+      "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
+      "date": "2024-10"
+    },
+    {
+      "title": "Daniel Kokotajlo on AI 2027: robot economies (80,000 Hours summary)",
+      "url": "https://forum.effectivealtruism.org/s/mPpSq94MooY5Gx3DW/p/denCo2BEaYRtvowpw",
+      "date": "2025"
+    },
+    {
+      "title": "The Dynamo and the Computer (David 1990)",
+      "url": "https://www.gwern.net/doc/economics/automation/1990-david.pdf",
+      "date": "1990-05"
+    },
+    {
+      "title": "The Productivity J-Curve (Brynjolfsson, Rock & Syverson)",
+      "url": "https://www.nber.org/papers/w25148",
+      "date": "2018-10 / 2021"
+    },
+    {
+      "title": "BLS Productivity and Costs, Q2 2026 revised",
+      "url": "https://www.bls.gov/news.release/archives/prod2_09032026.htm",
+      "date": "2026-09-03"
+    },
+    {
+      "title": "IFR: Five million robots now operate in factories globally (World Robotics 2026)",
+      "url": "https://ifr.org/news/five-million-robots-now-operate-in-factories-globally/",
+      "date": "2026-09-24"
+    },
+    {
+      "title": "Counterpoint: Global humanoid robot shipments soar nearly 300% YoY in H1 2026",
+      "url": "https://counterpointresearch.com/en/insights/global-humanoid-robot-shipments-soar-nearly-300-percent-yoy-in-h1-2026",
+      "date": "2026-08-20"
+    },
+    {
+      "title": "Electrek: Tesla Optimus production",
+      "url": "https://electrek.co/2026/04/22/tesla-optimus-production/",
+      "date": "2026-04-22"
+    },
+    {
+      "title": "GE Vernova gas turbine backlog climbs to 116 GW (Utility Dive)",
+      "url": "https://www.utilitydive.com/news/ge-vernova-gas-turbine-backlog-climbs-to-116-gw/826039/",
+      "date": "2026-07/08"
+    },
+    {
+      "title": "Gas turbine prices soar 195% (Wood Mackenzie)",
+      "url": "https://www.woodmac.com/es/press-releases/gas-turbine-prices-soar-195-as-market-faces-supply-demand-crisis/",
+      "date": "2025-2026"
+    },
+    {
+      "title": "US transformer market faces severe supply constraints (pv magazine USA)",
+      "url": "https://pv-magazine-usa.com/2026/05/11/u-s-transformer-market-faces-severe-supply-constraints-as-lead-times-extend-to-four-years/",
+      "date": "2026-05-11"
+    },
+    {
+      "title": "LBNL Queued Up (2025 and 2026 editions)",
+      "url": "https://emp.lbl.gov/queues",
+      "date": "2025-12 / 2026"
+    },
+    {
+      "title": "Fuel loading process begins at Palisades (ANS)",
+      "url": "https://www.ans.org/news/article-8355/fuel-loading-process-begins-at-palisades/",
+      "date": "2026-08-31"
+    },
+    {
+      "title": "Constellation seeks regulator's help for 2027 plant restart (WNN)",
+      "url": "https://world-nuclear-news.org/articles/constellation-seeks-regulators-help-for-2027-plant-restart",
+      "date": "2026"
+    },
+    {
+      "title": "US DOE closes loan for Duane Arnold restart (WNN)",
+      "url": "https://world-nuclear-news.org/articles/us-department-of-energy-closes-loan-for-duane-arnold-restart",
+      "date": "2026-09-08"
+    },
+    {
+      "title": "Solar industry delivers 11.4 GW in Q2 (pv magazine)",
+      "url": "https://www.pv-magazine.com/2026/09/11/solar-industry-delivers-11-4-gw-in-q2-but-growth-remains-constrained/",
+      "date": "2026-09-11"
+    },
+    {
+      "title": "SolarPower Europe: Global solar market record 664 GW in 2025",
+      "url": "https://www.solarpowereurope.org/press-releases/new-report-global-solar-market-hits-new-record-of-664-gw-installation-in-2025-as-global-solar-fleet-passes-3-tw",
+      "date": "2026-06-22"
+    },
+    {
+      "title": "EIA STEO Sep 2026: US power use to beat record highs (Reuters via BOE Report)",
+      "url": "https://boereport.com/2026/09/09/us-power-use-to-beat-record-highs-in-2026-and-2027-as-ai-use-surges-eia-says-6/",
+      "date": "2026-09-09"
+    },
+    {
+      "title": "IEA Energy and AI: global data center power demand to double by 2030 (S&P Global)",
+      "url": "https://www.spglobal.com/commodity-insights/en/news-research/latest-news/electric-power/041025-global-data-center-power-demand-to-double-by-2030-on-ai-surge-iea",
+      "date": "2025-04-10"
+    },
+    {
+      "title": "Manifold: Industrial explosion before 2040",
+      "url": "https://manifold.markets/deletedaccount001/industrial-explosion-before-2040",
+      "date": "2026-10"
+    },
+    {
+      "title": "33FG whats_new (space/xAI news, Sep 28-Oct 7 2026; no AI-math items)",
+      "url": "https://research.33fg.com/news",
+      "date": "2026-10-07"
+    }
+  ],
+  "file_written": "/Users/alex/projects/openai math paper/model/embodied/research-theory.json"
+}

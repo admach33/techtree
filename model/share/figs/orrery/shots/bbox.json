@@ -1,0 +1,1 @@
+[["eval", "(() => { const s = document.querySelector('svg.iso-svg'); const b = s.getBBox(); const h = [...s.querySelectorAll('.iso-halo')].map(p => p.getBBox()); return JSON.stringify({x:b.x.toFixed(1), y:b.y.toFixed(1), w:b.width.toFixed(1), h:b.height.toFixed(1), halo: h.map(q => [q.x, q.y, q.width, q.height].map(v => v.toFixed(1)))}); })()"]]

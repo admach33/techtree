@@ -1,0 +1,1141 @@
+{
+ "update": [
+  {
+   "id": "frontier-landau-damping-general",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 S1 is six years past its 2029 date, and human programs settle about one new setting a year, so S1 rises to High. The work is pure theory, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + advocate + auditor: hard edge to plasma-kinetic-closures -> soft (P5 confidence input, not a gate). Skeptic + auditor: target restated so a true negative result counts (collisionless transverse Bernstein modes do not damp; echo counterexamples on the torus); node reached when at least one variant is settled. Auditor: attribution fixed (Ionescu-Pausader-Wang-Widmayer 2022 first; Nguyen-Wei-Zhang a new proof) and two uncited results given citations. Auditor's Medium cap considered and not applied: premise_tier now states why the band does not depend on public release (see debates). Years and bands unchanged. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. band_2035 S1 Medium -> High. Years unchanged."
+   }
+  },
+  {
+   "id": "plasma-vm-wellposed",
+   "patch": {
+    "earliest_year": {
+     "S1": "2027",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "High by 2031 in every scenario, and nothing in 2032-35 changes that. The gate is a formal check, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Auditor (statement-gap rule, tr-position-2): title and description scoped to one species, 3D, per the release overview; signpost asks the audit to state species and data class. Why no longer says every collisionless code is covered. Years and bands unchanged. | B-fix (integrator, 2026-10-07): lettered citation 'per analyst position (d' replaced with the KB position id per tl-position-2. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. note only; years and bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-gk-surrogates",
+   "patch": {
+    "earliest_year": {
+     "S1": "2027",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Surrogates are in design use from 2027; 2032-35 brings wider validation and no new date. Data and compute are the gate, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Auditor: GKV node-hour figure marked (general) because the source was a search summary; STELLAR-AI wording matched to its source (StellFoundry). Years and bands unchanged. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. note only; years and bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-kinetic-solvers-at-scale",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Four more years of algorithms and hardware make a days-long full-device run likely by 2035, so S2 rises to High. S1 cognition reaches S2's 2029-30 level, so S1 rises to Medium. Algorithms and compute bind, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + auditor: S3 2027 -> 2028 (S3 equals S2 through 2027; cap-applied-math is 2027 in both). Skeptic: signpost now measures affordability only; the no-tuning accuracy test moves to plasma-hall-anomalous-closure; unsupported 10-100x stacking sentence replaced by cost arithmetic. Auditor: pathway P1->P6 -> P1->P4; S1 Medium -> Low, S2 High -> Medium (P4 default; resolver arithmetic puts today's cost at ~1e18-1e19 particle pushes, weeks to months on a full exascale machine, so 'days' needs another 10-100x). S3 High kept. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. band_2035 S1 Low -> Medium, S2 Medium -> High. Years unchanged."
+   }
+  },
+  {
+   "id": "plasma-lean-kinetic-library",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches the library in 2030 and is High by 2035, because agreeing on definitions is cheap once applied Mathlib exists. The work is formalization, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic: why no longer claims audits need a shared library (contradicted plasma-vm-wellposed, S1 2027, which uses bespoke definitions). Resolver consistency: S3 2027 -> 2028 (S3 equals S2 through 2027; the trunk resolver moved infra-mathlib-applied S3 to 2028). Bands unchanged. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. band_2035 S1 Medium -> High. Years unchanged."
+   }
+  },
+  {
+   "id": "plasma-verified-kinetic-numerics",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 resolves to 2033, when Plateau cognition reaches the base case's 2029 level. S2 rises to High by 2035 because one code team shipping one checked module is enough. The gate is formalization, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + auditor: hard edge from plasma-vm-wellposed -> soft; premise_tier -> context only (finite-interval convergence needs local smoothness only; engineering PIC is electrostatic and non-relativistic). Advocate: S3 Medium -> High (cognitive-clock node; all S3 hard prerequisites High by 2028; one module from one code team suffices). S1/S2 unchanged. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2033 (Plateau reaches S2's 2029 capability about 2033; prerequisites S1 2029-30). band_2035 S1 Low -> Medium, S2 Medium -> High."
+   }
+  },
+  {
+   "id": "plasma-kinetic-closures",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 resolves to 2034, a year after its physics-theory prerequisite (S1 2033 in the trunk). S3 rises to High by 2035 after six years of near-free theory and validation data; S2 stays Medium because closures may not exist in closed form. Simulation data binds and robots add no bench work that matters, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + advocate + auditor: hard edge from frontier-landau-damping-general -> soft. Skeptic + advocate: soft edge from plasma-kinetic-solvers-at-scale (why names its data as the validation source). Auditor: family 364 removed from catalog_families (it maps to rarefied flow/DSMC, not plasma closures); kept as text. Resolver consistency: S3 2028 -> 2029 because the trunk resolver moved hard prerequisite cap-physics-theory S3 to 2029 (autofix would do the same). Bands unchanged. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2033 (one year after cap-physics-theory S1 2032 in the trunk draft, matching the S2 lag of zero to one year). band_2035 S3/S4 Medium -> High. | Resolver (2026-10-07): S1 2033 -> 2034 to keep the one-year lag after cap-physics-theory (S1 2033 in E-trunk-final)."
+   }
+  },
+  {
+   "id": "plasma-hall-anomalous-closure",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 resolves to 2034: physics theory (S1 2033 in the trunk) plus a one-year validation campaign. By 2035 S2 rises to Medium. S3 stays Medium: kinetic design loops from 2033 add training runs across geometries and pressures, but transport may still be coupled to the facility, wall physics stays uncertain, and the signpost needs measured validation on three thrusters. Chamber time and diagnostics bind, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + advocate: hard edge from plasma-kinetic-closures -> soft; description admits data-driven closures. Skeptic: S2 Medium -> Low (P6 default; two Medium hard prerequisites; strict criterion); signpost date aligned to the S2 year. Advocate's S2 2030 -> 2029 rejected (validation across three thrusters takes about a year after the 2028 solvers and 2029 theory). Auditor: Whittaker figures restated as fits to calibration data, with discharge current not reliably predicted. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2033 (cap-physics-theory S1 2032 plus a one-year multi-thruster validation campaign). band_2035 S2 Low -> Medium. | Resolver (2026-10-07): S1 2033 -> 2034 (cap-physics-theory S1 2033 in E-trunk-final). Advocate's soft edge from plasma-35-kinetic-design-loop accepted; its S3/S4 High by 2035 rejected (facility coupling and wall physics are not removed by more simulation, and the loop itself is only Medium by 2035)."
+   }
+  },
+  {
+   "id": "plasma-magnetic-nozzle-theory",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 resolves to 2033, three years after cheap kinetic solvers (S1 2030). By 2035 cheap launch makes an in-space far-field measurement affordable, so S2 rises to Medium; no diagnostic flight is committed, so no scenario reaches High. The gate is a flight measurement, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Advocate: hard edge from plasma-kinetic-closures -> soft (the fully kinetic route needs only the solvers). Skeptic: S2 Medium -> Low (P6 default; no committed far-field in-space diagnostic; Medium solver prerequisite). Advocate's S2 2030 -> 2029 rejected (no in-space validation measurement is planned before 2029). S3 Medium kept. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2033 (kinetic solvers S1 2030; S2 lag of two years plus slower Plateau cognition). band_2035 S2 Low -> Medium. | Resolver (2026-10-07): Advocate's S3/S4 High by 2035 rejected: no far-field diagnostic flight is committed, and cheap launch makes one affordable, but nobody has funded one. Unchanged."
+   }
+  },
+  {
+   "id": "prop-ntp-fuel-model",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2030",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "S1 resolves to 2034, after physics theory (S1 2033 in the trunk). Validation needs test-reactor fluence and hot-cell exams of 1-3 years, and no combined irradiation and hot-hydrogen facility exists. There is no NTP program of record, so the band stays Low by 2035 in every scenario. Fluence and hot-cell exams bind, and robots shorten neither, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + auditor: S3 Medium -> Low; skeptic: S3 2029 -> 2030 (irradiation fluence plus post-irradiation examination take 1-3 years that no cognitive multiplier shortens). Skeptic: families 278 and 275 relabelled context only. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2033 (after cap-physics-theory S1 2032). band_2035 S2/S3/S4 Low -> Medium. | Resolver (2026-10-07): Skeptic accepted: band_2035 S2-S4 Medium -> Low (the draft made the band conditional on NTP funding that does not exist). S1 2033 -> 2034 (trunk). Soft edge from robo-lab-bench-useful dropped: the robot node is the same S4 year, and installed hot-cell manipulators already do the bench work."
+   }
+  },
+  {
+   "id": "plasma-dhe3-burn-physics",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2032",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "S2 resolves to 2032 and S1 to 2033, because heating and He-3 supply run on physical clocks that the scenarios move by about a year. By 2035 S3 has four years of slack, but the gate is plasma heating that AI moves by about a year, and one company carries the attempt, so it stays Low in every scenario. The gate is plasma physics, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Auditor (grounding rule) + skeptic + advocate: dated physical chain added; He-3 supply framing qualified (bred He-3 via D-D fusion; demonstrators need grams). Soft edge from new plasma-ai-fusion-operations. Years and bands unchanged. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2033, S2 >2031 -> 2032 (S3 2031 reflects 1.3-1.5x experiment compression; S2 1.2x and S1 about 1.05x on the same campaign). band_2035 S3/S4 Low -> Medium. | Resolver (2026-10-07): Skeptic accepted: S3/S4 band_2035 Medium -> Low (one year of scenario difference cannot carry a band step on a heating gate). Signpost now names a threshold: D-He3 fusion energy at least 1% of the energy delivered to the plasma.",
+    "signpost": "Helion or another group publishes measured D-He3 fusion rates (14.7 MeV proton spectra, neutron fraction) in a peer-reviewed venue, with D-He3 fusion energy at least 1% of the energy delivered to the plasma."
+   }
+  },
+  {
+   "id": "physclock-nuclear-safety-case-ai",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 cognition catches up by 2035, but a reactor launch is Low by 2035 in every scenario, so a launch review that uses AI-made analyses may not happen; S1 stays Low. S2-S4 stay at the Medium cap because no named mechanism yet accepts AI-made analyses under NSPM-20. S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + advocate + auditor (verified against NSPM-20 text): HALEU/LEU fission launches are Tier II, authorized by the sponsoring agency head after INSRB review, not presidential. Auditor (verified): the $10M was a House Appropriations Committee recommendation, not a congressional direction. Skeptic + auditor: S3 2027 -> 2028 (S3 equals S2 through 2027; trunk moved capability-controlled-data-access to 2028). Skeptic: signpost now measures the AI contribution. Medium cap kept. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. band_2035 S1 Low -> Medium; regulatory cap keeps S2-S4 at Medium. Years unchanged. | Resolver (2026-10-07): Skeptic accepted: S1 band_2035 Medium -> Low; the 'a reactor launch review has likely taken place' clause dropped because physclock-reactor-in-space is now Low by 2035."
+   }
+  },
+  {
+   "id": "plasma-stellarator-design-loop",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches the loop in 2030 and is High by 2035, because surrogates, open optimizers and benchmarks already exist. Design is cognitive, so S4 equals S3; robots matter only for building the coils it designs.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + advocate: binding_gate fabrication -> data (the node is a design tool; fabrication gates the machines it designs). Advocate (evidence checked by auditor): S2 2029 -> 2028 (surrogates already inside optimization loops, open benchmarks, STELLAR-AI; only hard prerequisite cap-design-optimization is S2 2028). Signpost changed so the tool can be observed without a built coil. Auditor: Type One Infinity Two marked (general), source mismatch. Advocate: soft edge to plasma-fusion-propulsion-design-closure. Bands unchanged. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. band_2035 S1 Medium -> High. Years unchanged."
+   }
+  },
+  {
+   "id": "plasma-ep-predictive-design",
+   "patch": {
+    "earliest_year": {
+     "S1": "2035",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 resolves to 2035, a year after its transport closure (S1 2034, now that physics theory is S1 2033 in the trunk). By 2035 S2 rises to Medium with the closure. From 2033 (S3) kinetic design loops add a second route, but both routes share wall physics and need test data across designs, so no scenario reaches High. Test data binds, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic: hard edge from plasma-hall-anomalous-closure added (a days-per-run kinetic simulation cannot serve a design loop; 'either sufficient' removed); S2 Medium -> Low following the closure. Advocate's soft-edge version, S2 2029 / S3 2028 and S3 High rejected (see debates); its pathway label P1->P6 accepted. Auditor: Whittaker figures restated. Iteration figures marked judgment. Years unchanged. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2034 (hard prerequisite plasma-hall-anomalous-closure S1 2033, plus a year of validation across designs). band_2035 S2 Low -> Medium. | Resolver (2026-10-07): Advocate's structure accepted: plasma-hall-anomalous-closure hard -> soft, plus a soft edge from plasma-35-kinetic-design-loop, because the new loop node removes the reason given for the hard edge in round B (no design-loop route existed). Advocate's S3/S4 High by 2035 rejected: the routes share wall-physics and validation risk. S1 2034 -> 2035 because cap-physics-theory S1 is 2033 in E-trunk-final, which moves the closure S1 to 2034.",
+    "why": "Predictive design has two routes. (1) A validated transport closure (plasma-hall-anomalous-closure), first-principles or data-driven, inside cheap fluid or hybrid codes, or surrogates trained on many kinetic runs, which amounts to the same thing. (2) From 2033 in S3 and 2034 in S2, direct optimization on full-device kinetic runs (plasma-35-kinetic-design-loop). Before then, whole-device kinetic simulation only supplies training and validation data: at days per run on a leadership-class machine it cannot serve the hundreds of evaluations a design loop needs (arithmetic in plasma-kinetic-solvers-at-scale). Either route is enough, so both are soft edges; the years (S3 2029, S2 2030, S1 2035) come from the closure route. A new Hall thruster typically takes several build-test iterations at roughly a year each (general); a predictive code could cut iterations from ~3-4 to ~1-2 (general, judgment). Validation needs test data across designs, which binds the year. The band follows the closure: S2 Low and S3 Medium by 2031. The two routes share wall and emission physics and the need for test data, so together they do not lift the band to High by 2035."
+   }
+  },
+  {
+   "id": "plasma-ep-life-by-analysis",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": "2031",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "S1 now falls after 2035: the closure moves to 2034 (trunk), then a partial wear test of about 16 months and an agency review. By 2035 the closure is Medium in S2-S4, and an agency must still accept less than a full wear test, which it has not done since the 2009 standard, so the band compounds to Low. Wear hours and the agency rule bind, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): All three lenses (verified in Williams et al. 2026): NASA already qualifies EP life by 100% test with 50% margin by analysis, and the AEPS QM-2 wear test runs fall 2026 to Sep 2029, so the node is redefined to the real increment (credit for part of the 100% test) and the AEPS-by-2029 signpost dropped. Advocate + auditor: infra-tool-qualification hard -> soft (DO-178C/DO-330 proof credit is not the path for physics wear models). Resolver: plasma-ep-predictive-design hard -> soft (qualifying an existing thruster does not need design-before-build); plasma-hall-anomalous-closure kept hard against the advocate. Skeptic: S3 2030 -> 2031 and S3 Medium -> Low; advocate's S2 2030 Medium / S3 2029 rejected (see debates). Soft edge from new plasma-aeps-life-qual. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2035 (closure S1 2033 -> ~10,000 h wear test, about 14 months -> qualification review). band_2035 S2/S3/S4 Low -> Medium (regulatory cap). | Resolver (2026-10-07): Skeptic accepted: band_2035 S2-S4 Medium -> Low (the regulatory cap is a ceiling and gives no reason to rise; the node's own compounding sentence gives Low). Wear-test duration restated at the AEPS QM-2 duty cycle (about 16 months for 10,000 h). S1 2035 -> >2035 because the closure moved to S1 2034 (trunk). Advocate's soft edge from plasma-35-kinetic-design-loop accepted.",
+    "why": "A 23,000-hour wear test is 2.6 years of continuous firing. Running ~10,000 hours and extrapolating with an accepted model would save ~1.5 years and tens of millions in facility time (general). The step beyond today's practice is predicting how erosion evolves as surfaces wear, beyond the tested duration. That needs a near-wall transport model that stays valid as geometry changes (plasma-hall-anomalous-closure, hard) and a rule for crediting model evidence (physclock-credibility-evidence-standard, hard). Design-before-build (plasma-ep-predictive-design) and certification of AI-written proofs (infra-tool-qualification, which covers software proof credit, not physics wear models) help but are not required. Chain (S3): closure validated 2029 -> a wear test planned for partial credit accumulates ~10,000 h (about 16 months at a normal wear-test duty cycle), checked against long-duration data (AEPS QM-2 completes Sep 2029) -> qualification review -> 2031 at the earliest. S2 lands at the horizon, one step later. Full-device kinetic runs (plasma-35-kinetic-design-loop, soft, S3 2033) can resolve near-wall erosion later, but low-energy sputter yields and agency practice still bind. The regulator rule caps the band at Medium. After compounding it is Low in all scenarios at both checkpoints."
+   }
+  },
+  {
+   "id": "plasma-fusion-propulsion-design-closure",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "S1 resolves to 2034, a year after nozzle theory and physics theory (both S1 2033). By 2035 the design stays Low in S2-S4 because it cannot sit above its D-He3 premise (Low) and nozzle theory is only Medium. S1 stays Speculative because its nozzle theory is Low. Experimental data binds, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + auditor: S3 Medium -> Low. Auditor wording adopted (the skeptic's stated alternative): D-He3 burn sub-model taken from theory, so no hard edge from plasma-dhe3-burn-physics and years unchanged. Auditor: PSS/Pulsar ML claim and Sunbird first-plasma detail marked unverified. Advocate: soft edge from plasma-stellarator-design-loop. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2034 (after plasma-magnetic-nozzle-theory S1 2033). band_2035 S1 Speculative -> Low, S3/S4 Low -> Medium (tracks plasma-dhe3-burn-physics). | Resolver (2026-10-07): Skeptic accepted: S3/S4 band_2035 Medium -> Low (tracks plasma-dhe3-burn-physics, now Low). Draft's S1 raise Speculative -> Low reverted: S1 nozzle theory is Low by 2035, so the compound stays under 10%."
+   }
+  },
+  {
+   "id": "plasma-fusion-net-gain",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 SPARC's D-T campaign and Helion's Orion have seven years of slack, so the band rises to High in every scenario. It is a hardware anchor built before robots matter, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + auditor: S3 2027 -> 2028 (physical-clock node; S3 equals S2 through 2027-28; SPARC first plasma is itself 2027). Auditor (verified): TAE's Copernicus was cancelled Nov 2025; unsourced SPARC vacuum-vessel date replaced by the verified TF-magnet milestone; dated chain added. Advocate's S3 Medium -> High rejected (hardware binds; one of its three attempts is cancelled); its plasma-ai-fusion-operations added as a soft accelerator. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7'). | E-plasma-nuclear (2026-10-07): 2035/S4 extension. band_2035 Medium -> High in all scenarios. Years unchanged."
+   }
+  },
+  {
+   "id": "physclock-reactor-in-space",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2031",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "SR-1 has $10M recommended against a $2.1B estimate, and the Lunar Reactor-1 posting was made inactive in Mar 2026 with no award. SR-1 launches only in a Mars window, so a FY2028 funded start points to Apr 2033 at the earliest, with mid 2035 as the fallback. Low in every scenario. Raise to Medium if an enacted FY2027 or FY2028 budget gives SR-1 several hundred million dollars a year or NASA awards Lunar Reactor-1. Appropriations, HALEU, Mars windows and launch approval bind, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + advocate + auditor: hard edge from physclock-nuclear-safety-case-ai -> soft (a conventionally prepared Tier II safety analysis suffices; SR-1's target predates AI safety cases). Skeptic: S2/S3 Medium -> Low (capital, politics and HALEU bind at 1.0x in every scenario; the S1-to-S2 band jump rested only on AI analysis that is off the critical path; aligns with struct-fsp-lunar-100kwe). Auditor (verified): $10M was a House committee recommendation; Gateway paused, not cancelled; PPE reuse added. Advocate: Space Reactor Office and streamlined-management facts added. Years unchanged. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. band_2035 Low -> Medium in all scenarios. Years unchanged. | Resolver (2026-10-07): Skeptic accepted: band_2035 Medium -> Low in all scenarios (no funded start exists, SR-1 is tied to Mars windows, every U.S. program since 1965 was cancelled), with a stated trigger for Medium. Consistency fix: S2-S4 2030 -> 2031. SR-1 can launch only in a Mars window (Dec 2028, early 2031) and the lunar unit is 2033 at the earliest in E-orbital-compute-power-final, so no route gives 2030. band_2031 unchanged (Low); S4 still equals S3. Soft edge from robo-aerospace-tolerance-work dropped: same S4 year as this node, reactor suppliers come after 2031, and the S4 analysis lists the nuclear group as no-credit.",
+    "why": "HALEU fuel supply, reactor fabrication, zero-power criticality testing and integration take roughly 4-6 years from a funded start (general). The physclock lag ladder applies 0.9x in S2 and 0.8-0.9x in S3, while appropriations and politics compress 1.0x in every scenario. SR-1 flies past Mars twice and drops a helicopter capsule there (Wikipedia), so it launches only in a Mars window: Dec 2028, early 2031, about Apr 2033 or about mid 2035. It is underfunded for Dec 2028; the early-2031 window needs FY2027-28 appropriations of several hundred million dollars a year. The lunar unit is 2033 at the earliest after NASA reset the Lunar Reactor-1 procurement in Mar 2026 (struct-fsp-lunar-100kwe). A conventionally prepared Tier II safety analysis is sufficient, so the AI safety case (physclock-nuclear-safety-case-ai) is an accelerator worth perhaps 6-12 months. It matters only if it moves a launch into an earlier window. Chain: funded start FY2027 -> fuel, fabrication, criticality tests, safety analysis and INSRB review -> ready about 2030 -> launch in the early-2031 Mars window, the earliest year in every scenario. Band Low in all scenarios because the binding gates do not depend on the scenario and every U.S. space-reactor program since SNAP-10A has been cancelled."
+   }
+  },
+  {
+   "id": "plasma-abep-demo",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 resolves to 2033 on the conventional design route, which does not need AI design. By 2035 S2-S4 rise to Medium as low-orbit operators multiply; atomic-oxygen erosion and funding keep it below High. A demo is launch- and funding-bound, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic: hard edge from cap-design-optimization -> soft (a physical demo that conventional design can achieve; funding, atomic oxygen and a ride bind). Auditor (grounding rule): dated chain added; Clarity-1 altitude corrected (275 km was the design altitude, not demonstrated). Years and bands unchanged. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2033 (conventional design route; endurance test and funded rideshare). band_2035 S2/S3/S4 Low -> Medium."
+   }
+  },
+  {
+   "id": "plasma-active-shielding",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": ">2035",
+     "S3": ">2035",
+     "S4": ">2035"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "note_2035": "Resolved to after 2035 in every scenario. The field-times-length mass floor and multi-year space qualification of large HTS coils and cryogenics do not fit, and no demonstration is funded. Robots do not change a physics floor, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic: hard edge from cap-design-optimization -> soft (field-length mass floor and HTS qualification bind). Auditor: NIAC study dated correctly. Years and bands unchanged. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. >2031 -> >2035 in all scenarios. Bands unchanged (Speculative)."
+   }
+  },
+  {
+   "id": "plasma-ai-designed-thruster-flight",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 resolves to 2033: design optimization (S1 2030), two build-test iterations and a smallsat ride. By 2035 S2 has four years of slack, and any of several smallsat thruster makers can fly an AI-designed unit without a certifier, so it is High; S3 is High with five years. S1 reaches Medium with two years of slack. Life tests and rides bind, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Advocate (structure): plasma-ep-predictive-design hard -> soft, cap-design-optimization added as hard, pathway P7 -> P1->P7: as worded, the node needs an AI-designed thruster whose flight performance falls in its pre-flight band, which a generic AI design loop over calibrated models plus ground test can deliver without the closure. Timing between the lenses: S2 >2031 -> 2031 (advocate's 2030 rejected: without a closure the first article needs an extra build-test iteration), S3 2031 -> 2030. Skeptic + auditor's S3 Medium -> Low not applied because their zero-slack chain ran through predictive design, no longer the gate; advocate's S2 Medium / S3 High rejected. Soft edge from physclock-ai-run-test-stands. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2033 (cap-design-optimization S1 2030 -> first article 2031 -> second iteration 2032 -> flight 2033). band_2035 S1 Speculative -> Low, S2 Low -> Medium, S3/S4 Medium -> High. | Resolver (2026-10-07): Advocate accepted: band_2035 S1 Low -> Medium, S2 Medium -> High (several independent makers, no certifier, design to flight in 18-36 months; consistent with capability-ai-native-spacecraft and capability-ai-eda-space-processor in other finals)."
+   }
+  },
+  {
+   "id": "plasma-fusion-propulsion-flight",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": ">2035",
+     "S3": ">2035",
+     "S4": ">2035"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "note_2035": "Resolved to after 2035 in every scenario. It needs D-He3 burn, a flight-mass net-gain device and launch approval, and a ground prototype comes first (plasma-35-fusion-drive-ground-test, 2035 at the earliest, in S3). S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic: description strengthened to mission-useful thrust from an at-or-above-breakeven device on low-neutron fuel, so the hard edges to net gain and D-He3 burn are valid ordering constraints; advocate's softening of those edges rejected (it fit only the weaker wording). Auditor: unsupported PSS 'as early as 2028' clause removed; Sunbird status sourced. Years and bands unchanged. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. >2031 -> >2035 in all scenarios. Bands unchanged (Speculative). Hard prerequisite: the new plasma-35-fusion-drive-ground-test. | Resolver (2026-10-07): Both reviewers: plasma-35-fusion-drive-ground-test made a hard prerequisite (was soft); no year or band moves."
+   }
+  },
+  {
+   "id": "plasma-high-power-ep-life",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2033",
+     "S3": "2032",
+     "S4": "2032"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "Resolved to 2032 in S3, 2033 in S2 and 2034 in S1: a flight-like 100 kW unit after design iterations, then about eight months of firing at a normal wear-test duty cycle. A funded start binds in every scenario. A lithium MPD can run in an existing facility because lithium condenses on the walls; a xenon unit needs a facility that takes 2-4 years to build. Low everywhere by 2035 because no funded program yet targets 5,000 h and NASA's stated path clusters 12 kW thrusters. Wear hours do not compress, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "E-plasma-nuclear (2026-10-07): 2035/S4 extension. >2031 -> S1 2034, S2 2033, S3/S4 2032 (flight-like unit and low-pressure facility ~2029-31 after design iterations, then ~7 months of firing; experiment multipliers 1.05-1.4x). Bands unchanged (Low). | Resolver (2026-10-07): Duty-cycle wording accepted from the skeptic (about eight months for 5,000 h). Skeptic's S3/S4 2032 -> 2033 rejected: design iterations differ by scenario and the lithium route does not need a new facility (general). Advocate's S3/S4 Medium rejected: no funded 5,000 h program, NASA clusters 12 kW AEPS up to 300 kW, and MPD electrode erosion is the historic life limiter (general)."
+   }
+  },
+  {
+   "id": "prop-ntp-ground-test",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2033",
+     "S3": "2032",
+     "S4": "2032"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "Resolved to 2032 in S3, 2033 in S2 and 2034 in S1. The chain is a program start, an EIS of 2-4 years, 2-4 years to build an exhaust-capture facility after the record of decision, then a fueled reactor test. Comment periods and construction do not compress; AI shortens EIS drafting and design documents, which gives S3 its one-year lead at the floor. Low by 2035 at best because there is no program of record. Policy binds, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic (mechanism checked against the physclock gate table): S3 2031 -> >2031; S2 and S3 Low -> Speculative. No program of record; a 5+ year precedent at 0.8-0.9x plus an EIS of 2-4 years gives 2032 at the earliest; appropriations compress 1.0x. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. >2031 -> S1 2034, S2 2033, S3/S4 2032 (program start FY2027-28 + 5+ years, at 0.8-0.9x in S3 and 0.9x in S2). band_2035 S2/S3/S4 Speculative -> Low; S1 stays Speculative (one year of slack). | Resolver (2026-10-07): Skeptic's S3/S4 2032 -> 2033 rejected: EIS drafting is cognitive work (the S4 analysis rates NEPA work 1.5-2x in S3), the sequential floor (start 2027, EIS about 2 years, construction about 2 years, test) still reaches 2032, and Congress put at least $110M into NTP for FY2026. Note rewritten with the construction-after-decision sequence. Soft edge from robo-construction-trades dropped: the facility is built 2029-31, before construction-trade robots are useful, and the robot node is the same S4 year as this node."
+   }
+  },
+  {
+   "id": "plasma-nep-mars-cargo",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": ">2035",
+     "S3": ">2035",
+     "S4": ">2035"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "note_2035": "Resolved to after 2035 in every scenario. MW-class thrusters with 23,000 h life, a flight reactor or MW arrays and launch approval do not fit before the Apr 2033 and mid-2035 Mars windows. In-space assembly robots may help build large arrays and radiators later, but S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Auditor: COMPASS figure marked (general); SR-1 calibration point added. Advocate: NASA's clustering path (up to 300 kW from 12 kW thrusters) added; its proposal to soften plasma-high-power-ep-life and add a compute-bus tug as a hard prerequisite rejected (MW class lies beyond NASA's stated cluster range; the tug is not a causal precondition). Compute-satellite power route recorded as a soft edge from struct-100kw-per-tonne-fleet. Years and bands unchanged. | F2 audit (2026-10-07): stale AI1 June spec labelled as superseded (orbital-compute auditor: Aug 2026 product page and Sep 16 2026 FCC envelope). | E-plasma-nuclear (2026-10-07): 2035/S4 extension. >2031 -> >2035 in all scenarios. Bands unchanged (Speculative)."
+   }
+  },
+  {
+   "id": "prop-ntp-crewed-mars",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": ">2035",
+     "S3": ">2035",
+     "S4": ">2035"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "note_2035": "Resolved to after 2035 in every scenario. A ground test (2032 at the earliest), a flight demo and crew rating each take years, and none is funded. S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "E-plasma-nuclear (2026-10-07): 2035/S4 extension. >2031 -> >2035 in all scenarios. Bands unchanged (Speculative)."
+   }
+  },
+  {
+   "id": "plasma-outcome-ep-cycle-time",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": "2034",
+     "S3": "2033",
+     "S4": "2033"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "Resolved to 2033 in S3 and 2034 in S2: a program started after predictive design is validated qualifies in about three years with a full wear test. S1 falls after 2035. Wear hours and chamber time bind, thruster fabrication already uses specialized automation, and the node credits models, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + auditor: S3 2031 -> >2031 (a full program cycle must start after life credit, which now lands 2031 at the earliest); S2 Low -> Speculative. Auditor: S3 Low -> Speculative (skeptic kept Low; resolver sided with the auditor because the hard prerequisite lands at the horizon). Skeptic: magnitude 30-50% -> ~15-30% (S2), up to ~40% (S3), within the Amdahl bounds. Skeptic + auditor (verified): AEPS took ~13 years including the life test, not 11. Advocate's S2 2031 / S3 2030 Medium rejected (its comparison nodes have since moved to S2 2031 / S3 2030). | E-plasma-nuclear (2026-10-07): 2035/S4 extension. >2031 -> S1 >2035, S2 2034, S3/S4 2033 (predictive design plus life credit 2031 -> new program 2030-31 -> qualification in about three years). band_2035 S2/S3/S4 Speculative -> Low (two compounding Medium prerequisites). | Resolver (2026-10-07): Advocate's structure accepted: plasma-ep-life-by-analysis hard -> soft (commercial programs meet the threshold with predictive design alone; agency life credit is Low by 2035). Description and signpost admit either route. Years kept (S3 2033, S2 2034) on the new chain; skeptic's S3 2034 / S2 2035 and Speculative rejected because they ran through the life-credit route. Advocate's S3 2032 and S3 Medium rejected (a program must start after the tool is validated and still runs a full wear test). Advocate's S4 credit and robot soft edges rejected: the residual cycle is wear hours and chamber time, and labor at the thruster maker does not bind.",
+    "description": "Development-to-qualification time for new EP thrusters falls ~15-30% (S2), up to ~40% (S3), and build-test iterations roughly halve because physics-based models replace parts of empirical iteration and, where an agency accepts it, of wear testing. The ceiling is the Amdahl bound on whole-program compression (~38% S2, ~51% S3; capability.json); EP schedules are dominated by wear-test hours and by program, supplier and requirements problems.",
+    "why": "Predictive design (fewer iterations) is enough for commercial thrusters, where no certifier sits above the operator: cutting 1.5-2 years from a 4-6 year program is 25-40%, which meets the S2 threshold (plasma-ep-predictive-design). Model-based life credit (plasma-ep-life-by-analysis, soft) would shorten agency wear tests further, but it is Low by 2035, so it is off the critical path. The outcome needs at least one full development-to-qualification cycle started after predictive design is validated, still with a full wear test. Chain (S3): predictive design 2029 -> program started 2030 -> design, one or two build-test iterations and a full wear test in about three years -> 2033. S2: predictive design 2030 -> 2034. S1: predictive design 2035 -> after 2035. Band Low in S2-S4: predictive design is Medium by 2035, and the cut must be shown on a real program and published.",
+    "signpost": "A new Hall or gridded-ion thruster in a class that took four to six years reaches qualification within three years of program start, citing predictive design or model-based life credit."
+   }
+  },
+  {
+   "id": "plasma-aeps-life-qual",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "The QM-2 wear test ends in Sep 2029 in every scenario; by 2035 the remaining risk is a test failure, and the date is fixed. Wear hours do not compress, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): New node from the auditor. Facts verified in Williams et al. 2026 (wear test fall 2026 to Sep 2029; 100% test plus 50% margin by analysis; SEP closeout 2029). Not a duplicate (no AEPS or EP life-test node in the graph). Linked softly to plasma-ep-life-by-analysis. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven)'). | E-plasma-nuclear (2026-10-07): 2035/S4 extension. note only; years and bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-ai-fusion-operations",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "The tooling exists today and is High by 2031; 2032-35 extends it to new devices. Control and campaign design are cognitive, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): New node from the advocate (partnership facts verified on the DeepMind blog, Oct 16 2025). Not a duplicate (plasma-gk-surrogates and plasma-stellarator-design-loop cover design, not operations). Advocate's S1 2028 / S2 2027 and Medium/High/High replaced by 2028 and High in all scenarios, because the tooling exists today and the device schedule binds. Soft edges only; the advocate's S3 High for net gain was not accepted. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. note only; years and bands unchanged."
+   }
+  },
+  {
+   "id": "materials-hts-magnet-models",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 fusion coil programs have supplied years of test data, so S1 and S2 rise to Medium and S3 to High. Robots could run more tape and small-coil tests, but full-coil campaigns and conductor supply bind, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "C-final integrator (2026-10-07): new node from C-disciplines (downstream-discipline coverage), accepted; title shortened from 'Validated models of high-temperature-superconductor magnets'. S2 band lowered Medium -> Low: P6 pathway default is Low and the proposal misapplied it. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. band_2035 S1/S2 Low -> Medium, S3/S4 Medium -> High. Years unchanged."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "catalog_families": [],
+   "calibration_note": null,
+   "needs_2035_review": false,
+   "domain": "plasma",
+   "domains": [
+    "plasma"
+   ],
+   "id": "plasma-35-kinetic-design-loop",
+   "title": "Whole-thruster kinetic runs fast enough for design loops",
+   "tier": 4,
+   "kind": "engineering-tool",
+   "description": "Full-device 3D kinetic simulation of a 5 kW-class Hall thruster at real mass ratio, with neutrals and wall emission, runs in hours on a leadership-class machine or in about a day on a commercial cluster. A design loop can then afford hundreds of kinetic evaluations, so thruster design no longer has to wait for a universal transport closure.",
+   "status_oct2026": "No facility-scale kinetic simulation of a Hall thruster exists at feasible cost (Whittaker, Marks, Gorodetsky, AIAA 2026). The tree's estimate for a 1 ms full-device run is about 1e18-1e19 particle pushes, weeks to months on a full exascale machine today (plasma-kinetic-solvers-at-scale).",
+   "prerequisites": [
+    "plasma-kinetic-solvers-at-scale"
+   ],
+   "accelerated_by": [
+    "cap-design-optimization",
+    "capability-learned-emulators",
+    "plasma-verified-kinetic-numerics"
+   ],
+   "binding_gate": "cognitive",
+   "pathway": "P1->P4",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2034",
+    "S3": "2033",
+    "S4": "2033"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "premise_tier": "n/a (capability premise; no catalog family)",
+   "why": "Days per run (plasma-kinetic-solvers-at-scale, S2 2028) still rules out design loops. Hours per run needs another 10-50x. The parent already uses the main algorithm families (sparse-grid, low-rank, asymptotic-preserving, learned subgrid models) to reach days, so a second 3-10x from them is the optimistic case and needs S3's recursive algorithm work from 2029. Hardware for memory-bound particle-in-cell codes gains about 3-5x over 2028-33 (judgment). Large AI clusters add capacity, but by 2028 leadership-class machines are built from the same accelerators (general), so they do not add a separate factor. Chain (S3): hero runs 2028 -> four years of recursive algorithm work and newer hardware -> design-loop speed 2033. S2: 2034. S1 does not get there by 2035. With hours-long runs, designers can optimize on kinetic physics directly and use the closure (plasma-hall-anomalous-closure) as a check. Medium in S3 because gains may stall and surrogates may make the full loop unnecessary. Algorithms and compute bind, so S4 equals S3.",
+   "strongest_case_small": "Some cost may be irreducible: electron-cyclotron drift waves must be resolved over a millisecond of xenon transit, and algorithm gains could stall near 10x. Surrogates trained on a few hero runs may give designers the same answer more cheaply.",
+   "signpost": "A paper or company reports a design optimization that ran at least 100 full-device kinetic simulations of a Hall thruster, each at real mass ratio and real geometry.",
+   "note_2035": "New for the 2035 horizon: the step after hero runs, 2033 in S3 and 2034 in S2. It gives predictive design a second route that does not wait for a universal transport closure, and gives the closure and erosion models many more training cases. Algorithms and compute bind, so S4 equals S3.",
+   "revision_note": "E-plasma-nuclear (2026-10-07): new node for the 2035 horizon; extends the kinetic-simulation chain past plasma-kinetic-solvers-at-scale. | Resolver (2026-10-07): S3/S4 2032 -> 2033 and the algorithm credit cut to a second 3-10x (skeptic: the parent already spends these algorithm families). Advocate's hardware point partly accepted (3-5x for memory-bound PIC; AI clusters are not a separate factor once leadership machines use the same accelerators); its S2 2033, S2 Medium and S3 High rejected. Skeptic's S2 2035 and S3 Low rejected. Soft edges added to plasma-ep-predictive-design, plasma-hall-anomalous-closure and plasma-ep-life-by-analysis (advocate)."
+  },
+  {
+   "catalog_families": [],
+   "calibration_note": null,
+   "needs_2035_review": false,
+   "domain": "plasma",
+   "domains": [
+    "plasma"
+   ],
+   "id": "plasma-35-ai-thruster-constellation",
+   "title": "AI-designed thrusters fly across a whole constellation",
+   "tier": 6,
+   "kind": "outcome",
+   "description": "An electric thruster designed mainly by an AI optimization loop (as defined in plasma-ai-designed-thruster-flight) flies on at least 1,000 satellites of one constellation, with fleet performance inside the pre-flight predicted band and the design attribution public.",
+   "status_oct2026": "Starlink flies thousands of Hall thrusters (krypton, then argon) designed by conventional iteration (general). No AI-designed thruster has flown (plasma-ai-designed-thruster-flight).",
+   "prerequisites": [
+    "plasma-ai-designed-thruster-flight"
+   ],
+   "accelerated_by": [
+    "plasma-ep-predictive-design",
+    "plasma-35-kinetic-design-loop",
+    "physclock-satellite-gen-cadence",
+    "capability-ai-native-spacecraft"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P1->P7",
+   "earliest_year": {
+    "S1": "2035",
+    "S2": "2033",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "premise_tier": "n/a (capability premise; no catalog family)",
+   "why": "Constellation operators refresh satellite generations about yearly from 2029-31 (physclock-satellite-gen-cadence) and build thrusters in house, so a design that proves itself in one flight can enter the next generation. Chain (S2): first AI-designed thruster flight 2031 -> adopted in the next satellite generation 2032 -> 1,000 units flown 2033. S3: 2032. S1: first flight 2033 -> 2035, at the horizon, so Speculative. The band is held down by disclosure, because operators may not say how a thruster was designed. Satellite generations and launch set the pace, and thruster production is not the bottleneck, so S4 equals S3.",
+   "strongest_case_small": "Constellation thrusters are cheap and mature, and their economics turn on propellant, power-processing mass and production rate. A few points of efficiency may not justify changing a working design, and an in-house design loop may never be described in public.",
+   "signpost": "A constellation operator states that a new satellite generation flies a thruster designed mainly by an AI loop, with fleet performance data.",
+   "note_2035": "New for the 2035 horizon: fleet adoption after the first flight, 2032 in S3 and 2033 in S2. Satellite generations and launch set the pace, so S4 equals S3.",
+   "revision_note": "E-plasma-nuclear (2026-10-07): new node for the 2035 horizon; extends plasma-ai-designed-thruster-flight to fleet use. | Resolver (2026-10-07): Advocate's S2 Low -> Medium and S3/S4 Medium -> High rejected: one constellation must fly 1,000 units of one AI-designed thruster and say so, and the leading in-house maker does not publish design methods. Unchanged."
+  },
+  {
+   "catalog_families": [],
+   "calibration_note": null,
+   "needs_2035_review": false,
+   "domain": "plasma",
+   "domains": [
+    "plasma"
+   ],
+   "id": "plasma-35-abep-service",
+   "title": "Air-breathing electric propulsion in operational service",
+   "tier": 6,
+   "kind": "mission",
+   "description": "At least one operational satellite (commercial or government; technology demonstrations do not count) holds a mission orbit below 250 km for at least a year, using air-breathing electric propulsion for drag makeup.",
+   "status_oct2026": "Laboratory demonstrations only (general). Albedo's Clarity-1 flew at 350-380 km on xenon ion propulsion for nine months (Albedo, Jan 2026). No air-breathing thruster has flown (plasma-abep-demo).",
+   "prerequisites": [
+    "plasma-abep-demo"
+   ],
+   "accelerated_by": [
+    "plasma-thermo-density-uq",
+    "plasma-vleo-at-scale",
+    "plasma-storm-robust-leo-ops",
+    "cap-design-optimization"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P1->P7",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2035",
+    "S3": "2034",
+    "S4": "2034"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "premise_tier": "n/a (funding and hardware gate)",
+   "why": "A demo (S2 2031, S3 2030) proves intake and discharge physics. An operational unit also needs endurance data, a product design and a customer who values orbits below 250 km, where stored propellant runs out. Chain (S3): demo 2030 -> one to two years of on-orbit endurance, including atomic-oxygen erosion, and a funded product -> first operational satellite 2033 -> a year in service 2034. S2: 2035. S1: demo 2033 -> after 2035. An operational unit must also be sized for the solar cycle 26 maximum, expected around 2035 (general), when density at 200-250 km is several times higher; a demo near the 2030-31 minimum does not test that. Low at best because the business case competes with conventional electric propulsion at 300-380 km and with cheap replacement launches. Launch, customers and endurance data bind, so S4 equals S3.",
+   "strongest_case_small": "Cheap launch makes short-lived low-orbit satellites easy to replace, and conventional electric propulsion already holds 300-380 km. Intake efficiency and atomic-oxygen erosion may keep air-breathing propulsion a niche.",
+   "signpost": "A low-orbit operator orders an air-breathing propulsion system for an operational satellite, or an in-orbit demo reports more than six months of drag makeup.",
+   "note_2035": "New for the 2035 horizon: service after the first demo, 2034 in S3 and 2035 in S2. Launch, customers and endurance data bind, so S4 equals S3.",
+   "revision_note": "E-plasma-nuclear (2026-10-07): new node for the 2035 horizon; extends plasma-abep-demo to operational service. | Resolver (2026-10-07): Skeptic accepted: S3/S4 2033 -> 2034, S2 2034 -> 2035, band_2035 S2 Low -> Speculative (zero slack); solar-cycle sizing added to why."
+  },
+  {
+   "catalog_families": [],
+   "calibration_note": null,
+   "needs_2035_review": false,
+   "domain": "plasma",
+   "domains": [
+    "plasma"
+   ],
+   "id": "plasma-35-nep-year-of-thrust",
+   "title": "A reactor-powered electric spacecraft thrusts for a year",
+   "tier": 6,
+   "kind": "mission",
+   "description": "A spacecraft powered by a space fission reactor (Space Reactor-1 Freedom or a successor) runs its electric thrusters on reactor power for a cumulative year in space. These are the first nuclear-electric propulsion operations.",
+   "status_oct2026": "SR-1 Freedom (over 20 kWe, HALEU fuel, Gateway PPE bus with three 12 kW AEPS and four 6 kW Hall thrusters) targets a Dec 2028 launch at a $2.1B estimate (Sep 2026), with $10M recommended by the House Appropriations Committee (May 2026). No U.S. reactor has flown since SNAP-10A (1965).",
+   "prerequisites": [
+    "physclock-reactor-in-space"
+   ],
+   "accelerated_by": [
+    "plasma-aeps-life-qual",
+    "physclock-nuclear-safety-case-ai",
+    "struct-hv-power-bus-stability",
+    "materials-wbg-rad-hard-power"
+   ],
+   "binding_gate": "capital",
+   "pathway": "P7",
+   "earliest_year": {
+    "S1": "2032",
+    "S2": "2032",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "premise_tier": "n/a (physical-clock node; AI-math effect marginal)",
+   "why": "SR-1 must launch toward Mars in a Mars window. At about 20 kWe its thrust is about 1 N or less, roughly 1e-4 m/s2 on a several-tonne craft, so spiralling out from low orbit would take about two years (general arithmetic). A launch in the early-2031 window, the earliest year of physclock-reactor-in-space in every scenario, gives a cumulative year of thrust in 2032, and only if FY2027 or FY2028 funds SR-1 in full. The next window, about Apr 2033, gives 2034. A mid-2035 launch finishes after 2035. A lunar reactor does no thrusting. The AEPS thrusters on the PPE bus finish their wear test in Sep 2029 (plasma-aeps-life-qual), so thruster life is not the gate. Low in every scenario because the reactor launch is Low by 2035 and only the 2031 and 2033 windows count. Appropriations and launch windows bind, so S4 equals S3.",
+   "strongest_case_small": "Every U.S. space reactor program since 1965 has been cancelled, and SR-1 is underfunded against its Dec 2028 date. If SR-1 misses the Apr 2033 window, a year of nuclear-electric thrust waits past 2035.",
+   "signpost": "SR-1 Freedom receives a full FY2027 or FY2028 appropriation and a firm launch date; a ground criticality test of its reactor.",
+   "note_2035": "New for the 2035 horizon: the propulsion payoff of SR-1, 2032 at the earliest in every scenario. Only the early-2031 and Apr 2033 Mars windows give a full year of thrust by 2035. Appropriations and launch windows bind, so S4 equals S3.",
+   "revision_note": "E-plasma-nuclear (2026-10-07): new node for the 2035 horizon; extends physclock-reactor-in-space to nuclear-electric operations; side chain. | Resolver (2026-10-07): Skeptic's window logic accepted (why rewritten; a lunar reactor does no thrusting). S1 2033 -> 2032; the skeptic's 2034 is rejected because physclock-reactor-in-space now has the early-2031 window as its earliest year in every scenario. Advocate's S2-S4 Medium rejected: it rested on a Medium reactor band, now Low."
+  },
+  {
+   "catalog_families": [],
+   "calibration_note": null,
+   "needs_2035_review": false,
+   "domain": "plasma",
+   "domains": [
+    "plasma"
+   ],
+   "id": "plasma-35-fusion-drive-ground-test",
+   "title": "A fusion-drive prototype makes fusion and thrust on the ground",
+   "tier": 5,
+   "kind": "technology",
+   "description": "A ground prototype built to a closed fusion-propulsion design (plasma-fusion-propulsion-design-closure), using the magnet, heating and nozzle layout of that design at no less than one-tenth of its design heating power, produces measured fusion reactions while exhausting plasma through its magnetic nozzle, with thrust measured. Breakeven is not required. A fusor, or a device without a nozzle, does not count.",
+   "status_oct2026": "Direct Fusion Drive is a concept tested at small scale at PPPL (PFRC). Pulsar Fusion's Sunbird exhaust (no fusion) is targeted for an in-orbit demonstration in 2027 (pulsarfusion.com). No fusion-propulsion prototype has produced fusion.",
+   "prerequisites": [
+    "plasma-fusion-propulsion-design-closure"
+   ],
+   "accelerated_by": [
+    "plasma-ai-fusion-operations",
+    "materials-hts-magnet-models",
+    "plasma-dhe3-burn-physics",
+    "plasma-fusion-net-gain"
+   ],
+   "binding_gate": "experiment",
+   "pathway": "P6->P7",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": ">2035",
+    "S3": "2035",
+    "S4": "2035"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "premise_tier": "n/a",
+   "why": "Chain (S3): design closure 2030 -> funding 2031 -> 4-6 years to build and commission a new device, as for SPARC (about six years from construction to its 2027 first-plasma target, after slips) and Helion's Polaris (about four to five years with large private funding; general) -> 2035 at the earliest. S2: closure 2031 -> after 2035. S1: closure 2034 -> after 2035. Deuterium fuel is enough to show fusion products, so He-3 supply does not gate this step. Speculative because fusion-propulsion funding is small and compact field-reversed devices have not reached fusion-relevant conditions. Funding runs on investor and appropriations clocks that do not differ by scenario, and experiments bind, so S4 equals S3.",
+   "strongest_case_small": "Fusion-propulsion firms are small and thinly funded, and a flight-like mass budget is far harder than a lab device. A credible design does not by itself bring the money to build one.",
+   "signpost": "NASA, DARPA, ESA or private investors fund a fusion-propulsion prototype build; a PFRC-class experiment reports deuterium fusion neutrons.",
+   "note_2035": "New for the 2035 horizon: the ground step between a closed design and flight, 2035 at the earliest in S3 and after 2035 in S2. Building a new fusion device takes 4-6 years after funding in every scenario, so it is Speculative. Experiments and funding bind, so S4 equals S3.",
+   "revision_note": "E-plasma-nuclear (2026-10-07): new node for the 2035 horizon; extends the fusion-propulsion chain between design closure and flight; spine. | Resolver (2026-10-07): Skeptic accepted in full: S3/S4 2034 -> 2035, S2 2035 -> >2035, band_2035 S3/S4 Low -> Speculative; description made checkable (one-tenth of the design's heating power with its magnet, heating and nozzle layout, replacing 'flight-like mass per unit of power', which has no meaning below breakeven). Both reviewers: the link to plasma-fusion-propulsion-flight is now a hard edge."
+  }
+ ],
+ "add_edges": [
+  {
+   "from": "plasma-35-fusion-drive-ground-test",
+   "to": "plasma-fusion-propulsion-flight"
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "plasma-35-nep-year-of-thrust",
+   "to": "plasma-nep-mars-cargo"
+  },
+  {
+   "from": "plasma-35-kinetic-design-loop",
+   "to": "plasma-outcome-ep-cycle-time"
+  },
+  {
+   "from": "robo-in-space-assembly",
+   "to": "plasma-nep-mars-cargo"
+  },
+  {
+   "from": "plasma-hall-anomalous-closure",
+   "to": "plasma-ep-predictive-design"
+  },
+  {
+   "from": "plasma-35-kinetic-design-loop",
+   "to": "plasma-ep-predictive-design"
+  },
+  {
+   "from": "plasma-35-kinetic-design-loop",
+   "to": "plasma-hall-anomalous-closure"
+  },
+  {
+   "from": "plasma-35-kinetic-design-loop",
+   "to": "plasma-ep-life-by-analysis"
+  },
+  {
+   "from": "plasma-ep-life-by-analysis",
+   "to": "plasma-outcome-ep-cycle-time"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "plasma-nuclear",
+   "nodes": [
+    "plasma-35-kinetic-design-loop",
+    "plasma-35-ai-thruster-constellation",
+    "plasma-35-abep-service",
+    "plasma-35-nep-year-of-thrust",
+    "plasma-35-fusion-drive-ground-test"
+   ],
+   "spine": [
+    "plasma-35-fusion-drive-ground-test"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "plasma-nuclear",
+   "patch": {
+    "thesis": "If AI and diagnostics solve Hall-thruster electron transport around 2030 (base case), thrusters are designed before they are built, and cheap kinetic runs add a second design route by 2033 (S3). Model-based life credit and a U.S. reactor launch are still Low by 2035: wear hours, agency rules, budgets and Mars windows bind. Fusion propulsion waits past 2035. Robots (S4) move no year or band here.",
+    "spine": [
+     "cap-physics-theory",
+     "plasma-kinetic-solvers-at-scale",
+     "plasma-hall-anomalous-closure",
+     "plasma-ep-predictive-design",
+     "plasma-ep-life-by-analysis",
+     "plasma-outcome-ep-cycle-time",
+     "plasma-magnetic-nozzle-theory",
+     "plasma-fusion-propulsion-design-closure",
+     "plasma-35-fusion-drive-ground-test",
+     "plasma-fusion-propulsion-flight",
+     "prop-ntp-fuel-model",
+     "prop-ntp-ground-test",
+     "prop-ntp-crewed-mars"
+    ],
+    "side_chains": [
+     [
+      "physclock-nuclear-safety-case-ai"
+     ],
+     [
+      "physclock-reactor-in-space",
+      "plasma-35-nep-year-of-thrust"
+     ]
+    ],
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Thesis rewritten (skeptic + advocate): the critical path is algorithms, compute and validation data, not proofs; the generic-AI route to a flown thruster added; reactor band now Low. Hook (skeptic + advocate + auditor): life-margin practice added; He-3 framed per GW-year versus grams for demonstrators. Spine: frontier-landau-damping-general and plasma-kinetic-closures removed (now soft, confidence-only links); roots add cap-design-optimization. | C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Trunk nodes ['cap-physics-theory'] are shown as the chain's entry anchors (also listed in roots); they stay members of the trunk branch only. Moved from spine to side_chains (still branch members): ['physclock-nuclear-safety-case-ai', 'physclock-reactor-in-space']. Nuclear thermal lane (fuel model to crewed Mars stage) added via cap-physics-theory; reactor launch and nuclear safety case are side chains. | E-plasma-nuclear (2026-10-07): thesis rewritten for 2026-2035 and S4. Reader hook kept: its wear-test arithmetic is the 2035 point too. Spine: plasma-35-fusion-drive-ground-test inserted between design closure and fusion flight. Side chain: plasma-35-nep-year-of-thrust after physclock-reactor-in-space. New members: plasma-35-kinetic-design-loop, plasma-35-ai-thruster-constellation, plasma-35-abep-service, plasma-35-nep-year-of-thrust, plasma-35-fusion-drive-ground-test. | E-plasma-nuclear resolver (2026-10-07): thesis rewritten. Life credit and the reactor launch are Low by 2035 (skeptic); the kinetic design loop is named as a second route (advocate); the robots sentence now says exactly what the graph shows (no year or band moves in S4). Spine unchanged; the ground test to fusion flight link is now a hard edge."
+   }
+  }
+ ],
+ "notes": "E-plasma-nuclear FINAL (resolver, 2026-10-07). Replaces E-plasma-nuclear-draft.json; apply after E-robots-final.json. All 30 existing branch nodes reviewed (note_2035, needs_2035_review false); 5 new nodes. S4 equals S3 in years and both bands on every node. Resolver decisions: (1) life credit (plasma-ep-life-by-analysis) and the reactor launch (physclock-reactor-in-space) are Low by 2035 in every scenario; the regulatory cap is a ceiling, and SR-1 is tied to Mars windows. (2) Reactor S2-S4 2030 -> 2031 for consistency (SR-1 launches only in a Mars window; the lunar unit is 2033 in E-orbital-compute-power-final); band_2031 unchanged. NEP year of thrust 2032 in every scenario. (3) Structure: the kinetic design loop (now S3 2033, S2 2034) is a second route to predictive design, so plasma-hall-anomalous-closure -> plasma-ep-predictive-design becomes soft; commercial thrusters meet the EP cycle-time outcome without agency life credit, so plasma-ep-life-by-analysis -> plasma-outcome-ep-cycle-time becomes soft. No band rises from either. (4) Fusion: D-He3 and the design closure stay Low by 2035; the ground test moves to S3 2035 / Speculative and becomes a hard prerequisite of fusion flight. (5) plasma-ai-designed-thruster-flight rises to High (S2) and Medium (S1) by 2035. (6) ABEP service S3 2034, S2 2035. (7) NTP fuel model Low by 2035. (8) Trunk sync: cap-physics-theory S1 is 2033 in E-trunk-final, so S1 moves to 2034 for plasma-kinetic-closures, plasma-hall-anomalous-closure and prop-ntp-fuel-model, to 2035 for plasma-ep-predictive-design and to >2035 for plasma-ep-life-by-analysis. (9) Robot soft edges: only robo-in-space-assembly -> plasma-nep-mars-cargo kept; four dropped because they fail the four-condition rule. Rejected: the advocate's new plasma-35-ep-test-capacity node (its own binding gate is funding, so its S4 band step fails condition 1), all advocate S4 credit, High bands for the closure, predictive design, nozzle theory and the constellation node, and the skeptic's year moves on prop-ntp-ground-test and plasma-high-power-ep-life. Legacy '>2031' resolved on every branch node.",
+ "remove_edges": [
+  {
+   "from": "plasma-hall-anomalous-closure",
+   "to": "plasma-ep-predictive-design"
+  },
+  {
+   "from": "plasma-ep-life-by-analysis",
+   "to": "plasma-outcome-ep-cycle-time"
+  }
+ ]
+}

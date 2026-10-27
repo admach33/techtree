@@ -1,0 +1,67 @@
+{
+ "dangling": {},
+ "dangling_soft": {},
+ "monotonic_violations": [],
+ "cycles": [],
+ "unparsed_years": [],
+ "bad_bands": [],
+ "late_but_likely": [],
+ "scenario_order_violations": [],
+ "branch_unknown_nodes": [],
+ "summary": {
+  "n_nodes": 370,
+  "n_hard_edges": 549,
+  "n_soft_edges": 535,
+  "by_tier": {
+   "0": 25,
+   "1": 33,
+   "2": 69,
+   "3": 41,
+   "4": 58,
+   "5": 54,
+   "6": 56,
+   "7": 34
+  },
+  "unlocked_by_2031": {
+   "S1": 227,
+   "S2": 340,
+   "S3": 352
+  },
+  "n_branches": 12,
+  "counts": {
+   "dangling": 0,
+   "dangling_soft": 0,
+   "monotonic_violations": 0,
+   "cycles": 0,
+   "unparsed_years": 0,
+   "bad_bands": 0,
+   "late_but_likely": 0,
+   "scenario_order_violations": 0,
+   "branch_unknown_nodes": 0
+  }
+ },
+ "apply_log": [],
+ "autofixes": [
+  {
+   "node": "physclock-optimal-test-campaigns",
+   "scenario": "S3",
+   "from": "2027",
+   "to": "2028",
+   "band_needs_review": false
+  },
+  {
+   "node": "verif-verified-gnc-numerics",
+   "scenario": "S3",
+   "from": "2027",
+   "to": "2028",
+   "band_needs_review": false
+  },
+  {
+   "node": "verif-onboard-optimizer-certificates",
+   "scenario": "S3",
+   "from": "2027",
+   "to": "2028",
+   "band_needs_review": false
+  }
+ ]
+}

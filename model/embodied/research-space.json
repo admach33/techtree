@@ -1,0 +1,1078 @@
+{
+  "topic": "Robotics and the space physical clock under S4 'Embodied' (S3 Recursive cognition plus general-purpose robotics at scale): gate-by-gate compression of the Space Unlock Tree's physical gates by 2031 and 2035, factory-automation evidence from SpaceX, Rocket Lab, Relativity, Firefly and others, and whether a robots-build-robots loop matters by 2031 versus 2035",
+  "as_of": "2026-10-07",
+  "scenario_definition": {
+    "S4_Embodied": "S3 Recursive cognition (cognitive work 20-50x faster from 2029) plus general-purpose robots (humanoid and mobile-manipulator class, foundation-model controlled) deployed at scale in factories, labs, test sites, construction and off Earth, including robots helping build robots.",
+    "what_S3_already_assumes": "AI-run test stands and factories with physical multipliers ~1.3-1.5x (graph-v5.json domains.physclock.tables, 'Gate compression multipliers').",
+    "what_S4_adds": "Robotic labor that is 24/7, parallelizable and cheap, so labor-bound steps compress further and throughput-bound gates (capacity, replicates, facility queues, construction crews) become capital-bound. It does not change physics time constants, statistical evidence requirements, orbital mechanics, or institutional clocks.",
+    "method": "Each physical slice of the model's Amdahl table is split into labor-bound, physics-bound and institution/supply-bound sub-shares (estimates), calibrated so the S3 sub-multipliers reproduce the model's S3 slice speedups (fab 1.3x, I&T 1.5x, qualification 1.5x, launch 1.0x) and the 51% S3 ceiling. S4 then raises only the multipliers robotics can plausibly move by 2031 and by 2035. Calendar-time factor = fraction of today's duration (0.6x = 40% shorter)."
+  },
+  "key_findings": [
+    "Robotics compresses throughput, not latency. It removes labor-bound time (setup, assembly, tending, inspection, construction crews) and turns capacity and replicate-statistics gates into capital problems, but it does not shorten a thermal-vacuum plateau, a 10,000-hour creep test, a hot-fire failure discovery, a flight-count reliability demonstration, a 26-month Mars window, or a statutory review.",
+    "S4 adds modestly to S3 by 2031. The new-program Amdahl ceiling moves from ~51% shorter (S3) to ~57-63% shorter (2.3-2.7x) in 2031 and ~66-74% (2.9-3.9x) in 2035. Realized values: ~40-50% shorter by 2031 (vs 35-45% S3) and ~50-62% by 2035, after adoption lag and robotic-process requalification.",
+    "There is a hard physical floor. Even with infinite cognition and infinite robots, the physics-, statistics- and institution-bound remainder caps compression of a new space program at ~78% shorter (~4.6x). Infinite cognition without robots stops at ~52% (2.1x), so robots roughly double the headroom but cannot remove the floor.",
+    "Factory automation in space has repeatedly sped up a step by large factors without moving cadence comparably. Rocket Lab's Rosie robot cut Electron composite processing from 400+ hours to 12 (~33x, Nov 2019), against a goal of one Electron every 7 days; Electron flew a record 21 launches in 2025 (one every ~17 days). Relativity's 95%-printed-parts approach yielded one failed orbital attempt and a pivot to conventional aluminum because printing domes was too slow for rate. Firefly's 2020 automated-composites plan (24 Alpha a year) coexists with roughly 1-3 launches a year through 2026. Rocket Lab's 90-tonne AFP robot (150,000+ hours projected saving) did not prevent Neutron slipping to NET Q4 2026.",
+    "Where automation already works, the gate has moved to launch. SpaceX Redmond averaged ~70 Starlink satellites/week (Dec 2025-Apr 2026, ~3,640/yr) and terminals reached ~200,000/week (S-1), while V3 deployment waits on Starship, which flew 5 times in 2025 and 3 times in 2026 to Oct 7. Starship hulls were in production through at least Ship 48 in Apr 2026, before V3's first flight; vehicle output is ahead of flight cadence.",
+    "Launch cadence is the master variable for statistics-bound gates. A 0.99/90% zero-failure reliability demonstration needs ~229 trials: 9.2 years at 25 flights/yr, 2.3 years at 100/yr, 0.6 years at 400/yr. Robots help mostly through rapid reuse (robotic TPS inspection and tile replacement, pad refurbishment). That moves cadence milestones ~1-1.5 years earlier than S2 by 2031, but failures, pads, propellant and airspace still bind.",
+    "Construction-bound gates (pads, propellant plants, test facilities) compress less by 2031 (0.75-0.85x) than by 2035 (0.55-0.7x). About half of their schedule is long-lead equipment and permitting: large power transformers averaged ~128 weeks (Q2 2025), generator step-up units passed 160 weeks (Q1 2026). That supply chain must itself be robotized and expanded before it shortens. Starbase Pad 2 took ~16 months from flame-trench start to first launch (May 22, 2026), and is already a fast benchmark.",
+    "Off Earth, robots are the product, not the accelerant. Lunar construction and ISRU and in-space servicing and assembly are where S4 changes capability most, but they stay gated by landed mass, power (lunar reactor launch-ready late CY2029 target, 100 kWe), lunar-night survival, flight demonstrations and space-qualified actuators. OSAM-1 shows the risk: it grew from $626-753M to >$2B and was cancelled in March 2024. Northrop's MRV only launched on Jul 21, 2026.",
+    "Mars learning loops are fixed by orbital mechanics. Windows come every ~26 months. SpaceX skipped the late-2026 window (Feb 2026 pivot to the Moon), so at most 1-2 Mars iteration cycles fit by 2031 and 3-4 by 2035, whatever the robots. Lunar loops (opportunities every few days, ~3-5 day transit) are far faster, so S4's surface robotics will mature on the Moon first.",
+    "The robots-build-robots loop is fast enough by 2029-2030 to supply the space sector's labor needs in all three fleet scenarios: space needs ~10^5 robots, while even a slow 2-2.5x/yr ramp passes 1M fielded by ~2029. It is too slow to robotize the economy-scale supply chain (equipment makers, construction, fabs, mining) before ~2033-2035 in the base case. For space by 2031, robot quantity is not the binding variable. Robot capability at aerospace tolerances, requalification of robotic processes, and the non-labor gates are.",
+    "The evidence base for general-purpose robots doing real industrial work is thin as of Oct 2026. Humanoid shipments were ~13-18k in 2025 and ~19-22k in H1 2026, mostly Chinese makers and mostly research or education, with fewer than ~3-4k units on paid repeated work (secondary). Musk said in Jan 2026 that Optimus was not in material use in Tesla factories. Figure 02 at BMW ran 1,250+ hours of sheet-metal loading at a 5 mm tolerance over 11 months. Aerospace assembly needs tighter tolerances, torque and traceability records, and per-process qualification (AS9100/NADCAP, general).",
+    "Robotics also changes what sits on the critical path. Cheap parallel test articles make SpaceX-style hardware-rich iteration affordable for everyone. Parallel robotic labs collapse replicate statistics for allowables into the time of the longest single test. Robots on the Moon route around human rating for construction tasks. Robotic in-orbit assembly decouples structure size from fairing size, which matters for orbital-compute radiators."
+  ],
+  "gate_assessment": {
+    "notes": "Calendar-time factors (fraction of 2026 duration). Model S2/S3 values are from graph-v5.json domains.physclock.tables 'Physical gates'. Labor/physics/institution splits and all S4 factors are this study's estimates unless a source is named. The S4 2031 factor assumes robots reach leading firms (SpaceX, Rocket Lab, large primes, Chinese state and commercial firms) by 2028-2029 and the wider aerospace supply chain only after 2031.",
+    "rows": [
+      {
+        "gate": "Engine factory (Raptor production)",
+        "today_2026": "Raptor 2 at ~7 engines/week (about one a day) by late 2022; McGregor design capacity 2-4/day (2021-22 statements); >600 Raptors built by Apr 2026 (secondary); McGregor has 15 test stands for qualification, acceptance and post-flight testing (S-1)",
+        "model_S2_S3": "Production ramp 0.9x / 0.7-0.8x",
+        "split_labor_physics_institution": "~45% labor (machine tending, assembly, inspection, test-stand turnaround) / ~25% physics (machining and additive build cycles, heat treatment, acceptance hot fire) / ~30% supply and capex (special-alloy castings and forgings, tooling)",
+        "robotics_mechanism": "24/7 machine tending and assembly; robotic stand turnaround (install, instrumentation, purge, inspection); cheaper parallel development engines",
+        "S4_2031": "0.5-0.65x time-to-rate; per-engine labor hours down ~50-70% at a robot-adopting plant (estimate)",
+        "S4_2035": "0.35-0.5x",
+        "cannot_compress": "Every engine still needs an acceptance hot fire (stands x turnaround x duration); turbopump and combustion failures appear only in hot fire; alloy supply. Reuse lowers engine demand, so rate may not be the binding need."
+      },
+      {
+        "gate": "Vehicle factory (Starship Starfactory, Gigabay)",
+        "today_2026": "Production through at least Ship 48 by late Apr 2026 while V3 had not flown (NSF via secondary); reported capability ~1 stack per 14 days (secondary); Gigabay: 24 work cells, 400-t cranes, Florida Gigabay by late 2026 (S-1); targets 1,000/yr (Gigabay) and 10,000/yr (Musk, Jan 2026, aspirational)",
+        "model_S2_S3": "Production ramp 0.9x / 0.7-0.8x",
+        "split_labor_physics_institution": "~50% labor (welding, stacking, TPS tile and pin install, harnessing, plumbing) / ~15% physics (cryogenic proof tests, tile firing, weld inspection) / ~35% supply and capex (buildings, cranes, steel, Raptor supply)",
+        "robotics_mechanism": "Already partly robotized: robotic cutters, welders and TPS tile installers (NSF Mar 2026); robotic platforms for heat-shield pin installation (NSF Jan 2026). S4 extends this to general assembly, harnessing and inspection.",
+        "S4_2031": "0.55-0.7x time-to-rate; effect on flight rate ~0 because vehicles are already ahead of flights",
+        "S4_2035": "0.4-0.55x",
+        "cannot_compress": "Cryogenic proof testing, building and crane construction, Raptor supply. While flight failures and pads gate cadence, vehicle count does not."
+      },
+      {
+        "gate": "Starlink satellite lines",
+        "today_2026": "Redmond ~70 satellites/week Dec 2025-Apr 2026 (~3,640/yr at full rate); Bastrop tens of thousands of kits/day, ~200,000 terminals/week, more than doubling in 2026, adding gateway antennas, solar cells and AI compute satellites (S-1)",
+        "model_S2_S3": "Satellite platform generation 0.6-0.8x / 0.5-0.7x (commercial)",
+        "split_labor_physics_institution": "~35% labor / ~20% physics (burn-in, thermal cycling, RF test) / ~45% launch, payload qualification and parts supply",
+        "robotics_mechanism": "Already a high-rate automated line; robots mainly shorten retooling for each new generation",
+        "S4_2031": "Deployment rate ~1.0x (launch-bound); new-generation retooling 0.7-0.8x",
+        "S4_2035": "Retooling 0.5-0.7x; deployment set by Starship cadence",
+        "cannot_compress": "Launch capacity (V3 needs Starship), payload qualification, phased-array and radiation-tolerant chip supply, ITU spectrum"
+      },
+      {
+        "gate": "Integration and test (vehicle and spacecraft; the model's 25% slice)",
+        "today_2026": "~25% of a new system's critical path (model, general)",
+        "model_S2_S3": "1.2x / 1.5x speed (calendar 0.83x / 0.67x)",
+        "split_labor_physics_institution": "~40% labor (assembly, harnessing, inspection, setup and teardown) / ~35% physics (test execution time constants) / ~25% queue and rework (facility availability, failure-driven serial loops)",
+        "robotics_mechanism": "Round-the-clock robotic integration and inspection; automated test setup; more parallel test articles; fewer workmanship escapes. Firefly's 2025 ground-test stage loss was a contamination process error during stage-one integration.",
+        "S4_2031": "1.7-2.1x speed (calendar 0.48-0.58x)",
+        "S4_2035": "2.1-2.8x speed (calendar 0.36-0.48x)",
+        "cannot_compress": "Physics-set test durations; serial rework after a failure; facility count"
+      },
+      {
+        "gate": "Environmental test campaign (thermal vacuum, vibration, acoustic, EMI)",
+        "today_2026": "Campaign 6-18 months (model); spacecraft-level TVAC ~2 weeks (Mars Express) to just over 2 months (Parker Solar Probe); GEVS minimums: 4 cycles at spacecraft level, 8 at component level, plateaus >=12 h, <1e-5 torr (NASA TFAWS 2026)",
+        "model_S2_S3": "0.8-0.9x / 0.7-0.8x",
+        "split_labor_physics_institution": "~35% labor (fixtures, instrumentation, axis changes, teardown, anomaly troubleshooting) / ~40% physics (pump-down, transitions of a large thermal mass, dwells x cycles, sine and random durations) / ~25% queue and institution (chamber availability, readiness reviews, nonconformance dispositions)",
+        "robotics_mechanism": "24/7 automated chamber operations, robotic instrumentation, faster axis changes, more chambers built",
+        "S4_2031": "0.6-0.7x",
+        "S4_2035": "0.45-0.6x",
+        "cannot_compress": "Dwell x cycle count: 4 cycles with >=12 h plateaus plus transitions is about a week minimum for a large spacecraft (general); the article's thermal time constant; workmanship screening by real cycling"
+      },
+      {
+        "gate": "Material and process qualification (creep, fatigue, corrosion in real time)",
+        "today_2026": "10-20+ years for new materials; 1-3 years per additive machine and process (model). A standard 10,000-hour creep test runs ~14 months; a 10^7-cycle HCF test at 50-100 Hz takes 1-2.3 days per specimen (general)",
+        "model_S2_S3": "0.7-0.8x / 0.5-0.7x",
+        "split_labor_physics_institution": "~20% labor (specimen machining, test tending, metallography, data reduction) / ~50% physics (real-time exposure, replicate statistics) / ~30% institution (allowables databases, NASA-STD-6030, MMPDS and CMH-17 acceptance, NASA-FAA CM4QC)",
+        "robotics_mechanism": "Robotic labs run 10-100x more specimens in parallel, so B- and A-basis replicate statistics finish within the window of the longest single test; closed-loop autonomous materials labs (the model dates autonomous labs at scale to 2028)",
+        "S4_2031": "0.45-0.6x",
+        "S4_2035": "0.35-0.5x if accelerated testing plus model credit is accepted",
+        "cannot_compress": "The longest exposure the application needs (10^4-10^5 h creep, years of corrosion); extrapolation limits (Larson-Miller credit typically ~3x test time, general); acceleration valid only while the failure mechanism is unchanged; radiation dose-rate effects"
+      },
+      {
+        "gate": "Test stands and arc jets (capacity versus labor)",
+        "today_2026": "McGregor 15 stands (S-1). NASA's Ames Arc Jet Complex is the agency's sole ground facility for reentry TPS testing (NTRS 2024), built in the 1960s-70s and past its design life by 2010 (NASA 2010). Surveyed experts rank more arc jets the top hypersonic-materials test need (ETI via Air & Space Forces).",
+        "model_S2_S3": "Within 'Experiment and flight test' 1.1-1.3x / 1.3-1.5x speed (S3 already assumes AI-run test stands)",
+        "split_labor_physics_institution": "~40% labor (model change, instrumentation, between-run turnaround, maintenance) / ~25% physics (run time, cooling, pump-down, electrode wear) / ~35% capital, power and institution (new facility construction, tens of MW, funding)",
+        "robotics_mechanism": "Automated model insertion and stand turnaround raise runs per day per facility ~1.3-1.8x (estimate); robots speed construction of new stands; cheap reentry flights (Starship, capsules) replace some ground runs",
+        "S4_2031": "0.6-0.75x for queue-limited test programs",
+        "S4_2035": "0.4-0.6x",
+        "cannot_compress": "Arc-heater power and electrode life; facility capex; ground facilities cannot reproduce full reentry environments, so flight remains the final test"
+      },
+      {
+        "gate": "Launch pads and propellant plants (construction)",
+        "today_2026": "Starbase Pad 2: tower stacked May-Aug 2024, flame-trench work from Jan 13 2025, first launch May 22 2026 (~16 months from trench). LC-39A Starship pad due end 2026; SLC-37 adds two pads for four Starship pads by end 2027 (S-1). Louisiana campus: construction 2027, first launch as soon as 2029. Starpipe in-service target Jan 2027 (33FG).",
+        "model_S2_S3": "0.9-1.0x / 0.8-0.9x",
+        "split_labor_physics_institution": "~35% site labor / ~15% physics (concrete cure, steel erection sequence, cryogenic commissioning, deluge tests) / ~50% supply and institution (transformers ~128 weeks avg Q2 2025, generator step-up >160 weeks Q1 2026; compressors, cold boxes, tanks; NEPA, utility interconnects, gas supply)",
+        "robotics_mechanism": "Autonomous earthmoving (Bedrock commercial deployments Aug 2026); rebar tying (TyBot 800-1,000 ties/h vs 150-200 per worker, 25-30% schedule savings on that activity); robotic welding and steel erection; prefabrication in robotized shops",
+        "S4_2031": "0.75-0.85x",
+        "S4_2035": "0.55-0.7x, only if equipment makers also robotize and expand",
+        "cannot_compress": "Long-lead electrical and cryogenic equipment, permits and NEPA, commissioning and first-use tests, pipeline rights of way"
+      },
+      {
+        "gate": "Launch cadence (Falcon, Starship)",
+        "today_2026": "Falcon family 165 launches in 2025 with 25 airframes; Starship 5 flights in 2025 and 3 in 2026 to Oct 7 (first orbit Sep 28). Merchant propellant would need ~389 tanker movements per Starship flight; on-site production cuts variable propellant cost ~90% (Mach33).",
+        "model_S2_S3": "Own curve; 0-0.5 / 0.5-1 year earlier",
+        "split_labor_physics_institution": "~35% labor (refurbishment, TPS inspection and tile replacement, payload integration, pad turnaround) / ~40% physics (weather, windows, propellant logistics, range) / ~25% institution (license modifications, airspace, environmental caps)",
+        "robotics_mechanism": "Robotic TPS inspection and tile replacement, the main robotic lever on Starship rapid reuse (manual replacement is a cited bottleneck, secondary); robotic pad refurbishment",
+        "S4_2031": "Cadence milestones 1-1.5 years earlier than S2 (vs 0.5-1 year in S3); e.g., 100+ Starship flights/yr in 2028-2029 rather than 2029-2030",
+        "S4_2035": "Bounded by pads, propellant plants, airspace and demand; robots add little once reuse matures",
+        "cannot_compress": "Flight failures (each costs 1-12 months), pad count, propellant plants, airspace and environmental caps"
+      },
+      {
+        "gate": "Integrated flight-test interval (new heavy vehicle)",
+        "today_2026": "48-91 days (Starship 2025); 63-66 days (V3 2026); ~7 months across a version change (model)",
+        "model_S2_S3": "0.6-0.8x / 0.5-0.7x",
+        "split_labor_physics_institution": "~35% labor (build and modify next article, pad turnaround) / ~35% physics and serial learning (flight, recovery, data) / ~30% institution (mishap closure, license modification)",
+        "robotics_mechanism": "Faster modification of pre-built vehicles; robotic pad repair after damage",
+        "S4_2031": "0.45-0.65x",
+        "S4_2035": "0.35-0.55x",
+        "cannot_compress": "The serial build-fly-learn loop: each design change waits on the last flight's data; mishap closure"
+      },
+      {
+        "gate": "Reuse learning (first landing to mature fleet life)",
+        "today_2026": "15 months to first reflight; 3-5 years to 10+ flights per booster; 2025 median Falcon booster on its 14th flight, 38-day median turnaround (model, Mach33)",
+        "model_S2_S3": "0.8-0.9x / 0.7-0.8x",
+        "split_labor_physics_institution": "~25% labor (inspection, refurbishment) / ~65% physics and statistics (wear revealed only by flight cycles) / ~10% institution",
+        "robotics_mechanism": "Robotic inspection and refurbishment shorten turnaround, so more cycles accrue per calendar year",
+        "S4_2031": "0.65-0.75x",
+        "S4_2035": "0.55-0.7x",
+        "cannot_compress": "Each life data point costs a flight"
+      },
+      {
+        "gate": "New engine to flight; clean-sheet launcher",
+        "today_2026": "6-13 years for a new engine, ~3 years per major version; 5-13 years for a clean-sheet launcher (model). Neutron NET Q4 2026 (announced Mar 2021) despite a 90-t AFP robot.",
+        "model_S2_S3": "0.8-0.9x / 0.7-0.8x",
+        "split_labor_physics_institution": "~35% labor / ~40% physics and serial test learning / ~25% institution and capital",
+        "robotics_mechanism": "Cheap parallel test articles (hardware-rich iteration for all); faster stand turnaround; robotic pad construction",
+        "S4_2031": "0.65-0.75x (programs started 2028+)",
+        "S4_2035": "0.5-0.65x",
+        "cannot_compress": "Failures found only in hot fire and flight; test-stand losses (BE-4 explosions 2015 and 2023); pad and range access"
+      },
+      {
+        "gate": "Reliability demonstration by test",
+        "today_2026": "~229 zero-failure trials for 0.99 reliability at 90% confidence (n = ln(1-C)/ln(R))",
+        "model_S2_S3": "Unchanged unless model-based priors are accepted (then 0.3-0.6x)",
+        "split_labor_physics_institution": "Statistics-bound; calendar time = trials / trial rate",
+        "robotics_mechanism": "Ground and component trials run on parallel robotic rigs; system-level trials accrue at launch cadence",
+        "S4_2031": "Component level 0.3-0.5x; system level set by cadence (229 flights = 9.2 yr at 25/yr, 2.3 yr at 100/yr, 0.6 yr at 400/yr)",
+        "S4_2035": "Same logic; Starship at hundreds of flights/yr makes flight-statistics gates short",
+        "cannot_compress": "The trial count itself, unless priors are accepted"
+      },
+      {
+        "gate": "In-space assembly and servicing robots",
+        "today_2026": "Northrop MRV with two 10-ft NRL arms and three MEPs launched Jul 21 2026; months of checkout and transfer before the first pod install. Starfish Otter full-scale NET Oct 2026 (some reports 2027). OSAM-1 grew from $626-753M to >$2B, each deliverable ~2 years late, cancelled Mar 2024.",
+        "model_S2_S3": "Not a separate row (sits in satellite platform and capability domains)",
+        "split_labor_physics_institution": "~20% labor (build and integration) / ~45% physics and flight learning (space-qualified actuators, vacuum lubrication, thermal, radiation, flight demos) / ~35% institution (RPO licensing and norms, client interfaces, insurance)",
+        "robotics_mechanism": "Here robotics is the product. General-purpose manipulation models make autonomy and dexterity a cognitive problem S3 already compresses, and terrestrial robot volume lowers actuator cost",
+        "S4_2031": "0.6-0.75x on time to operational service (routine GEO life extension; first commercial LEO servicing and debris removal; demos of robotic assembly of large radiators and antennas)",
+        "S4_2035": "0.45-0.6x; robotic assembly of 100-m-class structures plausible",
+        "cannot_compress": "Flight demonstrations (2-4 years per mission), space qualification of mechanisms, docking-interface standards, RPO licensing, radiation-tolerant compute"
+      },
+      {
+        "gate": "Lunar surface construction and ISRU",
+        "today_2026": "No construction demo flown; ICON Olympus ($57.2M, runs through 2028); NASA's first off-planet construction demo tentatively late 2027. SpaceX targets an uncrewed lunar landing Mar 2027 (secondary, WSJ); Artemis IV crewed landing early 2028 (model). Lunar reactor: 100 kWe, <3,500 kg, launch-ready Q1 FY2030 (late CY2029). Dec 18 2025 executive order: initial outpost elements by 2030.",
+        "model_S2_S3": "Not a separate row (Living and working off Earth branch)",
+        "split_labor_physics_institution": "Robots are the workforce. Gates: ~50% delivery and power (landed mass rate, reactor, lunar night of ~14.75 days) / ~30% physics and survival (dust, thermal cycling, regolith processing energy, first-of-kind failures) / ~20% institution and funding",
+        "robotics_mechanism": "S4's general-purpose robots turn site work (excavation, sintering pads, berms, assembly, maintenance) from bespoke rovers into adaptable, teleoperated-then-autonomous crews; 2.6 s round-trip latency allows supervised autonomy",
+        "S4_2031": "0.6-0.8x vs S3: pilot-scale demos (landing pad, berm, kg-to-tonne oxygen extraction) rather than outpost-scale construction",
+        "S4_2035": "0.4-0.6x if Starship lunar cargo reaches ~10+ landings/yr: hundreds of tonnes moved, tonne-scale O2 per year",
+        "cannot_compress": "Landed mass per year, surface power through the lunar night, dust and thermal survival qualification, regolith processing energy"
+      },
+      {
+        "gate": "Mars surface operations",
+        "today_2026": "Earth-Mars windows every ~26 months; SpaceX put Mars on hold in Feb 2026 to prioritize the Moon (the late-2026 window is skipped); its Mars page says cargo flights to the surface NET 2028 (secondary)",
+        "model_S2_S3": "n/a",
+        "split_labor_physics_institution": "Orbital-mechanics-bound learning loop",
+        "robotics_mechanism": "Robots make each window's payload more capable and can build precursor infrastructure before crews arrive",
+        "S4_2031": "1.0x on learning cycles: at most 1-2 Mars iterations (2028-29 and 2031 windows)",
+        "S4_2035": "1.0x: at most 3-4 iterations",
+        "cannot_compress": "Synodic period (~26 months) and ~6-9 month transits"
+      },
+      {
+        "gate": "Human rating",
+        "today_2026": "~6 years (Crew Dragon CCtCap 2014 to certification 2020, general); HLS not human-rated as of Apr 2026 (model)",
+        "model_S2_S3": "0.9x / 0.8-0.9x",
+        "split_labor_physics_institution": "~10% labor / ~40% flight statistics and crewed tests / ~50% institution (review boards, risk posture)",
+        "robotics_mechanism": "Little direct effect. Indirectly, robots substitute for crews in construction and maintenance, so fewer objectives wait on human rating.",
+        "S4_2031": "0.8-0.9x (same as S3)",
+        "S4_2035": "0.75-0.85x",
+        "cannot_compress": "Crewed flight tests, independent review, accepted risk"
+      },
+      {
+        "gate": "Licensing (FAA Part 450, NEPA, FCC/ITU)",
+        "today_2026": "180-day statutory review plus pre-application; EA 1-2 years, EIS 2-4 years; reforms under way (EO 14335, FAA proposed rules Jul 30 and Oct 5 2026, FCC Part 100) (model)",
+        "model_S2_S3": "FAA 0.5-0.7x / 0.5x; NEPA 0.7-0.8x / 0.7x; spectrum 0.5x US, 0.9x ITU",
+        "split_labor_physics_institution": "Institution-bound",
+        "robotics_mechanism": "None. Robots do not change statutory clocks, comment periods or litigation.",
+        "S4_2031": "Same as S3",
+        "S4_2035": "Same as S3",
+        "cannot_compress": "Statutory clocks, interagency consultation, public comment, litigation, international coordination"
+      },
+      {
+        "gate": "Long-lead parts and supply chain",
+        "today_2026": "12-24+ months for radiation-hardened parts; long forgings, castings, solid motors (model, general)",
+        "model_S2_S3": "0.9-1.0x / 0.8-0.9x",
+        "split_labor_physics_institution": "~30% labor at suppliers / ~30% physics and capacity (fab tool lead times, furnace and forging cycles) / ~40% institution (single sources, export controls, supplier qualification)",
+        "robotics_mechanism": "Supplier robotization and capacity expansion, mostly after 2031; each robotized special process (welding, NDT, heat treat) needs requalification (AS9100, NADCAP, AS9102 first article, general), ~6-24 months per process per supplier (estimate)",
+        "S4_2031": "0.75-0.9x",
+        "S4_2035": "0.55-0.75x",
+        "cannot_compress": "Fab capacity (new fab 3-4 years, general), single sources, export controls, requalification of changed processes"
+      },
+      {
+        "gate": "Space nuclear system; government flagship",
+        "today_2026": "Nuclear 5+ years with no U.S. reactor launched since 1965; flagships 8-15 years with 2-7 year slips (model)",
+        "model_S2_S3": "Nuclear 0.9x / 0.8-0.9x; flagship 0.9x / 0.85x",
+        "split_labor_physics_institution": "Mostly institution-bound (HALEU supply, criticality testing, NSPM-20, appropriations)",
+        "robotics_mechanism": "Small: robotic fuel handling and fabrication",
+        "S4_2031": "Nuclear 0.8-0.9x; flagship 0.85x",
+        "S4_2035": "Nuclear 0.7-0.85x; flagship 0.8x",
+        "cannot_compress": "Fuel supply, criticality tests, launch authorization, appropriations and politics"
+      },
+      {
+        "gate": "Capital and launch cost",
+        "today_2026": "SpaceX ~$100.8B cash (Jun 2026); Falcon 9 Starlink ~$1,500/kg internal; Starship Flight 14 ~$4,915/kg expended (model, Mach33)",
+        "model_S2_S3": "Development labor cost down 15-30% / 25-40%; launch cost milestones 0-0.5 / 0.5-1 year earlier",
+        "split_labor_physics_institution": "Hardware and refurbishment labor is the robot-addressable share",
+        "robotics_mechanism": "Lower production and refurbishment labor cost; Mach33 attributes only ~12% of the expected Starship cost fall to production learning (56% reuse, 32% payload)",
+        "S4_2031": "Unit hardware cost down ~10-25% at robot-adopting lines (estimate); cost milestones 0.5-1.5 years earlier",
+        "S4_2035": "Unit hardware cost down ~25-45% (estimate); cost curve still gated by flights needed to prove reuse",
+        "cannot_compress": "Flights to prove reuse, propellant ($0.2-2.7M per flight), market structure"
+      }
+    ]
+  },
+  "class_multipliers_S4": {
+    "columns": [
+      "Gate class",
+      "S3 Recursive (model, by 2031)",
+      "S4 Embodied by 2031",
+      "S4 Embodied by 2035",
+      "Why"
+    ],
+    "rows": [
+      [
+        "Cognitive (design, analysis, software, verification)",
+        "20-50x from 2029",
+        "20-50x",
+        "50-100x",
+        "Not robot-limited; same as S3 to 2031"
+      ],
+      [
+        "Experiment and flight test",
+        "1.3-1.5x",
+        "1.4-1.8x (ground I&T slice 1.7-2.1x)",
+        "1.7-2.3x (ground I&T 2.1-2.8x)",
+        "Robots cut setup, turnaround and queues; flights, dwells and failures fixed"
+      ],
+      [
+        "Fabrication and supply chain",
+        "1.2-1.3x",
+        "1.5-1.8x in-house; 1.3-1.5x supply-chain-wide",
+        "2.0-2.7x",
+        "Labor-bound steps compress; supplier robotization mostly after 2031"
+      ],
+      [
+        "Qualification (customer acceptance)",
+        "1.25-1.4x",
+        "1.5-1.8x",
+        "1.9-2.6x",
+        "Parallel replicates; credit standards and real-time exposure fixed"
+      ],
+      [
+        "Regulatory (licensing, NEPA)",
+        "1.5-2x",
+        "1.5-2x",
+        "1.5-2x",
+        "Robots have no effect"
+      ],
+      [
+        "Launch cadence and cost",
+        "Own curve, 0.5-1 yr earlier",
+        "Own curve, 1-1.5 yr earlier",
+        "Own curve, bounded by pads, propellant, airspace",
+        "Robotic TPS and pad refurbishment"
+      ],
+      [
+        "Construction (pads, plants, test facilities)",
+        "1.1-1.25x",
+        "1.2-1.35x",
+        "1.4-1.8x",
+        "Half of schedule is long-lead equipment and permits"
+      ],
+      [
+        "Capital",
+        "1.3-1.5x effective",
+        "1.4-1.7x effective",
+        "1.8-2.5x effective",
+        "Labor share of hardware cost"
+      ],
+      [
+        "Politics and appropriations",
+        "1.0x",
+        "1.0x",
+        "1.0x",
+        "Not a labor or cognitive process"
+      ],
+      [
+        "Orbital mechanics (planetary windows)",
+        "1.0x",
+        "1.0x",
+        "1.0x",
+        "Physics"
+      ]
+    ]
+  },
+  "amdahl_S4": {
+    "activity_shares": {
+      "requirements": 0.1,
+      "design_analysis": 0.15,
+      "software": 0.1,
+      "fabrication_procurement": 0.25,
+      "integration_test": 0.25,
+      "qualification_reviews": 0.1,
+      "launch_campaign": 0.05
+    },
+    "sub_shares_labor_physics_institution": {
+      "fabrication": [
+        0.4,
+        0.2,
+        0.4
+      ],
+      "integration_test": [
+        0.4,
+        0.35,
+        0.25
+      ],
+      "qualification": [
+        0.2,
+        0.4,
+        0.4
+      ],
+      "launch_campaign": [
+        0.35,
+        0.4,
+        0.25
+      ]
+    },
+    "results": [
+      {
+        "case": "S3 check (reproduces model)",
+        "slice_speedups": "fab 1.30x, I&T 1.49x, qual 1.54x, launch 1.0x",
+        "program_speedup": "2.05x",
+        "shorter": "51%"
+      },
+      {
+        "case": "S4 by 2031, low",
+        "slice_speedups": "fab 1.50x, I&T 1.72x, qual 1.58x, launch 1.13x",
+        "program_speedup": "2.31x",
+        "shorter": "57%"
+      },
+      {
+        "case": "S4 by 2031, high",
+        "slice_speedups": "fab 1.78x, I&T 2.11x, qual 1.80x, launch 1.30x",
+        "program_speedup": "2.73x",
+        "shorter": "63%"
+      },
+      {
+        "case": "S4 by 2035, low",
+        "slice_speedups": "fab 1.98x, I&T 2.11x, qual 1.91x, launch 1.30x",
+        "program_speedup": "2.93x",
+        "shorter": "66%"
+      },
+      {
+        "case": "S4 by 2035, high",
+        "slice_speedups": "fab 2.65x, I&T 2.80x, qual 2.63x, launch 1.55x",
+        "program_speedup": "3.85x",
+        "shorter": "74%"
+      },
+      {
+        "case": "Floor: infinite cognition and infinite robots",
+        "slice_speedups": "fab 3.33x, I&T 3.16x, qual 2.78x, launch 1.80x",
+        "program_speedup": "4.59x",
+        "shorter": "78%"
+      },
+      {
+        "case": "Infinite cognition, S3 physical multipliers (no robots)",
+        "slice_speedups": "as S3",
+        "program_speedup": "2.10x",
+        "shorter": "52%"
+      }
+    ],
+    "realized_estimate": "S4 2031 ~40-50% shorter (vs S3 35-45%); S4 2035 ~50-62% shorter. Haircut for adoption lag, robotic-process requalification, and supply-chain robotization arriving after 2031.",
+    "script": "scratchpad amdahl_s4.py (sub-multipliers listed in this file's method note)"
+  },
+  "robots_build_robots_loop": {
+    "starting_point": "Humanoid shipments ~13k (Omdia) to ~18k (IDC) in 2025; ~19-22k in H1 2026; 2026 forecasts 50-100k (TrendForce >50k, SAG ~60k, Goldman 50-100k). Industrial robot stock 4.66M end-2024, 542k installed in 2024, stock growth ~9-11%/yr (IFR). The most recent doubling of the world robot stock took 6 years (Forethought).",
+    "scenarios": [
+      {
+        "name": "A Industrial ramp (2.5x/yr to 2028, 1.8x to 2031, 1.5x after)",
+        "output_2031": "~2.0M/yr",
+        "fleet_2031": "~3.9M",
+        "output_2035": "~10M/yr",
+        "fleet_2035": "~25M"
+      },
+      {
+        "name": "B S4 base (3.5x/yr to 2029, 2x to 2031, 1.6x after)",
+        "output_2031": "~9.4M/yr",
+        "fleet_2031": "~16M",
+        "output_2035": "~62M/yr",
+        "fleet_2035": "~140M"
+      },
+      {
+        "name": "C Retooled auto lines plus closed loop (4x/yr to 2029, then 3x, 2.5x, 2x...)",
+        "output_2031": "~26M/yr",
+        "fleet_2031": "~40M",
+        "output_2035": "~300M/yr",
+        "fleet_2035": "~600M (likely capped by magnets, actuators and chips)"
+      }
+    ],
+    "assumptions": "2026 output 55k; 10%/yr attrition; a robot works ~5,000 h/yr vs ~1,900 for a human, at 0.3 (2028), 0.7 (2031) and 1.0 (2035) of human task productivity, i.e., ~0.8, ~1.8 and ~2.6 human-equivalents per robot (estimates).",
+    "space_sector_need": "If 30-50% of direct labor hours in global space manufacturing, test and launch operations (order 0.3-0.6M workers, general estimate; SpaceX alone >22,000 full-time employees as of Mar 31 2026 per its S-1) were robotized at ~1.8 human-equivalents per robot, space needs ~50k-170k robots. All three scenarios supply that by 2028-2029.",
+    "economy_scale_need": "Shortening the supply chain behind pads, propellant plants, test facilities and fabs (transformers, compressors, cryogenic equipment, steel, concrete, semiconductors) means robotizing a meaningful share of manufacturing and construction: order 10^7 robots plus redesigned factories. That arrives ~2031-2033 in B and ~2034-2036 in A.",
+    "why_the_loop_is_not_the_early_driver": "Through ~2030, humanoid output growth comes from human-built, retooled factories (Tesla converted Fremont's Model S/X lines to a 1M/yr design-capacity Optimus line, and a 10M/yr Giga Texas plant is planned; Figure BotQ is rated 12,000/yr), not from robots building robots. Forethought's estimate of ~1-year doublings for self-replicating robots on current technology (range 1-2 years; the appendix says 'a few years') means stock growth of ~2x/yr. That is slower than today's 3-4x/yr output growth from a tiny base, and it matters only once robots are a large share of manufacturing. FANUC has run robot-building-robot lines (unattended up to 30 days; capacity 5,000-6,000 robots/month in 2016-17) for two decades without runaway growth, because demand and non-robot inputs set the rate.",
+    "binding_inputs_for_the_loop": "Precision actuators (roller screws, harmonic reducers), rare-earth magnets (China-dominated, export-controlled, general), inference chips (SpaceX's S-1 says Terafab will make chips for Optimus), batteries, factory buildings and power",
+    "verdict_2031_vs_2035": "By 2031 the loop matters for space only inside leading firms and as the off-Earth workforce. Robot quantity is not the binding variable. Capability at aerospace tolerances, process requalification and the non-labor gates are. By 2035 (scenario B) the loop matters for the supply chain and construction, which is where most of the extra S4 compression between 2031 and 2035 comes from."
+  },
+  "automation_evidence": [
+    {
+      "company": "Rocket Lab (Electron)",
+      "automation": "'Rosie' robot processes a complete Electron's carbon-composite structures in 12 hours vs 400+ hours before (Nov 2019); goal: one Electron every 7 days, up from every 30",
+      "cadence_outcome": "6 launches in 2019 (general); record 16 in 2024; 21 in 2025 (all successful); 18 launches including 3 HASTE in 2026 to Sep 26. A ~33x speedup on one step became ~3.5x cadence over 6 years, bound by demand, failures, sites and other steps.",
+      "lesson": "Amdahl in practice"
+    },
+    {
+      "company": "Rocket Lab (Neutron)",
+      "automation": "~90-t, 12-m Electroimpact AFP robot, ~100 m/min fiber placement, in-process inspection; projected to save 150,000+ production hours (Aug 2024)",
+      "cadence_outcome": "First launch slipped to NET Q4 2026 after a tank failure; possible 2027",
+      "lesson": "Automation does not shorten development and qualification"
+    },
+    {
+      "company": "Relativity Space",
+      "automation": "Stargate metal printing of >95% of parts (2018 claim), ~100x part-count reduction",
+      "cadence_outcome": "Terran 1 flew once (Mar 2023) and failed to reach orbit. Terran R uses friction-stir-welded aluminum and outside suppliers for tanks, domes and fairings because printing large domes was too slow for rate; first launch planned late 2026 from LC-16.",
+      "lesson": "A novel automated process can be slower than conventional fabrication, and it must be qualified"
+    },
+    {
+      "company": "Firefly (Alpha)",
+      "automation": "Ingersoll AFP (2020) to build all Alpha carbon structures in as little as 14 days; planned Florida factory for 24 Alpha/yr; Block II uses automated machinery for composite structures",
+      "cadence_outcome": "Flight 6 failed Apr 29 2025; a 2025 ground-test explosion was traced to a contamination process error during stage-one integration; Flight 7 returned to orbit Mar 11 2026; Block II debut and next two flights moved to Q4 2026",
+      "lesson": "Reliability and integration workmanship, not structure fabrication, bound cadence"
+    },
+    {
+      "company": "SpaceX",
+      "automation": "Starfactory robotic cutters, welders and TPS tile installers; robotic heat-shield pin installation; Redmond ~70 satellites/week; ~200,000 terminals/week; Raptor ~1/day by late 2022; 'automate only proven processes' is the last step of its stated method (S-1)",
+      "cadence_outcome": "Falcon 165 launches in 2025; Starship 5 flights in 2025 and 3 in 2026 to Oct 7, bound by development failures and pad availability, not factory output",
+      "lesson": "Automation moved the gate to launch and flight learning"
+    },
+    {
+      "company": "Apex Space and K2 Space",
+      "automation": "Apex Factory One rated >200 satellites/yr at peak (Jun 2026), up from a 50/yr 2023 plan; K2 Torrance up to 100/yr",
+      "cadence_outcome": "Capacity claims; no audited 2026 output found",
+      "lesson": "Satellite bus production is becoming capacity-rich; launch and payloads bind"
+    },
+    {
+      "company": "Figure AI",
+      "automation": "BotQ from ~1 robot/day (Jan 2026) to ~1/hour (Apr 2026); 1,000th Figure 03 built Jul 23 2026; first line rated 12,000/yr; end-of-line first-pass yield >80%",
+      "cadence_outcome": "Figure 02 at BMW Spartanburg: 11 months, 1,250+ h runtime, 90,000+ parts loaded, 10-h weekday shifts, 84 s cycle / 37 s load target, 5 mm tolerance, >99% placement accuracy",
+      "lesson": "Real but narrow industrial work; aerospace tolerances are much tighter"
+    },
+    {
+      "company": "Tesla Optimus",
+      "automation": "Fremont S/X lines converted to an Optimus line with 1M/yr design capacity; Giga Texas Optimus plant targeted ~summer 2027",
+      "cadence_outcome": "Musk (Jan 2026): Optimus 'not in usage in our factories in a material way'; <500 shipped in 2025 (Omdia est.); several hundred per week by Aug 2026 (The Information via secondary, unverified)",
+      "lesson": "Robot output is ramping, but useful-work capability lags"
+    },
+    {
+      "company": "Construction robotics",
+      "automation": "TyBot rebar tying 800-1,000 ties/h vs 150-200 per worker; Bedrock autonomous excavators in commercial use Aug 2026; 79% of surveyed contractors used some jobsite robotics in 2026 vs 29% in 2025 (BuiltWorlds)",
+      "cadence_outcome": "Activity-level savings of 25-30%; construction value-added per worker ~40% below 1970 (Goolsbee and Syverson, disputed)",
+      "lesson": "Task-level gains; project schedules stay bound by equipment and permits"
+    }
+  ],
+  "physics_time_constants_and_hard_limits": [
+    "Thermal vacuum: >=4 cycles at spacecraft level, >=12 h plateaus (GEVS via NASA TFAWS 2026); large spacecraft need days to stabilize thermally (general)",
+    "Creep: 10^4 h (~14 months) standard tests; 10^5 h (~11.4 years) for long-life allowables; extrapolation credit typically ~3x test time (general)",
+    "Fatigue: 10^7 cycles at 50-100 Hz takes 1-2.3 days per specimen; thermomechanical fatigue runs minutes per cycle, so weeks per specimen (general)",
+    "Concrete reaches design strength at 28 days (general)",
+    "Reliability: n = ln(1-C)/ln(R), ~229 zero-failure trials for R=0.99 at C=0.90",
+    "Mars synodic period ~26 months; transit ~6-9 months; lunar night ~14.75 days; lunar opportunities every few days with ~3-5 day transits (general; SpaceX Feb 2026 rationale)",
+    "Propellant: 5,250 t per Starship stack; merchant supply needs ~389 tanker movements per flight; power and gas bind only near 10,000 flights/yr (Mach33)",
+    "Long-lead electrical equipment: large power transformers ~128 weeks (Q2 2025); generator step-up >160 weeks (Q1 2026) (Wood Mackenzie via press)"
+  ],
+  "quantitative_anchors": [
+    {
+      "metric": "SpaceX Redmond Starlink satellite production",
+      "value": "~70 satellites/week average (~3,640/yr at full rate)",
+      "date": "Dec 2025-Apr 2026",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/0001181412/000162828026040364/spaceexplorationtechnologib.htm",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Starlink terminal production",
+      "value": "~200,000 terminals/week; Bastrop 'tens of thousands of kits per day'; Bastrop to more than double in 2026",
+      "date": "2026 (S-1/A)",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/0001181412/000162828026040364/spaceexplorationtechnologib.htm",
+      "confidence": "verified"
+    },
+    {
+      "metric": "SpaceX McGregor engine test stands",
+      "value": "15 specialized test stands (Merlin and Raptor qualification, acceptance, post-flight)",
+      "date": "2026 (S-1/A)",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/0001181412/000162828026040364/spaceexplorationtechnologib.htm",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Starship launch pads",
+      "value": "LC-39A Starship pad complete by end 2026; SLC-37 two pads; four operational Starship pads by end 2027; Gigabay 24 work cells, 400-t cranes",
+      "date": "2026 (S-1/A)",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/0001181412/000162828026040364/spaceexplorationtechnologib.htm",
+      "confidence": "verified"
+    },
+    {
+      "metric": "SpaceX full-time employees",
+      "value": ">22,000 worldwide",
+      "date": "2026-03-31",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/0001181412/000162828026040364/spaceexplorationtechnologib.htm",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Rocket Lab Rosie robot: Electron composite processing time",
+      "value": "12 hours vs 400+ hours (~33x); goal 1 Electron per 7 days from 1 per 30",
+      "date": "2019-11-13",
+      "source_url": "https://techcrunch.com/2019/11/13/rocket-labs-new-rosie-the-robot-speeds-up-launch-vehicle-production-by-a-lot",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Electron launches",
+      "value": "21 in 2025 (record, 100% success); 18 Rocket Lab launches incl. 3 HASTE in 2026 to Sep 26",
+      "date": "2025-12 / 2026-09-26",
+      "source_url": "https://rocketlabcorp.com/updates/rocket-lab-successfully-launches-for-iqps-ends-2025-with-21-launches-and-100-mission-succes/",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Neutron AFP robot projected savings",
+      "value": "150,000+ manufacturing hours; ~90 t, 12 m, ~100 m/min",
+      "date": "2024-08",
+      "source_url": "https://rocketlabusa.com/updates/rocket-lab-begins-installation-of-large-carbon-composite-rocket-building-machine",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Neutron first launch",
+      "value": "NET Q4 2026 (announced Mar 2021); possible 2027",
+      "date": "2026-08",
+      "source_url": "https://en.wikipedia.org/wiki/Rocket_Lab_Neutron",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Relativity Terran R manufacturing",
+      "value": "Large structures moved to friction-stir-welded aluminum and suppliers because printing large domes was too slow for rate; printing kept for engines",
+      "date": "2025-06-30",
+      "source_url": "https://newspaceeconomy.ca/2025/06/30/relativity-space-forging-a-new-path-in-aerospace-manufacturing/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Firefly Alpha cadence",
+      "value": "Flight 7 return to flight Mar 11 2026; Block II debut and next two flights moved to Q4 2026",
+      "date": "2026-08-11",
+      "source_url": "https://spaceflightnow.com/2026/08/11/firefly-aerospace-pushes-debut-of-alpha-block-2-rocket-to-the-fourth-quarter-of-2026/",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Firefly automated composites plan",
+      "value": "AFP to build all Alpha carbon structures in as little as 14 days; Florida factory planned for 24 Alpha/yr",
+      "date": "2020-10-29",
+      "source_url": "https://spaceexplored.com/2020/10/29/firefly-announces-new-process-to-produce-alpha-airframe-in-14-days/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Starfactory robotics",
+      "value": "Robotic cutters, high-accuracy robotic welders, specialized TPS tile installers",
+      "date": "2026-03",
+      "source_url": "https://www.nasaspaceflight.com/2026/03/steel-rolls-to-starship/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Robotic heat-shield pin installation platforms at Starbase",
+      "value": "Introduced in the weeks before the report to support the production ramp",
+      "date": "2026-01",
+      "source_url": "https://www.nasaspaceflight.com/2026/01/tps-evaluations-next-two-ships/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Starbase Pad 2 build",
+      "value": "Tower May-Aug 2024; flame trench from Jan 13 2025; first launch (Flight 12, V3) May 22 2026: ~16 months trench to launch",
+      "date": "2026-05-22",
+      "source_url": "https://orbitcodex.com/facilities/pad/orbital-launch-pad-2",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Starship propellant logistics",
+      "value": "~389 tanker movements per flight with merchant supply; on-site production cuts variable propellant cost ~90% ($1.70-2.67M to $203-221k per flight)",
+      "date": "2026-08-26",
+      "source_url": "https://research.33fg.com/analysis/spacex-louisiana-and-the-math-behind-on-site-propellant-infrastructure",
+      "confidence": "estimate"
+    },
+    {
+      "metric": "Humanoid robot shipments",
+      "value": "~13,000 (Omdia) to ~18,000 (IDC) in 2025; ~19,100-22,000 in H1 2026; 2026 forecasts 50,000-100,000",
+      "date": "2026",
+      "source_url": "https://humanoid.guide/humanoid-deployments-in-2026-favor-figure-and-agility/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Figure BotQ production",
+      "value": "~1/day (Jan 2026) to ~1/hour (Apr 2026); 1,000th Figure 03 Jul 23 2026; first line rated 12,000/yr",
+      "date": "2026-07-23",
+      "source_url": "https://www.humanoidsdaily.com/news/a-golden-milestone-figure-manufactures-its-1-000th-figure-03-humanoid",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Figure 02 at BMW Spartanburg",
+      "value": "11 months; 1,250+ h runtime; 90,000+ parts loaded; 84 s cycle / 37 s load target; 5 mm tolerance",
+      "date": "2025-11",
+      "source_url": "https://figure.ai/news/production-at-bmw",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Optimus useful work",
+      "value": "Not 'in usage in our factories in a material way' (Musk, Q4 2025 call)",
+      "date": "2026-01-28",
+      "source_url": "https://electrek.co/2026/01/28/musk-admits-no-optimus-robots-are-doing-useful-work-at-tesla-after-claiming-otherwise/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Industrial robot stock and installations",
+      "value": "4.66M operational end-2024; 542k installed in 2024; stock growth ~11%/yr avg since 2019",
+      "date": "2025-09-25",
+      "source_url": "https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Robot stock doubling time",
+      "value": "Most recent doubling took 6 years; self-replicating robots on current technology ~1 year (range 1-2; 'a few years' in appendix)",
+      "date": "2025-05-21",
+      "source_url": "https://forethought.org/research/the-industrial-explosion",
+      "confidence": "estimate"
+    },
+    {
+      "metric": "FANUC robot production capacity",
+      "value": "5,000 robots/month, rising to 6,000/month from Apr 2017",
+      "date": "2016-10-11",
+      "source_url": "https://fanuc.co.jp/en/ir/announce_other/pdf/2016/notice20161011_e.pdf",
+      "confidence": "verified"
+    },
+    {
+      "metric": "GEVS thermal vacuum minimums",
+      "value": ">=4 cycles spacecraft/payload level, 8 at component level; plateaus >=12 h; <1e-5 torr",
+      "date": "2026",
+      "source_url": "https://ntrs.nasa.gov/api/citations/20260007945/downloads/TFAWS_2026_TestCourse_SMauro_StarBurst.pdf",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Parker Solar Probe space-environment test",
+      "value": "Just over 2 months in the thermal vacuum chamber (planned ~7 weeks)",
+      "date": "2018-03-26",
+      "source_url": "https://science.nasa.gov/blogs/parker-solar-probe/2018/03/26/parker-solar-probe-completes-space-environment-testing",
+      "confidence": "verified"
+    },
+    {
+      "metric": "NASA arc jet capacity",
+      "value": "Ames Arc Jet Complex is NASA's sole ground facility for reentry TPS testing; demand rising with maintenance flat",
+      "date": "2024-12",
+      "source_url": "https://ntrs.nasa.gov/citations/20240013620",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Large power transformer lead time",
+      "value": "~128 weeks average (Q2 2025); generator step-up >160 weeks (Q1 2026)",
+      "date": "2026-Q1",
+      "source_url": "https://thenextweb.com/news/us-power-companies-scramble-data-centre-equipment",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Northrop Grumman MRV launch",
+      "value": "Launched Jul 21 2026 on Falcon 9 with two 10-ft robotic arms and three Mission Extension Pods",
+      "date": "2026-07-21",
+      "source_url": "https://www.satellitetoday.com/launch/2026/07/21/spacex-launches-northrop-grummans-first-mission-robotic-vehicle/",
+      "confidence": "verified"
+    },
+    {
+      "metric": "OSAM-1 cost growth and cancellation",
+      "value": "$626-753M original to >$2B (IG up to $2.17B); cancelled Mar 1 2024; closed out Sep 2024",
+      "date": "2024-03-01",
+      "source_url": "https://www.aip.org/fyi/nasa-cancels-big-budget-robotic-servicing-demonstration",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Lunar fission surface power requirement",
+      "value": "100 kWe, <3,500 kg, launch-ready Q1 FY2030 (late CY2029), 15-t lander, 10-yr life",
+      "date": "2026-01-14",
+      "source_url": "https://www.ans.org/news/2026-01-14/article-7674/nasa-doe-solidify-collaboration-on-a-lunar-surface-reactor/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "SpaceX Mars pivot",
+      "value": "Mars plans on hold to prioritize the Moon; uncrewed lunar landing target Mar 2027",
+      "date": "2026-02-09",
+      "source_url": "https://aiaa.org/2026/02/09/spacex-puts-mars-plans-on-hold-to-prioritize-nasa-moon-effort/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "ICON Project Olympus",
+      "value": "$57.2M NASA SBIR Phase III for lunar construction, running through 2028",
+      "date": "2022-11",
+      "source_url": "https://space.com/icon-moon-construction-project-olympus-nasa-funding",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Rebar-tying robot productivity",
+      "value": "800-1,000 ties/h vs 150-200 per worker; 25-30% schedule savings on the activity",
+      "date": "2026",
+      "source_url": "https://www.forconstructionpros.com/22235970",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Jobsite robotics adoption",
+      "value": "79% of surveyed contractors used jobsite robotics in 2026 vs 29% in 2025",
+      "date": "2026",
+      "source_url": "https://www.contractormag.com/technology/news/55395720/contractor-adoption-of-jobsite-robotics-more-than-doubles-in-2026",
+      "confidence": "reported"
+    },
+    {
+      "metric": "S4 Amdahl ceiling, new space program",
+      "value": "57-63% shorter by 2031 (S3 51%); 66-74% by 2035; floor 78% (4.6x) with infinite robots and cognition",
+      "date": "2026-10-07",
+      "source_url": "local: /Users/alex/projects/openai math paper/model/embodied/research-space.json (this study)",
+      "confidence": "estimate"
+    },
+    {
+      "metric": "Reliability demonstration time vs cadence",
+      "value": "229 trials: 9.2 yr at 25 flights/yr, 2.3 yr at 100/yr, 0.6 yr at 400/yr",
+      "date": "2026-10-07",
+      "source_url": "local: binomial n = ln(1-C)/ln(R) (general)",
+      "confidence": "general"
+    }
+  ],
+  "what_robotics_compresses": [
+    "Labor-bound factory steps: machine tending, welding, stacking, harnessing, TPS tile and pin installation, inspection (engine and vehicle time-to-rate 0.5-0.7x by 2031, 0.35-0.55x by 2035)",
+    "Test setup, teardown, instrumentation, axis changes and 24/7 chamber and stand operations (environmental campaigns 0.6-0.7x by 2031, 0.45-0.6x by 2035)",
+    "Facility queues and capacity: more runs per day per stand or arc jet, plus more facilities built (0.6-0.75x by 2031, 0.4-0.6x by 2035)",
+    "Replicate statistics for materials and component allowables, by running 10-100x more specimens in parallel (material and process qualification 0.45-0.6x by 2031)",
+    "Refurbishment and turnaround labor for reuse (robotic TPS inspection and tile replacement), which raises flight cadence and so speeds statistics-bound gates indirectly",
+    "Construction site labor for pads, propellant plants and test facilities (0.75-0.85x by 2031, 0.55-0.7x by 2035)",
+    "Workmanship escapes, such as Firefly's 2025 contamination error during stage integration",
+    "Cost of test articles, making hardware-rich parallel iteration affordable beyond SpaceX",
+    "Off-Earth work: lunar site preparation, ISRU operations, in-space servicing and assembly, where robots are the workforce and S4 changes capability more than speed",
+    "Hardware unit cost at robot-adopting lines (~10-25% by 2031, ~25-45% by 2035, estimates)"
+  ],
+  "what_robotics_cannot_compress": [
+    "Physics time constants: thermal-vacuum dwells and cycles, a spacecraft's thermal time constant, creep and corrosion exposure (10^4-10^5 h), concrete cure, curing and densification cycles, hot-fire and burn durations",
+    "Failure discovery that happens only in hot fire or flight, and the serial build-fly-learn loop that waits on each result",
+    "Statistical evidence: ~229 zero-failure trials for 0.99/90%; flight-level trials accrue only at launch cadence",
+    "Orbital mechanics: Mars windows every ~26 months (at most 1-2 iterations by 2031, 3-4 by 2035) and transit times",
+    "Lunar environment: ~14.75-day night, dust, thermal cycling, surface power (reactor launch-ready ~late 2029 target), landed mass per year",
+    "Institutional clocks: FAA Part 450 statutory review, NEPA comment and litigation, ITU coordination, human-rating boards, NSPM-20 nuclear launch approval, appropriations",
+    "Long-lead equipment and supply capacity: transformers (~128-160+ weeks), cryogenic plants, rad-hard fab capacity, single sources, export controls, until those industries are themselves robotized (mostly after 2031)",
+    "Requalification of robotized processes (AS9100, NADCAP, weld procedure and first-article requalification), ~6-24 months per process per supplier (estimate)",
+    "Energy and materials at extreme cadence: propellant plants and gas supply (bind near 10,000 flights/yr), plus magnets, actuators and chips for the robots themselves"
+  ],
+  "timeline_view": "2026-2028: robots enter leading space factories on top of automation that already exists (Starfactory, Redmond, Rosie and AFP lines). Humanoid output ramps from ~55k (2026) toward 0.2-0.9M/yr, but useful aerospace-grade work is limited, so S4 is effectively S3 for space; cadence stays gated by Starship development, pads and propellant. 2029-2031: robot capability (S3 cognition) and supply (1-26M/yr output across scenarios) are enough for leading firms to robotize I&T, test operations, refurbishment and in-house fabrication. The new-program Amdahl ceiling rises from 51% to ~57-63% shorter, and realized gains reach ~40-50% vs 35-45% in S3. Starship cadence milestones arrive ~1-1.5 years ahead of S2. The first robotic lunar construction and ISRU pilots and routine GEO servicing happen, while Mars allows at most 1-2 learning cycles. The wider supply chain, construction and licensing barely change. 2031-2035: in scenario B (~16M robots by 2031, ~140M by 2035) suppliers, equipment makers and construction robotize. Pads, propellant plants, test facilities and long-lead parts compress to ~0.55-0.75x, and the ceiling reaches ~66-74% (realized ~50-62%). Lunar construction scales if Starship lunar cargo reaches ~10+ landings/yr. Beyond 2035 the floor is ~78% shorter (4.6x), set by physics, statistics, windows and institutions. The robots-build-robots loop matters for space mainly after 2031, through the supply chain and construction, not through the factories, which robots saturate early.",
+  "strongest_case_fast": "S3 cognition solves robot dexterity and autonomy by 2027-2028. Retooled auto lines (Fremont's 1M/yr design capacity, a planned 10M/yr Giga Texas plant, BotQ's 12,000/yr line going 24x in four months) push humanoid output 4x/yr to tens of millions by 2031. SpaceX already has robotic welding, cutting and TPS installation, ~$100B of cash and an affiliated robot maker. It robotizes Starbase, Gigabay, McGregor and Florida refurbishment by 2028-29. Robotic tile inspection and replacement unlocks rapid reuse, so Starship reaches hundreds of flights/yr by 2030. At 400 flights/yr a 229-trial reliability case takes ~7 months, collapsing reuse-learning, reliability and much of human-rating evidence. Parallel robotic labs finish allowables in the time of one long test; regulators accept model-plus-accelerated-test credit (S3 dates regulator credit to 2029). Robotic crews build the Louisiana campus and more arc jets on 2-3 shift-equivalents. Starship-delivered robots and a 2029-30 reactor start a lunar outpost, and orbital-compute radiators are assembled in orbit. Then the 2031 compression is at the top of the range (~63% shorter for new programs, realized ~50%). Throughput (vehicles, satellites, pads, tests per year) rises by roughly an order of magnitude by 2035, and in this case even the 2035 ceiling (~74%) is reached early.",
+  "strongest_case_slow": "The record shows automation multiplying individual steps without multiplying cadence. Rocket Lab's ~33x robot step became ~3.5x launches over six years. Relativity's printing-first factory flew once and failed, and it reverted to welded aluminum. Firefly's automated composites coexist with ~1-3 launches a year. Neutron slipped despite a 90-t AFP robot. Starship cadence (5 flights in 2025, 3 in 2026 to Oct 7) is set by failures and pads, with vehicles already ahead of flights. General-purpose robots are not yet doing material industrial work: Optimus by Musk's own Jan 2026 account, and fewer than ~3-4k humanoids on paid repeated work worldwide. Aerospace adoption is slowed by tolerances, traceability and process requalification at every supplier. FANUC's 20-year-old robots-build-robots lines never produced runaway growth. Half of pad and plant schedules are transformers (128-160+ weeks), cryogenic equipment and permits. Licensing, human rating and nuclear approval are untouched; physics time constants, statistics and 26-month Mars windows are untouched; and the lunar reactor program has a history of slips. On this view S4 adds only ~3-6 points to S3 by 2031 (realized ~38-45%). Robotics matters for space mainly after 2033, via the supply chain, and the ~78% floor binds well before the robots-build-robots loop does.",
+  "implications_for_the_tree": [
+    "Add S4 as a fourth column with the class multipliers above. Treat 2031 S4 as S3 plus ~5-13 points on the Amdahl ceiling, not a regime change.",
+    "Separate throughput nodes (production rate, test capacity, construction crews, replicate statistics), which S4 compresses, from latency nodes (dwells, real-time exposure, flight learning, windows, statutory clocks), which it does not.",
+    "Re-date nodes gated by refurbishment labor (Starship rapid reuse, 100+ flights/yr) ~1-1.5 years earlier than S2 under S4. Nodes gated by flight count follow from the cadence change.",
+    "Treat lunar construction, ISRU and in-space servicing and assembly as robotics-capability nodes. S4 moves them most, but landed mass, power and flight demos bind.",
+    "Add a node 'robotic process requalification standard' (AS9100, NADCAP, customer acceptance of robot-made flight hardware) as the institutional gate on S4 adoption in aerospace.",
+    "Signposts: Optimus or Figure units doing paid aerospace assembly; SpaceX disclosing robot counts at Starbase or McGregor; Starship booster and ship turnaround under 1 week; arc-jet runs per day doubling; transformer lead times falling below 80 weeks; first lunar regolith pad built robotically."
+  ],
+  "sources": [
+    {
+      "title": "Space Unlock Tree - model.md (sections 2-3) and graph-v5.json domains.physclock.tables",
+      "url": "local: /Users/alex/projects/openai math paper/model/",
+      "date": "2026-10-07"
+    },
+    {
+      "title": "SpaceX Form S-1/A (facilities, Redmond, Bastrop, McGregor, pads, employees)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001181412/000162828026040364/spaceexplorationtechnologib.htm",
+      "date": "2026"
+    },
+    {
+      "title": "Mach33/33FG: SpaceX Louisiana and the math behind on-site propellant infrastructure",
+      "url": "https://research.33fg.com/analysis/spacex-louisiana-and-the-math-behind-on-site-propellant-infrastructure",
+      "date": "2026-08-26"
+    },
+    {
+      "title": "Mach33/33FG: Starship's first orbital cargo flight",
+      "url": "https://research.33fg.com/analysis/starship-s-first-orbital-cargo-flight",
+      "date": "2026-09-30"
+    },
+    {
+      "title": "TechCrunch: Rocket Lab's new Rosie the Robot",
+      "url": "https://techcrunch.com/2019/11/13/rocket-labs-new-rosie-the-robot-speeds-up-launch-vehicle-production-by-a-lot",
+      "date": "2019-11-13"
+    },
+    {
+      "title": "SatNews: Rosie rocks Rocket Lab",
+      "url": "https://satnews.com/2019/11/13/rosie-rocks-rocket-lab/",
+      "date": "2019-11-13"
+    },
+    {
+      "title": "Rocket Lab: ends 2025 with 21 launches",
+      "url": "https://rocketlabcorp.com/updates/rocket-lab-successfully-launches-for-iqps-ends-2025-with-21-launches-and-100-mission-succes/",
+      "date": "2025-12"
+    },
+    {
+      "title": "Rocket Lab: 97th Electron mission (18th launch of 2026)",
+      "url": "https://investors.rocketlabcorp.com/news-releases/news-release-details/mission-success-rocket-lab-launches-97th-electron-mission",
+      "date": "2026-09-26"
+    },
+    {
+      "title": "Rocket Lab: installation of large carbon composite rocket-building machine",
+      "url": "https://rocketlabusa.com/updates/rocket-lab-begins-installation-of-large-carbon-composite-rocket-building-machine",
+      "date": "2024-08"
+    },
+    {
+      "title": "Wikipedia: Rocket Lab Neutron",
+      "url": "https://en.wikipedia.org/wiki/Rocket_Lab_Neutron",
+      "date": "accessed 2026-10-07"
+    },
+    {
+      "title": "New Space Economy: Relativity Space forging a new path in aerospace manufacturing",
+      "url": "https://newspaceeconomy.ca/2025/06/30/relativity-space-forging-a-new-path-in-aerospace-manufacturing/",
+      "date": "2025-06-30"
+    },
+    {
+      "title": "Fabbaloo: Relativity shifts focus away from 3D-printed rockets",
+      "url": "https://www.fabbaloo.com/news/relativity-space-shifts-focus-away-from-3d-printed-rockets-with-terran-r-redesign",
+      "date": "2023"
+    },
+    {
+      "title": "Relativity Space: April 2026 company update",
+      "url": "https://www.relativityspace.com/press-release/2026/5/8/april-2026-company-update",
+      "date": "2026-05-08"
+    },
+    {
+      "title": "Spaceflight Now: Firefly pushes Alpha Block 2 debut to Q4 2026",
+      "url": "https://spaceflightnow.com/2026/08/11/firefly-aerospace-pushes-debut-of-alpha-block-2-rocket-to-the-fourth-quarter-of-2026/",
+      "date": "2026-08-11"
+    },
+    {
+      "title": "Space Explored: Firefly airframe in 14 days",
+      "url": "https://spaceexplored.com/2020/10/29/firefly-announces-new-process-to-produce-alpha-airframe-in-14-days/",
+      "date": "2020-10-29"
+    },
+    {
+      "title": "AIAA: Firefly Alpha returns to flight",
+      "url": "https://aiaa.org/2026/03/12/firefly-alpha-returns-to-flight-with-successful-orbital-launch/",
+      "date": "2026-03-12"
+    },
+    {
+      "title": "NASASpaceflight: From steel rolls to Starship at the Starfactory",
+      "url": "https://www.nasaspaceflight.com/2026/03/steel-rolls-to-starship/",
+      "date": "2026-03"
+    },
+    {
+      "title": "NASASpaceflight: TPS evaluations on next two Ships",
+      "url": "https://www.nasaspaceflight.com/2026/01/tps-evaluations-next-two-ships/",
+      "date": "2026-01"
+    },
+    {
+      "title": "Basenor (citing NSF): Ships 41-48 in production",
+      "url": "https://www.basenor.com/blogs/news/starship-pipeline-is-stacking-up-ships-41-48-in-production",
+      "date": "2026-04"
+    },
+    {
+      "title": "Interesting Engineering: SpaceX building a Raptor engine every day",
+      "url": "https://interestingengineering.com/innovation/spacex-building-raptor-engine-every-day",
+      "date": "2022-11"
+    },
+    {
+      "title": "Orbit Codex: Orbital Launch Pad 2",
+      "url": "https://orbitcodex.com/facilities/pad/orbital-launch-pad-2",
+      "date": "2026"
+    },
+    {
+      "title": "SpaceQ: Starship Flight 12 debuts redesigned architecture",
+      "url": "https://spaceq.ca/starship-flight-12-spacex-debuts-redesigned-architecture/",
+      "date": "2026-05"
+    },
+    {
+      "title": "Apex: Factory One",
+      "url": "https://www.apexspace.com/factory-one",
+      "date": "2026"
+    },
+    {
+      "title": "Payload: Apex reveals Factory One",
+      "url": "https://payloadspace.com/apex-reveals-factory-one",
+      "date": "2023"
+    },
+    {
+      "title": "Geoawesome: K2 Space Series D and manufacturing",
+      "url": "https://geoawesome.com/k2-space-series-d-high-power-satellite-manufacturing/",
+      "date": "2026"
+    },
+    {
+      "title": "Electrek: Musk admits no Optimus robots doing useful work",
+      "url": "https://electrek.co/2026/01/28/musk-admits-no-optimus-robots-are-doing-useful-work-at-tesla-after-claiming-otherwise/",
+      "date": "2026-01-28"
+    },
+    {
+      "title": "Electrek: Tesla Optimus production",
+      "url": "https://electrek.co/2026/04/22/tesla-optimus-production/",
+      "date": "2026-04-22"
+    },
+    {
+      "title": "AF.net (citing The Information): Tesla ramps Optimus production at Fremont",
+      "url": "https://af.net/realtime/tesla-ramps-up-optimus-robot-production-tenfold-at-fremont-factory/",
+      "date": "2026-08"
+    },
+    {
+      "title": "Humanoid Guide: humanoid deployments in 2026",
+      "url": "https://humanoid.guide/humanoid-deployments-in-2026-favor-figure-and-agility/",
+      "date": "2026"
+    },
+    {
+      "title": "36Kr: H1 2026 humanoid shipments",
+      "url": "https://eu.36kr.com/en/p/3959212374578821",
+      "date": "2026"
+    },
+    {
+      "title": "Figure: BotQ",
+      "url": "https://figure.ai/news/botq",
+      "date": "2025-03"
+    },
+    {
+      "title": "Humanoids Daily: Figure manufactures its 1,000th Figure 03",
+      "url": "https://www.humanoidsdaily.com/news/a-golden-milestone-figure-manufactures-its-1-000th-figure-03-humanoid",
+      "date": "2026-07"
+    },
+    {
+      "title": "Figure: F.02 contributed to production of 30,000 cars at BMW",
+      "url": "https://figure.ai/news/production-at-bmw",
+      "date": "2025-11"
+    },
+    {
+      "title": "IFR: World Robotics 2025 press release",
+      "url": "https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years",
+      "date": "2025-09-25"
+    },
+    {
+      "title": "Forethought (Davidson and Hadshar): The Industrial Explosion",
+      "url": "https://forethought.org/research/the-industrial-explosion",
+      "date": "2025-05-21"
+    },
+    {
+      "title": "FANUC: notice on robot production capacity",
+      "url": "https://fanuc.co.jp/en/ir/announce_other/pdf/2016/notice20161011_e.pdf",
+      "date": "2016-10-11"
+    },
+    {
+      "title": "Wikipedia: Lights out (manufacturing)",
+      "url": "https://en.wikipedia.org/wiki/Lights_out_(manufacturing)",
+      "date": "accessed 2026-10-07"
+    },
+    {
+      "title": "NASA TFAWS 2026 test course (GEVS TVAC minimums)",
+      "url": "https://ntrs.nasa.gov/api/citations/20260007945/downloads/TFAWS_2026_TestCourse_SMauro_StarBurst.pdf",
+      "date": "2026"
+    },
+    {
+      "title": "NASA: Parker Solar Probe completes space environment testing",
+      "url": "https://science.nasa.gov/blogs/parker-solar-probe/2018/03/26/parker-solar-probe-completes-space-environment-testing",
+      "date": "2018-03-26"
+    },
+    {
+      "title": "ESA: Mars Express thermal test",
+      "url": "https://www.esa.int/Science_Exploration/Space_Science/Mars_Express/A_whole_lot_of_heating_going_on",
+      "date": "2002"
+    },
+    {
+      "title": "NTRS: Ames Arc Jet Complex paper (sole NASA reentry TPS ground facility)",
+      "url": "https://ntrs.nasa.gov/citations/20240013620",
+      "date": "2024-12"
+    },
+    {
+      "title": "NTRS: Evaluation of the NASA arc jet capabilities",
+      "url": "https://ntrs.nasa.gov/citations/20110007355",
+      "date": "2010-05"
+    },
+    {
+      "title": "Air & Space Forces: DOD needs to pick up the pace of hypersonics testing",
+      "url": "https://www.airandspaceforces.com/dod-hypersonics-testing-pace/",
+      "date": "undated in results"
+    },
+    {
+      "title": "Via Satellite: SpaceX launches Northrop Grumman's first Mission Robotic Vehicle",
+      "url": "https://www.satellitetoday.com/launch/2026/07/21/spacex-launches-northrop-grummans-first-mission-robotic-vehicle/",
+      "date": "2026-07-21"
+    },
+    {
+      "title": "Wikipedia: Starfish Space",
+      "url": "https://en.wikipedia.org/wiki/Starfish_Space",
+      "date": "accessed 2026-10-07"
+    },
+    {
+      "title": "AIP FYI: NASA cancels OSAM-1",
+      "url": "https://www.aip.org/fyi/nasa-cancels-big-budget-robotic-servicing-demonstration",
+      "date": "2024-03"
+    },
+    {
+      "title": "Space.com: NASA cancels OSAM-1",
+      "url": "https://www.space.com/nasa-cancels-osam-1-satellite-servicing-mission",
+      "date": "2024-03-01"
+    },
+    {
+      "title": "Space.com: ICON $57M lunar construction award",
+      "url": "https://space.com/icon-moon-construction-project-olympus-nasa-funding",
+      "date": "2022-11"
+    },
+    {
+      "title": "ANS: NASA, DOE solidify collaboration on a lunar surface reactor",
+      "url": "https://www.ans.org/news/2026-01-14/article-7674/nasa-doe-solidify-collaboration-on-a-lunar-surface-reactor/",
+      "date": "2026-01-14"
+    },
+    {
+      "title": "NEI Magazine: NASA act mandates Moon reactor",
+      "url": "https://www.neimagazine.com/news/nasa-act-mandates-moon-reactor/",
+      "date": "2026"
+    },
+    {
+      "title": "AIAA: SpaceX puts Mars plans on hold to prioritize NASA Moon effort",
+      "url": "https://aiaa.org/2026/02/09/spacex-puts-mars-plans-on-hold-to-prioritize-nasa-moon-effort/",
+      "date": "2026-02-09"
+    },
+    {
+      "title": "Anadolu: SpaceX postpones Mars mission",
+      "url": "https://www.aa.com.tr/en/science-technology/elon-musks-spacex-postpones-mars-mission-to-prioritize-lunar-voyage-report/3823636",
+      "date": "2026-02"
+    },
+    {
+      "title": "The Next Web: US power firms scramble for transformers",
+      "url": "https://thenextweb.com/news/us-power-companies-scramble-data-centre-equipment",
+      "date": "2026"
+    },
+    {
+      "title": "ColoradoBiz (Reuters): transformer waits",
+      "url": "https://coloradobiz.com/us-power-companies-transformer-waits-data-center-demand/",
+      "date": "2026"
+    },
+    {
+      "title": "Contractor: jobsite robotics adoption doubles in 2026 (BuiltWorlds)",
+      "url": "https://www.contractormag.com/technology/news/55395720/contractor-adoption-of-jobsite-robotics-more-than-doubles-in-2026",
+      "date": "2026"
+    },
+    {
+      "title": "ForConstructionPros: Florida bridge contractor automates rebar tying",
+      "url": "https://www.forconstructionpros.com/22235970",
+      "date": "2022-2026"
+    },
+    {
+      "title": "The Robot Report: Bedrock Robotics operator-free excavators",
+      "url": "https://www.therobotreport.com/bedrock-robotics-first-operator-free-excavator-deployments-take-off/",
+      "date": "2026-08"
+    },
+    {
+      "title": "UChicago BFI: construction productivity (Goolsbee and Syverson)",
+      "url": "https://bfi.uchicago.edu/?p=39773",
+      "date": "2023"
+    }
+  ],
+  "file_written": "/Users/alex/projects/openai math paper/model/embodied/research-space.json"
+}

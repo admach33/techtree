@@ -1,0 +1,261 @@
+{
+ "update": [
+  {
+   "id": "struct-shm-inverse-limits",
+   "patch": {
+    "calibration_note": "A3: Premise label only: the why says the main pathway is capability and the catalog adds confidence and one ceiling. A4: Hard edge from struct-elasticity-fracture-foundations made soft. That node is T1-premised (Low/Medium/Medium), and this one is capability-driven (Medium/High/High), as its own why says (the catalog adds confidence and one ceiling). A hard edge would have rated the dependent likelier than its prerequisite."
+   }
+  },
+  {
+   "id": "auton-certified-assembly-skills",
+   "patch": {
+    "calibration_note": "A4: Hard edge from verif-nn-verification-scale made soft. Assembly skills are qualified through certified contact simulation plus runtime assurance, the documented workaround for networks that cannot be verified, so flight-scale NN verification accelerates this node but does not gate it. Bands Low/Medium/Medium kept; the hard prerequisites are certified contact sim and runtime assurance.",
+    "why": "Contact-rich assembly is where learned policies outperform hand-coded ones, but they are hard to qualify. Certified contact simulation provides envelope evidence; runtime assurance keeps the learned policy inside it. The binding gate is validating the envelope in vacuum and microgravity analogs. Verified neural perception would help but is not required, because runtime assurance bounds an unverified policy."
+   }
+  },
+  {
+   "id": "comms-ai-cryptanalysis",
+   "patch": {
+    "calibration_note": "A3: Internal consistency: the node's why ties routine audits to public research-grade models (cap-research-math-public), which arrive 2028 in S1. S1 2027 -> 2028; band unchanged. (The hard prerequisite should arguably be cap-research-math-public, not the internal model.) A4: Hard prerequisite moved from cap-research-math-internal to cap-research-math-public, as A3 recommended. The why ties routine audits to public research-grade models, and the years already match (2028/2027/2027)."
+   }
+  },
+  {
+   "id": "struct-gw-orbital-compute",
+   "patch": {
+    "calibration_note": "A3: Follows struct-radiator-lightweight-production (now S3 2030). S3 2030 -> 2031; bands unchanged. (Note: 1 GW does not strictly need sub-2.5 kg/m2 radiators; the hard edge could be soft.) A4: Hard edge from struct-radiator-lightweight-production made soft. The why says sub-2.5 kg/m2 radiators save a few percent of launched mass (about 3-11 flights per GW), so 1 GW does not require them. Years stay >2031/2031/2031: launch cadence (100+ heavy flights a year, 2029 in S2), serial satellite production and capital bind, and S3's 1.3-1.5x physical multiplier does not fit 100-140 dedicated flights plus the satellite ramp into 2030. Bands Low/Medium/Medium kept."
+   }
+  },
+  {
+   "id": "verif-hls-autonomy-certification",
+   "patch": {
+    "band_2031": {
+     "S3": "Low"
+    },
+    "why": "The 2028 landing's software baseline will largely be set before public research-grade verification arrives, so AI proofs enter through block upgrades for 2029-31 landings. NASA's technical authority must accept the evidence, so the band is capped at Medium. Crewed acceptance needs the general regulator credit (infra-tool-qualification, Medium in S2 and S3) plus a human-rating step of its own, so it sits one band below that node: Low in S2 and S3.",
+    "calibration_note": "A3: Cross-domain consistency: this is the HLS instance of astro-human-rated-proof-credit (AI proofs accepted for crewed GNC), so it cannot be earlier or likelier than that general node, and crewed acceptance should lag the first uncrewed certification credit (S2 2030, S3 2029). Chain (S2): checker-route credit 2030 -> NASA technical authority accepts proofs for an HLS block upgrade 2031 at the earliest. S2 2030 -> 2031, S3 2029 -> 2030; bands Low/Medium/Medium -> Speculative/Low/Low (regulatory, crewed). A4: Resolved the A1/A3 disagreement on S3 (A1 merge patch Medium; A3 Low). Set to Low. The node is conjunctive: infra-tool-qualification (S3 Medium) plus a crewed human-rating step, under a post-Starliner posture that favours more testing. A dependent of a Medium regulatory node with a further uncertain regulatory step belongs below Medium. This also matches the merged astro node's original Speculative/Low/Low. Final: >2031/2031/2030, Speculative/Low/Low."
+   }
+  },
+  {
+   "id": "auton-mars-isru-demo",
+   "patch": {
+    "why": "Only two windows fit in the horizon, and hyper-mars-heavy-landing puts the first 20 t-class Mars landing in the early-2031 window at the earliest (arrival late 2031), after propellant transfer and the Moon. Operation by end-2031 therefore needs an ISRU unit on that first heavy landing and start-up within weeks of arrival. AI math cannot add windows, shorten transits or raise landing reliability much. S3 is Low rather than Speculative only because its heavy-landing odds are higher.",
+    "signpost": "SpaceX or NASA puts ISRU hardware on a Mars cargo manifest for the early-2031 window; a successful heavy landing from the 2028-29 window would pull this node forward to 2030.",
+    "calibration_note": "A3: Cross-domain consistency and launch windows. Operating a MOMS-class unit on Mars needs a heavy Mars landing, which hyper-mars-heavy-landing puts at 2031 at the earliest in every scenario (Moon priority, propellant transfer first). The late-2028 window is therefore not available in S2/S3; the early-2031 window arrives late 2031. Chain (S2): isru-rom-control 2028 -> unit built for the 2031 window -> landing late 2031 -> operation at the very end of the horizon. S2 2029 -> 2031 (Low -> Speculative), S3 2029 -> 2031 (Low kept); S1 unchanged. A1: new hard edge from hyper-mars-heavy-landing (a kg/h ISRU unit needs a Starship-class Mars landing, as the node's own rationale says); hyper rates the first 20 t+ landing 2031 in every scenario (two windows; transfer and Moon priority first), so S2/S3 2029 moved to 2031 and S1 to >2031. A4: The why and signpost were rewritten for the 2031 landing; they had assumed a 2028-29 landing. A1's note had overwritten A3's, so both are kept here. S2 Speculative (A3, also A1's review flag) and S3 Low are kept. S3 Low sits below hyper-mars-heavy-landing's S3 Medium because the unit must also start up within weeks of a late-2031 arrival."
+   }
+  },
+  {
+   "id": "frontier-lattice-crypto-watch",
+   "patch": {
+    "premise_tier": "n/a (watch item on future capability); 138 and 279 are T1, conditional and not load-bearing",
+    "calibration_note": "A4: Premise label ported from A3's patch on the merged capability-crypto-watch (lost in the merge) and limited to the kept families 138 and 279, both T1 with no Lean in the catalog."
+   }
+  },
+  {
+   "id": "astro-trajectory-design-on-demand",
+   "patch": {
+    "why": "Trajectory design is solved in principle but expert-scarce (analyst position a): perhaps a few hundred specialists worldwide design multi-body low-thrust transfers (general). The GTOC 12 failure modes are exactly what stronger reasoning plus verification removes. Low-energy designs matter for small lunar missions: published work finds ballistic-transfer entries saving about 59 m/s over the best previously known transfers. Global-optimality certificates (frontier-scalable-global-certificates) strengthen but do not gate this node.",
+    "calibration_note": "A4: The why named the merged id astro-global-optimality-certificates; it now names frontier-scalable-global-certificates, and a soft edge was added to match the text ('strengthen but do not gate')."
+   }
+  },
+  {
+   "id": "frontier-ns-unforced",
+   "patch": {
+    "why": "One rung beyond what fell. Removing the forcing means the singularity must sustain itself against viscosity, likely via an unstable self-similar profile stabilized by a computer-assisted argument, or a Tao-style computing flow. Judgment: 1-2 difficulty doublings past the Oct 2026 level. Under S2 (a doubling every 6-9 months) the gap closes around 2029, and under S3 around 2028. Either answer acts only through P5. The propulsion domain's duplicate of this node, now merged here, had the same years.",
+    "calibration_note": "A3: Premise label and internal-model dependency noted (scorecard). Bands unchanged; matches prop-ns-clay-unforced. A4: Why text no longer names the id that was merged into this node."
+   }
+  },
+  {
+   "id": "frontier-landau-damping-general",
+   "patch": {
+    "why": "An active human program is closing in, and the difficulty is catalog-level. Formalization has started (Bedrossian), so kinetic theory is now formalizable despite the 3-of-16 PDE formalization rate. Downstream, quantitative damping rates and echo thresholds justify the linear dispersion relations used in electric-propulsion and space-weather wave models and inform kinetic closures (plasma-kinetic-closures). The plasma domain's long-time Landau damping node is merged here.",
+    "calibration_note": "A3: Internal-model dependency noted (scorecard); bands unchanged because public access arrives inside every scenario. A4: Why text no longer names the id that was merged into this node."
+   }
+  },
+  {
+   "id": "frontier-scalable-global-certificates",
+   "patch": {
+    "why": "Certificates for specific instances are not ruled out by worst-case hardness. Exploiting problem structure (sparsity, symmetry, term sparsity) is expert-scarce, technique-heavy work that compounds under S2. Downstream: verif-onboard-optimizer-certificates, astro-trajectory-design-on-demand, comms-constellation-design-optimizer, and design-space closure for prop-ai-engine-design-loop. The value is assurance and an end to search; performance gains are typically a few percent of delta-v or mass in complex designs (general).",
+    "calibration_note": "A4: Why text no longer names the id that was merged into this node."
+   }
+  },
+  {
+   "id": "frontier-stiff-certified",
+   "patch": {
+    "why": "Mostly expert-scarce: AI can derive mechanism-specific error bounds and produce reduced mechanisms with a proven bound on ignition delay or species error. Reducing a ~50-species mechanism to ~15 typically cuts chemistry cost several-fold in reacting CFD (general). Downstream: propulsion combustion-kinetics solvers (the propulsion stiff-chemistry node is merged here), prop-flame-response, prop-start-transient, hyper-gas-surface-chemistry, materials-battery-life-qual.",
+    "calibration_note": "A3: Premise label only: capability-driven; 149 is a weak, conditional link. A4: Why text no longer names the id that was merged into this node."
+   }
+  },
+  {
+   "id": "struct-flown-lighter-structure",
+   "patch": {
+    "why": "Chain: worst-case imperfection theory (2028) -> design rules (2029) -> build and validation test of a primary-structure flight article (2-3 years for a new launch-vehicle subsystem) -> flight 2031 in S2. S3 gains little because the build-and-test cycle binds; its 1.3-1.5x physical speed keeps 2031 but raises the odds to Medium. Vehicle-level payoff is modest: ~1-3% payload on an upper-stage-limited vehicle (analyst estimate).",
+    "calibration_note": "A3: Lag ladder: primary structure. A launch-vehicle barrel, interstage or primary structure designed on 2028-29 AI capability flies 2031+ in S2 (new LV subsystem 2-3 years). Chain (S2): imperfection theory 2028 -> knockdown rules 2029 -> flight-article build and validation test 2-3 years -> flight 2031. S2 2030 -> 2031 (Medium -> Low); S3 2030 -> 2031 (1.3-1.5x physical speed still lands 2030-31; Medium kept); S1 unchanged. A4: Why text updated to match the A3 years and bands; it had still described the v0 values. A3's conditional sentence is kept."
+   }
+  },
+  {
+   "id": "struct-reusable-life-management",
+   "patch": {
+    "why": "Needs both inspection credit (2030 in S2) and validated damage physics (2030), then flight hours to build confidence. Fleet experience accumulates only with flights, which no cognition compresses. S3's autonomous labs pull the damage models a year earlier (2029); that raises the S3 band but not the year, because inspection credit (2030) and flight hours still bind.",
+    "calibration_note": "A3: Follows struct-shm-inspection-credit (now S3 2030) plus flight hours to build confidence. S3 2030 -> 2031; bands unchanged. A4: Why text updated to match the A3 years and bands; it had still described the v0 values. A3's conditional sentence is kept."
+   }
+  },
+  {
+   "id": "struct-radiator-lightweight-production",
+   "patch": {
+    "why": "Going from 4 to 2.5 kg/m2 at ~1,400 W/m2 saves ~1,070 t of radiator per GW (~11 Starship flights at 100 t). AI design (2028 in S2) shortens iteration; the manufacturing ramp and qualification bind, so S2 and S3 tie at 2030 (first flight of the new panel in 2029, then the production ramp). In S3, AI-run factories make reaching it by 2031 High.",
+    "calibration_note": "A3: Lag ladder. Serial production at thousands of m2 per month comes after first flight of the new panel, which itself takes 12-18 months from the 2028 design (production ramp compresses only 0.9x in S2, 0.7-0.8x in S3). Chain (S2): AI-optimized radiator design 2028 -> first flight mid-2029 to 2030 -> serial production 2030. S1 2031 -> >2031 (Medium -> Low; S1 design lands 2030), S2 2029 -> 2030, S3 2029 -> 2030; S2/S3 bands unchanged. A4: Why text updated to match the A3 years and bands; it had still described the v0 values. A3's conditional sentence is kept."
+   }
+  },
+  {
+   "id": "struct-100kw-per-tonne-fleet",
+   "patch": {
+    "why": "Requires lighter radiators in serial production (2030 in S2) plus lighter solar arrays and denser compute; the AI-math contribution is design optimization of the thermal and structural share (~35% of a 100 kW/t satellite's mass is thermal per 33FG V2). Manufacturing ramp binds, so S3 does not beat S2.",
+    "calibration_note": "A3: Follows struct-radiator-lightweight-production (now 2030 in S2/S3); serial production of 100 kW/t satellites needs those radiators plus lighter arrays in a production line. S2 2030 -> 2031, S3 2030 -> 2031; bands unchanged. A4: Why text updated to match the A3 years and bands; it had still described the v0 values. A3's conditional sentence is kept."
+   }
+  },
+  {
+   "id": "auton-mass-action-permanence",
+   "patch": {
+    "why": "Persistence and permanence of weakly reversible networks sit at the core of chemical reaction network theory (the global attractor conjecture family, open for decades, general). 'Achieved' here means independently checked (Comparator run plus statement audit) or reconstructed by CRN theorists. Because a formal statement already exists, verification is a checking task, not a research task; under S2/S3 checking bandwidth is abundant. Under S1 the field is niche and may not be prioritized by volunteer checkers, so a checking-only judgment would be Medium in S1 and High in S2/S3. Conditional: the catalog lists no Lean main result for 149, so the premise is T1 and the band is one step below a checking-only judgment.",
+    "calibration_note": "A3: T1 premise rule: the catalog lists no Lean main result for family 149, so the premise is T1 (not T3) and confirmation rests on an unverified manuscript. One band down in every scenario: Medium/High/High -> Low/Medium/Medium; why now says conditional. A4: Why text updated to match the A3 years and bands; it had still described the v0 values. A3's conditional sentence is kept."
+   }
+  },
+  {
+   "id": "science-gr-foundations",
+   "patch": {
+    "why": "Ringdown spectroscopy (LIGO-Virgo-KAGRA now, LISA after 2035) and EHT/BHEX photon-ring tests all assume a perturbed black hole relaxes to Kerr. Kerr stability proves it from outside; strong cosmic censorship near Kerr (264) says the interior generically cannot be continued past the Cauchy horizon with square-integrable connection; Penrose inequalities (260) bound mass below by horizon area for moving, charged and rotating data. Review bandwidth is the gate: a few dozen people can referee these, and 722 manuscripts arrived at once (tr-position-5). Formal checking is further off because Lean lacks Lorentzian geometry, so on review bandwidth alone S1 would be Medium, and S2/S3 High because they add AI-assisted refereeing and formalization. Conditional: 260 and 264 are T1 and the Kerr preprints are unrefereed, so bands are one step down.",
+    "calibration_note": "A3: T1 premise rule: families 260 and 264 are T1 and the human Kerr-stability preprints are unrefereed. One band down: Medium/High/High -> Low/Medium/Medium; why now says conditional. A4: Why text updated to match the A3 years and bands; it had still described the v0 values. A3's conditional sentence is kept."
+   }
+  }
+ ],
+ "add_edges": [
+  {
+   "from": "cap-research-math-public",
+   "to": "comms-ai-cryptanalysis"
+  }
+ ],
+ "remove_edges": [
+  {
+   "from": "struct-elasticity-fracture-foundations",
+   "to": "struct-shm-inverse-limits"
+  },
+  {
+   "from": "verif-nn-verification-scale",
+   "to": "auton-certified-assembly-skills"
+  },
+  {
+   "from": "cap-research-math-internal",
+   "to": "comms-ai-cryptanalysis"
+  },
+  {
+   "from": "struct-radiator-lightweight-production",
+   "to": "struct-gw-orbital-compute"
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "struct-elasticity-fracture-foundations",
+   "to": "struct-shm-inverse-limits"
+  },
+  {
+   "from": "verif-nn-verification-scale",
+   "to": "auton-certified-assembly-skills"
+  },
+  {
+   "from": "struct-radiator-lightweight-production",
+   "to": "struct-gw-orbital-compute"
+  },
+  {
+   "from": "frontier-scalable-global-certificates",
+   "to": "astro-trajectory-design-on-demand"
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "verified-autonomy",
+   "patch": {
+    "thesis": "If AI agents can draft formal specifications and machine-checked proofs for flight code, then constellations and uncrewed landers fly proof-checked software by 2028-29. FAA-regulated credit waits on regulators (Medium, about 2030), crewed credit comes a year later still (Low, 2031), and fewer lost missions stay hard to see by 2031."
+   }
+  },
+  {
+   "branch": "certification",
+   "patch": {
+    "nodes": [
+     "physclock-regulator-ai-capacity",
+     "struct-test-data-commons",
+     "physclock-range-airspace-scheduling",
+     "physclock-optimal-test-campaigns",
+     "struct-certified-uq-margins",
+     "struct-shm-inverse-limits",
+     "struct-worst-imperfection-theory",
+     "materials-allowables-stats-framework",
+     "materials-multiscale-certified",
+     "physclock-credibility-evidence-standard",
+     "struct-midfreq-vibroacoustics",
+     "struct-verified-fe-solvers",
+     "materials-am-defect-physics",
+     "struct-damage-tolerance-physics",
+     "struct-agentic-analysis-workflows",
+     "physclock-ai-flight-safety-analysis",
+     "physclock-ai-mishap-analysis",
+     "physclock-ai-run-test-stands",
+     "struct-shell-knockdown-rules",
+     "materials-am-digital-twin-qual",
+     "physclock-qual-by-analysis-credit",
+     "struct-cert-by-analysis",
+     "struct-launch-env-margins",
+     "struct-shm-inspection-credit",
+     "struct-flown-lighter-structure",
+     "physclock-licensing-in-weeks",
+     "struct-reusable-life-management",
+     "physclock-test-loop-monthly",
+     "struct-design-cycle-compression",
+     "physclock-qual-cycle-compressed",
+     "materials-qual-cycle-compression",
+     "struct-structural-mass-step"
+    ]
+   }
+  },
+  {
+   "branch": "moon-mars",
+   "patch": {
+    "nodes": [
+     "auton-mass-action-permanence",
+     "auton-contact-wellposedness",
+     "auton-granular-wellposedness",
+     "auton-ecls-reliability-uq",
+     "auton-ops-planning-ceilings",
+     "auton-temporal-logic-synthesis",
+     "auton-isru-rom-control",
+     "auton-certified-contact-sim",
+     "materials-microgravity-process-models",
+     "auton-blss-stability-theory",
+     "auton-granular-regolith-model",
+     "prop-psi-models",
+     "auton-mre-anode-materials",
+     "auton-radiation-risk-uq",
+     "auton-earth-independent-fdir",
+     "auton-verified-surface-autonomy",
+     "auton-sinter-process-control",
+     "auton-certified-assembly-skills",
+     "auton-excavation-design",
+     "auton-icy-regolith-ground-truth",
+     "auton-lunar-o2-flight-demo",
+     "auton-verified-autonomy-lunar-flight",
+     "auton-blss-closed-test",
+     "auton-mars-isru-demo",
+     "auton-assembly-flight-demo",
+     "auton-ai-planned-ops-routine",
+     "auton-crew-optional-lunar-ops",
+     "materials-in-space-mfg-product",
+     "auton-closed-loop-habitat",
+     "auton-lunar-oxygen-ops",
+     "auton-mars-propellant-plant",
+     "auton-surface-productivity",
+     "auton-mars-architecture-close"
+    ]
+   }
+  }
+ ],
+ "notes": "A4 integration fixes, applied after A2, A3 and A1 (order: A2-branches, A3-edits, A1-edits, A4-fix). The tool's check was clean after the first three files. These fixes cover problems the check does not test. (1) Hard-edge band inversions: two edges made soft, following A3's recommendations (a) and (b). (2) A3 optional recommendations applied: comms-ai-cryptanalysis now hard-depends on cap-research-math-public; the radiator -> 1 GW edge is now soft. (3) A1/A3 conflict on verif-hls-autonomy-certification S3: set to Low. (4) auton-mars-isru-demo: why and signpost no longer contradict the 2031 landing; A3's overwritten calibration note restored. (5) frontier-lattice-crypto-watch premise label restored after the merge. (6) Why texts that named merged-away ids now name the kept ids, and one matching soft edge was added. (7) Why texts left stale by A3's moves now match. (8) verified-autonomy thesis corrected for crewed credit (Low, 2031). (9) certification and moon-mars node lists are re-sorted by tier, then S2 year, after the A3 year moves."
+}

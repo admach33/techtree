@@ -1,0 +1,1382 @@
+{
+  "topic": "S4 Embodied scenario, infrastructure assignment: how fast robots plus AI can compress the build time of data centers, power plants and grid, semiconductor fabs, factories, housing, roads and bridges, and which parts of a build are labor-bound versus equipment-, materials-, permit-, physics- and capital-bound (research date 2026-10-07)",
+  "key_findings": [
+    "The speed frontier for infrastructure is already set by organization, capital and permitting, not by robots. xAI built Colossus 1 (~300 MW) in 122 days and took Colossus 2 from site purchase (Mar 7 2025) to ~200 MW of cooling in ~5.5 months, with human crews, by reusing industrial shells and running mobile gas turbines and Megapacks ahead of the grid (SemiAnalysis, Sep 2025). Epoch puts typical construction-start-to-1 GW at 1-4 years. Best practice is therefore already 3-12x faster than typical without robots; robotics mainly raises how many such sites can run at once (aggregate GW per year), not how fast one site can go.",
+    "In the United States the longest poles are institutional queues and equipment queues, which robots do not touch directly: median generator interconnection request-to-operation was 61 months for projects built in 2025, up from 22 months in 2008 (LBNL Queued Up 2026); a 100 MW load connection in Northern Virginia waits ~7 years and ~4 years nationally (JLL 2026, reported); an interregional line took ~18 years (SunZia, 2008 to Jun 2026); FHWA's estimate for a major highway is 9-19 years planning-to-construction; median EIS was 2.2 years in 2024 (CEQ).",
+    "Equipment lead times are queues, and lead time = backlog / throughput. Robots raise throughput, but an embodied-AI boom raises the backlog at the same time. GE Vernova had 116 GW of gas equipment under contract or slot reservation in Q2 2026 against ~20 GW/yr of output (≈5.8 years of output), heavy-duty lead times of ~3 years and only ~10 GW open across 2029-2030; generator step-up transformer demand rose 274% from 2019 to 2025 (Wood Mackenzie via pv magazine) with large units at 128-144 weeks and up to 4 years. Under S4, equipment lead times are unlikely to fall before robot-staffed factory capacity outruns demand, which we date after 2030.",
+    "Amdahl applied to infrastructure: field labor is ~25% of the critical path of a U.S. grid-connected project and ~40% of a permissive or behind-the-meter one (estimate). With S4 field-labor speedups of 1.4x (average project) to 2x (leading edge) by 2031, a U.S. grid-connected build is 21-28% shorter versus 19% under S3; a permissive build is 21-31% shorter. By 2035 (labor 3-4x, equipment 1.6-2x) the U.S. case is 38-45% shorter and the permissive case 45-54%. Even with labor and equipment free, institutions and physics cap the 2031 U.S. case at ~56% shorter. Robotics adds only ~2-9 points over S3 by 2031.",
+    "Construction is the sector that has most resisted mechanization. Goolsbee and Syverson (NBER w30845) document a decades-long productivity decline; secondary coverage puts 2020 value added per worker ~40% below 1970, and a Goldman-based estimate finds -30% over 1970-2024 while economy-wide labor productivity more than doubled. The causes they point to (site uniqueness, fragmentation, market frictions, regulation) also slow robot adoption, so S4 should not assume construction adopts at factory speed.",
+    "Construction robotics in October 2026 is real but single-task and small: Komatsu commissioned its 1,000th autonomous ultra-class haul truck in Apr 2026, 18 years after commercial launch (fleet growth ~18%/yr since Feb 2024, doubling ~4 years) in the most structured outdoor setting there is; Bedrock Robotics ($350M raised) went operator-free on three live U.S. sites on Aug 17 2026; Built Robotics pile drivers claim ~300 piles/day with a two-person crew versus ~100 conventionally; Dusty claims 100-300M sq ft of layout; Canvas (bought by JLG, Jan 2026) cuts drywall finishing from ~5 days to ~2; Hilti Jaibot claims 500 overhead holes/day; ICON has ~250 printed structures in nine years and cut 25% of staff in 2025. These are 2-4x gains on narrow activities that are each a small slice of the critical path.",
+    "General-purpose (humanoid) labor is not on construction sites yet. Shipments were ~13-16k in 2025 and ~19k in H1 2026, ~65% for entertainment, education, research and data collection; Boston Dynamics reportedly builds ~4 Atlas a month against Hyundai's 30,000/yr goal for 2028. Epoch (Apr 2026) measures a 6-month production doubling for humanoids in 2022-2025 on a tiny base, finds high-precision reducers cap output near ~500k/yr today, and judges 1.5-3M/yr by end-2030 'clearly achievable' after a demand shock and 5-10M/yr 'plausible'.",
+    "Robots-build-robots versus the construction workforce (our stock model): U.S. construction worker-equivalents supplied by general-purpose robots in 2031 are ~3k (slow), ~60k (central, ~0.8% of ~8.3M U.S. construction workers) or ~530k (fast, ~6%); in 2035 ~30k, ~1.1M (~13%) or ~11M (more than the whole workforce). The central 2031 figure is about one-sixth of a single year's hiring need (ABC: 349k in 2026, 456k in 2027). By 2031 robots ease shortages at the margin; by 2035, in the central-to-fast paths, field labor stops binding and the critical path becomes institutions, equipment and physics.",
+    "The robot loop's own latency is an infrastructure gate: new factories take 6-9 months in China (usually 10-12) and 2+ years in most Western countries (Epoch 2026); Forethought's estimate of ~1-year robot doubling with abundant AI labor becomes 'on the order of a few years' in practice. Robot factories, their suppliers and the data centers that train them draw power from the same interconnection queues, so the loop competes with the infrastructure it is supposed to accelerate.",
+    "Where robotics bites hardest by 2031: earthwork and piling (calendar factor 0.5-0.7x), factory-built modules and power skids (already 12-18 months site-to-energization versus 24-36 stick-built, reported), U.S. fabs and factories (closing the ~2x U.S.-to-Taiwan gap, ~38 versus ~19 months, which is largely labor, 24/7 work and permitting), and repeat builds (the 3.4x spread between Japanese ABWRs at ~37 months to fuel load and Vogtle 3/4 at ~124 months is organizational and labor learning, not physics).",
+    "Speed provokes institutional backlash, which robots cannot fix and which can lengthen gates: Texas paused data-center interconnection approvals on Aug 3 2026 (ERCOT large-load requests ~474 GW, ~90% data centers) and on Sep 21 2026 froze all TCEQ data-center permits including behind-the-meter generation; xAI's Southaven turbines drew an NAACP Clean Air Act suit and an agreed order to remove all 69 temporary turbines by July 2027. In S4 the permit and politics share of the critical path rises from ~40% today to ~45-70%.",
+    "China shows the physical build rate is bounded by institutions and supply chains rather than by hands: it added 315 GW of solar and 119 GW of wind in 2025 and its fleet grew 16.1% to 3.89 TW, with no humanoids involved. The U.S. constraint on building faster is mostly not labor scarcity; S4 robotics therefore compresses the U.S. less than the narrative suggests, and compresses already-fast jurisdictions even less.",
+    "For the Space Unlock Tree, S4 moves only the infrastructure-type gates, and modestly by 2031: launch pad and propellant plant from 0.8-0.9x (S3) to 0.7-0.85x; production ramp from 0.7-0.8x to 0.6-0.7x; long-lead parts from 0.8-0.9x to 0.75-0.9x; NEPA, FAA and FCC gates unchanged. By 2035 these become 0.55-0.7x, 0.4-0.55x and 0.6-0.75x. The terrestrial gates that the orbital-compute thesis leans on (power interconnection, permits) remain institutional under S4 through 2031."
+  ],
+  "quantitative_anchors": [
+    {
+      "metric": "Colossus 1 build time (~300 MW, ~200k H100/H200 + ~30k GB200)",
+      "value": "122 days from scratch",
+      "date": "2025-09-16",
+      "source_url": "https://newsletter.semianalysis.com/p/xais-colossus-2-first-gigawatt-datacenter",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Colossus 2 cooling installed ~5.5 months after site purchase (Mar 7 to Aug 22 2025)",
+      "value": "119 air-cooled chillers, ~200 MW cooling (~168 days)",
+      "date": "2025-09-16",
+      "source_url": "https://newsletter.semianalysis.com/p/xais-colossus-2-first-gigawatt-datacenter",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Colossus 2 behind-the-meter turbines via Solaris JV",
+      "value": "Seven 35 MW units operating; ~460 MW installed or under construction; >1.1 GW targeted by Q2 2027; JV ~900 MW",
+      "date": "2025-09-16",
+      "source_url": "https://newsletter.semianalysis.com/p/xais-colossus-2-first-gigawatt-datacenter",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Colossus 2 IT power estimate (Epoch satellite tracker)",
+      "value": "~850-900 MW IT (>= ~830 MW GPU server power)",
+      "date": "2026-06-15",
+      "source_url": "https://epoch.ai/data/ai-data-centers/directory/colossus-2/satellite-explorer",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Colossus 2 GPU count claimed by Musk",
+      "value": "110k GB200 + 440k GB300, +220k GB300 'next week' and +220k in November (unconfirmed)",
+      "date": "2026-09-24",
+      "source_url": "https://research.33fg.com/news/musk-says-spacexai-adds-220k-gb300-gpus-to-colossus-2-next-week-another-220k-in-november",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Construction start to 1 GW facility power, AI data centers",
+      "value": "Typically 1-4 years; Colossus 2 fastest planned at ~12 months; five >=1 GW sites expected online in 2026",
+      "date": "2025-11-10",
+      "source_url": "https://epochai.substack.com/p/build-times-for-gigawatt-scale-data",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Stargate Abilene build time",
+      "value": "Land clearing Jun 2024; first two buildings (200 MW+) live Sep 30 2025 (~15-16 months); 421 MW IT Jul 2026, ~843 MW IT projected Q4 2026 versus mid-2026 target",
+      "date": "2026-07-27",
+      "source_url": "https://epoch.ai/data/data-centers/satellite-explorer/OpenAIStargateAbilene",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Data center construction cost split (30-50 MW hyperscale, air-cooled)",
+      "value": "Electrical 48-54%, mechanical 22-33%, core and shell 9-14%, GC fees ~10%",
+      "date": "2025",
+      "source_url": "https://reports.turnerandtownsend.com/data-centre-construction-cost-index-2025/methodology",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Electrical work share of data center construction cost (IBEW)",
+      "value": "45-70%; up to 1,500 workers at peak on one large data center",
+      "date": "2026",
+      "source_url": "https://www.bisnow.com/news/national/top-talent/without-100s-of-thousands-of-new-workers-construction-industry-faces-workforce-shortage-cliff-132728",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Prefabricated power skids: site clearance to energization",
+      "value": "12-18 months versus 24-36 months stick-built (operators cited: Compass, STACK, Vertiv; underlying disclosures not linked)",
+      "date": "2026-09-02",
+      "source_url": "https://www.datacentres.com/news/factory-built-and-fast-modular-construction-cuts-data-centre-delivery-times-by-4-slot1-2026-09-02",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Generator interconnection request to commercial operation, median, projects built that year",
+      "value": "61 months (2025); 55 (2024); 36 (2015); 22 (2008)",
+      "date": "2026-06",
+      "source_url": "https://eta-publications.lbl.gov/sites/default/files/2026-06/queued_up_2026_edition.pdf",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Large-load (data center) grid connection wait",
+      "value": "~7 years for 100 MW in Northern Virginia; ~4 years national average; 12-18 months before ~2022",
+      "date": "2026",
+      "source_url": "https://www.constructionowners.com/insights/how-long-it-actually-takes-to-power-a-data-center-in-2026-a-u-s-market-by-market-reality-check",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Large power transformer lead time (Wood Mackenzie survey)",
+      "value": "128 weeks standard; 144 weeks for the largest generator step-up units",
+      "date": "2025 (Q2 2025 survey)",
+      "source_url": "https://thenextweb.com/news/us-power-companies-scramble-data-centre-equipment",
+      "confidence": "reported"
+    },
+    {
+      "metric": "High-capacity transformer lead time and demand growth",
+      "value": "Up to 4 years (PwC); GSU demand +274% and substation transformer demand +116% 2019-2025 (Wood Mackenzie); prices ~+80% in 5 years; Hitachi Energy South Boston plant online 2028",
+      "date": "2026-05-11",
+      "source_url": "https://pv-magazine-usa.com/2026/05/11/u-s-transformer-market-faces-severe-supply-constraints-as-lead-times-extend-to-four-years/",
+      "confidence": "verified"
+    },
+    {
+      "metric": "GE Vernova gas turbines: under contract, output, lead time",
+      "value": "116 GW backlog plus slot reservations (Q2 2026), >=125 GW targeted by YE2026; output 20 GW/yr in Q3 2026, 24 GW 2028, 30 GW 2030; heavy-duty lead time ~3 years; ~10 GW open across 2029-2030",
+      "date": "2026-07-22",
+      "source_url": "https://www.turbomachinerymag.com/view/ge-vernova-gas-turbine-backlog-hits-116-gw-as-power-orders-more-than-double",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Combined-cycle gas plant lead time (BloombergNEF)",
+      "value": "5 years in 2025, up from 3.5 years in 2023; cost +49%",
+      "date": "2025",
+      "source_url": "https://oilprice.com/Energy/Energy-General/US-Power-Boom-Triggers-Global-Gas-Turbine-Shortage.amp.html",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Interregional transmission line, concept to energization",
+      "value": "SunZia ~18 years (2008 to full commissioning Jun 2026); federal environmental reviews averaged 4.3 years for 33 lines 2010-2020",
+      "date": "2026-06",
+      "source_url": "https://energydigital.com/news/sunzia-the-us-largest-ever-renewables-project-goes-live",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Environmental impact statement duration (NOI to final EIS), median",
+      "value": "2.2 years (2024); 2.4 years (2021-2024); 3.1 years (2017-2020)",
+      "date": "2025-01-13",
+      "source_url": "https://ceq.doe.gov/docs/nepa-practice/CEQ_EIS_Timeline_Report_2025-1-13.pdf",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Major federally funded highway, planning to construction (FHWA judgment estimate)",
+      "value": "9-19 years; construction phase 2-6 years",
+      "date": "2002-09",
+      "source_url": "https://www.gao.gov/assets/gao-02-1067t.pdf",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Semiconductor fab build time, permitting to production (Exyte data)",
+      "value": "~19 months Taiwan versus ~38 months U.S.; U.S. permitting and design 14-20 months versus 6-13",
+      "date": "c. 2025",
+      "source_url": "https://tomshardware.com/tech-industry/building-a-chipmaking-fab-in-the-us-costs-twice-as-much-takes-twice-as-long-as-in-taiwan",
+      "confidence": "reported"
+    },
+    {
+      "metric": "TSMC Arizona Fab 2 schedule",
+      "value": "Construction began Apr 2025; tool install expected Q3 2026; 3nm production 2027 (Fab 1 module took ~5 years groundbreaking to production)",
+      "date": "2025-12-18",
+      "source_url": "https://www.trendforce.com/news/2025/12/18/news-tsmc-reportedly-accelerates-arizona-2nd-fab-eyes-3q26-tool-install-2027-3nm-production/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Nuclear unit construction time spread",
+      "value": "Kashiwazaki-Kariwa 6/7 ABWR 36.5-38.3 months first concrete to fuel load; Hualong One 61-76 months to grid/COD; Vogtle 3/4 ~124-125 months first nuclear concrete to COD",
+      "date": "2023-2026",
+      "source_url": "https://www.neimagazine.com/analysis/ten-reactor-years-of-abwr-experience/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Factory build latency (groundbreaking to production)",
+      "value": "6-9 months China (usually 10-12); 2+ years most Western countries; Tesla Shanghai 8 months to trial production",
+      "date": "2026-04-22",
+      "source_url": "https://epoch.ai/blog/how-fast-could-robot-production-scale-up",
+      "confidence": "verified"
+    },
+    {
+      "metric": "U.S. housing build times (Census Survey of Construction via NAHB)",
+      "value": "Single-family 9.1 months total (1.4 authorization + 7.6 construction) for 2024 completions; multifamily 19.6 months permit to completion (22.1 for 20+ units)",
+      "date": "2025-09/2025-10",
+      "source_url": "https://eyeonhousing.org/2025/09/single-family-homes-are-built-faster-in-2024/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Modular (volumetric) construction schedule reduction",
+      "value": "20-50% on completed projects; cost savings >20% only at scale, possible +10% cost",
+      "date": "2019-06",
+      "source_url": "https://www.mckinsey.com/industries/operations/our-insights/modular-construction-from-projects-to-products",
+      "confidence": "reported"
+    },
+    {
+      "metric": "U.S. construction labor productivity trend",
+      "value": "Decades-long decline (Goolsbee-Syverson); ~40% lower value added per worker 2020 vs 1970 per secondary coverage; ~-30% 1970-2024 per a Goldman-based estimate while aggregate productivity more than doubled",
+      "date": "2023-01 (paper); 2026-02 (Goldman estimate)",
+      "source_url": "https://www.nber.org/papers/w30845",
+      "confidence": "reported"
+    },
+    {
+      "metric": "U.S. construction hiring need (ABC model)",
+      "value": "349,000 net new workers in 2026; 456,000 in 2027; ~3,450 jobs per $1B of added spending",
+      "date": "2026-01",
+      "source_url": "https://ecmweb.com/construction/news/55344103/construction-industry-must-attract-349000-workers-in-2026",
+      "confidence": "reported"
+    },
+    {
+      "metric": "U.S. construction employment (denominator for robot share)",
+      "value": "~8.3 million workers",
+      "date": "2026",
+      "source_url": "(general) BLS Current Employment Statistics, construction sector",
+      "confidence": "general"
+    },
+    {
+      "metric": "Autonomous mining haul trucks (Komatsu)",
+      "value": "1,000th commissioned Apr 2026 (FrontRunner since 2008; >700 in Feb 2024; 11.5B t hauled); implied fleet growth ~18%/yr, doubling ~4 years",
+      "date": "2026-04-21",
+      "source_url": "https://im-mining.com/2026/04/21/komatsu-commissions-1000-autonomous-ultra-class-trucks/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Bedrock Robotics autonomous excavation",
+      "value": "$80M (Jul 2025) + $270M Series B (Feb 2026); 65,000 cu yd supervised on a 130-acre site (Nov 2025); operator-free on 3 live sites incl. a 1.2M cu yd Zachry project (Aug 17 2026)",
+      "date": "2026-08",
+      "source_url": "https://www.constructiondive.com/news/bedrock-robotics-fully-autonomous-excavators-jobsites/828267/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Robotic solar pile driving (Built Robotics RPD 35)",
+      "value": "~300 piles/day with 2-person crew vs ~100 conventional (vendor); 2.5x weekly output with 24/7 operation (CEO claim); Blattner 3-year deal for dozens of units (Sep 2025)",
+      "date": "2025-09",
+      "source_url": "https://www.enr.com/articles/61329-blattner-picks-autonomous-pile-drivers-from-built-robotics-for-solar-projects",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Single-task interior robots (vendor claims)",
+      "value": "Canvas drywall finishing ~5 days to ~2 (Webcor Level 5 cycle -34%), acquired by JLG Jan 5 2026; Hilti Jaibot 500 overhead holes/day, 3-4x manual; Dusty layout >100M sq ft (2025) to >300M sq ft (undated)",
+      "date": "2026-01-19",
+      "source_url": "https://digital.bnpmedia.com/article/EQUIPMENT/5098242/859654/article.html",
+      "confidence": "reported"
+    },
+    {
+      "metric": "3D-printed housing (ICON)",
+      "value": "~248-263 completed homes and structures 2017-2026; Wolf Ranch 100 homes, ~3 weeks print each, priced ~$450-600k; 114 staff (>25%) laid off Mar 2025",
+      "date": "2025-01 to 2026",
+      "source_url": "https://fox7austin.com/news/3d-house-printing-company-icon-lay-off-over-100-workers-march",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Contractor jobsite robotics adoption (BuiltWorlds)",
+      "value": "79% used some jobsite robotics in 2026 (29% in 2025, comparability unclear); in 2024 adoption was mostly monitoring, 35% autonomous heavy equipment, 6% prefabrication robotics",
+      "date": "2026",
+      "source_url": "https://builtworlds.com/news/builtworlds-report-finds-jobsite-robotics-adoption-doubles-year-year/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Humanoid robot shipments",
+      "value": "13,318 (Omdia) to ~16,000 (Counterpoint) in 2025; ~19,000 in H1 2026 (SAG, Morgan Stanley), ~65% to entertainment, education, research and data collection; ~60,000 forecast for 2026",
+      "date": "2026-01-09 / 2026-07",
+      "source_url": "https://technode.com/2026/01/09/chinas-agibot-leads-global-humanoid-robot-shipments-in-2025-omdia-says/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Humanoid production doubling time and caps (Epoch)",
+      "value": "~16,000 produced 2025, 6-month doubling 2022-2025; reducers cap ~500k humanoids/yr; post-shock 1.5-3M/yr by end-2030 'clearly achievable', 5-10M/yr 'plausible'; mature categories 10-16 month doubling",
+      "date": "2026-04-22",
+      "source_url": "https://epoch.ai/blog/how-fast-could-robot-production-scale-up",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Robot self-replication doubling time (Forethought)",
+      "value": "~1 year or less initially (1-2 years with factory construction costs); 'on the order of a few years' in practice; last doubling of world robot stock took 6 years",
+      "date": "2025-05-21",
+      "source_url": "https://forethought.org/research/the-industrial-explosion",
+      "confidence": "verified"
+    },
+    {
+      "metric": "Industrial robot installations and stock (IFR)",
+      "value": "542,000 installed 2024, stock 4.66M (+9%); >600,000 installed 2025, stock ~5M",
+      "date": "2025-09-25 / 2026",
+      "source_url": "https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Hyundai/Boston Dynamics Atlas",
+      "value": "Target ~30,000 units/yr by 2028; >25,000 for Hyundai/Kia plants; parts sequencing from 2028; reportedly ~4 units/month built in 2026",
+      "date": "2026-01 / 2026-09",
+      "source_url": "https://insideevs.com/news/783475/hyundai-ces-2026-robotics/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Texas pause on data center interconnection and permits",
+      "value": "Aug 3 2026 audit pauses ERCOT data-center approvals and 'batch zero' study (474 GW of new requests, ~90% data centers); Sep 21 2026 TCEQ freeze on all data-center permits including behind-the-meter",
+      "date": "2026-09-23",
+      "source_url": "https://www.bracewell.com/resources/governor-abbott-orders-tceq-to-pause-all-permit-issuance-for-data-center-projects/",
+      "confidence": "verified"
+    },
+    {
+      "metric": "xAI Southaven turbines legal and permit gate",
+      "value": "41-turbine permanent permit (Mar 2026) appealed; NAACP Clean Air Act suit (Apr 2026), DOJ moved to dismiss (Jun 2026); agreed order to remove all 69 temporary turbines Aug 2026-Jul 2027",
+      "date": "2026-07-31",
+      "source_url": "https://www.actionnews5.com/2026/07/31/xai-announces-fourth-data-center-turbines-be-removed-southaven-site/",
+      "confidence": "reported"
+    },
+    {
+      "metric": "China power build rate",
+      "value": "315.07 GW solar + 119.33 GW wind added in 2025; total capacity 3.89 TW (+16.1%)",
+      "date": "2026-01-29",
+      "source_url": "https://www.pv-magazine-india.com/2026/01/29/china-adds-315-gw-of-solar-in-2025",
+      "confidence": "reported"
+    },
+    {
+      "metric": "Infrastructure schedule compression, U.S. grid-connected project (Amdahl)",
+      "value": "S2 9%, S3 19%, S4-2031 21% (average) to 28% (leading edge), S4-2035 38-45%, ceiling ~56% with institutions at 2031 levels",
+      "date": "2026-10-07",
+      "source_url": "(this analysis)",
+      "confidence": "estimate"
+    },
+    {
+      "metric": "U.S. construction worker-equivalents from general-purpose robots (stock model)",
+      "value": "2031: ~3k / ~60k / ~530k (slow/central/fast = ~0% / ~0.8% / ~6% of workforce); 2035: ~30k / ~1.1M / ~11M (~0.4% / ~13% / >100%)",
+      "date": "2026-10-07",
+      "source_url": "(this analysis)",
+      "confidence": "estimate"
+    }
+  ],
+  "what_robotics_compresses": [
+    "Earthwork, grading, trenching and pile driving: autonomous excavators, dozers and pile drivers working 24/7 give 2-3x per-machine output (Built ~3x piles/day; Bedrock operator-free since Aug 2026). Calendar factor 0.5-0.7x by 2031, 0.3-0.5x by 2035.",
+    "Repetitive interior and MEP tasks: layout (Dusty), overhead drilling (Jaibot 3-4x), drywall finishing (Canvas ~5 to ~2 days), rebar tying, painting, cable tray and conduit runs. Each is 2-4x on its own slice; on a whole fit-out the gain is ~1.2-1.5x by 2031.",
+    "Moving site labor into robot-staffed factories: prefabricated power skids, modular electrical rooms, MEP racks, precast and volumetric modules (12-18 months versus 24-36 to energization; modular 20-50% faster). Robots make these factory lines scale; this is the largest single lever before 2031.",
+    "Throughput of equipment factories (transformer winding and assembly, switchgear, turbine machining and assembly, welding), once robot-staffed capacity expansions are built; they arrive 2-3 years after the decision in the West.",
+    "Round-the-clock work: U.S. fabs and many Western sites are not built 24/7, which is a large part of the ~2x U.S.-to-Taiwan fab gap (~38 versus ~19 months).",
+    "Aggregate build rate (GW per year, sites in parallel) by relaxing the skilled-labor ceiling, especially electricians (45-70% of data center construction cost; ABC hiring need 349k in 2026).",
+    "Learning-curve losses on repeat builds: much of the 3.4x spread between Japanese ABWRs (~37 months) and Vogtle 3/4 (~124 months) is crew learning, rework and QA, which robot crews with AI documentation could narrow on standardized designs.",
+    "Inspection, progress monitoring, as-built verification and QA documentation (Spot, drones, scanning); these are cognitive gains mostly already counted in S3."
+  ],
+  "what_robotics_cannot_compress": [
+    "Interconnection studies, cluster cycles and utility approvals (median 61 months request-to-operation for 2025 builds; ~4-7 years to connect a 100 MW load).",
+    "Permits, environmental review, litigation and political moratoria (EIS median 2.2 years; Texas data-center interconnection pause Aug 2026 and TCEQ permit freeze Sep 2026 including behind-the-meter; NAACP Clean Air Act suit over xAI turbines). Faster building can provoke longer institutional gates.",
+    "Siting, land rights and eminent domain for linear infrastructure (SunZia ~18 years; Grain Belt Express approved by Kansas in 2011 and still unbuilt; highways 9-19 years planning-to-construction).",
+    "Equipment queues where demand grows with AI: lead time = backlog / throughput, and S4 raises the backlog (GE Vernova ~5.8 years of output under contract; GSU transformer demand +274% 2019-2025).",
+    "Upstream materials and specialized-process capacity: grain-oriented electrical steel for transformers, single-crystal superalloy castings for turbine hot sections, EUV and other fab tools, copper and cement; new mines and mills take many years (general).",
+    "Physics time constants: concrete curing (28-day design strength; ~65-70% at 7 days, general), soil consolidation, transformer drying and impulse testing, cleanroom certification, fab tool qualification and yield ramp (~1 year), turbine full-load testing, nuclear hot functional testing, grid energization and protection testing.",
+    "The robot loop's own latency: robot and component factories take 6-12 months in China and 2+ years in the West, and draw power from the same queues as the infrastructure they would accelerate.",
+    "Capital approval, appropriations and financing for public infrastructure (highways, transmission, water), and ratepayer cost allocation for grid upgrades.",
+    "Weather, seasons and work-hour or noise ordinances that limit 24/7 operation near communities.",
+    "Adoption frictions specific to construction: a fragmented contractor base, building codes, inspection regimes, liability and union agreements (Hyundai's largest union demanded agreement before any robots are introduced)."
+  ],
+  "timeline_view": "2026-2027: single-task robots (autonomous excavation and piling, layout, drilling, drywall) move from pilots to fleets of hundreds; humanoids do no trade work on sites. Calendar effect on whole projects ~0; the real accelerators are prefab modules, behind-the-meter power and permitting workarounds, and they are already provoking backlash (Texas, Southaven). 2028-2029: under S4, humanoid production reaches ~0.4-2M/yr worldwide, mostly into factories and logistics; robot-staffed lines for power skids, modular rooms and equipment begin to expand, but equipment queues stay long because AI demand is rising faster. Leading-edge sites see field-labor slices 1.3-1.6x faster. 2030-2031: robots supply roughly 0.8% (central) to 6% (fast) of U.S. construction labor; labor-bound gates run 0.5-0.75x on leading projects; a U.S. grid-connected project is ~21-28% shorter (versus ~19% in S3) and a permissive one ~21-31%; aggregate labor-limited build capacity rises ~1.1-1.5x. Institutions now hold ~40-45% of the remaining critical path. 2032-2035: if production keeps doubling every 10-16 months, robot labor reaches ~13% (central) to more than 100% (fast) of today's U.S. construction workforce, field labor stops binding, robot-built factories finally shrink transformer and turbine queues, and project calendars shorten ~38-54%. From then on, permitting, interconnection, physics time constants and politics are ~60-70% of what remains. Net: the robots-build-robots loop is too small by 2031 to change infrastructure calendars by much more than S3; it matters by 2035, and mainly for how much gets built rather than how fast one project finishes.",
+  "strongest_case_fast": "The record already shows human-crewed builds running 3-12x faster than typical when capital and permission line up: Colossus 1 in 122 days; Colossus 2 to ~200 MW of cooling in ~5.5 months and ~0.85-0.9 GW of IT in ~15 months; Tesla Shanghai in 8 months; China adding 434 GW of wind and solar in one year. What stops this from being the norm in the U.S. is largely skilled labor (electricians are 45-70% of data center cost; 349-456k hires needed a year), 24/7 operation and equipment-factory throughput, and robots attack exactly these. Humanoid production doubled every ~6 months in 2022-2025, Epoch judges 5-10M/yr plausible by 2030 after a demand shock, and Forethought's industrial-explosion note puts robot self-replication near a 1-year doubling. Meanwhile the government is treating AI infrastructure as national security (DOJ intervening for xAI; EO 14335; FAST-41 and CITAP two-year federal clocks), so institutional gates may shrink too. Put together: by 2031 a 1 GW campus with on-site power could be energized in 6-9 months almost anywhere permissive; robot-staffed transformer and switchgear lines could halve lead times by 2030; and with labor no longer binding, aggregate U.S. build capacity could double, giving 35-45% shorter grid-connected projects by 2031 rather than 21-28%.",
+  "strongest_case_slow": "Construction productivity has fallen for fifty years despite available machinery; the sector's fragmentation, uniqueness and regulation are exactly what slow robot adoption. Today's site robots are single-task, vendor-measured 2-4x gains on slivers of the critical path; autonomous haul trucks, in the most structured outdoor setting there is, took 18 years to reach 1,000 units. Humanoid output is ~19k per half-year, two-thirds of it non-productive, and Atlas is built at ~4 a month. The long poles are institutional (61-month interconnection, 4-7 year load connection, 18-year transmission lines, 9-19 year highways) and equipment queues in which AI demand grows faster than robot-boosted supply. Speed is already generating backlash: Texas froze data-center interconnection approvals and permits in Aug-Sep 2026, and xAI must remove 69 turbines after a Clean Air Act suit. On this view S4 adds 0-5 points of compression over S3 by 2031 (U.S. grid-connected projects ~19-22% shorter), robots mostly backfill retiring workers, and the loop matters only after 2035.",
+  "file_written": "/Users/alex/projects/openai math paper/model/embodied/research-infrastructure.json",
+  "gate_table": {
+    "title": "Infrastructure gates: typical duration today and calendar-time factor by scenario (lower = faster; S2/S3 values are this note's estimates aligned with the model's physical multipliers)",
+    "columns": [
+      "Gate",
+      "Typical duration (2026)",
+      "Evidence",
+      "Binding type",
+      "Field-labor share of gate calendar (estimate)",
+      "S2 2031",
+      "S3 2031",
+      "S4 2031",
+      "S4 2035",
+      "What cannot compress"
+    ],
+    "rows": [
+      [
+        "AI data hall shell and MEP fit-out (power available)",
+        "4-6 months best (existing shells); 15-16 months greenfield first phase; 24-36 months stick-built; 12-18 months with prefab skids",
+        "Colossus 1 122 days; Colossus 2 ~200 MW cooling in ~168 days; Abilene first 200 MW ~15-16 months; Datacentres.com Sep 2026",
+        "Field labor (electrical), equipment deliveries",
+        "50-60%",
+        "0.9-0.95x",
+        "0.8-0.9x",
+        "0.65-0.8x",
+        "0.4-0.6x",
+        "Equipment arrival, integrated systems testing, slab curing, inspections"
+      ],
+      [
+        "1 GW AI campus, construction start to 1 GW",
+        "1-4 years (Colossus 2 ~12-15 months; Abilene ~28-30 months to ~0.84 GW IT)",
+        "Epoch Nov 2025; Epoch trackers Jun-Jul 2026",
+        "Power, permits, equipment, labor",
+        "25-40%",
+        "0.9x",
+        "0.8-0.85x",
+        "0.7-0.8x",
+        "0.5-0.65x",
+        "Power availability, air permits, turbine and transformer slots"
+      ],
+      [
+        "Site preparation, earthwork, piling",
+        "Weeks to months per site",
+        "Bedrock 65,000 cu yd supervised (Nov 2025), operator-free Aug 2026; Built ~300 vs ~100 piles/day",
+        "Field labor and equipment hours",
+        "70-80%",
+        "1.0x",
+        "0.9x",
+        "0.5-0.7x",
+        "0.3-0.5x",
+        "Soil consolidation and compaction testing, weather, geotechnical surprises, noise and hours ordinances"
+      ],
+      [
+        "Large power transformer delivery",
+        "128 weeks standard, 144 weeks GSU; up to 4 years high-capacity",
+        "Wood Mackenzie Q2 2025; PwC via pv magazine May 2026; GSU demand +274% 2019-2025",
+        "Factory capacity (manual winding), GOES steel, demand",
+        "Factory labor ~30-40% of lead time",
+        "1.0x",
+        "0.9-1.0x",
+        "0.8-1.0x",
+        "0.5-0.7x",
+        "Factory build latency 2-3 years (Hitachi South Boston 2028), drying and impulse tests, GOES supply, demand growth"
+      ],
+      [
+        "Heavy-duty gas turbine delivery",
+        "~3 years; ~10 GW open in 2029-2030",
+        "GE Vernova Q2 2026: 116 GW under contract vs 20 GW/yr output, 24 GW 2028, 30 GW 2030",
+        "Hot-section castings, machining, test cells, demand",
+        "Factory labor ~20-30%",
+        "1.0x",
+        "0.9-1.0x",
+        "0.85-1.0x",
+        "0.6-0.8x",
+        "Single-crystal casting capacity, full-load testing, demand"
+      ],
+      [
+        "Combined-cycle plant, order to operation",
+        "~5 years (2025), up from 3.5 (2023)",
+        "BloombergNEF via oilprice.com",
+        "Turbine slot, permits, field construction",
+        "25-35%",
+        "0.95x",
+        "0.85-0.9x",
+        "0.8-0.9x",
+        "0.6-0.75x",
+        "Turbine slot, air permit, interconnection"
+      ],
+      [
+        "Generator interconnection, request to operation",
+        "61 months median (2025 builds); 22 months in 2008",
+        "LBNL Queued Up 2026",
+        "Institutional (studies, cluster cycles, upgrades)",
+        "10-15% (network upgrade construction)",
+        "0.85-0.9x",
+        "0.75-0.85x",
+        "0.75-0.85x",
+        "0.55-0.75x",
+        "Study cycles, withdrawal cascades, upgrade approvals and cost allocation"
+      ],
+      [
+        "Large-load (data center) grid connection",
+        "~4 years national; ~7 years for 100 MW in Northern Virginia; 12-18 months pre-2022",
+        "JLL 2026 (reported); Texas pause Aug 3 2026",
+        "Institutional plus transmission build",
+        "15-25%",
+        "0.9x",
+        "0.8-0.9x",
+        "0.8-1.1x (backlash risk)",
+        "0.6-0.9x",
+        "Utility planning, state moratoria, ratepayer politics"
+      ],
+      [
+        "Interregional HV transmission line",
+        "10+ years; SunZia ~18 years",
+        "Atlantic Council Dec 2024; CATF Jul 2024 (federal review avg 4.3 years); SunZia Jun 2026",
+        "Siting, land rights, multi-state approvals",
+        "15-20% (2-3 years construction)",
+        "0.95x",
+        "0.9x",
+        "0.85-0.95x",
+        "0.75-0.9x",
+        "Siting, eminent domain litigation, financing"
+      ],
+      [
+        "Semiconductor fab, permitting to production",
+        "~19 months Taiwan; ~38 months U.S.; TSMC AZ Fab 21 module 1 ~5 years; Fab 2 ~2 years to tool install",
+        "Exyte via Tom's Hardware; TrendForce Dec 2025",
+        "Permitting, field labor, 24/7 work, tool install and qualification",
+        "~40%",
+        "0.9-0.95x",
+        "0.8-0.9x",
+        "U.S. 0.65-0.8x; Taiwan 0.85-0.95x",
+        "U.S. 0.5-0.6x",
+        "Tool lead times, cleanroom certification, tool qualification and yield ramp (~1 year)"
+      ],
+      [
+        "Generic factory, groundbreaking to first production",
+        "6-9 months China (usually 10-12); 2+ years West; Tesla Shanghai 8 months",
+        "Epoch Apr 2026",
+        "Field labor, permits, equipment",
+        "50-60%",
+        "0.9x",
+        "0.8-0.85x",
+        "West 0.6-0.75x; China 0.8-0.9x",
+        "West 0.4-0.55x",
+        "Permits, process equipment lead times, commissioning"
+      ],
+      [
+        "Large nuclear unit, first concrete to fuel load or grid",
+        "~37 months (ABWR); 61-76 months (Hualong One); ~124 months (Vogtle 3/4 to COD)",
+        "NEI Magazine; Energy Intelligence; WNN",
+        "Field labor and QA learning, supply chain, licensing before first concrete",
+        "50-60% of construction",
+        "0.95x",
+        "0.85-0.9x",
+        "0.8-0.9x (few U.S. starts before 2031)",
+        "0.6-0.75x",
+        "NRC licensing, first-of-a-kind learning, nuclear QA, fuel, hot functional testing"
+      ],
+      [
+        "Utility-scale solar, construction",
+        "~6-12 months build (general) behind a ~5-year queue",
+        "Built RPD 35; China 315 GW solar in 2025",
+        "Field labor (build); interconnection (project)",
+        "60-70% of build; ~10-15% of project",
+        "0.95x",
+        "0.9x",
+        "Build 0.5-0.7x; project 0.85-0.9x",
+        "Build 0.3-0.5x; project 0.7-0.85x",
+        "Interconnection, panel and tracker supply, weather"
+      ],
+      [
+        "Housing (U.S.)",
+        "Single-family 7.6 months build + 1.4 months authorization; multifamily 19.6 months permit to completion; entitlement before that",
+        "Census SOC via NAHB 2025; McKinsey modular 20-50%; ICON ~3 weeks print per home",
+        "Field labor (build), zoning and entitlement (project)",
+        "60-70% of build",
+        "0.95x",
+        "0.9x",
+        "0.75-0.9x (adoption-limited)",
+        "0.5-0.7x",
+        "Zoning and entitlement, inspections, utility hookups, financing, drying times"
+      ],
+      [
+        "Major highway or bridge",
+        "9-19 years planning to construction; construction 2-6 years",
+        "FHWA estimate via GAO-02-1067T; GAO 2014 complex highway environmental review ~7 years (reported)",
+        "Planning, environmental review, right of way, appropriations",
+        "15-30%",
+        "0.95x",
+        "0.9x",
+        "0.85-0.95x (construction phase 0.7-0.85x)",
+        "0.75-0.85x",
+        "Planning, appropriations, right of way, traffic work windows"
+      ],
+      [
+        "Environmental impact statement",
+        "2.2 years median (2024)",
+        "CEQ Jan 2025; FRA 2023 2-year deadline",
+        "Institutional",
+        "0%",
+        "0.8x",
+        "0.7-0.8x",
+        "Same as S3",
+        "0.6-0.7x (institutional adaptation, not robotics)",
+        "Comment periods, consultation, litigation"
+      ],
+      [
+        "Cast-in-place concrete and other physical time constants",
+        "28-day design strength; ~7 days to ~65-70% (general)",
+        "ACI practice (general)",
+        "Physics",
+        "0%",
+        "1.0x",
+        "1.0x",
+        "1.0x (precast or off-site removes it from the critical path; not a robotics gain)",
+        "1.0x",
+        "Hydration chemistry, temperature"
+      ]
+    ]
+  },
+  "amdahl_infrastructure": {
+    "description": "Critical-path shares for two archetypes (estimates) and per-component speedups by scenario. Shares: U.S. grid-connected = institutional 40%, equipment queue 20%, field labor 25%, physics and commissioning 10%, capital 5%; permissive or behind-the-meter = 15/35/40/10/0. Calendar factor = sum(share / speedup).",
+    "results": [
+      {
+        "case": "US grid-connected project (data center, power plant, substation)",
+        "scenario": "S2 Exponential (2031)",
+        "speedups": {
+          "institutional": 1.15,
+          "equipment_queue": 1.05,
+          "field_labor": 1.1,
+          "physics_and_commissioning": 1.0,
+          "capital": 1.1
+        },
+        "calendar_time_factor": 0.91,
+        "schedule_shorter_pct": 9,
+        "remaining_critical_path_shares_pct": {
+          "institutional": 38,
+          "equipment_queue": 21,
+          "field_labor": 25,
+          "physics_and_commissioning": 11,
+          "capital": 5
+        }
+      },
+      {
+        "case": "US grid-connected project (data center, power plant, substation)",
+        "scenario": "S3 Recursive (2031)",
+        "speedups": {
+          "institutional": 1.3,
+          "equipment_queue": 1.15,
+          "field_labor": 1.3,
+          "physics_and_commissioning": 1.05,
+          "capital": 1.2
+        },
+        "calendar_time_factor": 0.81,
+        "schedule_shorter_pct": 19,
+        "remaining_critical_path_shares_pct": {
+          "institutional": 38,
+          "equipment_queue": 21,
+          "field_labor": 24,
+          "physics_and_commissioning": 12,
+          "capital": 5
+        }
+      },
+      {
+        "case": "US grid-connected project (data center, power plant, substation)",
+        "scenario": "S4 Embodied 2031, average project",
+        "speedups": {
+          "institutional": 1.3,
+          "equipment_queue": 1.2,
+          "field_labor": 1.4,
+          "physics_and_commissioning": 1.05,
+          "capital": 1.25
+        },
+        "calendar_time_factor": 0.79,
+        "schedule_shorter_pct": 21,
+        "remaining_critical_path_shares_pct": {
+          "institutional": 39,
+          "equipment_queue": 21,
+          "field_labor": 23,
+          "physics_and_commissioning": 12,
+          "capital": 5
+        }
+      },
+      {
+        "case": "US grid-connected project (data center, power plant, substation)",
+        "scenario": "S4 Embodied 2031, leading-edge project",
+        "speedups": {
+          "institutional": 1.3,
+          "equipment_queue": 1.25,
+          "field_labor": 2.0,
+          "physics_and_commissioning": 1.1,
+          "capital": 1.25
+        },
+        "calendar_time_factor": 0.72,
+        "schedule_shorter_pct": 28,
+        "remaining_critical_path_shares_pct": {
+          "institutional": 43,
+          "equipment_queue": 22,
+          "field_labor": 17,
+          "physics_and_commissioning": 13,
+          "capital": 6
+        }
+      },
+      {
+        "case": "US grid-connected project (data center, power plant, substation)",
+        "scenario": "S4 Embodied 2035, central",
+        "speedups": {
+          "institutional": 1.4,
+          "equipment_queue": 1.6,
+          "field_labor": 3.0,
+          "physics_and_commissioning": 1.15,
+          "capital": 1.4
+        },
+        "calendar_time_factor": 0.62,
+        "schedule_shorter_pct": 38,
+        "remaining_critical_path_shares_pct": {
+          "institutional": 46,
+          "equipment_queue": 20,
+          "field_labor": 14,
+          "physics_and_commissioning": 14,
+          "capital": 6
+        }
+      },
+      {
+        "case": "US grid-connected project (data center, power plant, substation)",
+        "scenario": "S4 Embodied 2035, fast",
+        "speedups": {
+          "institutional": 1.5,
+          "equipment_queue": 2.0,
+          "field_labor": 4.0,
+          "physics_and_commissioning": 1.2,
+          "capital": 1.5
+        },
+        "calendar_time_factor": 0.55,
+        "schedule_shorter_pct": 45,
+        "remaining_critical_path_shares_pct": {
+          "institutional": 49,
+          "equipment_queue": 18,
+          "field_labor": 11,
+          "physics_and_commissioning": 15,
+          "capital": 6
+        }
+      },
+      {
+        "case": "US grid-connected project (data center, power plant, substation)",
+        "scenario": "Ceiling: labor and equipment free, institutions and physics at S4-2031 levels",
+        "speedups": {
+          "institutional": 1.3,
+          "equipment_queue": "unbounded",
+          "field_labor": "unbounded",
+          "physics_and_commissioning": 1.1,
+          "capital": 1.25
+        },
+        "calendar_time_factor": 0.44,
+        "schedule_shorter_pct": 56,
+        "remaining_critical_path_shares_pct": {
+          "institutional": 70,
+          "equipment_queue": 0,
+          "field_labor": 0,
+          "physics_and_commissioning": 21,
+          "capital": 9
+        }
+      },
+      {
+        "case": "Permissive or behind-the-meter project (xAI- or China-style)",
+        "scenario": "S2 Exponential (2031)",
+        "speedups": {
+          "institutional": 1.15,
+          "equipment_queue": 1.05,
+          "field_labor": 1.1,
+          "physics_and_commissioning": 1.0,
+          "capital": 1.1
+        },
+        "calendar_time_factor": 0.93,
+        "schedule_shorter_pct": 7,
+        "remaining_critical_path_shares_pct": {
+          "institutional": 14,
+          "equipment_queue": 36,
+          "field_labor": 39,
+          "physics_and_commissioning": 11,
+          "capital": 0
+        }
+      },
+      {
+        "case": "Permissive or behind-the-meter project (xAI- or China-style)",
+        "scenario": "S3 Recursive (2031)",
+        "speedups": {
+          "institutional": 1.3,
+          "equipment_queue": 1.15,
+          "field_labor": 1.3,
+          "physics_and_commissioning": 1.05,
+          "capital": 1.2
+        },
+        "calendar_time_factor": 0.82,
+        "schedule_shorter_pct": 18,
+        "remaining_critical_path_shares_pct": {
+          "institutional": 14,
+          "equipment_queue": 37,
+          "field_labor": 37,
+          "physics_and_commissioning": 12,
+          "capital": 0
+        }
+      },
+      {
+        "case": "Permissive or behind-the-meter project (xAI- or China-style)",
+        "scenario": "S4 Embodied 2031, average project",
+        "speedups": {
+          "institutional": 1.3,
+          "equipment_queue": 1.2,
+          "field_labor": 1.4,
+          "physics_and_commissioning": 1.05,
+          "capital": 1.25
+        },
+        "calendar_time_factor": 0.79,
+        "schedule_shorter_pct": 21,
+        "remaining_critical_path_shares_pct": {
+          "institutional": 15,
+          "equipment_queue": 37,
+          "field_labor": 36,
+          "physics_and_commissioning": 12,
+          "capital": 0
+        }
+      },
+      {
+        "case": "Permissive or behind-the-meter project (xAI- or China-style)",
+        "scenario": "S4 Embodied 2031, leading-edge project",
+        "speedups": {
+          "institutional": 1.3,
+          "equipment_queue": 1.25,
+          "field_labor": 2.0,
+          "physics_and_commissioning": 1.1,
+          "capital": 1.25
+        },
+        "calendar_time_factor": 0.69,
+        "schedule_shorter_pct": 31,
+        "remaining_critical_path_shares_pct": {
+          "institutional": 17,
+          "equipment_queue": 41,
+          "field_labor": 29,
+          "physics_and_commissioning": 13,
+          "capital": 0
+        }
+      },
+      {
+        "case": "Permissive or behind-the-meter project (xAI- or China-style)",
+        "scenario": "S4 Embodied 2035, central",
+        "speedups": {
+          "institutional": 1.4,
+          "equipment_queue": 1.6,
+          "field_labor": 3.0,
+          "physics_and_commissioning": 1.15,
+          "capital": 1.4
+        },
+        "calendar_time_factor": 0.55,
+        "schedule_shorter_pct": 45,
+        "remaining_critical_path_shares_pct": {
+          "institutional": 20,
+          "equipment_queue": 40,
+          "field_labor": 24,
+          "physics_and_commissioning": 16,
+          "capital": 0
+        }
+      },
+      {
+        "case": "Permissive or behind-the-meter project (xAI- or China-style)",
+        "scenario": "S4 Embodied 2035, fast",
+        "speedups": {
+          "institutional": 1.5,
+          "equipment_queue": 2.0,
+          "field_labor": 4.0,
+          "physics_and_commissioning": 1.2,
+          "capital": 1.5
+        },
+        "calendar_time_factor": 0.46,
+        "schedule_shorter_pct": 54,
+        "remaining_critical_path_shares_pct": {
+          "institutional": 22,
+          "equipment_queue": 38,
+          "field_labor": 22,
+          "physics_and_commissioning": 18,
+          "capital": 0
+        }
+      },
+      {
+        "case": "Permissive or behind-the-meter project (xAI- or China-style)",
+        "scenario": "Ceiling: labor and equipment free, institutions and physics at S4-2031 levels",
+        "speedups": {
+          "institutional": 1.3,
+          "equipment_queue": "unbounded",
+          "field_labor": "unbounded",
+          "physics_and_commissioning": 1.1,
+          "capital": 1.25
+        },
+        "calendar_time_factor": 0.21,
+        "schedule_shorter_pct": 79,
+        "remaining_critical_path_shares_pct": {
+          "institutional": 56,
+          "equipment_queue": 0,
+          "field_labor": 0,
+          "physics_and_commissioning": 44,
+          "capital": 0
+        }
+      }
+    ],
+    "reading": "Robotics adds 2 (average) to 9 (leading-edge) points of compression over S3 by 2031 for U.S. grid-connected projects and 3-13 points for permissive ones. The binding share shifts to institutions (U.S.) or equipment queues (permissive). With labor and equipment made free, 2031 institutions and physics still cap the U.S. case at ~56% shorter."
+  },
+  "robots_build_robots_loop": {
+    "question": "Can a robots-build-robots loop grow fast enough by 2031 (versus 2035) to matter for infrastructure build times?",
+    "model": "Global general-purpose robot production paths (M units/yr, 2026-2035): slow 0.06, 0.10, 0.18, 0.35, 0.6, 0.9, 1.3, 1.8, 2.4, 3.0; central 0.06, 0.15, 0.35, 0.8, 1.8, 3.5, 6, 9, 12, 15; fast 0.06, 0.2, 0.6, 1.8, 5, 10, 18, 28, 40, 50. Five-year service life. Construction share of stock 3/6/10% in 2031 and 5/10/15% in 2035; U.S. share 10/20/25%; worker-equivalents per robot 0.5/0.8/1.2 in 2031 and 0.7/1.2/2.0 in 2035 (24/7 operation offsets lower dexterity). Denominator: ~8.3M U.S. construction workers (general). Central path is anchored on Epoch's post-shock 1.5-3M/yr by 2030; fast on Epoch's 5-10M/yr 'plausible'.",
+    "results": [
+      {
+        "path": "slow",
+        "production_doubling_2026_2031_months": 15.4,
+        "us_construction_robots_2031": "~6k",
+        "worker_equivalents_2031": "~3k (~0.04%)",
+        "us_construction_robots_2035": "~50k",
+        "worker_equivalents_2035": "~30k (~0.4%)"
+      },
+      {
+        "path": "central",
+        "production_doubling_2026_2031_months": 10.2,
+        "us_construction_robots_2031": "~80k",
+        "worker_equivalents_2031": "~60k (~0.8%)",
+        "us_construction_robots_2035": "~0.9M",
+        "worker_equivalents_2035": "~1.1M (~13%)"
+      },
+      {
+        "path": "fast",
+        "production_doubling_2026_2031_months": 8.1,
+        "us_construction_robots_2031": "~440k",
+        "worker_equivalents_2031": "~530k (~6%)",
+        "us_construction_robots_2035": "~5.5M",
+        "worker_equivalents_2035": "~11M (>100%)"
+      }
+    ],
+    "verdict_2031": "Too small to change infrastructure calendars much beyond S3. Central-path robot labor is ~1/6 of one year's U.S. construction hiring need; specialized single-task machines matter more than humanoids before 2031. Robots go to structured factories and warehouses first, and construction sites are the hardest environment (unstructured, outdoor, safety-critical).",
+    "verdict_2035": "Matters in the central and fast paths: field labor stops binding, robot-staffed equipment factories expand, and project calendars shorten 38-54%. The binding constraints become permits, interconnection, physics time constants and politics.",
+    "loop_latency_limits": [
+      "Factory build latency: 6-9 months China (usually 10-12), 2+ years West (Epoch 2026)",
+      "High-precision reducers cap humanoids at ~500k/yr until new capacity is built (Epoch 2026)",
+      "Power for robot factories and training compute comes from the same interconnection and turbine queues",
+      "Forethought: ~1-year doubling with abundant AI labor in theory; 'on the order of a few years' in practice"
+    ]
+  },
+  "mapping_to_space_model": {
+    "note": "Suggested S4 calendar-time factors for the infrastructure-type gates in the Space Unlock Tree physical-gate table (S3 values from the model).",
+    "rows": [
+      {
+        "gate": "Heavy launch pad and propellant plant",
+        "S3": "0.8-0.9x",
+        "S4_2031": "0.7-0.85x",
+        "S4_2035": "0.55-0.7x",
+        "why": "Pads are concrete, steel, cryogenic plants and permits; robots compress civil, structural and MEP labor and allow 24/7 work; air-separation and compressor lead times and NEPA do not move."
+      },
+      {
+        "gate": "Production ramp (engines, stages, satellites)",
+        "S3": "0.7-0.8x",
+        "S4_2031": "0.6-0.7x",
+        "S4_2035": "0.4-0.55x",
+        "why": "New lines and factories are built faster and staffed by robots; factory build latency (2+ years in the U.S.) and tooling still bind."
+      },
+      {
+        "gate": "Long-lead parts and supply chain",
+        "S3": "0.8-0.9x",
+        "S4_2031": "0.75-0.9x",
+        "S4_2035": "0.6-0.75x",
+        "why": "Supplier throughput rises, but AI-driven demand for castings, forgings, electronics and power equipment rises too; lead time = backlog / throughput."
+      },
+      {
+        "gate": "Environmental review (NEPA) for a new site or cadence",
+        "S3": "0.7x",
+        "S4_2031": "0.7x",
+        "S4_2035": "0.6-0.7x",
+        "why": "Robots do not touch comment periods, consultation or litigation; any further gain is institutional."
+      },
+      {
+        "gate": "FAA licensing and FCC/ITU spectrum",
+        "S3": "0.5x (FAA), 0.5x U.S. / 0.9x ITU (spectrum)",
+        "S4_2031": "Unchanged",
+        "S4_2035": "Unchanged",
+        "why": "Institutional."
+      },
+      {
+        "gate": "Terrestrial AI compute campus (competitor to orbital compute)",
+        "S3": "~0.8-0.85x",
+        "S4_2031": "0.7-0.8x construction; power interconnection 0.8-1.1x",
+        "S4_2035": "0.5-0.65x",
+        "why": "Robots speed the build but not interconnection or permits, so the 'speed to power' argument for orbital compute survives S4 through 2031."
+      }
+    ]
+  },
+  "signposts": [
+    {
+      "event": "Operator-free heavy equipment exceeds ~500 machines on U.S. sites (Bedrock, Gravis, Built, OEMs) by end-2027",
+      "what_it_changes": "Confirms earthwork and piling at 0.5-0.7x by 2031; below ~100 machines keeps them near 0.9x."
+    },
+    {
+      "event": "Humanoid shipments of >=200k in 2027 with >30% doing paid repeated work; Atlas output >=1,000/month by 2028",
+      "what_it_changes": "Moves toward the central-to-fast robot-stock path; below ~100k in 2027 means the slow path."
+    },
+    {
+      "event": "First data center or fab with >=100 general-purpose robots doing electrical or mechanical trade work on one site (2028-2029)",
+      "what_it_changes": "Turns the field-labor speedup from 1.4x (average) toward 2x for leading projects by 2031."
+    },
+    {
+      "event": "Wood Mackenzie transformer survey shows large-unit lead times below 100 weeks while demand is still rising",
+      "what_it_changes": "Robot-staffed factory throughput is outrunning demand; equipment-queue factor moves from 0.8-1.0x toward 0.6-0.7x before 2031."
+    },
+    {
+      "event": "GE Vernova (or Siemens Energy, Mitsubishi) exceeds 30 GW/yr of gas turbine output before 2030 or reopens 2029-2030 slots",
+      "what_it_changes": "Same as above for turbines."
+    },
+    {
+      "event": "LBNL Queued Up 2027: median request-to-operation for 2026 builds below ~55 months, or above ~65 months",
+      "what_it_changes": "Tests whether Order 2023 and AI-assisted studies are shrinking the institutional gate or whether the AI demand surge is lengthening it."
+    },
+    {
+      "event": "Texas ERCOT audit and TCEQ permit freeze (report due Oct 19 2026; audit expected mid-Dec 2026) and copycat moratoria in other states",
+      "what_it_changes": "Lifting quickly supports institutional factors of 0.8x or better; spreading supports >1.0x on large-load connection under S4."
+    },
+    {
+      "event": "A 1 GW AI campus energized in under 9 months from groundbreaking",
+      "what_it_changes": "Shows the best-practice frontier still moving; Colossus 2 at ~12-15 months is today's mark."
+    },
+    {
+      "event": "BLS or BEA construction labor productivity rises for three straight years",
+      "what_it_changes": "First evidence that robotics and AI are breaking the 50-year stagnation, rather than only easing shortages."
+    },
+    {
+      "event": "TSMC Arizona Fab 3 or another U.S. fab builds permitting-to-production in <=24 months",
+      "what_it_changes": "U.S. fabs closing on Taiwan's ~19 months; supports the U.S. fab factor of 0.65-0.8x by 2031."
+    }
+  ],
+  "data_quality_notes": [
+    "Most construction-robot productivity figures are vendor claims without published methodology (Built, Dusty, Canvas, Hilti, ICON).",
+    "Humanoid counts conflict across Omdia, Counterpoint, SAG, Morgan Stanley and company statements; Tesla and Figure publish no unit counts.",
+    "LBNL 2026 edition values come from search summaries of the report (direct fetch returned 403); the 2025 edition values (55 months for 2024 builds) were corroborated.",
+    "The Wood Mackenzie 128/144-week figures come through trade press; the underlying survey was not accessed.",
+    "The Exyte fab comparison (19 vs 38 months) is from Tom's Hardware search excerpts; the article body could not be fetched.",
+    "Critical-path shares in the Amdahl table and the robot-stock parameters are this analysis's estimates, not sourced values."
+  ],
+  "sources": [
+    {
+      "title": "Build times for gigawatt-scale data centers can be 2 years or less (Epoch AI)",
+      "url": "https://epochai.substack.com/p/build-times-for-gigawatt-scale-data",
+      "date": "2025-11-10",
+      "used_for": "1-4 year construction-start-to-1 GW range; Colossus 2 12-month target; five 1 GW sites in 2026"
+    },
+    {
+      "title": "xAI's Colossus 2 - First Gigawatt Datacenter in the World (SemiAnalysis)",
+      "url": "https://newsletter.semianalysis.com/p/xais-colossus-2-first-gigawatt-datacenter",
+      "date": "2025-09-16",
+      "used_for": "Colossus 1 122 days; Colossus 2 chillers, turbines, Solaris JV, Megapacks"
+    },
+    {
+      "title": "Colossus 2 satellite explorer (Epoch AI)",
+      "url": "https://epoch.ai/data/ai-data-centers/directory/colossus-2/satellite-explorer",
+      "date": "2026-06-15",
+      "used_for": "~850-900 MW IT estimate"
+    },
+    {
+      "title": "Musk says SpaceXAI adds 220K GB300 GPUs to Colossus 2 (33FG news, from X post)",
+      "url": "https://research.33fg.com/news/musk-says-spacexai-adds-220k-gb300-gpus-to-colossus-2-next-week-another-220k-in-november",
+      "date": "2026-09-25",
+      "used_for": "Colossus GPU counts (unconfirmed)"
+    },
+    {
+      "title": "OpenAI/Oracle Stargate Abilene satellite explorer (Epoch AI)",
+      "url": "https://epoch.ai/data/data-centers/satellite-explorer/OpenAIStargateAbilene",
+      "date": "2026-07-27",
+      "used_for": "Abilene IT power now and projected"
+    },
+    {
+      "title": "Crusoe's Abilene data center officially live (DCD)",
+      "url": "https://www.datacenterdynamics.com/en/news/crusoes-abilene-data-center-officially-live-serving-oracle-and-openais-stargate/",
+      "date": "2025-09-30",
+      "used_for": "First two buildings energized"
+    },
+    {
+      "title": "Stargate Abilene behind-the-meter report (Cleanview)",
+      "url": "https://cleanview.co/reports/behind-the-meter-data-centers/full-report/stargate-abilene",
+      "date": "2026",
+      "used_for": "Abilene timeline: June 2024 land clearing, 360 MW behind-the-meter generation"
+    },
+    {
+      "title": "Queued Up: 2026 Edition (LBNL)",
+      "url": "https://eta-publications.lbl.gov/sites/default/files/2026-06/queued_up_2026_edition.pdf",
+      "date": "2026-06",
+      "used_for": "61-month median request-to-operation for 2025 builds"
+    },
+    {
+      "title": "Queued Up: 2025 Edition (LBNL)",
+      "url": "https://emp.lbl.gov/sites/default/files/2025-12/Queued%20Up%202025%20Edition%20-%2012.15.2025.pdf",
+      "date": "2025-12-15",
+      "used_for": "55 months (2024), 36 (2015), 22 (2008)"
+    },
+    {
+      "title": "U.S. transformer market faces severe supply constraints as lead times extend to four years (pv magazine USA)",
+      "url": "https://pv-magazine-usa.com/2026/05/11/u-s-transformer-market-faces-severe-supply-constraints-as-lead-times-extend-to-four-years/",
+      "date": "2026-05-11",
+      "used_for": "Up to 4-year lead times; GSU demand +274%; prices +80%; new factories 2028"
+    },
+    {
+      "title": "US power firms scramble for transformers and turbines (The Next Web, citing Wood Mackenzie)",
+      "url": "https://thenextweb.com/news/us-power-companies-scramble-data-centre-equipment",
+      "date": "2025-2026",
+      "used_for": "128 and 144 week transformer lead times"
+    },
+    {
+      "title": "GE Vernova gas turbine backlog hits 116 GW (Turbomachinery Magazine)",
+      "url": "https://www.turbomachinerymag.com/view/ge-vernova-gas-turbine-backlog-hits-116-gw-as-power-orders-more-than-double",
+      "date": "2026-07-23",
+      "used_for": "Backlog, output targets, ~3-year lead time, ~10 GW open 2029-2030"
+    },
+    {
+      "title": "GE Vernova releases second quarter 2026 financial results",
+      "url": "https://www.gevernova.com/news/articles/ge-vernova-releases-second-quarter-2026-financial-results",
+      "date": "2026-07-22",
+      "used_for": "20/24/30 GW per year output plan"
+    },
+    {
+      "title": "US power boom triggers global gas turbine shortage (OilPrice, citing BloombergNEF)",
+      "url": "https://oilprice.com/Energy/Energy-General/US-Power-Boom-Triggers-Global-Gas-Turbine-Shortage.amp.html",
+      "date": "2025",
+      "used_for": "Combined-cycle 5-year lead time"
+    },
+    {
+      "title": "Data centers drive record surge in GE Vernova orders (Power Engineering)",
+      "url": "https://www.power-eng.com/gas/turbines/data-centers-drive-record-surge-in-ge-vernova-power-equipment-orders-as-turbine-slots-tighten-through-2030/",
+      "date": "2026",
+      "used_for": "Turbine slots tightening through 2030; Wood Mackenzie ~$600/kW by end-2027"
+    },
+    {
+      "title": "The Strange and Awful Path of Productivity in the U.S. Construction Sector (Goolsbee and Syverson, NBER w30845)",
+      "url": "https://www.nber.org/papers/w30845",
+      "date": "2023-01",
+      "used_for": "Decades-long construction productivity decline"
+    },
+    {
+      "title": "U.S. construction has a productivity problem (Chicago Booth Review)",
+      "url": "https://chicagobooth.edu/review/us-construction-has-productivity-problem",
+      "date": "2023",
+      "used_for": "2020 worker produced less than 1970 worker"
+    },
+    {
+      "title": "US construction labor productivity falls 30% from 1970 to 2024 (Goldman-based, trade summary)",
+      "url": "https://treefrogcreative.ca/?p=362037",
+      "date": "2026-02",
+      "used_for": "-30% 1970-2024 comparison (secondary)"
+    },
+    {
+      "title": "CEQ EIS Timeline Report",
+      "url": "https://ceq.doe.gov/docs/nepa-practice/CEQ_EIS_Timeline_Report_2025-1-13.pdf",
+      "date": "2025-01-13",
+      "used_for": "EIS medians"
+    },
+    {
+      "title": "GAO-02-1067T Highway Infrastructure: timely completion of highway construction projects",
+      "url": "https://www.gao.gov/assets/gao-02-1067t.pdf",
+      "date": "2002-09",
+      "used_for": "FHWA 9-19 years estimate and phase durations"
+    },
+    {
+      "title": "From decades to years: CITAP and faster transmission (Clean Air Task Force)",
+      "url": "https://www.catf.us/2024/07/from-decades-years-does-citap-program-progress-towards-faster-transmission-projects/",
+      "date": "2024-07",
+      "used_for": "Federal review average 4.3 years for 33 lines 2010-2020"
+    },
+    {
+      "title": "SunZia: the US's largest-ever renewables project goes live (Energy Digital)",
+      "url": "https://energydigital.com/news/sunzia-the-us-largest-ever-renewables-project-goes-live",
+      "date": "2026-06",
+      "used_for": "~18 years concept to completion"
+    },
+    {
+      "title": "Building a chipmaking fab in the US costs twice as much, takes twice as long as in Taiwan (Tom's Hardware, Exyte data)",
+      "url": "https://tomshardware.com/tech-industry/building-a-chipmaking-fab-in-the-us-costs-twice-as-much-takes-twice-as-long-as-in-taiwan",
+      "date": "c. 2025",
+      "used_for": "19 vs 38 months; permitting and design durations"
+    },
+    {
+      "title": "TSMC reportedly accelerates Arizona 2nd fab (TrendForce)",
+      "url": "https://www.trendforce.com/news/2025/12/18/news-tsmc-reportedly-accelerates-arizona-2nd-fab-eyes-3q26-tool-install-2027-3nm-production/",
+      "date": "2025-12-18",
+      "used_for": "Fab 2 schedule"
+    },
+    {
+      "title": "Ten reactor years of ABWR experience (NEI Magazine)",
+      "url": "https://www.neimagazine.com/analysis/ten-reactor-years-of-abwr-experience/",
+      "date": "undated",
+      "used_for": "KK-6/7 36.5 and 38.3 months to fuel load"
+    },
+    {
+      "title": "Fuqing-5 sets record on Gen-3 commissionings (Energy Intelligence)",
+      "url": "https://www.energyintel.com/0000017b-a7dc-de4c-a17b-e7de93460000",
+      "date": "2021",
+      "used_for": "Hualong One 69 months to commercial operation"
+    },
+    {
+      "title": "Vogtle milestones (World Nuclear News)",
+      "url": "https://www.world-nuclear-news.org/Articles/Vogtle-milestones",
+      "date": "2013-2024",
+      "used_for": "Vogtle 3/4 first nuclear concrete and COD dates"
+    },
+    {
+      "title": "How fast could robot production scale up? (Epoch AI, Denain and Riviere)",
+      "url": "https://epoch.ai/blog/how-fast-could-robot-production-scale-up",
+      "date": "2026-04-22",
+      "used_for": "Robot production doubling times, reducer cap, factory build latency, post-shock projections"
+    },
+    {
+      "title": "The Industrial Explosion (Forethought, Davidson and Hadshar)",
+      "url": "https://forethought.org/research/the-industrial-explosion",
+      "date": "2025-05-21",
+      "used_for": "Robot doubling ~1 year in theory, a few years in practice; ~10x from AI-directed human labor"
+    },
+    {
+      "title": "World Robotics 2025: Global robot demand in factories doubles over 10 years (IFR)",
+      "url": "https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years",
+      "date": "2025-09-25",
+      "used_for": "542k installs, 4.66M stock"
+    },
+    {
+      "title": "Five million robots now operate in factories globally (IFR)",
+      "url": "https://ifr.org/ifr-press-releases/five-million-robots-now-operate-in-factories-globally",
+      "date": "2026",
+      "used_for": ">600k installs in 2025; ~5M stock"
+    },
+    {
+      "title": "China's AgiBot leads global humanoid robot shipments in 2025, Omdia says (TechNode)",
+      "url": "https://technode.com/2026/01/09/chinas-agibot-leads-global-humanoid-robot-shipments-in-2025-omdia-says/",
+      "date": "2026-01-09",
+      "used_for": "13,318 humanoids shipped 2025"
+    },
+    {
+      "title": "Unitree says 2025 humanoid shipments topped 5,500 (Jiemian)",
+      "url": "https://en.jiemian.com/article/13924474.html",
+      "date": "2026-01",
+      "used_for": "Unitree shipments and production"
+    },
+    {
+      "title": "Humanoid robot deployment gap (Live in the Future)",
+      "url": "https://liveinthefuture.org/stories/humanoid-robot-16000-units-deployment-gap",
+      "date": "2026",
+      "used_for": "H1 2026 ~19k shipments (SAG, Morgan Stanley), ~65% non-productive; <3-4k doing paid work (opinion source)"
+    },
+    {
+      "title": "30,000 robots by 2028: Hyundai's CES announcement (InsideEVs)",
+      "url": "https://insideevs.com/news/783475/hyundai-ces-2026-robotics/",
+      "date": "2026-01",
+      "used_for": "Atlas 30,000/yr target"
+    },
+    {
+      "title": "Boston Dynamics Atlas 625x production gap (Live in the Future)",
+      "url": "https://liveinthefuture.org/stories/boston-dynamics-atlas-625x-production-gap",
+      "date": "2026",
+      "used_for": "~4 Atlas per month (citing Semafor; opinion source)"
+    },
+    {
+      "title": "Komatsu commissions 1,000 autonomous ultra-class trucks (International Mining)",
+      "url": "https://im-mining.com/2026/04/21/komatsu-commissions-1000-autonomous-ultra-class-trucks/",
+      "date": "2026-04-21",
+      "used_for": "Autonomous haulage scale and growth"
+    },
+    {
+      "title": "Bedrock Robotics fully autonomous excavators on jobsites (Construction Dive)",
+      "url": "https://www.constructiondive.com/news/bedrock-robotics-fully-autonomous-excavators-jobsites/828267/",
+      "date": "2026-08",
+      "used_for": "Operator-free deployments"
+    },
+    {
+      "title": "Bedrock Robotics raises $270M Series B (Robotics 24/7)",
+      "url": "https://www.robotics247.com/article/bedrock-robotics-raises-270m-series-b-to-accelerate-autonomous-construction-technology",
+      "date": "2026-02",
+      "used_for": "Funding; 65,000 cu yd supervised deployment"
+    },
+    {
+      "title": "Blattner picks autonomous pile drivers from Built Robotics (ENR)",
+      "url": "https://www.enr.com/articles/61329-blattner-picks-autonomous-pile-drivers-from-built-robotics-for-solar-projects",
+      "date": "2025-09",
+      "used_for": "First large-scale autonomous piling deployment"
+    },
+    {
+      "title": "Robotic solar pile driver three times faster than humans (pv magazine USA)",
+      "url": "https://pv-magazine-usa.com/2023/04/27/robotic-solar-pile-driver-three-times-faster-than-humans",
+      "date": "2023-04-27",
+      "used_for": "~300 vs ~100 piles/day"
+    },
+    {
+      "title": "Dusty Robotics announces support for Leica AT500 (Hexagon)",
+      "url": "https://hexagon.com/company/newsroom/press-releases/2025/dusty-robotics-announces-support-for-leica-absolute-tracker-at500-by-hexagon",
+      "date": "2025",
+      "used_for": ">100M sq ft layout"
+    },
+    {
+      "title": "ENR equipment: JLG acquires Canvas (Jan 19 2026 issue)",
+      "url": "https://digital.bnpmedia.com/article/EQUIPMENT/5098242/859654/article.html",
+      "date": "2026-01-19",
+      "used_for": "Canvas acquisition; drywall finishing times"
+    },
+    {
+      "title": "Hilti Jaibot drilling robot",
+      "url": "https://www.hilti.com/content/hilti/W1/US/en/business/business/trends/jaibot.html",
+      "date": "undated",
+      "used_for": "Jaibot capability (vendor)"
+    },
+    {
+      "title": "ICON to lay off over 100 workers (FOX 7 Austin)",
+      "url": "https://fox7austin.com/news/3d-house-printing-company-icon-lay-off-over-100-workers-march",
+      "date": "2025-01",
+      "used_for": "ICON layoffs"
+    },
+    {
+      "title": "A robotics company has 3D printed nearly a hundred homes in Texas (Engadget)",
+      "url": "https://www.engadget.com/home/a-robotics-company-has-3d-printed-nearly-a-hundred-homes-in-texas-225830931.html",
+      "date": "2024",
+      "used_for": "Wolf Ranch print times and crews"
+    },
+    {
+      "title": "BuiltWorlds report finds jobsite robotics adoption doubles",
+      "url": "https://builtworlds.com/news/builtworlds-report-finds-jobsite-robotics-adoption-doubles-year-year/",
+      "date": "2026",
+      "used_for": "Contractor adoption survey"
+    },
+    {
+      "title": "Construction industry must attract 349,000 workers in 2026 (EC&M, ABC)",
+      "url": "https://ecmweb.com/construction/news/55344103/construction-industry-must-attract-349000-workers-in-2026",
+      "date": "2026-01",
+      "used_for": "ABC hiring need"
+    },
+    {
+      "title": "Data centers, immigration action add to construction labor shortage (Bisnow)",
+      "url": "https://www.bisnow.com/news/national/top-talent/without-100s-of-thousands-of-new-workers-construction-industry-faces-workforce-shortage-cliff-132728",
+      "date": "2026",
+      "used_for": "IBEW 45-70% electrical share; data center labor demand"
+    },
+    {
+      "title": "Data centre construction cost index 2025 methodology (Turner & Townsend)",
+      "url": "https://reports.turnerandtownsend.com/data-centre-construction-cost-index-2025/methodology",
+      "date": "2025",
+      "used_for": "Cost split by system"
+    },
+    {
+      "title": "Factory-built and fast: modular construction cuts data centre delivery times (Datacentres.com)",
+      "url": "https://www.datacentres.com/news/factory-built-and-fast-modular-construction-cuts-data-centre-delivery-times-by-4-slot1-2026-09-02",
+      "date": "2026-09-02",
+      "used_for": "12-18 vs 24-36 months"
+    },
+    {
+      "title": "Schneider Electric debuts 2.5 MW power modules for AI data centers (DCD)",
+      "url": "https://www.datacenterdynamics.com/en/news/schneider-electric-debuts-25mw-power-modules-for-ai-data-centers/",
+      "date": "2026-09",
+      "used_for": "Prefab power modules in ~6 months manufacturing"
+    },
+    {
+      "title": "Modular construction: From projects to products (McKinsey)",
+      "url": "https://www.mckinsey.com/industries/operations/our-insights/modular-construction-from-projects-to-products",
+      "date": "2019-06",
+      "used_for": "20-50% schedule reductions"
+    },
+    {
+      "title": "Single-family homes are built faster in 2024 (NAHB Eye on Housing)",
+      "url": "https://eyeonhousing.org/2025/09/single-family-homes-are-built-faster-in-2024/",
+      "date": "2025-09",
+      "used_for": "Single-family build times"
+    },
+    {
+      "title": "Shorter apartment construction time in 2024 (NAHB Eye on Housing)",
+      "url": "https://eyeonhousing.org/2025/10/shorter-apartment-construction-time-in-2024/",
+      "date": "2025-10",
+      "used_for": "Multifamily build times"
+    },
+    {
+      "title": "How long it actually takes to power a data center in 2026 (Construction Owners, citing JLL)",
+      "url": "https://www.constructionowners.com/insights/how-long-it-actually-takes-to-power-a-data-center-in-2026-a-u-s-market-by-market-reality-check",
+      "date": "2026",
+      "used_for": "4-year national and 7-year Northern Virginia load connection waits"
+    },
+    {
+      "title": "Governor Abbott pauses Texas data center interconnections (Foley)",
+      "url": "https://www.foley.com/insights/publications/2026/08/governor-abbott-pauses-texas-data-center-interconnections-and-calls-for-verification-and-audit-what-data-center-developers-need-to-know-now/",
+      "date": "2026-08",
+      "used_for": "Aug 3 2026 directive; 474 GW requests; 75 MW threshold"
+    },
+    {
+      "title": "Governor Abbott orders TCEQ to pause all permit issuance for data center projects (Bracewell)",
+      "url": "https://www.bracewell.com/resources/governor-abbott-orders-tceq-to-pause-all-permit-issuance-for-data-center-projects/",
+      "date": "2026-09-23",
+      "used_for": "Sep 21 2026 TCEQ freeze including behind-the-meter"
+    },
+    {
+      "title": "Mississippi permit board grants xAI's request for 41 Southaven gas turbines (Mississippi Free Press)",
+      "url": "https://www.mississippifreepress.org/mississippi-permit-board-grants-xais-request-for-41-southaven-gas-turbines-to-power-memphis-data-center/",
+      "date": "2026-03",
+      "used_for": "Permanent turbine permit"
+    },
+    {
+      "title": "Department of Justice sides with xAI in Southaven lawsuit (Mississippi Today)",
+      "url": "https://mississippitoday.org/2026/06/16/department-of-justice-elon-musk-mississippi/",
+      "date": "2026-06-16",
+      "used_for": "DOJ intervention on national-security grounds"
+    },
+    {
+      "title": "xAI announces fourth data center; turbines to be removed from Southaven site (Action News 5)",
+      "url": "https://www.actionnews5.com/2026/07/31/xai-announces-fourth-data-center-turbines-be-removed-southaven-site/",
+      "date": "2026-07-31",
+      "used_for": "Agreed order to remove 69 temporary turbines by Jul 2027"
+    },
+    {
+      "title": "China adds 315 GW of solar in 2025 (pv magazine India, NEA data)",
+      "url": "https://www.pv-magazine-india.com/2026/01/29/china-adds-315-gw-of-solar-in-2025",
+      "date": "2026-01-29",
+      "used_for": "China build rate"
+    },
+    {
+      "title": "Space Unlock Tree - model.md, sections 2-3 (local)",
+      "url": "/Users/alex/projects/openai math paper/model/Space Unlock Tree - model.md",
+      "date": "2026-10-07",
+      "used_for": "Scenario definitions, Amdahl table and physical-gate S2/S3 factors"
+    },
+    {
+      "title": "U.S. construction employment ~8.3M (general)",
+      "url": "(general) BLS Current Employment Statistics",
+      "date": "2026",
+      "used_for": "Denominator for robot share of construction labor"
+    }
+  ]
+}

@@ -1,0 +1,1662 @@
+{
+ "notes": "C-fix (2026-10-07), applied after C-final. (1) Spines: every branch spine rebuilt as one connected set of hard edges reaching tier 6-7 (v2 spines were 2-8 disconnected lanes in 11 of 12 branches; verified-autonomy already passed and is unchanged). Where lanes hang from shared trunk capabilities, those trunk nodes are included as spine anchors (listed in 'spine_anchors' and 'roots'; branch membership unchanged, so every node is still in exactly one branch). Lanes that could not join are kept in 'side_chains'. (2) Titles: 77 jargon-heavy or over-long node titles rewritten for readers (ids unchanged; old titles kept in each node's 'revisions'). (3) Framework text: 3 premise_tier fields now say 'conditional' for T1 context families; 5 tier 5-7 nodes at Medium in S2 got an explicit S2 chain in 'why'. (4) Science branch retitled and thesis extended for Earth observation. No years, bands or edges change in this file.",
+ "update": [
+  {
+   "id": "hyper-heavy-deployable-decelerator",
+   "patch": {
+    "title": "Next large inflatable or folding heat shield flies",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Next deployable heat-shield flight (inflatable or mechanical, 10 m class or larger)",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-second-order-self-force",
+   "patch": {
+    "title": "LISA's hardest waveforms computed for spinning black holes",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "LISA's hardest waveforms: second-order self-force around spinning black holes",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "comms-ai-crqc-resource-cuts",
+   "patch": {
+    "title": "AI shrinks the quantum computer needed to break today's crypto",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "AI-found codes and circuits cut code-breaking quantum resource estimates",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "plasma-vm-wellposed",
+   "patch": {
+    "title": "Relativistic plasma equations proved well-behaved (checked)",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Relativistic Vlasov-Maxwell (one species) proved well-behaved (checked)",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-reliability-priors-credit",
+   "patch": {
+    "title": "Models count toward reliability, cutting certification flights",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Fewer certification flights via accepted model-based reliability priors",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "hyper-model-form-error-bounds",
+   "patch": {
+    "title": "Error bounds for carrying ground-test heating data to flight",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Model-form error bounds for ground-to-flight aerothermal extrapolation",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "frontier-stiff-certified",
+   "patch": {
+    "title": "Combustion chemistry simulated with certified error",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Stiff chemistry with certified error (reduced mechanisms and solvers)",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "frontier-ns-unforced",
+   "patch": {
+    "title": "Unforced Navier-Stokes settled, either way",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Unforced Navier-Stokes settled (regularity, or blowup with no force)",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "hyper-transition-prediction-theory",
+   "patch": {
+    "title": "Predicting when hypersonic airflow turns turbulent",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Predictive hypersonic transition (receptivity, roughness, ablation)",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-critical-payload-reuse-acceptance",
+   "patch": {
+    "title": "Crew and defense payloads fly on data-cleared reused rockets",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Crew and national-security missions on data-cleared reused hardware",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "frontier-lattice-crypto-watch",
+   "patch": {
+    "title": "AI cracks post-quantum or space-link crypto (watch item)",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "AI finds a crack in post-quantum or space-link crypto (watch item)",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "hyper-kinetic-solver-certification",
+   "patch": {
+    "title": "Certified simulation of thin upper-atmosphere flow",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Error-controlled kinetic solvers for the rarefied-to-continuum gap",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "plasma-kinetic-closures",
+   "patch": {
+    "title": "Simpler plasma models with proven error bounds",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Fluid plasma models derived from kinetic theory, with error bounds",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "premise_tier",
+      "reason": "grounding rule: T1 premise must say conditional"
+     }
+    ],
+    "premise_tier": "n/a (capability-driven); family 364 is T1 and used only as methodological context, so any reliance on it would be conditional"
+   }
+  },
+  {
+   "id": "hyper-ablator-multiscale-response",
+   "patch": {
+    "title": "Predicting how heat-shield material burns away",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Predictive ablator response (pyrolysis, permeability, spallation)",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "hyper-certified-edl-guidance",
+   "patch": {
+    "title": "Proven-correct guidance for entry and landing",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Formally verified entry, aerocapture and powered-descent guidance",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "plasma-aeps-life-qual",
+   "patch": {
+    "title": "12 kW Gateway thruster passes a three-year wear test",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "12 kW AEPS Hall thruster life-qualified by a three-year wear test",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "hyper-tps-inverse-nde",
+   "patch": {
+    "title": "Math for finding hidden heat-shield damage",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Inverse-problem theory and algorithms for heat-shield inspection",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "hyper-sbli-heating-closure",
+   "patch": {
+    "title": "Better heating models where shock waves hit the vehicle",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Turbulence closures for shock interactions and cold-wall heating",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "hyper-radiation-kinetics",
+   "patch": {
+    "title": "Predicting glowing-gas heating on the fastest entries",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Closing the radiative-heating gap (Mars, Venus, 12+ km/s return)",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "hyper-gas-surface-chemistry",
+   "patch": {
+    "title": "Heat-shield surface chemistry from first principles",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "First-principles gas-surface chemistry for heat-shield materials",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "premise_tier",
+      "reason": "grounding rule: T1 premise must say conditional"
+     }
+    ],
+    "premise_tier": "n/a (capability-driven); families 278 and 275 are T1, so anything resting on them is conditional; here they serve only as ceilings"
+   }
+  },
+  {
+   "id": "plasma-ep-life-by-analysis",
+   "patch": {
+    "title": "Thruster life proven with shorter wear tests",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Thruster life qualified with less than a full-duration wear test",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-qual-by-analysis-credit",
+   "patch": {
+    "title": "Analysis replaces some environmental qualification tests",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Analysis credit replaces some environmental qualification tests",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-reusable-life-management",
+   "patch": {
+    "title": "Sensors and models track wear on reusable stages",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Model-and-sensor life management of fully reusable heavy stages",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-onboard-science-inference",
+   "patch": {
+    "title": "Spacecraft send answers, not raw data, with error bounds",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Science spacecraft downlink answers with certified error bounds",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "hyper-srp-aeropropulsive-models",
+   "patch": {
+    "title": "Validated models of braking with engines at supersonic speed",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Validated supersonic-retropropulsion aero-propulsive models",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "hyper-aerothermal-design-loop",
+   "patch": {
+    "title": "AI designs vehicle shape, trajectory and heat shield together",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "AI-run aerothermal design loop (shape + trajectory + TPS)",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "auton-mars-architecture-close",
+   "patch": {
+    "title": "Mars outpost logistics cut by local resources and recycling",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Mars outpost logistics cut by validated ISRU and closure",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "comms-finite-key-qkd-proofs",
+   "patch": {
+    "title": "Machine-checked security proofs for satellite quantum keys",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Tight, machine-checked security proofs for satellite QKD",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "materials-ecls-isru-sorbents-catalysts",
+   "patch": {
+    "title": "AI-found air-scrubber or fuel-plant material qualified",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "AI-found sorbent or catalyst qualified for life support or ISRU",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "verif-closed-loop-guarantees",
+   "patch": {
+    "title": "Machine-checked stability for guidance and control",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Machine-checked GNC stability and safety envelopes",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "verif-hls-autonomy-certification",
+   "patch": {
+    "title": "Crewed lander autonomy certified with AI proofs",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Crewed GNC autonomy certified with AI proofs",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "astro-proof-backed-flight-software-ops",
+   "patch": {
+    "title": "Proof-backed guidance software in operational spacecraft",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Proof-backed GNC in operational spacecraft",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "astro-certified-gnc-toolchain",
+   "patch": {
+    "title": "Toolchain that ships guidance code with its proofs",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Proof-carrying GNC software toolchain",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "verif-verified-gnc-numerics",
+   "patch": {
+    "title": "Guidance code with proven floating-point math",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Proven floating-point GNC code",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "hyper-certified-margin-uq",
+   "patch": {
+    "title": "Heat-shield margins from on-demand uncertainty analysis",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Joint probabilistic TPS margin budgets on demand",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-hot-chip-hbm-qualification",
+   "patch": {
+    "title": "AI chips and memory qualified to run hot in orbit",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "AI chips and HBM qualified to run hot in orbit",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "hyper-verified-aerothermal-numerics",
+   "patch": {
+    "title": "Certified error bounds for hypersonic flow codes",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Certified error bounds for hypersonic CFD kernels",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "prop-cfd-auto-vv",
+   "patch": {
+    "title": "Automated checks that engine flow simulations are right",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Automated CFD verification and credibility",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "verif-afss-part450",
+   "patch": {
+    "title": "Proof-backed autonomous flight termination under FAA rules",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Proof-backed flight termination under FAA Part 450",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "prop-loxsat-cfm-flight-data",
+   "patch": {
+    "title": "Public flight data on storing cryogenic propellant in orbit",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Public microgravity cryogenic flight data (LOXSAT)",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-smd-budget-restored",
+   "patch": {
+    "title": "NASA science budget held near its 2026 level",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "NASA science budget held near its FY2026 level",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "infra-mathlib-applied",
+   "patch": {
+    "title": "Lean libraries for the math engineers use",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Lean libraries for analysis, PDE and numerics",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-controlled-data-access",
+   "patch": {
+    "title": "Frontier math on export-controlled and classified networks",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Frontier math on ITAR and classified networks",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "plasma-cme-arrival-skill",
+   "patch": {
+    "title": "Solar-storm arrival forecast within about 8 hours",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "CME arrival forecasts within about 8 hours",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "plasma-bz-forecast",
+   "patch": {
+    "title": "Knowing a solar storm's magnetic punch a day ahead",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Knowing a CME's magnetic punch a day ahead",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "comms-space-qkd-network-demo",
+   "patch": {
+    "title": "Multi-node satellite quantum-key demonstrations",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Multi-node satellite QKD demonstrations",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "comms-space-qkd-backbone",
+   "patch": {
+    "title": "Certified quantum-key service from space",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Certified operational space QKD service",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "materials-learned-functionals",
+   "patch": {
+    "title": "Chemical accuracy from cheap quantum chemistry",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Chemical accuracy at DFT cost",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "materials-dft-limits",
+   "patch": {
+    "title": "Proven limits of the workhorse quantum-chemistry method",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Proven limits of density functional theory",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "frontier-xc-certified",
+   "patch": {
+    "title": "Quantum-chemistry shortcuts with certified error bars",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Density functionals with certified error bars",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-stage4-survey-data",
+   "patch": {
+    "title": "Next-generation dark-energy survey data in hand",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Stage-IV survey data in hand",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-bhex-flight",
+   "patch": {
+    "title": "First space mission to sharpen black-hole images flies",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "First submillimeter space-VLBI mission flies",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "hyper-blackout-prediction-tools",
+   "patch": {
+    "title": "Predicting radio blackout during reentry",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Coupled plasma-sheath and RF-link prediction tools",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "prop-closure-theory",
+   "patch": {
+    "title": "Turbulence and combustion models with guarantees",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Turbulence and combustion closures with guarantees",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "auton-granular-wellposedness",
+   "patch": {
+    "title": "Reliable equations for flowing lunar soil",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Well-posed equations for flowing regolith",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "frontier-mhd-wellposedness",
+   "patch": {
+    "title": "Which plasma fluid models make mathematical sense",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Which plasma fluid models are well-posed",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "verif-skolem-positivity",
+   "patch": {
+    "title": "Skolem and Positivity problems settled",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Settle the Skolem and Positivity problems",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-radiator-lightweight-production",
+   "patch": {
+    "title": "Ultralight radiators in serial production",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Sub-2.5 kg/m2 radiators in serial production",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "astro-constellation-hosted-ssa",
+   "patch": {
+    "title": "Constellations track debris with honest error bars",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Constellation-hosted tracking with validated covariances",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "comms-d2d-coexistence-scheduling",
+   "patch": {
+    "title": "Phone-to-satellite service scheduled around interference",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Predictive coexistence scheduling for direct-to-device",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-helio-constellation-design",
+   "patch": {
+    "title": "Sun-watching constellations designed for best coverage",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Observing constellations designed by inverse-problem theory",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "hyper-stability-analysis-on-demand",
+   "patch": {
+    "title": "On-demand airflow stability analysis for any vehicle",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "On-demand transition stability analysis for any vehicle",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "comms-expander-constructions",
+   "patch": {
+    "title": "Optimal expander graphs built explicitly (conditional)",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Explicit optimal expanders (conditional)",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "astro-cislunar-od-uq",
+   "patch": {
+    "title": "Tracking objects in chaotic Earth-Moon space",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Cislunar tracking in chaotic dynamics",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "astro-debris-evolution-models",
+   "patch": {
+    "title": "Debris-cascade tipping-point models with error bars",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Kessler-threshold models with error bars",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "astro-nbody-transport-proofs",
+   "patch": {
+    "title": "Proven bounds on how Earth-Moon trajectories drift",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Rigorous n-body transport bounds",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "astro-scp-guarantees",
+   "patch": {
+    "title": "Landing-guidance solvers with proven convergence",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Guarantees for convex landing guidance",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "cap-autoformalization",
+   "patch": {
+    "title": "AI turns math into machine-checked proofs at scale",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Agentic Lean formalization at scale",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "frontier-chaos-linear-response",
+   "patch": {
+    "title": "How chaotic systems respond to design changes",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Derivatives of chaotic averages",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "frontier-scalable-global-certificates",
+   "patch": {
+    "title": "Proven best designs for hard optimization problems",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Certified global optima for nonconvex design",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "plasma-dhe3-burn-physics",
+   "patch": {
+    "title": "Deuterium-helium-3 fusion demonstrated at useful rates",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "D-He3 fusion demonstrated at useful rates",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "plasma-magnetic-nozzle-theory",
+   "patch": {
+    "title": "How plasma leaves a magnetic nozzle, settled",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Magnetic nozzle detachment settled",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-hwo-design-closure",
+   "patch": {
+    "title": "Habitable Worlds Observatory design closed by AI modeling",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "HWO's design closed by AI-integrated modeling",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "verif-game-solving-synthesis",
+   "patch": {
+    "title": "Faster solvers for building correct-by-design controllers",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Faster worst-case game solving for synthesis",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "comms-verified-routing-software",
+   "patch": {
+    "title": "Formally verified constellation routing software",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Formally verified constellation control plane",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "materials-wbg-rad-hard-power",
+   "patch": {
+    "title": "Radiation-robust high-voltage power electronics",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Radiation-robust high-voltage SiC power electronics",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "verif-hardware-proof-agents",
+   "patch": {
+    "title": "Proof agents verify space processors and chip logic",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Proof agents verify space processors and FPGA logic",
+      "reason": "reader-friendly title pass (id unchanged)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "plasma-stellarator-design-loop",
+   "patch": {
+    "premise_tier": "n/a (capability-driven); family 146 is T1 and context only, so any reliance on it would be conditional",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "premise_tier",
+      "reason": "grounding rule: T1 premise must say conditional"
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-ai-eda-space-processor",
+   "patch": {
+    "why": "Design and verification (12-24 months for a rad-hard SoC, general) compress several-fold; fabrication (3-4 months per run), scarce heavy-ion beam time and, for traditional space parts, QML-class qualification (1-2 years) do not. Orbital compute adds a funded commercial customer with no certifying regulator, which raises the odds of an AI-designed space accelerator, but credit to agentic EDA for an Nvidia or Tesla part is unlikely to be disclosed. First tape-out in 2029-30 under S2; flight qualification of traditional rad-hard parts after 2031. Chain (S2): research-grade math public 2027 -> AI multiphysics design with guarantees and agentic EDA (cap-design-optimization, 2028) plus agent-written hardware proofs (verif-hardware-proof-agents, 2028) -> a radiation-tolerant SoC designed and formally verified 2028-29 -> tape-out (3-4 months per run) and heavy-ion test 2029-30 -> credited first silicon 2030 (Medium; disclosure of the AI share is the main risk).",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "why",
+      "reason": "framework rule: tier 5-7 outcome by 2031 needs its chain written out"
+     }
+    ]
+   }
+  },
+  {
+   "id": "materials-closed-loop-discovery",
+   "patch": {
+    "why": "Robotic powder synthesis is now cheap and repeatable; with reliable characterization and trustworthy screening, discovery rates can rise roughly tenfold. The node stacks two criteria: independent replication, which needs other groups to synthesize and characterize the material (6-18 months), and a >10x rate for which no agreed baseline exists; High is defensible only for replication alone, so S2 is Medium. For space, the first beneficiaries are materials made by simple routes (PV absorbers, coatings, electrolytes), not superalloys or ceramic composites whose processing autonomous labs cannot yet do. Chain (S2): applied math public 2027 -> reliable automated characterization (2027) and atomistic models with trustworthy error bars (2028) -> autonomous labs at scale (2028) -> candidate materials synthesized 2028-29 -> independent replication 6-18 months later, so first credited discoveries 2029-30 (Medium).",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "why",
+      "reason": "framework rule: tier 5-7 outcome by 2031 needs its chain written out"
+     }
+    ]
+   }
+  },
+  {
+   "id": "astro-cislunar-traffic-management",
+   "patch": {
+    "why": "Algorithms are ready by 2028-29 in S2; space-based cislunar sensors and a funded operator are the gates, and US civil SSA funding is under pressure (Office of Space Commerce FY2027 request down about 80%). Screening tens of cislunar objects uses ordinary propagation, so certified million-object screening, provably safe coordination protocols and a certified stability atlas improve the service but do not gate it. A basic military or commercial service is plausible by 2031. Chain (S2): certified collision-probability math 2028 -> cislunar tracking with honest uncertainty in chaotic dynamics (astro-cislunar-od-uq, 2028) -> algorithms ready 2028-29 -> space-based cislunar sensors and a funded operator, which AI math does not supply -> a basic service 2031 (Medium).",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "why",
+      "reason": "framework rule: tier 5-7 outcome by 2031 needs its chain written out"
+     }
+    ]
+   }
+  },
+  {
+   "id": "comms-optical-ground-network-service",
+   "patch": {
+    "why": "Better models and schedulers say where to put telescopes and how to use them. About 99% availability needs about 10 sites at least 500 km apart, each taking roughly 18-36 months to build (general), and capital compresses only 1.15-1.3x (S2) (physclock). With validated availability models arriving in 2029 (S2), sites committed afterwards cannot sell an SLA before 2030. Scheduling tools for ground stations already exist and accelerate this node rather than gate it. Chain (S2): applied math public 2027 -> validated optical-link availability models (comms-optical-availability-models, 2029) -> sites chosen and committed 2029 -> 18-36 months of construction across about ten sites -> a weather-robust service with an SLA from 2030 (Medium).",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "why",
+      "reason": "framework rule: tier 5-7 outcome by 2031 needs its chain written out"
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-shm-inspection-credit",
+   "patch": {
+    "why": "Inspection is a large part of reuse cost: non-destructive testing of large structures is slow and access-limited (ONERA, 2026). Proven detection limits plus certified margins let operators set inspection intervals from data. Sensor qualification under thermal-cryogenic aging binds, which no amount of cognition compresses. Chain (S2): applied math public 2027 -> proven damage-detection limits and certified structural margins (2028) -> sensor systems qualified under thermal-cryogenic aging 2029 -> an operator sets inspection intervals from sensor data on a reusable stage 2030 (Medium; no regulator needed for an operator carrying its own risk).",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "why",
+      "reason": "framework rule: tier 5-7 outcome by 2031 needs its chain written out"
+     }
+    ]
+   }
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "trunk",
+   "patch": {
+    "spine": [
+     "cap-research-math-internal",
+     "cap-autoformalization",
+     "verif-independent-check",
+     "cap-research-math-public",
+     "cap-applied-math",
+     "capability-cheap-trust",
+     "capability-engineering-adoption",
+     "capability-ai-native-spacecraft",
+     "capability-program-cycle-compression",
+     "physclock-satellite-gen-cadence"
+    ],
+    "side_chains": [
+     [
+      "physclock-starship-full-reuse",
+      "physclock-heavy-cadence-100",
+      "physclock-cheap-mass-internal",
+      "physclock-cheap-mass-customer"
+     ]
+    ],
+    "revision_note": "B-trunk resolver (2026-10-07): Thesis: 'about a third faster' -> 'about a quarter to a third shorter' (auditor: the model computes a shorter schedule, not 1.33x faster; skeptic: 38% is a ceiling); demand coupling added. Hook: cost per result qualified (skeptic + auditor); advocate's '45-50% once the analysis inside test is counted' rejected as double counting. | C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Moved from spine to side_chains (still branch members): ['cap-design-optimization', 'physclock-starship-full-reuse', 'physclock-cheap-mass-internal']. The launch clock (Starship reuse to cheap mass) is a separate physical exponential with no hard link to the AI-math chain, so it is a side chain by construction."
+   }
+  },
+  {
+   "branch": "math-frontier",
+   "patch": {
+    "spine": [
+     "cap-research-math-internal",
+     "verif-independent-check",
+     "frontier-applied-posing",
+     "frontier-hjb-guarantees",
+     "frontier-rare-event-certified",
+     "frontier-certified-pde-error",
+     "frontier-math-unbinds",
+     "frontier-euler-blowup-r3",
+     "frontier-ns-unforced",
+     "prop-ns-forced-verified",
+     "frontier-ns-clay-cd-ruling",
+     "frontier-sequence-design-limits"
+    ],
+    "spine_anchors": [
+     "cap-research-math-internal",
+     "verif-independent-check"
+    ],
+    "roots": [
+     "cap-research-math-internal",
+     "frontier-applied-posing",
+     "frontier-euler-blowup-r3",
+     "frontier-certified-pde-error",
+     "verif-independent-check"
+    ],
+    "revision_note": "B-math-frontier: [advocate, partly] thesis now dates tools to 2028 and names the computer-assisted-proof spillover; [auditor] reader hook corrected (Ilin: 229 prompts, three failure modes) and band-semantics note added. | C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Trunk nodes ['cap-research-math-internal', 'verif-independent-check'] are shown as the chain's entry anchors (also listed in roots); they stay members of the trunk branch only. No spine nodes dropped. The famous-problem nodes end at tier 1 by design: they are pure-math P3 markers with no hardware unlock."
+   }
+  },
+  {
+   "branch": "networks",
+   "patch": {
+    "spine": [
+     "cap-autoformalization",
+     "comms-verified-routing-software",
+     "comms-certified-network-optimization",
+     "comms-certified-mesh-operations",
+     "comms-certified-interference-bounds",
+     "comms-d2d-coexistence-scheduling",
+     "comms-capacity-per-dollar-share",
+     "comms-pq-verified-implementations",
+     "comms-crypto-agile-architecture",
+     "comms-pq-fleet-migration"
+    ],
+    "spine_anchors": [
+     "cap-autoformalization"
+    ],
+    "roots": [
+     "frontier-approx-ceilings",
+     "comms-certified-network-optimization",
+     "comms-certified-interference-bounds",
+     "comms-ai-cryptanalysis",
+     "cap-autoformalization"
+    ],
+    "side_chains": [
+     [
+      "frontier-approx-ceilings"
+     ],
+     [
+      "comms-performance-based-sharing-regime"
+     ],
+     [
+      "comms-ai-cryptanalysis",
+      "frontier-lattice-crypto-watch"
+     ]
+    ],
+    "revision_note": "C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Trunk nodes ['cap-autoformalization'] are shown as the chain's entry anchors (also listed in roots); they stay members of the trunk branch only. Moved from spine to side_chains (still branch members): ['frontier-approx-ceilings', 'comms-performance-based-sharing-regime', 'comms-ai-cryptanalysis', 'frontier-lattice-crypto-watch']. The post-quantum lane now joins through cap-autoformalization; the cryptanalysis watch item and approximation ceilings are side chains."
+   }
+  },
+  {
+   "branch": "certification",
+   "patch": {
+    "spine": [
+     "cap-research-math-public",
+     "physclock-regulator-ai-capacity",
+     "physclock-licensing-in-weeks",
+     "struct-agentic-analysis-workflows",
+     "struct-design-cycle-compression",
+     "struct-structural-mass-step",
+     "struct-certified-uq-margins",
+     "physclock-credibility-evidence-standard",
+     "struct-cert-by-analysis",
+     "physclock-qual-by-analysis-credit",
+     "physclock-optimal-test-campaigns",
+     "physclock-qual-cycle-compressed",
+     "physclock-commercial-analysis-first-qual"
+    ],
+    "spine_anchors": [
+     "cap-research-math-public"
+    ],
+    "roots": [
+     "struct-certified-uq-margins",
+     "physclock-credibility-evidence-standard",
+     "physclock-optimal-test-campaigns",
+     "struct-test-data-commons",
+     "cap-research-math-public"
+    ],
+    "side_chains": [
+     [
+      "physclock-ai-run-test-stands"
+     ]
+    ],
+    "revision_note": "C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Trunk nodes ['cap-research-math-public'] are shown as the chain's entry anchors (also listed in roots); they stay members of the trunk branch only. Moved from spine to side_chains (still branch members): ['physclock-ai-run-test-stands']."
+   }
+  },
+  {
+   "branch": "engines-materials",
+   "patch": {
+    "spine": [
+     "cap-applied-math",
+     "prop-cfd-auto-vv",
+     "prop-certified-stability-rom",
+     "prop-stability-design-tool",
+     "prop-engine-dev-compression",
+     "prop-life-twin",
+     "prop-reuse-extended",
+     "materials-mlip-certified-uq",
+     "materials-ht-alloy-design",
+     "materials-ai-alloy-flight",
+     "prop-cfm-models",
+     "prop-cislunar-propellant-economy"
+    ],
+    "spine_anchors": [
+     "cap-applied-math"
+    ],
+    "roots": [
+     "prop-cfd-auto-vv",
+     "prop-certified-stability-rom",
+     "materials-mlip-certified-uq",
+     "cap-applied-math"
+    ],
+    "side_chains": [
+     [
+      "prop-mass-gauging"
+     ]
+    ],
+    "revision_note": "B-engines-materials resolver (2026-10-07): Hook: skeptic + auditor (two lenses) corrected the boil-off claim (the 1-5 tankers are the physical loss; a validated model is worth ~0-1 tanker of margin at 6-day cadence; table reproduced exactly and margin re-simulated: +50% vs +10% planning gives 12 vs 12 tankers at 6 d/0.3%, 13 vs 12 at 6 d/0.5%, 14 vs 13 at 12 d/0.3%, 23 vs 16 at 12 d/0.5%). Reliability clause: advocate's fleet-start point folded in (~65-70 starts per Starship flight), but kept the skeptic's framing that failure modes, not start counts, pace engines. Thesis: dates follow the resolved nodes (reuse life S2 2029 Medium; alloy flight S2 2030 Low / S3 2030 Medium). Gate convention adopted (advocate): binding_gate 'qualification' is reserved for nodes needing external customer or regulator acceptance; nodes whose first mover self-certifies (alloy flight, hot-section reuse, stability tool, engine-dev compression) now carry their physical gate, and their bands rest on physical clocks rather than the Medium certification cap. | C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Trunk nodes ['cap-applied-math'] are shown as the chain's entry anchors (also listed in roots); they stay members of the trunk branch only. Moved from spine to side_chains (still branch members): ['prop-mass-gauging']."
+   }
+  },
+  {
+   "branch": "entry",
+   "patch": {
+    "spine": [
+     "cap-applied-math",
+     "physclock-starship-full-reuse",
+     "hyper-flight-data-pipeline",
+     "hyper-certified-margin-uq",
+     "hyper-probabilistic-tps-sizing",
+     "hyper-thinner-tps-flown",
+     "hyper-reentry-cadence-economy",
+     "hyper-tile-damage-accumulation",
+     "hyper-rapid-reuse-heatshield"
+    ],
+    "spine_anchors": [
+     "cap-applied-math",
+     "physclock-starship-full-reuse"
+    ],
+    "roots": [
+     "hyper-flight-data-pipeline",
+     "hyper-optimal-test-design",
+     "hyper-certified-margin-uq",
+     "hyper-tps-inverse-nde",
+     "hyper-fleet-aerothermal-twin",
+     "cap-applied-math",
+     "physclock-starship-full-reuse"
+    ],
+    "side_chains": [
+     [
+      "hyper-optimal-test-design"
+     ],
+     [
+      "hyper-tps-inverse-nde"
+     ],
+     [
+      "hyper-fleet-aerothermal-twin"
+     ],
+     [
+      "hyper-srp-aeropropulsive-models"
+     ],
+     [
+      "hyper-mars-heavy-landing"
+     ]
+    ],
+    "revision_note": "B-entry: [skeptic+auditor] Thesis and hook rewritten to the source's actual assumptions (single location, aerothermal error capped at existing factors, MSR cancelled) and to the corrected bands. [advocate] Two-curve result (owner data on the launch curve) added via new node hyper-fleet-aerothermal-twin, placed on the spine. [skeptic] Spine order kept; soft links listed in spine_soft_links. | C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Trunk nodes ['cap-applied-math', 'physclock-starship-full-reuse'] are shown as the chain's entry anchors (also listed in roots); they stay members of the trunk branch only. Moved from spine to side_chains (still branch members): ['hyper-optimal-test-design', 'hyper-tps-inverse-nde', 'hyper-fleet-aerothermal-twin', 'hyper-srp-aeropropulsive-models', 'hyper-mars-heavy-landing']. hyper-tile-damage-accumulation joins the applied-math lane to the Starship-reuse lane; the reuse heat shield remains on the launch clock.",
+    "spine_soft_links": [
+     "hyper-thinner-tps-flown -> hyper-reentry-cadence-economy",
+     "hyper-flight-data-pipeline -> hyper-tile-damage-accumulation",
+     "hyper-tile-damage-accumulation -> hyper-rapid-reuse-heatshield"
+    ],
+    "side_chain_soft_links": [
+     "hyper-optimal-test-design -> hyper-certified-margin-uq",
+     "hyper-thinner-tps-flown -> hyper-reentry-cadence-economy",
+     "hyper-tps-inverse-nde -> hyper-tile-damage-accumulation",
+     "hyper-tps-inverse-nde -> hyper-rapid-reuse-heatshield",
+     "hyper-fleet-aerothermal-twin -> hyper-tile-damage-accumulation",
+     "hyper-tile-damage-accumulation -> hyper-rapid-reuse-heatshield",
+     "hyper-srp-aeropropulsive-models -> hyper-mars-heavy-landing"
+    ]
+   }
+  },
+  {
+   "branch": "orbital-compute-power",
+   "patch": {
+    "spine": [
+     "struct-highflux-radiator-flight",
+     "struct-light-solar-array-production",
+     "struct-hot-chip-hbm-qualification",
+     "struct-radiator-lightweight-production",
+     "materials-cots-orbital-compute-ops",
+     "struct-100kw-per-tonne-fleet",
+     "struct-gw-orbital-compute"
+    ],
+    "side_chains": [
+     [
+      "materials-see-system-models",
+      "materials-verified-fault-tolerance"
+     ],
+     [
+      "struct-radiator-optimization"
+     ]
+    ],
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Thesis rewritten so AI math is no longer stated as the condition for orbital compute (all three lenses); 1 GW band per the resolved node (S2 Low, S3 Medium). Reader hook re-based on the Sep 2026 filing envelope and 33FG's Oct 6 2026 model, flags the 10-25% as an assumption (auditor), and names the solar and chip-temperature levers (skeptic, advocate, auditor). Spine re-cut (skeptic: the old spine jumped between unconnected nodes): it now renders the physical anchor tree (100-kW radiator flight -> commercial operations -> 1 GW, with arrays, hot-chip qualification and 100 kW/t) beside the AI-math side chains (fault models -> proven fault tolerance; AI radiator design). cap-physics-theory added to roots (soft edge to SiC power). | C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Moved from spine to side_chains (still branch members): ['materials-see-system-models', 'materials-verified-fault-tolerance', 'struct-radiator-optimization']. The main chain is hardware on SpaceX's clock, matching the thesis; the AI-math lanes (radiation models, radiator optimization) feed it only softly."
+   }
+  },
+  {
+   "branch": "moon-mars",
+   "patch": {
+    "spine": [
+     "cap-research-math-public",
+     "cap-applied-math",
+     "auton-temporal-logic-synthesis",
+     "auton-verified-surface-autonomy",
+     "auton-verified-autonomy-lunar-flight",
+     "auton-ai-planned-ops-routine",
+     "auton-surface-productivity",
+     "auton-ecls-reliability-uq",
+     "auton-closed-loop-habitat",
+     "auton-lunar-heavy-cargo-landing",
+     "auton-moon-base-infrastructure",
+     "auton-crew-optional-lunar-ops",
+     "auton-isru-rom-control",
+     "auton-lunar-o2-flight-demo",
+     "auton-lunar-oxygen-ops"
+    ],
+    "spine_anchors": [
+     "cap-research-math-public",
+     "cap-applied-math"
+    ],
+    "roots": [
+     "auton-temporal-logic-synthesis",
+     "auton-ecls-reliability-uq",
+     "auton-isru-rom-control",
+     "cap-research-math-public",
+     "cap-applied-math"
+    ],
+    "side_chains": [
+     [
+      "auton-earth-independent-fdir"
+     ]
+    ],
+    "revision_note": "C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Trunk nodes ['cap-research-math-public', 'cap-applied-math'] are shown as the chain's entry anchors (also listed in roots); they stay members of the trunk branch only. Moved from spine to side_chains (still branch members): ['auton-earth-independent-fdir']. Lunar autonomy flight and closed-loop habitat added so every lane ends at tier 5 or above."
+   }
+  },
+  {
+   "branch": "science",
+   "patch": {
+    "spine": [
+     "cap-applied-math",
+     "science-energy-condition-nogo",
+     "science-claims-audit",
+     "science-propulsion-funding-redirect",
+     "science-retrieval-identifiability",
+     "science-archival-discovery-engine",
+     "science-return-per-dollar",
+     "science-portfolio-shift",
+     "science-second-order-self-force",
+     "science-lisa-readiness",
+     "science-lisa-precision-science",
+     "science-eo-retrieval-uq",
+     "science-eo-ghg-enforcement-grade"
+    ],
+    "spine_anchors": [
+     "cap-applied-math"
+    ],
+    "roots": [
+     "science-energy-condition-nogo",
+     "science-retrieval-identifiability",
+     "science-coronagraph-limits",
+     "science-second-order-self-force",
+     "cap-applied-math"
+    ],
+    "side_chains": [
+     [
+      "science-coronagraph-limits"
+     ],
+     [
+      "science-hwo-design-closure"
+     ]
+    ],
+    "revision_note": "B-science resolver (2026-10-07): Thesis: skeptic (HWO at the pace of appropriations, FY2027 $5M) and advocate (privately funded lane) combined; advocate's claim that AI moves private flight dates not adopted. Reader hook: self-force 2030, three to five years (analyst judgment), per skeptic and auditor. | C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Trunk nodes ['cap-applied-math'] are shown as the chain's entry anchors (also listed in roots); they stay members of the trunk branch only. Moved from spine to side_chains (still branch members): ['science-coronagraph-limits', 'science-hwo-design-closure']. Earth-observation chain added (new in v3).",
+    "title": "Seeing farther: space science and Earth observation",
+    "thesis": "If AI can do the theory, inference and instrument mathematics behind missions, science return per dollar rises from existing archives by 2028 and big-telescope design work gets cheaper. Flight dates do not move: LISA still launches in 2035, BHEX cannot fly before about 2032, and HWO moves at the pace of appropriations (FY2027 request: $5M, down from $150M). The one lane where an observatory can fly sooner is privately funded, such as Schmidt Sciences' 3 m Lazuli (target 2028), and there the physical clock, not AI, sets the date. Warp drives get sharper no-go theorems, not engines. The branch also carries Earth observation, absent before v3: honest error bars on methane and ground-deformation retrievals (S2 2028, Medium), while regulators using satellite methane numbers as compliance evidence is only Low by 2031 in the base case."
+   }
+  },
+  {
+   "branch": "safe-orbits",
+   "patch": {
+    "spine": [
+     "cap-research-math-public",
+     "cap-applied-math",
+     "astro-nongaussian-uq-certified",
+     "astro-catalog-scale-screening",
+     "astro-autonomous-ca-at-scale",
+     "astro-small-debris-catalog",
+     "astro-leo-safety-at-scale",
+     "plasma-thermo-density-uq",
+     "plasma-storm-robust-leo-ops",
+     "plasma-swx-data-assimilation",
+     "plasma-bz-forecast",
+     "plasma-radbelt-charging-forecast",
+     "astro-trajectory-design-on-demand",
+     "astro-ai-designed-trajectory-flown"
+    ],
+    "spine_anchors": [
+     "cap-research-math-public",
+     "cap-applied-math"
+    ],
+    "roots": [
+     "astro-nongaussian-uq-certified",
+     "plasma-swx-data-assimilation",
+     "cap-applied-math",
+     "cap-research-math-public"
+    ],
+    "revision_note": "B-safe-orbits: Thesis merges the advocate's two-curves framing (Stargaze) with the skeptic's increment point (HASDM, Stargaze shrink the AI-math share); trajectory flight year 2028 -> 2029 and screening dated 2029 (skeptic). Reader hook: auditor's corrections (about 330x, rounded to 'about 300 times'; 13.2 h is the all-submission average, best ensemble 10.3 h). Spine: astro-small-debris-catalog inserted before LEO safety as its binding gate. | C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Trunk nodes ['cap-research-math-public', 'cap-applied-math'] are shown as the chain's entry anchors (also listed in roots); they stay members of the trunk branch only. No spine nodes dropped."
+   }
+  },
+  {
+   "branch": "plasma-nuclear",
+   "patch": {
+    "spine": [
+     "cap-physics-theory",
+     "plasma-kinetic-solvers-at-scale",
+     "plasma-hall-anomalous-closure",
+     "plasma-ep-predictive-design",
+     "plasma-ep-life-by-analysis",
+     "plasma-outcome-ep-cycle-time",
+     "plasma-magnetic-nozzle-theory",
+     "plasma-fusion-propulsion-design-closure",
+     "plasma-fusion-propulsion-flight",
+     "prop-ntp-fuel-model",
+     "prop-ntp-ground-test",
+     "prop-ntp-crewed-mars"
+    ],
+    "spine_anchors": [
+     "cap-physics-theory"
+    ],
+    "roots": [
+     "plasma-kinetic-solvers-at-scale",
+     "cap-applied-math",
+     "cap-physics-theory",
+     "cap-design-optimization",
+     "frontier-landau-damping-general"
+    ],
+    "side_chains": [
+     [
+      "physclock-nuclear-safety-case-ai"
+     ],
+     [
+      "physclock-reactor-in-space"
+     ]
+    ],
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Thesis rewritten (skeptic + advocate): the critical path is algorithms, compute and validation data, not proofs; the generic-AI route to a flown thruster added; reactor band now Low. Hook (skeptic + advocate + auditor): life-margin practice added; He-3 framed per GW-year versus grams for demonstrators. Spine: frontier-landau-damping-general and plasma-kinetic-closures removed (now soft, confidence-only links); roots add cap-design-optimization. | C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Trunk nodes ['cap-physics-theory'] are shown as the chain's entry anchors (also listed in roots); they stay members of the trunk branch only. Moved from spine to side_chains (still branch members): ['physclock-nuclear-safety-case-ai', 'physclock-reactor-in-space']. Nuclear thermal lane (fuel model to crewed Mars stage) added via cap-physics-theory; reactor launch and nuclear safety case are side chains."
+   }
+  }
+ ]
+}

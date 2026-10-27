@@ -1,0 +1,823 @@
+{
+ "update": [
+  {
+   "id": "science-35-eo-routine-mrv",
+   "patch": {
+    "title": "Satellite methane data routinely correct reported emissions"
+   }
+  },
+  {
+   "id": "plasma-35-fusion-drive-ground-test",
+   "patch": {
+    "title": "Fusion-drive ground prototype makes fusion and thrust"
+   }
+  },
+  {
+   "id": "comms-35-ntn-standard-ai-codes",
+   "patch": {
+    "title": "AI-designed codes ship in a satellite link standard"
+   }
+  },
+  {
+   "id": "science-35-answer-first-missions",
+   "patch": {
+    "title": "Science mission built to downlink onboard answers flies"
+   }
+  },
+  {
+   "id": "astro-35-cross-bloc-coordination",
+   "patch": {
+    "title": "Chinese and Western fleets coordinate maneuvers by machine"
+   }
+  },
+  {
+   "id": "astro-35-lunar-nav-certified-service",
+   "patch": {
+    "title": "Lunar navigation with proven error bounds in routine use"
+   }
+  },
+  {
+   "id": "plasma-35-kinetic-design-loop",
+   "patch": {
+    "title": "Full-thruster plasma simulation fast enough for design work"
+   }
+  },
+  {
+   "id": "comms-35-in-orbit-pq-cutover",
+   "patch": {
+    "title": "Satellites in service switch to post-quantum encryption"
+   }
+  },
+  {
+   "id": "comms-35-joint-detection-ground-station",
+   "patch": {
+    "title": "Deep-space laser ground station gets more bits per photon"
+   }
+  },
+  {
+   "id": "astro-35-l5-storm-arrival-forecast",
+   "patch": {
+    "title": "Solar-storm arrival forecast within 6 hours, using Vigil"
+   }
+  },
+  {
+   "id": "verif-35-proven-timing-isolation",
+   "patch": {
+    "title": "Multicore space chip flies with proven worst-case timing"
+   }
+  },
+  {
+   "id": "comms-35-merchant-laser-terminals",
+   "patch": {
+    "title": "Independent suppliers ship 3,000 laser terminals a year"
+   }
+  },
+  {
+   "id": "comms-35-certified-shell-in-service",
+   "patch": {
+    "title": "Constellation designed with certified tools enters service"
+   }
+  },
+  {
+   "id": "science-35-helio-constellation-flight",
+   "patch": {
+    "title": "Sun-watching fleet built to map the solar wind in 3D flies"
+   }
+  },
+  {
+   "id": "struct-35-beyond-dawn-dusk-compute",
+   "patch": {
+    "title": "100 MW of orbital compute outside dawn-dusk orbits"
+   }
+  },
+  {
+   "id": "robo-capital-goods-loop",
+   "patch": {
+    "title": "Robots work in the plants that make heavy equipment"
+   }
+  },
+  {
+   "id": "astro-autonomous-ca-at-scale",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. S1 '>2031' -> 2033 (S1 screening 2031, then standards work and rollout). band_2035 S2 Low -> Medium. S4 = S3. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "astro-cislunar-traffic-management",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. S1 '>2031' -> 2032. band_2035 S1 and S2 Low -> Medium. S4 = S3. | E-safe-orbits resolver (2026-10-07): Status corrected: MADCAP exists (advocate). Advocate's S3/S4 High by 2035 rejected: the definition needs a catalog that includes non-cooperative objects, and MADCAP supplies only cooperative screening. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "astro-leo-safety-at-scale",
+   "patch": {
+    "band_2031": {
+     "S2": "Speculative"
+    },
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. S1 '>2031' -> 2034 (a year after S1 cross-operator avoidance, 2033). S2 '>2031' -> 2032 (a year after its 2031 prerequisites). band_2035 S1 Speculative -> Low, S2-S4 Low -> Medium. S4 = S3. | E-safe-orbits resolver (2026-10-07): band_2035 S2 Medium -> Low (skeptic): 2032-35 is the launch clock's peak growth, the metric scales with shell density, and a child of three prerequisites that are each Medium by 2035 in S2 should not match them. S3 and S4 stay Medium. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "astro-capacity-licensing",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. S1 '>2031' -> 2032 (S1 debris models 2030; politics runs at 1.0x). band_2035 all Low -> Medium (four more years of filings pressure; regulatory cap Medium). S4 = S3. | E-safe-orbits resolver (2026-10-07): band_2035 S1 Medium -> Low and note rewritten (skeptic): the regulatory cap is a ceiling and does not license the top value. S2-S4 stay Medium on filing pressure. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "auton-contact-wellposedness",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-moon-mars: Skeptic (timing): S3 2027 -> 2028. The only prerequisite, cap-research-math-public, is 2027 in both S2 and S3, and capability.json gives S3 the same capability as S2 through 2028 (~150 h horizon at end-2027). A genuinely open nonsmooth-mechanics problem cannot be solved earlier in S3 than in S2 while capability is identical. Bands unchanged. | E-moon-mars (2035 horizon, S4): S1 year >2031 -> 2032; band_2035 S1 Low -> Medium, S2 Medium -> High. S4 = S3 (fails the four-condition rule). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "auton-granular-wellposedness",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-moon-mars: Skeptic (claim): the why had credited the theorem with a 100-1,000x speedup over DEM. Continuum codes already have that cost advantage, so the theorem's contribution is confidence (P5, tl-position-2), not speed. Pathway stays P1->P5. Skeptic and auditor (fact): the '52x across plausible polar ice forms' wording is corrected. 52x is the spread across ice content within ice-cemented simulant; across forms the spread is far larger (doi:10.1007/s44461-026-00015-w). Advocate and skeptic: the edge into auton-granular-regolith-model is now soft. Years and bands unchanged. | E-moon-mars (2035 horizon, S4): S1 year >2031 -> 2033; band_2035 S1 Low -> Medium, S2 Medium -> High, S3 Medium -> High, S4 Medium -> High. S4 = S3 (fails the four-condition rule). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "auton-certified-contact-sim",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-moon-mars: Advocate: added soft inputs from physclock-optimal-test-campaigns and physclock-ai-run-test-stands, the graph's mechanisms for compressing experiment gates (20-40% fewer tests, adaptive stopping), so the tree shows that path. Years and bands unchanged. Skeptic: S3 is consistent with auton-contact-wellposedness now being S3 2028. | E-moon-mars (2035 horizon, S4): S1 year >2031 -> 2033; band_2035 S3 Medium -> High, S4 Medium -> High. S4 = S3 (fails the four-condition rule). | R-moon-mars resolver (2026-10-07): band_2035 S2 Medium -> High (advocate). S2 lands in 2029 with six years of slack, every hard parent is High in S2 by 2035, and AI-run test stands are High in S2. The acceptance step runs through an existing named mechanism, so the 2035 cap allows High. Soft edge from robo-contact-sim-to-real removed (it formed a 2-cycle with the robots branch's reverse edge). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "auton-mre-anode-materials",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-moon-mars: Skeptic (timing): S3 2029 -> 2030. S3 2029 equalled the hard prerequisite materials-closed-loop-discovery (S3 2029), which leaves no time to fabricate a refractory candidate and run even a 1,000 h screen. Skeptic's S2 2030 -> 2031 and Medium -> Low rejected: a 1,000 h screen is six weeks, so the 2029 -> 2030 lag is enough for a first endurance-backed candidate. Advocate's S3 Medium -> High rejected: parallel stands shorten serial cycles but not single tests, and refractory processing is a stated limit of autonomous labs. Both lenses: new soft edge to auton-lunar-oxygen-ops (anode life limits plant life). Advocate: soft input from physclock-ai-run-test-stands. Auditor (arithmetic): ~8 -> ~9 swaps a year (10,000 kg / 1.14 kg/h = ~8,770 h). | E-moon-mars (2035 horizon, S4): S1 year >2031 -> 2032; band_2035 S3 Medium -> High, S4 Medium -> High. S4 = S3 (fails the four-condition rule). | R-moon-mars resolver (2026-10-07): band_2035 S2 Medium -> High (advocate). S2 and S3 share the year (2030) and the discovery prerequisite year (2029), and the draft's S2 reason (carbothermal funding) applies equally to S3. Every hard parent is High in S2 by 2035. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "auton-blss-stability-theory",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-moon-mars: Skeptic (edge): auton-mass-action-permanence (149, T1) moved from hard prerequisite to soft accelerator. Real BLSS loops are not closed weakly reversible mass-action systems, the node's own why already said 149 contributes only the idealized guarantee, and Lunar Palace 365 ran 370 days at 98.2% closure with no such theorem. Skeptic (gate): experiment -> data, and the signpost now validates against existing closed-run data, which removes the circularity with its own child node auton-blss-closed-test. Auditor (grounding): 'proves permanence' -> 'claims a proof of boundedness and persistence' (T1 wording, formal scope). S3 2028 -> 2029 (resolver): this aligns with the trunk resolver's cap-physics-theory S3 2029 (a hard prerequisite) and with S3 equalling S2 through 2028. Bands unchanged. | E-moon-mars (2035 horizon, S4): S1 year >2031 -> 2033; band_2035 S3 Medium -> High, S4 Medium -> High. S4 = S3 (fails the four-condition rule). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "auton-radiation-risk-uq",
+   "patch": {
+    "band_2031": {
+     "S2": "Speculative"
+    },
+    "revision_note": "E-moon-mars (2035 horizon, S4): S1 year >2031 -> 2034; S2 year >2031 -> 2033; band_2035 S1 Speculative -> Low, S3 Low -> Medium, S4 Low -> Medium. S4 = S3 (fails the four-condition rule). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "auton-excavation-design",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "E-moon-mars (2035 horizon, S4): S1 year >2031 -> 2032; band_2035 S1 Low -> Medium, S2 Medium -> High, S3 Medium -> High, S4 Medium -> High. S4 = S3 (fails the four-condition rule). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "auton-certified-assembly-skills",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-moon-mars: Auditor (fact): the Payload wording is quoted exactly instead of paraphrased in quotation marks. Other facts verified (MRV launch Jul 22, 2026 with two NRL arms and three MEPs; FFR Feb 2026). Years and bands unchanged. | E-moon-mars (2035 horizon, S4): S1 year >2031 -> 2034; band_2035 S3 Medium -> High, S4 Medium -> High. S4 = S3 (fails the four-condition rule). | R-moon-mars resolver (2026-10-07): band_2035 S2 Medium -> High (advocate), following its hard parent auton-certified-contact-sim (S2 High by 2035) and verif-runtime-assurance (S2 High). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "auton-blss-closed-test",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-moon-mars: Skeptic (gate and band): experiment -> capital and S2 Medium -> Low (S3 Medium kept). The node's own strongest case says funding, not modeling, limits US work, and a crew-scale run after a 2029 theory needs a funded facility plus 6+ months inside 2030-31. Description: 'higher closure than prior tests' was a near-impossible bar (Lunar Palace 365 reached 98.2%) and is now 95% or more. Skeptic: catalog_families [149] -> [] and premise_tier -> n/a, since 149 is now only a soft input upstream. S3 2029 -> 2030 (resolver): the upstream theory moved to S3 2029, and a 180-day run cannot finish in the same year. | E-moon-mars (2035 horizon, S4): S1 year >2031 -> 2034; band_2035 S2 Low -> Medium. S4 = S3 (fails the four-condition rule). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "auton-crew-optional-lunar-ops",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-moon-mars: Edges: auton-ops-planning-ceilings and auton-verified-surface-autonomy moved from hard to soft (skeptic and advocate both). auton-earth-independent-fdir also moved to soft (skeptic; the advocate wanted it hard): crew-side diagnosis is for crew present, and this node is about crew absent, with Earth 1.3 s away. New hard prerequisite auton-moon-base-infrastructure (skeptic's missing gate). New soft inputs: prop-psi-models and auton-robotic-landing-pad (advocate). Timing and band, skeptic vs advocate: S3 2030 -> 2031 and S2 Medium -> Low (skeptic). The advocate's S2 2030, S3 2029 and gate -> launch were rejected. NASA's own phasing (Phase 2 2029-2032, Phase 3 from 2032; NBC, verified) and 1.0x appropriations bind, and the band cannot exceed the new hard prerequisite's S2 Low. Gate stays capital (launch now sits on auton-lunar-heavy-cargo-landing). Auditor and skeptic: catalog_families [102,124] -> [] and premise_tier relabeled (124 was cited without 'conditional'); S2 and S3 chains written out. Skeptic: the signpost no longer uses LTV uncrewed operation, which is baseline LTV design. | E-moon-mars (2035 horizon, S4): S1 year >2031 -> 2033; band_2035 S2 Low -> Medium, S3 Medium -> High, S4 Medium -> High. S4 credit applies after 2031 but S3 is already High, so S4 equals S3. | R-moon-mars resolver (2026-10-07): band_2035 S3 and S4 High -> Medium, to stay at or below the hard prerequisite auton-moon-base-infrastructure (skeptic). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "auton-lunar-oxygen-ops",
+   "patch": {
+    "band_2031": {
+     "S2": "Speculative"
+    },
+    "revision_note": "B-moon-mars: Advocate (claim): 'tens of kW of continuous power' corrected. 1 t/yr needs ~3-6 kW (the advocate's linear scaling, which I checked: 30 kW x 8,766 h / 10 t = ~26 kWh/kg). The resolver adds the night-continuity constraint for a molten bath. Skeptic vs advocate on bands: the skeptic wanted S2 Low -> Speculative, and the advocate wanted S2 >2031 -> 2031 and S3 Low -> Medium. Both were rejected and years and bands kept (Speculative/Low/Low). The S2 chain needs a funded pilot plant built and landed within two years of a 2029 demo, and S3 does not compress funding, endurance or landing odds. Both lenses: soft input from auton-mre-anode-materials. Advocate: soft input from auton-lunar-heavy-cargo-landing. Skeptic: soft input from auton-moon-base-infrastructure (a pilot plant is a Phase 2 element). Chains written out. | E-moon-mars (2035 horizon, S4): S1 year >2031 -> 2034; S2 year >2031 -> 2032; band_2035 S1 Speculative -> Low, S2 Low -> Medium, S3 Low -> Medium, S4 Low -> High. S4 credit: one band step by 2035 over S3 (off-Earth robot work from 2032); year equals S3 because it is 2031 or earlier. | R-moon-mars resolver (2026-10-07): band_2035 S4 High -> Medium (skeptic). The S4 credit fails condition 1: a 1 t/yr plant needs a few tonnes of regolith a year, and the reviewed credit was conditional on 10+ cargo landings a year, which a High band cannot rest on. The advocate's upkeep argument is rejected: with 10,000 h anodes (High by 2035) swaps fall to about one a year, and upkeep machinery inside a plant is specialized automation already in S3. General-purpose robots doing outpost work on the Moon are themselves only Medium in S4 by 2035. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "auton-closed-loop-habitat",
+   "patch": {
+    "band_2031": {
+     "S2": "Speculative"
+    },
+    "revision_note": "B-moon-mars: Skeptic and auditor (both lenses): S3 Medium -> Low. The definition requires flight, so S3's parallel ground units do not count. Skeptic: S1 Low -> Speculative (no credibility standard in S1 before 2031, so the no-prior binomial applies). Skeptic's S2 Low -> Speculative and the advocate's S2 >2031 -> 2031 cancel out, so S2 stays >2031 Low. The advocate's model-based-prior mechanism is real (physclock 0.3-0.6x) but needs both regulator acceptance and the oxygen-recovery hardware in flight. It is added as soft inputs from physclock-credibility-evidence-standard and physclock-ai-run-test-stands. Skeptic (edge): auton-earth-independent-fdir moved from hard to soft. | E-moon-mars (2035 horizon, S4): S1 year >2031 -> 2035; S2 year >2031 -> 2033; band_2035 S1 Speculative -> Low, S2 Low -> Medium, S3 Low -> Medium, S4 Low -> Medium. S4 = S3 (fails the four-condition rule). | R-moon-mars resolver (2026-10-07): band_2035 S2 Medium -> Low (skeptic). The fast route needs model-based priors, whose standard (physclock-credibility-evidence-standard) is only Medium by 2035, and the 75%+ oxygen-recovery hardware must still fly; without priors the bar is about 7 flight unit-years. S3 and S4 keep Medium on their 2031 start. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "cap-physics-theory",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic (+ auditor P6-override flag): S3 2028 -> 2029, S3 High -> Medium. Cascade with autofix to five S3 dependents. | E-trunk (2026-10-07): 2035/S4 extension. S1 >2031 -> 2032. band_2035: S1 Low -> Medium, S3/S4 Medium -> High; S2 stays Medium. Soft edge from robo-lab-bench-useful. | E-trunk resolver (2026-10-07): Skeptic accepted: S1 2032 -> 2033 (S1 reaches the S2 2029 cognitive level about 2033, and validation data add no S1 speedup; in the full graph all 19 hard dependents already sit at S1 2033-2035, so the hold protected nothing). Advocate accepted: band_2035 S2 Medium -> High (six years past the S2 date, closed-loop labs High from 2028, cheap cognition by 2033-35; the node needs one domain to beat the human state of the art on held-out data). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "infra-tool-qualification",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-verified-autonomy: Skeptic + advocate (definition): 'achieved' is now plan acceptance on the checker-not-generator route, with completed certification 2-4 years later; Lean-kernel qualification named as a later step dependents do not need. Skeptic: infra-verified-numerics and verif-spec-engineering moved from hard to soft (FDIR or parser proofs need no verified floating point; human-written specs qualify). Advocate's split into a separate verif-checker-route-credit node at S2 2029 rejected: it re-creates verif-checker-not-generator, which A1 merged into this node, and it would move the client's base-case premise (first credit S2 2030). Advocate's 2026 evidence added to status. Years and bands unchanged. | E-verified-autonomy (2035 horizon, S4): S1 >2031 -> 2032 (S1 proof agents 2028 plus the S2 three-year lag to plan acceptance, rounded later for S1 adoption); band_2035 S1 Low -> Medium, S2-S4 Medium -> High under the named-mechanism rule. S4 = S3 (no four-condition credit). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "comms-quantum-receiver-theory",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2032 (S1 applied math 2029 plus lab validation). band_2035: S1 Low -> Medium, S2-S4 Medium -> High. S4 = S3. | E-networks resolver (2026-10-07): band_2035 S2-S4 High -> Medium (skeptic: the gate is experiment and the result can be negative; the downstream demo is Low). Robot soft edge from robo-lab-bench-useful removed (arrives after the node in S4). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "comms-space-qkd-backbone",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2032 (physical chain plus slower proof support). band_2035: S2-S4 Low -> Medium; S1 stays Low. S4 = S3. | E-networks resolver (2026-10-07): band_2035 S2-S4 Medium -> Low (skeptic: the chain after Eagle-1 is procurement, build, launch and accreditation, none of which AI proofs, S3 cognition or robots move). Robot soft edge from robo-aerospace-tolerance-work removed. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "comms-capacity-per-dollar-share",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2033 (prerequisites S1 2030-31 plus measurement and disclosure). band_2035: S2 Low -> Medium. Description: 'by 2031' removed, since the year field carries the date. S4 = S3. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "comms-verified-crypto-procurement-norm",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2033 (S1 flight demo 2030 plus one or two solicitation cycles). band_2035: S2 Low -> Medium; cap at Medium (no named mechanism requires proofs). S4 = S3. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "frontier-turbulence-rigorous",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-math-frontier: [advocate, rejected] S2 2030 -> 2029, S3 2029 -> 2028 and S3 band High: unlike frontier-ns-unforced, this node needs one specific answer (the zeroth law and scaling hold for natural forcing), which may be false or unprovable in the posed form, and the statements must still be posed; the 2-4 doubling arithmetic gives capability late 2027 to late 2029, plus posing and checking. Years and bands kept. [auditor] band semantics added. | B-fix (integrator, 2026-10-07): reference to the merged node prop-les-convergence-theory redirected to frontier-certified-turbulent-cfd (B-engines-materials merge). | E-math-frontier (2026-10-07): S1 >2031 -> 2034; S4 = S3. | R-math-frontier (2026-10-07): [advocate] signpost restated around the white-in-time route, where the noise fixes the energy input and the averaged 4/5 law needs one estimate, kinetic energy o(1/nu) (arXiv 1803.09695, abstract checked); S3/S4 band_2035 Medium -> High; S2 kept Medium. The draft's truth-risk reason covers deterministic forcing only. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "frontier-nbody-arnold-diffusion",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. S1 '>2031' -> 2033. band_2035 S1 Low -> Medium, S2 and S3 Medium -> High. S4 = S3. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "frontier-chaos-linear-response",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (claim, accepted; verified in Blonigan et al., ar5iv 1702.06809): a linear-response theorem does not by itself make gradients cheap for wall-bounded turbulence; added the Lyapunov-count caveat. Years and bands unchanged. | E-engines-materials (2026-10-07): S1 >2031 -> 2033 (Plateau cognition reaches S2's 2029 level about 2033-34; one year before frontier-turbulence-rigorous S1 2034, matching the S2/S3 order). band_2035 = band_2031 (truth risk). S4 = S3 (cognitive). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "frontier-math-unbinds",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-math-frontier: [skeptic alternative + advocate] Signpost rescoped to design iteration and trade studies under the program's own sign-off, so it needs no certification credit and the Medium cap does not apply; certification use of AI proofs is infra-tool-qualification (added as a soft link). Years and bands kept: S2 Medium (advocate High rejected: sweeping organizational claim over seven correlated hard prerequisites, two adoption-gated), S3 High (skeptic and auditor Medium rested on the certification cap, removed by the rescope). [skeptic+advocate] \"halves\" arithmetic replaced: S2 is 5-10x on cognitive work, and hours are not program cost. [auditor] lettered position citation fixed. Soft edges to trunk outcomes requested from trunk. | E-math-frontier (2026-10-07): S1 >2031 -> 2033; band_2035 S1 Low -> Medium, S2 Medium -> High; S4 = S3; extended by frontier-35-math-supply-chain and frontier-35-certification-unbinds. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "hyper-kinetic-solver-certification",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-entry: [skeptic+auditor] Hard edge from hyper-boltzmann-foundations-check (a T1-premise node) made soft, so the node no longer rests on a T1 premise and needs no band drop. [skeptic] Wagner 1992 DSMC convergence noted; pathway P5->P6 -> P5 (confidence, not heating numbers, per the domain nil_effects); aerocapture emphasis removed. Years and bands unchanged. | E-entry (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2033 (S2 lag of 2 years on cap-applied-math, stretched for S1's slower diffusion). band_2035 S1 Medium, S2-S4 Medium -> High. S4 = S3 in year and both bands. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "hyper-ablator-multiscale-response",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-entry: [skeptic] Hard edge from hyper-optimal-test-design made soft (validation needs arc-jet shots, not a particular design of them). [advocate] Soft edge from physclock-ai-run-test-stands (arc-jet utilization). Years and bands unchanged. | E-entry (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2033 (one year after cap-physics-theory S1 2032, as in S2). band_2035 S1 Low -> Medium, S3 Medium -> High. S4 = S3 in year and both bands. | E-entry resolver (2026-10-07): [skeptic] Soft edge from robo-lab-bench-useful not added (robots arrive after this node). Stale reason fixed: the trunk final makes cap-physics-theory High by 2035 in S2, so S2's Medium now rests on S2's test stands (Medium), not on the prerequisite. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "hyper-p2p-cargo-demo",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-entry: [skeptic+advocate+auditor] Hard prerequisite hyper-rapid-reuse-heatshield replaced by physclock-starship-full-reuse; rapid reuse and the fleet-trained heating model kept as soft edges. [auditor, verified on Wikipedia] Status corrected: the source does not support '~30 t in a 2026 test' ($102M contract, ~100 short-ton goal, demo as early as 2026). Chain written out. Years and bands unchanged (regulatory gate). | E-entry (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2032 (one year behind S2 on licensing). band_2035 S2-S4 Low -> Medium. S4 = S3 in year and both bands. | E-entry resolver (2026-10-07): [skeptic] band_2035 S2-S4 Medium -> Low (AI has no effect on the regulatory and range gates, so no S1/S2 split). Remote-site landing and recovery gate added to why. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "hyper-reentry-cadence-economy",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-entry: [skeptic+advocate+auditor] Hard edge from hyper-thinner-tps-flown made soft (the node's own why says TPS is a marginal contributor); soft edges added from physclock-licensing-in-weeks and physclock-heavy-cadence-100. [skeptic+auditor] S2 Medium -> Low. [skeptic vs advocate] S3: skeptic Low, advocate High (operator says automation binds; S3 brings AI-run operations); resolved Low on the 2026 record (3 attempts, 1 loss), the >10x increase needed and the slip ratios, with demand and landing sites binding ahead of labour. [skeptic] Years S2 2030 -> 2031, S3 2029 -> 2030. [auditor] Exclusions added so Starship returns cannot satisfy the node; tier-7 chain written out; pathway given a P-code. | E-entry (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2033 (cheap customer launch S1 2032, slower in-space manufacturing demand). band_2035 S2-S4 Low -> Medium. S4 = S3 in year and both bands. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "physclock-critical-payload-reuse-acceptance",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S2 2030 -> 2031, S3 2029 -> 2030 (follows the revised twin timing). Skeptic: scope limited to NASA crew, Category 3 and NSSL Lane 2 (a Lane 1 mission could fly with no AI evidence and break the causal chain); why rewritten around flight history. Bands unchanged. | B-fix (integrator, 2026-10-07): soft edge from physclock-reliability-priors-credit (B-certification request 2). | F2 audit (2026-10-07): S2 band Medium -> Low (P7 plus certification, two Medium prerequisites, earliest year 2031 with no slack); S3 stays at the Medium cap. | E-trunk (2026-10-07): 2035/S4 extension. S1 >2031 -> 2033. band_2035: S2 Low -> Medium (four more years of flight history); S1 stays Low (two Medium prerequisites plus acceptance); certifier cap holds Medium. No hard dependents. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "physclock-cheap-mass-customer",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + advocate: reusable-competition hard -> soft (not logically necessary; Chinese fleets can satisfy it without lowering U.S. prices). Skeptic: S2 Medium -> Low (2033 fade midpoint; S2 earliest year 2031) and $900/kg relabelled as capacity price; advocate wanted bands unchanged (debate recorded). Advocate's capacity-release mechanism added to why. Auditor: Mach33 caveat. | E-trunk (2026-10-07): 2035/S4 extension. S1 >2031 -> 2032 (Mach33 ticket fade midpoint 2033, range 2030-36; S1 is about one year behind S2). band_2035: S1/S2 Low -> Medium; S3/S4 stay Medium (Mach33 median 2035 customer revenue $945/kg, Sep 2026). No hard dependents. | E-trunk resolver (2026-10-07): Advocate accepted for 2035: band_2035 S2-S4 Medium -> High (the node is the dedicated or spot price; Mach33's reference spot falls to $820/kg in 2031 and $562 in 2033, and the $945 median is an all-class average that includes contract prices and government premiums, which take 21% of 2040 revenue on 2% of tonnes). S1 stays Medium. Advocate's band_2031 S2 Low -> Medium rejected: crossing by 2031 needs Starship open to customers by 2031, the house assumption is varied to 2033, and Mach33's earlier fade midpoint is 2033; the 2031 band was set in earlier review. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "plasma-verified-kinetic-numerics",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + auditor: hard edge from plasma-vm-wellposed -> soft; premise_tier -> context only (finite-interval convergence needs local smoothness only; engineering PIC is electrostatic and non-relativistic). Advocate: S3 Medium -> High (cognitive-clock node; all S3 hard prerequisites High by 2028; one module from one code team suffices). S1/S2 unchanged. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2033 (Plateau reaches S2's 2029 capability about 2033; prerequisites S1 2029-30). band_2035 S1 Low -> Medium, S2 Medium -> High. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "plasma-kinetic-closures",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + advocate + auditor: hard edge from frontier-landau-damping-general -> soft. Skeptic + advocate: soft edge from plasma-kinetic-solvers-at-scale (why names its data as the validation source). Auditor: family 364 removed from catalog_families (it maps to rarefied flow/DSMC, not plasma closures); kept as text. Resolver consistency: S3 2028 -> 2029 because the trunk resolver moved hard prerequisite cap-physics-theory S3 to 2029 (autofix would do the same). Bands unchanged. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2033 (one year after cap-physics-theory S1 2032 in the trunk draft, matching the S2 lag of zero to one year). band_2035 S3/S4 Medium -> High. | Resolver (2026-10-07): S1 2033 -> 2034 to keep the one-year lag after cap-physics-theory (S1 2033 in E-trunk-final). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "plasma-hall-anomalous-closure",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + advocate: hard edge from plasma-kinetic-closures -> soft; description admits data-driven closures. Skeptic: S2 Medium -> Low (P6 default; two Medium hard prerequisites; strict criterion); signpost date aligned to the S2 year. Advocate's S2 2030 -> 2029 rejected (validation across three thrusters takes about a year after the 2028 solvers and 2029 theory). Auditor: Whittaker figures restated as fits to calibration data, with discharge current not reliably predicted. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2033 (cap-physics-theory S1 2032 plus a one-year multi-thruster validation campaign). band_2035 S2 Low -> Medium. | Resolver (2026-10-07): S1 2033 -> 2034 (cap-physics-theory S1 2033 in E-trunk-final). Advocate's soft edge from plasma-35-kinetic-design-loop accepted; its S3/S4 High by 2035 rejected (facility coupling and wall physics are not removed by more simulation, and the loop itself is only Medium by 2035). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "plasma-magnetic-nozzle-theory",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Advocate: hard edge from plasma-kinetic-closures -> soft (the fully kinetic route needs only the solvers). Skeptic: S2 Medium -> Low (P6 default; no committed far-field in-space diagnostic; Medium solver prerequisite). Advocate's S2 2030 -> 2029 rejected (no in-space validation measurement is planned before 2029). S3 Medium kept. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2033 (kinetic solvers S1 2030; S2 lag of two years plus slower Plateau cognition). band_2035 S2 Low -> Medium. | Resolver (2026-10-07): Advocate's S3/S4 High by 2035 rejected: no far-field diagnostic flight is committed, and cheap launch makes one affordable, but nobody has funded one. Unchanged. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "plasma-eruption-onset-theory",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. S1 '>2031' -> 2033 (cap-physics-theory S1 2032 in the trunk draft). band_2035 = band_2031: the skill ceiling is set by nature. S4 = S3. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "plasma-dhe3-burn-physics",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative"
+    },
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Auditor (grounding rule) + skeptic + advocate: dated physical chain added; He-3 supply framing qualified (bred He-3 via D-D fusion; demonstrators need grams). Soft edge from new plasma-ai-fusion-operations. Years and bands unchanged. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2033, S2 >2031 -> 2032 (S3 2031 reflects 1.3-1.5x experiment compression; S2 1.2x and S1 about 1.05x on the same campaign). band_2035 S3/S4 Low -> Medium. | Resolver (2026-10-07): Skeptic accepted: S3/S4 band_2035 Medium -> Low (one year of scenario difference cannot carry a band step on a heating gate). Signpost now names a threshold: D-He3 fusion energy at least 1% of the energy delivered to the plasma. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "plasma-ep-predictive-design",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic: hard edge from plasma-hall-anomalous-closure added (a days-per-run kinetic simulation cannot serve a design loop; 'either sufficient' removed); S2 Medium -> Low following the closure. Advocate's soft-edge version, S2 2029 / S3 2028 and S3 High rejected (see debates); its pathway label P1->P6 accepted. Auditor: Whittaker figures restated. Iteration figures marked judgment. Years unchanged. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2034 (hard prerequisite plasma-hall-anomalous-closure S1 2033, plus a year of validation across designs). band_2035 S2 Low -> Medium. | Resolver (2026-10-07): Advocate's structure accepted: plasma-hall-anomalous-closure hard -> soft, plus a soft edge from plasma-35-kinetic-design-loop, because the new loop node removes the reason given for the hard edge in round B (no design-loop route existed). Advocate's S3/S4 High by 2035 rejected: the routes share wall-physics and validation risk. S1 2034 -> 2035 because cap-physics-theory S1 is 2033 in E-trunk-final, which moves the closure S1 to 2034. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "plasma-ep-life-by-analysis",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "band_2035": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): All three lenses (verified in Williams et al. 2026): NASA already qualifies EP life by 100% test with 50% margin by analysis, and the AEPS QM-2 wear test runs fall 2026 to Sep 2029, so the node is redefined to the real increment (credit for part of the 100% test) and the AEPS-by-2029 signpost dropped. Advocate + auditor: infra-tool-qualification hard -> soft (DO-178C/DO-330 proof credit is not the path for physics wear models). Resolver: plasma-ep-predictive-design hard -> soft (qualifying an existing thruster does not need design-before-build); plasma-hall-anomalous-closure kept hard against the advocate. Skeptic: S3 2030 -> 2031 and S3 Medium -> Low; advocate's S2 2030 Medium / S3 2029 rejected (see debates). Soft edge from new plasma-aeps-life-qual. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2035 (closure S1 2033 -> ~10,000 h wear test, about 14 months -> qualification review). band_2035 S2/S3/S4 Low -> Medium (regulatory cap). | Resolver (2026-10-07): Skeptic accepted: band_2035 S2-S4 Medium -> Low (the regulatory cap is a ceiling and gives no reason to rise; the node's own compounding sentence gives Low). Wear-test duration restated at the AEPS QM-2 duty cycle (about 16 months for 10,000 h). S1 2035 -> >2035 because the closure moved to S1 2034 (trunk). Advocate's soft edge from plasma-35-kinetic-design-loop accepted. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "plasma-high-power-ep-life",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "revision_note": "E-plasma-nuclear (2026-10-07): 2035/S4 extension. >2031 -> S1 2034, S2 2033, S3/S4 2032 (flight-like unit and low-pressure facility ~2029-31 after design iterations, then ~7 months of firing; experiment multipliers 1.05-1.4x). Bands unchanged (Low). | Resolver (2026-10-07): Duty-cycle wording accepted from the skeptic (about eight months for 5,000 h). Skeptic's S3/S4 2032 -> 2033 rejected: design iterations differ by scenario and the lithium route does not need a new facility (general). Advocate's S3/S4 Medium rejected: no funded 5,000 h program, NASA clusters 12 kW AEPS up to 300 kW, and MPD electrode erosion is the historic life limiter (general). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "plasma-abep-demo",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic: hard edge from cap-design-optimization -> soft (a physical demo that conventional design can achieve; funding, atomic oxygen and a ride bind). Auditor (grounding rule): dated chain added; Clarity-1 altitude corrected (275 km was the design altitude, not demonstrated). Years and bands unchanged. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2033 (conventional design route; endurance test and funded rideshare). band_2035 S2/S3/S4 Low -> Medium. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "plasma-cme-arrival-skill",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. S1 '>2031' -> 2033 (S1 assimilation 2029, two years of events, then transition). band_2035 S2 Low -> Medium. S4 = S3. | E-safe-orbits resolver (2026-10-07): S1 2033 -> 2034 (skeptic): two years of events at solar minimum fall short of 40. S2 2031 is flagged for recheck and left unchanged. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "plasma-bz-forecast",
+   "patch": {
+    "band_2031": {
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. '>2031' resolved: S1 '>2035', S2 2033, S3 2032, S4 2032 (earliest partial skill from source-region methods). band_2035 = band_2031. S4 = S3. | E-safe-orbits resolver (2026-10-07): S2 2033 -> 2034, S3 and S4 2032 -> 2033. The skeptic's event-count clock is accepted; its 2035/2034 is not, because every impacting CME counts toward the 50 and rates rise from 2032. Bands unchanged. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "plasma-vleo-at-scale",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. S1 '>2031' -> 2033 (physclock-cheap-mass-customer S1 2032). band_2035 S2 Low -> Medium. S4 = S3. | E-safe-orbits resolver (2026-10-07): band_2035 S2 Medium -> Low (skeptic): 2032-35 is the Cycle 26 rise, and the plasma-nuclear branch judges the sub-300 km business case weak. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "prop-closure-theory",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (timing/band, concrete mechanism accepted): S2 2029 -> 2030, S3 2028 -> 2029, S2 Medium -> Low. The success criterion includes a blind workshop win, which cannot happen in the year the theory capability lands (cap-physics-theory S2 2029 / S3 2028); data at engine conditions bind; P6 default Low. Edges to prop-turbopump-tool (skeptic + advocate) and prop-flame-response (skeptic + advocate) made soft. S3 Medium kept. | B-fix (integrator, 2026-10-07): S3 2029 -> 2030: the why says a closure cannot be blind-validated in the year cap-physics-theory lands, and B-trunk moved that anchor to S3 2029. S3 band Medium kept. | E-engines-materials (2026-10-07): S1 >2031 -> 2035 (cap-physics-theory reaches Plateau in the early 2030s; blind validation needs a workshop cycle after it). band_2035 S2 Low -> Medium. S4 = S3. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "prop-flame-response",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (timing, two lenses): S2 2029 -> 2030; the node's own text says a year of blind rig tests binds, yet S2 equalled its prerequisites' year. prop-closure-theory hard -> soft (skeptic + advocate: flame transfer functions are computed by LES with existing subgrid models; what is missing is transcritical real-fluid injection physics and rig data). Soft edge from physclock-ai-run-test-stands (advocate). Advocate's S3 2029 -> 2028 rejected: theory capability lands in S3 2028 and the blind rig campaign (8-9 months at 1.3-1.5x) cannot finish the same year. Fact fix (auditor, verified): the 350 bar milestone was reported in May 2023, not 2026. | B-fix (integrator, 2026-10-07): S3 2029 -> 2030: the node's own rule (a blind rig year after the theory capability, in S2 and S3 alike) applied to cap-physics-theory S3 2029 after B-trunk moved it from 2028. Band unchanged. | E-engines-materials (2026-10-07): S1 >2031 -> 2034 (cap-physics-theory in Plateau about 2033, plus a blind rig year). band_2035 S3 Medium -> High. S4 = S3. | E-engines-materials resolver (2026-10-07): band_2035 S3/S4 High -> Medium (skeptic, accepted): blind validation at 100-350 bar needs rigs that can force and measure combustion at those pressures, and AI-run stands speed existing rigs without adding high-pressure ones. Downstream prop-stability-design-tool (S3 Medium) stays consistent. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "prop-psi-models",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-moon-mars: Skeptic and auditor (fact): the Raptor-plume framing was outdated, because Starship HLS uses mid-body landing thrusters for terminal descent. The why now lists what PSI still decides. Skeptic: 363/364 labeled nil engineering effect (Wagner 1992); pathway P5+P6 -> P1->P6. Advocate (edge): cap-physics-theory moved from hard to soft and cap-applied-math added as hard. Predictive PSI is DSMC plus CFD-DEM calibrated on flight data, which is applied numerics plus data and not new theory. Advocate's S3 2029 -> 2028 rejected: the gate is validation against landing imagery, and S3 cognition equals S2 through 2028, so S2 = S3 = 2029. New soft input from auton-lunar-heavy-cargo-landing; new soft outputs to auton-sinter-process-control (skeptic), auton-robotic-landing-pad and auton-crew-optional-lunar-ops (advocate). Bands unchanged. | E-moon-mars (2035 horizon, S4): S1 year >2031 -> 2032; band_2035 S1 Low -> Medium, S2 Medium -> High, S3 Medium -> High, S4 Medium -> High. S4 = S3 (fails the four-condition rule). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "prop-ntp-fuel-model",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + auditor: S3 Medium -> Low; skeptic: S3 2029 -> 2030 (irradiation fluence plus post-irradiation examination take 1-3 years that no cognitive multiplier shortens). Skeptic: families 278 and 275 relabelled context only. | E-plasma-nuclear (2026-10-07): 2035/S4 extension. S1 >2031 -> 2033 (after cap-physics-theory S1 2032). band_2035 S2/S3/S4 Low -> Medium. | Resolver (2026-10-07): Skeptic accepted: band_2035 S2-S4 Medium -> Low (the draft made the band conditional on NTP funding that does not exist). S1 2033 -> 2034 (trunk). Soft edge from robo-lab-bench-useful dropped: the robot node is the same S4 year, and installed hot-cell manipulators already do the bench work. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "prop-turbopump-tool",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-engines-materials resolver (2026-10-07): Edge: prop-closure-theory hard -> soft (advocate + skeptic). Timing (advocate, concrete mechanism accepted): with closure guarantees no longer gating, the remaining gate is blind water-rig confirmation, which the node itself calls cheap; S2 2030 -> 2029, S3 2029 -> 2028. Advocate's S3 Medium -> High rejected (P1->P6, P6 default Low; blind prediction for a new inducer is still a modeling problem). Soft edge from physclock-ai-run-test-stands. Fact fix (auditor): Nerra Network newsletter replaced by primary reports of Flight 12 (SpaceNews via 33FG news 518, verified) and Flight 13 (Spaceflight Now). | B-fix (integrator, 2026-10-07): Flight 13 date harmonized to Jul 24, 2026 (launch date per 33FG news 596 / Wikipedia flight list; trunk and verif already used Jul 24). | E-engines-materials (2026-10-07): S1 >2031 -> 2032 (cap-applied-math S1 2029 plus the two-step chain in the why). band_2035 S1 Low -> Medium, S2/S3 Medium -> High. S4 = S3. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "prop-engine-dev-compression",
+   "patch": {
+    "band_2031": {
+     "S2": "Speculative"
+    },
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (band, two lenses): S3 Medium -> Low (new engines take 6-13 years, compressing 0.7-0.8x in S3; hard prerequisites land S3 2027-2030, so only an in-flight program adopting the tools could qualify by 2031, and it must attribute the saving). Edges: prop-ai-engine-design-loop hard -> soft (skeptic) and prop-turbopump-tool hard -> soft (skeptic + advocate); prop-stability-design-tool kept hard (skeptic; advocate's demotion rejected, see debates); prop-cfd-auto-vv kept hard. Soft edges from physclock-optimal-test-campaigns (advocate; advocate's hard edge rejected: test-design savings are not 'predictive tools') and physclock-qual-by-analysis-credit (auditor). Gate qualification -> experiment (advocate convention). Gate convention (advocate, accepted): the first mover is a self-certifying commercial operator; FAA Part 450 regulates public safety, not engine materials or test counts, so the regulator/certification Medium cap does not apply unless the node needs NASA crew, NSSL or other customer certification. The band here rests on physical clocks, not on that cap. Advocate's S2 2031/Medium rejected. Description baseline defined (skeptic). Fleet-start arithmetic folded into why (advocate). Chains written out. | E-engines-materials (2026-10-07): S1 >2031 -> >2035 (prop-stability-design-tool S1 2035), S2 >2031 -> 2032 (draft; revised by the resolver below). band_2035 S3 Low -> Medium. S4 = S3: the S4 analysis's '2032-34 year-scale credit' is for development time, which this node's test-count criterion does not measure; it is carried by the new prop-35-four-year-engine. Soft edge from robo-24x7-integration-test (added by the robots draft). | E-engines-materials resolver (2026-10-07): S2 2032 -> 2033 (skeptic, accepted): a major version designed with the 2031 tool qualifies about two years later, because most development tests come before qualification. Advocate's S2 band Low -> Medium rejected: with S2 2033 only one version cycle fits before 2035, and the criterion needs attribution against the same organization's previous program. S3 2031 kept (B round): S3 adopts the precursor models as they land; the integrator may recheck it under the same logic. Why chain corrected to the tool's S3 year (2031). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "prop-cislunar-propellant-economy",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (claim, two lenses): model value restated as margin (~0-1 tanker) and gauging (~0.1 tanker), not the 1-5-tanker physical loss; '10-30% of campaign launches' dropped. Edges (skeptic, accepted): prop-mass-gauging hard -> soft (worth ~0.1 tanker; operators can gauge after a settling burn); physclock-heavy-cadence-100 soft -> hard (dozens of transfers a year need heavy cadence; year-consistent in all scenarios). premise_tier -> n/a (auditor; 365 no longer load-bearing). Timing (advocate, concrete mechanism accepted): S2 2031 -> 2030 and S3 2030 -> 2029 (a second lunar campaign plus Mars-ship fuelling for the early-2031 window, or the early-2029 window in S3, can exceed 20 transfers once all prerequisites land by 2029/2028); this also removes the auditor's 'Medium with earliest year 2031' inconsistency, so the auditor's S2 Low is not applied. Advocate's S3 High rejected (tier-7 P7 outcome; AI math not on the critical path). | B-fix (integrator, 2026-10-07): heavy-cadence years in the chains updated (S2 2030, S3 2029, B-trunk); node years unchanged and still consistent with that hard prerequisite. | F2 audit (2026-10-07): band reasoning against the P7 default written out; years and bands unchanged. | E-engines-materials (2026-10-07): S1 >2031 -> 2032 (prop-cfm-models S1 2030; heavy cadence S1 2030). band_2035 S1 Low -> Medium, S2/S3 Medium -> High. S4 = S3. | E-engines-materials resolver (2026-10-07): band_2035 S1 Medium -> High (advocate, accepted): AI mathematics is off the critical path, every S1 hard prerequisite is High by 2035, and each lunar campaign needs more than 10 transfers (NASA OIG, Mar 2026). Mars fueling dropped from the chains and the S1 note (skeptic): the moon-mars and entry branches put the first Mars flights in the early-2031 window at the earliest, and five-ship fueling is 2033 or later. Soft edge from robo-earth-pads-plants removed (skeptic): it lands in S4 2033, after this node in every scenario. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "science-second-order-self-force",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-science resolver (2026-10-07): Skeptic (resolver checked): generic Kerr orbits are partly research-hard (second-order metric reconstruction and gauge in Kerr are open; first-order adiabatic Kerr inputs exist only for equatorial orbits) and then compute- and validation-bound, so S2 2029->2030, S3 2028->2029, S3 High->Medium; 'four to six years' replaced by 'roughly three to five years (analyst judgment)', as the auditor asked. Advocate's S2 Medium->High rejected (the 'seconds for 20 m-modes' evidence is a first-order scalar-charge problem, not second-order gravitational self-force); advocate's status fact (arXiv 2504.09640, eccentric Schwarzschild formalism) verified and added. Skeptic's gate change to capital not taken: in the base case the research-hard part still binds; compute binds in S3 and is stated in why. | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2033; band_2035 S1 Low->Medium, S2 Medium->High, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "science-nr-precision",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-science resolver (2026-10-07): Skeptic (resolver verified arXiv 2505.13378): status corrected to median resolution difference 4e-4, ~480M core-hours, precessing q<=8 and |chi|<=0.8, longest run 148 orbits; gap is ~400x, not 100x. Auditor: CQG date Oct 2025 (not Aug) and 100+ runs at q=8-20 (resolver confirmed on the IOP page). Advocate: soft edge from capability-algorithm-discovery accepted; gate capital->cognitive and S3 Medium->High rejected (the catalog alone took ~480M core-hours; the cited GPU speedups are for elliptic initial-data solvers, not evolutions). | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2033; band_2035 S1 Low->Medium, S2 Medium->High, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "science-opacity-line-lists",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-science resolver (2026-10-07): Auditor: line lists come from established ab initio methods with lab refinement (a mature pipeline), so the hard prerequisite moves from cap-physics-theory to cap-applied-math, with cap-physics-theory kept as soft. Years unchanged (experiment gate binds). Advocate's S3 Medium->High rejected: 50+ lab-validated new species by 2031 depends on gas-handling and high-temperature spectroscopy capacity, which compresses only 1.3-1.5x in S3. | F2 audit (2026-10-07): T1 families 275 and 278 cited as established in why and status; reworded as conditional. | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2033; band_2035 S1 Low->Medium, S2 Medium->High, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "science-wfsc-certified",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-science resolver (2026-10-07): Skeptic: hard edge from science-coronagraph-limits made soft (convergence proofs do not need a throughput bound; shared error budget is acceleration). Advocate: soft edges from physclock-optimal-test-campaigns and physclock-ai-run-test-stands accepted (they compress testbed time, the binding gate); advocate's S3 Medium->High rejected because HWO testbed campaigns are funded from the HWO line, which the FY2027 request cuts to $5M. Auditor's proposed Roman CGI node folded into status and signpost (already present). | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2033. S4 equals S3 (no S4 credit). | E-science resolver (2026-10-07): Advocate accepted: soft edge from science-private-observatories added; Lazuli's coronagraph gives flight wavefront-control data outside the HWO line. Bands and years kept. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "science-hwo-design-closure",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-science resolver (2026-10-07): Skeptic (resolver verified the FY2027 HWO request of $5M versus $150M enacted and the 47% SMD cut): S2 Medium->Low, S3 Medium->Low, S3 2029->2030 (an agency freeze follows appropriations, 1.0x); hard edges from coronagraph-limits, wfsc-certified (also advocate) and retrieval-identifiability made soft; new hard prerequisite science-smd-budget-restored. Advocate: soft edge from physclock-cheap-mass-internal accepted (HWO page notes larger mirrors depend on launch vehicles); mass-rich-design node not added. Auditor: 'Exploratory Analytic Cases' corrected to 'Engineering Architecture Concepts (EACs)'. | B-fix (integrator, 2026-10-07): cheap-mass year in why updated to 2029 (B-trunk). | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2033; band_2035 S2 Low->Medium, S3 Low->Medium, S4 Low->Medium. S4 equals S3 (no S4 credit). | E-science resolver (2026-10-07): Skeptic accepted: band_2035 S2-S4 Medium->Low. The freeze needs the HWO line to survive a Medium budget gate, and the AND with a freeze decision and material AI use stays Low, in line with the tree's other outcomes chained after a Medium gate. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "science-helio-constellation-design",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-science resolver (2026-10-07): Advocate: binding gate capital->adoption (the outcome is a concept study; capital gates only the later flight) and S3 Medium->High. Advocate's S2 Medium->High rejected because its hard prerequisite science-helio-tomography is now S2 Medium (auditor). Resolver: S3 2028->2029 (S3 equals S2 through 2028 and the node is adoption-gated, zero lag from its 2028 prerequisites otherwise). | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2032; band_2035 S1 Low->Medium, S2 Medium->High. S4 equals S3 (no S4 credit). | E-science resolver (2026-10-07): Knock-on of the helio-tomography revert (its band follows that input): band_2035 S1 Medium->Low, S2 High->Medium. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "science-portfolio-shift",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-science resolver (2026-10-07): Skeptic + auditor: S2 Medium->Low; skeptic: S3 Medium->Low and S3 2029->2030 (decadal surveys and appropriations compress 1.0x; FY2027 cuts confound attribution). All three lenses: hard edge from science-hwo-design-closure made soft. Advocate: soft edges from physclock-dev-capital-cut, physclock-cheap-mass-customer and science-private-observatories accepted (bands unchanged by them). | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2033; band_2035 S2 Low->Medium, S3 Low->Medium, S4 Low->Medium. S4 equals S3 (no S4 credit). | E-science resolver (2026-10-07): Skeptic accepted in part: S2-S4 2030->2031 (skeptic proposed 2032). The why puts the first effect at the next astrophysics survey, around 2031-32 at the earliest, and survey and budget clocks compress 1.0x; 2031 is the earliest credible report year. band_2031 stays Low. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "verif-skolem-positivity",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-math-frontier: [skeptic+auditor] Signpost fixed: Positivity is already decidable up to order 5 (Ouaknine-Worrell, SODA 2014), so it would have fired on a known result; order 6 needs breakthroughs in Diophantine approximation, a known barrier, so S2 band Medium -> Low (S3 stays Medium). Unsupported status sentence removed. [skeptic] pathway P3->P6 -> P3 (tool effect near nil). | E-math-frontier (2026-10-07): S1 >2031 -> 2033; band_2035 S2 Low -> Medium; S4 = S3. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "verif-new-entrant-advantage",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-verified-autonomy: Skeptic (alternative) + advocate: hard edge from infra-tool-qualification made soft and scope limited to work that needs no certification credit, since the node's own why says uncrewed work has no certifying regulator. Years and bands kept: skeptic's S2 2031/S3 2030/S2 Low depended on the zero lag after credit, which no longer applies, and advocate's S2 2029/S3 2028 ignores the 1-2-year procurement lag (politics 1.0x). Auditor: IM-1 is a near-loss, not a loss. | E-verified-autonomy (2035 horizon, S4): S1 >2031 -> 2032 (cost collapse S1 2030 plus 1-2 years from RFP to award); band_2035 S1 Low -> Medium, S2-S4 Medium -> High. S4 = S3 (no four-condition credit). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "verif-mission-loss-rate",
+   "patch": {
+    "band_2035": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-verified-autonomy: Skeptic + auditor: S2 band Low -> Speculative (P7 default; at least 6 verified landings needed to see the effect). Auditor's S3 Low -> Speculative and S3 2031 -> >2031 rejected to keep a scenario spread: S3 adds lander flights and near-free cognition from 2029, which makes Low (10-30%) defensible. Skeptic: hard edge from verif-environment-assumption-models added (the direct edge from verif-assumption-falsification is omitted because it already sits upstream through the lander node). Auditor: success denominator added. | E-verified-autonomy (2035 horizon, S4): S1 >2031 -> >2035, S2 >2031 -> 2033 (2-5 verified landings by 2031 plus several a year after); band_2035 S1 Speculative -> Low, S2 Speculative -> Medium, S3-S4 Low -> Medium. S4 = S3 (no four-condition credit). | E-verified-autonomy resolver (2026-10-07): advocate's S2 2033 -> 2032 accepted (4-9 verified landings by end-2032 make six reachable at the upper case, one year after S3). Skeptic's S2 2034 and band_2035 Low rejected: the power argument belongs in the band, and with a residual rate near 0.1 S2's 10-12 landings give 74% power or more (near 0.2, 38-41%), which averages to about even odds. Advocate's S3-S4 High rejected: effect size and risk homeostasis bind, not landing count. Soft edge from verif-35-mars-verified-landing added (Mars losses count in the share). | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "hyper-model-form-error-bounds",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "B-entry: New node. [auditor] Split from hyper-certified-margin-uq, whose own why called model-form error 'genuinely open'. [skeptic] Signpost and data gate taken from the skeptic's certified-margin finding. Links to hyper-probabilistic-tps-sizing and hyper-12kms-entry-design-basis are soft, as the auditor proposed: LEO capsules can size probabilistically without it. | E-entry (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2033 (S1 applied math 2029 plus paired datasets). band_2035 S1 Low -> Medium, S2-S4 Medium -> High. S4 = S3 in year and both bands. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "capability-35-heavy-cadence-300",
+   "patch": {
+    "band_2031": {
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "revision_note": "E-trunk (2026-10-07): new node extending the launch-clock side chain past physclock-heavy-cadence-100. | E-trunk resolver (2026-10-07): Skeptic accepted: binding_gate fabrication -> regulatory; band_2035 S1 Medium -> Low, S2-S4 High -> Medium under the regulatory cap (approved caps about 145 a year come from completed reviews; caps for 300+ need site reviews not yet filed; EO 14335 sets no caps). Years kept: the advocate's S1 2033 and S2-S4 2032 rejected (Mach33's reference tonnage ignores approved caps; S1 lags because of weaker demand, while AI moves the launch clock by months). Soft edge from robo-construction-trades dropped (pads for this step are built before construction robots); soft edge from robo-launch-refurb added (refurbishment throughput, no S4 credit). The advocate's 1,000-flight node rejected: it is approval-bound, fails S4 condition 1, and the S4 pad credit already sits on robo-earth-pads-plants. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "capability-35-internal-cost-100",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "revision_note": "E-trunk (2026-10-07): new node extending the launch-clock side chain past physclock-cheap-mass-internal. | E-trunk resolver (2026-10-07): Advocate accepted on years: S2-S4 2032 -> 2031 (the node's own arithmetic puts Mach33's base under $100/kg in 2030, and the model's one-year lag gives 2031). Skeptic accepted: hyper-rapid-reuse-heatshield moved from soft to hard edge (the why names ship reuse as the gate), S1 2032 follows the S1 heat shield (2031). band_2031: S3/S4 Low -> Medium; S2 stays Low (advocate's S2 Medium rejected: heat shield Medium by 2031 and no slack). band_2035 High kept, conditional on the entry branch keeping the heat shield High by 2035. Signpost caveat on cost disclosure added. Soft edge from robo-launch-refurb added. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "capability-35-ai-native-large-system",
+   "patch": {
+    "band_2031": {
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "revision_note": "E-trunk (2026-10-07): new node extending capability-ai-native-spacecraft to large systems. | E-trunk resolver (2026-10-07): Skeptic accepted: scope narrowed to stages, crew or cargo vehicles and non-constellation spacecraft over 5 t (a 2 t Starlink satellite satisfied both this node and capability-ai-native-spacecraft); binding_gate fabrication -> qualification; years 2034/2032/2031/2031 -> >2035/2033/2032/2032; band_2031 S3/S4 Low kept, S2 Low -> Speculative; band_2035 Low/Medium/High/High -> Speculative/Low/Medium/Medium. Advocate's S2 High rejected (rested on a SpaceX satellite generation, now out of scope); its robot soft edges added as mechanism, with no S4 credit. | R8 (2026-10-08): band set to Speculative where earliest year is after the checkpoint"
+   }
+  },
+  {
+   "id": "infra-tool-qualification",
+   "patch": {
+    "why": "Aviation software standards turn over on 5-10+ year cycles (DO-178B 1992, DO-178C 2011), but the checker route needs no new standard: under DO-330 a tool needs qualification only when its output is not otherwise verified, and here a qualified checker verifies the AI's output. 'Achieved' means plan acceptance, which is the study's base-case premise for first certification credit (S2 2030, S3 2029). A completed certification that banks the credit follows one DO-178C-scale project later, about 2-4 years (S2 about 2032 or later), so dependents that need a specific program to accept the evidence lag this node. Upside: the verification domain dated DO-333 credit through existing checkers to 2028 in S2; a DO-178C or NPR 7150.2 plan accepted in 2028-29 would pull this node forward a year. Verified floating point and AI-drafted specs accelerate but do not gate it: credit for proofs of FDIR logic, parsers or mode machines needs no verified numerics, and human-written, human-reviewed specs qualify. Capped at Medium by 2031 because it needs regulator acceptance; High by 2035 because the route runs through a mechanism already in use (DO-333 credit through already-qualified checkers)."
+   }
+  },
+  {
+   "id": "struct-35-10gw-orbital-compute",
+   "patch": {
+    "why": "Not an AI-math implication: an exogenous anchor on launch, satellite production, chip supply and capital, so the P7 Speculative default does not apply. At 16,000-18,000 t per GW today, or about 10,000 t at 100 kW/t, 10 GW is 100,000-180,000 t: about 700-1,800 Starship flights at 100-150 t to low orbit, and more to dawn-dusk orbit, where each flight from Florida carries roughly 20-30% less (assumption). Only the Florida pads reach these orbits; Starbase cannot fly south. At a third to a half of 300 flights a year and 100-150 t per flight, compute gets 0.6-2.3 GW a year. Chain (S3): 1 GW in 2031 -> 300+ heavy flights a year from 2032 (capability-35-heavy-cadence-300) -> cadence keeps growing by about 100 flights a year -> compute takes about half -> Starship V4 lifts about 150 t to dawn-dusk orbit and new satellites reach 100 kW/t -> 3-4 GW a year by 2034-35 -> 10 GW in 2035. Every link is an upside case. S2 runs a year behind on cadence and reaches 10 GW only after 2035. A rough simulation on the trunk's launch clock (calculation, ranges as above) puts a central case near 5-6 GW at end-2035 in S3 and 4-5 GW in S2. Chips and packaging co-bind: about 2.9 million GPU packages at 250 kW per 72-GPU satellite. Capital is large but reachable: Mach33's base case puts orbital capex at $46B per GW, falling toward $24B over a decade, so 10 GW is roughly $240-460B (a single commercial forecaster's model). Mach33's own reference reaches 10 GW in 2032, but on a launch clock about three times faster than the model's trunk. AI math is second-order: hotter chips, lighter radiators and right-sized radiation mitigation cut launched mass by a few percent to about 10%. S4 gets no credit. Robot-built pads and plants arrive only about 2035 in Embodied (Low), too late to add launch capacity before end-2035.2-2 GW by end-2035 (calculation); that leaves S4 at Low, and airspace, approvals, chips and capital do not compress. Satellite and array lines already run ahead of flights. Bands (judgment): S3 and S4 Low by 2035; S2 and S1 Speculative, after 2035."
+   }
+  },
+  {
+   "id": "robo-requal-standard",
+   "patch": {
+    "why": "Robots shipping does not put robots on flight hardware. Every replaced manual process must be requalified, so adopters dip before they gain (3-12 months per process for the first single-task processes at leading firms in 2028-30; an estimated 6-24 months per process per supplier in general). Chain (S4): a leading firm puts robots on single inspection or handling tasks in 2028 -> the first process is requalified and a prime or self-certifying firm documents acceptance criteria in 2029 (Medium by 2031, the regulator cap). This matches the brief's 2029 for handling, inspection and refurbishment and the early end of the S4 analysis's 2029-30. S2 and S3 (slow path): few robots are worth requalifying before 2031-32, so 2032 (Low by 2031). S1: 2034. S4 is High by 2035 because the route runs through mechanisms already in use: AS9100 change control, NADCAP audits and NASA-STD-6030 machine qualification. Multi-task factory usefulness speeds adoption but is not required for one process at one site, so that link is soft."
+   }
+  },
+  {
+   "id": "robo-aerospace-tolerance-work",
+   "patch": {
+    "why": "Chain (S4): first process requalified on a single-task deployment 2029 (robo-requal-standard) and multi-task factory robots 2029 -> assembly processes requalified and paid tolerance work at a robot-first firm 2030 (Medium by 2031, after 3-12 months of requalification drag per process at leading firms (an estimated 6-24 months per process per supplier in general)). This is the early end of the S4 analysis's 2030-31 for leading firms. Suppliers follow after 2031 (robo-aerospace-supplier-tier). S2 and S3 (slow path): 2032 (Low by 2031). S1: 2034. The labor gain over S3 at robot-first firms is about 1.4x in 2031 (0.9-2.0x) and 2.3x in 2035 (1.6-3.1x), from 24/7 hours, productivity and parallel crews."
+   }
+  },
+  {
+   "id": "robo-fleet-1m",
+   "patch": {
+    "signpost": "Full-year 2026 and 2027 humanoid shipments. The slow, base and fast paths assume about 50,000, 60,000 and 80,000 in 2026, so 2026 barely separates them; 2027 does: about 90,000 points to the slow path, 140,000 to the base path and 240,000 to the fast path. Also watch whether quarterly output at AgiBot and UBTech breaks from linear growth."
+   }
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "trunk",
+   "patch": {
+    "thesis": "If research-grade AI math reaches outside teams in 2027 (base case), space engineers use it on demand by 2028. Tests, factories and launches run on physical time, so schedules shrink 20-30% by 2031 and about a third by 2035. In Embodied, leading firms halve cycles about 2034 (Medium by 2035).",
+    "reader_hook": "A research-grade result costs about $200-2,000 in tokens (the low figure counts only published successes), so 1,000 hard problems a year cost one to ten engineers before checking. Checking sets the price. Only about a third of a program's critical path is thinking work, so base-case schedule cuts top out near 38%. Realized gains are likelier 20-30%."
+   }
+  },
+  {
+   "branch": "math-frontier",
+   "patch": {
+    "thesis": "If AI settles famous fluid problems, almost no engine, heat shield or orbit changes. Engineers get proof tools and on-demand error bars from about 2028 (base case). Math stops limiting leading programs about 2029, suppliers about 2032. Certifiers audit AI analysis instead of redoing it about 2033. Embodied adds nothing.",
+    "reader_hook": "An AI agent formalized a plasma physics result (Vlasov-Maxwell-Landau) in 10 days for about $200, with no human-written code (one mathematician, 229 prompts). Two of its three failure modes came from stating the problem. Only 16 of the release's 372 families concern partial differential equations and 12 concern dynamics, reflecting which problems the lab chose to pose."
+   }
+  },
+  {
+   "branch": "verified-autonomy",
+   "patch": {
+    "thesis": "Verified flight code gets 15-120x cheaper per line by 2028-29 and flies on landers and constellations about 2029 (base case). By 2035 certifiers accept AI-written proofs (High). Crewed credit stays Medium and a proof-checked Mars landing Low. In Embodied, robot-run tests halve verification time about 2033, two years early."
+   }
+  },
+  {
+   "branch": "networks",
+   "patch": {
+    "thesis": "Certified routing and interference bounds put meshes and phone-to-satellite service on proven plans by 2029-30 (base case). Then the 2031 defense post-quantum deadline, WRC-31, standards and launches set the pace, so the base and Recursive cases end close together by 2035. Robots (Embodied) gain one year, on laser-terminal supply.",
+    "reader_hook": "The FCC's 2026 rules judge satellite interference against simulated criteria, such as 3% throughput loss, so spectrum rights become a math problem. The Department of War requires post-quantum crypto on all its systems by the end of 2031, and NIST's draft rules disallow today's public-key encryption in 2035. A GEO satellite launched in 2028 flies to about 2043."
+   }
+  },
+  {
+   "branch": "certification",
+   "patch": {
+    "thesis": "Operators fly hardware qualified mainly by AI analysis about 2029 (base case, High by 2035). Government credit follows in 2030-31. Test standards and new government designs follow about 2033, still Low. Qualification 15% shorter stays capped at Medium by 2035. Embodied lifts 30% shorter campaigns at leading firms to High."
+   }
+  },
+  {
+   "branch": "engines-materials",
+   "patch": {
+    "thesis": "Certified flow and materials models give engines reuse life by analysis from about 2029 (base case). Hot fire and flights set the pace. In 2032-35, 50-flight engines and reusable lunar landers are likeliest. An AI-designed alloy may fly, likely in Recursive. Robots (Embodied) lift one band: a four-year large engine.",
+    "reader_hook": "A reusable rocket engine spends about 3-6 minutes at full temperature per flight, up to about 5 hours over 50 flights, so rigs can life-test its hot parts in weeks. Reliability takes longer: 0.99 at 90% confidence needs about 230 independent zero-failure starts. One Starship flight logs about 65-70 starts, but they share a vehicle and a build lot."
+   }
+  },
+  {
+   "branch": "entry",
+   "patch": {
+    "thesis": "AI uncertainty analysis lets commercial capsules fly thinner heat shields around 2030 (base case, Medium). Ship heat shields reach five reflights by 2030. Three-day turnaround and crewed reusable ships stay Low by 2035. Windows, budgets and certifiers pace Mars landings and crewed margins. Robots (Embodied) speed only arc-jet testing.",
+    "reader_hook": "For NASA's now-cancelled Mars Sample Retrieval Lander, a random-sampling study at one stressing point found a heat shield at ~75% of baseline thickness kept its glue line below the limit in ~99% of cases. But it sampled heating error only up to existing margins, while at that 8 km/s entry the radiation model under-predicted shock-tube data by up to 2x."
+   }
+  },
+  {
+   "branch": "orbital-compute-power",
+   "patch": {
+    "thesis": "SpaceX's launch, hardware and capital clock paces orbital compute. Base case: 100-kW-class satellites fly about 2028, 1 GW is Low by 2031 and Medium by 2035, and 10 GW comes after 2035. AI math adds a few percent. Arrays and chip temperatures matter more. Robots (Embodied) change nothing: launch binds.",
+    "reader_hook": "A gigawatt of orbital compute is about 4,000 Starmind-class satellites and 110-180 Starship flights. Ten gigawatts needs about 700-1,800 flights at low-orbit payloads, more to dawn-dusk orbit. That is two to six years of every flight at 300 a year, the model's early-2030s rate. Qualifying chips to run about 30 C hotter saves about 1,900 t per GW (33FG model)."
+   }
+  },
+  {
+   "branch": "moon-mars",
+   "patch": {
+    "thesis": "AI-planned, machine-checked operations give Moon and Mars robots severalfold more work per operator about 2029 (base case). A self-running Moon base and tonne-scale lunar oxygen are Medium by 2035. Landed mass, night power, funding and Mars windows set the pace. Robots (Embodied) lift one band, on lunar robot fleet size."
+   }
+  },
+  {
+   "branch": "science",
+   "patch": {
+    "thesis": "Base case: AI doubles archival science per dollar from 2028 and readies LISA's analysis around 2031, well before its planned 2035 launch. Satellite methane numbers become compliance evidence around 2030. Photons, budgets, regulators and launch dates set the pace. Embodied adds no year, even on a second private telescope.",
+    "reader_hook": "The waveform physics LISA needs to hear small bodies spiral into giant black holes (second-order self-force) exists today only for circular orbits around non-spinning black holes. The base case finishes it around 2030, roughly three to five years ahead of the pre-AI path (analyst judgment). LISA's launch is still planned for 2035."
+   }
+  },
+  {
+   "branch": "safe-orbits",
+   "patch": {
+    "thesis": "AI makes orbit, collision and storm forecasts honest. Certified million-object screening and AI-designed trajectories arrive by 2029 (base case), recurring paid debris removal about 2030. Safe low orbit waits on small-debris sensors, standards and US-China politics through 2035. Storm forecasts reach 8 hours, then need Vigil. Embodied adds nothing."
+   }
+  },
+  {
+   "branch": "plasma-nuclear",
+   "patch": {
+    "thesis": "If AI and diagnostics solve Hall-thruster electron transport around 2030 (base case), thrusters are designed before being built. Cheap full-thruster simulations add a second design route by 2033 (Recursive). Analysis-based life credit and a U.S. reactor launch stay Low by 2035. Fusion propulsion waits past 2035. Robots (Embodied) move nothing."
+   }
+  },
+  {
+   "branch": "robots",
+   "patch": {
+    "thesis": "Embodied premise: Recursive-grade AI makes dexterity mostly software about 2028. The fleet passes 1 million in late 2029 and 10 million in late 2032. Robots build flight hardware at leading firms about 2030 (Medium by 2031), suppliers about 2033. Elsewhere Embodied changes little before 2032: physics, launch and paperwork bind."
+   }
+  }
+ ],
+ "notes": "R8 final review fixes 2026-10-08"
+}

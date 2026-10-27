@@ -1,0 +1,880 @@
+{
+ "update": [
+  {
+   "id": "frontier-applied-posing",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 Plateau cognition matches the base case of 2029-30, when posing engineering math became routine, so S1 rises to High. Robots do no posing, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [skeptic] S2 2027 -> 2028, S3 2027 -> 2028: adoption-gated posing cannot land in the year of public access (P1 lag 0-2 years; capability-engineering-adoption, the same engineers, is S2 2028). CAM-Bench already has 1,000 textbook-level Lean targets, so the new content must be engineering-derived. \"Gates every P2 chain\" replaced (no such edges; soft edge to verif-spec-engineering requested from verified-autonomy). [advocate] signpost alternative for internal posing at vertically integrated operators. [auditor] Ilin failure list completed; Urban library is in Megalodon, not Lean. | E-math-frontier (2026-10-07): band_2035 S1 Medium -> High; S4 = S3 (adoption node, no robot credit)."
+   }
+  },
+  {
+   "id": "astro-catalog-dynamics-results",
+   "patch": {
+    "earliest_year": {
+     "S1": "2027",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "By 2035 cheap formalization should check or refute families 146, 343 and 143. Bands stay Medium under the T1 rule, the orbit link stays nil to Low, and S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [skeptic+auditor] Bands High -> Medium in every scenario: two of four headline results are T1 and 143 is formalized only for quintic Lienard systems (lean/docs/143.md, checked), so the sibling T1 drop applies. [auditor] premise_tier and status corrected for the 143 and 347 statement gaps (lean/docs/347.md checked). [advocate keep-High-by-scoping rejected: 143 Lean scope does not support it.] | E-math-frontier (2026-10-07): band_2035 = band_2031 (T1 rule); S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-euler-blowup-r3",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Plateau has the interval-verified proof machinery by the early 2030s, so S1 is High by 2035. No engineering change follows in any scenario, and S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [skeptic+auditor] Hard prerequisite verif-independent-check added (node is defined as proven with an independent re-run). [skeptic] S1 2028 -> 2029, S2 2027 -> 2028: acceptance, not discovery, sets the year (Ganeshram et al. still lack the finite set of estimates; Chen-Hou clarifications ~4 years on; Lean route needs verified interval arithmetic, S2 2028). S3 kept at 2027 (optimistic end: the graph has infra-verified-numerics at S3 2027) [skeptic S3 2028 and advocate S2 2027 both rejected]. [advocate] spillover sentence and soft edge into frontier-certified-pde-error. [auditor] band semantics. | B-fix (integrator, 2026-10-07): S3 2027 -> 2028: the stated basis (infra-verified-numerics S3 2027) no longer holds after B-trunk moved that anchor to S3 2028, and S3 equals S2 through 2027. soft edge from infra-verified-numerics added to match the why, which ties the year to that anchor; the advocate's reverse edge (euler -> infra-verified-numerics) rejected: it would form a soft loop and the spillover is already drawn via frontier-certified-pde-error. | E-math-frontier (2026-10-07): band_2035 S1 Medium -> High; S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-kinetic-global-regularity",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 base-case cognition matches Recursive in 2031, so S2 rises to High. S1 stays Medium because the answer may be partial, and S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [skeptic+auditor] S2 2027 -> 2028 (a claim needs acceptance; no Lean path before applied Lean libraries; 1-3 year expert clock). [auditor] hard prerequisite verif-independent-check; gate cognitive -> formalization; S2 band High -> Medium (scope: both equations, physical potentials, far from equilibrium; truth may be partial); status \"rules out\" -> \"largely rules out\". S1 kept at 2029 (skeptic 2030 vs advocate 2028; matches Euler S1 2029). S3 kept at 2027 (Lean route: infra-mathlib-applied S3 2027). | B-fix (integrator, 2026-10-07): S3 2027 -> 2028: the stated basis (infra-mathlib-applied S3 2027) no longer holds after B-trunk moved that anchor to S3 2028; S3 equals S2 through 2027. S3 band High kept (near-free cognition from 2029 raises the chance of a full answer by 2031). soft edge from infra-mathlib-applied added to match the why, which ties the year to that anchor. | E-math-frontier (2026-10-07): band_2035 S2 Medium -> High; S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-nn-verification-complexity",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "High in every scenario by 2031. In 2032-35 new tractability results arrive for new architectures, and the exponential ceiling stays. S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [skeptic] \"complete\" -> \"substantially complete\"; runtime assurance is already standard (ASTM F3269), so the ceiling confirms practice rather than pushing it. [auditor] internal-model calibration note rewritten. | E-math-frontier (2026-10-07): band_2035 = band_2031; S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-nonuniqueness-map",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Plateau catches up on convex-integration results by the early 2030s, so S1 is High by 2035. The V&V effect stays a confidence change, and S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [skeptic] S2 2027 -> 2028 and S3 2027 -> 2028: a systematic map is a body of results and the signpost requires citation by a V&V or DSMC group (P5 lag 1-3 years), which does not compress before 2028; S1 2028 -> 2029 by the same lag (resolver consistency). [advocate: D0 nodes right at 2027, rejected for this node because of the citation lag.] [skeptic] Chiodaroli-De Lellis-Kreml and Fjordholm-Kappeli-Mishra-Tadmor evidence added. [auditor] lettered position citation fixed; T1 examples marked conditional; internal-model calibration note rewritten; band semantics. | E-math-frontier (2026-10-07): band_2035 S1 Medium -> High; S4 = S3."
+   }
+  },
+  {
+   "id": "hyper-boltzmann-foundations-check",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "By 2035 a published check either way is near certain in S2-S4. The band counts confirmation of T1 claims, so it stays Medium, and S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [skeptic] S1 2028 -> 2029, S2 2027 -> 2028: 363/364 are manuscript-only, PDE formalization is 3/16, the realistic check before applied Lean libraries is a few dozen specialists, absorption takes 1-3 years (tr-position-5); S3 kept at 2027 (Lean route, infra-mathlib-applied S3 2027). Gate kept as formalization. [advocate, rejected] S2/S3 band High: the band keeps the sibling semantics (results checked and confirmed), which carries the T1 drop; the higher chance of a check either way is now stated in why. Hard edge into hyper-kinetic-solver-certification (entry branch) recommended soft; left for that branch. | B-fix (integrator, 2026-10-07): S3 2027 -> 2028: the stated basis (infra-mathlib-applied S3 2027) no longer holds after B-trunk moved that anchor to S3 2028; S3 equals S2 through 2027. soft edge from infra-mathlib-applied added to match the why, which ties the year to that anchor. | E-math-frontier (2026-10-07): band_2035 = band_2031 (T1 rule); S4 = S3."
+   }
+  },
+  {
+   "id": "materials-dft-limits",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "By 2035 families 278 and 275 should be checked or refuted, and the T1 rule keeps the band at Medium in every scenario. Robot labs do not test worst-case hardness, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [auditor] 263 statement gap (lean/docs/263.md, checked): Lean covers only large-ionization asymptotics; the bounded-excess-charge headline is T1. [skeptic] 278 mapping to named materials removed (existence theorem does not identify affected materials); 275 complexity assumption stated explicitly. Bands unchanged. | R review (2026-10-07): premises 278/275 are T1; never write proven below T4 | E-math-frontier (2026-10-07): band_2035 = band_2031 (T1 rule); S4 = S3."
+   }
+  },
+  {
+   "id": "prop-ns-forced-verified",
+   "patch": {
+    "earliest_year": {
+     "S1": "2027",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Settled well before 2032 in every scenario, so 2032-35 changes nothing. S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [skeptic] catalog_families 376 removed (the Sep 8 claim is outside the 722-paper catalog; 376 stays in status as a related, separate T1 family); description scoped to the OpenAI claim, Buckmaster-Alpoge as a parallel check. [auditor] status: kernel replay, Clay framing, Alpoge-Buckmaster Lean status; lettered position citation fixed. [advocate S2/S3 2026 rejected: signpost itself expects 6-12 months; no outside Comparator run a month after the claim; Hexagon has no deposits.] Hard edge into frontier-ns-unforced made soft; edge into prop-les-convergence-theory (engines-materials) left for that branch. | E-math-frontier (2026-10-07): band_2035 = band_2031; S4 = S3."
+   }
+  },
+  {
+   "id": "struct-elasticity-fracture-foundations",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Plateau PDE formalization catches up by the early 2030s, so S1 rises to Medium. The T1 rule caps every scenario at Medium, and S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [auditor] 365 statement gap (lean/docs/365.md, checked): the Lean part is scalar-conductivity nonuniqueness from the full Dirichlet-to-Neumann map (T3); metric-and-connection recovery from one patch is manuscript-only (T1). Description, status, why and premise_tier corrected; bands unchanged (already one step down). | E-math-frontier (2026-10-07): band_2035 S1 Low -> Medium; S4 = S3."
+   }
+  },
+  {
+   "id": "struct-hot-spots-thermal-modes",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Plateau can check family 369 by the early 2030s, so S1 rises to Medium, the T1 cap. The hardware effect stays nil, and S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [auditor] Status completed with the best-known human result (all Euclidean triangles, Judge-Mondal) and cert-machine provenance. | E-math-frontier (2026-10-07): band_2035 S1 Low -> Medium; S4 = S3."
+   }
+  },
+  {
+   "id": "verif-game-solving-synthesis",
+   "patch": {
+    "earliest_year": {
+     "S1": "2027",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "By 2035 family 104 is checked or refuted in every scenario. The T1 stochastic-game part keeps the band at Medium, solver practice stays unchanged, and S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [auditor] 104 statement gap (lean/docs/104.md, checked): Lean covers only a randomized quasipolynomial algorithm for mean-payoff games plus a Truffet counterexample; stochastic and parity claims are manuscript-only (T1). Bands High -> Medium in every scenario (the engineering link runs through stochastic games, conditional). [skeptic] pathway P3 -> P4 (an algorithm is an upper bound, not a ceiling); wording fixed. | E-math-frontier (2026-10-07): band_2035 = band_2031 (T1 rule); S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-mhd-wellposedness",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Plateau reaches these results by the early 2030s, so S1 is High by 2035. Reconnection-rate bounds stay the hard part, and S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [skeptic] Description rescoped: the full 3D map contained the Navier-Stokes problem (visco-resistive MHD with B=0 is NS) yet was dated before it; rescoped node keeps years and bands. [skeptic+auditor] Euler blowup moved from hard prerequisite to soft (Hall- and electron-MHD results need no Euler input). [auditor] signpost no longer fires on the known Jeong-Oh Hall-MHD ill-posedness; internal-model calibration note rewritten; band semantics. | B-fix (integrator, 2026-10-07): S3 2027 -> 2028 (S3 equals S2 through 2027; capability.json). | E-math-frontier (2026-10-07): band_2035 S1 Medium -> High; S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-ns-unforced",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 Plateau cognition matches the base case of 2029-30, so S1 rises to Medium and S2 to High. Clay recognition is a separate, later node; robots add nothing, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [auditor] Retitled and redescribed: Clay breakdown statements (C)/(D) allow forcing, so the unforced question is not \"the Millennium problem\" as Clay states it; Clay status added. [skeptic+auditor+advocate] Euler blowup and the forced-NS check moved from hard prerequisites to soft (a regularity proof needs neither). [advocate, partly accepted] S1 >2031 -> 2030 (node's own 1-2 doubling arithmetic at 12-18 months) and S3 band Medium -> High (either answer counts; ~3-month doublings from 2028); S2 kept at 2029/Medium (discovery 2027-28 plus about a year for checking, consistent with the Euler node now at 2028). [auditor] band-semantics sentence. | R review (2026-10-07): band means established by check, not settled/Clay | E-math-frontier (2026-10-07): band_2035 S1 Low -> Medium, S2 Medium -> High; S4 = S3; Clay step split out as frontier-35-clay-unforced-ns."
+   }
+  },
+  {
+   "id": "verif-skolem-positivity",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Plateau reaches the base case 2029 capability about 2033, so S1 is 2033 and Low by 2035. Cheap cognition by 2033-35 lifts S2 to Medium; S3 stays Medium because full settlement may need Schanuel-type transcendence results (general), and S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [skeptic+auditor] Signpost fixed: Positivity is already decidable up to order 5 (Ouaknine-Worrell, SODA 2014), so it would have fired on a known result; order 6 needs breakthroughs in Diophantine approximation, a known barrier, so S2 band Medium -> Low (S3 stays Medium). Unsupported status sentence removed. [skeptic] pathway P3->P6 -> P3 (tool effect near nil). | E-math-frontier (2026-10-07): S1 >2031 -> 2033; band_2035 S2 Low -> Medium; S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-turbulence-rigorous",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Plateau needs 2-4 doublings plus posing, so 2034 and Low by 2035. Elsewhere the remaining risk is that the zeroth law fails or cannot be proved in the posed form, so bands stay Medium; S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [advocate, rejected] S2 2030 -> 2029, S3 2029 -> 2028 and S3 band High: unlike frontier-ns-unforced, this node needs one specific answer (the zeroth law and scaling hold for natural forcing), which may be false or unprovable in the posed form, and the statements must still be posed; the 2-4 doubling arithmetic gives capability late 2027 to late 2029, plus posing and checking. Years and bands kept. [auditor] band semantics added. | B-fix (integrator, 2026-10-07): reference to the merged node prop-les-convergence-theory redirected to frontier-certified-turbulent-cfd (B-engines-materials merge). | E-math-frontier (2026-10-07): S1 >2031 -> 2034; band_2035 = band_2031 (truth risk, not capability); S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-p-vs-np",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": ">2035",
+     "S3": ">2035",
+     "S4": ">2035"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "Beyond 2035 in every scenario. Recursive gets Low by 2035 because seven years of 3-month doublings might find techniques that evade the known barriers; the other scenarios stay Speculative, and robots add nothing.",
+    "needs_2035_review": false,
+    "revision_note": "E-math-frontier (2026-10-07): All >2031 -> >2035; band_2035 S3 and S4 Speculative -> Low; S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-hjb-guarantees",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Plateau delivers bespoke certificates by the early 2030s, so S1 is High by 2035. The same reachability math gives robots safety filters. Robots do not speed this node, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [skeptic] S1 2029 -> 2030, S2 2027 -> 2028, S3 2027 -> 2028: P1 lag (0-2 years) after its only prerequisite, and the signpost needs a published guidance study using the bound. NN-verification ceiling on deterministic residual bounds added. [advocate: HJB right at S2 2027, rejected for the lag.] [auditor] 104 status corrected (T3 only for the randomized mean-payoff part); both families labeled weak links. | E-math-frontier (2026-10-07): band_2035 S1 Medium -> High; S4 = S3; soft edge to robo-structured-factory-useful (safety certificates)."
+   }
+  },
+  {
+   "id": "frontier-rare-event-certified",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Plateau gets certified estimators about 2030 and adopts them by 2035, so S1 is High. Robot-run test rigs add data to the downstream reliability nodes; the methods here do not speed up, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [skeptic] Structural example replaced: the 0.65 -> 0.8 knockdown gain was already realized by NASA SBKF through tests (data gate), and 0.65 is not a monocoque launch-vehicle value (SP-8007 gives ~0.18-0.32 at R/t 500-1500); SBKF facts checked on the NASA and NTRS pages. S1 2029 -> 2030, S2/S3 2027 -> 2028 (signpost is an adoption event; P1 lag). [advocate] gate data -> adoption (\"data bind the answers, not the methods\"); hardware-rich operators sentence; soft edge to physclock-optimal-test-campaigns requested from the certification branch. [auditor] Starlink figure updated to match research/astro.json and verif.json; 374 marked conditional in why. | E-math-frontier (2026-10-07): band_2035 S1 Medium -> High; S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-scalable-global-certificates",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2033-35 base-case cognition is cheap and abundant, so S2 rises to High and S1 to Medium. Scale limits remain, and S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [skeptic+auditor] S2 band High -> Medium (P4 default is Medium at best; signpost far beyond the Jul 2026 CR3BP demonstration). [skeptic] S1 Medium -> Low; frontier-approx-ceilings hard -> soft (worst-case ceilings do not gate instance certificates); infra-verified-numerics added as soft (rigorous rounding of SDP output is needed but can be done outside Lean, VSDP-style, so not a hard prerequisite); unsupported \"few percent\" gain removed. [auditor] premise_tier. Soft edge into cap-design-optimization (advocate) requested from trunk. | B-fix (integrator, 2026-10-07): S3 2027 -> 2028 (S3 equals S2 through 2027). S3 High kept: its stated reason is near-free cognition from ~2029. | E-math-frontier (2026-10-07): band_2035 S1 Low -> Medium, S2 Medium -> High; S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-certified-pde-error",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Plateau gets guaranteed error bars on demand by the early 2030s, so S1 is High by 2035. Credit in standards stays a separate step, and S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [skeptic] Grid-study cost corrected (a three-level study adds ~15-50% to a fine-grid solve: 1 + 1/r^3 + 1/r^6 = 1.14 at r=2, 1.48 at r=sqrt 2; arithmetic checked). [auditor] signpost made method-level; the NASA-STD-7009 credit belongs to downstream adoption nodes (prop-cfd-auto-vv). With the certification alternative removed, the High band rates method availability (P1) and stays. [skeptic S2 2029/Medium and advocate S3 2027 both rejected: P1 nodes land one year after public applied math in S2 and S3.] [advocate] solver-agnostic bounds also certify emulator outputs (folded in here instead of a new frontier-certified-surrogates node); soft edge from frontier-euler-blowup-r3 (computer-assisted proof machinery). | E-math-frontier (2026-10-07): band_2035 S1 Medium -> High; S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-inverse-stability",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Recursive cognition can derive bespoke stability estimates for every coarse damage model, so S3 rises to High; logarithmic stability keeps S2 at Medium, and S1 rises to Medium. Robots carrying sensors make dense inspection cheaper, but S3 already reaches High, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [skeptic] catalog_families 368 and 369 dropped (Ball-Evans is approximation, hot spots is spectral, neither is inverse stability); band now grounded in known stability theory (Mandache 2001; Alessandrini-Vessella 2005; Rondi 2006) instead of the T1 drop; S3 2027 -> 2028 (data gate). [advocate, partly accepted] premise is the capability, not the T1 families; Lipschitz stability for finitely parametrized damage added; band increase to Medium/High/High rejected: the stability constants grow exponentially with the number of unknowns, so sensor-count answers are often impractical, and the signpost is flight use (P6); the consumer edges are soft, not hard. [auditor] 365 scope corrected. Pathway P5->P6 -> P1->P6. | E-math-frontier (2026-10-07): band_2035 S1 Low -> Medium, S3 Medium -> High; S4 = S3; soft edge from robo-aerospace-tolerance-work."
+   }
+  },
+  {
+   "id": "frontier-transport-certified",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 cheap cognition and new pull from lunar crew-shielding and orbital-compute electronics trades lift S2 to High and S1 to Medium. Nuclear data and radiobiology still dominate the error budget, and S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [skeptic+auditor] S2 band High -> Medium: the signpost (certified solver used in a design trade) is a P6 endpoint (default Low) with weak pull (DRACO cancelled 2025; crew dose already validated blind). [skeptic] S1 Medium -> Low; S3 2027 -> 2028 (data and adoption gates do not compress before 2028); \"expert-scarce rather than deep\" replaced with the open pieces. | E-math-frontier (2026-10-07): band_2035 S1 Low -> Medium, S2 Medium -> High; S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-xc-certified",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 cheap cognition and compute lift S2 to High and S1 to Medium. The reference data come from computation, so robot labs add nothing and S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [skeptic+advocate] Rescoped to statistically certified (conformal or Bayesian) error bars against a stated reference method; \"provable\" two-sided bounds are not reachable by 2031. [advocate] cap-physics-theory hard -> soft and cap-applied-math added as hard (class-restricted statistical certification is applied statistics plus compute-generated reference data); S1 >2031 -> 2030, S2 2029 -> 2028, S3 band Medium -> High. [skeptic] frontier-applied-posing hard -> soft (defining a chemical class is domain judgment). [auditor] hardness ceilings marked conditional; 263 scope corrected. | E-math-frontier (2026-10-07): band_2035 S1 Low -> Medium, S2 Medium -> High; S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-math-unbinds",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Plateau reaches the base case 2029 capability about 2033, so S1 is 2033 and Medium by 2035; the base case rises to High as cognitive work becomes cheap and abundant. Robots do no analysis, so S4 equals S3; suppliers and certification follow as new nodes.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [skeptic alternative + advocate] Signpost rescoped to design iteration and trade studies under the program's own sign-off, so it needs no certification credit and the Medium cap does not apply; certification use of AI proofs is infra-tool-qualification (added as a soft link). Years and bands kept: S2 Medium (advocate High rejected: sweeping organizational claim over seven correlated hard prerequisites, two adoption-gated), S3 High (skeptic and auditor Medium rested on the certification cap, removed by the rescope). [skeptic+advocate] \"halves\" arithmetic replaced: S2 is 5-10x on cognitive work, and hours are not program cost. [auditor] lettered position citation fixed. Soft edges to trunk outcomes requested from trunk. | E-math-frontier (2026-10-07): S1 >2031 -> 2033; band_2035 S1 Low -> Medium, S2 Medium -> High; S4 = S3; extended by frontier-35-math-supply-chain and frontier-35-certification-unbinds."
+   }
+  },
+  {
+   "id": "frontier-ns-clay-cd-ruling",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "By 2035 the publication and two-year rules have run for years, so a Clay statement is about as likely as not in every scenario. The clock is institutional, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-math-frontier: [auditor] New node: separates the Clay (C)/(D) ruling on the forced claim from the unforced question. Band lowered from the auditor's Medium to Low (publication plus two-year rule plus unhurried review plus no claimant; 1.0x institutional clock). Clay facts checked (implicator.ai). | R review (2026-10-07): dash normalization | E-math-frontier (2026-10-07): band_2035 Low -> Medium in all scenarios; S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-sequence-design-limits",
+   "patch": {
+    "earliest_year": {
+     "S1": "2027",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Checked by 2027 in every scenario, so 2032-35 changes nothing. S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "C-final integrator (2026-10-07): new node from C-disciplines, accepted with corrections: the odd-length Barker case is classical (Turyn-Storer 1961), so the proposed 'conditional (T1)' dependence was removed; the merit-factor implication is marked (general) because the repo scope note does not state it; title shortened from 'Binary code limits settled: Barker ends at 13, merit factors are unbounded (checked)'. | E-math-frontier (2026-10-07): band_2035 = band_2031; S4 = S3."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "id": "frontier-35-clay-unforced-ns",
+   "title": "Clay recognizes an AI answer to unforced Navier–Stokes",
+   "tier": 1,
+   "kind": "math",
+   "description": "The Clay Mathematics Institute states that an AI-produced proof settles the unforced 3D Navier–Stokes problem, either global smoothness (statements A/B) or blowup from smooth data with zero force, or changes its Millennium Problems listing to say so. Clay rules need publication in a qualifying outlet, two years, and general acceptance. Engineering effect: nil.",
+   "status_oct2026": "No unforced claim exists. Clay lists Navier–Stokes as unsolved, and its president called the evaluation of the forced claim 'deliberately unhurried'. OpenAI says it will not claim the prize for the forced result. Petrillo-Glimm (Sep 20, 2026) proposed a target for a programmatic unforced search.",
+   "catalog_families": [],
+   "prerequisites": [
+    "frontier-ns-unforced"
+   ],
+   "accelerated_by": [
+    "frontier-ns-clay-cd-ruling"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P5 (science only)",
+   "earliest_year": {
+    "S1": "2033",
+    "S2": "2032",
+    "S3": "2031",
+    "S4": "2031"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "premise_tier": "n/a (target unproven; forced precursor T3)",
+   "why": "Chain: an unforced answer passes outside checks (frontier-ns-unforced: S1 2030, S2 2029, S3 2028), then refereed publication (about a year), then the two-year rule and general acceptance, then a Clay statement. That puts the earliest statement about three years after the check: 2031 in S3, 2032 in S2, 2033 in S1. The institutional clock runs at 1.0x in every scenario; only the start date differs. Bands by 2035 are Medium in S2-S4: either answer counts, and a zero-force result avoids the force-decay questions that cloud the forced claim (frontier-ns-clay-cd-ruling, soft). Clay may still wait, or never rule without a claimant, which keeps it below High. Plateau settles the question late, so Low. This is the event readers will hear as 'AI solved a Millennium problem'. It changes no engine, heat shield or orbit (tl-position-2), and robots add nothing.",
+   "strongest_case_small": "Clay may never rule if no one claims the prize, and general acceptance of a long AI-produced proof can take many years. Even a ruling changes no CFD code, since codes already regularize.",
+   "signpost": "Refereed publication of an unforced Navier–Stokes proof (either answer) starts the two-year clock; then a Clay statement or a change to its Millennium Problems listing.",
+   "domain": "frontier",
+   "note_2035": "New for the 2035 horizon: the Clay clock runs out about three years after the outside check, so the earliest year is 2031-33. The clock is institutional, so S4 equals S3.",
+   "needs_2035_review": false,
+   "revision_note": "E-math-frontier (2026-10-07): new node. Extends the famous-problem chain past frontier-ns-unforced; frontier-ns-clay-cd-ruling keeps the forced claim."
+  },
+  {
+   "id": "frontier-35-math-supply-chain",
+   "title": "Certified math on demand reaches the supplier base",
+   "tier": 7,
+   "kind": "outcome",
+   "description": "Tier-2 and tier-3 space suppliers (structures, propulsion components, avionics boxes, thermal hardware) routinely produce analysis with AI-derived proofs, guaranteed error bars or certified rare-event bounds and deliver it in data packages to primes and operators. This is the second wave after the leading firms (frontier-math-unbinds).",
+   "status_oct2026": "Suppliers run commercial FEA and CFD tools with small specialist teams (general). Research-grade math models are internal to the labs. Export-control (ITAR/EAR) and defense cybersecurity rules limit which models may see supplier technical data (general).",
+   "catalog_families": [],
+   "prerequisites": [
+    "frontier-math-unbinds",
+    "capability-controlled-data-access"
+   ],
+   "accelerated_by": [
+    "capability-open-weights-math",
+    "capability-cost-collapse",
+    "physclock-credibility-evidence-standard"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P1",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2032",
+    "S3": "2031",
+    "S4": "2031"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Medium",
+    "S3": "High",
+    "S4": "High"
+   },
+   "premise_tier": "n/a",
+   "why": "Diffusion lags the leaders. Suppliers have small analysis teams, older toolchains, fixed-price contracts and export-control limits on which models may see their data. They adopt after primes and operators (frontier-math-unbinds: S2 2029, S3 2028) and after accredited models run on controlled networks (capability-controlled-data-access: 2028 in S2 and S3). A three-year lag gives S2 2032. S3 is 2031 because near-free cognition from about 2029 makes the service cheap for small firms. Plateau reaches the leaders' step only about 2033, so suppliers fall after 2035. Primes speed adoption when they ask for certified bounds in supplier deliverables, which needs a shared rulebook (physclock-credibility-evidence-standard, soft); open-weight models at research level (soft) let small firms run them on their own networks. Effect (judgment): the same 8-14% of engineering hours as at the leaders, plus fewer late design changes from interface rework. Robots do no analysis, so S4 equals S3.",
+   "strongest_case_small": "Many suppliers build to print, and the prime owns most analysis, so supplier math was never the bottleneck. Small firms adopt what customers demand, and liability keeps human sign-off.",
+   "signpost": "A prime, NASA or Space Force contract data requirement asks suppliers for analysis with certified error bounds or machine-checked derivations; or an industry or agency survey finds most surveyed space suppliers delivering AI-produced analysis.",
+   "domain": "frontier",
+   "note_2035": "New for the 2035 horizon: the second wave after the leading firms lands about 2032 in the base case. Robots do no analysis, so S4 equals S3.",
+   "needs_2035_review": false,
+   "revision_note": "E-math-frontier (2026-10-07): new node. Extends frontier-math-unbinds to the supply chain in 2032-35."
+  },
+  {
+   "id": "frontier-35-certification-unbinds",
+   "title": "Math expertise stops limiting certification",
+   "tier": 7,
+   "kind": "outcome",
+   "description": "A certifying authority (a NASA technical authority, the FAA, ESA or Space Force) accepts AI-produced analysis with machine-checked derivations or guaranteed bounds as evidence for a crewed or otherwise certified vehicle. Its specialists audit a sample of the analysis instead of checking or repeating all key stress, thermal and GNC analyses, so specialist review stops setting the pace of certification.",
+   "status_oct2026": "NASA-STD-7009B (Mar 2024) requires a credibility assessment for models and simulations and has no route for AI-produced analysis. DO-333 covers formal methods in airborne software only (general). No authority has accepted AI-produced analysis as certification evidence.",
+   "catalog_families": [],
+   "prerequisites": [
+    "frontier-math-unbinds",
+    "physclock-credibility-evidence-standard",
+    "infra-tool-qualification"
+   ],
+   "accelerated_by": [
+    "capability-cheap-trust",
+    "physclock-regulator-ai-capacity"
+   ],
+   "binding_gate": "regulatory",
+   "pathway": "P1->P2",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2033",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "premise_tier": "n/a",
+   "why": "The design-side outcome (frontier-math-unbinds) runs under each program's own sign-off. Certification is where scarce specialists still gate the schedule. It needs a rulebook for AI-made analysis (physclock-credibility-evidence-standard: S2 2029, S3 2028), acceptance of AI-produced proofs (infra-tool-qualification: S2 2030, S3 2029) and then one certification cycle on a vehicle, about three years. Hence S2 2033 and S3 2032. Plateau gets the rulebook and proof acceptance late, so the node falls after 2035. Bands: regulator acceptance with no named mechanism in motion caps 2035 at Medium (S3, S4). S2 is Low because only about two years remain after its earliest date. Institutional clocks set the date, so robots give no S4 credit. Effect: shorter review cycles for crewed and certified vehicles; tests and flights do not shorten (tl-position-4).",
+   "strongest_case_small": "Certifiers answer for crew safety and may keep human re-derivation of critical analyses whatever the tools. Review time is mostly test evidence, boards and paperwork, so removing math checks saves little calendar time.",
+   "signpost": "A NASA technical authority, the FAA or ESA accepts a certification analysis package for a crewed vehicle in which AI-produced, machine-checked analysis replaces independent human re-analysis, with humans auditing a sample; or a NASA-STD-7009 revision that allows it.",
+   "domain": "frontier",
+   "note_2035": "New for the 2035 horizon: certification follows the design-side outcome by about four years. Institutional clocks bind, so S4 equals S3.",
+   "needs_2035_review": false,
+   "revision_note": "E-math-frontier (2026-10-07): new node. Dates the certification use that frontier-math-unbinds left to infra-tool-qualification inside the 2035 horizon."
+  }
+ ],
+ "add_edges": [],
+ "add_soft_edges": [
+  {
+   "from": "robo-aerospace-tolerance-work",
+   "to": "frontier-inverse-stability"
+  },
+  {
+   "from": "frontier-hjb-guarantees",
+   "to": "robo-structured-factory-useful"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "math-frontier",
+   "nodes": [
+    "frontier-35-clay-unforced-ns",
+    "frontier-35-math-supply-chain",
+    "frontier-35-certification-unbinds"
+   ],
+   "spine": [
+    "frontier-35-clay-unforced-ns",
+    "frontier-35-math-supply-chain",
+    "frontier-35-certification-unbinds"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "math-frontier",
+   "patch": {
+    "thesis": "If AI settles famous fluid problems, the theorems change almost no engine, heat shield or orbit. Engineers get proof machinery and on-demand error bars from about 2028 (base case). Math stops limiting leading programs about 2029 and suppliers about 2032; certification lags further. Robots (S4) move nothing here.",
+    "band_note": "For tier-1 math nodes, band_2031 is the judged chance the result is established (T4 Lean check or T2+ expert acceptance) by 2031; the engineering implication is judged separately in why (usually nil to Low, via P5). For tier-2 applied nodes it is the chance the capability is available and used as the signpost describes. Bands are judgments, not computed probabilities. band_2035 has the same meaning at end-2035.",
+    "revision_note": "B-math-frontier: [advocate, partly] thesis now dates tools to 2028 and names the computer-assisted-proof spillover; [auditor] reader hook corrected (Ilin: 229 prompts, three failure modes) and band-semantics note added. | C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Trunk nodes ['cap-research-math-internal', 'verif-independent-check'] are shown as the chain's entry anchors (also listed in roots); they stay members of the trunk branch only. No spine nodes dropped. The famous-problem nodes end at tier 1 by design: they are pure-math P3 markers with no hardware unlock. | E-math-frontier (2026-10-07): extended to 2035 and S4. Legacy >2031 years resolved (7 scenario-years). S4 equals S3 on every node: the branch is cognitive and robots do no mathematics. Three nodes added (Clay recognition of unforced Navier-Stokes, supplier diffusion, certification); thesis updated; reader hook kept."
+   }
+  }
+ ],
+ "notes": "math-frontier extension to 2035 and S4. Resolved >2031: verif-skolem-positivity S1 2033, frontier-turbulence-rigorous S1 2034, frontier-math-unbinds S1 2033, frontier-p-vs-np >2035 in all four. No year moves for years already <=2031. S4 = S3 for every node in years and both bands: every node is cognitive, formalization-, adoption- or institution-bound, so the four-condition S4 rule gives no credit. band_2035 mostly lifts S1 one step (Plateau cognition in 2035 is about base case 2029-30) and S2 one step where cognition, not truth risk or regulation, was the limit. T1 confirmation nodes stay Medium (T1 rule). frontier-turbulence-rigorous stays Medium (truth risk). frontier-ns-clay-cd-ruling rises to Medium in all scenarios (institutional clock has run). New nodes: frontier-35-clay-unforced-ns (tier 1), frontier-35-math-supply-chain (tier 7), frontier-35-certification-unbinds (tier 7, regulatory cap Medium). Soft edges: robo-aerospace-tolerance-work -> frontier-inverse-stability (robot-carried sensors make dense inspection cheap); frontier-hjb-guarantees -> robo-structured-factory-useful (reachability safety certificates, the main math channel into robotics per the S4 analysis). Both robo edges are skipped as missing ends until the robots draft is applied. Cross-branch dependency: frontier-35-certification-unbinds needs infra-tool-qualification (verified-autonomy) and physclock-credibility-evidence-standard (certification); S1 is >2035, so any S1 resolution there is safe. S2/S3 assume those stay at 2030/2029 and 2029/2028."
+}

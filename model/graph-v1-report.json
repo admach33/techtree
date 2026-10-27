@@ -1,0 +1,45 @@
+{
+ "dangling": {},
+ "dangling_soft": {},
+ "monotonic_violations": [],
+ "cycles": [],
+ "unparsed_years": [],
+ "bad_bands": [],
+ "late_but_likely": [],
+ "scenario_order_violations": [],
+ "branch_unknown_nodes": [],
+ "summary": {
+  "n_nodes": 345,
+  "n_hard_edges": 656,
+  "n_soft_edges": 183,
+  "by_tier": {
+   "0": 24,
+   "1": 32,
+   "2": 68,
+   "3": 41,
+   "4": 55,
+   "5": 46,
+   "6": 45,
+   "7": 34
+  },
+  "unlocked_by_2031": {
+   "S1": 204,
+   "S2": 320,
+   "S3": 333
+  },
+  "n_branches": 12,
+  "counts": {
+   "dangling": 0,
+   "dangling_soft": 0,
+   "monotonic_violations": 0,
+   "cycles": 0,
+   "unparsed_years": 0,
+   "bad_bands": 0,
+   "late_but_likely": 0,
+   "scenario_order_violations": 0,
+   "branch_unknown_nodes": 0
+  }
+ },
+ "apply_log": [],
+ "autofixes": []
+}

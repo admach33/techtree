@@ -1,0 +1,190 @@
+{
+ "stats": {
+  "n_nodes": 360,
+  "by_domain": {
+   "astro": 28,
+   "auton": 30,
+   "capability": 24,
+   "comms": 29,
+   "frontier": 26,
+   "hyper": 28,
+   "materials": 30,
+   "physclock": 25,
+   "plasma": 30,
+   "prop": 28,
+   "science": 30,
+   "struct": 30,
+   "verif": 22
+  },
+  "by_tier": {
+   "0": 24,
+   "1": 39,
+   "2": 71,
+   "3": 42,
+   "4": 56,
+   "5": 48,
+   "6": 46,
+   "7": 34
+  },
+  "by_gate": {
+   "formalization": 30,
+   "cognitive": 49,
+   "data": 57,
+   "adoption": 50,
+   "qualification": 31,
+   "launch": 26,
+   "regulatory": 24,
+   "capital": 30,
+   "experiment": 43,
+   "fabrication": 20
+  },
+  "band_by_scenario": {
+   "S1": {
+    "Medium": 138,
+    "High": 38,
+    "Low": 138,
+    "Speculative": 46
+   },
+   "S2": {
+    "High": 160,
+    "Medium": 139,
+    "Low": 48,
+    "Speculative": 13
+   },
+   "S3": {
+    "High": 178,
+    "Medium": 138,
+    "Low": 36,
+    "Speculative": 8
+   }
+  },
+  "unlocked_by_2031": {
+   "S1": 217,
+   "S2": 334,
+   "S3": 348
+  },
+  "top_fanout": [
+   [
+    88,
+    "cap-applied-math"
+   ],
+   [
+    39,
+    "cap-research-math-public"
+   ],
+   [
+    32,
+    "cap-research-math-internal"
+   ],
+   [
+    25,
+    "cap-physics-theory"
+   ],
+   [
+    23,
+    "verif-independent-check"
+   ],
+   [
+    22,
+    "cap-autoformalization"
+   ],
+   [
+    19,
+    "infra-verified-numerics"
+   ],
+   [
+    16,
+    "cap-design-optimization"
+   ],
+   [
+    13,
+    "cap-autonomous-labs"
+   ],
+   [
+    9,
+    "verif-fdir-model-checking"
+   ],
+   [
+    9,
+    "hyper-flight-data-pipeline"
+   ],
+   [
+    8,
+    "capability-engineering-adoption"
+   ],
+   [
+    7,
+    "verif-spec-engineering"
+   ],
+   [
+    7,
+    "verif-code-proof-agents"
+   ],
+   [
+    7,
+    "infra-mathlib-applied"
+   ],
+   [
+    6,
+    "struct-test-data-commons"
+   ],
+   [
+    6,
+    "materials-learned-functionals"
+   ],
+   [
+    5,
+    "plasma-swx-data-assimilation"
+   ],
+   [
+    5,
+    "physclock-optimal-test-campaigns"
+   ],
+   [
+    5,
+    "infra-tool-qualification"
+   ],
+   [
+    5,
+    "astro-formal-astrodynamics-library"
+   ],
+   [
+    4,
+    "verif-runtime-assurance"
+   ],
+   [
+    4,
+    "verif-closed-loop-guarantees"
+   ],
+   [
+    4,
+    "struct-certified-uq-margins"
+   ],
+   [
+    4,
+    "materials-mlip-certified-uq"
+   ]
+  ],
+  "n_dangling_refs": 0,
+  "n_monotonic_violations": 0
+ },
+ "files": [
+  "astro.json",
+  "auton.json",
+  "capability.json",
+  "comms.json",
+  "frontier.json",
+  "hyper.json",
+  "materials.json",
+  "physclock.json",
+  "plasma.json",
+  "prop.json",
+  "science.json",
+  "struct.json",
+  "verif.json"
+ ],
+ "duplicate_ids": {},
+ "dangling": {},
+ "monotonic_violations": [],
+ "unparsed_years": []
+}

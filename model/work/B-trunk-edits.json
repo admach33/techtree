@@ -1,0 +1,616 @@
+{
+ "update": [
+  {
+   "id": "cap-research-math-internal",
+   "patch": {
+    "why": "About 9% of posed problems survived into result families; cost is roughly three hours of Pro-tier thinking compute per result, and OpenAI put its ten August results at ~$2,000 of tokens at GPT Sol API rates (~$200 per published success on lab-chosen problems; failed attempts are not counted, so at ~9% survival the cost per accepted result could be ~10x higher). The difficulty ladder moved from IMO gold (Jul 2025) to Erdos-type open problems (spring 2026) to famous conjectures (UGC, forced Navier-Stokes blowup, Sep-Oct 2026) in about 15 months. Every downstream node in the space tree starts here.",
+    "revision_note": "B-trunk resolver (2026-10-07): Auditor + skeptic: $200-per-result figure qualified (selected successes, failed attempts excluded). Year and band unchanged."
+   }
+  },
+  {
+   "id": "cap-autoformalization",
+   "patch": {
+    "status_oct2026": "Exists for discrete and algebraic math. openai/math formalized the main results of 162 papers by agent (unchecked, T3). Anthropic's FLT formalization (about 13M lines of Lean, 29,500 theorems in the final proof, 11 days) passed Buzzard's Comparator run (Sep 4, 2026). Meta's ATLAS reportedly autoformalized 26 textbooks into ~630,000 lines of Lean using 183B+ tokens (May 2026, secondary report via 36Kr). Weak where Mathlib is thin: PDE 3 of 16 families, dynamics 2 of 12, topology 1 of 18.",
+    "calibration_note": "A3: Premise label only: nothing in openai/math is above T3 as of 2026-10-07; the T4 label applies only to non-openai/math evidence. Year and band unchanged (capability.json anchor). B-trunk: band set by the capability.json scenario parametrization (S2 is the client premise), not by the fw-horizon-scorecard pathway default (P2 Medium); this node is a capability milestone, not an implication of a catalog result.",
+    "revision_note": "B-trunk resolver (2026-10-07): Auditor fact fixes: FLT size is about 13M lines per Anthropic (13.4M contradicted); Meta ATLAS named. Calibration note for P2-default override added. Year and band unchanged."
+   }
+  },
+  {
+   "id": "verif-independent-check",
+   "patch": {
+    "earliest_year": {
+     "S1": "2026"
+    },
+    "why": "A Comparator run takes about a minute for small targets but exceeded a 7 GiB memory cap on others (Kingy AI, Oct 6); the statement audit needs a domain expert for days per family. Headline Lean families (102, 362) should reach T4 within one to three months; the long tail of 127 formalized families and the 245 unformalized ones takes years. Under S2, AI-assisted statement audits speed the tail. Headline checks happen in the shared present and do not depend on the scenario's capability curve, so S1 equals S2 and S3.",
+    "calibration_note": "B-trunk: band set by the capability.json scenario parametrization (S2 is the client premise), not by the fw-horizon-scorecard pathway default (P2 Medium); this node is a human-bandwidth milestone, not an implication of a catalog result.",
+    "revision_note": "B-trunk resolver (2026-10-07): Auditor: S1 2027 -> 2026 (human checks of a released repo are scenario-independent); Comparator run-time claim corrected to the only outside run; P2-override note added."
+   }
+  },
+  {
+   "id": "cap-research-math-public",
+   "patch": {
+    "why": "The reveal-to-release lag for Astra was about five weeks (Aug 1 reveal, Sep 4 public), but the most capable versions get held back for safety (GPT-6.1 Astra) or restricted (Mythos), and US pre-release review adds 12-30 days. Under S2 a public model matches the Oct-2026 internal level 6-12 months out (mid-to-late 2027); under S1, 12-18 months (2028). At least four labs compete (OpenAI, Anthropic, Google DeepMind, SpaceXAI with 35-58-day Grok cadence) and open-weight followers trail by about a year, which forces release. The binding gate is release governance (lab safety holds plus government review), coded here as regulatory. Regulator cap not applied: government pre-release review (12-30 days) delays release but does not accept or certify results, and the public-release dependency is the scenario definition itself (S1 2028, S2/S3 2027); GPT-6 Astra (public Sep 4 2026, FrontierMath Erdos 2/68) is a partial public equivalent.",
+    "revision_note": "B-trunk resolver (2026-10-07): Auditor: explains why the regulatory-gate and public-model caps are not applied to this root node. Year and band unchanged."
+   }
+  },
+  {
+   "id": "cap-applied-math",
+   "patch": {
+    "premise_tier": "n/a (capability premise); 362 and 365 are [L] T3; 363, 364 and 372 are T1 (conditional), supporting evidence only",
+    "description": "Engineers routinely get, from AI, well-posedness and stability analyses of their own models, numerical schemes with certified error bounds, uncertainty quantification with guarantees, and optimal-control results with proofs, for low-dimensional and reduced models; certified bounds for realistic 3D multiphysics remain too loose to use.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: premise label split so the T1 rule does not misfire; scope limited to reduced models (node's own strongest case). Skeptic: Lean is needed for trust, not to produce applied math, so cap-autoformalization hard -> soft. Year and band unchanged."
+   }
+  },
+  {
+   "id": "capability-controlled-data-access",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium"
+    },
+    "binding_gate": "adoption",
+    "status_oct2026": "GenAI.mil is available to the ~3M-strong DoD workforce, with ~1.7M users onboarded, with a ChatGPT-based 'ChatGPT Mil', Grok and Gemini (Fortune, Sep 1, 2026; ~500,000 power users per DefenseScoop, Sep 23); OpenAI, Google, xAI and others were cleared for classified networks (May 2026). The DoD designated Anthropic a supply-chain risk, upheld by the DC Circuit on Sep 25, 2026, barring contractors from using Claude on DoD work - the lab behind the only Comparator-checked mega-formalization (FLT). Civil NASA is unaffected: JPL used Claude to plan two Perseverance drives (Dec 2025).",
+    "why": "Much space engineering data (propulsion, GNC, hypersonics, defense payloads) is ITAR-controlled, and P1 works best when teams pose problems with real data. Accredited government clouds have trailed commercial releases by months (general). No US export control restricts API access to closed models today; controls target chips (general), and policy can still remove a lab overnight. The research-math tier needs its own IL6/TS accreditation after public release (mid-to-late 2027 in S2, 2028 in S1), so S2/S3 2028 and S1 2029. Regulator cap not applied and gate coded as adoption: labs already hold classified-network clearances (May 2026), so accrediting a newer model is a delay, not acceptance of AI results. S1 is Medium because public access arrives only in 2028 plus the accreditation lag.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: years +1 (accredited clouds trail public release by months; Anthropic exclusion removes a candidate). Auditor: GenAI.mil figure corrected (available to ~3M, 1.7M users); S1 band High -> Medium; regulatory gate with High band resolved by recoding the gate as adoption with an explicit note. Its hard edge into capability-engineering-adoption is now soft."
+   }
+  },
+  {
+   "id": "capability-cost-collapse",
+   "patch": {
+    "status_oct2026": "Internally ~3 hours of Pro-tier compute per result; OpenAI put Astra's ten August results at ~$2,000 at GPT Sol API rates (~$200 per published success; failed attempts excluded). GPT-6 Astra is public in ChatGPT and the API (Sep 2026), with a new $500/month Pro tier and a cheaper GPT-6.1 Sol reported as near-Astra at a fifth of the price (press). Epoch: price for a fixed capability level fell 9-900x per year in 2022-25; AI chip price-performance improves ~49%/yr.",
+    "why": "About $200 per published result on lab-chosen problems; failed attempts are not included (about 9% of posed problems survived in openai/math), so per accepted result the cost could be about $2,000, and 1,000 results a year cost ~$0.2-2M (one to ten engineers) before checking, which dominates either way. Illustratively, an Oct-2026-grade result falls to ~$20-70 by 2028 in S1 (about 2-4x a year, slower than Epoch's historical 9-900x) and ~$1-10 in S2 (about 6-20x a year). Price stops being a gate for math in every scenario; access, trust and integration remain.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: per-result cost qualified (selected successes; ~10x higher per accepted result; checking dominates). Auditor arithmetic: S1 rate restated to match ~$20-70 by 2028. Advocate: soft edges to adoption and dev-capital-cut so the node is no longer dangling. Year and band unchanged."
+   }
+  },
+  {
+   "id": "physclock-flight-test-cadence",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2028",
+     "S3": "2028"
+    },
+    "tier": 5,
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "pathway": "P7 (exogenous)",
+    "status_oct2026": "Starship has flown 14 integrated flights since Apr 2023: five in 2025 (intervals 48-91 days) and three in 2026 (Flight 12 May 22, Flight 13 Jul 24, Flight 14 Sep 28; 63-66 days apart) after a ~7-month gap for the V2-to-V3 change. Flight 14 was the first orbital flight and deployed 26 Starlink V3 satellites. The FAA authorized up to 25 Starbase launches a year in 2025 (general); LC-39A's first Starship launch is targeted for around year-end in the best case (Mach33).",
+    "why": "Cadence is set by vehicle build and pad turnaround: about nine weeks per V3 loop with one active pad. A second Starbase pad, LC-39A and first reflights (expected early 2027) bring the interval to 3-4 weeks, giving 12 or more flights in 2027. AI barely changes this: Flight 12 went from Musk's 'about 6 weeks' (Jan 26 2026) to May 22, about 2.8 times the stated interval, because of V3 hardware readiness and a Starbase component failure in April, not analysis. Starship has never met a yearly flight plan: 2, 4, 5 and 3 flights (2023 to Oct 2026), 5 against 25 authorized in 2025. Twelve in 2027 needs about 3x the 2026 rate, a debut of LC-39A (not yet launched) and roughly a dozen new ships before ship reuse arrives, which makes 2027 about a coin flip, so the central year is 2028.",
+    "strongest_case_small": "Two of three V3 boosters (Flights 12, 13) failed in landing burns and Flight 14 expended both stages by plan, and a pad-damaging failure (as New Glenn suffered on May 28 2026) costs 3-12 months. Only five of the 25 authorized Starbase flights flew in 2025.",
+    "signpost": "Starship flight count in 2027 (12 or more confirms); LC-39A debut by mid-2027; sustained intervals below 30 days. Flight 15 (NET Oct 19 2026 per press) would be a ~21-day interval.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: 2027 -> 2028 in all scenarios (slip-ratio table; 2,4,5,3 flights per year; 12 in 2027 is about a coin flip). Auditor: tier 0 -> 5 (a launch cadence is not an AI capability), stale strongest-case and engine-out wording fixed, interval range 48-91, exogenous P7 label. Advocate kept cadence unchanged without a counter-mechanism. Band unchanged. Cascade: physclock-test-loop-monthly S3 -> 2028."
+   }
+  },
+  {
+   "id": "cap-autonomous-labs",
+   "patch": {
+    "status_oct2026": "Early. Periodic Labs launched with a $300M seed (Sep 30, 2025); Radical AI and others run self-driving materials labs; DOE's Genesis Mission, which includes autonomous laboratories at national labs (general), selected its first 278 projects on Jul 22, 2026 (largest a three-year $60M nuclear-energy award); the widely reported ~$5B figure is a multi-agency commitment headline, not DOE lab money (unverified). No space-qualified material has come out of a closed loop yet.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: research-math-public hard -> soft (labs such as Periodic Labs and Radical AI run without it; the node itself says cognition is not the lab bottleneck). Auditor: Genesis Mission figure corrected. Year and band unchanged."
+   }
+  },
+  {
+   "id": "cap-design-optimization",
+   "patch": {
+    "description": "AI runs end-to-end multiphysics design optimization (aero-thermal-structural-propulsion) with constraint satisfaction and model-relative error bounds inside validated envelopes (physical margins still come from test), producing designs that pass existing engineering review gates.",
+    "why": "EDA shows the pattern: when the simulator is trusted and the objective is checkable, agents already do weeks of design work. Space multiphysics simulators are less trusted (turbulence, ablation, combustion), so guarantees hold only inside validated envelopes. Under S2, applied math (2027) and engineering-grade agents give design loops by 2028; learned emulators speed the loops but are not required (EDA agents and adjoint CFD optimization run on the real solvers); under S1, 2030.",
+    "calibration_note": "B-trunk: band set by the capability.json scenario parametrization (S2 is the client premise), not by the fw-horizon-scorecard pathway default (P1->P6; P6 default Low); this node is a capability milestone, not an implication of a catalog result.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: guarantees are model-relative (optimizers exploit model error), and emulators are not required, so learned-emulators hard -> soft. Auditor: pathway-override note. Years and bands unchanged (S2 2028 is the client premise)."
+   }
+  },
+  {
+   "id": "capability-horizon-compounding",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S3": "2028"
+    },
+    "band_2031": {
+     "S1": "High"
+    },
+    "why": "Parametrization: start at ~40 h (one work-week) in Oct 2026, one 7-month doubling past the measured 16-20 h. S1 doubles every 12-18 months: ~76 h end-2027, ~230 h end-2029, ~700 h end-2031 (~4 work-months). S2 doubles every 6-9 months: ~150 h end-2027 (range 120-200), ~1,300 h end-2029, ~12,000 h end-2031 (2-26 work-years across the 6-9 month range). S3 follows S2 to end-2027 then doubles every ~3 months, so the metric stops being meaningful around 2029. The month threshold is the point where a whole applied-math project (model, analysis, proof, code) fits in one autonomous run. Crossing ~170 h needs 2.09 doublings from ~40 h: about mid-2029 in S1 (25-38 months), about early 2028 in S2 (13-19 months; ~150 h at end-2027), and the same in S3, which equals S2 until 2028. S1 reaches ~700 h by 2031, so High.",
+    "revision_note": "B-trunk resolver (2026-10-07): Advocate + auditor: S1 2030 -> 2029 and S1 Medium -> High (the node's own parametrization crosses 170 h in 2029 and reaches ~700 h by 2031). Auditor + skeptic: S3 2027 -> 2028 (S3 equals S2 until 2028). Advocate's S2 2027 rejected: it relies on METR's ~4-month doubling, faster than S2's 6-9 months."
+   }
+  },
+  {
+   "id": "capability-open-weights-math",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S3 2027 -> 2028 (open weights trail public models ~12 months; S3 equals S2 until 2028). Advocate: soft edges to adoption (on-premises ITAR use) and new entrants (foreign access)."
+   }
+  },
+  {
+   "id": "infra-mathlib-applied",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "why": "Agents now write library code at FLT scale, so proof labor is not the gate; good abstractions and community review are. Under S2, agent-built applied libraries mature in 2027 and are integrated into Mathlib by 2028; under S1, review bandwidth stretches this to 2030. Every P2 chain that touches continuous physics (GNC stability, plasma, CFD error bounds) waits on this node. Companion libraries may reach partial coverage in 2027 (three groups each built Sobolev theory in Lean in 2026; Urban built 130k lines of formal topology in two weeks for ~$100, per frontier research), but routine formalization of applied results needs reviewed, maintained coverage, which the S2 premise dates to 2028; S3 equals S2 until 2028, and review does not compress before the recursion starts.",
+    "calibration_note": "B-trunk: band set by the capability.json scenario parametrization (S2 is the client premise), not by the fw-horizon-scorecard pathway default (P2 Medium); this node is a capability milestone, not an implication of a catalog result.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S3 2027 -> 2028. Advocate's S2 2027 (companion libraries) rejected: S2 2028 for applied Lean libraries is the client premise; the evidence is kept in why as a 2027 signpost. P2-override note added."
+   }
+  },
+  {
+   "id": "infra-verified-numerics",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "calibration_note": "B-trunk: band set by the capability.json scenario parametrization (S2 is the client premise), not by the fw-horizon-scorecard pathway default (P2 Medium); this node is a capability milestone, not an implication of a catalog result.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S3 2027 -> 2028 (a 1-2 year integration job cannot finish in the year its prerequisite cap-applied-math appears; S3 equals S2 until 2028). P2-override note added."
+   }
+  },
+  {
+   "id": "cap-physics-theory",
+   "patch": {
+    "earliest_year": {
+     "S3": "2029"
+    },
+    "band_2031": {
+     "S3": "Medium"
+    },
+    "calibration_note": "A3: Premise label only: band is set by the shared capability parametrization (Low/Medium/High), not by families 364, 278 and 263; relabelled so the T1 rule does not misfire. Year and band unchanged (capability.json anchor). B-trunk: S3 High -> Medium and S3 2028 -> 2029: the P6 default is Low, validation data run on the physical clock (experiments 1.3-1.5x in S3), and blind validation in a production code takes 1-2-year V&V cycles that cannot fit in 2028 when S3 only begins to diverge. S2/S3 Medium stays one band above the P6 default because the band is set by the capability parametrization.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic (+ auditor P6-override flag): S3 2028 -> 2029, S3 High -> Medium. Cascade with autofix to five S3 dependents."
+   }
+  },
+  {
+   "id": "capability-algorithm-discovery",
+   "patch": {
+    "pathway": "P1 (public AlphaEvolve-style search on teams' own evaluators; catalog families 102, 117 and 125 act via P3)",
+    "revision_note": "B-trunk resolver (2026-10-07): Auditor: pathway P4 -> P1 (transfer of a generally available tool; the P4 default would cap it at Medium). Band High kept. Advocate's soft edges to comms-hardness-aware-tasking and astro-catalog-scale-screening are outside this branch and passed to those branches in notes."
+   }
+  },
+  {
+   "id": "capability-cheap-trust",
+   "patch": {
+    "title": "Trust in days: automated statement audits",
+    "description": "AI-assisted pipelines check that a formal statement matches the engineering claim (definitions, hypotheses, units, scope), cross-check proofs with independent agents and produce human-readable audit trails, cutting the cost of trusting an AI result from expert-weeks to days. Covers adoption by journals, Hexagon, labs and engineering teams, not regulator acceptance (see physclock-credibility-evidence-standard).",
+    "earliest_year": {
+     "S2": "2028",
+     "S3": "2028"
+    },
+    "why": "In engineering, statement gaps become specification errors, the main residual risk in formally verified systems (general). An adversarial auditor model plus Lean plus a human sign-off turns P1 answers into evidence a design review can accept. This is the node that moves the bottleneck from proving to understanding (position h) back toward engineering. Engineering claims involve continuous math (PDE, numerics, stochastic processes) where Lean coverage stays thin until infra-mathlib-applied (S2 2028; best agent 34.9% on StochBench, per frontier research), and an audit pipeline worth relying on needs a track record that starts only with public research-math access (mid-to-late 2027 in S2), so S2 and S3 are 2028. The final judgment stays human, so days, not hours.",
+    "signpost": "Hexagon or a journal adopting AI-assisted statement audits as standard; an engineering team publishing an AI audit trail for a continuous-math claim (PDE, numerics or a stochastic model).",
+    "calibration_note": "B-trunk: band set by the capability.json scenario parametrization (S2 is the client premise), not by the fw-horizon-scorecard pathway default (P2 Medium); this node is a capability milestone, not an implication of a catalog result.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: S2/S3 2027 -> 2028, hours -> days, soft edge from infra-mathlib-applied. Auditor: review-board acceptance moved out of the signpost (that is the Medium-capped regulatory node downstream), scope note added, P2-override note. Bands unchanged."
+   }
+  },
+  {
+   "id": "capability-learned-emulators",
+   "patch": {
+    "title": "AI emulators of space physics codes with stated error bounds",
+    "description": "The weather-model playbook - train on decades of simulation or reanalysis data, run ~1,000x cheaper - applied to space codes (CFD and aerothermal, plasma, thermosphere, structures), with calibrated uncertainty or error bounds relative to the parent code; using them for margins still requires validation against test or flight data.",
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "pathway": "P4",
+    "why": "Emulators remove the compute cost of design loops and ensembles. Weather moved from research models to operations in about 15 months on the back of 40+ years of reanalysis. Space domains split: where training data can be generated by simulation (CFD, structures, thermal) emulators are data-unconstrained and arrive first; where data come only from nature (one Sun, rare extreme storms, few hypersonic flights) they arrive late and extrapolate poorly. AIFS and Surya were built without research-grade applied math, so AI applied math accelerates this node (code-relative error bounds) rather than gating it; any certificate bounds error against the code, not against physics. Pathway P4 (a faster method with practical constants entering codes); band above the P4 default because the AIFS precedent shows research-to-operations inside ~15 months.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: certified-bounds claim narrowed to code-relative bounds; cap-applied-math hard -> soft. Skeptic + auditor: S3 2027 -> 2028. Auditor: pathway P6 -> P4 with a stated reason for the High band. Bands unchanged."
+   }
+  },
+  {
+   "id": "capability-engineering-adoption",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "why": "Most engineering math is bespoke and easier than the catalog's problems: a specialist analysis that takes 2-8 weeks (general) becomes hours plus a check. Vertically integrated firms that own both models and hardware (SpaceX/SpaceXAI) adopt first; primes constrained by ITAR and DoD rules follow 6-12 months later; agencies last. A vertically integrated first mover (SpaceX/SpaceXAI, which routes tasks to the best available model) can use frontier models in internal design work during 2027, but routine use of checked answers in design reviews needs the Oct-2026 level in outside hands (mid-to-late 2027 in S2) plus trust tooling (2028), so S2 stays 2028 and S3, which equals S2 until 2028, moves to 2028. Classified and ITAR access gates only the defense-prime segment, so it accelerates adoption rather than gating it.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S3 2027 -> 2028 and controlled-data-access hard -> soft. Advocate's S2 2027 rejected (debate recorded): the S2 premise starts the 5-10x cognitive multiplier in 2028 and design-review use needs public-level capability plus trust tooling; the first-mover point is kept in why. Advocate soft edges from capability-cost-collapse and capability-open-weights-math added. Cascade: four physclock S3 dependents move to 2028."
+   }
+  },
+  {
+   "id": "physclock-starship-full-reuse",
+   "patch": {
+    "status_oct2026": "Boosters were caught on Flights 5, 7 and 8 (Oct 2024-Mar 2025, pre-V3), and B14 and B15 reflew on Flights 9 and 11 (May and Oct 2025); B14's reflight followed inspection and replacement of 4 of its 33 engines. The open items are V3 landing-burn reliability, ship catch and ship reflight: the V3 boosters on Flights 12 and 13 failed in landing burns, and Flight 14 expended both stages by plan. Musk: Flight 15 attempts the first ship catch with odds of 'at least 50 or 60 percent', and ship and booster refly 'at the end of this year or more likely early next' (Mach33, Sep 2026).",
+    "why": "Reuse is a flight-test result. Falcon 9 took 15 months from first landing (Dec 2015) to first reflight (Mar 2017). AI shortens failure analysis between attempts but does not change the number of attempts needed. Starship's booster went from catch to reflight in about 4.3 months (B14, Jan-May 2025), far faster than Falcon 9. For the ship, Falcon's 15-month landing-to-reflight lag applied to a first ship catch around late 2026 would give early 2028, so ship reflight in 2027 is roughly 50-60% (judgment); 2027 stays the earliest year. Mach33 projections are a single commercial forecaster's model estimates, not independent research (an equity disclosure was reported on its pages; unverified here).",
+    "signpost": "First ship-catch attempt (Flight 15, NET Oct 19 2026 per press, or a later flight); first reflight of a caught V3 booster and ship by mid-2027.",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "pathway": "P7 (exogenous)",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: status corrected (boosters already caught three times and reflown twice; the open item is the ship); Flight 15 date updated (stale \"about Dec 2026\"); exogenous P7 label; Mach33 source-weight caveat. Year and band unchanged."
+   }
+  },
+  {
+   "id": "physclock-twin-reflight-clearance",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2030",
+     "S3": "2029"
+    },
+    "band_2031": {
+     "S1": "Low"
+    },
+    "status_oct2026": "Falcon 9 in 2025: 95% of launches on reused boosters, median booster on its 14th flight, 38-day median turnaround, 162 missions from 25 airframes; cohort lifetimes rose from 4.2 flights (2018 boosters) to 8.0 (2019) and 24 (2020) (Mach33). No V3 stage and no ship has reflown; two pre-V3 Super Heavy boosters were caught and reflown (B14: caught on Flight 7, Jan 16 2025, reflown on Flight 9, May 27 2025, after 4 of 33 engines were replaced; B15: caught on Flight 8, Mar 6 2025, reflown on Flight 11, Oct 13 2025).",
+    "why": "Mach33's base case has flights per stack at 3.3 (2027), 4.8 (2028), 8.9 (2029, about a 40-day average cycle) and 18 (2030, about 20 days), so record turnarounds under 7 days (booster) and 14 days (ship) fit 2030 in S2; Falcon 9 took 8 years from first reflight (Mar 2017) to a 9-day record (Mar 2025), and its 2025 median was still 38 days. Mach33's 2028 base-to-bull cost spread ($1.6B) covers every reuse driver; data-based clearance is one contributor and its share is not quantified, and because this node lands in 2029-30 it affects the 2029-31 manifests, not 2028. Chain (S2): first V3 reflights 2027 -> life twin 2028 -> rapidly reusable heat shield 2029 -> data-cleared turnaround on both stages 2030; S3 one year earlier (reuse learning 0.7-0.8x); S1: heat shield and life twin 2030 -> 2031, Low because both Medium prerequisites must land first. Life data still accrue one flight at a time. Family 372 (Lame moduli uniquely determined from boundary data, smooth isotropic case, T1) supports identifiability for inverse inspection in principle; damaged composites and welds lie outside its hypotheses. Mach33 projections are a single commercial forecaster's model estimates, not independent research (an equity disclosure was reported on its pages; unverified here).",
+    "calibration_note": "A3: Cross-domain consistency. Ship turnaround under two weeks requires a rapidly reusable heat shield, so this node cannot come earlier or be more likely than hyper-rapid-reuse-heatshield (S2 2029, Medium in all scenarios). It also sat in the same year as its prerequisite prop-life-twin (S2 2028). Chain (S2): first Starship reflights 2027 -> life twin 2028 -> data-cleared turnaround on both stages 2029. S2 2028 -> 2029; S2/S3 High -> Medium. B-trunk: A3's heat-shield dependency is now a hard edge (hyper-rapid-reuse-heatshield).",
+    "revision_note": "B-trunk resolver (2026-10-07): Auditor: flat factual error fixed (\"No Starship stage has reflown\"). Skeptic + auditor: S1 2030 -> 2031, S3 2028 -> 2029; skeptic: S2 2029 -> 2030 (Falcon precedent, Mach33 flights per stack, reuse learning only 0.8-0.9x in S2), S1 Medium -> Low, hard edge from hyper-rapid-reuse-heatshield, $1-2B-on-2028 claim removed (wrong lever share and wrong year). Chain written into why. Cascade: critical-payload acceptance."
+   }
+  },
+  {
+   "id": "physclock-pad-propellant-infra",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2029",
+     "S3": "2029"
+    },
+    "why": "Pad construction (2-4 years per heavy pad, general) and air-separation and liquefaction plants run on the physical clock. On-site propellant costs about $0.2M per flight against $1.7-2.7M merchant, and trucking becomes physically implausible above about 100 flights a year (106 deliveries a day) (Mach33). AI barely touches this; it bounds every high-cadence node. LC-39A has not launched Starship as of Oct 2026, against a late-2025 plan (Spectrum News 13, Mar 2025) and an H2-2026 target (Mach33, Apr 2026); SLC-37 was approved in Dec 2025 and is under construction; at 2-4 years per pad and 1-3 years for the Florida pipeline (filed Oct 2026), four pads with pipeline or on-site supply is a 2029 central year. The node is AI-independent, so all scenarios move together. Environmental caps: Starbase 25 a year (FAA, May 2025), LC-39A 44 (FAA, Jan 2026, per NASASpaceflight) and SLC-37 76 (Department of the Air Force, Dec 2025).",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "pathway": "P7 (exogenous)",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: 2028 -> 2029 in all scenarios (every element on its best-case schedule; LC-39A a year behind plan; table compresses pads only 0.9-1.0x). Auditor: exogenous P7 label. Bands unchanged."
+   }
+  },
+  {
+   "id": "capability-ai-native-spacecraft",
+   "patch": {
+    "binding_gate": "fabrication",
+    "why": "Chain (S2): engineering adoption 2028 -> smallsat design-complete -> build, integration and environmental test in 12-18 months (lag ladder) -> rideshare launch -> operations 2029; S3 the same (S3 equals S2 until 2028); S1 2031. It needs adoption and agentic analysis, not multiphysics optimization with guarantees, so design optimization is an accelerator. A small company with no legacy process is the likely first mover; build, integration and test bind, not cognition or rideshare slots, which are not scarce. This is a process outcome, not a performance claim.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + advocate: cap-design-optimization hard -> soft; binding gate launch -> fabrication. Advocate soft edge from struct-agentic-analysis-workflows added. Advocate's S2/S3 2028 rejected because it depended on adoption in 2027, which was not accepted; years unchanged."
+   }
+  },
+  {
+   "id": "physclock-heavy-cadence-100",
+   "patch": {
+    "earliest_year": {
+     "S2": "2030",
+     "S3": "2029"
+    },
+    "status_oct2026": "2025: 330 orbital launches worldwide, 165 by Falcon 9 (no failures), 5 by Starship; 2026 to Oct 7: 237 launches, 113 by Falcon 9, plus 3 Starship flights (Flights 12-14; only Flight 14 was orbital) (Wikipedia). Mach33's reference case has about 90 Starship flights carrying 10,100 t of Starlink in 2028; Musk says 'more than once per hour' within 3-4 years (Jan 2026).",
+    "why": "At Mach33's 2028 base of 4.8 flights per stack, 100 flights need about 21 new stacks (roughly $3B at $143M each, Mach33's 2028 learned-stack estimate against about $250M today) and four or more pads; at 2030's 18 flights per stack, about 6 stacks. Production, reuse reliability and propellant bind. Launch cadence follows its own curve: AI moves it 0-0.5 year in S2 (anomaly closure only) and 0.5-1 year in S3 (AI-run factories from about 2029). Environmental caps also bind: Starbase 25 a year (FAA, May 2025), LC-39A 44 (Jan 2026) and SLC-37 76 (Dec 2025), so 100 flights needs both Florida sites running above half their caps. Chain (S2): first V3 reflights 2027 -> four pads with pipeline or on-site propellant 2029 -> 100+ flights 2030; S3 2029 only if the four-pad set is ready early that year; S1 about 2030 on SpaceX's own trajectory. Mach33 projections are a single commercial forecaster's model estimates, not independent research (an equity disclosure was reported on its pages; unverified here).",
+    "signpost": "Starship flights in 2027 and 2028 (30 or more in 2028 keeps S2 on track); disclosed flights per stack.; SLC-37 first Starship launch; 40 or more Starship flights in 2028.",
+    "pathway": "P7 (mostly exogenous; AI adds 0-0.5 year in S2 through anomaly closure)",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S2 2029 -> 2030 and S3 2028 -> 2029 (physclock table allows 0-0.5 year in S2 and 0.5-1 year in S3; pads now 2029). Environmental caps, chain and $143M label added; status fixed (only Flight 14 of 2026 was orbital). Advocate: soft edges from physclock-ai-mishap-analysis (the AI channel the why names) and the new compute-demand node; the soft edge from test-loop-monthly was not added (it is a consequence, not a cause). Bands unchanged."
+   }
+  },
+  {
+   "id": "physclock-reusable-competition",
+   "patch": {
+    "earliest_year": {
+     "S2": "2030"
+    },
+    "status_oct2026": "New Glenn: announced 2016 for 2020, first flight Jan 16 2025, first booster landing Nov 13 2025, upper-stage failure Apr 19 2026, vehicle destroyed and pad damaged in a May 28 2026 static-fire explosion; the FAA's draft assessment would raise its cap from 12 to 50 a year (Sep 2026). Neutron: announced Mar 2021 for 2024-25, now NET Q4 2026. Terran R NET 2026. China recovered a Long March 10B booster after orbital flight on Jul 10 2026 (Wikipedia; 33FG). LandSpace's stainless-steel methalox Zhuque-3 reached orbit on Dec 3 2025 and landed its first stage on its second flight, Aug 18 2026, though the stage caught fire and tipped over after landing (Wikipedia).",
+    "why": "Mach33 modeled 15-36 New Glenn launches over 2026-27 and found cadence gated by BE-4 and upper-stage production, not reuse; every competitor slipped 1-5 years against announced first flights. AI helps new entrants most (no legacy process) but cannot shorten engine qualification or pad rebuilds. New Glenn, Neutron, Terran R and LM-10B were designed before 2027, so AI helps them mainly through anomaly closure (0-0.5 year in S2, physclock table); clean-sheet compression applies only to programs started in 2028 or later. Blue Origin has flown one New Glenn in 2026 against a goal of 24.",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "pathway": "P7 (exogenous)",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: S2 2029 -> 2030 (existing programs get 0-0.5 year of AI help, not a full year). Advocate: Zhuque-3 landing added to status (verified on Wikipedia, with the post-landing tip-over). Auditor: exogenous P7 label. S1, S3 and bands unchanged. Its hard edge into physclock-cheap-mass-customer is now soft."
+   }
+  },
+  {
+   "id": "physclock-critical-payload-reuse-acceptance",
+   "patch": {
+    "earliest_year": {
+     "S2": "2031",
+     "S3": "2030"
+    },
+    "description": "NASA crew or NASA Category 3 payloads, or NSSL Phase 3 Lane 2 missions, fly on reflown Starship-class hardware whose reflight clearance rests largely on flight data and life models rather than teardown inspection. NSSL Lane 1 task orders, which need only a completed launch or a credible plan, do not count.",
+    "why": "Falcon's lag (first reflight Mar 2017; NASA crew on a reused booster with Crew-2, Apr 2021; first NSSL mission on a reused booster, GPS III SV05, Jun 2021) came from accumulated flight history; AI evidence cannot create flight cycles and saves about a year at most, conditional on the credibility standard (S2 2029). Chain (S2): data-cleared reflight 2030 -> acceptance on flight history plus AI evidence 2031; S3 one year earlier. Capped at Medium because it is customer certification.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S2 2030 -> 2031, S3 2029 -> 2030 (follows the revised twin timing). Skeptic: scope limited to NASA crew, Category 3 and NSSL Lane 2 (a Lane 1 mission could fly with no AI evidence and break the causal chain); why rewritten around flight history. Bands unchanged."
+   }
+  },
+  {
+   "id": "physclock-cheap-mass-internal",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2029",
+     "S3": "2029"
+    },
+    "strongest_case_small": "Internal cost matters only to SpaceX's own payloads (Starlink, orbital compute); outside customers see prices, not costs (see physclock-cheap-mass-customer). Mach33's base is about $300/kg in 2028, so under $300 in 2028 is roughly 50/50 by construction; it assumes 3.3 flights per stack in 2027 and 4.8 in 2028, which needs a ship reflight in early 2027, and its bear case (ship reflight 2028) gives about $560/kg. Applying the tree's 1.5-3x slip ratio to Musk-anchored milestones puts the central year at 2029; S3 cannot pull it back because it diverges from S2 only during 2028.",
+    "why": "Mach33 splits the 2026-27 decline (log basis) into reuse 56%, payload 32% and production learning 12%. None is a mathematics lever. This is the independent physical exponential in this tree: it would happen at the same pace with no AI math at all. Mach33 projections are a single commercial forecaster's model estimates, not independent research (an equity disclosure was reported on its pages; unverified here).",
+    "signpost": "Flights per stack in 2027; payload per flight approaching 100 t. (internal cost is modeled, not published)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "pathway": "P7 (exogenous)",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: 2028 -> 2029 in all scenarios (2028 is Mach33's base-case median, not a likely year; slip ratio applied). Auditor: exogenous P7 label and Mach33 source-weight caveat. Advocate: soft edge to program-cycle-compression (cheap mass can buy schedule). Bands unchanged."
+   }
+  },
+  {
+   "id": "physclock-dev-capital-cut",
+   "patch": {
+    "title": "AI cuts development cost of new space hardware by about 10-20%",
+    "description": "Non-recurring development cost for new spacecraft and launch vehicles falls about 10-20% under S2 as engineering labor for analysis, design, software and verification shrinks; hardware, test articles and facilities do not shrink.",
+    "status_oct2026": "Starship program spend exceeded $15B by 2026, against roughly $400M for Falcon 9 development, and SpaceX directed all $3B of its 2025 space-segment R&D to Starship (Reuters via 33FG). SpaceX held $100.8B in cash after an $85.7B IPO in June 2026.",
+    "why": "If engineering labor is 40-60% of development cost and analysis, design, software and verification are about half of it (general), S2's 5-10x cognitive speedup removes roughly 16-27% of total cost gross (merely halving that content removes 10-15%). physclock.json's capital row gives a 15-30% fall in development labor cost, which is about 6-18% of total cost, and an effective capital multiplier of 1.15-1.3x (13-23%). Scope growth takes some back, so the realized cut is about 10-20%. A second channel could add to it: standing-army costs scale with schedule, so shorter programs also trim time-proportional overhead. Chain (S2): engineering adoption 2028 -> programs started 2028 or later estimated with AI-reduced labor -> first program estimates showing 10-20% lower non-recurring cost 2029 -> completed-program evidence 2031 or later. S3: adoption 2028 with near-free cognition from 2029 -> 2029. S1: 2031. It matters most for capital-gated new entrants; for SpaceX capital is not binding through 2031. What binds is organizations changing practice, not capital.",
+    "earliest_year": {
+     "S3": "2029"
+    },
+    "binding_gate": "adoption",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: headline 15-30% did not follow from its own derivation (a labor figure presented as total cost), now about 10-20%; S3 2028 -> 2029; gate capital -> adoption. Auditor: chain written out; off-topic orbital-compute line removed. Advocate: soft edges from cost-collapse and program-cycle-compression and the standing-army channel added; advocate's S2 High rejected (by 2031 the evidence is mostly estimates and scope growth is the node's own strongest case)."
+   }
+  },
+  {
+   "id": "physclock-satellite-gen-cadence",
+   "patch": {
+    "earliest_year": {
+     "S2": "2030",
+     "S3": "2029"
+    },
+    "band_2031": {
+     "S3": "Medium"
+    },
+    "status_oct2026": "Starlink: v0.9 May 2019, v1.0 late 2019, v1.5 2021, v2 mini Feb 2023, v2 mini optimized (average satellite mass down from 623 kg to 575 kg, 96 Gbps), V3 (about 1 Tbps, about 2 t) first flown on Flight 13 (Jul 2026) and first orbited on Flight 14 (Sep 28 2026). V3's timing was gated by Starship, not the satellite. V2 mini production reached six a day by Mar 2023 (Wikipedia; Mach33). SpaceX's first compute satellite, Starmind AI1 (spec disclosed Jun 2026), uses modular, interchangeable chip inserts, and its power target rose from 150 kW (Jun) to about 250 kW (Oct 2026) (Mach33).",
+    "why": "Chain (S2): engineering adoption 2028 -> first AI-era bus or payload designed, qualified and retooled in about 12-15 months -> fielded 2029 -> a second generation about 12 months later shows the cadence, 2030. S3: same adoption year, but commercial generations compress 0.5-0.7x (18-36 months becomes 9-25), so 2029 at the optimistic edge; an annual cadence sits at the favorable end even there, so Medium. Design, software and verification compress in S2; payload qualification, radiation testing, line retooling and the launcher bind (V3's timing was set by Starship). Upside not driven by AI math: orbital-compute satellites may track the accelerator makers' annual cadence (general) with modular chip inserts on a common bus, making a yearly payload generation a chip swap. Faster generations raise capacity per kilogram (V3 carries about three times V2 mini's capacity per kilogram, Mach33).",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S2 2029 -> 2030, S3 2028 -> 2029, S3 High -> Medium; chain written out. Advocate: optimal-test-campaigns hard -> soft (Starlink iterated without them), soft edge from starship-full-reuse, AI1 modular-insert status added; advocate's S2 High rejected (the chip-cadence mechanism is not AI-math-driven and depends on unproven orbital-compute economics)."
+   }
+  },
+  {
+   "id": "capability-program-cycle-compression",
+   "patch": {
+    "title": "Development cycles shrink by a quarter to a third, not 10x",
+    "description": "Development time (concept to launch) for new space systems started after AI adoption falls measurably. Amdahl ceiling: about 38% shorter in S2 (51% in S3, 18% in S1) if a third of the critical path is cognitive and fully compressible. Expected realized compression for typical programs started in 2028 or later: about 20-30% in S2 (about 35-45% in S3, 10-15% in S1), with fast commercial programs nearer the ceiling and government flagships at 10-15% (appropriations).",
+    "why": "Illustrative critical-path shares (general): requirements and trades 10%, design and analysis 15%, software 10%, fabrication and procurement 25%, integration and test 25%, qualification and reviews 10%, launch campaign 5%. Speedups of 5-10x on cognitive work and 1.1-1.2x on physical work (S2) give a 1.6x speedup, a ~38% shorter schedule; S3 (20-50x cognitive, 1.3-1.5x physical) ~51%; S1 (2x cognitive) ~18%. These are ceilings: they assume every cognitive step is on the critical path and fully compressible. Requirements negotiation, hardware-in-the-loop software testing and review gates compress far less, and long-lead parts (12-24+ months) often run in parallel with design, so compressing design can leave the critical path unchanged; each 10 points of effectively compressible cognitive share is worth about 7 points of compression. Counting more of the analysis inside test and build phases as cognitive (anomaly diagnosis, procedures, data reduction, material-review paperwork) lifts the S2 ceiling to roughly 45%, but the table's 1.1-1.2x physical multipliers already credit about 10 of those 60 points (if the residual physical work runs at 1.0x), so most of that gain is already inside the 38%. Fewer design escapes found in test cut rework, a second-order gain. Chain (S2): engineering adoption 2028 -> commercial programs started 2028 or later (smallsat lag ladder 12-18 months) -> first completions 2029-30 -> an attributable schedule analysis 2031. S3: 2030. Band Medium: evidence must come from programs started after adoption and finished by 2031, and government flagships dilute any average. Uncrewed commercial programs need no certifier, so the binding gate is integration and test hardware (experiment), not qualification.",
+    "earliest_year": {
+     "S2": "2031",
+     "S3": "2030"
+    },
+    "binding_gate": "experiment",
+    "revision_note": "B-trunk resolver (2026-10-07): Debated (skeptic vs advocate, auditor on wording). Skeptic accepted: 38% is a ceiling, realized lower; S2 2030 -> 2031, S3 2029 -> 2030 (only post-adoption programs count). Advocate partly accepted: the qualification cap was misapplied (gate -> experiment), cap-design-optimization hard -> soft, soft edges from mishap analysis and cheap mass; its 35-50% S2 figure rejected as largely double-counting what the 1.1-1.2x physical multipliers already credit, and its S2 2029 / S3 High rejected (depended on adoption in 2027). Realized range set at 20-30% in S2 between the skeptic's 15-25% and the advocate's 35-50%."
+   }
+  },
+  {
+   "id": "physclock-cheap-mass-customer",
+   "patch": {
+    "band_2031": {
+     "S2": "Low"
+    },
+    "description": "Third-party customers can routinely buy dedicated heavy-lift launch below $1,000 per kilogram of customer payload delivered (not per kilogram of vehicle capacity), against a Falcon 9 dedicated median of about $5,300/kg and a rideshare floor of about $7,000/kg today.",
+    "status_oct2026": "Mach33 Launch Unlock model (Aug 2026): Starship third-party ticket enters at about $3,975/kg in 2027 and fades toward cost with a 2033 midpoint (2030-36 range) as competitors reach cadence; Voyager's $90M Starlab contract is about $900/kg of capacity on a 100 t vehicle for a launch NET 2028-29 (Mach33); on Starlab's delivered mass, which is not published, the price per kilogram is higher. SpaceX flew 83% of 2025 mass to orbit.",
+    "why": "Price follows competition and SpaceX's capacity-release decisions, not cost: Falcon 9 list prices were stable for a decade, and Mach33 finds a one-year delay in credible competitor cadence delays external crossover by about a year. AI math reaches this node only by speeding competitors' engineering. Mach33's 2035 simulations vary when SpaceX releases Starship's spare capacity to customers (2029-2033) as a main price driver, so competition accelerates this node rather than gating it, and SpaceX can price below $1,000/kg without a rival; internal orbital-compute demand can delay that release. Band S2 Low: Mach33's fade midpoint is 2033 (range 2030-36), so crossing by 2031 is roughly 20-30% (judgment), and AI moves it 0-1 year. Mach33 projections are a single commercial forecaster's model estimates, not independent research (an equity disclosure was reported on its pages; unverified here).",
+    "pathway": "P7 (exogenous price; AI enters only through competitors' engineering)",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + advocate: reusable-competition hard -> soft (not logically necessary; Chinese fleets can satisfy it without lowering U.S. prices). Skeptic: S2 Medium -> Low (2033 fade midpoint; S2 earliest year 2031) and $900/kg relabelled as capacity price; advocate wanted bands unchanged (debate recorded). Advocate's capacity-release mechanism added to why. Auditor: Mach33 caveat."
+   }
+  },
+  {
+   "id": "physclock-new-entrant-fast-orbit",
+   "patch": {
+    "description": "A program in any country started in 2027 or later reaches orbit with a reusable medium or heavy launcher within three years of program start.",
+    "why": "Even with cognitive work nearly free, engine development (hot-fire campaigns, turbopump failures), pad construction (2-4 years) and flight-test learning set a floor of about 4-5 years. AI's best case removes about a year, and only programs started after AI adoption (2027-28 in S2) benefit. The realistic path is a derivative built around an existing engine family: LandSpace's Zhuque-3 (TQ-12-family methalox engines from Zhuque-2) hopped in Jan 2024, reached orbit Dec 3 2025 and landed its first stage on its second flight, Aug 18 2026 (Wikipedia), on roughly a four-year derivative timeline without AI help (general). Clean-sheet multipliers of 0.8-0.9x (S2) and 0.7-0.8x (S3) on such a timeline give about 3.2-3.6 years in S2, so Speculative, and 2.8-3.2 years in S3, so Low. FAA licensing reform and AI-run test stands help U.S. entrants but are not gates for every entrant.",
+    "revision_note": "B-trunk resolver (2026-10-07): Debated: skeptic wanted FAA-only scope and S3 Low -> Speculative; advocate wanted global scope, S2 Speculative -> Low and soft licensing/test-stand edges. Resolved: global scope with soft edges (advocate), years and bands unchanged because the Zhuque-3 derivative precedent (~4 years) times the physclock multipliers lands just above 3 years in S2 and at about 3 in S3."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "id": "capability-random-sample-audit",
+   "title": "Published error rate for openai/math results",
+   "tier": 0,
+   "kind": "infrastructure",
+   "description": "An independent expert team audits a random sample of 30 or more openai/math families (formalized and unformalized), checking statements against manuscripts and proofs or Comparator runs, and publishes an error and scope-gap rate. This turns the catalog-wide trust level from an assumption into a measured number.",
+   "status_oct2026": "Not yet. The only audit of an earlier OpenAI release covered ten results (arXiv 2608.14673); the first outside Comparator run (Kingy AI, Oct 6, 2026) covered three targets with no statement audit and found the Pi Exponent formal statement omits a manuscript consequence. Hexagon (beta, launched Oct 6, 2026; Buzzard on its advisory board) and AGMAI (guidelines Sep 29, 2026) supply venues and norms but hold no OpenAI deposits.",
+   "catalog_families": [],
+   "prerequisites": [
+    "cap-research-math-internal"
+   ],
+   "accelerated_by": [
+    "verif-independent-check"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P2/P3 (verification of the premise base, not certified use)",
+   "earliest_year": {
+    "S1": "2027",
+    "S2": "2027",
+    "S3": "2027"
+   },
+   "band_2031": {
+    "S1": "High",
+    "S2": "High",
+    "S3": "High"
+   },
+   "premise_tier": "n/a (measures the trust tier of the T1 and T3 catalog families)",
+   "why": "A measured error and scope-gap rate decides whether the 245 unformalized families (T1) stay 'conditional' in every downstream node and calibrates capability-cheap-trust; statement gaps are already visible in the first outside run. It is a human-bandwidth task (a few expert-days per family, general), so its year does not depend on the scenario; AI-assisted checking in S2 and S3 makes it cheaper, not earlier. Band above the P2 default because this is a research audit, not certified use.",
+   "strongest_case_small": "Experts may prefer headline families or their own research; a sample of 30 across many fields needs dozens of specialists; a low error rate on lab-chosen, mostly discrete problems says little about engineering statements.",
+   "signpost": "A published random-sample audit of 30 or more openai/math families (Hexagon, AGMAI, Epoch or an academic group) reporting proof-error and statement-gap rates.",
+   "domain": "capability",
+   "revision_note": "B-trunk resolver (2026-10-07): New node from the auditor (proposed as verif-random-sample-audit; renamed to the trunk's domain prefix). Mechanism sound and not a duplicate: verif-independent-check covers headline families only; the random-sample signpost existed only as text in cap-research-math-internal."
+  },
+  {
+   "id": "capability-compute-launch-demand",
+   "title": "AI compute becomes Starship's second anchor customer",
+   "tier": 7,
+   "kind": "outcome",
+   "description": "Orbital-compute satellites (SpaceX Starmind AI1 and peers) fill at least 10 Starship flights in one calendar year, so Starship cadence and production learning depend on AI compute demand as well as Starlink. This couples the launch clock to the AI capability curve through demand, not through mathematics.",
+   "status_oct2026": "Not yet. SpaceX disclosed AI1's first specification in Jun 2026 (150 kW peak compute; about 2.1 t implied by Mach33's reconstruction, with modular, interchangeable chip inserts) and partnered with Nvidia on its compute payload (Rubin GPUs and Vera CPUs; SpaceX, Aug 4 2026, via 33FG). Mach33 reports the power target rising to about 250 kW by Oct 2026 and calls space datacenters the largest uncertainty in its Starship launch-revenue model (Sep 2026). 100-kW-class radiators first fly in 2027 (struct-highflux-radiator-flight).",
+   "catalog_families": [],
+   "prerequisites": [
+    "physclock-starship-full-reuse",
+    "struct-highflux-radiator-flight"
+   ],
+   "accelerated_by": [
+    "physclock-cheap-mass-internal",
+    "capability-ai-rnd-acceleration",
+    "materials-cots-orbital-compute-ops"
+   ],
+   "binding_gate": "capital",
+   "pathway": "P7 (demand coupling from AI capability, not an AI-math effect)",
+   "earliest_year": {
+    "S1": "2031",
+    "S2": "2030",
+    "S3": "2029"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a (exogenous demand: not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Full chain (S2): both Starship stages reflown 2027 -> 100-kW-class radiators flown on the first compute satellites 2027 -> commercial accelerators running in orbit with paying customers 2028 -> internal launch cost under ~$300/kg, Mach33's orbital-compute base-case input, 2029 -> 10 or more compute flights in one year, 2030. At about 2.1 t per AI1-class satellite, 10 flights of 100 t carry roughly 450 satellites, about 70-110 MW. This is where the AI curve meets the launch clock: frontier training compute grows ~5x a year and a GW-scale ground site takes ~2.1 years (Epoch), so S2 and S3 raise demand for compute that needs no grid interconnection. S3 is a year earlier because demand and the physical multiplier both rise from 2028; S1 is later because a capability plateau slows the build-out. More flights also speed Starship production learning. Mach33 projections are a single commercial forecaster's model estimates, not independent research (an equity disclosure was reported on its pages; unverified here).",
+   "strongest_case_small": "The economics are unproven and Mach33 itself treats space datacenters as the largest uncertainty in launch revenue; running chips near 95 C shortens their life (Mach33 reconstruction); Starlink V3 competes for the same flights through 2028; and ten compute flights in a year is a SpaceX demand decision it can defer.",
+   "signpost": "First AI1 launch and on-orbit operation; SpaceX disclosure of a compute-satellite production rate; Starship flights carrying compute satellites in 2029 (5 or more keeps S2 on track).",
+   "domain": "capability",
+   "revision_note": "B-trunk resolver (2026-10-07): New node from the advocate (proposed as physclock-compute-manifest-anchor; renamed to the trunk's domain prefix). Years moved one year later than proposed (S1 2031 / S2 2030 / S3 2029) to follow physclock-cheap-mass-internal (now 2029) and the launch-slip calibration; S3 High -> Medium (economics unproven). Labelled as an AI-capability demand effect, not AI math. Not a duplicate: struct-gw-orbital-compute is the 1 GW cumulative outcome downstream."
+  }
+ ],
+ "add_edges": [
+  {
+   "from": "hyper-rapid-reuse-heatshield",
+   "to": "physclock-twin-reflight-clearance"
+  }
+ ],
+ "remove_edges": [
+  {
+   "from": "cap-autoformalization",
+   "to": "cap-applied-math"
+  },
+  {
+   "from": "cap-research-math-public",
+   "to": "cap-autonomous-labs"
+  },
+  {
+   "from": "capability-learned-emulators",
+   "to": "cap-design-optimization"
+  },
+  {
+   "from": "cap-applied-math",
+   "to": "capability-learned-emulators"
+  },
+  {
+   "from": "capability-controlled-data-access",
+   "to": "capability-engineering-adoption"
+  },
+  {
+   "from": "cap-design-optimization",
+   "to": "capability-ai-native-spacecraft"
+  },
+  {
+   "from": "physclock-optimal-test-campaigns",
+   "to": "physclock-satellite-gen-cadence"
+  },
+  {
+   "from": "cap-design-optimization",
+   "to": "capability-program-cycle-compression"
+  },
+  {
+   "from": "physclock-reusable-competition",
+   "to": "physclock-cheap-mass-customer"
+  },
+  {
+   "from": "physclock-licensing-in-weeks",
+   "to": "physclock-new-entrant-fast-orbit"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "physclock-new-entrant-fast-orbit"
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "cap-autoformalization",
+   "to": "cap-applied-math"
+  },
+  {
+   "from": "capability-cost-collapse",
+   "to": "capability-engineering-adoption"
+  },
+  {
+   "from": "capability-cost-collapse",
+   "to": "physclock-dev-capital-cut"
+  },
+  {
+   "from": "cap-research-math-public",
+   "to": "cap-autonomous-labs"
+  },
+  {
+   "from": "capability-learned-emulators",
+   "to": "cap-design-optimization"
+  },
+  {
+   "from": "capability-open-weights-math",
+   "to": "capability-engineering-adoption"
+  },
+  {
+   "from": "capability-open-weights-math",
+   "to": "physclock-new-entrant-fast-orbit"
+  },
+  {
+   "from": "infra-mathlib-applied",
+   "to": "capability-cheap-trust"
+  },
+  {
+   "from": "cap-applied-math",
+   "to": "capability-learned-emulators"
+  },
+  {
+   "from": "capability-controlled-data-access",
+   "to": "capability-engineering-adoption"
+  },
+  {
+   "from": "cap-design-optimization",
+   "to": "capability-ai-native-spacecraft"
+  },
+  {
+   "from": "struct-agentic-analysis-workflows",
+   "to": "capability-ai-native-spacecraft"
+  },
+  {
+   "from": "physclock-ai-mishap-analysis",
+   "to": "physclock-heavy-cadence-100"
+  },
+  {
+   "from": "capability-compute-launch-demand",
+   "to": "physclock-heavy-cadence-100"
+  },
+  {
+   "from": "physclock-cheap-mass-internal",
+   "to": "capability-program-cycle-compression"
+  },
+  {
+   "from": "capability-program-cycle-compression",
+   "to": "physclock-dev-capital-cut"
+  },
+  {
+   "from": "physclock-optimal-test-campaigns",
+   "to": "physclock-satellite-gen-cadence"
+  },
+  {
+   "from": "physclock-starship-full-reuse",
+   "to": "physclock-satellite-gen-cadence"
+  },
+  {
+   "from": "cap-design-optimization",
+   "to": "capability-program-cycle-compression"
+  },
+  {
+   "from": "physclock-ai-mishap-analysis",
+   "to": "capability-program-cycle-compression"
+  },
+  {
+   "from": "physclock-reusable-competition",
+   "to": "physclock-cheap-mass-customer"
+  },
+  {
+   "from": "physclock-licensing-in-weeks",
+   "to": "physclock-new-entrant-fast-orbit"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "physclock-new-entrant-fast-orbit"
+  },
+  {
+   "from": "capability-random-sample-audit",
+   "to": "capability-cheap-trust"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "trunk",
+   "nodes": [
+    "capability-random-sample-audit",
+    "capability-compute-launch-demand"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "trunk",
+   "patch": {
+    "thesis": "If AI's research-grade math reaches outside engineers (2027 in the base case) and its proofs can be checked cheaply, then on-demand analysis spreads through space engineering by 2028, but new programs get schedules only about a quarter to a third shorter (an Amdahl ceiling of ~38%, a 1.6x speedup, in the base case), not 10x, because tests, factories and launches run on their own physical clock, which AI touches mainly through anomaly analysis and through demand for orbital compute rather than through mathematics.",
+    "reader_hook": "A research-grade result costs about $200-2,000 in tokens (the low figure counts only published successes), so 1,000 hard problems a year cost one to ten engineers before checking, and checking, not generation, sets the price; yet with only about a third of a program's critical path cognitive, Amdahl's law caps base-case schedule compression at about 38%, and realized gains are likelier 20-30%, not 10x.",
+    "revision_note": "B-trunk resolver (2026-10-07): Thesis: 'about a third faster' -> 'about a quarter to a third shorter' (auditor: the model computes a shorter schedule, not 1.33x faster; skeptic: 38% is a ceiling); demand coupling added. Hook: cost per result qualified (skeptic + auditor); advocate's '45-50% once the analysis inside test is counted' rejected as double counting."
+   }
+  }
+ ],
+ "notes": "B-trunk resolver, 2026-10-07. Three lenses (physics/engineering skeptic, exponential advocate, grounding auditor) resolved. Accepted: S3<S2 fixes on trunk anchors (horizon, Lean libraries, verified numerics, open weights, emulators, adoption, controlled access, cheap trust) so S3 equals S2 through 2027; launch-clock nodes moved about a year later per the tree's own 1.5-3x slip table and physclock multipliers; spurious hard edges softened; contradicted facts fixed. New nodes: capability-random-sample-audit (auditor) and capability-compute-launch-demand (advocate's compute-manifest anchor, renamed). Rejected: advocate's physclock-margin-for-tests (analysis-only structural verification with higher factors of safety is an existing NASA-STD-5001 option independent of AI math; overlaps struct-cert-by-analysis) and physclock-fleet-reliability-evidence (satellites do not demonstrate reliability by ~230 ground trials today, so there is no ground test to replace; the AI channel duplicates physclock-ai-mishap-analysis). FOR OTHER BRANCHES / FOLLOW-UP (not edited here, outside this branch): (1) graph-wide pass on the ~56 nodes with S3 2027 and S2 2028; autofix moved only dependents of trunk changes. (2) Proposed outgoing soft edges from trunk nodes into other branches: capability-algorithm-discovery -> comms-hardness-aware-tasking and -> astro-catalog-scale-screening; capability-ai-rnd-acceleration -> struct-gw-orbital-compute; capability-compute-launch-demand -> struct-gw-orbital-compute. (3) Review hard edge cap-autonomous-labs -> physclock-ai-run-test-stands (chemistry robots are not rocket test stands). (4) struct-gw-orbital-compute S2 Medium (1 GW cumulative by 2031, ~100-140 flights) looks high next to capability-compute-launch-demand (10 compute flights in a year, S2 2030 Medium). (5) physclock-credibility-evidence-standard why still says S2 statement audits arrive in 2027; capability-cheap-trust is now 2028 (its S2 2029 still holds). (6) Research files not edited (outside this job): capability.json rows for applied Lean libraries and verified numerics (S3 2027 -> 2028), schedule-compression row (label as ceiling), S1 cost-decline rate; physclock.json key insight 5 ($1-2B on the 2028 manifest, now withdrawn), tables[3] 2029-2031 row (100+ flights now S1 2030 / S2 2030 / S3 2029) and a Mach33 source-weight note."
+}

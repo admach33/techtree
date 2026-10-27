@@ -1,0 +1,1219 @@
+{
+ "update": [
+  {
+   "id": "frontier-chaos-linear-response",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Plateau reaches the base-case 2029 capability about 2033-34, so S1 is 2033 and Low by 2035. Elsewhere bands stay Medium because realistic flows may lack linear response. The work is pure theory, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (claim, accepted; verified in Blonigan et al., ar5iv 1702.06809): a linear-response theorem does not by itself make gradients cheap for wall-bounded turbulence; added the Lyapunov-count caveat. Years and bands unchanged. | E-engines-materials (2026-10-07): S1 >2031 -> 2033 (Plateau cognition reaches S2's 2029 level about 2033-34; one year before frontier-turbulence-rigorous S1 2034, matching the S2/S3 order). band_2035 = band_2031 (truth risk). S4 = S3 (cognitive)."
+   }
+  },
+  {
+   "id": "materials-autonomous-characterization",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 automated identification with calibrated uncertainty is routine in every scenario, including Plateau. Robots add sample throughput without improving identification, and beam time still binds, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Auditor (fact, contradicted): the A-Lab claimed 41 novel compounds (from 58 targets), not 43; the 80-84% disorder estimate comes from Jakob, Margraf et al. (Adv. Mater. 2025), not 404 Media. Years and bands unchanged. | E-engines-materials (2026-10-07): band_2035 S1 Medium -> High. Years kept. S4 = S3."
+   }
+  },
+  {
+   "id": "materials-mlip-certified-uq",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Plateau gets property-level error bars by the early 2030s, so S1 is High by 2035. Reference data come from computation, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (timing, two lenses): S2 and S3 2027 -> 2028; a data-gated node cannot land the same year as cap-applied-math (2027) because coverage must be tested against new high-level reference data and long MD runs. Description: 'coverage guarantees' -> documented coverage, formal only under stated shift assumptions (Tibshirani et al. 1904.06019; Barber et al. 2202.13415). Status: UMA figures corrected (auditor; arXiv 2506.23971). Bands unchanged; downstream nodes (2028-2030) stay consistent. | E-engines-materials (2026-10-07): band_2035 S1 Medium -> High. Years kept. S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-stiff-certified",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 certified reduced chemistry is a standard solver option in every scenario. Rate-constant uncertainty still dominates the error. The work is cognitive, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (claim, accepted): the several-fold speedup from mechanism reduction already exists (DRG/DRGEP-class); the AI-math increment is a certificate (P5 confidence), not speed. Years and bands unchanged. | F2 audit (2026-10-07): T1 family 149 was stated as established; now 'claims ... (T1, so conditional)', matching the moon-mars correction. | E-engines-materials (2026-10-07): band_2035 S1 Medium -> High. Years kept. S4 = S3."
+   }
+  },
+  {
+   "id": "prop-certified-stability-rom",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Certified stability margins are a routine design check in every scenario by 2035, including Plateau. Their value still hangs on measured flame response. The work is analysis, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-fix (integrator, 2026-10-07): S3 2027 -> 2028 (S3 equals S2 through 2027; cap-applied-math is 2027 in both, so the same one-year lag applies). lettered citation 'under position (a' replaced with the KB position id under tl-position-4. | E-engines-materials (2026-10-07): band_2035 S1 Medium -> High. Years kept. S4 = S3."
+   }
+  },
+  {
+   "id": "prop-cfd-auto-vv",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Automated verification and credibility reports are standard on engine CFD in every scenario by 2035. Validation data still cap credibility. S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (claim, accepted): labor collapses but compute does not; solution verification of unsteady LES costs several times the base run and adjoint error estimates diverge on chaotic LES. Soft edge from frontier-certified-turbulent-cfd (all three lenses; the merged LES-convergence node said it feeds this one). Advocate's S2 2028 -> 2027 rejected: adoption gate cannot land the same year as its capability prerequisites (lag ladder). | B-fix (integrator, 2026-10-07): S3 2027 -> 2028 (S3 equals S2 through 2027; the resolver's own lag-ladder argument against S2 2027 applies to S3 too). | E-engines-materials (2026-10-07): band_2035 S1 Medium -> High. Years kept. S4 = S3."
+   }
+  },
+  {
+   "id": "prop-mass-gauging",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Gauging bounds and sensor-fusion algorithms are settled in every scenario by 2035, and depot flight data calibrate them. They now feed metered sales of propellant in orbit (prop-35-depot-market). S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Auditor (grounding, accepted): 365's formalized main result is T3 but the nonuniqueness companion used as the ceiling is T1 unless shown formalized, so the ceiling is conditional; premise_tier and pathway relabelled (the practical ceiling for few-electrode capacitance gauging is classical log-instability). Skeptic (claim, accepted): gauging needs a scalar (total mass), which can be identifiable when the configuration is not, so 365 bounds tomographic imaging, not mass estimation; economic stake ~0.1 tanker per 1% error. Soft edge from new node prop-loxsat-cfm-flight-data. Years and bands unchanged. | B-fix (integrator, 2026-10-07): S3 2027 -> 2028 (S3 equals S2 through 2027; cap-applied-math is 2027 in both). 365 tiering corrected to match frontier-inverse-stability, struct-elasticity-fracture-foundations, hyper-tps-inverse-nde, struct-shm-inverse-limits and materials-am-digital-twin-qual (lean/docs/365.md formalizes only the scalar-conductivity nonuniqueness): the ceiling is T3, the recovery headline T1. Band unaffected (capability premise). | E-engines-materials (2026-10-07): band_2035 S1 Medium -> High. Years kept. S4 = S3. Now a soft input to the new prop-35-depot-market and prop-35-mars-window-fueling, so the side chain has a downstream."
+   }
+  },
+  {
+   "id": "frontier-certified-turbulent-cfd",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "Plateau gets the two open turbulence theorems only about 2033-34, so S1 is after 2035. Elsewhere the node stays Low because it rests on two open problems and may hold only in a weak statistical form. Pure theory, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Auditor (duplicate, accepted): prop-les-convergence-theory and this node had the same achievement and near-identical signposts but were rated Medium/2029 vs Low/2031; merged into this id with this node's prerequisites (frontier-turbulence-rigorous, frontier-chaos-linear-response, frontier-nonuniqueness-map, frontier-certified-pde-error). The prop-ns-forced-verified edge was not carried over (skeptic and auditor: forced-NS blowup is context only). The dropped node's '2-4x compute saving' was not carried over: skeptic's mechanism accepted (propulsion design LES is usually cost-limited and under-resolved, so bounds more likely raise compute). Fact fix (skeptic + auditor): 376 is universal computation in forced Navier-Stokes, not convex-integration nonuniqueness. S2 band Low -> Speculative (skeptic): four chained prerequisites, two open theorems each Medium, earliest year at the window edge. Soft edge added to prop-cfd-auto-vv (all three lenses) so the node is no longer a dead end. | E-engines-materials (2026-10-07): S1 >2031 -> >2035 (hard prerequisites frontier-turbulence-rigorous S1 2034 and frontier-chaos-linear-response S1 2033). band_2035 S2 Speculative -> Low. S4 = S3."
+   }
+  },
+  {
+   "id": "materials-learned-functionals",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 cheap compute and cognition generate enough reference data for Recursive cognition to reach 1 kcal/mol on the benchmarks that exist, so S3 is High. The base case stays Medium because transition-metal benchmarks are themselves uncertain. The labels come from computation, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (band, two lenses): S1 Medium -> Low, S2 High -> Medium; S3 High -> Medium (auditor; reference labels for multireference transition-metal chemistry are themselves rarely 1 kcal/mol accurate, and 278 bounds scope). Years: S1 2029 -> 2030 and S3 2027 -> 2028 (skeptic; lag ladder: both equalled cap-applied-math under a data gate). Skeptic's S2 2028 -> 2029 NOT applied: it would push three hard dependents outside this branch (materials-perovskite-degradation-models, materials-uhtc-tps-design, materials-battery-life-qual, all S2 2028) and 2028 is already one year after the capability; flagged for those branches. Edges to materials-ht-alloy-design and materials-energetics-design made soft (all three lenses). Grounding: 278/275 now say 'conditional'. FLAG for hyper/materials resolver: materials-uhtc-tps-design (Medium/High/High) now rates above this hard prerequisite (Low/Medium/Medium). | E-engines-materials (2026-10-07): band_2035 S1 Low -> Medium, S3 Medium -> High. Years kept. S4 = S3."
+   }
+  },
+  {
+   "id": "prop-cfm-models",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Depot, lunar and Mars-window campaigns in 2029-35 supply flight data in every scenario, so Plateau reaches High by 2035. The data arrive on the launch clock, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (timing, concrete mechanism accepted): S2 2028 -> 2029. The data gate runs on the launch clock; the first ship-to-ship transfer is S2 2027 and was still unscheduled in Sep 2026, and validation across fill levels, coasts and attitudes needs several transfer flights and weeks-long storage, which arrive with the 2028-29 depot campaigns; prop.json itself rated this 'High by 2028 if flight data are shared'. Added the data-sharing conditional and the 'physical loss vs model margin' correction (skeptic + auditor; depot table reproduced and margin re-simulated). Soft edge from new node prop-loxsat-cfm-flight-data (auditor). S1/S3 and bands unchanged. | E-engines-materials (2026-10-07): band_2035 S1 Medium -> High. Years kept. S4 = S3."
+   }
+  },
+  {
+   "id": "prop-rde-mode-theory",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 several RDRE programs have given models blind tests, so S3 rises to High. The base case stays Medium because wave modes may hinge on build detail that models miss. Hot fire binds and S3 already has AI-run stands, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (claim, verified at NTRS 20240000933): the Isp gain is a 'potential ... currently being assessed', the demonstrated benefit is a 10-50% shorter engine, and the record does not mention a 5x lower feed pressure (removed). Timing (skeptic, accepted): S2 2028 -> 2029; blind validation needs a new geometry designed, printed and hot-fired after the model exists. Fact fix (auditor, re-verified on nasa.gov): only the Dec 2025 InRoDES firing exceeded 340 s; the 251 s figure belongs to an earlier full-scale RDRE combustor test, not Sep 2025. Soft edge from physclock-ai-run-test-stands. Advocate's S3 Medium -> High rejected (P6 default Low; one band above default is already Medium). | E-engines-materials (2026-10-07): band_2035 S1 Low -> Medium, S3 Medium -> High (the 2031 objection to S3 High was the P6 default with little time; four more years of test campaigns remove it). Years kept. S4 = S3."
+   }
+  },
+  {
+   "id": "materials-creep-oxidation-life-models",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 blind 10,000-hour predictions made in 2028-30 have been checked against completed long tests, so S3 rises to High; the base case stays Medium because new chemistries can show new long-time mechanisms. Robot-tended frames add specimens in parallel, but each test still runs about 14 months, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Gate data -> experiment (skeptic, accepted: the signpost needs a blind check against a 10,000-h, ~14-month test). materials-mlip-certified-uq hard -> soft (skeptic: bulk diffusion is mostly measured; the open problem is mesoscale bridging). Soft edges from cap-autonomous-labs and physclock-ai-run-test-stands (advocate). Years kept (skeptic's S2 2030 / S3 2029 not applied): a blind prediction can be checked against long tests already under way when the model is built, so the 14-month clock overlaps model development rather than following it. Advocate's S3 High not applied: legacy hold-out data validate heritage alloys but not new chemistries, where long-time mechanisms appear; P6 default Low. | E-engines-materials (2026-10-07): band_2035 S1 Low -> Medium, S3 Medium -> High. Years kept. S4 = S3 (physics time constant). Soft edge from robo-lab-bench-useful."
+   }
+  },
+  {
+   "id": "prop-closure-theory",
+   "patch": {
+    "earliest_year": {
+     "S1": "2035",
+     "S2": "2030",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Plateau gets validated physics theory only in the early 2030s and then needs a blind workshop cycle, so S1 is 2035 and Low. Elsewhere the 2031-34 workshop cycles lift the base case to Medium; the closure problem may be underdetermined, which caps it there. Data bind, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (timing/band, concrete mechanism accepted): S2 2029 -> 2030, S3 2028 -> 2029, S2 Medium -> Low. The success criterion includes a blind workshop win, which cannot happen in the year the theory capability lands (cap-physics-theory S2 2029 / S3 2028); data at engine conditions bind; P6 default Low. Edges to prop-turbopump-tool (skeptic + advocate) and prop-flame-response (skeptic + advocate) made soft. S3 Medium kept. | B-fix (integrator, 2026-10-07): S3 2029 -> 2030: the why says a closure cannot be blind-validated in the year cap-physics-theory lands, and B-trunk moved that anchor to S3 2029. S3 band Medium kept. | E-engines-materials (2026-10-07): S1 >2031 -> 2035 (cap-physics-theory reaches Plateau in the early 2030s; blind validation needs a workshop cycle after it). band_2035 S2 Low -> Medium. S4 = S3."
+   }
+  },
+  {
+   "id": "prop-flame-response",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2030",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Plateau gets the physics theory in the early 2030s and then needs a year of blind rig tests, so S1 is 2034. By 2035 Recursive has run several rig campaigns, so S3 is High; the base case stays Medium because response depends on injector build detail. Rig tests bind and S3 already has AI-run stands, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (timing, two lenses): S2 2029 -> 2030; the node's own text says a year of blind rig tests binds, yet S2 equalled its prerequisites' year. prop-closure-theory hard -> soft (skeptic + advocate: flame transfer functions are computed by LES with existing subgrid models; what is missing is transcritical real-fluid injection physics and rig data). Soft edge from physclock-ai-run-test-stands (advocate). Advocate's S3 2029 -> 2028 rejected: theory capability lands in S3 2028 and the blind rig campaign (8-9 months at 1.3-1.5x) cannot finish the same year. Fact fix (auditor, verified): the 350 bar milestone was reported in May 2023, not 2026. | B-fix (integrator, 2026-10-07): S3 2029 -> 2030: the node's own rule (a blind rig year after the theory capability, in S2 and S3 alike) applied to cap-physics-theory S3 2029 after B-trunk moved it from 2028. Band unchanged. | E-engines-materials (2026-10-07): S1 >2031 -> 2034 (cap-physics-theory in Plateau about 2033, plus a blind rig year). band_2035 S3 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "materials-quantum-chem-advantage",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Vendor roadmaps put chemically accurate simulation above 100 spin orbitals in the early 2030s, so the base and Recursive cases reach Medium by 2035, while classical methods keep moving the target. Qubit fabrication binds, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (timing/band, two lenses): S2 2030 -> 2031, S3 2029 -> 2030, S3 Medium -> Low (fabrication gate; vendor roadmap places chemically accurate >100-spin-orbital simulation in the 2030s Lumos generation). S2 kept at Low (skeptic's Speculative not applied: other vendors' 2029 machines make a 2031 result unlikely but not <10%). Grounding/fact fixes (auditor): 275 worded as a worst-case, conditional result; 4-195x algorithmic vs 278x architecture-specific; Apollo/Lumos roadmap corrected. | E-engines-materials (2026-10-07): S1 >2031 -> 2033 (hardware roughly scenario-independent; slower algorithm cuts in Plateau). band_2035 S1 Speculative -> Low, S2-S4 Low -> Medium. S4 = S3 (chip fabrication, no robot credit)."
+   }
+  },
+  {
+   "id": "prop-ai-engine-design-loop",
+   "patch": {
+    "earliest_year": {
+     "S1": "2027",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Generative engine design is standard by 2035 in every scenario. The loop period is set by print time and stand availability; robots speed both at leading firms, but the node is already met, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Auditor (grounding, accepted): pathway relabelled 'P1 (marginal; not AI-math-driven)' since the node itself says Noyron encodes engineering rules. Advocate (fact, accepted; verified at leap71.com): Dec 2025 20 kN methalox engines added to status; XRA-2E5 hot fire marked unconfirmed; the advocate's TEC '5-year licence' and Nyx-2028 details could not be verified (source returned 403) and were not added. Soft edge to prop-rde-flight-demo added. Years and bands unchanged. | E-engines-materials (2026-10-07): note_2035 added; years and bands unchanged. S4 = S3."
+   }
+  },
+  {
+   "id": "materials-energetics-design",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Plateau catches up by the early 2030s, so S1 is High by 2035. Robot bench work can take over hazardous microsynthesis, but the node lands before robots are useful in labs, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (edge, two lenses): materials-learned-functionals hard -> soft; energetics are main-group CHNO chemistry already covered by Skala-class functionals and composite methods. Auditor (grounding): family 149 removed (T1, cited without 'conditional', and the node itself said it changes no practice). Auditor's optional S2 2028 -> 2029 not applied: hazard tests (impact, friction, ESD, DSC) take days to weeks after small-scale synthesis, so the lag after cap-autonomous-labs can be short. | E-engines-materials (2026-10-07): band_2035 S1 Medium -> High. Years kept. S4 = S3. Soft edge from robo-lab-bench-useful."
+   }
+  },
+  {
+   "id": "materials-ht-alloy-design",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "AI alloy design is routine in every scenario by 2035. Powder lots, coupons and long tests remain the slow part, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Edges: materials-learned-functionals hard -> soft (all three lenses); cap-design-optimization hard -> soft and cap-applied-math added as hard (advocate; mechanism accepted: alloy ICME runs on CALPHAD, kinetics, printability models, MLIP screening and active learning, and GRX-810 and the U of T self-driving lab found alloys without 'multiphysics design with guarantees'); materials-am-defect-physics added as soft (skeptic: hit rate on powder lots and builds is printability). Advocate's S2/S3 2028 -> 2027 rejected: the hard prerequisite materials-mlip-certified-uq moved to 2028 (two lenses) and a high coupon hit rate needs coupons tested after the capability arrives. Signpost re-timed (skeptic): AMRL 4-5 cannot happen the same year the design capability arrives. U of T result (Jul 13, 2026) verified and added to status. | E-engines-materials (2026-10-07): band_2035 S1 Medium -> High. Years kept. S4 = S3."
+   }
+  },
+  {
+   "id": "prop-life-twin",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Probabilistic life models are standard for reusable engines in every scenario by 2035, fed by hundreds of flights a year. Flights supply the data, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (edge + claim, accepted): prop-cfd-auto-vv hard -> soft (life models are calibrated on instrumented engines, inspection and fleet data; CFD V&V improves the heat-flux input but is not required). The 'data binds less' sentence contradicted the node's own data gate: the reflown fleet is kerosene gas-generator Merlins, whose wear does not transfer to Raptor 3. Years unchanged (cap-applied-math 2027 still precedes 2028). | E-engines-materials (2026-10-07): band_2035 S1 Medium -> High. Years kept. S4 = S3."
+   }
+  },
+  {
+   "id": "prop-start-transient",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Long-coast relight data arrive with depot, lunar and Mars-window campaigns in 2028-33, so by 2035 the base case is High and Plateau Medium. Flight data bind, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Auditor (band): S1 Medium -> Low (S1 earliest year is 2031, the window edge). Skeptic (edge, accepted): frontier-stiff-certified hard -> soft; chemistry-integration error is negligible next to rate-constant and two-phase uncertainty (the stiff node admits it); prop-cfm-models stays hard. Soft edge from physclock-ai-run-test-stands (advocate). Advocate's S2 Medium -> High rejected: booster relights after minutes of coast are plentiful, but the HLS case (days to weeks in orbit) has little data before the 2029 campaigns, and prop-cfm-models is now S2 2029. | B-fix (integrator, 2026-10-07): Flight 13 date harmonized to Jul 24, 2026 (launch date per 33FG news 596 / Wikipedia flight list; trunk and verif already used Jul 24). | E-engines-materials (2026-10-07): band_2035 S1 Low -> Medium, S2 Medium -> High. Years kept. S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-chaotic-adjoint-design",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Plateau gets the linear-response theory only about 2033, leaving too little time for a tool and test validation, so S1 is after 2035. With the theorem Medium and compute cheaper by 2035, Recursive reaches Medium; wall-bounded flows still cost about 1,000 simulations per gradient. S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (claim + band, accepted). The 'two simulations per gradient' figure is the steady-adjoint cost; for chaotic flows LSS/NILSS cost scales with the number of positive Lyapunov exponents (verified: n+ ~1,200-1,500 for channel flow at Re_tau=180, >=2 for an axisymmetric bluff body at Re_D=900; Blonigan et al., ar5iv 1702.06809). S3 band Medium -> Low: P6 default Low, the hard prerequisite is an open theorem rated only Medium in S3, and hardware validation compresses 1.3-1.5x. Years unchanged. | E-engines-materials (2026-10-07): S1 >2031 -> >2035 (hard prerequisite frontier-chaos-linear-response S1 2033, then tool building and hardware validation). band_2035 S3 Low -> Medium. S4 = S3."
+   }
+  },
+  {
+   "id": "prop-stability-design-tool",
+   "patch": {
+    "earliest_year": {
+     "S1": "2035",
+     "S2": "2031",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Plateau gets flame response only about 2034, so S1 is 2035 at the earliest and stays Speculative. In the base and Recursive cases, engine programs in 2032-35 give the tool several chances to rank designs before hot fire, so both reach Medium. Rig and hot-fire validation bind, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (timing/band, two lenses): S2 2030 -> 2031 and S2 Medium -> Low (needs validated flame response, now S2 2030, then use on a real engine program). S3 2029 -> 2030 (skeptic; same lag after flame response S3 2029). Gate qualification -> experiment (skeptic + advocate: the tests saved are development tests; the real gate is rig and hot-fire validation of the tool's rankings). Gate convention (advocate, accepted): the first mover is a self-certifying commercial operator; FAA Part 450 regulates public safety, not engine materials or test counts, so the regulator/certification Medium cap does not apply unless the node needs NASA crew, NSSL or other customer certification. The band here rests on physical clocks, not on that cap. Soft edge from physclock-optimal-test-campaigns (advocate). | B-fix (integrator, 2026-10-07): S3 2030 -> 2031 and S3 Medium -> Low: prop-flame-response moved to S3 2030, and the node's own chain needs rig and hot-fire validation after it (experiment gate, 1.3-1.5x in S3), so S3 now matches S2 (2031, Low). | E-engines-materials (2026-10-07): S1 >2031 -> 2035 (hard prerequisite prop-flame-response S1 2034). band_2031 S1 Low -> Speculative, because a hard prerequisite now dates to 2034 in S1. band_2035 S2/S3 Low -> Medium. S4 = S3."
+   }
+  },
+  {
+   "id": "prop-turbopump-tool",
+   "patch": {
+    "earliest_year": {
+     "S1": "2032",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Plateau calibrates transfer-matrix models on archived data by about 2031 and confirms them blind on a water rig in 2032. Water rigs are cheap, so by 2035 the base case is High. The node lands before robots matter, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Edge: prop-closure-theory hard -> soft (advocate + skeptic). Timing (advocate, concrete mechanism accepted): with closure guarantees no longer gating, the remaining gate is blind water-rig confirmation, which the node itself calls cheap; S2 2030 -> 2029, S3 2029 -> 2028. Advocate's S3 Medium -> High rejected (P1->P6, P6 default Low; blind prediction for a new inducer is still a modeling problem). Soft edge from physclock-ai-run-test-stands. Fact fix (auditor): Nerra Network newsletter replaced by primary reports of Flight 12 (SpaceNews via 33FG news 518, verified) and Flight 13 (Spaceflight Now). | B-fix (integrator, 2026-10-07): Flight 13 date harmonized to Jul 24, 2026 (launch date per 33FG news 596 / Wikipedia flight list; trunk and verif already used Jul 24). | E-engines-materials (2026-10-07): S1 >2031 -> 2032 (cap-applied-math S1 2029 plus the two-step chain in the why). band_2035 S1 Low -> Medium, S2/S3 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "prop-ship-transfer-demo",
+   "patch": {
+    "earliest_year": {
+     "S1": "2027",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Done well before 2032 in every scenario. An exogenous launch milestone, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Auditor (fact, contradicted; verified): Flight 15 is a single-vehicle flight and cannot perform ship-to-ship transfer; the transfer demo was not yet scheduled as of Sep 2026 (Wikipedia, updated Oct 4, 2026), and Flight 15 (NET Oct 19, 2026) targets the first ship catch and begins docking and hatch tests (Basenor). Years and bands unchanged. | F2 audit (2026-10-07): tier-5 hardware outcome labelled 'P1 (marginal)', which hid it from the P7 rule; relabelled 'P7 (exogenous)' with the standard premise label, and the why now says plainly that it is not an AI-math implication. | E-engines-materials (2026-10-07): note_2035 added; years and bands unchanged. S4 = S3."
+   }
+  },
+  {
+   "id": "materials-closed-loop-discovery",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 the autonomous labs of 2026-28 have had years to collect outside replications, so the base case rises to High and Plateau to Medium. General bench robots arrive 2029-31 and widen the synthesis routes, but the node lands first, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (band, two lenses): S2 High -> Medium; the node stacks outside replication and an unmeasured >10x rate, the only precedent (A-Lab) failed expert audit, and P7 defaults to Speculative. Skeptic's S2 2029 -> 2030 not applied: the A3 lag (labs 2028 -> outside replication 2029) already sits at the optimistic edge. S3 High kept. | F2 audit (2026-10-07): S1 band Medium -> Low (three Medium prerequisites landing in 2029 plus replication leave no room for Medium); S2/S3 reasoning against the P7 default written out. | E-engines-materials (2026-10-07): band_2035 S1 Low -> Medium, S2 Medium -> High. Years kept. S4 = S3. Soft edge from robo-lab-bench-useful (added by the robots draft)."
+   }
+  },
+  {
+   "id": "prop-rde-flight-demo",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "By 2035 several programs have had time to fly, but each still needs a customer and a funded flight slot, so bands stay Medium. Funding and flight slots bind, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (timing, accepted): S3 2028 -> 2029; S3 equals S2 until 2028, and autonomous test stands (S3 2028) cannot pull a funded flight into the same year. Auditor: pathway 'P1 (marginal)' and soft edge from physclock-ai-run-test-stands; advocate: soft edge from prop-ai-engine-design-loop (Venus credits AI-enabled design). InRoDES durations corrected (only Dec 2025 exceeded 340 s). Chain written out. Bands unchanged. | F2 audit (2026-10-07): tier-5 hardware outcome labelled 'P1 (marginal)', which hid it from the P7 rule; relabelled 'P7 (exogenous)' with the standard premise label, and the why now says plainly that it is not an AI-math implication. | E-engines-materials (2026-10-07): band_2035 = band_2031 (exogenous; customer and money bind). Years kept. S4 = S3."
+   }
+  },
+  {
+   "id": "materials-ai-alloy-flight",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Plateau designs the alloy about 2030 and needs 2-3 years of powder lots, property tests and hot fire, so S1 is 2033 and Medium by 2035. By 2035 risk-tolerant engine makers have had five years, so the base case is High. Multi-heat lots and creep tests bind, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (timing/band, two lenses): S3 2029 -> 2030 (one year after 2028 design is below the node's own 2-3-year physical floor even at 1.3-1.5x); S2 Medium -> Low (powder, AM-parameter, creep and hot-fire clocks; material qualification compresses only 0.7-0.8x in S2; P7 default Speculative). S2 year kept at 2030 as the optimistic edge (design 2028 + 2 years for a self-certifying maker flying a small hot part); auditor's 2031 not applied. Advocate's S2 2029/High and S3 High rejected (see debates); advocate's gate change qualification -> experiment accepted. Gate convention (advocate, accepted): the first mover is a self-certifying commercial operator; FAA Part 450 regulates public safety, not engine materials or test counts, so the regulator/certification Medium cap does not apply unless the node needs NASA crew, NSSL or other customer certification. The band here rests on physical clocks, not on that cap. Description tightened (skeptic) so the hard prerequisite is causal, not definitional; title adjusted to match. Full chain written out (grounding rule). Soft edge from physclock-optimal-test-campaigns (advocate). | E-engines-materials (2026-10-07): S1 >2031 -> 2033 (materials-ht-alloy-design S1 2030 plus the 2-3 year physical floor in the why). band_2035 S1 Speculative -> Medium, S2 Low -> High, S3 Medium -> High. S4 = S3 (S4 analysis: within-year credit of 0.25 year only, no year or band move)."
+   }
+  },
+  {
+   "id": "materials-new-propellant-flight",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Scale-up, hazard classification and thruster qualification take 3-5 years, so Plateau lands about 2034. By 2035 the base case is Medium; the market for a few percent of performance stays thin. Compatibility tests run in real time, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (grounding rule, accepted): tier-5 hardware outcome inside five years now writes out its chain. Years and bands unchanged (customer and hazard-classification qualification genuinely applies here, so the gate stays 'qualification'). | E-engines-materials (2026-10-07): S1 >2031 -> 2034 (materials-energetics-design S1 2029 plus a 3-5 year qualification floor, slower in Plateau). band_2035 S1 Speculative -> Low, S2-S4 Low -> Medium. S4 = S3."
+   }
+  },
+  {
+   "id": "prop-hls-refuel-campaign",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 lunar refueling campaigns have flown in every scenario unless Starship fails outright. Launch cadence binds, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (claim, two lenses): '~1-4 tankers saved' conflated the physical boil-off loss with a model's value; corrected to ~0-1 tanker of planning margin (depot table reproduced; margin re-simulated). Soft edges added (advocate): prop-cfm-models, prop-start-transient, prop-mass-gauging, physclock-ai-mishap-analysis, physclock-heavy-cadence-100, so the tree shows what the text already credits. Bands kept: advocate's S2 High and auditor's S3 2029/Medium both rejected (see debates). Chain written out. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P1->P7'); previously labelled P1->P7, but its own strongest case says AI mathematics is not on the critical path. | E-engines-materials (2026-10-07): band_2035 S1/S2 Medium -> High. Years kept. S4 = S3."
+   }
+  },
+  {
+   "id": "prop-reuse-extended",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "At hundreds of heavy flights a year by the mid-2030s, overhaul intervals must stretch, and model-based limits become normal practice, so the base case rises to High. Each life point still costs a flight, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (claim, accepted): replaced the 'doubled overhaul interval is plausible' sentence with the physclock quantification (models pull fleet-leader life extension forward 6-12 months; each life data point costs a flight). Chain written out (grounding rule). Soft edge from physclock-heavy-cadence-100 (advocate: data arrive on the launch exponential). Skeptic's S2 2029 -> 2030 and advocate's S2/S3 Medium -> High both rejected (see debates): ~90 Starship flights in Mach33's 2028 reference case make model-set intervals in 2029 a fair optimistic edge, but validation on fleet leaders and visible attribution keep the band at Medium; no regulator cap is involved. Gate convention (advocate, accepted): the first mover is a self-certifying commercial operator; FAA Part 450 regulates public safety, not engine materials or test counts, so the regulator/certification Medium cap does not apply unless the node needs NASA crew, NSSL or other customer certification. The band here rests on physical clocks, not on that cap. | F2 audit (2026-10-07): band reasoning against the P7 default written out; years and bands unchanged. | E-engines-materials (2026-10-07): band_2035 S1 Low -> Medium, S2/S3 Medium -> High. Years kept. S4 = S3. Soft edge from robo-launch-refurb (robotic post-flight inspection data)."
+   }
+  },
+  {
+   "id": "materials-hot-section-reuse",
+   "patch": {
+    "earliest_year": {
+     "S1": "2035",
+     "S2": "2032",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "In the base case, fleet-leader parts in the new alloy pass the old refurbishment interval at 100+ flights a year, so an attributed increase comes about 2032; Plateau's alloy flies only in 2033, so S1 is 2035. Life data cost flights, and robotic teardown speeds only the inspection step, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (timing/band, two lenses): S2 2031 -> >2031, S2 Low -> Speculative; an alloy first flying in 2030 (Low) cannot have a fleet-proven, operator-attributed interval increase within a year (reuse learning: 15 months to first reflight, 3-5 years to mature life, 0.8-0.9x in S2). S3 kept at 2031 Low; advocate's S3 Medium rejected (alloy flight is now S3 2030, leaving one year for fleet hours and attribution; P7 default Speculative). Gate qualification -> data (fleet hours and teardowns bind; first mover self-certifies). Gate convention (advocate, accepted): the first mover is a self-certifying commercial operator; FAA Part 450 regulates public safety, not engine materials or test counts, so the regulator/certification Medium cap does not apply unless the node needs NASA crew, NSSL or other customer certification. The band here rests on physical clocks, not on that cap. Chains written out (grounding rule). Soft edge from physclock-heavy-cadence-100 (advocate: cadence accrues fleet hours). | B-fix (integrator, 2026-10-07): S3 heavy-cadence year in why updated to 2029 (B-trunk). Years and bands unchanged. | E-engines-materials (2026-10-07): S1 >2031 -> 2035, S2 >2031 -> 2032 (S3 logic plus one year: alloy flight 2030, heavy cadence a year later than S3). band_2035 S1 Speculative -> Low, S2 Speculative -> Medium, S3 Low -> Medium. S4 = S3. Soft edge from robo-launch-refurb."
+   }
+  },
+  {
+   "id": "prop-rde-operational",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2031",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Qualification and a customer commitment take several years after the 2029 demonstrations, so Plateau lands about 2033. By 2035 Recursive reaches Medium; the base case stays Low because the performance case is still unproven. Qualification and customers bind, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (band/timing/edge, accepted): S2 Low -> Speculative (P7 default; needs flight demo, then several years of envelope qualification, then a customer); S3 2030 -> 2031 (flight demo now S3 2029); prop-rde-mode-theory hard -> soft (empirical envelope mapping can also deliver predictability). Claim fix: the ~10% Isp gain is unproven (NTRS 20240000933). Chain written out (grounding rule). | E-engines-materials (2026-10-07): S1 >2031 -> 2033. band_2035 S1 Speculative -> Low, S2 Speculative -> Low, S3 Low -> Medium. S4 = S3."
+   }
+  },
+  {
+   "id": "prop-cislunar-propellant-economy",
+   "patch": {
+    "earliest_year": {
+     "S1": "2032",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Plateau gets validated boil-off models in 2030 and 20+ transfers in a year by 2032, from lunar campaigns and early Mars fueling. By 2035 hundreds of heavy flights a year make routine transfers High in the base case. Cadence binds, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (claim, two lenses): model value restated as margin (~0-1 tanker) and gauging (~0.1 tanker), not the 1-5-tanker physical loss; '10-30% of campaign launches' dropped. Edges (skeptic, accepted): prop-mass-gauging hard -> soft (worth ~0.1 tanker; operators can gauge after a settling burn); physclock-heavy-cadence-100 soft -> hard (dozens of transfers a year need heavy cadence; year-consistent in all scenarios). premise_tier -> n/a (auditor; 365 no longer load-bearing). Timing (advocate, concrete mechanism accepted): S2 2031 -> 2030 and S3 2030 -> 2029 (a second lunar campaign plus Mars-ship fuelling for the early-2031 window, or the early-2029 window in S3, can exceed 20 transfers once all prerequisites land by 2029/2028); this also removes the auditor's 'Medium with earliest year 2031' inconsistency, so the auditor's S2 Low is not applied. Advocate's S3 High rejected (tier-7 P7 outcome; AI math not on the critical path). | B-fix (integrator, 2026-10-07): heavy-cadence years in the chains updated (S2 2030, S3 2029, B-trunk); node years unchanged and still consistent with that hard prerequisite. | F2 audit (2026-10-07): band reasoning against the P7 default written out; years and bands unchanged. | E-engines-materials (2026-10-07): S1 >2031 -> 2032 (prop-cfm-models S1 2030; heavy cadence S1 2030). band_2035 S1 Low -> Medium, S2/S3 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "prop-engine-dev-compression",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": "2032",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Programs that adopt the stability tool in 2031-33 can show fewer hot-fire loops by 2035, so Recursive reaches Medium; the base case stays Low because it needs both the tool and public attribution. Robots shorten programs through parallel engines and stand turnaround, but this node counts tests saved by prediction, so S4 equals S3; the robot credit sits in prop-35-four-year-engine.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (band, two lenses): S3 Medium -> Low (new engines take 6-13 years, compressing 0.7-0.8x in S3; hard prerequisites land S3 2027-2030, so only an in-flight program adopting the tools could qualify by 2031, and it must attribute the saving). Edges: prop-ai-engine-design-loop hard -> soft (skeptic) and prop-turbopump-tool hard -> soft (skeptic + advocate); prop-stability-design-tool kept hard (skeptic; advocate's demotion rejected, see debates); prop-cfd-auto-vv kept hard. Soft edges from physclock-optimal-test-campaigns (advocate; advocate's hard edge rejected: test-design savings are not 'predictive tools') and physclock-qual-by-analysis-credit (auditor). Gate qualification -> experiment (advocate convention). Gate convention (advocate, accepted): the first mover is a self-certifying commercial operator; FAA Part 450 regulates public safety, not engine materials or test counts, so the regulator/certification Medium cap does not apply unless the node needs NASA crew, NSSL or other customer certification. The band here rests on physical clocks, not on that cap. Advocate's S2 2031/Medium rejected. Description baseline defined (skeptic). Fleet-start arithmetic folded into why (advocate). Chains written out. | E-engines-materials (2026-10-07): S1 >2031 -> >2035 (prop-stability-design-tool S1 2035), S2 >2031 -> 2032 (an engine program under way adopts the 2031 tool a year later, the S3 logic plus one year). band_2035 S3 Low -> Medium. S4 = S3: the S4 analysis's '2032-34 year-scale credit' is for development time, which this node's test-count criterion does not measure; it is carried by the new prop-35-four-year-engine. Soft edge from robo-24x7-integration-test (added by the robots draft)."
+   }
+  },
+  {
+   "id": "prop-loxsat-cfm-flight-data",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "If LOXSAT flew and worked, model comparisons are out by 2028-29; if it did not, the node may never be met, so bands stay Medium. Launch-bound, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-engines-materials resolver (2026-10-07): New node from the auditor, accepted: not a duplicate (no LOXSAT or public-CFM-data node in node-index-v1), mechanism sound, all fields filled; bands set to Medium rather than the auditor's High because launch is unverified and nine-month operations and publication must all succeed. Links are soft, as the auditor specified. | F2 audit (2026-10-07): tier-5 hardware outcome labelled 'P1 (marginal)', which hid it from the P7 rule; relabelled 'P7 (exogenous)' with the standard premise label, and the why now says plainly that it is not an AI-math implication. | E-engines-materials (2026-10-07): band_2035 = band_2031 (launch status still unconfirmed; 33FG search found nothing on 2026-10-07). Years kept. S4 = S3."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "catalog_families": [],
+   "calibration_note": null,
+   "needs_2035_review": false,
+   "id": "prop-35-alloy-enabled-engine",
+   "title": "An engine built around an AI-designed alloy flies",
+   "tier": 6,
+   "kind": "mission",
+   "domain": "prop",
+   "description": "A new rocket engine or major engine version flies with hot-section parts (preburner, turbine, chamber or nozzle) made from an alloy proposed by an AI design loop, and the alloy is what lets it run a hotter preburner or turbine, or a higher chamber pressure, than its heritage alloys allow. A drop-in part at the old operating point does not count; that is materials-ai-alloy-flight.",
+   "status_oct2026": "No engine has been designed around an AI-designed alloy (general). Oxygen-rich staged-combustion engines already depend on purpose-built alloys, such as SpaceX's in-house SX500 superalloy for Raptor and NASA's GRCop family for chambers (general). NASA's GRX-810 targets service above about 1,100 C and has not flown in an engine.",
+   "prerequisites": [
+    "materials-ai-alloy-flight",
+    "materials-creep-oxidation-life-models"
+   ],
+   "accelerated_by": [
+    "prop-ai-engine-design-loop",
+    "materials-am-defect-physics",
+    "physclock-ai-run-test-stands"
+   ],
+   "binding_gate": "experiment",
+   "pathway": "P1->P6->P7",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2033",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "premise_tier": "n/a (capability premise; no catalog family)",
+   "why": "The first AI-alloy flight (2030 in S2 and S3) is a substitution at the old operating point. The payoff comes when an engine version is designed around the new alloy's margin. A major engine version takes about 3 years, about 2-2.5 years by 2035 in S2-S3 (gate table 0.7-0.8x), and the alloy also needs production powder lots and in-house allowables from several heats. Chain (S2): alloy flight 2030 + creep and oxidation life models (2029) back the design margin -> version designed around the alloy 2031 -> hot-fire campaign and first flight 2033. S3: 2032. S1: alloy flight 2033 -> after 2035. Oxygen-rich preburners and turbines are limited by their alloys' temperature (general), so the gain is performance or life. S2 is Low by 2035 because engine makers may not disclose that an in-house alloy came from an AI loop; S3 is Medium. Robots do not shorten multi-heat alloy lots or 1,000-10,000 h tests, and alloy suppliers robotize only after 2031, so S4 equals S3.",
+   "strongest_case_small": "Engine makers already design proprietary alloys without AI (SX500), so attribution is hard to see. A hotter preburner buys a few percent of specific impulse or thrust-to-weight, and reuse economics turn on reliability more than on peak performance.",
+   "signpost": "An engine maker states that a new engine version's preburner temperature, turbine inlet temperature or chamber pressure rose because of an AI-designed alloy, with hot-fire data.",
+   "note_2035": "New for the 2035 horizon: the performance step after the first AI-alloy flight, 2032-33 in S2-S3. S4 equals S3 because multi-heat alloy lots and long property tests bind, and alloy suppliers robotize only after 2031.",
+   "revision_note": "E-engines-materials (2026-10-07): new node for the 2035 horizon; extends the alloy chain past materials-ai-alloy-flight."
+  },
+  {
+   "catalog_families": [],
+   "calibration_note": null,
+   "needs_2035_review": false,
+   "id": "prop-35-four-year-engine",
+   "title": "A new large engine flies four years after program start",
+   "tier": 7,
+   "kind": "outcome",
+   "domain": "prop",
+   "description": "A clean-sheet liquid rocket engine of at least 1 MN (about 225,000 lbf) thrust flies on an orbital-class launch within four years of its program start, as disclosed by the developer. Derivatives of an existing engine family do not count.",
+   "status_oct2026": "Clean-sheet engines take 6-13 years (model gate table). BE-4 went from program start in 2011 to first flight in Jan 2024 (general). Raptor work began about 2012; it first flew on a hop in 2019 and on an orbital-class flight in 2023 (general). LEAP 71's Noyron took two 20 kN engines from specification to first flame in under three weeks (Dec 2025), but large engines are paced by hot-fire failure discovery. SpaceX's McGregor site has 15 engine test stands (S-1/A).",
+   "prerequisites": [
+    "prop-ai-engine-design-loop"
+   ],
+   "accelerated_by": [
+    "prop-stability-design-tool",
+    "prop-engine-dev-compression",
+    "prop-turbopump-tool",
+    "prop-start-transient",
+    "prop-cfd-auto-vv",
+    "physclock-ai-run-test-stands",
+    "physclock-optimal-test-campaigns"
+   ],
+   "binding_gate": "experiment",
+   "pathway": "P1->P6->P7",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2035",
+    "S3": "2033",
+    "S4": "2033"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "Medium"
+   },
+   "premise_tier": "n/a (capability and physical-gate premise; no catalog family)",
+   "why": "Design labor is already near zero for small engines. Large engines are paced by turbopump and combustion failures that appear only in hot fire, each costing a redesign and a re-test. The gate table puts a new engine at 0.7-0.8x of its 6-13 years in S3 by 2031 and about 10% faster by 2035, so four years needs a best-case program that starts with S3 tools about 2029 (2033, Low). S2 compresses less (about 0.7-0.85x by 2035), so only a program started about 2031 that avoids a major test-stand loss fits (2035, Low). This is the one node in the branch where robots earn S4 credit. A robot-first firm builds several development engines in parallel and turns stands around 24/7, and the gate table gives a leading firm 0.45-0.51x by 2035. All four conditions hold: development is partly labor- and throughput-bound (35% labor), robots are useful at leading firms from 2030-31, no hard prerequisite lands later, and parallel robot-built development engines are not the specialized automation counted in S3. The credit is one band, Low to Medium. The year stays 2033 because a program must start by about 2029-30 to fly by then. Stability prediction and turbopump tools cut redesign loops but are not required.",
+   "strongest_case_small": "Fast firms already iterate on cheap printed hardware, so the four-year mark may be set by funding and test-stand losses (BE-4 stand explosions in 2015 and 2023, general), whatever the tools or robots. Few clean-sheet engines of this size start in any five-year period, so the chance rests on two or three programs.",
+   "signpost": "A developer announces a clean-sheet 1 MN-class engine program in 2028-31 and reports full-duration hot fire within two years; disclosed robot counts at engine factories and test stands.",
+   "note_2035": "New for the 2035 horizon. This is where S4 differs in this branch: robot-built parallel development engines and 24/7 stand turnaround lift S4 from Low to Medium by 2035. The year stays 2033 because programs must start before robots are useful.",
+   "revision_note": "E-engines-materials (2026-10-07): new node for the 2035 horizon; carries the S4 analysis's year-scale engine-development credit (2032-34), which prop-engine-dev-compression's test-count criterion does not measure."
+  },
+  {
+   "catalog_families": [],
+   "calibration_note": null,
+   "needs_2035_review": false,
+   "id": "prop-35-engine-50-flight-life",
+   "title": "Engines fly 50 missions without overhaul",
+   "tier": 7,
+   "kind": "outcome",
+   "domain": "prop",
+   "description": "Main engines on a heavy reusable launcher fly 50 or more missions each without removal for overhaul, with inspection intervals and retirement limits set by calibrated life models and fleet data, as disclosed by the operator.",
+   "status_oct2026": "Falcon 9 boosters have flown about 30 times each (general), with Merlin engines refurbished between campaigns. Raptor 3 first flew in May 2026 and had logged more than 40,000 s of runtime by Apr 2026 (newspaceeconomy). Mach33's base case has Starship flights per stack rising from 3.3 (2027) to 18 (2030).",
+   "prerequisites": [
+    "prop-reuse-extended",
+    "physclock-heavy-cadence-100"
+   ],
+   "accelerated_by": [
+    "prop-life-twin",
+    "materials-hot-section-reuse",
+    "materials-creep-oxidation-life-models",
+    "physclock-twin-reflight-clearance",
+    "struct-reusable-life-management",
+    "prop-start-transient"
+   ],
+   "binding_gate": "data",
+   "pathway": "P1->P6->P7",
+   "earliest_year": {
+    "S1": "2034",
+    "S2": "2033",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "premise_tier": "n/a (capability premise on an exogenous launch clock)",
+   "why": "Each life data point costs a flight, so this node rides the launch exponential. At Mach33's 18 flights per stack in 2030 and more after, a fleet-leader engine passes 50 flights 2-3 years after the operator stops pulling engines for routine overhaul. Model-based reuse life (prop-reuse-extended, 2029 in S2 and S3) lets the operator stretch intervals step by step without a teardown at each step. Chain (S2): model-based intervals 2029 -> 100+ heavy flights a year 2030 -> fleet leaders at 20-30 flights a year -> 50 flights without overhaul 2033. S3: 2032, with cadence a year earlier. S1: 2034, on the same launch clock with slower, more conservative life models. It stays Medium because one engine-caused failure resets the practice and the operator must disclose it. Robotic inspection and refurbishment shorten turnaround, worth about half a year within 2032 at a robot-first operator, but pads and flights bind more than labor, so S4 equals S3.",
+   "strongest_case_small": "Operators may stretch life empirically just as fast, and engine design (Raptor 3 was built for long life) matters more than models. The gains are internal and may not be disclosed.",
+   "signpost": "An operator discloses engine flight counts above 50 without removal, or NASA or a defense customer accepts a mission on engines past a model-set life limit.",
+   "note_2035": "New for the 2035 horizon: the operating maturity of model-based reuse, reached 2032-34 as heavy cadence passes hundreds of flights a year. S4 gains about half a year inside 2032 from robotic refurbishment; flights bind, so its year and band equal S3.",
+   "revision_note": "E-engines-materials (2026-10-07): new node for the 2035 horizon; extends the reuse chain past prop-reuse-extended."
+  },
+  {
+   "catalog_families": [],
+   "calibration_note": null,
+   "needs_2035_review": false,
+   "id": "prop-35-depot-market",
+   "title": "Propellant sold in orbit to outside customers",
+   "tier": 7,
+   "kind": "outcome",
+   "domain": "prop",
+   "description": "A depot operator delivers cryogenic propellant in orbit to at least one customer outside its own company, priced per delivered tonne, with the delivered mass measured to an agreed accuracy (custody transfer).",
+   "status_oct2026": "No propellant has been sold in orbit (general). Eta Space targets a commercial LOX depot, Cryo-Dock, by 2030 (satnews, May 2026), informed by the LOXSAT demonstration. SpaceX's refueling is internal to its own lunar-lander contract.",
+   "prerequisites": [
+    "prop-cislunar-propellant-economy"
+   ],
+   "accelerated_by": [
+    "prop-mass-gauging",
+    "prop-cfm-models",
+    "prop-loxsat-cfm-flight-data",
+    "physclock-cheap-mass-internal"
+   ],
+   "binding_gate": "capital",
+   "pathway": "P1->P7",
+   "earliest_year": {
+    "S1": "2034",
+    "S2": "2033",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Low",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "premise_tier": "n/a (capability premise; market-bound)",
+   "why": "Selling propellant needs routine transfers (prop-cislunar-propellant-economy: 2030 in S2), a customer and a measured delivered mass. Gauging with proven error bounds (prop-mass-gauging) and validated boil-off models make custody transfer contractible: at 1% gauging error, a 100 t delivery carries a 1 t dispute (illustrative). Customers would be third-party landers, NASA vehicles outside the lunar-lander contract and other operators' Mars missions; Cryo-Dock aims at LOX. Chain (S2): routine transfers 2030 -> an interface standard and a first contract 2031-32 -> first metered sale 2033. S3: 2032. S1: 2034. Low in S2 because a vertically integrated SpaceX may never sell propellant, and third-party depots need their own launches and customers. Medium in S3, where cadence and demand arrive a year earlier. Launches and customers bind, so S4 equals S3.",
+   "strongest_case_small": "The stake of better models is small (about 0-1 tanker of margin per campaign), and the market may not exist: SpaceX fuels its own ships, and others may not build compatible vehicles before 2035.",
+   "signpost": "A signed contract for propellant delivered in orbit to an outside customer, or Cryo-Dock receiving and dispensing propellant.",
+   "note_2035": "New for the 2035 horizon: the commercial end of the refueling chain, 2032-34. Customers and launches bind, so S4 equals S3.",
+   "revision_note": "E-engines-materials (2026-10-07): new node for the 2035 horizon; gives prop-mass-gauging a downstream use (custody transfer)."
+  },
+  {
+   "catalog_families": [],
+   "calibration_note": null,
+   "needs_2035_review": false,
+   "id": "prop-35-mars-window-fueling",
+   "title": "Tankers fuel five Mars ships for one window",
+   "tier": 7,
+   "kind": "outcome",
+   "domain": "prop",
+   "description": "In the months before one Mars launch window, tankers fill five or more Mars-bound Starships in Earth orbit, and the ships depart in that window. The ships may carry cargo or crew.",
+   "status_oct2026": "The late-2026 Mars window is being skipped (model). Later windows open about Dec 2028-Jan 2029, early 2031, Apr 2033 and mid 2035 (model). NASA's OIG (Mar 2026) says a lunar-lander refueling needs more than 10 tankers; a Mars ship needs a comparable full refill.",
+   "prerequisites": [
+    "prop-cislunar-propellant-economy"
+   ],
+   "accelerated_by": [
+    "prop-cfm-models",
+    "prop-mass-gauging",
+    "prop-start-transient"
+   ],
+   "binding_gate": "launch",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": "2035",
+    "S2": "2033",
+    "S3": "2031",
+    "S4": "2031"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Not mainly an AI-math implication: windows, launch cadence and ship readiness set the date. Five ships need roughly 40-75 tanker flights in a few months (illustrative, at 100-150 t per tanker), so the campaign needs 100+ heavy flights a year and routine transfers. Fuelled ships may wait weeks in orbit for departure, so boil-off margin sets the tanker count and the departure order; validated boil-off and transfer models (prop-cfm-models) trim that margin by a few tanker flights per campaign at most. Chain (S3): routine transfers 2029 -> first Mars flights in the Dec 2028-Jan 2029 window -> five-ship campaign for the early-2031 window (Low). S2: routine transfers 2030 -> Apr 2033 window. S1: transfers 2032 -> mid-2035 window. Medium by 2035 in S2-S4: two windows remain, but SpaceX's Mars plans have slipped before, and a missed window costs 26 months. Orbital mechanics fix the window, so S4 equals S3.",
+   "strongest_case_small": "AI mathematics is off the critical path, which runs through cadence, ship reliability and funding. SpaceX may fly fewer, larger campaigns or skip windows.",
+   "signpost": "SpaceX manifests five or more ships for the Apr 2033 window; a surge of tanker flights in the quarter before a window.",
+   "note_2035": "New for the 2035 horizon: the Mars-window end of the refueling chain (Apr 2033 and mid-2035 windows). Orbital mechanics fix the dates, so S4 equals S3.",
+   "revision_note": "E-engines-materials (2026-10-07): new node for the 2035 horizon; extends the refueling chain past prop-cislunar-propellant-economy."
+  }
+ ],
+ "add_edges": [],
+ "add_soft_edges": [
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "materials-creep-oxidation-life-models"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "materials-energetics-design"
+  },
+  {
+   "from": "robo-launch-refurb",
+   "to": "prop-reuse-extended"
+  },
+  {
+   "from": "robo-launch-refurb",
+   "to": "materials-hot-section-reuse"
+  },
+  {
+   "from": "robo-launch-refurb",
+   "to": "prop-35-engine-50-flight-life"
+  },
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "prop-35-four-year-engine"
+  },
+  {
+   "from": "robo-aerospace-tolerance-work",
+   "to": "prop-35-four-year-engine"
+  },
+  {
+   "from": "robo-requal-standard",
+   "to": "prop-35-four-year-engine"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "engines-materials",
+   "nodes": [
+    "prop-35-alloy-enabled-engine",
+    "prop-35-four-year-engine",
+    "prop-35-engine-50-flight-life",
+    "prop-35-depot-market",
+    "prop-35-mars-window-fueling"
+   ],
+   "spine": [
+    "prop-35-alloy-enabled-engine",
+    "prop-35-engine-50-flight-life",
+    "prop-35-mars-window-fueling"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "engines-materials",
+   "patch": {
+    "thesis": "Certified flow, combustion and materials models give engines model-based reuse life from about 2029 (base case), and an AI-designed alloy likely flies by 2035. In 2032-35 come alloy-enabled engines, 50-flight engine life and Mars-window fueling. Hot fire, creep tests and flights set the pace. Robots (S4) mainly shorten new-engine programs.",
+    "reader_hook": "A 10,000-hour creep test takes about 14 months, with or without robots. Proving 0.99 engine reliability at 90% confidence takes about 230 zero-failure starts, and one Starship flight logs about 65-70. So by the 2030s engine starts pile up fast, and the pace is set by finding and fixing failure modes and by the long tests behind each new alloy.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Hook: skeptic + auditor (two lenses) corrected the boil-off claim (the 1-5 tankers are the physical loss; a validated model is worth ~0-1 tanker of margin at 6-day cadence; table reproduced exactly and margin re-simulated: +50% vs +10% planning gives 12 vs 12 tankers at 6 d/0.3%, 13 vs 12 at 6 d/0.5%, 14 vs 13 at 12 d/0.3%, 23 vs 16 at 12 d/0.5%). Reliability clause: advocate's fleet-start point folded in (~65-70 starts per Starship flight), but kept the skeptic's framing that failure modes, not start counts, pace engines. Thesis: dates follow the resolved nodes (reuse life S2 2029 Medium; alloy flight S2 2030 Low / S3 2030 Medium). Gate convention adopted (advocate): binding_gate 'qualification' is reserved for nodes needing external customer or regulator acceptance; nodes whose first mover self-certifies (alloy flight, hot-section reuse, stability tool, engine-dev compression) now carry their physical gate, and their bands rest on physical clocks rather than the Medium certification cap. | C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Trunk nodes ['cap-applied-math'] are shown as the chain's entry anchors (also listed in roots); they stay members of the trunk branch only. Moved from spine to side_chains (still branch members): ['prop-mass-gauging']. | E-engines-materials (2026-10-07): extended to 2035 and S4. Thesis rewritten for 2026-2035 and S4. Reader hook replaced with a 2035-relevant fact (the creep-test clock that robots cannot shorten) plus the reliability arithmetic; the boil-off margin point stays in prop-cfm-models and prop-cislunar-propellant-economy. Spine extended by prop-35-alloy-enabled-engine, prop-35-engine-50-flight-life and prop-35-mars-window-fueling; prop-35-four-year-engine and prop-35-depot-market are branch members off the spine."
+   }
+  }
+ ],
+ "notes": "E-engines-materials: all 35 branch nodes reviewed for 2035 and S4; every legacy '>2031' resolved (16 scenario-years). Resolved S1: frontier-chaos-linear-response 2033, prop-turbopump-tool 2032, prop-cislunar-propellant-economy 2032, materials-ai-alloy-flight 2033, materials-quantum-chem-advantage 2033, prop-rde-operational 2033, prop-flame-response 2034, materials-new-propellant-flight 2034, prop-closure-theory 2035, prop-stability-design-tool 2035, materials-hot-section-reuse 2035, and >2035 for frontier-certified-turbulent-cfd, frontier-chaotic-adjoint-design and prop-engine-dev-compression. Resolved S2: materials-hot-section-reuse 2032, prop-engine-dev-compression 2032. No year already <=2031 moved. One band_2031 change: prop-stability-design-tool S1 Low -> Speculative, because its hard prerequisite prop-flame-response now dates to 2034 in S1. S4 equals S3 in year and both bands for every existing node: all S3 years are <=2031, and no node passes the four-condition rule for a 2035 band step (gates are cognitive, data, flight, physics time constants, qualification or customers). This matches the S4 analysis, which lists this branch's nodes as no_move or within-year credit only. New nodes (5): prop-35-alloy-enabled-engine (tier 6, S2 2033), prop-35-four-year-engine (tier 7, S3 2033; the one S4 band step, Low -> Medium, carrying the S4 analysis's engine-development credit), prop-35-engine-50-flight-life (tier 7, S2 2033), prop-35-depot-market (tier 7, S2 2033), prop-35-mars-window-fueling (tier 7, S2 Apr 2033 window). Robot soft edges (8) are additional to the robots draft's own edges into this branch (robo-24x7-integration-test -> prop-engine-dev-compression, robo-lab-bench-useful -> materials-closed-loop-discovery and materials-ai-alloy-flight, robo-earth-pads-plants -> prop-cislunar-propellant-economy), which are not repeated here. None is a hard edge: no node in the branch needs general-purpose robots. Cross-branch dependencies: prop-flame-response S1 2034 and prop-closure-theory S1 2035 assume trunk resolves cap-physics-theory S1 to 2033-34; if trunk picks 2035 or later, autofix raises them, and bands stay valid (Low). prop-cislunar-propellant-economy S1 2032 assumes physclock-heavy-cadence-100 S1 stays 2030. materials-ai-alloy-flight S1 2033 makes autofix raise materials-qual-cycle-compression (another branch, still legacy '>2031') to S1 2033; its owner should resolve it at 2033 or later. Possible overlap to check at integration: moon-mars may add a Mars-fleet node; prop-35-mars-window-fueling covers only the propellant side (tankers fill five ships for one window)."
+}

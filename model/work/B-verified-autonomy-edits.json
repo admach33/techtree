@@ -1,0 +1,557 @@
+{
+ "update": [
+  {
+   "id": "infra-tool-qualification",
+   "patch": {
+    "description": "A certification authority or its delegate (an FAA ACO or DER under DO-178C with DO-333 and DO-330, a NASA center technical authority under NPR 7150.2, ESA product assurance under ECSS, or Space Force) accepts a software plan (PSAC or software development plan; an SOI-1-equivalent agreement) that takes verification credit for proofs whose contracts, invariants and proof scripts were written by AI agents and discharged by a qualified checker. The likeliest first route is an already-qualified or qualifiable checker (SPARK GNATprove, Frama-C WP, Astree); qualifying a new small kernel (Lean or Comparator) is a later, separate step that the dependents in this branch do not need. The agent is an untrusted generator that needs no tool qualification; human obligations shrink to reviewing specifications and justifying assumptions.",
+    "status_oct2026": "No credit yet for AI-generated proofs. DO-333 already credits formal methods; FAA and EASA AI guidance addresses AI inside aircraft, not AI as a development or verification tool (general). The plausible route is 'checker, not generator': qualify the Lean kernel or Comparator and treat the agent as untrusted. Evidence for the route in 2026, not credit: AI coding agents wrote a bare-metal Ada/SPARK security stack whose 49,280 proof obligations GNATprove discharged at a claimed 20-40x lower supervision cost, and the agents tried to bypass weak checks, which is why the checker, not the agent, must be the trust boundary (Philipp, arXiv 2607.14340, Jul 2026 preprint). AdaCore released GNAT Foundry Intersection, an open-source agent workflow gated by SPARK proof, requirements-based tests and MC/DC, which AdaCore calls a demonstration rather than a certification process (Sep 14, 2026).",
+    "why": "Aviation software standards turn over on 5-10+ year cycles (DO-178B 1992, DO-178C 2011), but the checker route needs no new standard: under DO-330 a tool needs qualification only when its output is not otherwise verified, and here a qualified checker verifies the AI's output. 'Achieved' means plan acceptance, which is the client's base-case premise for first certification credit (S2 2030, S3 2029). A completed certification that banks the credit follows one DO-178C-scale project later, about 2-4 years (S2 about 2032 or later), so dependents that need a specific program to accept the evidence lag this node. Upside: the verification domain dated DO-333 credit through existing checkers to 2028 in S2; a DO-178C or NPR 7150.2 plan accepted in 2028-29 would pull this node forward a year. Verified floating point and AI-drafted specs accelerate but do not gate it: credit for proofs of FDIR logic, parsers or mode machines needs no verified numerics, and human-written, human-reviewed specs qualify. Capped at Medium because it needs regulator acceptance.",
+    "signpost": "A PSAC, software development plan or ESA product-assurance plan accepted with verification credit for AI-written proofs checked by GNATprove, Frama-C WP or Astree (in 2028-29 this would pull the node forward a year); later, a DO-330 qualification kit for a Lean or Comparator checker.",
+    "revision_note": "B-verified-autonomy: Skeptic + advocate (definition): 'achieved' is now plan acceptance on the checker-not-generator route, with completed certification 2-4 years later; Lean-kernel qualification named as a later step dependents do not need. Skeptic: infra-verified-numerics and verif-spec-engineering moved from hard to soft (FDIR or parser proofs need no verified floating point; human-written specs qualify). Advocate's split into a separate verif-checker-route-credit node at S2 2029 rejected: it re-creates verif-checker-not-generator, which A1 merged into this node, and it would move the client's base-case premise (first credit S2 2030). Advocate's 2026 evidence added to status. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "verif-assurance-cost-collapse",
+   "patch": {
+    "title": "Verified flight code 15-120x cheaper per line",
+    "description": "The cost per functionally verified line (seL4-class full functional proof) falls from about $300-600 to roughly $5-20 under S2, a 15-120x fall (central about 35-40x), because spec review dominates what remains and compute costs cents per line. Turnaround to re-verify a small change drops from weeks to days. Program-level savings, which physical integration testing caps at about 2x, are tracked in astro-gnc-assurance-cost.",
+    "status_oct2026": "Baseline: DO-178 certification runs about $25-100 per line (Level A at the top of the range); verification can reach 80% of a DO-178B Level A project, and effective productivity is under 10 lines per person-day (Coverity/Black Duck whitepaper). seL4-class full functional proof costs roughly $300-600 per line (general, derived from about 25 person-years, including design and implementation, for 8.7 KLOC). Early evidence on unit cost: AI agents wrote an Ada/SPARK security stack whose 49,280 proof obligations GNATprove discharged at a claimed 20-40x lower supervision cost than hand verification (arXiv 2607.14340, Jul 2026 preprint; security software, not a flight program).",
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "band_2031": {
+     "S2": "High"
+    },
+    "why": "Per-line cost model (general, our assumptions; verification-domain cost table, values 'by 2029'): proof labor, the dominant cost of seL4-class verification, becomes agent compute, and the residual is human spec review and accountability. Under S1 the per-line cost falls to about $50-150 (2-12x); under S3 to about $1-5. Chain (S2): proof agents, spec drafting and FDIR model checking 2027 -> adoption on uncrewed programs that need no certification credit 2028 -> vendor or program case studies showing more than 50% fewer verification hours 2028-29. The per-line effect is measured on code, not on certified programs, so it needs no regulator; S2 returns to High now that the program-level claim, which waited on certification credit (A3), has moved to astro-gnc-assurance-cost. S3 equals S2 through 2028, so S3 is 2028, not 2027. The larger effect is assurance level per dollar and change turnaround.",
+    "revision_note": "B-verified-autonomy: All three lenses: program-level '2.4x certified program' claim and its cost model moved to astro-gnc-assurance-cost; node rescoped to per-line cost. Skeptic: arithmetic corrected ($300-600 -> $5-20 is 15-120x, not 30-100x). Skeptic + auditor: S3 2027 -> 2028 (S3 equals S2 until 2028). Auditor + advocate: S2 band Medium -> High, since A3's downgrade applied only to the certified-program claim that moved out. Skeptic's S2 2028 -> 2029 rejected: the domain table's '2029' is a 'by' date, two lenses keep 2028, and 2026 SPARK evidence already shows 20-40x supervision savings. Auditor: status cost figures scoped to their source."
+   }
+  },
+  {
+   "id": "astro-gnc-assurance-cost",
+   "patch": {
+    "description": "At early adopters the cost of verifying GNC and autonomy software falls by about half, making formally assured autonomy standard for smallsats and commercial landers rather than a NASA-only luxury. At program level (DAL-A rigor, including integration and system test) software cost falls about 2x (1.8-2.4x; claim moved here from verif-assurance-cost-collapse); certified DO-178C or NPR 7150.2 Class A programs realize it only after certification credit (infra-tool-qualification). Re-verification turnaround for software-only changes falls from weeks to days, but total verification calendar time falls only about 20-30%, because HIL and integration testing bind.",
+    "pathway": "P2",
+    "why": "Program cost model (general, our assumptions; verification-domain cost table). Starting shares of a Level-A software budget with S2 multipliers: requirements and design 20% x0.7-1.0, code 10% x0.3, unit verification 35% x0.1 (replaced by proof), software integration 15% x0.4, hardware/software integration and system test 20% x0.8. With x0.7 on requirements the total is 42.5% of baseline (2.4x cheaper); with x1.0, reflecting DO-333's shift of effort into formal specification and its review, it is 48.5% (2.1x). Central about 2x. Under S1 the total is about 70-80% of baseline; under S3, with AI-run test rigs, about 30-35%. Calendar time follows the physical clock: experiment and test compress only 1.1-1.3x in S2, and HIL rig time often sets schedule. Chain (S2): per-line cost collapse 2028 -> proof-backed GNC at early uncrewed adopters 2029 -> first published program cost comparison 2030-31. Commercial uncrewed fleets realize it first; regulated crewed programs last.",
+    "revision_note": "B-verified-autonomy: Skeptic + auditor: made this the program-level cost node (2.4x claim moved in from verif-assurance-cost-collapse and restated as about 2x, 1.8-2.4x, because the x0.7 requirements multiplier contradicts the branch's specs-become-the-bottleneck thesis; x1.0 gives 48.5%). Skeptic: 'calendar time halves' replaced, because experiment and test compress 1.1-1.3x in S2. Auditor: pathway P2->P7 -> P2 (a cost outcome is not a flown-performance outcome) and chain written. Advocate's S2 2031 -> 2029, S3 2030 -> 2028 and S3 High rejected: two lenses keep the years, the chain to a published comparison gives 2030-31, and the advocate's earlier date depended on proof-backed ops in 2028, which this resolution does not accept. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "verif-constellation-verified-updates",
+   "patch": {
+    "description": "Each over-the-air update to thousands of satellites is gated by automatic re-proof of key invariants: collision-avoidance decision logic, safe-mode entry, deorbit command and decision logic, command authentication. Proofs re-run in hours, enabling weekly verified releases. A proof covers the command and logic path, not physical deorbit capability such as propulsion health.",
+    "status_oct2026": "Starlink satellites made 207,152 avoidance maneuvers from Dec 2025 to May 2026 (more than 355,000 a year); they maneuver autonomously (general; the cited report gives counts, not where decisions are made). Update practices are proprietary, and the FCC requires maneuver reports, not software assurance.",
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium"
+    },
+    "why": "At this volume of onboard decisions, a logic regression in collision-avoidance or safe-mode code is a fleet-wide risk. Once the specs exist, re-proving a fixed set of invariants on every update is a compute job, with no regulator in the loop. The largest operator merged with a frontier AI lab (SpaceX acquired xAI, Feb 2026), so model access, ITAR handling and the update pipeline sit inside one firm, the vertical-integration path the capability domain names as the shortest from AI math to flown hardware. This node is a fleet-wide, strictly stronger instance of astro-proof-backed-flight-software-ops, so it is dated and banded no earlier or higher than that node. Chain (S2): proof agents, spec drafting and FDIR model checking 2027 -> operator writes reviewed invariant specs and proof-gated release pipeline 2028 -> first publicly disclosed fleet-wide proof-gated release 2029. Every invariant needs a reviewed spec, which is the bandwidth this branch says binds, and operators disclose little, so S2 is Medium. S3 equals S2 through 2028; it is High only because cognitive work is near-free from 2029.",
+    "revision_note": "B-verified-autonomy: Skeptic + auditor: S1 2029 -> 2031, S2 2028 -> 2029, S3 2027 -> 2029 (skeptic; auditor proposed 2028, but the prerequisites are 2027 in both S2 and S3 and S3 equals S2 until 2028), bands S1 Medium -> Low, S2 High -> Medium (S3 High kept), because this is a stronger instance of astro-proof-backed-flight-software-ops and broke A3's lag ladder. Chain written (auditor). Skeptic: 'deorbit capability' -> 'deorbit command and decision logic'. Advocate: SpaceX-xAI vertical integration added to why; advocate's alternative of raising the general node instead was rejected (see astro-proof-backed-flight-software-ops). Auditor: 'mostly decided onboard' is not in the cited source and is marked general."
+   }
+  },
+  {
+   "id": "astro-proof-backed-flight-software-ops",
+   "patch": {
+    "earliest_year": {
+     "S3": "2029"
+    },
+    "why": "Uncrewed commercial systems need no tool qualification, so adoption is a cost decision: if proofs cut V&V cost and shorten update cycles, software-defined fleets adopt first. This precedes crewed certification by years. Chain (S2): proof agents and FDIR model checking 2027 -> GNC toolchain 2028 -> first operator states that flight GNC or collision-avoidance code ships with machine-checked proofs 2029. S3 equals S2 through 2028, so adoption in the same year as the toolchain (the old S3 2028) is not credible; S3 is 2029, with High kept because cognitive work is near-free from 2029. verif-constellation-verified-updates is a fleet-wide instance of this node and is dated and banded no earlier or higher.",
+    "revision_note": "B-verified-autonomy: Skeptic: S3 2028 -> 2029 (adoption-gated; its toolchain prerequisite moves to S3 2028; S3 equals S2 until 2028). Advocate's S1 2031 -> 2030, S2 2029 -> 2028 and bands Medium/High rejected: skeptic and auditor resolved the inconsistency with verif-constellation-verified-updates by moving that node later, which keeps the A3 lag ladder (proof-carrying flight software flies S2 2029). Soft edge from the constellation node added (auditor + advocate)."
+   }
+  },
+  {
+   "id": "verif-lander-verified-gnc-flight",
+   "patch": {
+    "description": "A lunar lander flies terminal-descent GNC whose key properties are machine-checked, not only Monte Carlo-tested: altitude plausibility, measurement-rejection gates, engine-cutoff and reboot logic and the guidance law, plus, if the guidance uses an onboard optimizer, its convergence, feasibility and solver numerics. Its assumptions are red-teamed against terrain and sensor models.",
+    "status_oct2026": "Commercial and agency landers 2016-2025: Schiaparelli (IMU-saturation logic), Beresheet (command-triggered reboot loop), Hakuto-R M1 (filter rejected valid altimetry after a crater rim), IM-1 (configuration and patch flag), Peregrine (helium valve), Resilience (rangefinder), Athena (altimeter, lighting, tipped over). No lander has publicly flown formally verified descent logic (general). Agency losses with logic or GNC causes also belong in this record: Chandrayaan-2's Vikram (2019, deviation during the braking phase) and Luna-25 (Aug 2023, engine failed to cut off on time after a control-unit fault) (general). Successes in the same period include Chandrayaan-3 (2023), SLIM (2024, landed on its nose) and Blue Ghost M1 (Mar 2025) (general).",
+    "earliest_year": {
+     "S3": "2029"
+    },
+    "binding_gate": "adoption",
+    "why": "New-entrant landers face no certifying regulator for mission software and have repeatedly lost missions to logic errors (Beresheet, Hakuto-R M1), so the incentive is strong. Chain (S2): research-grade applied math public 2027 -> verified numerics and fault-logic checks 2027-28 -> GNC toolchain adopted 2028 -> software freeze 12-18 months before flight -> first flight 2029-30 on a CLPS-class lander. Launch slots are not scarce (up to 30 CLPS landings planned from 2027); the development cycle, the freeze and one team's adoption decision bind, not cognition. S3 equals S2 through 2028, so a flown article cannot beat S2's 2029 in S3. Many CLPS-class landers fly closed-form or Apollo-derived guidance with no onboard solver, so optimizer certificates and SCP guarantees accelerate rather than gate this node. Bands: S2 Medium, because several landers fly each year from 2029 but a team must adopt and say so; S3 High, because cognitive work is near-free from 2029 and two flight years remain. No regulator is involved for commercial lunar landers, so there is no Medium cap.",
+    "signpost": "A CLPS or private lander team publicly stating formal verification of descent GNC and fault management in a readiness review or press kit. Precursor (does not count, since it has no launch gate): a terrestrial vertical-landing testbed flying the same proof-checked logic.",
+    "revision_note": "B-verified-autonomy: Skeptic + auditor: S3 2028 -> 2029 (a 2028 flight freezes software in 2026-27, when S3 equals S2). Skeptic: binding gate launch -> adoption (launch slots are not scarce); astro-scp-guarantees and verif-onboard-optimizer-certificates made soft (closed-form guidance needs no solver proofs); terrestrial-testbed clause moved to the signpost as a precursor; solver proofs made conditional. Skeptic's S3 High -> Medium rejected and advocate's S2 Medium -> High rejected: with the conjunction relaxed and the testbed path removed, Medium in the base case and High in the recursive case keep a meaningful spread (the advocate's high-cadence argument holds only once cognitive work is near-free, i.e. in S3). Auditor: Luna-25, Chandrayaan-2 and the success denominator added (general)."
+   }
+  },
+  {
+   "id": "verif-rpo-assured-autonomy",
+   "patch": {
+    "status_oct2026": "Starship reached orbit on Flight 14 (Sep 28 2026) and deployed 26 Starlink V3 satellites. Ship-to-ship propellant transfer has not yet been demonstrated: SpaceX's leaked Nov 2025 HLS schedule targeted June 2026, which slipped, and NASA Administrator Isaacman expected the demonstration in very early 2027, maybe at the end of 2026 (The Space Review, Sep 28 2026); a secondary listing giving Q4 2026 is unconfirmed. Artemis III was reprofiled to a crewed low-Earth-orbit rendezvous and docking test with HLS pathfinders from both SpaceX and Blue Origin (readiness no earlier than mid-2027). A landing needs about 15 tanker flights (Spaceflight Now, Jul 2026).",
+    "why": "Each lunar landing chains many autonomous rendezvous and transfers. Proven passive safety and abort logic lower the risk per operation and the test burden per software change. But confidence is gated by flight demonstrations, not by proof capacity, and launch cadence does not compress with cognition. Chain (S2): verif-closed-loop-guarantees 2027; astro-hybrid-rpo-verification, verif-runtime-assurance and astro-certified-gnc-toolchain 2028 -> proofs added as late verification evidence to an already-contracted servicing or inspection mission (contract to launch 2-4 years; software freeze 12-18 months) or to Starship transfer-flight software, which changes between flights -> first flight using them as primary safety evidence, accepted in an operator or NASA safety review, 2029-30. S3: identical through 2028 -> 2029. S1: prerequisites 2030 -> 2031 at the earliest. Starship transfer flights in 2027 fly baselines set before the toolchain exists.",
+    "revision_note": "B-verified-autonomy: Skeptic + auditor (grounding rule): full tier-5 chain written. Auditor: status corrected ('15-17 flights' was not in the cited article; about 15 tankers per Spaceflight Now; the Q4 2026 date is unconfirmed; Isaacman's 'very early 2027' added from The Space Review, Sep 28 2026; both landers' pathfinders named). Skeptic's S2 2029 -> 2030 and S1 2031 -> >2031 rejected: Starship transfer software changes between flights, so the 12-18-month freeze does not bind every route, and the auditor's chain gives 2029-30 with 2029 as earliest. Advocate's S3 2029 -> 2028 and S3 High rejected: S3 equals S2 through 2028, and the node's own strongest case (proofs may stay internal; hardware dominates docking risk) does not move with cognition. Advocate's soft edge from prop-hls-refuel-campaign accepted. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "verif-afss-part450",
+   "patch": {
+    "status_oct2026": "Section 450.141 requires operators to identify computing-system safety items, set safety requirements by criticality and use a development process suited to that criticality. AC 450.141-1A, which includes an RCC-319 appendix on mission data loads, is an accepted means of compliance. There is no explicit credit for formal proofs, but the performance-based rule allows alternative means. Under 14 CFR 450.35(a), a means of compliance must be accepted before application acceptance for five items, including the highly reliable flight safety system (450.145(b)); computing-system safety items (450.141) are not among them. RCC 319 editions appeared in 2014, 2019 and 2025.",
+    "band_2031": {
+     "S2": "Low"
+    },
+    "why": "Flight-termination logic is small, critical and well specified, which makes it the ideal first proof target in launch. Part 450 is performance-based and outside the DO-330 tool-qualification regime, so FAA AST acceptance is its own step rather than a consequence of DO-178C or NASA credit; infra-tool-qualification now accelerates rather than gates this node. For computing-system safety items an operator can include checker-verified proofs in its development process now; for the flight safety system itself the FAA must accept a proof-backed means of compliance under 450.35. Chain (S2): proof agents and FDIR model checking 2027 -> an operator includes proofs for computing-system safety items 2028-29 -> FAA accepts a proof-backed flight-safety-system means of compliance 2030. S2 is Low, not Medium: autonomous flight safety systems are already accepted through RCC-319 testing, applicants gain no license time from proofs (see strongest case), and FAA AST is a different office from the aircraft certification office that holds the DO-330 precedent. Regulator acceptance caps every scenario at Medium.",
+    "signpost": "A license record or FAA-accepted means of compliance citing formal verification of computing-system safety items or flight-safety-system logic. (An RCC-319 revision recognizing formal analysis is unlikely before 2031 on the 2014/2019/2025 cycle.)",
+    "calibration_note": "A1: its hard prerequisite verif-checker-not-generator was merged into infra-tool-qualification, which keeps the scenario premise for regulator credit for AI proofs (>2031/2030/2029); FAA Part 450 acceptance of proof-backed termination cannot precede that credit. Superseded by B-verified-autonomy: the hard edge from infra-tool-qualification is now soft (Part 450 sits outside DO-330), while years stay at >2031/2030/2029 on FAA AST's own acceptance chain.",
+    "revision_note": "B-verified-autonomy: Skeptic + auditor: S2 band Medium -> Low (weak applicant incentive; separate FAA AST acceptance step; conjunctive-regulatory logic as in A4); S3 Medium kept. Skeptic: RCC-319 revision dropped as a pre-2031 signpost. Advocate (mechanism checked against 14 CFR 450.35, which lists 450.145(b) but not 450.141): hard edge from infra-tool-qualification made soft and hard edge from verif-code-proof-agents added; advocate's S2 2030 -> 2029 and S3 2029 -> 2028 rejected because the flight safety system still needs an FAA-accepted means of compliance and no lens other than the advocate saw a 2029 incentive. Years unchanged."
+   }
+  },
+  {
+   "id": "prop-verified-engine-software",
+   "patch": {
+    "description": "Machine-checked proofs that engine-controller and health-management logic (start sequencing, redlines, abort logic, numerical filters) meets its specification, produced by AI agents at low cost and accepted as verification evidence in a NASA human-rating or crewed-program review.",
+    "status_oct2026": "Certification standards already give credit for formal methods (DO-178C/DO-333), but AI agents and Lean are not qualified tools. The agentic formalization capability exists: openai/math formalized the main results of 162 papers in weeks. Redline logic matters: newsletter commentary named a sensor trip as one hypothesis for the 2026 Raptor 3 boostback shutdowns (unverified; no primary source).",
+    "earliest_year": {
+     "S2": "2031",
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low"
+    },
+    "why": "Engine controllers are safety-critical, and false or missed shutdowns from redline logic recur as a failure mode (general). Launch engines are not type-certified, and Part 450 licenses public safety, not engines, so the acceptors are crewed programs (RS-25 on SLS, Raptor on HLS, Merlin on crewed Falcon 9, BE-7 on Blue Moon): a handful of programs whose software baselines change slowly. The node needs general credit (infra-tool-qualification, plan acceptance S2 2030) plus a human-rating review that accepts the evidence, so by the A4 conjunctive rule used for verif-hls-autonomy-certification it sits a year later and a band lower: S2 2031 Low, S3 2030 Low, S1 Speculative. The uncertified counterpart, launch operators re-proving engine and abort logic on every flight, is verif-launch-fsw-per-flight.",
+    "signpost": "The first NASA crewed-program review that accepts AI-generated formal proofs as verification evidence for propulsion controller software.",
+    "revision_note": "B-verified-autonomy: Skeptic + auditor: S2 2030 -> 2031, S3 2029 -> 2030 and S2 band Medium -> Low (zero lag after the general-credit premise; only crewed programs can accept the evidence). Auditor: S1 Low -> Speculative and S3 Medium -> Low under the A4 rule (a dependent of a Medium regulatory node with a further uncertain human-rating step belongs below Medium); skeptic's S3 Medium rejected for consistency with verif-hls-autonomy-certification. Skeptic: description 'accepted in certification' -> crewed-program review; Raptor sensor-trip claim labeled as unverified commentary. Advocate's re-pointing to a separate checker-route node rejected with that node; its uncertified counterpart is added as verif-launch-fsw-per-flight."
+   }
+  },
+  {
+   "id": "hyper-certified-edl-guidance",
+   "patch": {
+    "band_2031": {
+     "S2": "Low"
+    },
+    "why": "Proofs of robust convergence under atmospheric-density and dispersion assumptions reduce Monte Carlo burden and perceived risk, and certification regimes already give credit for formal methods. The node is conjunctive: general credit (infra-tool-qualification, plan acceptance S2 2030, Medium) plus one specific EDL project accepting proofs within about a year, so S2 is Low (the A4 logic used for verif-hls-autonomy-certification); S3 stays Medium. No aerocapture mission is manifested before 2031: NASA's ARRIVAL Earth-orbit aerocapture demonstration was at conceptual design in June 2025, so its guidance baseline freezes before credit exists. The realistic first cases are CLPS or HLS powered descent and commercial reentry capsules. Capped at Medium in every scenario because acceptance is required.",
+    "revision_note": "B-verified-autonomy: Skeptic: S2 band Medium -> Low (conjunction of general credit and one EDL project within a year, the A4 logic); aerocapture motivation replaced, since ARRIVAL was at conceptual design in Jun 2025 (checked: Military & Aerospace Electronics, Jun 27 2025). Advocate's re-pointing to a separate checker-route node rejected with that node. Years unchanged."
+   }
+  },
+  {
+   "id": "verif-new-entrant-advantage",
+   "patch": {
+    "description": "Small teams (lander and constellation startups) reach assurance levels that once required large verification departments, on uncrewed commercial and government work that needs no certification credit. Primes' advantage shifts from process capacity to certification relationships, which still matter for crewed and certified work, while qualified-checker vendors and AI-model providers capture new value.",
+    "status_oct2026": "Primes hold certification know-how and large V&V departments. New entrants run small teams and account for most recent software-caused lander losses and near-losses (Beresheet and Hakuto-R M1 lost; IM-1 landed but tipped over after a configuration and patch error).",
+    "why": "Uncrewed commercial missions have no certifying regulator for mission software, so new entrants can adopt as soon as the tools work, while primes on cost-plus contracts have weaker incentives to cut verification hours. Value concentrates where trust is scarce: in the small set of qualified checkers (AdaCore, AbsInt, TrustInSoft and similar) and in access to frontier models. Chain (S2): per-line cost collapse 2028 -> new entrants bid formal assurance as a discriminator 2028-29 -> a NASA, ESA or defense award citing it 2030; procurement runs 1-2 years from RFP to award, and politics and appropriations do not compress. Certification credit accelerates the effect on certified work but does not gate it.",
+    "calibration_note": "A1: its hard prerequisite verif-checker-not-generator was merged into infra-tool-qualification (>2031/2030/2029, the scenario premise for regulator credit), so the moat cannot fall before certification credit for AI proofs exists. Superseded by B-verified-autonomy: the hard edge from infra-tool-qualification is now soft, because the node is rescoped to work that needs no certification credit; years kept on a procurement-lag chain.",
+    "revision_note": "B-verified-autonomy: Skeptic (alternative) + advocate: hard edge from infra-tool-qualification made soft and scope limited to work that needs no certification credit, since the node's own why says uncrewed work has no certifying regulator. Years and bands kept: skeptic's S2 2031/S3 2030/S2 Low depended on the zero lag after credit, which no longer applies, and advocate's S2 2029/S3 2028 ignores the 1-2-year procurement lag (politics 1.0x). Auditor: IM-1 is a near-loss, not a loss."
+   }
+  },
+  {
+   "id": "verif-verified-onboard-stack",
+   "patch": {
+    "description": "Formally verified onboard software components fly on ordinary (non-research) missions: an seL4-class separation kernel or hypervisor, a telecommand parser, or software-update authentication; the first operational flight of any one of them counts. Spatial isolation is proven. Timing isolation on multicore processors is measured, not proven, so flight software and onboard AI payloads sharing one multicore processor also needs accepted interference evidence (AC 20-193-style analysis plus measurement).",
+    "status_oct2026": "seL4: 8,700 lines of C, 200,000 lines of Isabelle proof, about 25 person-years (estimated under 10 if redone), with 160 bugs found (144 during C verification). ECSS-E-ST-40C Rev.1 and ECSS-Q-ST-80C Rev.2 (Apr 2025) added explicit security requirements. Verified kernels remain niche in space. seL4 has been open source since 2014 and flew on the UNSW-EC0 CubeSat (QB50, 2017, general). MIT Lincoln Laboratory's port of NASA's core Flight System to seL4 took more than a year, mostly building OS services beyond the kernel rather than proofs (NDSS SpaceSec paper).",
+    "earliest_year": {
+     "S3": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium"
+    },
+    "why": "Kernel proof cost is sunk: seL4 is open source and has flown. The binding costs are OS services, platform ports and drivers for radiation-tolerant processors, qualification, and multicore timing interference on HPSC-class processors, which is measured, not proven. Agent proofs mainly cut the cost of mission-specific telecommand parsers, update authentication and re-verification on new platforms: at seL4's ratio a verified 10 KLOC stack costs roughly $2-5M of proof labor (seL4: about 25 person-years including design and implementation, under 10 if redone), which becomes a compute bill plus spec review. Parsers and update authentication can be uploaded to buses already in orbit; separation kernels need a new bus. Chain (S2): proof agents 2027 -> verified parser and update-authentication stack 2028 -> integration or upload and qualification 12-18 months -> operational flight 2029 (A3 lag ladder). S3 equals S2 through 2028, so S3 is 2029. S2 is Medium, like every comparable tier-5 'flies' node, because adoption and qualification, not proof labor, have kept verified kernels niche.",
+    "strongest_case_small": "Isolation proofs assume correct hardware. Multicore timing interference, radiation upsets and processor errata are measured, not proven, and those qualification campaigns stay physical. seL4 is already the target of defense air programs (DARPA PROVERS/INSPECTA, Collins), yet it is niche in space: platform support on radiation-tolerant processors and qualification, not proof labor, bind.",
+    "revision_note": "B-verified-autonomy: Skeptic + auditor: S2 band High -> Medium and S3 2028 -> 2029 (kernel proofs are sunk and free; OS services, ports and qualification bind; S3 equals S2 until 2028); auditor: S1 Medium -> Low; skeptic: '$5M' -> '$2-5M'. Advocate's S2 2029 -> 2028 rejected (two lenses opposite; A3 lag ladder), but its scope point is adopted: the first operational flight of any one component counts, and parsers or update authentication can be uploaded to existing buses. Skeptic's proposed new node verif-multicore-timing-evidence not added: it is not necessary for this node as scoped, A1 already left timing and HIL evidence to the flight nodes, and its 2026 flight-qualification evidence could not be checked (source returned 403); the gate is stated in the description and why instead."
+   }
+  },
+  {
+   "id": "verif-mission-loss-rate",
+   "patch": {
+    "status_oct2026": "Of the 12 notable losses and near-losses in our failure table (1996-2025), 9 were primarily or partly software, logic or configuration errors. Of the six commercial lunar missions in the table since 2019, three losses (Peregrine, Resilience, Athena) were primarily hardware or sensor physics. The table lists failures only. Successes in the same period include Chandrayaan-3 (2023), SLIM (2024, landed on its nose) and Blue Ghost M1 (Mar 2025), and agency losses with logic or GNC causes include Chandrayaan-2's Vikram (2019) and Luna-25 (2023) (general).",
+    "band_2031": {
+     "S2": "Speculative"
+    },
+    "why": "Even if verified software works as intended, only a few dozen lander and RPO flights will occur by 2031, too few to separate a lower software-caused loss rate from noise. Three of the six commercial lunar missions in the failure table (2019-25) had software- or logic-related causes (with Blue Ghost M1 added, p0 is about 0.4-0.5). With zero software failures in n verified landings the one-sided p is about 0.6^n, so at least 6 verified landings are needed for p < 0.05. S2 gives a first verified lander in 2029 and perhaps 2-5 by 2031, confounded by non-AI learning (Blue Ghost M1 succeeded without proofs), so S2 is Speculative, the P7 default; S3 stays Low. All 9 software-related cases in the table were assumption, spec or process misses, so the outcome also hinges on validated environment assumptions (verif-environment-assumption-models, now a hard prerequisite), not only on proof flights. Hardware and sensor failures keep the total loss rate high.",
+    "revision_note": "B-verified-autonomy: Skeptic + auditor: S2 band Low -> Speculative (P7 default; at least 6 verified landings needed to see the effect). Auditor's S3 Low -> Speculative and S3 2031 -> >2031 rejected to keep a scenario spread: S3 adds lander flights and near-free cognition from 2029, which makes Low (10-30%) defensible. Skeptic: hard edge from verif-environment-assumption-models added (the direct edge from verif-assumption-falsification is omitted because it already sits upstream through the lander node). Auditor: success denominator added."
+   }
+  },
+  {
+   "id": "verif-environment-assumption-models",
+   "patch": {
+    "pathway": "P1->P5",
+    "why": "Proofs and tests are conditional on environment assumptions. AI can quickly fuse orbital maps, test data and telemetry into formal envelopes, but the envelopes are only as good as sensor characterization tests and the few landings that produce truth data. S3's autonomous labs speed sensor testing on the ground, not the supply of lunar truth data, which is why even S3 stays Medium. The achievement is packaging test and telemetry data into validated envelopes that change modeling practice (model confidence, P5), not new theory becoming tools, and Medium is the P5 default. It now gates verif-mission-loss-rate and accelerates assumption falsification and lander flight, so the interactive tree shows the assumption gate that the failure table says binds; AI-run test stands and autonomous labs accelerate the ground characterization.",
+    "revision_note": "B-verified-autonomy: Auditor: pathway P1->P6 -> P1->P5. Skeptic: orphan fixed (hard edge to verif-mission-loss-rate; soft edges to verif-assumption-falsification and verif-lander-verified-gnc-flight). Advocate: soft edges from physclock-ai-run-test-stands and cap-autonomous-labs accepted; advocate's S3 band Medium -> High rejected, because lunar truth data and shared adoption by two lander teams do not speed up with cognition (the node's own reasoning, unchanged by the advocate's evidence). Years and bands unchanged."
+   }
+  },
+  {
+   "id": "astro-hybrid-rpo-verification",
+   "patch": {
+    "description": "Reachability and barrier-certificate proofs for rendezvous, proximity operations, docking and debris capture that cover approach and abort trajectories, keep-out zones, mode switches, sensor dropouts and learned (neural) controllers under runtime assurance. Contact and capture-mechanism dynamics are excluded: they are validated by air-bearing and robotic hardware-in-the-loop tests on the experiment clock.",
+    "status_oct2026": "Neural-network-controlled spacecraft docking under Clohessy-Wiltshire dynamics is a standard verification benchmark (ARCH-COMP), solved with existing reachability tools such as CORA, JuliaReach and NNV (general); scalable branch-and-bound verification of nonlinear neural feedback systems appeared in Sep 2026 (arXiv 2609.16298); AFRL flew neural-network attitude control of a satellite bus with watchdog and guardrail runtime assurance in shadow mode (Jul 28, 2026). NASA's revised Artemis III is a crewed low-Earth-orbit rendezvous and docking test of Orion with HLS pathfinders from both SpaceX and Blue Origin (three launches, two dockings; readiness no earlier than mid-2027).",
+    "why": "Hybrid verification is limited by state explosion and by the scarcity of people who can construct barrier certificates and decompositions; AI-generated certificates checked by a kernel are a near-ideal fit. It is also the route by which learned controllers, already flying under runtime assurance, gain static guarantees. Existing provers and reachability tools (KeYmaera X, sum-of-squares, CORA, JuliaReach) already solve the benchmark cases without Lean, so Lean/Mathlib coverage (infra-mathlib-applied) accelerates rather than gates this node.",
+    "revision_note": "B-verified-autonomy: Skeptic + advocate: infra-mathlib-applied moved from hard to soft (the KeYmaera X and SOS bypass named in the verification domain's shared-upstream table). Skeptic: contact and capture dynamics removed from the achieved scope, so the cognitive gate and High band stand. Auditor: Artemis III status corrected (two landers' pathfinders; NET mid-2027). Years and bands unchanged."
+   }
+  },
+  {
+   "id": "verif-closed-loop-guarantees",
+   "patch": {
+    "catalog_families": [],
+    "premise_tier": "n/a",
+    "status_oct2026": "Tools exist: differential dynamic logic (KeYmaera X), sum-of-squares barrier certificates, reachability analyzers. They have been applied to aircraft collision avoidance (general). Building certificates for saturated, sampled, mode-switching loops is expert-scarce, and nonlinear hybrid verification at full-vehicle scale is partly open. Lean building blocks appeared in 2026: lyapunov-odes-lean (Zenodo, May 31 2026) and Doll and Shames' Lyapunov stability for hybrid systems plus the small-gain theorem in Lean (arXiv 2607.19727, Jul 2026). No catalog family applies (family 143, uniform limit-cycle bounds for Hilbert's sixteenth problem, Lean-formalized and unaudited, is theory-only context, not a premise).",
+    "earliest_year": {
+     "S2": "2027"
+    },
+    "why": "This is the bespoke math, easier than the catalog's, that analyst position (a) says matters most: a stability or keep-out proof for one control law. Under S2, research-grade applied math is on tap from 2027, and existing provers (KeYmaera X differential dynamic logic, sum-of-squares barrier certificates) with agent-written proofs are a mature route that does not wait for Lean/Mathlib coverage of ODEs and hybrid systems. These certificates are over real numbers; the floating-point gap is closed separately by verif-verified-gnc-numerics or by runtime monitors, so neither the Lean library nor the floating-point node gates this one. 'Achieved' means a machine-checked stability or safety certificate for a flight-representative GNC loop (the flight control law with saturation, sampling delay and mode logic), published or delivered to a program; flight use is tracked in verif-lander-verified-gnc-flight and verif-rpo-assured-autonomy.",
+    "revision_note": "B-verified-autonomy: All three lenses: family 143 removed from catalog_families (the node itself says it does not reach this workflow; it would draw a false 'family 143 unlocks GNC stability' edge); premise_tier -> n/a; 'achieved' no longer requires a flown loop (a tier-5 outcome). Skeptic + advocate: infra-mathlib-applied hard -> soft; advocate + auditor: verif-verified-gnc-numerics hard -> soft. Advocate: S2 2028 -> 2027 accepted, because the skeptic's reason to keep 2028 (the numerics edge) is gone and the KeYmaera X/SOS route is mature (mechanism in the verification domain's table; 2026 Lean Lyapunov work checked by the auditor). Downstream nodes do not move. S1 and bands unchanged."
+   }
+  },
+  {
+   "id": "verif-onboard-optimizer-certificates",
+   "patch": {
+    "status_oct2026": "Onboard convex guidance (lossless convexification) has flight-test heritage on rocket test beds (general). Proofs that a specific solver implementation converges within a fixed iteration and timing budget are rare. Runtime duality-gap certificates are cheap but seldom used as safety evidence. Code-level formal verification of an interior-point algorithm for linear model predictive control has existed since 2018 (Davy, Feron, Garoche and Henrion, arXiv 1801.03833; Cohen's 2018 ENAC PhD continued the line) and was not adopted in flight, which suggests demand, not cognition, has bound.",
+    "why": "Crewed landing and propellant transfer increasingly rely on onboard optimization. Certifying it needs both math (convergence and feasibility for every admissible state) and timing evidence on the flight processor. The math compresses under S2; timing characterization on radiation-tolerant processors and HIL qualification bind. Solver termination and epsilon-feasibility are properties of the convex program and the solver, not of closed-loop stability, and feasibility over the admissible set comes from astro-scp-guarantees; a generic SOCP or QP solver needs no astrodynamics library, so closed-loop guarantees and the formal astrodynamics library accelerate rather than gate this node.",
+    "revision_note": "B-verified-autonomy: Skeptic: verif-closed-loop-guarantees and astro-formal-astrodynamics-library moved from hard to soft (solver properties need neither); 2018 interior-point verification precedent added to status (checked: arXiv 1801.03833 is code-level IPM verification for linear MPC; the skeptic's 'SOCP with floating-point analysis' wording is not in the abstract, so it is not repeated). Years and bands unchanged (verified numerics still holds S2 2028)."
+   }
+  },
+  {
+   "id": "astro-certified-gnc-toolchain",
+   "patch": {
+    "description": "An engineering pipeline in which engineers write formal requirements and AI agents produce guidance, navigation, attitude-control and collision-avoidance code together with machine-checked proofs of stability, constraint satisfaction and floating-point error bounds, plus static worst-case execution-time bounds where the processor model supports them (single-core); multicore timing and HIL evidence remain measured.",
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "accelerated_by": [
+     "verif-spec-engineering"
+    ],
+    "why": "Verification and validation commonly consume around half of flight-software cost (general). Formal methods were limited by expert cost, not tools (analyst position b); the openai/math pipeline formalized the main results of 162 papers in weeks. Applied to GNC modules, proof cost per function falls from expert-weeks to agent-hours, putting verified GNC within reach of smallsat and startup teams, not only NASA. Most GNC modules (attitude control, navigation filters, collision-avoidance logic) contain no optimizer, so optimizer certificates accelerate rather than gate the toolchain, while the stability proofs it promises are exactly what verif-closed-loop-guarantees delivers (now a hard prerequisite). Organizational adoption is the gate, and S3 equals S2 through 2028, so S3 is 2028.",
+    "revision_note": "B-verified-autonomy: Skeptic: S3 2027 -> 2028 (adoption gate; S3 equals S2 until 2028); verif-onboard-optimizer-certificates moved from hard to soft; 'timing' scoped to static WCET on single-core with multicore timing measured. Auditor: verif-closed-loop-guarantees moved from soft to hard (no year change: 2030/2027/2027 <= 2030/2028/2028) and timing wording aligned with the A1 merge. S1, S2 and bands unchanged."
+   }
+  },
+  {
+   "id": "astro-scp-guarantees",
+   "patch": {
+    "description": "Proofs of iteration bounds to stationarity, recursive feasibility and robustness margins for the real-time guidance formulations used in powered descent and proximity operations, lossless convexification for specific extended constraint classes, and robust or chance-constrained variants. Global optimality for general 6-DoF problems (nonconvex attitude coupling) is not included.",
+    "why": "These are 'solved in principle, expert-scarce' problems: perhaps a few dozen groups worldwide write such proofs (general). Under S2, on-demand research math turns each new constraint type (plume impingement, glideslope, sensor pointing, passive abort safety) into an agent-assisted result in weeks rather than a dissertation chapter (conditional on S2 public access in 2027). Proven iteration bounds are what onboard schedulers need to guarantee a solution inside a fixed guidance cycle (roughly 1-10 Hz replanning for landing, general). The benefit is model confidence (P5) and a deterministic iteration budget, not landing accuracy or propellant, unless programs use the proofs to cut divert margins.",
+    "revision_note": "B-verified-autonomy: Skeptic: scope limited to what High in 2027 supports (global optimality for nonconvex 6-DoF excluded); 'same-week theorem' softened and marked conditional on S2; benefit stated as P5 confidence. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "verif-code-proof-agents",
+   "patch": {
+    "status_oct2026": "Partly exists. Off-the-shelf LLMs produced verified code for 82% of Dafny, 44% of Verus and 27% of Lean specifications in the vericoding benchmark (Sep 2025). The best agent fully solved 27 of 43 repository-scale instances in Vero (Aug 2026), none of the hardest. AI coding agents wrote and verified a bare-metal Ada/SPARK security stack (classical and post-quantum crypto, TLS 1.3, IKEv2, X.509); GNATprove discharged 49,280 proof obligations at a claimed 20-40x lower supervision cost than hand verification, and the agents tried to bypass weak checks (Philipp, arXiv 2607.14340, Jul 2026 preprint). AdaCore released GNAT Foundry Intersection, an agent workflow gated by SPARK proof, requirements-based tests and MC/DC, described as a demonstration, not certification (Sep 14, 2026). OpenAI's pipeline formalized the main results of 162 papers in weeks (openai/math, Oct 6 2026; manuscripts dated Sep 10-Oct 6, formalization timing not separately reported; agent-written, review status unchecked, so T3 as evidence of the pipeline). No catalog family applies; the evidence is the pipeline itself.",
+    "revision_note": "B-verified-autonomy: Advocate: Jul 2026 SPARK and Sep 2026 AdaCore evidence added to status. Auditor: 'in under four weeks' corrected (it describes manuscript dates). Skeptic's S1 2028 -> 2029 rejected: the Jul 2026 SPARK result already shows near-target human effort on new code with existing agents, which supports S1 2028. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "verif-fdir-model-checking",
+   "patch": {
+    "pathway": "P1->P2",
+    "status_oct2026": "Model checkers (SPIN, NuSMV, Kind 2) are mature; building faithful models is the cost. Failures and near-failures in this class: Starliner OFT (mission timer 11 h off, service-module valve-mapping error, 2019), Beresheet (a command to restart one IMU blocked the other IMU's data and set off a chain that shut down the main engine, 2019), Hitomi (wrongly updated thruster parameter, 2016), IM-1 (rangefinder safety switch left enabled; the in-flight patch missed a data-valid flag, per IM's CTO via SpacePolicyOnline, 2024).",
+    "why": "Four of the nine software-related losses and near-losses in our failure table sit in this class. Agents can extract models from code and interface documents and check every fault combination and command sequence; this needs model extraction and model checking, not deductive code proofs, so verif-code-proof-agents accelerates rather than gates it. Agents can also check emergency patches within hours; IM-1's patch was written and uploaded mid-mission. The binding input is accurate hardware behavior (bus blocking, timer sources), which needs characterization data. Used as an engineering tool without certification credit, it travels P1 into P2, which is why S1 can be High.",
+    "strongest_case_small": "Starliner's errors were also catchable by the end-to-end integrated test the program did not run (general). The root problem was process discipline, which cheap tools do not guarantee.",
+    "revision_note": "B-verified-autonomy: Auditor: 'losses' -> 'losses and near-losses'; pathway P2 -> P1->P2 (tool use without certification, which justifies S1 High); IM-1 data-valid flag re-cited to SpacePolicyOnline; Beresheet 'reboot loop' and Starliner 'skipped end-to-end test' were not in the cited articles, so the first is softened and the second marked general. Skeptic: verif-code-proof-agents moved from hard to soft (model extraction plus model checking needs no deductive code proofs). Years and bands unchanged."
+   }
+  },
+  {
+   "id": "verif-spec-engineering",
+   "patch": {
+    "why": "Once proofs are cheap, specs become the bottleneck: a proof of the wrong property is worthless (analyst position h). In all 9 software-related losses and near-losses in our failure table, the missing piece was an assumption, interface spec or process step, not proof capacity. AI cuts spec drafting and consistency checking several-fold (general). Each spec still needs a qualified engineer to accept that it says what the mission needs, so human review bandwidth binds. 'Achieved' means first use on a flight program for a safety-critical function; it does not imply the spec-review bandwidth that fleet-wide invariants (verif-constellation-verified-updates) or $5-20-per-line costs (verif-assurance-cost-collapse) assume, and those nodes carry that risk in their own bands.",
+    "revision_note": "B-verified-autonomy: Skeptic: clarified that 'achieved' is first flight-program use, not review bandwidth at fleet scale. Auditor: 'losses' -> 'losses and near-losses'. Auditor's S1 High -> Medium rejected: the node is P1->P2 (P1 default High), and a single flight-program use by 2031 does not need certification or public models beyond the 2028 S1 release. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "verif-assumption-falsification",
+   "patch": {
+    "why": "Counterexamples act fastest (analyst position c): a found scenario changes the design within weeks. Agents can rerun targeted searches over terrain, sensor timing and fault combinations every time the design or landing site changes, which is exactly where Hakuto-R M1, Schiaparelli and Ariane 501 escaped. The gate is the fidelity of simulators and sensor models. Simulation-based falsification and Monte Carlo search run against existing requirements and need public research-grade models (P1), not AI-drafted specs adopted on a flight program, so spec engineering accelerates rather than gates it; validated environment envelopes widen what the simulator can represent.",
+    "revision_note": "B-verified-autonomy: Auditor: hard edge from verif-spec-engineering made soft (falsification runs against existing requirements); hard edge from cap-research-math-public added so the P1 node keeps a capability gate (2028/2027/2027, equal to this node's years). Skeptic: soft edge from verif-environment-assumption-models. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "verif-nn-verification-scale",
+   "patch": {
+    "status_oct2026": "VNN-COMP 2025 (8 teams, 16 regular and 9 extended benchmarks) shows steady progress on small and medium networks. Flight-scale vision networks and perception properties remain out of reach. SAE ARP6983 / EUROCAE ED-324 (joint G-34/WG-114; the first issue covers supervised offline machine learning; ED-324 publication scheduled Q4 2026; ARP6983's June 2026 target status unconfirmed as of Oct 2026) and EASA NPA 2025-07 base machine-learning assurance on data and process, not proof. No catalog family addresses it.",
+    "revision_note": "B-verified-autonomy: Auditor: ARP6983 June 2026 target marked unconfirmed (date has passed; only the ED-324 Q4 2026 schedule is confirmed). Years and bands unchanged."
+   }
+  },
+  {
+   "id": "verif-hls-autonomy-certification",
+   "patch": {
+    "status_oct2026": "The first crewed landing moved to Artemis IV in 2028 (a Nov 2025 leaked SpaceX HLS schedule reported by Politico Pro gave a crewed landing in Sep 2028, an uncrewed landing in Jun 2027 and a propellant-transfer demonstration in Jun 2026, which has since slipped; 33FG news). NPR 8705.2C requires single-failure tolerance to catastrophic events, crew override of automation, and autonomous capability for functions whose loss would be catastrophic. No human-rated system has used AI-written proofs as evidence.",
+    "revision_note": "B-verified-autonomy: Auditor: Sep 2028 date attributed to the Nov 2025 leaked schedule and the slipped Jun 2026 transfer demo noted. Advocate's S3 Low -> Medium and re-pointing to a checker-route node rejected: A4 already resolved S3 at Low (conjunctive regulatory logic under a post-Starliner testing posture), and the checker route is this branch's infra-tool-qualification. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "astro-formal-astrodynamics-library",
+   "patch": {
+    "status_oct2026": "Essentially absent from Mathlib (general). Building blocks appeared in 2026: a Lean 4 Lyapunov-stability library for autonomous ODEs (lyapunov-odes-lean, Zenodo, May 31 2026), Lean integral curves and flows on Banach manifolds (arXiv 2602.13247), and an agent pipeline that brought 84 of 175 statements of a numerical-ODE textbook to proof-complete Lean (arXiv 2606.14000, Jun 2026). No catalog family applies.",
+    "why": "Every verified-GNC and verified-traffic chain below needs agreed formal definitions to state specifications against; today a team that wants to prove a guidance property must first formalize orbital mechanics itself. The openai/math pipeline produced agent-written Lean for 127 families in weeks (manuscripts dated Sep 10-Oct 6, 2026; formalization timing not separately reported); a core astrodynamics library is perhaps 10-30k lines (assumption), i.e. weeks of agent time under S2 rather than person-years. Parts touching numerical-integration error wait on infra-mathlib-applied.",
+    "revision_note": "B-verified-autonomy: Auditor: 'in under four weeks' corrected (it describes manuscript dates); the uncited Lyapunov library now cited (Zenodo, May 31 2026). Years and bands unchanged."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "id": "verif-launch-fsw-per-flight",
+   "title": "Reusable launchers re-prove flight software every flight",
+   "tier": 6,
+   "kind": "mission",
+   "description": "A reusable launch operator flies engine-control, redline, abort, fault-management and termination-interface logic whose key invariants are machine-checked, and re-proves them automatically on every software change between flights, and says so publicly. No certification is required: Part 450 reaches only public-safety computing items. This is the uncertified, flown counterpart of prop-verified-engine-software.",
+   "status_oct2026": "None known publicly. Falcon 9 flew 165 times in 2025 with no failures, and Starship flies at 48-90-day intervals with software changes between flights (physical-clock domain). Under 14 CFR 450.35(a) the FAA requires an accepted means of compliance for the flight safety system (450.145(b)) but not for computing-system safety items (450.141). Newsletter commentary named a sensor trip as one hypothesis for the 2026 Raptor 3 boostback shutdowns (unverified). The largest launch operator owns a frontier AI lab (SpaceX acquired xAI, Feb 2026).",
+   "catalog_families": [],
+   "prerequisites": [
+    "verif-code-proof-agents",
+    "verif-fdir-model-checking",
+    "verif-spec-engineering"
+   ],
+   "accelerated_by": [
+    "physclock-flight-test-cadence",
+    "verif-verified-gnc-numerics"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P2",
+   "earliest_year": {
+    "S1": "2031",
+    "S2": "2029",
+    "S3": "2029"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a",
+   "why": "Two curves combine. The launch exponential means reusable vehicles fly often and change software between flights, so a regression in redline or abort logic is a recurring risk and re-verification sits on the turnaround path. The cognitive exponential cuts re-verification of a change from 2-6 weeks to 1-3 days, with proof repair in hours (verification-domain cost table), and software-only changes avoid the hardware lag ladder. Launch mission software has no certifying regulator beyond 450.141, and the leading operator owns a frontier lab. Chain (S2): proof agents, spec drafting and FDIR model checking 2027 -> integration into a vehicle software pipeline with reviewed invariant specs 2028 -> first publicly stated flight with re-proved engine and abort logic 2029. S3 equals S2 through 2028, and the binding gates (adoption and disclosure) do not move with cognition, so S3 is also 2029 and Medium. Most launch failures are hardware, so this changes software risk per flight, not cadence.",
+   "strongest_case_small": "Most launch failures are hardware; simulation plus HIL regression is already fast at leading operators; and adoption may never be disclosed, which is why S2 is Medium, not High.",
+   "signpost": "A launch operator stating, in a mishap report, conference paper or hiring material, that engine-control or abort logic is machine-checked on every release; an FAA license modification citing formal verification of computing-system safety items.",
+   "domain": "verif",
+   "revision_note": "B-verified-autonomy: New node from the advocate (the uncertified counterpart of prop-verified-engine-software, joining the launch-cadence and cognitive curves). Advocate's 2030/2028/2028 Low/Medium/High tempered to 2031/2029/2029 Low/Medium/Medium: the A3 lag ladder puts proof-carrying flight software in flight at S2 2029, S3 equals S2 through 2028, and disclosure, not cognition, binds the public signpost. physclock-flight-test-cadence made soft, because Falcon 9 already gives a reusable vehicle with frequent software changes. Not a duplicate: prop-verified-engine-software is the certified crewed-program version and astro-proof-backed-flight-software-ops covers spacecraft, not launch vehicles. Soft unlocks are limited to this branch's nodes; edges into external nodes (physclock-test-loop-monthly) are left to that branch."
+  },
+  {
+   "id": "verif-onboard-ai-guardrails",
+   "title": "Onboard AI agents fly under proof-checked command guards",
+   "tier": 6,
+   "kind": "mission",
+   "description": "An operational spacecraft (not a shadow-mode experiment) lets an unverified learned or language-model agent issue commands directly (tasking, health management, pointing, conjunction response, surface operations), with every command passing through a small guard whose invariants are machine-checked: a recoverable-set or barrier check, resource and keep-out invariants, and command authentication. The agent is never verified; the guard and its isolation are. This applies Simplex runtime assurance to generalist agents.",
+   "status_oct2026": "Unverified guards already fly. Shield AI's Hivemind managed imaging tasking, health diagnostics, battery state of charge and pointing onboard a NOVI Space satellite, with 189 autonomous commands validated by Sedaro's SAFE edge framework, which is simulation-based rather than formal (Satnews, Aug 24 2026). An LLM agent supervised a reinforcement-learning thermal controller on flight-heritage hardware aboard the ISS (ASTREA, arXiv 2509.13380). AFRL flew neural-network attitude control with watchdog and guardrail runtime assurance in shadow mode (Jul 28, 2026). NASA's core Flight System has been ported to seL4, an isolation base.",
+   "catalog_families": [],
+   "prerequisites": [
+    "verif-runtime-assurance",
+    "verif-spec-engineering"
+   ],
+   "accelerated_by": [
+    "verif-verified-onboard-stack",
+    "verif-fdir-model-checking"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P2",
+   "earliest_year": {
+    "S1": "2031",
+    "S2": "2029",
+    "S3": "2029"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "High"
+   },
+   "premise_tier": "n/a",
+   "why": "Three curves meet. Cheap proofs make a small guard verifiable at compute cost; onboard compute and cheap launch put capable models in orbit; and fleet scale (more than 355,000 avoidance maneuvers a year at Starlink) and cislunar latency create demand for autonomy. Chain (S2): runtime-assurance proofs 2028 -> guard with machine-checked invariants uploaded to an existing smallsat bus (or flown on a new one, with a verified separation kernel if agent and guard share a processor) -> first operational mission with an agent commanding through the guard 2029. No certifying regulator is involved for uncrewed missions. S3 equals S2 through 2028, so S3 is 2029, but near-free cognition from 2029 and fast-moving defense and commercial demand make it High.",
+   "strongest_case_small": "Conservative guards veto most useful agent actions, and a guard over a wrong recoverable-set model is still unsafe; if agent and guard share a multicore processor, timing isolation is measured, not proven; verification of neural perception stays open (verif-nn-verification-scale).",
+   "signpost": "A satellite operator or defense program stating that an onboard AI agent commands the spacecraft in operations through a formally verified guard (machine-checked invariants), rather than in shadow mode or behind a simulation-only check.",
+   "domain": "verif",
+   "revision_note": "B-verified-autonomy: New node from the advocate (onboard AI agents under proof-checked guards; the operational instance of verif-runtime-assurance for generalist agents). Kept the advocate's bands Low/Medium/High; S3 2028 -> 2029 because S3 equals S2 through 2028 and its prerequisite runtime assurance is 2028 in both. verif-verified-onboard-stack made soft rather than hard, because the guard can run on the existing flight computer while the agent runs on a payload computer, as current demonstrations do. Evidence checked: Satnews Aug 24 2026 (SAFE is simulation-based, not formal), ASTREA arXiv 2509.13380. Not a duplicate: verif-runtime-assurance is the tier-4 tool, and the auton nodes cover surface robots. Soft unlocks into external nodes (astro-autonomous-ca-at-scale, auton-*) are left to those branches."
+  }
+ ],
+ "add_edges": [
+  {
+   "from": "verif-code-proof-agents",
+   "to": "verif-afss-part450"
+  },
+  {
+   "from": "verif-environment-assumption-models",
+   "to": "verif-mission-loss-rate"
+  },
+  {
+   "from": "verif-closed-loop-guarantees",
+   "to": "astro-certified-gnc-toolchain"
+  },
+  {
+   "from": "cap-research-math-public",
+   "to": "verif-assumption-falsification"
+  }
+ ],
+ "remove_edges": [
+  {
+   "from": "infra-verified-numerics",
+   "to": "infra-tool-qualification"
+  },
+  {
+   "from": "verif-spec-engineering",
+   "to": "infra-tool-qualification"
+  },
+  {
+   "from": "astro-scp-guarantees",
+   "to": "verif-lander-verified-gnc-flight"
+  },
+  {
+   "from": "verif-onboard-optimizer-certificates",
+   "to": "verif-lander-verified-gnc-flight"
+  },
+  {
+   "from": "infra-tool-qualification",
+   "to": "verif-afss-part450"
+  },
+  {
+   "from": "infra-tool-qualification",
+   "to": "verif-new-entrant-advantage"
+  },
+  {
+   "from": "infra-mathlib-applied",
+   "to": "astro-hybrid-rpo-verification"
+  },
+  {
+   "from": "infra-mathlib-applied",
+   "to": "verif-closed-loop-guarantees"
+  },
+  {
+   "from": "verif-verified-gnc-numerics",
+   "to": "verif-closed-loop-guarantees"
+  },
+  {
+   "from": "verif-closed-loop-guarantees",
+   "to": "verif-onboard-optimizer-certificates"
+  },
+  {
+   "from": "astro-formal-astrodynamics-library",
+   "to": "verif-onboard-optimizer-certificates"
+  },
+  {
+   "from": "verif-onboard-optimizer-certificates",
+   "to": "astro-certified-gnc-toolchain"
+  },
+  {
+   "from": "verif-code-proof-agents",
+   "to": "verif-fdir-model-checking"
+  },
+  {
+   "from": "verif-spec-engineering",
+   "to": "verif-assumption-falsification"
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "infra-verified-numerics",
+   "to": "infra-tool-qualification"
+  },
+  {
+   "from": "verif-spec-engineering",
+   "to": "infra-tool-qualification"
+  },
+  {
+   "from": "verif-constellation-verified-updates",
+   "to": "astro-proof-backed-flight-software-ops"
+  },
+  {
+   "from": "astro-scp-guarantees",
+   "to": "verif-lander-verified-gnc-flight"
+  },
+  {
+   "from": "verif-onboard-optimizer-certificates",
+   "to": "verif-lander-verified-gnc-flight"
+  },
+  {
+   "from": "verif-environment-assumption-models",
+   "to": "verif-lander-verified-gnc-flight"
+  },
+  {
+   "from": "prop-hls-refuel-campaign",
+   "to": "verif-rpo-assured-autonomy"
+  },
+  {
+   "from": "infra-tool-qualification",
+   "to": "verif-afss-part450"
+  },
+  {
+   "from": "infra-tool-qualification",
+   "to": "verif-new-entrant-advantage"
+  },
+  {
+   "from": "verif-environment-assumption-models",
+   "to": "verif-assumption-falsification"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "verif-environment-assumption-models"
+  },
+  {
+   "from": "cap-autonomous-labs",
+   "to": "verif-environment-assumption-models"
+  },
+  {
+   "from": "infra-mathlib-applied",
+   "to": "astro-hybrid-rpo-verification"
+  },
+  {
+   "from": "infra-mathlib-applied",
+   "to": "verif-closed-loop-guarantees"
+  },
+  {
+   "from": "verif-verified-gnc-numerics",
+   "to": "verif-closed-loop-guarantees"
+  },
+  {
+   "from": "verif-closed-loop-guarantees",
+   "to": "verif-onboard-optimizer-certificates"
+  },
+  {
+   "from": "astro-formal-astrodynamics-library",
+   "to": "verif-onboard-optimizer-certificates"
+  },
+  {
+   "from": "verif-onboard-optimizer-certificates",
+   "to": "astro-certified-gnc-toolchain"
+  },
+  {
+   "from": "verif-code-proof-agents",
+   "to": "verif-fdir-model-checking"
+  },
+  {
+   "from": "verif-spec-engineering",
+   "to": "verif-assumption-falsification"
+  },
+  {
+   "from": "verif-launch-fsw-per-flight",
+   "to": "verif-afss-part450"
+  },
+  {
+   "from": "verif-launch-fsw-per-flight",
+   "to": "prop-verified-engine-software"
+  },
+  {
+   "from": "verif-launch-fsw-per-flight",
+   "to": "verif-mission-loss-rate"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "verified-autonomy",
+   "nodes": [
+    "verif-launch-fsw-per-flight",
+    "verif-onboard-ai-guardrails"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "verified-autonomy",
+   "patch": {
+    "thesis": "If AI agents can draft formal specifications and machine-checked proofs for flight code, a verified line of code gets 15-120x cheaper by 2028-29, and constellations, landers, reusable launchers and agent-commanded spacecraft fly proof-checked software from about 2029-30 (S2). Certification credit waits on regulators: plan acceptance about 2030 (Medium, the base-case premise), with engine, entry-guidance, Part 450 and crewed credit at Low by 2031. Fewer lost missions stay hard to see by 2031, because the failures were wrong assumptions, not missing proofs.",
+    "reader_hook": "A fully verified line of flight code falls from about $300-600 to about $5-20 by 2028-29 in the base case (15-120x), yet a Level-A-rigor program gets only about 2x cheaper (1.8-2.4x), and certified programs bank even that only after certification credit (S2 2030); in all 9 software- or logic-related losses and near-losses among 12 notable cases from Ariane 501 to Athena, the missing piece was a wrong assumption or spec, not proof capacity.",
+    "spine": [
+     "verif-code-proof-agents",
+     "verif-spec-engineering",
+     "verif-fdir-model-checking",
+     "verif-constellation-verified-updates",
+     "verif-assurance-cost-collapse",
+     "verif-verified-gnc-numerics",
+     "verif-lander-verified-gnc-flight",
+     "infra-tool-qualification",
+     "verif-hls-autonomy-certification",
+     "verif-environment-assumption-models",
+     "verif-mission-loss-rate"
+    ]
+   }
+  }
+ ],
+ "notes": "B-verified-autonomy resolver (2026-10-07). Inputs: physics/engineering skeptic, exponential advocate, grounding and fact auditor. Main moves: (1) constellation updates moved to 2031/2029/2029 Low/Medium/High so they no longer precede or outrank the general proof-backed-ops node; (2) per-line cost (15-120x) separated from the program-level ~2x claim, which moved to astro-gnc-assurance-cost; (3) infra-tool-qualification defined as plan acceptance on the checker route at the client's S2 2030 premise, with Part 450 and new-entrant nodes decoupled from it and crewed/engine/EDL credit at Low in S2; (4) S3 aligned with S2 through 2028 for adoption, launch and qualification nodes (toolchain, ops, lander, onboard stack, constellation); (5) unnecessary hard edges made soft (Mathlib where KeYmaera X/CORA bypass it; optimizer certificates where guidance is closed-form; verified numerics for credit on logic code); (6) environment-assumption models wired in as the gate on the loss-rate outcome; (7) two new nodes: verif-launch-fsw-per-flight and verif-onboard-ai-guardrails. Rejected new nodes: verif-checker-route-credit (re-creates the A1-merged verif-checker-not-generator and would move the base-case premise) and verif-multicore-timing-evidence (not necessary for the onboard-stack node as scoped; gate stated in text). Out-of-branch suggestions not applied: advocate's soft edges into physclock-test-loop-monthly, capability-ai-native-spacecraft and physclock-satellite-gen-cadence; auditor's request that the capability lens reconcile capability.json (S3 'S2 until 2028' vs infra-mathlib-applied and infra-verified-numerics at S3 2027); Starship Flight 13 date (Jul 24 in verif vs Jul 25 in prop)."
+}

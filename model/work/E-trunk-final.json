@@ -1,0 +1,2361 @@
+{
+ "notes": "E-trunk final (resolver, 2026-10-07). Replaces E-trunk-draft.json. 35 updated nodes plus 4 new nodes; all needs_2035_review false; S4 = S3 for every year and band_2031 on existing nodes. Resolver changes: capability-35-heavy-cadence-300 regulatory-bound, Medium by 2035 in S2-S4 (no filed review for 300+ caps); capability-35-internal-cost-100 dated 2031 in S2-S4 (2032 S1) with the heat shield as a hard prerequisite; capability-35-cycle-halved narrowed to vehicles and large spacecraft, S3 2035 and S4 2034; capability-35-ai-native-large-system narrowed to stages, vehicles and non-constellation spacecraft over 5 t, >2035/2033/2032/2032; physclock-new-entrant-fast-orbit S2 2033 -> 2035 with bands kept; capability-program-cycle-compression S1 2035 and Low; physclock-satellite-gen-cadence S2 Medium by 2035; capability-ai-rnd-acceleration S1 2035 and S2 Medium by 2035; cap-physics-theory S1 2033 and S2 High by 2035; physclock-cheap-mass-customer S2-S4 High by 2035; physclock-twin-reflight-clearance S2-S4 High by 2035. CROSS-BRANCH FLAGS: (1) capability-35-internal-cost-100 band_2035 High (all four) and physclock-twin-reflight-clearance band_2035 High (S2-S4) assume the entry branch keeps hyper-rapid-reuse-heatshield High by 2035; if the entry final sets it to Medium, set both to Medium. (2) capability-35-cycle-halved S4 Medium by 2035 assumes robo-24x7-integration-test is High in S4 by 2035 (robots draft); if lower, set it to Low. (3) remove_soft_edges drops two robots-draft edges that cannot act (robo-earth-pads-plants -> physclock-heavy-cadence-100, robo-construction-trades -> physclock-pad-propellant-infra); the robots branch should drop them too. (4) The orbital-compute-power draft points soft edges from capability-35-heavy-cadence-300 and capability-35-internal-cost-100; both ids are kept. robo-* soft edges are skipped if the robots edit file is not applied first.",
+ "update": [
+  {
+   "id": "cap-autoformalization",
+   "patch": {
+    "earliest_year": {
+     "S1": "2026",
+     "S2": "2026",
+     "S3": "2026",
+     "S4": "2026"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Exists for discrete and algebraic math, so 2032-35 changes only PDE and numerics coverage (infra-mathlib-applied). S4 equals S3 because formalization is cognitive work.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Auditor fact fixes: FLT size is about 13M lines per Anthropic (13.4M contradicted); Meta ATLAS named. Calibration note for P2-default override added. Year and band unchanged. | E-trunk (2026-10-07): 2035/S4 extension. No year or band change; band_2035 High in all scenarios.",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Agentic Lean formalization at scale",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "No year or band change; band_2035 High in all scenarios.",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "cap-research-math-internal",
+   "patch": {
+    "earliest_year": {
+     "S1": "2026",
+     "S2": "2026",
+     "S3": "2026",
+     "S4": "2026"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Exists today, so 2032-35 changes only its depth. S4 equals S3 because the node is pure cognition.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Auditor + skeptic: $200-per-result figure qualified (selected successes, failed attempts excluded). Year and band unchanged. | E-trunk (2026-10-07): 2035/S4 extension. No year or band change; band_2035 High in all scenarios.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "No year or band change; band_2035 High in all scenarios.",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "verif-independent-check",
+   "patch": {
+    "earliest_year": {
+     "S1": "2026",
+     "S2": "2026",
+     "S3": "2026",
+     "S4": "2026"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Exists today and is routine by 2035 in every scenario. S4 equals S3 because checking is cognitive and institutional work.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Auditor: S1 2027 -> 2026 (human checks of a released repo are scenario-independent); Comparator run-time claim corrected to the only outside run; P2-override note added. | E-trunk (2026-10-07): 2035/S4 extension. No year or band change; band_2035 High in all scenarios.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "No year or band change; band_2035 High in all scenarios.",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "cap-applied-math",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches it in 2029, and by 2035 S1 cognition sits where S2 was in 2029-30, so S1 is High by 2035. S4 equals S3 because the node is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: premise label split so the T1 rule does not misfire; scope limited to reduced models (node's own strongest case). Skeptic: Lean is needed for trust, not to produce applied math, so cap-autoformalization hard -> soft. Year and band unchanged. | B-fix (integrator, 2026-10-07): 365 tier wording aligned with the other branches (formal part T3, recovery headline T1). lettered citation 'position a' replaced with the KB position id tl-position-4. lettered citation 'position d' replaced with the KB position id tl-position-2. | E-trunk (2026-10-07): 2035/S4 extension. band_2035 S1 Medium -> High (six years after the S1 year; S1 2035 cognition matches S2 2029-30). Years unchanged.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035 S1 Medium -> High (six years after the S1 year; S1 2035 cognition matches S2 2029-30). Years unchanged.",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "cap-research-math-public",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Reached in 2027-28 in every scenario, so nothing changes in 2032-35. S4 equals S3 because access is a release decision.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Auditor: explains why the regulatory-gate and public-model caps are not applied to this root node. Year and band unchanged. | E-trunk (2026-10-07): 2035/S4 extension. No year or band change; band_2035 High in all scenarios.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "No year or band change; band_2035 High in all scenarios.",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-controlled-data-access",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 even S1 has had six years of public research math, and the DoD accreditation route that cleared several labs in May 2026 is a named mechanism, so every scenario is High. S4 equals S3 because this is an accreditation step; policy shocks like the Anthropic designation remain the risk.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: years +1 (accredited clouds trail public release by months; Anthropic exclusion removes a candidate). Auditor: GenAI.mil figure corrected (available to ~3M, 1.7M users); S1 band High -> Medium; regulatory gate with High band resolved by recoding the gate as adoption with an explicit note. Its hard edge into capability-engineering-adoption is now soft. | E-trunk (2026-10-07): 2035/S4 extension. band_2035 S1 Medium -> High (accreditation route already in motion: classified-network clearances, May 2026). Years unchanged.",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Frontier math on ITAR and classified networks",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035 S1 Medium -> High (accreditation route already in motion: classified-network clearances, May 2026). Years unchanged.",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-cost-collapse",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Reached by 2028 in every scenario, and costs keep falling through 2035. S4 equals S3 because the node is about compute prices.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: per-result cost qualified (selected successes; ~10x higher per accepted result; checking dominates). Auditor arithmetic: S1 rate restated to match ~$20-70 by 2028. Advocate: soft edges to adoption and dev-capital-cut so the node is no longer dangling. Year and band unchanged. | E-trunk (2026-10-07): 2035/S4 extension. No year or band change; band_2035 High in all scenarios.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "No year or band change; band_2035 High in all scenarios.",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-flight-test-cadence",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Reached in 2028, so 2032-35 brings no change. S4 gets no credit because vehicles are already ahead of flights, so factory robots do not set the interval.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: 2027 -> 2028 in all scenarios (slip-ratio table; 2,4,5,3 flights per year; 12 in 2027 is about a coin flip). Auditor: tier 0 -> 5 (a launch cadence is not an AI capability), stale strongest-case and engine-out wording fixed, interval range 48-91, exogenous P7 label. Advocate kept cadence unchanged without a counter-mechanism. Band unchanged. Cascade: physclock-test-loop-monthly S3 -> 2028. | B-fix (integrator, 2026-10-07): soft edge from physclock-ai-mishap-analysis added (B-certification request; carries the content of the removed physclock-test-loop-monthly). 2028 High in all scenarios re-checked against physclock.json (S2 interval 0.6-0.8x of 63-66 days = 38-53 days, short of monthly without new pads and reflight): kept. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication. | E-trunk (2026-10-07): 2035/S4 extension. No year or band change; band_2035 High in all scenarios.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication"
+     },
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "No year or band change; band_2035 High in all scenarios.",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "cap-autonomous-labs",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 S1 also has closed-loop labs at scale, because capital is the gate. S4 keeps the 2028 date; general bench robots from 2029-31 carry these labs beyond fixed workcells and raise throughput without changing the date.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: research-math-public hard -> soft (labs such as Periodic Labs and Radical AI run without it; the node itself says cognition is not the lab bottleneck). Auditor: Genesis Mission figure corrected. Year and band unchanged. | E-trunk (2026-10-07): 2035/S4 extension. band_2035 S1 Medium -> High. Soft edge from robo-lab-bench-useful. Years unchanged.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035 S1 Medium -> High. Soft edge from robo-lab-bench-useful. Years unchanged.",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "cap-design-optimization",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches it in 2030 and is High by 2035, since S1 cognition then matches S2 in 2029-30. S4 equals S3 because design loops are bound by model fidelity and validation data, and robots add neither.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: guarantees are model-relative (optimizers exploit model error), and emulators are not required, so learned-emulators hard -> soft. Auditor: pathway-override note. Years and bands unchanged (S2 2028 is the client premise). | B-fix (integrator, 2026-10-07): soft edge from frontier-scalable-global-certificates (B-math-frontier request 3). | E-trunk (2026-10-07): 2035/S4 extension. band_2035 S1 Medium -> High. Years unchanged.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035 S1 Medium -> High. Years unchanged.",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-horizon-compounding",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Reached by 2029 in every scenario, and S2 task horizons keep doubling every 6-9 months through 2035. S4 equals S3 because the node is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Advocate + auditor: S1 2030 -> 2029 and S1 Medium -> High (the node's own parametrization crosses 170 h in 2029 and reaches ~700 h by 2031). Auditor + skeptic: S3 2027 -> 2028 (S3 equals S2 until 2028). Advocate's S2 2027 rejected: it relies on METR's ~4-month doubling, faster than S2's 6-9 months. | E-trunk (2026-10-07): 2035/S4 extension. No year or band change; band_2035 High in all scenarios.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "No year or band change; band_2035 High in all scenarios.",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-open-weights-math",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "With a lag of about a year, open weights reach this level by 2029 even in S1, so S1 is High by 2035. S4 equals S3 because the node is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S3 2027 -> 2028 (open weights trail public models ~12 months; S3 equals S2 until 2028). Advocate: soft edges to adoption (on-premises ITAR use) and new entrants (foreign access). | E-trunk (2026-10-07): 2035/S4 extension. band_2035 S1 Medium -> High. Years unchanged.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035 S1 Medium -> High. Years unchanged.",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "infra-mathlib-applied",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Review bandwidth delays S1 to 2030, and by 2035 the libraries are mature in every scenario. S4 equals S3 because library work is cognitive and community-bound.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S3 2027 -> 2028. Advocate's S2 2027 (companion libraries) rejected: S2 2028 for applied Lean libraries is the client premise; the evidence is kept in why as a 2027 signpost. P2-override note added. | F2 audit (2026-10-07): flagged fact fixed: Urban's 130k-line library is in Megalodon, not Lean (it had read as Lean evidence). | E-trunk (2026-10-07): 2035/S4 extension. band_2035 S1 Medium -> High. Years unchanged.",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Lean libraries for analysis, PDE and numerics",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "flagged fact fixed: Urban's 130k-line library is in Megalodon, not Lean (it had read as Lean evidence)"
+     },
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035 S1 Medium -> High. Years unchanged.",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "infra-verified-numerics",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 an integrated toolchain exists in every scenario; compiler semantics and rad-hard processor arithmetic stay the hard part. S4 equals S3 because this is software work.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S3 2027 -> 2028 (a 1-2 year integration job cannot finish in the year its prerequisite cap-applied-math appears; S3 equals S2 until 2028). P2-override note added. | E-trunk (2026-10-07): 2035/S4 extension. band_2035 S1 Medium -> High. Years unchanged.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035 S1 Medium -> High. Years unchanged.",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "cap-physics-theory",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches the S2 2029 cognitive level about 2033, and validation data add no S1 speedup, so S1 resolves to 2033 and is Medium by 2035. S2 rises to High: it reaches physics theory in 2029, and by 2035 it has six years past that date, closed-loop labs from 2028 and cheap cognition, enough for two or three blind-validation cycles. S3 and S4 are High; robot bench work in S4 adds data throughput, while 1-2 year V&V cycles in production codes set the date.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic (+ auditor P6-override flag): S3 2028 -> 2029, S3 High -> Medium. Cascade with autofix to five S3 dependents. | E-trunk (2026-10-07): 2035/S4 extension. S1 >2031 -> 2032. band_2035: S1 Low -> Medium, S3/S4 Medium -> High; S2 stays Medium. Soft edge from robo-lab-bench-useful. | E-trunk resolver (2026-10-07): Skeptic accepted: S1 2032 -> 2033 (S1 reaches the S2 2029 cognitive level about 2033, and validation data add no S1 speedup; in the full graph all 19 hard dependents already sit at S1 2033-2035, so the hold protected nothing). Advocate accepted: band_2035 S2 Medium -> High (six years past the S2 date, closed-loop labs High from 2028, cheap cognition by 2033-35; the node needs one domain to beat the human state of the art on held-out data).",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "S1 >2031 -> 2032 (chosen at the legacy numeric value so the 19 hard dependents in other branches are not pushed later). band_2035: S1 Low -> Medium, S3/S4 Medium -> High; S2 stays Medium. Soft edge from robo-lab-bench-useful.",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2029",
+        "S3": "2029",
+        "S4": "2029"
+       },
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     },
+     {
+      "by": "E-trunk resolver",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "earliest_year",
+       "note_2035"
+      ],
+      "reason": "S1 2032 -> 2033 (skeptic); band_2035 S2 Medium -> High (advocate).",
+      "from": {
+       "earliest_year": {
+        "S1": "2032",
+        "S2": "2029",
+        "S3": "2029",
+        "S4": "2029"
+       },
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "Medium",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-ai-rnd-acceleration",
+   "patch": {
+    "earliest_year": {
+     "S1": "2035",
+     "S2": "2030",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 resolves to 2035, when its cognition reaches the level S2 has around 2030, so it is Low by 2035. S2 stays Medium because a 3x loop with High likelihood would make S2 recursive before 2035, which the S2 definition excludes. S4 equals S3 because the loop runs on compute, fabs and power, and robots reach fabs only in the mid-2030s.",
+    "needs_2035_review": false,
+    "revision_note": "E-trunk (2026-10-07): 2035/S4 extension. S1 >2031 -> 2034 (S1 2035 cognition ~ S2 2029-30; S2 earliest year 2030). band_2035: S2 Medium -> High; S1 stays Low. No hard dependents. | E-trunk resolver (2026-10-07): Skeptic accepted: band_2035 S2 High -> Medium (the node is the S2/S3 hinge; High in S2 would make S2 recursive inside the horizon) and S1 2034 -> 2035 (S1 cognition in 2035 sits at S2's 2029-30 level, and S2's year is 2030). band_2031 S1 Low -> Speculative to match a 2035 earliest year.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "S1 >2031 -> 2034 (S1 2035 cognition ~ S2 2029-30; S2 earliest year 2030). band_2035: S2 Medium -> High; S1 stays Low. No hard dependents.",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2028",
+        "S4": "2028"
+       },
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     },
+     {
+      "by": "E-trunk resolver",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2031",
+       "band_2035",
+       "earliest_year",
+       "note_2035"
+      ],
+      "reason": "S1 2034 -> 2035, band_2031 S1 Low -> Speculative, band_2035 S2 High -> Medium (skeptic).",
+      "from": {
+       "earliest_year": {
+        "S1": "2034",
+        "S2": "2030",
+        "S3": "2028",
+        "S4": "2028"
+       },
+       "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "High",
+        "S4": "High"
+       },
+       "band_2035": {
+        "S1": "Low",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-algorithm-discovery",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Reached by 2028, so nothing changes in 2032-35. S4 equals S3 because the node is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Auditor: pathway P4 -> P1 (transfer of a generally available tool; the P4 default would cap it at Medium). Band High kept. Advocate's soft edges to comms-hardness-aware-tasking and astro-catalog-scale-screening are outside this branch and passed to those branches in notes. | E-trunk (2026-10-07): 2035/S4 extension. No year or band change; band_2035 High in all scenarios.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "No year or band change; band_2035 High in all scenarios.",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-cheap-trust",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches it in 2029 and is High by 2035. S4 equals S3 because auditing is cognitive work with a human sign-off.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: S2/S3 2027 -> 2028, hours -> days, soft edge from infra-mathlib-applied. Auditor: review-board acceptance moved out of the signpost (that is the Medium-capped regulatory node downstream), scope note added, P2-override note. Bands unchanged. | B-fix (integrator, 2026-10-07): lettered citation 'position h' replaced with the KB position id tr-position-5. | E-trunk (2026-10-07): 2035/S4 extension. band_2035 S1 Medium -> High. Years unchanged.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035 S1 Medium -> High. Years unchanged.",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-learned-emulators",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 code-relative emulators are standard in every scenario; extrapolation to new vehicles and extreme storms stays limited by data from nature. S4 equals S3 because the node is computational.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: certified-bounds claim narrowed to code-relative bounds; cap-applied-math hard -> soft. Skeptic + auditor: S3 2027 -> 2028. Auditor: pathway P6 -> P4 with a stated reason for the High band. Bands unchanged. | B-fix (integrator, 2026-10-07): soft edge from frontier-certified-pde-error (B-math-frontier request 3). | E-trunk (2026-10-07): 2035/S4 extension. band_2035 S1 Medium -> High. Years unchanged.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035 S1 Medium -> High. Years unchanged.",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-engineering-adoption",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 on-demand analysis is routine in every scenario, including primes and agencies that lag by a few years. S4 equals S3 because adoption is organizational.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S3 2027 -> 2028 and controlled-data-access hard -> soft. Advocate's S2 2027 rejected (debate recorded): the S2 premise starts the 5-10x cognitive multiplier in 2028 and design-review use needs public-level capability plus trust tooling; the first-mover point is kept in why. Advocate soft edges from capability-cost-collapse and capability-open-weights-math added. Cascade: four physclock S3 dependents move to 2028. | E-trunk (2026-10-07): 2035/S4 extension. band_2035 S1 Medium -> High. Years unchanged.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035 S1 Medium -> High. Years unchanged.",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-starship-full-reuse",
+   "patch": {
+    "earliest_year": {
+     "S1": "2027",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Expected in 2027 in every scenario, so 2032-35 brings no change. S4 equals S3 because reuse is set by flight tests.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: status corrected (boosters already caught three times and reflown twice; the open item is the ship); Flight 15 date updated (stale \"about Dec 2026\"); exogenous P7 label; Mach33 source-weight caveat. Year and band unchanged. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication. | E-trunk (2026-10-07): 2035/S4 extension. No year or band change; band_2035 High in all scenarios.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication"
+     },
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "No year or band change; band_2035 High in all scenarios.",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-twin-reflight-clearance",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S2-S4 rise to High by 2035: both hard prerequisites are High by then, fleets fly 100+ heavy missions a year from 2030, and S2 has five years past its 2030 date. Clearance for SpaceX's own flights needs no customer or insurer; that acceptance is physclock-critical-payload-reuse-acceptance, which stays Medium. S1 stays Medium because its life models lag. S4 equals S3: robot inspection supplies data, and flight history sets clearance. If the entry branch keeps the heat shield Medium by 2035, S2-S4 return to Medium.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Auditor: flat factual error fixed (\"No Starship stage has reflown\"). Skeptic + auditor: S1 2030 -> 2031, S3 2028 -> 2029; skeptic: S2 2029 -> 2030 (Falcon precedent, Mach33 flights per stack, reuse learning only 0.8-0.9x in S2), S1 Medium -> Low, hard edge from hyper-rapid-reuse-heatshield, $1-2B-on-2028 claim removed (wrong lever share and wrong year). Chain written into why. Cascade: critical-payload acceptance. | F2 audit (2026-10-07): T1 family 372 cited without 'conditional' in the why; reworded. | E-trunk (2026-10-07): 2035/S4 extension. band_2035 S1 Low -> Medium; S2-S4 stay Medium, held at the band of the hard prerequisite hyper-rapid-reuse-heatshield (A3 rule). Raise S2-S4 to High only if the entry branch raises the heat shield. Years unchanged. | E-trunk resolver (2026-10-07): Advocate accepted in part: band_2035 S2-S4 Medium -> High, conditional on the entry branch keeping hyper-rapid-reuse-heatshield High by 2035 (the draft's only reason for Medium was the heat shield's band; prop-life-twin is High in all four in the engines draft). S1 stays Medium (advocate's S1 High rejected: S1 life models lag). Skeptic's 'Medium on its own grounds' rejected: the node covers SpaceX's own flights, so customer and insurer acceptance belongs to the critical-payload node, and the fleet record grows by hundreds of flights a year after 2030.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "T1 family 372 cited without 'conditional' in the why; reworded"
+     },
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035 S1 Low -> Medium; S2-S4 stay Medium, held at the band of the hard prerequisite hyper-rapid-reuse-heatshield (A3 rule). Raise S2-S4 to High only if the entry branch raises the heat shield. Years unchanged.",
+      "from": {
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     },
+     {
+      "by": "E-trunk resolver",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035 S2-S4 Medium -> High (advocate), conditional on the entry branch's High for hyper-rapid-reuse-heatshield. S1 stays Medium.",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-pad-propellant-infra",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Built by 2029 in every scenario, before general construction robots. S4 credit for later build-outs (0.50-0.57x at a leading site by 2035) is carried by robo-earth-pads-plants. capability-35-heavy-cadence-300 gets none because approvals bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: 2028 -> 2029 in all scenarios (every element on its best-case schedule; LC-39A a year behind plan; table compresses pads only 0.9-1.0x). Auditor: exogenous P7 label. Bands unchanged. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication. | E-trunk (2026-10-07): 2035/S4 extension. No year or band change; band_2035 High in all scenarios. | E-trunk resolver (2026-10-07): note_2035 corrected (skeptic and advocate both found it pointed at a node that gets no S4 credit): the S4 pad credit sits on robo-earth-pads-plants. Soft edge from robo-construction-trades removed (advocate: S4 2032 robots cannot accelerate a node built by 2029; edge came from the robots draft).",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication"
+     },
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "No year or band change; band_2035 High in all scenarios.",
+      "from": {}
+     },
+     {
+      "by": "E-trunk resolver",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "note_2035 pointed to robo-earth-pads-plants; soft edge from robo-construction-trades removed.",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-ai-native-spacecraft",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 an AI-engineered smallsat has had years to fly in S2-S4, so S2 rises to High; S1, with adoption in 2029, rises to Medium. S4 equals S3 because the cognitive core is already compressed and integration robots add months.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + advocate: cap-design-optimization hard -> soft; binding gate launch -> fabrication. Advocate soft edge from struct-agentic-analysis-workflows added. Advocate's S2/S3 2028 rejected because it depended on adoption in 2027, which was not accepted; years unchanged. | F2 audit (2026-10-07): bands Medium/High/High -> Low/Medium/High: a P7 conjunction (adoption, build, launch, on-orbit success, public evidence) cannot carry the same High as its prerequisite, and disclosure risk matches the sibling Medium nodes; S1 Low because the S1 chain has no slack; years unchanged. | E-trunk (2026-10-07): 2035/S4 extension. band_2035: S1 Low -> Medium, S2 Medium -> High. Years unchanged. Extended by capability-35-ai-native-large-system.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2031",
+       "why"
+      ],
+      "reason": "bands Medium/High/High -> Low/Medium/High: a P7 conjunction (adoption, build, launch, on-orbit success, public evidence) cannot carry the same High as its prerequisite, and disclosure risk matches the sibling Medium nodes; S1 Low because the S1 chain has no slack; years unchanged",
+      "from": {
+       "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+       }
+      }
+     },
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035: S1 Low -> Medium, S2 Medium -> High. Years unchanged. Extended by capability-35-ai-native-large-system.",
+      "from": {
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-heavy-cadence-100",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Reached by 2030 in every scenario, and Mach33 has hundreds of heavy flights a year by the mid-2030s, so all scenarios are High by 2035. S4 gets no credit because pads, propellant and environmental caps bind and vehicles are ahead of flights.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S2 2029 -> 2030 and S3 2028 -> 2029 (physclock table allows 0-0.5 year in S2 and 0.5-1 year in S3; pads now 2029). Environmental caps, chain and $143M label added; status fixed (only Flight 14 of 2026 was orbital). Advocate: soft edges from physclock-ai-mishap-analysis (the AI channel the why names) and the new compute-demand node; the soft edge from test-loop-monthly was not added (it is a consequence, not a cause). Bands unchanged. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (mostly exogenous; AI adds 0-0.5 year in S2 through anomaly closure)'). | E-trunk (2026-10-07): 2035/S4 extension. band_2035 S1 Medium -> High. Years unchanged. Extended by capability-35-heavy-cadence-300. | E-trunk resolver (2026-10-07): Soft edge from robo-earth-pads-plants removed (advocate: S4 2033 robots cannot accelerate a node reached in S4 2029; edge came from the robots draft). Bands and years unchanged.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (mostly exogenous; AI adds 0-0.5 year in S2 through anomaly closure)')",
+      "from": {
+       "pathway": "P7 (mostly exogenous; AI adds 0-0.5 year in S2 through anomaly closure)",
+       "premise_tier": "n/a"
+      }
+     },
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035 S1 Medium -> High. Years unchanged. Extended by capability-35-heavy-cadence-300.",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     },
+     {
+      "by": "E-trunk resolver",
+      "date": "2026-10-07",
+      "fields": [],
+      "reason": "Soft edge from robo-earth-pads-plants removed.",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-reusable-competition",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 New Glenn, Neutron, Long March 10B and Zhuque-3 have had 5-9 years to mature, so one fleet flying 20 reflown-booster missions in a year is High in every scenario. S4 gets no credit because engines, upper stages and pads bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: S2 2029 -> 2030 (existing programs get 0-0.5 year of AI help, not a full year). Advocate: Zhuque-3 landing added to status (verified on Wikipedia, with the post-landing tip-over). Auditor: exogenous P7 label. S1, S3 and bands unchanged. Its hard edge into physclock-cheap-mass-customer is now soft. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication. | E-trunk (2026-10-07): 2035/S4 extension. band_2035 Medium -> High in all scenarios (several fleets, 5-9 more years). Years unchanged.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication"
+     },
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035 Medium -> High in all scenarios (several fleets, 5-9 more years). Years unchanged.",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-critical-payload-reuse-acceptance",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 resolves to 2033, two years after its data-cleared reflight and credibility standard. Customer certification caps every scenario at Medium by 2035, and S4 gets no credit because acceptance is institutional.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S2 2030 -> 2031, S3 2029 -> 2030 (follows the revised twin timing). Skeptic: scope limited to NASA crew, Category 3 and NSSL Lane 2 (a Lane 1 mission could fly with no AI evidence and break the causal chain); why rewritten around flight history. Bands unchanged. | B-fix (integrator, 2026-10-07): soft edge from physclock-reliability-priors-credit (B-certification request 2). | F2 audit (2026-10-07): S2 band Medium -> Low (P7 plus certification, two Medium prerequisites, earliest year 2031 with no slack); S3 stays at the Medium cap. | E-trunk (2026-10-07): 2035/S4 extension. S1 >2031 -> 2033. band_2035: S2 Low -> Medium (four more years of flight history); S1 stays Low (two Medium prerequisites plus acceptance); certifier cap holds Medium. No hard dependents.",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Crew and national-security missions on data-cleared reused hardware",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2031",
+       "why"
+      ],
+      "reason": "S2 band Medium -> Low (P7 plus certification, two Medium prerequisites, earliest year 2031 with no slack); S3 stays at the Medium cap",
+      "from": {
+       "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+       }
+      }
+     },
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "S1 >2031 -> 2033. band_2035: S2 Low -> Medium (four more years of flight history); S1 stays Low (two Medium prerequisites plus acceptance); certifier cap holds Medium. No hard dependents.",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2030",
+        "S4": "2030"
+       },
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Low",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-cheap-mass-internal",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Reached by 2029 in every scenario, and Mach33 has cost falling to about $13/kg by 2035 (capability-35-internal-cost-100 carries the next step). S4 gets no credit because reuse and payload drive cost.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: 2028 -> 2029 in all scenarios (2028 is Mach33's base-case median, not a likely year; slip ratio applied). Auditor: exogenous P7 label and Mach33 source-weight caveat. Advocate: soft edge to program-cycle-compression (cheap mass can buy schedule). Bands unchanged. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication. | E-trunk (2026-10-07): 2035/S4 extension. No year or band change; band_2035 High in all scenarios.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication"
+     },
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "No year or band change; band_2035 High in all scenarios.",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-dev-capital-cut",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 completed programs supply the evidence, so S2 rises to High and S1 to Medium. S4 equals S3 for this node, which counts engineering labor. Robot savings on hardware labor (s4-embodied capital row: hardware cost -25-45% at leading S4 firms by 2035) are a separate effect that the tree does not date, because development cost is rarely disclosed and robot capital offsets part of the labor saving.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: headline 15-30% did not follow from its own derivation (a labor figure presented as total cost), now about 10-20%; S3 2028 -> 2029; gate capital -> adoption. Auditor: chain written out; off-topic orbital-compute line removed. Advocate: soft edges from cost-collapse and program-cycle-compression and the standing-army channel added; advocate's S2 High rejected (by 2031 the evidence is mostly estimates and scope growth is the node's own strongest case). | B-fix (integrator, 2026-10-07): soft edges from frontier-math-unbinds (B-math-frontier request 3) and physclock-commercial-analysis-first-qual (B-certification request 2). | E-trunk (2026-10-07): 2035/S4 extension. band_2035: S1 Low -> Medium, S2 Medium -> High. Years unchanged. | E-trunk resolver (2026-10-07): note_2035 extended: the advocate's proposed node capability-35-dev-cost-third was rejected (a one-third cut sits above S3's realized range and at the top of S4 robot-first estimates once robot capital is netted; development cost is rarely disclosed, so the node could not be dated or checked; its S4 credit would double the robot labor channel already carried by capability-35-cycle-halved). The channel is recorded here instead.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035: S1 Low -> Medium, S2 Medium -> High. Years unchanged.",
+      "from": {
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     },
+     {
+      "by": "E-trunk resolver",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "note_2035 records where the robot hardware-labor cost channel sits.",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-satellite-gen-cadence",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S2 conditions in 2035 match S3 in 2031, where an annual cadence sat at the favorable end, so S2 stays Medium; S1 rises to Medium. S3 and S4 rise to High as gates fall about 10% further. Chip-swap compute buses remain upside. S4 equals S3 because the node is already High there and payload qualification and launch still bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S2 2029 -> 2030, S3 2028 -> 2029, S3 High -> Medium; chain written out. Advocate: optimal-test-campaigns hard -> soft (Starlink iterated without them), soft edge from starship-full-reuse, AI1 modular-insert status added; advocate's S2 High rejected (the chip-cadence mechanism is not AI-math-driven and depends on unproven orbital-compute economics). | B-fix (integrator, 2026-10-07): soft edges from physclock-commercial-analysis-first-qual (B-certification request 2) and materials-see-system-models (B-orbital-compute-power request 2: radiation testing is a named binding item here). | F2 audit (2026-10-07): S1 2030 -> 2031 and Medium -> Low (the S1 chain from adoption in 2029 needs two AI-era generations); S2 reasoning against the P7 default written out. | E-trunk (2026-10-07): 2035/S4 extension. band_2035: S1 Low -> Medium, S2/S3/S4 Medium -> High. Years unchanged. Soft edges from robo-aerospace-tolerance-work and robo-24x7-integration-test. | E-trunk resolver (2026-10-07): Skeptic accepted: band_2035 S2 High -> Medium (S2 gates in 2035, 1.2-1.4x, are no better than S3 in 2031, where the node was held at Medium; the draft leaned on chip-swap buses, which the F2 audit classed as upside).",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2031",
+       "earliest_year",
+       "why"
+      ],
+      "reason": "S1 2030 -> 2031 and Medium -> Low (the S1 chain from adoption in 2029 needs two AI-era generations); S2 reasoning against the P7 default written out",
+      "from": {
+       "earliest_year": {
+        "S1": "2030",
+        "S2": "2030",
+        "S3": "2029"
+       },
+       "band_2031": {
+        "S1": "Medium",
+        "S2": "Medium",
+        "S3": "Medium"
+       }
+      }
+     },
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035: S1 Low -> Medium, S2/S3/S4 Medium -> High. Years unchanged. Soft edges from robo-aerospace-tolerance-work and robo-24x7-integration-test.",
+      "from": {
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     },
+     {
+      "by": "E-trunk resolver",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035 S2 High -> Medium (skeptic).",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-program-cycle-compression",
+   "patch": {
+    "earliest_year": {
+     "S1": "2035",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 programs run under 2032-34 conditions have a ceiling near 28-32%, so a 20% cut with an attributable analysis is first credible in 2035 (Low). By 2035 the S2 ceiling rises to about 42-52% (physical gates 1.2-1.4x) with realized gains near 30-40%, and S3 realizes 40-48%. S4 adds little for typical programs (ceiling 58%) and more at robot-first firms (realized 50-58% under 2035 conditions; capability-35-cycle-halved).",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Debated (skeptic vs advocate, auditor on wording). Skeptic accepted: 38% is a ceiling, realized lower; S2 2030 -> 2031, S3 2029 -> 2030 (only post-adoption programs count). Advocate partly accepted: the qualification cap was misapplied (gate -> experiment), cap-design-optimization hard -> soft, soft edges from mishap analysis and cheap mass; its 35-50% S2 figure rejected as largely double-counting what the 1.1-1.2x physical multipliers already credit, and its S2 2029 / S3 High rejected (depended on adoption in 2027). Realized range set at 20-30% in S2 between the skeptic's 15-25% and the advocate's 35-50%. | B-fix (integrator, 2026-10-07): soft edges from frontier-math-unbinds (B-math-frontier request 3) and physclock-commercial-analysis-first-qual (B-certification request 2). | F2 audit (2026-10-07): band reasoning against the P7 default written out; years and bands unchanged. | R review (2026-10-07): title matches realized S2 estimate (20-30%, 38% ceiling) | E-trunk (2026-10-07): 2035/S4 extension. S1 >2031 -> 2033 (adoption 2029, programs finished 2031-32, analysis 2033). band_2035: S1 Low -> Medium, S2-S4 Medium -> High. Soft edges from robo-aerospace-tolerance-work and robo-24x7-integration-test. Extended by capability-35-cycle-halved. | E-trunk resolver (2026-10-07): Skeptic accepted: S1 2033 -> 2035 and band_2035 S1 Medium -> Low (S1's realized cut is 10-15% under 2031 conditions; its ceiling under 2032-34 conditions is about 28-32%; S1 reaches S2's 2028 adoption-level cognition only around 2033-34). band_2031 S1 Low -> Speculative to match a 2035 earliest year.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "band reasoning against the P7 default written out; years and bands unchanged"
+     },
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "S1 >2031 -> 2033 (adoption 2029, programs finished 2031-32, analysis 2033). band_2035: S1 Low -> Medium, S2-S4 Medium -> High. Soft edges from robo-aerospace-tolerance-work and robo-24x7-integration-test. Extended by capability-35-cycle-halved.",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2030",
+        "S4": "2030"
+       },
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     },
+     {
+      "by": "E-trunk resolver",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2031",
+       "band_2035",
+       "earliest_year",
+       "note_2035"
+      ],
+      "reason": "S1 2033 -> 2035, band_2031 S1 Low -> Speculative, band_2035 S1 Medium -> Low (skeptic).",
+      "from": {
+       "earliest_year": {
+        "S1": "2033",
+        "S2": "2031",
+        "S3": "2030",
+        "S4": "2030"
+       },
+       "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       },
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-cheap-mass-customer",
+   "patch": {
+    "earliest_year": {
+     "S1": "2032",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 resolves to 2032. Mach33's reference spot price falls from $5,634/kg in 2030 to $820 in 2031 and $562 in 2033 once Starship opens to customers, and Mach33 varies that opening from 2029 to 2033, so spot likely falls below $1,000/kg by 2035 under every tested opening year (inference from the reference path). The $945/kg median for 2035 is an average over all customer classes, including contract prices and government premiums. So S2-S4 are High by 2035 and S1 Medium, where competitors mature later. S4 gets no credit because price follows SpaceX's capacity release and competition.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + advocate: reusable-competition hard -> soft (not logically necessary; Chinese fleets can satisfy it without lowering U.S. prices). Skeptic: S2 Medium -> Low (2033 fade midpoint; S2 earliest year 2031) and $900/kg relabelled as capacity price; advocate wanted bands unchanged (debate recorded). Advocate's capacity-release mechanism added to why. Auditor: Mach33 caveat. | E-trunk (2026-10-07): 2035/S4 extension. S1 >2031 -> 2032 (Mach33 ticket fade midpoint 2033, range 2030-36; S1 is about one year behind S2). band_2035: S1/S2 Low -> Medium; S3/S4 stay Medium (Mach33 median 2035 customer revenue $945/kg, Sep 2026). No hard dependents. | E-trunk resolver (2026-10-07): Advocate accepted for 2035: band_2035 S2-S4 Medium -> High (the node is the dedicated or spot price; Mach33's reference spot falls to $820/kg in 2031 and $562 in 2033, and the $945 median is an all-class average that includes contract prices and government premiums, which take 21% of 2040 revenue on 2% of tonnes). S1 stays Medium. Advocate's band_2031 S2 Low -> Medium rejected: crossing by 2031 needs Starship open to customers by 2031, the house assumption is varied to 2033, and Mach33's earlier fade midpoint is 2033; the 2031 band was set in earlier review.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "S1 >2031 -> 2032 (Mach33 ticket fade midpoint 2033, range 2030-36; S1 is about one year behind S2). band_2035: S1/S2 Low -> Medium; S3/S4 stay Medium (Mach33 median 2035 customer revenue $945/kg, Sep 2026). No hard dependents.",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2030",
+        "S4": "2030"
+       },
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Low",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     },
+     {
+      "by": "E-trunk resolver",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035 S2-S4 Medium -> High (advocate). band_2031 unchanged.",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-new-entrant-fast-orbit",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": "2035",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "High"
+    },
+    "note_2035": "To reach orbit by 2035 a program must start by 2032 and runs under 2032-35 conditions: on the four-year derivative base that gives 3.0-3.5 years in S2 (2035, Low, best case only) and 2.6-3.0 in S3 (Medium, before any maiden-flight failure). S4 gets one band step to High: a robot-first program started by 2032 on requalified processes, at about 0.50-0.58x, needs 2.0-2.3 years, which leaves room for one failed first flight, and many entrants worldwide can try.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): Debated: skeptic wanted FAA-only scope and S3 Low -> Speculative; advocate wanted global scope, S2 Speculative -> Low and soft licensing/test-stand edges. Resolved: global scope with soft edges (advocate), years and bands unchanged because the Zhuque-3 derivative precedent (~4 years) times the physclock multipliers lands just above 3 years in S2 and at about 3 in S3. | E-trunk (2026-10-07): 2035/S4 extension. S1 >2031 -> >2035, S2 >2031 -> 2033 (2035 gate multipliers 0.83-0.91x S1, 0.71-0.83x S2 on a ~4-year derivative timeline). band_2035: S2 Speculative -> Low, S3 Low -> Medium, S4 Low -> High (S4 credit per s4-embodied credit_only_2032_2035: clean-sheet launcher 0.45-0.51x at a leading firm by 2035). Soft edges from robo-aerospace-tolerance-work, robo-24x7-integration-test, robo-requal-standard. | E-trunk resolver (2026-10-07): S2 2033 -> 2035 (skeptic: a 2033 orbit means a 2030 start under 2030-33 conditions, 3.2-3.6 years on the four-year base; 2035 multipliers cannot date it). Timing corrected: programs reaching orbit by 2035 run under 2032-35 conditions. Bands kept at Speculative/Low/Medium/High. Skeptic's clean-sheet base (S3 Low, S4 Medium) rejected: the node counts derivatives, and a proportional multiplier on a shorter base does not count the shortcut twice; its timing, maiden-flight and leading-firm points are written into the why. Advocate's S2 Medium and S3 High rejected: S2 needs the best case, and maiden-flight failures and pad access keep S3 below High. Stale band text in why fixed.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "S1 >2031 -> >2035, S2 >2031 -> 2033 (2035 gate multipliers 0.83-0.91x S1, 0.71-0.83x S2 on a ~4-year derivative timeline). band_2035: S2 Speculative -> Low, S3 Low -> Medium, S4 Low -> High (S4 credit per s4-embodied credit_only_2032_2035: clean-sheet launcher 0.45-0.51x at a leading firm by 2035). Soft edges from robo-aerospace-tolerance-work, robo-24x7-integration-test, robo-requal-standard.",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": ">2031",
+        "S3": "2031",
+        "S4": "2031"
+       },
+       "band_2035": {
+        "S1": "Speculative",
+        "S2": "Speculative",
+        "S3": "Low",
+        "S4": "Low"
+       }
+      }
+     },
+     {
+      "by": "E-trunk resolver",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "note_2035",
+       "why"
+      ],
+      "reason": "S2 2033 -> 2035 (skeptic: a 2033 orbit means a 2030 start under 2030-33 conditions). Bands kept. Timing and stale why fixed.",
+      "from": {
+       "earliest_year": {
+        "S1": ">2035",
+        "S2": "2033",
+        "S3": "2031",
+        "S4": "2031"
+       },
+       "why": "Even with cognitive work nearly free, engine development (hot-fire campaigns, turbopump failures), pad construction (2-4 years) and flight-test learning set a floor of about 4-5 years. AI's best case removes about a year, and only programs started after AI adoption (2027-28 in S2) benefit. The realistic path is a derivative built around an existing engine family: LandSpace's Zhuque-3 (TQ-12-family methalox engines from Zhuque-2) hopped in Jan 2024, reached orbit Dec 3 2025 and landed its first stage on its second flight, Aug 18 2026 (Wikipedia), on roughly a four-year derivative timeline without AI help (general). Clean-sheet multipliers of 0.8-0.9x (S2) and 0.7-0.8x (S3) on such a timeline give about 3.2-3.6 years in S2, so Speculative, and 2.8-3.2 years in S3, so Low. FAA licensing reform and AI-run test stands help U.S. entrants but are not gates for every entrant."
+      }
+     }
+    ],
+    "why": "Even with cognitive work nearly free, engine development (hot-fire campaigns, turbopump failures), pad construction (2-4 years) and flight-test learning set a floor of about 4-5 years. AI's best case removes about a year, and only programs started after AI adoption (2027-28 in S2) benefit. The realistic path is a derivative built around an existing engine family: LandSpace's Zhuque-3 (TQ-12-family methalox engines from Zhuque-2) hopped in Jan 2024, reached orbit Dec 3 2025 and landed its first stage on its second flight, Aug 18 2026 (Wikipedia), on roughly a four-year derivative timeline without AI help (general). Clean-sheet multipliers of 0.8-0.9x (S2) and 0.7-0.8x (S3) on such a timeline give about 3.2-3.6 years in S2 and 2.8-3.2 years in S3 under 2031 conditions, so S2 is Speculative and S3 Low by 2031. To reach orbit by end-2035 a program must start by end-2032, so it runs under 2032-35 conditions: about 0.75-0.87x in S2 (3.0-3.5 years) and 0.66-0.76x in S3 (2.6-3.0 years) on the four-year base. About half of new launchers fail on their first flight, which adds 0.5-1 year. Applying the multipliers to a derivative base assumes the remaining work compresses like a clean-sheet program's; on the 5-13 year clean-sheet base no S3 program gets under 3 years, so the node rests on derivatives. FAA licensing reform and AI-run test stands help U.S. entrants but are not gates for every entrant."
+   }
+  },
+  {
+   "id": "capability-random-sample-audit",
+   "patch": {
+    "earliest_year": {
+     "S1": "2027",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Expected in 2027, so nothing changes in 2032-35. S4 equals S3 because the node is a disclosure.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): New node from the auditor (proposed as verif-random-sample-audit; renamed to the trunk's domain prefix). Mechanism sound and not a duplicate: verif-independent-check covers headline families only; the random-sample signpost existed only as text in cap-research-math-internal. | E-trunk (2026-10-07): 2035/S4 extension. No year or band change; band_2035 High in all scenarios.",
+    "revisions": [
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "No year or band change; band_2035 High in all scenarios.",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-compute-launch-demand",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 internal launch cost near $13/kg (Mach33 base) and compute demand make 10 compute flights a year likely if orbital compute works at all, so S2-S4 rise to High and S1 to Medium. S4 equals S3 because launch and demand bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-trunk resolver (2026-10-07): New node from the advocate (proposed as physclock-compute-manifest-anchor; renamed to the trunk's domain prefix). Years moved one year later than proposed (S1 2031 / S2 2030 / S3 2029) to follow physclock-cheap-mass-internal (now 2029) and the launch-slip calibration; S3 High -> Medium (economics unproven). Labelled as an AI-capability demand effect, not AI math. Not a duplicate: struct-gw-orbital-compute is the 1 GW cumulative outcome downstream. | B-fix (integrator, 2026-10-07): status, chain and strongest case re-based on the orbital-compute branch: radiator first flight 2028 and paying ops 2029 (was 2027/2028), AI1 ~4.0-4.5 t (was 2.1 t), 10 flights ~220-250 satellites / ~40-60 MW (was ~450 / 70-110 MW); soft edge to struct-gw-orbital-compute added. Years and bands unchanged (S2 2030 Medium matches the GW node chain). | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (demand coupling from AI capability, not an AI-math effect)'). | E-trunk (2026-10-07): 2035/S4 extension. band_2035: S1 Low -> Medium, S2/S3/S4 Medium -> High (10 flights is about 40-60 MW a year). Years unchanged.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (demand coupling from AI capability, not an AI-math effect)')",
+      "from": {
+       "pathway": "P7 (demand coupling from AI capability, not an AI-math effect)"
+      }
+     },
+     {
+      "by": "E-trunk",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035: S1 Low -> Medium, S2/S3/S4 Medium -> High (10 flights is about 40-60 MW a year). Years unchanged.",
+      "from": {
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "catalog_families": [],
+   "needs_2035_review": false,
+   "revisions": [
+    {
+     "by": "E-trunk",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new node",
+     "from": {}
+    },
+    {
+     "by": "E-trunk resolver",
+     "date": "2026-10-07",
+     "fields": [
+      "band_2035",
+      "binding_gate",
+      "note_2035",
+      "signpost",
+      "status_oct2026",
+      "why"
+     ],
+     "reason": "Skeptic accepted: binding gate fabrication -> regulatory; band_2035 S1 Medium -> Low, S2-S4 High -> Medium (regulatory cap: caps for 300+ need unfiled site reviews). Years kept.",
+     "from": {
+      "binding_gate": "fabrication",
+      "band_2035": {
+       "S1": "Medium",
+       "S2": "High",
+       "S3": "High",
+       "S4": "High"
+      }
+     }
+    }
+   ],
+   "id": "capability-35-heavy-cadence-300",
+   "title": "300+ fully reusable heavy launches a year",
+   "tier": 6,
+   "kind": "mission",
+   "domain": "physclock",
+   "description": "Fully reusable heavy launchers fly 300 or more orbital missions in one calendar year, three times the 100-flight milestone.",
+   "status_oct2026": "Not yet. Starship flew 5 times in 2025 and 3 times in 2026 to Oct 7. Approved site caps total about 145 Starship launches a year: Starbase 25 (FAA, May 2025), LC-39A 44 (Jan 2026) and SLC-37 76 (Dec 2025). Mach33's reference case has about 90 Starship flights in 2028 and about 516,000 t to orbit in 2040, 456,000 t of it SpaceX's own (Launch Keystone, Sep 2026), which implies thousands of flights a year by 2040. A permit application for a haul road, a Gulf wharf and canal dredging at SpaceX's planned Pecan Island, Louisiana site was reportedly filed on Sep 29, 2026 (unconfirmed by SpaceX or an agency); it covers construction only.",
+   "prerequisites": [
+    "physclock-heavy-cadence-100",
+    "physclock-pad-propellant-infra"
+   ],
+   "accelerated_by": [
+    "capability-compute-launch-demand",
+    "physclock-twin-reflight-clearance",
+    "physclock-licensing-in-weeks",
+    "physclock-range-airspace-scheduling",
+    "physclock-ai-mishap-analysis"
+   ],
+   "binding_gate": "regulatory",
+   "pathway": "P7 (exogenous)",
+   "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+   "earliest_year": {
+    "S1": "2034",
+    "S2": "2033",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "why": "Not an AI-math implication: an exogenous physical anchor. 300 flights a year is about one a day. Approved Starship caps total about 145 a year (Starbase 25, LC-39A 44, SLC-37 76), and they come from completed reviews. Caps for 300+ need new site environmental assessments or impact statements (EIS median about 2.2 years, plus litigation risk) that are not yet filed. EO 14335 speeds reviews. It sets no caps. New pads take 2-4 years each, and large transformers take 128-160 weeks. Demand comes from Starlink V3 and later, orbital compute (capability-compute-launch-demand) and lunar tanker campaigns. Chain (S2): 100+ flights 2030 -> new site reviews filed 2027-28 and decided 2029-30 -> new pads and raised caps 2031-32 -> 300+ flights 2033. S3 2032: cadence runs a year ahead and compute demand is stronger. S1 2034: the plateau weakens compute demand, and Starlink alone needs far fewer flights. AI moves cadence by months through anomaly closure and range scheduling. Mach33's reference tonnage (about 35,400 t in 2029, or 240-320 flights at 112-150 t each) runs well above approved caps, so it cannot date this node. S4 gets no year or band: approvals, airspace and environmental caps bind, and robots do not touch them. Mach33 projections are a single commercial forecaster's model estimates, not independent research (an equity disclosure was reported on its pages; unverified here). Bands (judgment): Medium by 2035 in S2-S4 under the regulatory cap, because no review covering 300+ launches a year is filed; raise S2-S4 to High once one is. S1 Low.",
+   "strongest_case_small": "Starship has never met a yearly flight plan, and each failure grounds the fleet for weeks to months. Airspace closures, local opposition and litigation can cap cadence below what vehicles and pads allow.",
+   "signpost": "A filed environmental review covering 300 or more Starship launches a year across sites (raises S2-S4 to High); 150 or more Starship flights in 2031; a fourth Starship launch site approved; per-site caps raised above 100 a year.",
+   "note_2035": "New in the 2035 extension. Approvals bind: caps for 300+ a year need new site reviews that are not yet filed, so S2-S4 are Medium by 2035. S4 adds nothing because approvals, airspace and environmental caps do not compress.",
+   "revision_note": "E-trunk (2026-10-07): new node extending the launch-clock side chain past physclock-heavy-cadence-100. | E-trunk resolver (2026-10-07): Skeptic accepted: binding_gate fabrication -> regulatory; band_2035 S1 Medium -> Low, S2-S4 High -> Medium under the regulatory cap (approved caps about 145 a year come from completed reviews; caps for 300+ need site reviews not yet filed; EO 14335 sets no caps). Years kept: the advocate's S1 2033 and S2-S4 2032 rejected (Mach33's reference tonnage ignores approved caps; S1 lags because of weaker demand, while AI moves the launch clock by months). Soft edge from robo-construction-trades dropped (pads for this step are built before construction robots); soft edge from robo-launch-refurb added (refurbishment throughput, no S4 credit). The advocate's 1,000-flight node rejected: it is approval-bound, fails S4 condition 1, and the S4 pad credit already sits on robo-earth-pads-plants."
+  },
+  {
+   "catalog_families": [],
+   "needs_2035_review": false,
+   "revisions": [
+    {
+     "by": "E-trunk",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new node",
+     "from": {}
+    },
+    {
+     "by": "E-trunk resolver",
+     "date": "2026-10-07",
+     "fields": [
+      "accelerated_by",
+      "band_2031",
+      "earliest_year",
+      "note_2035",
+      "prerequisites",
+      "signpost",
+      "why"
+     ],
+     "reason": "Advocate accepted on years: S2-S4 2032 -> 2031, S1 stays 2032 (Mach33 base crosses $100/kg in 2030; the model's one-year lag gives 2031). Skeptic accepted: heat shield soft -> hard edge. band_2031 S3/S4 Low -> Medium; S2 stays Low.",
+     "from": {
+      "earliest_year": {
+       "S1": "2032",
+       "S2": "2032",
+       "S3": "2032",
+       "S4": "2032"
+      },
+      "band_2031": {
+       "S1": "Low",
+       "S2": "Low",
+       "S3": "Low",
+       "S4": "Low"
+      },
+      "prerequisites": [
+       "physclock-cheap-mass-internal",
+       "physclock-heavy-cadence-100"
+      ],
+      "accelerated_by": [
+       "hyper-rapid-reuse-heatshield",
+       "physclock-twin-reflight-clearance",
+       "capability-compute-launch-demand",
+       "capability-35-heavy-cadence-300"
+      ]
+     }
+    }
+   ],
+   "id": "capability-35-internal-cost-100",
+   "title": "Starship internal cost under $100 per kg",
+   "tier": 7,
+   "kind": "outcome",
+   "domain": "physclock",
+   "description": "SpaceX's internal cost to put a kilogram in low orbit on Starship falls below $100/kg, a third of the $300/kg milestone. Development, pads and factories are excluded.",
+   "status_oct2026": "Not yet. Flight 14 (Sep 28, 2026) cost about $4,915/kg with both stages expended (Mach33). Mach33's base case: $656/kg in 2027, about $300/kg in 2028, 8.9 flights per stack in 2029 and 18 in 2030, $13/kg in 2035 and $10/kg in 2040 (Launch Keystone v1.3, Sep 23, 2026).",
+   "prerequisites": [
+    "physclock-cheap-mass-internal",
+    "physclock-heavy-cadence-100",
+    "hyper-rapid-reuse-heatshield"
+   ],
+   "accelerated_by": [
+    "physclock-twin-reflight-clearance",
+    "capability-compute-launch-demand",
+    "capability-35-heavy-cadence-300"
+   ],
+   "binding_gate": "launch",
+   "pathway": "P7 (exogenous)",
+   "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+   "earliest_year": {
+    "S1": "2032",
+    "S2": "2031",
+    "S3": "2031",
+    "S4": "2031"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Low",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "band_2035": {
+    "S1": "High",
+    "S2": "High",
+    "S3": "High",
+    "S4": "High"
+   },
+   "why": "Not an AI-math implication: an exogenous physical anchor set by flights per stack, payload per flight and production learning (Mach33 splits the early decline 56% reuse, 32% payload, 12% learning). A $85-100M stack flying 18 times with $4M of operations and 112 t of payload costs about $80-85/kg (estimate), so the threshold needs ships flying about 10 times or more as well as boosters flying 20-30 times. Mach33's base reaches 18 flights per stack in 2030, and its 0.85 learning rate per doubling of delivered mass takes the $143M stack of 2028 to about $85-100M by 2030 (estimate), so Mach33 crosses $100/kg in 2030. The model dates $300/kg a year after Mach33 (2029 against 2028); the same lag puts $100/kg at 2031. Ship reuse at that count needs the rapidly reusable heat shield, a hard prerequisite (hyper-rapid-reuse-heatshield: S1 2031, S2 2030, S3 2029), so S1 follows in 2032. Band by 2031: S2 Low because the heat shield is only Medium by 2031 and the chain has no slack; S3 and S4 Medium with two years of heat-shield slack; S1 Low. S4 gets no credit: reuse and payload set cost, and refurbishment robots trim an operating cost that is already a small share. Mach33 projections are a single commercial forecaster's model estimates, not independent research (an equity disclosure was reported on its pages; unverified here). High by 2035 in every scenario (judgment): Mach33's 2035 base sits about 8x below the threshold, so only a failure of ship reuse keeps cost above it. That High holds only while the heat shield is High by 2035.",
+   "strongest_case_small": "If tiles are a dead end for ship reuse, ships stay near single use and cost stays near $300/kg (a $40M ship over 150 t, plus booster and operations; estimate). Internal cost also does not reach customers: Mach33's median 2035 customer revenue is about $945/kg.",
+   "signpost": "Disclosed ship flights per stack above 10; payload per flight near 150 t; cost estimates below $150/kg. SpaceX does not report cost per kg, so the signpost rests on estimates; Mach33's $13/kg for 2035 is one commercial model.",
+   "note_2035": "New in the 2035 extension. The launch clock runs without AI math, so S2-S4 share the year and S1 follows its later heat shield. High by 2035 holds only while hyper-rapid-reuse-heatshield is High by 2035; if the entry branch keeps it Medium, this node drops to Medium in all four scenarios. S4 gets no credit.",
+   "revision_note": "E-trunk (2026-10-07): new node extending the launch-clock side chain past physclock-cheap-mass-internal. | E-trunk resolver (2026-10-07): Advocate accepted on years: S2-S4 2032 -> 2031 (the node's own arithmetic puts Mach33's base under $100/kg in 2030, and the model's one-year lag gives 2031). Skeptic accepted: hyper-rapid-reuse-heatshield moved from soft to hard edge (the why names ship reuse as the gate), S1 2032 follows the S1 heat shield (2031). band_2031: S3/S4 Low -> Medium; S2 stays Low (advocate's S2 Medium rejected: heat shield Medium by 2031 and no slack). band_2035 High kept, conditional on the entry branch keeping the heat shield High by 2035. Signpost caveat on cost disclosure added. Soft edge from robo-launch-refurb added."
+  },
+  {
+   "catalog_families": [],
+   "needs_2035_review": false,
+   "revisions": [
+    {
+     "by": "E-trunk",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new node",
+     "from": {}
+    },
+    {
+     "by": "E-trunk resolver",
+     "date": "2026-10-07",
+     "fields": [
+      "description",
+      "earliest_year",
+      "note_2035",
+      "signpost",
+      "status_oct2026",
+      "why"
+     ],
+     "reason": "Skeptic accepted: scope narrowed to vehicles and large spacecraft with a 3-year-plus comparable (constellation generations excluded); S3 2034 -> 2035, S4 2033 -> 2034. Bands kept.",
+     "from": {
+      "description": "A leading commercial firm completes a new spacecraft or launch-vehicle program, started after AI adoption, at least 50% faster than its own comparable pre-2027 program, with a published schedule analysis. Typical programs are covered by capability-program-cycle-compression.",
+      "earliest_year": {
+       "S1": ">2035",
+       "S2": ">2035",
+       "S3": "2034",
+       "S4": "2033"
+      }
+     }
+    }
+   ],
+   "id": "capability-35-cycle-halved",
+   "title": "Leading firms halve development cycles",
+   "tier": 7,
+   "kind": "outcome",
+   "domain": "capability",
+   "description": "A leading firm completes a launch vehicle, crew or cargo vehicle, or new large spacecraft program, whose own pre-2027 comparable took 3 years or more, in at most half that time, with a published schedule analysis. Repeat constellation generations do not count (see physclock-satellite-gen-cadence); typical programs are covered by capability-program-cycle-compression.",
+   "status_oct2026": "Not yet. Comparable programs today: clean-sheet launchers take 5-13 years, new engines 6-13 years and human rating about 6 years (model gate table); Starship SN8-SN15 flew in 147 days with human crews. Only a few thousand humanoids do paid work, most need teleoperation (IFR, Sep 30, 2026), and none do flight-hardware assembly.",
+   "prerequisites": [
+    "capability-program-cycle-compression"
+   ],
+   "accelerated_by": [
+    "physclock-qual-cycle-compressed",
+    "physclock-ai-run-test-stands",
+    "cap-design-optimization",
+    "physclock-commercial-analysis-first-qual",
+    "physclock-optimal-test-campaigns"
+   ],
+   "binding_gate": "experiment",
+   "pathway": "P1->P7",
+   "premise_tier": "n/a",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": ">2035",
+    "S3": "2035",
+    "S4": "2034"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Medium"
+   },
+   "why": "Amdahl with physics held fixed (s4-embodied): 2035 ceilings are about 42-52% in S2 (judgment from the model's program shares), 56% in S3, 58-62% in S4 for typical and leading programs, and 66-67% at robot-first firms. Realized gains run below ceilings: 40-48% in S3, 42-54% in S4 typical and leading, 50-58% at robot-first firms. These ranges apply to programs run under that year's conditions, so a program finished in 2034 ran under 2032-34 conditions. Chain (S4): robots in paid flight-hardware work at leading firms 2030-31 (robo-aerospace-tolerance-work) -> processes requalified by 2032 (6-24 months each; early adopters dip first) -> program started 2032 -> completed 2034 under 2032-34 conditions, with a robot-first realized gain of about 45-54% -> published analysis 2034. S3: programs run under 2033-35 conditions realize 40-48%, so halving sits above the range and first becomes credible in 2035. S1 and S2 stay after 2035 because their ceilings sit near or below 50%. S4 credit passes all four tests: integration, test and fabrication labor bind at the firm; robots are useful there from 2030-31; no hard prerequisite lands later; and general-purpose robots go beyond the specialized test stands already in S3. Band: the P7 default (Speculative) holds for S1 and S2. S3 is Low and S4 Medium (judgment), because 50% sits inside the S4 robot-first range and above S3's. S4 Medium is a ceiling: it falls to Low if robo-24x7-integration-test is below High in S4 by 2035. Bands are judgments.",
+   "strongest_case_small": "At a robot-first firm in 2035, physics time constants, reliability statistics and institutions still make up about 44% of the remaining critical path, so one anomaly or a requalification dip erases the margin. Firms may spend the gain on scope, and attribution to AI and robots will be disputed.",
+   "signpost": "A firm reports a new vehicle or large spacecraft program at half the duration of its own predecessor; humanoids in paid aerospace integration and test; the first robotic-process requalification for flight hardware.",
+   "note_2035": "New in the 2035 extension. S4 reaches it about a year before S3 (2034 against 2035) and is Medium against Low, carried by robot-first integration and test on requalified processes.",
+   "revision_note": "E-trunk (2026-10-07): new node extending the spine past capability-program-cycle-compression; the main S4 outcome in the trunk. | E-trunk resolver (2026-10-07): Skeptic accepted: scope narrowed to vehicles and large spacecraft whose pre-2027 comparable took 3 years or more, excluding constellation generations (as written, a 24-to-12-month satellite generation satisfied it and duplicated physclock-satellite-gen-cadence). Years S3 2034 -> 2035, S4 2033 -> 2034 (realized ranges apply to programs run under that year's conditions; a 2033 completion ran on 2031-32 robots at 40-50%). Bands kept (S3 Low, S4 Medium as a ceiling). Advocate's S2 2035/Low, S3 2033/Medium, S4 2032/High and the soft edge from physclock-satellite-gen-cadence rejected: they rested on satellite generations, which the narrowed scope excludes."
+  },
+  {
+   "catalog_families": [],
+   "needs_2035_review": false,
+   "revisions": [
+    {
+     "by": "E-trunk",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new node",
+     "from": {}
+    },
+    {
+     "by": "E-trunk resolver",
+     "date": "2026-10-07",
+     "fields": [
+      "band_2031",
+      "band_2035",
+      "binding_gate",
+      "description",
+      "earliest_year",
+      "note_2035",
+      "signpost",
+      "status_oct2026",
+      "why"
+     ],
+     "reason": "Skeptic accepted: scope narrowed to stages, vehicles and non-constellation spacecraft over 5 t; binding gate qualification; years >2035/2033/2032/2032; bands lowered.",
+     "from": {
+      "description": "A launch-vehicle stage, a crew or cargo vehicle, or a spacecraft over 1 t dry mass whose design analyses, trade studies and flight-software verification artifacts were mostly AI-generated (with human review) flies and operates. The smallsat case is capability-ai-native-spacecraft.",
+      "binding_gate": "fabrication",
+      "earliest_year": {
+       "S1": "2034",
+       "S2": "2032",
+       "S3": "2031",
+       "S4": "2031"
+      },
+      "band_2031": {
+       "S1": "Speculative",
+       "S2": "Low",
+       "S3": "Low",
+       "S4": "Low"
+      },
+      "band_2035": {
+       "S1": "Low",
+       "S2": "Medium",
+       "S3": "High",
+       "S4": "High"
+      }
+     }
+    }
+   ],
+   "id": "capability-35-ai-native-large-system",
+   "title": "A launcher or large spacecraft engineered mostly by AI flies",
+   "tier": 6,
+   "kind": "mission",
+   "domain": "capability",
+   "description": "A launch-vehicle stage, a crew or cargo vehicle, or a non-constellation spacecraft over 5 t dry mass, whose design analyses, trades and verification artifacts were mostly AI-generated (with human review), flies and operates. Constellation satellites are covered by capability-ai-native-spacecraft.",
+   "status_oct2026": "Not yet. AI-generated engine and structural geometry and agentic chip design exist piecemeal. SpaceX owns a frontier lab (SpaceXAI) and flies Starlink V3 at about 2 t. Constellation satellites do not count here.",
+   "prerequisites": [
+    "capability-ai-native-spacecraft",
+    "cap-design-optimization"
+   ],
+   "accelerated_by": [
+    "physclock-commercial-analysis-first-qual",
+    "struct-agentic-analysis-workflows",
+    "verif-assurance-cost-collapse"
+   ],
+   "binding_gate": "qualification",
+   "pathway": "P1->P7",
+   "premise_tier": "n/a",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2033",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "why": "Second-generation step: the AI-native process (capability-ai-native-spacecraft) applied to a stage, a crew or cargo vehicle, or a large non-constellation spacecraft, where hot fire, integration and qualification bind whoever does the design. Constellation satellites are excluded so that one AI-designed Starlink generation cannot satisfy both nodes. Chain (S3): AI-native smallsat flies 2029 -> stage or vehicle design starts 2029 -> a four-year derivative program at 0.7-0.75x flies 2032. S2: 0.8-0.85x on the same base gives 3.2-3.4 years, so 2033. S1: the smallsat flies in 2031, so a large system follows after 2035. A clean-sheet program (5-13 years at 0.7-0.8x in S3) would land later; derivatives set the date. Band: the P7 default (Speculative) holds for S1. S2 Low and S3 Medium by 2035 (judgment): hot fire and flight tests are unchanged, and firms may not disclose what share AI produced. S4 equals S3: qualification, flight tests and disclosure bind, and integration robots add months at most. Bands are judgments.",
+   "strongest_case_small": "Large systems carry more legacy process and liability, and firms may not publish what share AI produced. A launch stage is bound by hot fire and flight tests whoever designs it.",
+   "signpost": "A launch firm or vehicle maker publishes AI-generated verification evidence for a new stage, vehicle or large spacecraft before flight, then reports flight success.",
+   "note_2035": "New in the 2035 extension, scoped to stages, vehicles and large non-constellation spacecraft. S4 equals S3 because hot fire, flight tests and disclosure bind; robots on the build add months at most.",
+   "revision_note": "E-trunk (2026-10-07): new node extending capability-ai-native-spacecraft to large systems. | E-trunk resolver (2026-10-07): Skeptic accepted: scope narrowed to stages, crew or cargo vehicles and non-constellation spacecraft over 5 t (a 2 t Starlink satellite satisfied both this node and capability-ai-native-spacecraft); binding_gate fabrication -> qualification; years 2034/2032/2031/2031 -> >2035/2033/2032/2032; band_2031 S3/S4 Low kept, S2 Low -> Speculative; band_2035 Low/Medium/High/High -> Speculative/Low/Medium/Medium. Advocate's S2 High rejected (rested on a SpaceX satellite generation, now out of scope); its robot soft edges added as mechanism, with no S4 credit."
+  }
+ ],
+ "add_edges": [],
+ "add_soft_edges": [
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "cap-autonomous-labs"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "cap-physics-theory"
+  },
+  {
+   "from": "robo-aerospace-tolerance-work",
+   "to": "capability-program-cycle-compression"
+  },
+  {
+   "from": "robo-aerospace-tolerance-work",
+   "to": "physclock-satellite-gen-cadence"
+  },
+  {
+   "from": "robo-aerospace-tolerance-work",
+   "to": "physclock-new-entrant-fast-orbit"
+  },
+  {
+   "from": "robo-aerospace-tolerance-work",
+   "to": "capability-35-cycle-halved"
+  },
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "capability-program-cycle-compression"
+  },
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "physclock-satellite-gen-cadence"
+  },
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "physclock-new-entrant-fast-orbit"
+  },
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "capability-35-cycle-halved"
+  },
+  {
+   "from": "robo-requal-standard",
+   "to": "physclock-new-entrant-fast-orbit"
+  },
+  {
+   "from": "robo-requal-standard",
+   "to": "capability-35-cycle-halved"
+  },
+  {
+   "from": "robo-launch-refurb",
+   "to": "capability-35-heavy-cadence-300"
+  },
+  {
+   "from": "robo-launch-refurb",
+   "to": "capability-35-internal-cost-100"
+  },
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "capability-35-ai-native-large-system"
+  },
+  {
+   "from": "robo-aerospace-tolerance-work",
+   "to": "capability-35-ai-native-large-system"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "trunk",
+   "nodes": [
+    "capability-35-heavy-cadence-300",
+    "capability-35-internal-cost-100",
+    "capability-35-cycle-halved",
+    "capability-35-ai-native-large-system"
+   ],
+   "spine": [
+    "capability-35-cycle-halved"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "trunk",
+   "patch": {
+    "thesis": "If research-grade AI math reaches outside engineers in 2027 (base case), on-demand analysis is routine in space engineering by 2028. Tests, factories and launches run on physical time, so schedules shrink 20-30% by 2031 and about a third by 2035. Robots (S4) add little before 2032; robot-first firms approach half on programs started after 2032.",
+    "side_chains": [
+     [
+      "physclock-starship-full-reuse",
+      "physclock-cheap-mass-internal",
+      "physclock-cheap-mass-customer"
+     ],
+     [
+      "physclock-starship-full-reuse",
+      "physclock-heavy-cadence-100",
+      "physclock-cheap-mass-customer"
+     ],
+     [
+      "physclock-starship-full-reuse",
+      "physclock-heavy-cadence-100",
+      "capability-35-heavy-cadence-300"
+     ],
+     [
+      "physclock-starship-full-reuse",
+      "physclock-cheap-mass-internal",
+      "capability-35-internal-cost-100"
+     ],
+     [
+      "capability-engineering-adoption",
+      "capability-ai-native-spacecraft",
+      "capability-35-ai-native-large-system"
+     ]
+    ],
+    "revision_note": "B-trunk resolver (2026-10-07): Thesis: 'about a third faster' -> 'about a quarter to a third shorter' (auditor: the model computes a shorter schedule, not 1.33x faster; skeptic: 38% is a ceiling); demand coupling added. Hook: cost per result qualified (skeptic + auditor); advocate's '45-50% once the analysis inside test is counted' rejected as double counting. | C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Moved from spine to side_chains (still branch members): ['cap-design-optimization', 'physclock-starship-full-reuse', 'physclock-cheap-mass-internal']. The launch clock (Starship reuse to cheap mass) is a separate physical exponential with no hard link to the AI-math chain, so it is a side chain by construction. | E-trunk (2026-10-07): thesis extended to 2035 and S4 (base-case 2035 ceiling 42-52%, realized 30-40%, judgment; S4 robot-first realized 50-58% from s4-embodied). Spine extended with capability-35-cycle-halved; three side chains added for the new launch and large-system nodes. Reader hook kept. | E-trunk resolver (2026-10-07): thesis timing fixed (skeptic: the 50-58% robot-first range applies to programs run under 2035 conditions, so 'approach half on programs started after 2032'; '30-40% by 2035' -> 'about a third by 2035' for programs finished by then). Advocate's launch-clock sentence rejected to keep the thesis on the AI-math chain and near other branches' length; the launch side chains carry it. New nodes kept at four; the advocate's 1,000-flight and one-third-cost nodes rejected."
+   }
+  }
+ ],
+ "remove_soft_edges": [
+  {
+   "from": "robo-earth-pads-plants",
+   "to": "physclock-heavy-cadence-100"
+  },
+  {
+   "from": "robo-construction-trades",
+   "to": "physclock-pad-propellant-infra"
+  }
+ ]
+}

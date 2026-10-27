@@ -1,0 +1,29 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "viewer",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8765",
+        "--directory",
+        "/Users/alex/projects/openai math paper/model/viewer"
+      ],
+      "port": 8765
+    },
+    {
+      "name": "share",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8766",
+        "--directory",
+        "/Users/alex/projects/openai math paper/model/share/site"
+      ],
+      "port": 8766
+    }
+  ]
+}

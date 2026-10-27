@@ -1,0 +1,1400 @@
+{
+  "domain": "Plasma: electric propulsion, fusion propulsion and space weather",
+  "bottlenecks": [
+    {
+      "name": "Electron-transport closure in Hall thrusters and other EP devices",
+      "description": "Every engineering Hall-thruster code needs an empirical 'anomalous' electron collision frequency calibrated to each operating point. A single calibrated model predicts SPT-140 thrust within ~7% and discharge current within ~15% (8% and 17% when extrapolated to orbit), and whole-device kinetic simulation that could resolve the physics is not affordable (Whittaker et al., AIAA 2026). The same closure gap governs magnetic nozzles (VASIMR, helicon, fusion-drive exhausts).",
+      "share_of_effort": "~20% of the domain's modeling effort (judgment)",
+      "ondemand_math_help": "Mixed. The closure itself is a genuinely open physics problem (about 60 years old). AI's route to it runs through affordable kinetic simulation (algorithm invention: expert-scarce rather than open) plus theory that reduces the simulations to a closure. Bayesian calibration, UQ and implicit-PIC design are solved in principle but expert-scarce and become on-demand in 2027-28 under S2. Validation needs non-invasive electron diagnostics and low-pressure facility time, which bind."
+    },
+    {
+      "name": "Ground-to-flight extrapolation and life qualification",
+      "description": "Thrusters are tested in chambers whose background gas shifts performance (SPT-140 thrust ~2-4% higher at 10 microtorr than at the lowest pressure; Mackey et al. 2018) and must prove life by wear tests. AEPS must demonstrate 1,770 kg of xenon throughput plus 50% margin and is still preparing its long-duration life test, a decade after contract award; crewed-Mars-class MPD thrusters need >23,000 h (2.6 years) of operation. Wear tests are the longest pole in EP schedules.",
+      "share_of_effort": "~20% of modeling effort, and most of the schedule and cost of a new thruster program (judgment)",
+      "ondemand_math_help": "Mostly expert-scarce rather than open: erosion prediction needs near-wall plasma properties (which depend on the transport closure) and low-energy sputter-yield data (a materials-experiment problem). AI helps build credible predictive wear models with UQ; the binding gates are test hours and whether NASA/ESA accept model-based life credit."
+    },
+    {
+      "name": "Solar eruption and CME propagation forecasting",
+      "description": "CME arrival-time error has stayed near 13 h mean absolute error for 11 years (Kay et al. 2024); the storm-driving southward field Bz is known only when the CME passes L1, roughly 30-60 minutes before impact; flare forecasting beyond a few hours is still largely statistical. Kay et al. attribute errors to input reconstruction (few viewpoints, no routine coronal magnetic-field measurement) and to the background solar wind.",
+      "share_of_effort": "~20% (judgment)",
+      "ondemand_math_help": "Partly open physics (eruption onset, flux-rope evolution), partly expert-scarce applied math (ensemble data assimilation, regularized inverse problems for the coronal field). The dominant limit is observational: new viewpoints (ESA Vigil at L5, launch planned 2031) matter more than mathematics."
+    },
+    {
+      "name": "Upper-atmosphere density and drag prediction",
+      "description": "Density is the largest LEO orbit-prediction error: empirical models disagree by 20-40% in quiet times and storms raise density 2-6x within hours (Gannon storm, May 2024: decay of tracked objects 38 -> 180 m/day, Ap forecasts underpredicted by 100-300, thousands of satellites maneuvering). In Feb 2022 a G2 storm cost 38 of 49 newly launched Starlink satellites at ~210 km. Density drives conjunction assessment, constellation propellant budgets and VLEO viability.",
+      "share_of_effort": "~15% (judgment)",
+      "ondemand_math_help": "Largely solved in principle but expert-scarce: joint estimation of density and unknown ballistic coefficients from thousands of constellation orbits, model-error estimation, and propagation of uncertainty into covariance. This is where on-demand applied math pays off fastest (S2: 2028-29). Storm-time forecast skill stays bound by driver data (Bz)."
+    },
+    {
+      "name": "Radiation belts, energetic particles and spacecraft charging",
+      "description": "MeV electron enhancements cause deep-dielectric charging; GEO satellites and EP orbit-raisers spend months in the belts. ML now forecasts alert-level flux crossings up to a week ahead (COVEN, 2026) and charging codes (SPIS, NASCAP-2K) are mature.",
+      "share_of_effort": "~10% (judgment)",
+      "ondemand_math_help": "Incremental and expert-scarce: coupling ML forecasts to physics-based radial-diffusion models and calibrating their probabilities. Low novelty; adoption and the conservatism of worst-case design standards bind."
+    },
+    {
+      "name": "Fusion confinement physics and device engineering (as the basis for fusion propulsion)",
+      "description": "Fusion design spends its modeling effort on turbulent transport (a multiscale nonlinear gyrokinetic run can take ~640,000 node-hours), MHD stability and fast-ion confinement, now increasingly through millisecond ML surrogates (Sep 2026). No magnetic device has reached Q > 1, SPARC's first plasma is slipping to 2027, and D-He3 burn, the fuel most propulsion concepts assume, has not been demonstrated.",
+      "share_of_effort": "~15% from a space-propulsion viewpoint (judgment)",
+      "ondemand_math_help": "Design and surrogate work is expert-scarce and compresses fast (closed-loop stellarator design by ~2029 in S2), but the binding gates are building and operating devices, fuel (He-3) and flight specific power. AI mathematics does not move fusion propulsion inside 2031."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "plasma-vm-wellposed",
+      "title": "Plasma's master equation proved well-behaved (checked)",
+      "tier": 1,
+      "kind": "math",
+      "description": "The claimed proof that the 3D relativistic Vlasov-Maxwell system (the kinetic equation for collisionless plasma coupled to Maxwell's equations) has global smooth solutions for smooth finite-energy data passes an outside Comparator run and a statement audit, moving from T3 to T4. This is the Glassey-Strauss global-regularity problem, open since the 1980s.",
+      "status_oct2026": "Family 362 [L], T3: agent-written Lean main result in the repo, unchecked by outsiders as of 2026-10-07; no outside commentary on 362 found in search. Before the release, only continuation criteria (Glassey-Strauss 1986: smooth while momentum support stays bounded), small-data and symmetric results existed, e.g. vacuum stability for relativistic Vlasov-Maxwell-Boltzmann (Cao and Li, arXiv 2601.04018, Jan 2026).",
+      "catalog_families": [
+        "362"
+      ],
+      "prerequisites": [
+        "verif-independent-check",
+        "cap-autoformalization"
+      ],
+      "binding_gate": "formalization",
+      "pathway": "P5",
+      "earliest_year": {
+        "S1": "2027",
+        "S2": "2027",
+        "S3": "2027"
+      },
+      "band_2031": {
+        "S1": "High",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "T3",
+      "why": "The Lean proof exists, so a Comparator run is cheap; the slow part is the statement audit (does the Lean definition of the system, its function spaces and 'finite energy' match what physicists mean?). The March 2026 AI-assisted formalization of the Vlasov-Maxwell-Landau equilibrium reported exactly these definition-alignment bugs and hypothesis creep, which is why the gate is formalization rather than cognition. Hexagon (launched Oct 6, 2026) exists to do this. Once T4, every collisionless-plasma kinetic code is known to approximate a solution that exists and stays smooth for all time: a confidence gain, per analyst position (d).",
+      "strongest_case_small": "Codes never waited for this; physicists assumed it. The theorem covers the whole-space relativistic system without walls, collisions or external circuits, while Hall-thruster, magnetic-nozzle and magnetosphere codes use electrostatic, non-relativistic, collisional or bounded-domain versions that are different equations. Nothing in a thruster, forecast or fusion device changes.",
+      "signpost": "An outside Comparator report and statement audit for family 362 posted on Hexagon or by a kinetic-theory group within 12 months; a definition mismatch found in the audit would break this node and downgrade plasma-verified-kinetic-numerics."
+    },
+    {
+      "id": "plasma-landau-longtime",
+      "title": "When do collisionless plasmas settle down? (Landau damping beyond idealized cases)",
+      "tier": 1,
+      "kind": "math",
+      "description": "Proofs of nonlinear Landau damping and long-time kinetic stability in physically realistic settings: finite (Sobolev) regularity, magnetized plasmas, bounded domains with absorbing or emitting walls, and electromagnetic fields. These say when and how fast kinetic fluctuations damp, which is what fluid closures try to imitate.",
+      "status_oct2026": "Open research problem, not in the openai/math catalog (closest: family 362, which is global existence, not decay). Nonlinear Landau damping is proved for Vlasov-Poisson with analytic or Gevrey data (Mouhot-Villani 2011) and is known to be delicate at finite regularity because of plasma echoes (general).",
+      "catalog_families": [],
+      "prerequisites": [
+        "cap-research-math-public"
+      ],
+      "binding_gate": "cognitive",
+      "pathway": "P1->P5",
+      "earliest_year": {
+        "S1": "2029",
+        "S2": "2027",
+        "S3": "2027"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "n/a",
+      "why": "The release shows the model settling decades-old kinetic-PDE problems at ~3 hours of compute per result; Landau-type questions are of comparable depth. Under S2, outside kinetic theorists get research-grade access in ~mid-2027 and can pose the realistic variants themselves (analyst position (a)); results arrive within months. The value is downstream: knowing which damping mechanisms survive nonlinearly and at what regularity tells closure builders (plasma-kinetic-closures) which Landau-fluid terms are legitimate.",
+      "strongest_case_small": "Linear Landau damping already works well in practice, and theorems for idealized geometries rarely change which closure an engineer picks. In Hall thrusters the hard physics is instability-driven turbulence, not the decay of smooth perturbations, so this may stay a mathematician's result.",
+      "signpost": "An AI-assisted preprint proving Landau damping for a magnetized or bounded-domain Vlasov system at Sobolev regularity, with a Lean statement, by end-2027."
+    },
+    {
+      "id": "plasma-lean-kinetic-library",
+      "title": "A formal library for plasma equations",
+      "tier": 2,
+      "kind": "infrastructure",
+      "description": "Agreed, reusable Lean definitions of Vlasov-Poisson/Maxwell, Landau and Boltzmann collision operators, ideal and Hall MHD, and their standard solution concepts, so any claimed result about a plasma model can be audited against a fixed statement.",
+      "status_oct2026": "Mathlib coverage of PDE is thin (3 of 16 PDE families in the release have Lean). Proof of concept: one mathematician supervising Gemini DeepThink, Claude Code and Aristotle formalized the Vlasov-Maxwell-Landau equilibrium characterization in 10 days for about $200, writing no code (arXiv 2603.15929, Mar 2026).",
+      "catalog_families": [],
+      "prerequisites": [
+        "infra-mathlib-applied",
+        "cap-autoformalization"
+      ],
+      "binding_gate": "formalization",
+      "pathway": "P2",
+      "earliest_year": {
+        "S1": "2030",
+        "S2": "2028",
+        "S3": "2027"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "n/a",
+      "why": "Statement audits for 362, 363 and 364 and any future plasma theorem need shared definitions; the VML case shows the cost has fallen to days and hundreds of dollars, so the limit is agreeing on definitions, not writing proofs. Under S2, Mathlib analysis/PDE coverage catches up 2027-29 and a plasma layer follows within a year.",
+      "strongest_case_small": "Engineering codes do not use Lean, and a definitions library mostly serves mathematicians. Matching a Lean object to the equation a physicist actually simulates still needs scarce human experts.",
+      "signpost": "A Mathlib or Hexagon pull request adding standard definitions of the Vlasov-Maxwell system and its solution concepts, cited by a family-362 audit."
+    },
+    {
+      "id": "plasma-verified-kinetic-numerics",
+      "title": "Plasma simulations with certified error bars",
+      "tier": 2,
+      "kind": "applied-math",
+      "description": "Convergence proofs and computable error bounds for structure-preserving Vlasov-Maxwell, particle-in-cell (PIC) and MHD discretizations, increasingly machine-checked, so code verification can state 'discretization error below X' instead of relying on convergence studies.",
+      "status_oct2026": "Structure-preserving (geometric) PIC and finite-element schemes exist with proved conservation properties (general); convergence theorems typically assume a smooth solution exists on the time interval, an assumption family 362 [L, T3] removes for relativistic Vlasov-Maxwell. PIC statistical noise and the electron-to-xenon mass ratio of about 1:239,000 (stiffness) lack rigorous error control (general).",
+      "catalog_families": [
+        "362"
+      ],
+      "prerequisites": [
+        "plasma-vm-wellposed",
+        "plasma-lean-kinetic-library",
+        "infra-verified-numerics",
+        "cap-applied-math"
+      ],
+      "binding_gate": "formalization",
+      "pathway": "P2->P6",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2029",
+        "S3": "2028"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "T3 (362), supporting only",
+      "why": "Under S2, AI does numerics with certified error bounds by 2027-28 and the verified floating-point toolchain matures 2027-29, so the first certified kinetic-solver modules appear ~2029. Practical value: replacing grid- and particle-count convergence studies (often several times the cost of the production run, general) with proof-backed estimators, and giving ML surrogates a certified reference to be checked against.",
+      "strongest_case_small": "Turbulent plasma simulations are chaotic, so rigorous long-time error bounds grow with the Lyapunov time and can be valid but useless for the time-averaged transport engineers want. Model-form error (closures, wall physics) dwarfs discretization error in Hall-thruster and space-weather codes.",
+      "signpost": "A plasma code team (e.g. WarpX, GEMPIC, GX) ships a module with a machine-checked convergence or conservation proof and uses it in a V&V report."
+    },
+    {
+      "id": "plasma-kinetic-solvers-at-scale",
+      "title": "Full-thruster kinetic simulation becomes affordable",
+      "tier": 2,
+      "kind": "applied-math",
+      "description": "AI-designed algorithms (implicit and asymptotic-preserving PIC, low-rank and sparse-grid Vlasov solvers, bounded learned subgrid models) make 3D whole-device kinetic simulation of a Hall thruster with real mass ratio, real geometry and wall physics a days-long rather than infeasible calculation.",
+      "status_oct2026": "Facility-scale kinetic simulations of Hall thrusters do not yet exist at feasible cost (Whittaker, Marks, Gorodetsky, AIAA 2026). 3D PIC with wall charging, secondary emission and near-plume outflow (Liu, Zhao, Zhao, arXiv 2603.14849, Mar 2026) shows anomalous transport self-organizing into near-wall pathways, but at reduced scale. In fusion, GPU-native gyrokinetics (GX) already runs useful turbulence cases in minutes on one GPU.",
+      "catalog_families": [],
+      "prerequisites": [
+        "cap-applied-math"
+      ],
+      "binding_gate": "cognitive",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2030",
+        "S2": "2028",
+        "S3": "2027"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "n/a",
+      "why": "Algorithm invention for multiscale kinetic problems is expert-scarce work that S2 makes on-demand by 2027-28. Historical algorithmic gains in kinetic simulation (implicit, energy-conserving PIC) were 10-100x (general); stacking another 10-100x from AI-designed methods on exascale GPUs plausibly gets whole-device runs. This is the enabling step for both the anomalous-transport closure and design-before-build thrusters.",
+      "strongest_case_small": "The problem spans six-plus orders of magnitude in time scale; some cost may be irreducible and algorithm gains could stall near 10x. Even perfect kinetic simulations inherit uncertain wall, secondary-emission and facility-pressure physics, so cheaper runs do not automatically remove uncertainty.",
+      "signpost": "A published full-device 3D PIC of a >=5 kW Hall thruster at real mass ratio, run in under a week, reproducing measured discharge current within 10% with no tuned anomalous coefficients."
+    },
+    {
+      "id": "plasma-gk-surrogates",
+      "title": "Millisecond fusion-turbulence models trusted in design",
+      "tier": 2,
+      "kind": "applied-math",
+      "description": "Neural and quasilinear surrogates of gyrokinetic turbulence that run in milliseconds, carry calibrated uncertainty, and are trusted inside reactor-design and scenario-planning loops in place of hours-to-weeks nonlinear simulations.",
+      "status_oct2026": "Already arriving through ML, not frontier math: surrogates of the GX code trained on >200,000 nonlinear simulations over ~23,000 stellarator configurations run in ~ms and are used directly in equilibrium optimization (Churchill, Landreman et al., arXiv 2609.28730, Sep 23 2026); GyroSwin cuts fully resolved nonlinear gyrokinetics cost ~1,000x (arXiv 2510.07314); PQLS calibrates a quasilinear saturation rule by Bayesian inference, separating parameter and model-form uncertainty (arXiv 2609.29336, Sep 24 2026). Multiscale nonlinear runs can cost ~640,000 node-hours (search summary of GKV on Fugaku).",
+      "catalog_families": [],
+      "prerequisites": [],
+      "binding_gate": "data",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2027",
+        "S2": "2027",
+        "S3": "2027"
+      },
+      "band_2031": {
+        "S1": "High",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "n/a",
+      "why": "The training data and ML methods exist; DOE's Genesis Mission/STELLAR-AI (PPPL, Jan 2026) funds exactly this. AI applied math adds out-of-distribution error bounds and principled UQ on top, raising trust from 'useful screening tool' to 'design-of-record input'.",
+      "strongest_case_small": "This is ML engineering already underway, so the AI-math increment is small. Surrogates trained on adiabatic-electron simulations miss kinetic-electron and electromagnetic effects that matter at reactor-relevant pressure, so trust may stay limited to early design.",
+      "signpost": "A fusion company publishes a design whose surrogate-predicted transport is later confirmed within its stated error bars by experiment (W7-X or a new device)."
+    },
+    {
+      "id": "plasma-swx-data-assimilation",
+      "title": "Sun-to-Earth ensemble forecasting with honest uncertainty",
+      "tier": 2,
+      "kind": "applied-math",
+      "description": "Coupled data assimilation from the Sun (SDO imagery and magnetograms, coronagraphs) through the solar wind (SOLAR-1 at L1) to the magnetosphere, ionosphere and thermosphere, producing ensemble forecasts with calibrated probabilities rather than single deterministic runs.",
+      "status_oct2026": "SOLAR-1 (ex-SWFO-L1) launched Sep 24, 2025 and reached L1 Jan 23, 2026. NOAA's WAM-IPE gives 2-day ionosphere-thermosphere forecasts (operational since July 2021, upgraded 2023). NASA/IBM's open Surya heliophysics foundation model (Aug 2025, 360M parameters, 9 years of SDO data) beats flare benchmarks by ~16% up to 2 h ahead. Density models rarely propagate uncertainty to orbit decisions (CPAESS 2026 workshop abstract).",
+      "catalog_families": [],
+      "prerequisites": [
+        "cap-applied-math"
+      ],
+      "binding_gate": "data",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2029",
+        "S2": "2028",
+        "S3": "2027"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "n/a",
+      "why": "Ensemble data assimilation for a nonlinear, sparsely observed coupled system (filter design, model-error estimation, localization, feature alignment of CME fronts) is bespoke, expert-scarce applied math; S2 makes it on-demand by 2027-28. Terrestrial weather shows what DA buys: roughly a day of useful lead time per decade (general).",
+      "strongest_case_small": "Space weather is observation-starved: one L1 point, a few coronagraph viewpoints and no routine coronal magnetic-field measurement. Assimilation cannot create information that is not observed; Kay et al. (2024) attribute CME arrival-time errors mainly to input reconstruction and background solar wind.",
+      "signpost": "SWPC or ESA's space-weather service transitions an assimilative ensemble heliospheric model to operations with published reliability diagrams by 2028."
+    },
+    {
+      "id": "plasma-kinetic-closures",
+      "title": "Fluid plasma models derived from kinetic theory, with error bounds",
+      "tier": 3,
+      "kind": "physics",
+      "description": "Physics theory that derives fluid closures (electron heat flux, anomalous resistivity, pressure anisotropy, Landau-fluid terms) from kinetic theory with stated validity domains and error bounds, replacing ad hoc closures in thruster, magnetic-nozzle and magnetospheric fluid codes.",
+      "status_oct2026": "Engineering plasma codes are fluid or hybrid with hand-tuned closures; magnetic-nozzle expansion is nearly collisionless and needs a non-trivial electron closure (Kim et al., PSST 2023). No catalog family addresses closures. Family 364 (Boltzmann derived from Newtonian gases, with fluctuations over the Boltzmann lifespan; T1, conditional) is a step in the same particles-to-kinetic-to-fluid derivation program, methodological relevance only.",
+      "catalog_families": [
+        "364"
+      ],
+      "prerequisites": [
+        "plasma-landau-longtime",
+        "cap-physics-theory"
+      ],
+      "binding_gate": "data",
+      "pathway": "P6",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2029",
+        "S3": "2028"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a (364 is T1 and not load-bearing)",
+      "why": "S2 assumes AI builds and validates physics theory and reduced models from 2028-29; closures are the canonical such task. Validation needs kinetic simulation data (plasma-kinetic-solvers-at-scale) and diagnostics such as incoherent Thomson scattering, which already exist at university labs.",
+      "strongest_case_small": "Closures in turbulent, wall-bounded plasmas may not exist in closed form (they are non-local and history-dependent); the best achievable may be data-driven closures with UQ, which do not need frontier math.",
+      "signpost": "A closure derived with AI assistance is adopted in a production code (HallThruster.jl, Hall2De, BATS-R-US) and cuts the number of calibrated parameters."
+    },
+    {
+      "id": "plasma-hall-anomalous-closure",
+      "title": "Solving the 60-year Hall-thruster electron transport puzzle",
+      "tier": 3,
+      "kind": "physics",
+      "description": "A validated, first-principles model of anomalous cross-field electron transport in Hall thrusters that predicts transport from the local plasma state across thrusters and operating points, without per-condition calibration.",
+      "status_oct2026": "Open research problem since the 1960s. Codes calibrate an anomalous collision frequency to each operating point. A self-consistent closure using plasma density, neutral density and electron temperature captures peak electron temperature and performance on a 9 kW magnetically shielded thruster but cannot place electron temperature and ion velocity profiles correctly at the same time (Brick, Roberts, Jorns, IEPC-2025-361). The JANUS predictive engineering model with one pressure-parameterized transport model predicts SPT-140 thrust within 7% and discharge current within 15% (8% and 17% when extrapolated to orbit) (Whittaker et al., AIAA 2026). Thomson scattering finds electron temperatures ~2x higher than probes.",
+      "catalog_families": [],
+      "prerequisites": [
+        "plasma-kinetic-solvers-at-scale",
+        "plasma-kinetic-closures",
+        "cap-physics-theory"
+      ],
+      "binding_gate": "experiment",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2029"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "The candidate mechanisms (electron-cyclotron drift, gradient-drift and ionization instabilities, near-wall conductivity) are known; what is missing is affordable whole-device kinetic simulation plus theory that reduces it to a closure. S2 delivers both cognitively by ~2029; the binding gate is a validation campaign across several thrusters with non-invasive electron diagnostics at low background pressure, which takes about a year.",
+      "strongest_case_small": "Sixty years of failure suggests transport is multi-mechanism, geometry-specific and coupled to the test facility; even a good closure may only reach ~5% accuracy, a modest gain over today's calibrated 7-15%. Thrust is already predicted well by calibration, and programs qualify by test regardless.",
+      "signpost": "A closure that predicts discharge current within 5% across at least three different thrusters (e.g. H9, SPT-140, AEPS) without refitting, published by IEPC 2029."
+    },
+    {
+      "id": "plasma-magnetic-nozzle-theory",
+      "title": "Magnetic nozzle detachment settled",
+      "tier": 3,
+      "kind": "physics",
+      "description": "Accepted kinetic theory and validated simulation of how plasma detaches from a magnetic nozzle and how electrons cool during the expansion: the thrust-producing stage of VASIMR, helicon thrusters and most fusion-drive concepts.",
+      "status_oct2026": "Kinetic electron cooling governs energy balance, ion acceleration and detachment (Kim et al., PSST 2023); fully kinetic PIC studies attribute electron detachment to inertia and gyroviscous effects. Ground chambers distort far-plume detachment measurements (general).",
+      "catalog_families": [],
+      "prerequisites": [
+        "plasma-kinetic-closures",
+        "plasma-kinetic-solvers-at-scale"
+      ],
+      "binding_gate": "experiment",
+      "pathway": "P6",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2029"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "Once kinetic solvers and closures are cheap (S2 2028-29), the theory is a tractable reduction problem; the gate is validation, because detachment happens far downstream where vacuum chambers have walls and background gas. An in-space measurement would settle it.",
+      "strongest_case_small": "Detachment may be handled empirically well enough for current thrusters; the binding constraints for VASIMR-class and fusion drives are power supply mass and thermal rejection, not nozzle physics.",
+      "signpost": "Far-field plume measurements in orbit from a magnetic-nozzle thruster (Pulsar Fusion's Sunbird exhaust test is targeted for orbit in 2027) that match a pre-registered kinetic prediction."
+    },
+    {
+      "id": "plasma-eruption-onset-theory",
+      "title": "Predicting when the Sun erupts",
+      "tier": 3,
+      "kind": "physics",
+      "description": "Physics-based, probabilistic prediction of flare and CME onset (torus and kink instability thresholds, reconnection onset) from observed active-region magnetic fields, 1-3 days ahead and clearly better than climatology.",
+      "status_oct2026": "Operational flare forecasts are mostly statistical; Surya (Aug 2025) improves short-horizon (up to 2 h) flare forecasting by ~16%. The coronal magnetic field is not routinely measured; reconstructing it from photospheric magnetograms (force-free extrapolation) is an ill-posed inverse problem (general).",
+      "catalog_families": [],
+      "prerequisites": [
+        "plasma-swx-data-assimilation",
+        "cap-physics-theory"
+      ],
+      "binding_gate": "data",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2029"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "Two things are cognitive and compress under S2: theory of instability onset in realistic 3D fields, and regularized inverse methods for the coronal field with uncertainty. Fifteen years of SDO data plus DKIST and Solar Orbiter give enough to test against. The data gate binds on how much skill is achievable, not on whether progress happens.",
+      "strongest_case_small": "Eruptions may be triggered by small-scale flux emergence below observational resolution, which would cap predictability no matter how good the theory is.",
+      "signpost": "A physics-informed eruption forecast posting a Brier skill score above 0.3 for M-class-plus flares at 24 h on an independent community benchmark by 2028."
+    },
+    {
+      "id": "plasma-thermo-density-uq",
+      "title": "Upper-atmosphere density with honest error bars",
+      "tier": 3,
+      "kind": "physics",
+      "description": "Thermospheric density nowcasts and 1-3 day forecasts with calibrated uncertainty, cutting quiet-time error from ~20-40% toward ~10-15% and tracking 2-6x storm enhancements, by assimilating drag observed on thousands of constellation satellites.",
+      "status_oct2026": "Density is the dominant error in low-orbit prediction; storms raise it 2-5x within hours and empirical models disagree by 20-40% even in quiet times (CPAESS 2026 abstract). Gannon storm, May 2024: density up to ~6x baseline within 12 h, decay of tracked objects 38 -> 180 m/day, thousands of satellites maneuvered, Ap forecasts underpredicted by 100-300 at 1-3 day lead (Parker and Linares 2024). Feb 2022: a G2 storm raised drag up to 50% at ~210 km and 38 of 49 new Starlink satellites reentered.",
+      "catalog_families": [],
+      "prerequisites": [
+        "plasma-swx-data-assimilation",
+        "cap-applied-math"
+      ],
+      "binding_gate": "data",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2030",
+        "S2": "2029",
+        "S3": "2028"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "n/a",
+      "why": "The sensors already exist: thousands of GNSS-tracked constellation satellites are drag probes. Using them requires joint estimation of density and each satellite's unknown, attitude-dependent ballistic coefficient, an identifiability and estimation-theory problem that is solved in principle but expert-scarce, exactly what S2's on-demand applied math supplies by 2028. The gate is data access: operator ephemerides are proprietary.",
+      "strongest_case_small": "At storm time most error comes from the driver forecast (Kp/Ap and the CME's magnetic field), not from the density model, so nowcast gains matter less to operators than 24-72 h forecasts, which stay data-limited (see plasma-bz-forecast).",
+      "signpost": "NOAA, Space Force or the Commerce space-traffic system adopts an assimilative density product built on commercial constellation ephemerides, with published calibrated uncertainty, by 2029."
+    },
+    {
+      "id": "plasma-dhe3-burn-physics",
+      "title": "D-He3 fusion demonstrated at useful rates",
+      "tier": 3,
+      "kind": "physics",
+      "description": "Experimental demonstration of significant deuterium-helium-3 fusion power, the fuel most fusion-propulsion concepts assume because only ~5% of its energy comes out as neutrons versus ~80% for D-T (general), at the several-times-higher temperatures it requires.",
+      "status_oct2026": "Helion's Polaris reported the first private D-T fusion and 150 million deg C plasma (Feb 2026) and says it is working toward D-He3 temperatures; Helion's 50 MW Microsoft target is 2028. No D-He3 burn at meaningful power anywhere. A 1 GW(fusion) D-He3 engine would burn ~50 kg of He-3 per year of operation, versus terrestrial supply of order kilograms per year (arithmetic from 18.3 MeV per reaction; supply figure general).",
+      "catalog_families": [],
+      "prerequisites": [],
+      "binding_gate": "experiment",
+      "pathway": "P7",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": ">2031",
+        "S3": "2031"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Low",
+        "S3": "Low"
+      },
+      "premise_tier": "n/a",
+      "why": "This is a physical-clock node: it needs hotter, better-confined plasma and He-3 fuel. AI theory helps optimize pulsed FRC operation and diagnostics interpretation, but it does not heat plasma; under S3 autonomous experimental campaigns could compress the experimental program by a year or so.",
+      "strongest_case_small": "The AI-math effect here is close to nil; it is included to show where the chain to fusion propulsion is actually gated.",
+      "signpost": "Helion or TAE publishes measured D-He3 fusion rates (14.7 MeV proton spectra, neutron fraction) in a peer-reviewed venue."
+    },
+    {
+      "id": "plasma-ep-predictive-design",
+      "title": "Design-before-build electric thrusters",
+      "tier": 4,
+      "kind": "engineering-tool",
+      "description": "Engineering codes that predict a new Hall or gridded-ion thruster's thrust, efficiency, oscillations and plume within a few percent before hardware exists, and extrapolate ground tests to space with quantified uncertainty.",
+      "status_oct2026": "Calibrated engineering models predict thrust within 7% and discharge current within 15% (8%/17% ground-to-orbit) for the SPT-140 flown on Psyche (Whittaker et al., AIAA 2026); higher-fidelity Hall2De must be recalibrated per operating condition. NASA states its VF-5 facility reproduces known ground-to-flight differences for AEPS (Williams et al., Space Propulsion 2026).",
+      "catalog_families": [],
+      "prerequisites": [
+        "plasma-kinetic-solvers-at-scale",
+        "cap-applied-math"
+      ],
+      "binding_gate": "data",
+      "pathway": "P6",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2029"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "Two routes, either sufficient: affordable whole-device kinetic simulation used directly, or a validated closure (plasma-hall-anomalous-closure) inside cheap fluid codes. A new Hall thruster typically takes several build-test iterations at roughly a year each (general); a predictive code could cut iterations from ~3-4 to ~1-2. Validation needs test data across designs, which binds the year.",
+      "strongest_case_small": "Industry already builds thrusters successfully by build-test-iterate, and small-satellite thrusters iterate cheaply. The value concentrates in high-power devices where testing is hard, a small part of the market.",
+      "signpost": "A thruster designed with a predictive tool meets performance within 5% on its first hot fire, documented at IEPC or AIAA by 2030."
+    },
+    {
+      "id": "plasma-ep-life-by-analysis",
+      "title": "Thruster lifetime qualified partly by simulation",
+      "tier": 4,
+      "kind": "engineering-tool",
+      "description": "Erosion and wear models (low-energy sputter yields, pole-cover and cathode-keeper erosion, near-wall plasma) validated well enough that NASA, ESA or a prime accepts model-based extrapolation for part of a life requirement, shortening multi-year wear tests.",
+      "status_oct2026": "AEPS (12 kW, Gateway PPE): three flight thrusters delivered 2025, environmental qualification complete, long-duration life demonstration in preparation, contract closeout mid-to-late 2027; throughput requirement 1,770 kg xenon plus 50% margin (Williams et al., Space Propulsion 2026). Pole erosion is now the life limiter in magnetically shielded thrusters and erosion models have underpredicted measured rates (U. Washington thesis 2025).",
+      "catalog_families": [],
+      "prerequisites": [
+        "plasma-ep-predictive-design",
+        "plasma-hall-anomalous-closure",
+        "infra-tool-qualification"
+      ],
+      "binding_gate": "qualification",
+      "pathway": "P6",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2030"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Low",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "A 23,000-hour wear test is 2.6 years of continuous firing; running ~10,000 hours and extrapolating with an accepted model would save ~1.5 years and tens of millions in facility time (general). That requires both a predictive near-wall plasma model and acceptance by a qualification authority, so the band is capped at Medium and the chain lands late even in S2.",
+      "strongest_case_small": "Agencies are conservative and the decisive inputs are materials data (sputter yields at tens of eV), not plasma mathematics; the worst life limiters (e.g. pole erosion) were discovered in test, not predicted. AEPS lessons learned center on risk management, contract oversight and requirements, not physics.",
+      "signpost": "NASA or ESA formally credits a model-based life extrapolation in a qualification review (e.g. at an AEPS qualification acceptance review) by 2029."
+    },
+    {
+      "id": "plasma-stellarator-design-loop",
+      "title": "AI-closed-loop fusion-machine design",
+      "tier": 4,
+      "kind": "engineering-tool",
+      "description": "Integrated optimization of stellarator (and other) magnetic configurations against turbulence, fast-ion losses, coil buildability and manufacturing tolerances in weeks, producing designs whose confinement is predicted with error bars.",
+      "status_oct2026": "Surrogates in the optimization loop already enable objectives such as full radial heat-flux profiles (arXiv 2609.28730); open optimizers exist (general). Proxima Fusion raised EUR 130M (Jun 2025): Stellarator Model Coil 2027, Alpha demonstration 2031. Type One Energy plans Infinity Two (350 MWe) for the mid-2030s. Family 146 (Sinai's positive-entropy conjecture for the standard map, T1, conditional) concerns the textbook model of magnetic-island overlap and field-line chaos: confidence in theory only.",
+      "catalog_families": [
+        "146"
+      ],
+      "prerequisites": [
+        "plasma-gk-surrogates",
+        "cap-design-optimization"
+      ],
+      "binding_gate": "fabrication",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2030",
+        "S2": "2029",
+        "S3": "2028"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "n/a (146 is T1, context only)",
+      "why": "S2's multiphysics design optimization (2028-29) plus trusted surrogates closes the loop. The tool can exist on this schedule, but what it designs still has to be built: coil fabrication tolerances of millimetres over metre-scale coils are the binding gate for whether designs perform as optimized.",
+      "strongest_case_small": "Stellarator design is already highly optimized; the binding constraint for fusion is building and operating devices, so better paper designs add no fusion power before 2031.",
+      "signpost": "A stellarator company commits an end-to-end AI-optimized coil set to manufacturing and publishes the predicted-vs-measured field errors."
+    },
+    {
+      "id": "plasma-fusion-propulsion-design-closure",
+      "title": "A credible paper design of a fusion rocket",
+      "tier": 4,
+      "kind": "engineering-tool",
+      "description": "An integrated design of a fusion propulsion system (e.g. Direct Fusion Drive: small field-reversed configuration plus magnetic nozzle, D-He3) whose sub-models are validated, showing specific power >= 1 kW/kg and multi-year life and closing gaps that today's concept studies wave away.",
+      "status_oct2026": "Direct Fusion Drive is a concept modeled by Princeton Satellite Systems and tested at small scale at PPPL; PSS and Pulsar Fusion apply ML to the PFRC experiment. Pulsar's Sunbird exhaust achieved first plasma with krypton in March 2026 with no fusion; an orbital exhaust test is targeted for 2027.",
+      "catalog_families": [],
+      "prerequisites": [
+        "plasma-magnetic-nozzle-theory",
+        "cap-design-optimization",
+        "cap-physics-theory"
+      ],
+      "binding_gate": "experiment",
+      "pathway": "P6",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2030"
+      },
+      "band_2031": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "Paper closure is cognitive and compresses under S2/S3, but every sub-model (confinement scaling of small FRCs, D-He3 burn, detachment, radiation and thermal loads) needs data from regimes no device has reached, so the design stays conditional on plasma-dhe3-burn-physics.",
+      "strongest_case_small": "Many paper designs already exist; a better one does not change investment or timelines unless experiments back its sub-models.",
+      "signpost": "NASA, DARPA or ESA funds a fusion-propulsion design whose confinement and nozzle sub-models are validated against PFRC-2 or Polaris-class data."
+    },
+    {
+      "id": "plasma-fusion-net-gain",
+      "title": "First magnetic-fusion net energy gain",
+      "tier": 5,
+      "kind": "technology",
+      "description": "A magnetic-confinement device reaches scientific gain Q > 1, or Helion delivers net electricity, establishing the energy source that fusion propulsion would ultimately need.",
+      "status_oct2026": "CFS SPARC: first plasma targeted 2026 now looking like 2027, Q > 1 targeted soon after; second half of the vacuum vessel arrived May 2026. Helion Polaris: first private D-T fusion, 150 million deg C (Feb 2026); Microsoft PPA target 2028. TAE is merging with Trump Media (announced Dec 2025, close expected mid-2026), with its Copernicus device aiming at net energy before 2030.",
+      "catalog_families": [],
+      "prerequisites": [],
+      "binding_gate": "fabrication",
+      "pathway": "P7",
+      "earliest_year": {
+        "S1": "2028",
+        "S2": "2028",
+        "S3": "2027"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "Physical-clock anchor: magnets, vacuum vessel, assembly, commissioning and tritium operations set the date. AI contributes through plasma control and faster commissioning (S3), not through mathematics.",
+      "strongest_case_small": "The AI-math contribution is close to nil; this node is in the tree to show the gate on fusion propulsion is hardware.",
+      "signpost": "SPARC first plasma date and the start of its D-T campaign; Helion's first electricity from Orion."
+    },
+    {
+      "id": "plasma-ai-designed-thruster-flight",
+      "title": "AI-designed thruster flies and performs as predicted",
+      "tier": 5,
+      "kind": "technology",
+      "description": "First in-space operation of an electric thruster whose magnetic circuit, channel and cathode were designed mainly by an AI physics-based optimization loop, with on-orbit performance inside the pre-flight predicted band.",
+      "status_oct2026": "No such thruster exists. Small-satellite Hall and ion thrusters go from design to flight in roughly 18-36 months (general); Starlink flies thousands of Hall thrusters (krypton, then argon) designed by conventional iteration (general).",
+      "catalog_families": [],
+      "prerequisites": [
+        "plasma-ep-predictive-design"
+      ],
+      "binding_gate": "fabrication",
+      "pathway": "P7",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": ">2031",
+        "S3": "2031"
+      },
+      "band_2031": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "Cognitive clock: the predictive design tool lands 2030 in S2 and 2029 in S3. Physical clock: build, acceptance test and a rideshare slot add 18-24 months, so first flight is 2032 in S2 and 2031 in S3.",
+      "strongest_case_small": "The gain may be a few points of efficiency or a lighter magnetic circuit; the EP market is driven by cost, propellant (xenon/krypton/argon) supply, power-processing-unit mass and production rate, not design optimality.",
+      "signpost": "A startup or prime announces a thruster 'designed in simulation, first-article meets spec' and manifests it for flight."
+    },
+    {
+      "id": "plasma-high-power-ep-life",
+      "title": "100 kW-class thruster runs for thousands of hours",
+      "tier": 5,
+      "kind": "technology",
+      "description": "A >= 100 kW electric thruster (nested Hall, lithium MPD or VASIMR-type) demonstrates >= 5,000 hours of ground operation with validated wear projections toward the ~23,000 hours a crewed Mars nuclear-electric mission needs.",
+      "status_oct2026": "NASA/JPL's lithium MPD thruster reached 120 kW (Feb 24, 2026); next phases target 500 kW-1 MW per thruster; a crewed mission needs 2-4 MW total and >23,000 h of thruster operation (NASA). VASIMR VX-200SS ran 88 h at 80 kW (Jul 2021), with no newer public endurance result found.",
+      "catalog_families": [],
+      "prerequisites": [],
+      "binding_gate": "experiment",
+      "pathway": "P7",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": ">2031",
+        "S3": ">2031"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Low",
+        "S3": "Low"
+      },
+      "premise_tier": "n/a",
+      "why": "5,000 h is seven months of continuous firing, which cannot start until a flight-like 100 kW unit and a facility able to hold low background pressure at that power exist (~2028-29 at best). Wall-clock test time does not compress with cognition.",
+      "strongest_case_small": "The AI-math effect is close to nil on this node; model-based life credit (plasma-ep-life-by-analysis) is the only lever and it needs the test data first.",
+      "signpost": "NASA announces a >1,000 h test of a >=100 kW thruster by 2028."
+    },
+    {
+      "id": "plasma-abep-demo",
+      "title": "Air-breathing electric propulsion flight test",
+      "tier": 5,
+      "kind": "technology",
+      "description": "A very-low-orbit satellite that scoops residual atmosphere and uses it as electric-propulsion propellant to cancel drag, demonstrated in orbit.",
+      "status_oct2026": "Laboratory demonstrations only (general). Intake design is a rarefied-gas (Boltzmann/DSMC) problem; families 363 (Boltzmann nonuniqueness with exact local conservation) and 364 (Boltzmann from Newtonian gases) are T1 and bear on confidence in the kinetic equations used, conditional, not on intake designs. Albedo's Clarity-1 (launched Mar 14, 2025) flew at 350-380 km on xenon ion propulsion for nine months with a drag coefficient 12% better than design (Albedo, Jan 2026).",
+      "catalog_families": [
+        "363",
+        "364"
+      ],
+      "prerequisites": [
+        "cap-design-optimization"
+      ],
+      "binding_gate": "fabrication",
+      "pathway": "P7",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2030"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Low",
+        "S3": "Low"
+      },
+      "premise_tier": "T1 (363, 364), conditional and not load-bearing",
+      "why": "AI design optimization of intakes and discharge chambers is cognitive and fast under S2, but a flight demo needs funding, an atomic-oxygen-tolerant discharge and a ride, which binds.",
+      "strongest_case_small": "Atomic-oxygen erosion of discharge parts, low intake efficiency and power-per-drag are physics and materials limits; conventional EP at 275-380 km already works, as Clarity-1 showed, which weakens the business case.",
+      "signpost": "An ABEP in-orbit demo is manifested with a launch date before 2030."
+    },
+    {
+      "id": "plasma-active-shielding",
+      "title": "Magnetic radiation shield for crews",
+      "tier": 5,
+      "kind": "technology",
+      "description": "A superconducting-magnet active shield demonstrated in space that meaningfully reduces crew dose from solar particle events and galactic cosmic rays at acceptable mass.",
+      "status_oct2026": "EU SR2S reached TRL 3 overall (some components TRL 4). NASA NIAC Phase I studied CREW HaT, an open Halbach-torus HTS configuration (NTRS 20250002403, 2025).",
+      "catalog_families": [],
+      "prerequisites": [
+        "cap-design-optimization"
+      ],
+      "binding_gate": "fabrication",
+      "pathway": "P7",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": ">2031",
+        "S3": ">2031"
+      },
+      "band_2031": {
+        "S1": "Speculative",
+        "S2": "Speculative",
+        "S3": "Speculative"
+      },
+      "premise_tier": "n/a",
+      "why": "AI design optimization can trim coil mass and stress, but deflecting GeV-scale cosmic rays requires a large field-times-length product over a crew-sized volume (general), which sets a mass floor; space qualification of large HTS coils and cryogenics is a multi-year hardware program.",
+      "strongest_case_small": "Physics-bound: the Stormer deflection physics is already understood, so better math does not change the mass floor.",
+      "signpost": "A funded in-space demonstration of a large HTS magnet (any purpose) flying by 2029."
+    },
+    {
+      "id": "plasma-fusion-propulsion-flight",
+      "title": "Fusion-powered thrust in space",
+      "tier": 5,
+      "kind": "technology",
+      "description": "Any spacecraft producing measurable thrust from fusion reactions in orbit.",
+      "status_oct2026": "No fusion device has net gain at propulsion scale. Pulsar Fusion's Sunbird exhaust test (no fusion; krypton) is targeted for orbit in 2027; Princeton Satellite Systems has spoken of a fusion-propelled mission 'as early as 2028', which no evidence supports.",
+      "catalog_families": [],
+      "prerequisites": [
+        "plasma-fusion-net-gain",
+        "plasma-dhe3-burn-physics",
+        "plasma-fusion-propulsion-design-closure"
+      ],
+      "binding_gate": "experiment",
+      "pathway": "P7",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": ">2031",
+        "S3": ">2031"
+      },
+      "band_2031": {
+        "S1": "Speculative",
+        "S2": "Speculative",
+        "S3": "Speculative"
+      },
+      "premise_tier": "n/a",
+      "why": "Requires net-gain fusion in a compact, flight-mass device, a suitable fuel, and a launch-approved system. Even S3's near-free cognition leaves every one of these gated by experiments, fabrication and regulation.",
+      "strongest_case_small": "Not applicable: this node records a nil effect inside the horizon.",
+      "signpost": "A fusion-propulsion company shows measured fusion products from a flight-configured device on the ground."
+    },
+    {
+      "id": "plasma-cme-arrival-skill",
+      "title": "CME arrival forecasts within about 8 hours",
+      "tier": 6,
+      "kind": "mission",
+      "description": "Operational CME arrival-time forecasts with mean absolute error <= 8 h (from 13.2 h) and calibrated probability windows.",
+      "status_oct2026": "CCMC Arrival Time Scoreboard, 11 years: bias -2.5 h, mean absolute error 13.2 h, standard deviation 17.4 h, only slight improvement; errors dominated by CME reconstruction and background solar wind (Kay et al., Space Weather 2024). ESA's Vigil at L5 (carrying NOAA's CCOR coronagraph) is planned to launch in 2031.",
+      "catalog_families": [],
+      "prerequisites": [
+        "plasma-swx-data-assimilation"
+      ],
+      "binding_gate": "data",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2029"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "AI-built ensembles plus better background-solar-wind modeling (coronal field extrapolation, an ill-posed inverse problem where mathematics genuinely helps) could cut MAE by ~30-40% before side-view data exist; the full gain needs Vigil, which operates only after 2031. Operational transition (research-to-operations) adds 1-2 years.",
+      "strongest_case_small": "Eleven years of model development barely moved the error; the limit is the inputs, and AI cannot observe a CME from the side.",
+      "signpost": "Rolling 12-month MAE of the best CCMC scoreboard models falls below 10 h during 2027-28."
+    },
+    {
+      "id": "plasma-bz-forecast",
+      "title": "Knowing a CME's magnetic punch a day ahead",
+      "tier": 6,
+      "kind": "mission",
+      "description": "Forecasting the southward magnetic field (Bz) of an incoming CME 12-24+ hours before arrival: the main driver of geomagnetic storm severity and of the storm-time density errors that hit satellites.",
+      "status_oct2026": "Magnetic structure is recognized as the main bottleneck; operationally Bz is known only as the CME passes L1, roughly 30-60 minutes before impact (SOLAR-1 operational 2026; timing general). Short-term in-situ methods still need a human in the loop (arXiv 2602.06926, Feb 2026).",
+      "catalog_families": [],
+      "prerequisites": [
+        "plasma-eruption-onset-theory",
+        "plasma-swx-data-assimilation"
+      ],
+      "binding_gate": "data",
+      "pathway": "P6",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": ">2031",
+        "S3": ">2031"
+      },
+      "band_2031": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Low"
+      },
+      "premise_tier": "n/a",
+      "why": "Requires either routine coronal magnetic-field measurement or in-situ monitors well upstream of L1, neither of which will exist by 2031. AI theory can extract partial skill from source-region magnetograms (flux-rope chirality and orientation rules), which is why S2/S3 are Low rather than Speculative.",
+      "strongest_case_small": "This is an observation limit, not a mathematics limit.",
+      "signpost": "Funding of a sub-L1 or off-Sun-Earth-line in-situ monitor, or a source-region method with Bz-sign skill above 70% on 50+ events."
+    },
+    {
+      "id": "plasma-storm-robust-leo-ops",
+      "title": "Storm-proof low-orbit operations",
+      "tier": 6,
+      "kind": "mission",
+      "description": "Constellation operators and space-traffic services run conjunction screening and station-keeping on probabilistic density forecasts with realistic covariance, so storms no longer cause mass loss of tracking custody, unplanned reentries or blind maneuvering.",
+      "status_oct2026": "During the May 2024 storm thousands of satellites maneuvered and conjunction assessment was poorly predictable even a day ahead (Parker and Linares 2024); KANOPUS-V 3 lost ~917 m of semi-major axis within days (CPAESS 2026 abstract). SpaceX's response to the Feb 2022 loss was operational (higher insertion orbits) (general).",
+      "catalog_families": [],
+      "prerequisites": [
+        "plasma-thermo-density-uq"
+      ],
+      "binding_gate": "adoption",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2031",
+        "S2": "2030",
+        "S3": "2029"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "High"
+      },
+      "premise_tier": "n/a",
+      "why": "Once density products carry calibrated uncertainty (2029 in S2), propagating it into covariance and screening is mature astrodynamics; the gate is adoption by operators and the government catalog, which typically takes 1-2 years.",
+      "strongest_case_small": "The largest operators already manage storms with margin and autonomy; the benefit concentrates in smaller operators and the public catalog. Losses like Feb 2022 were an operations choice and were fixed operationally.",
+      "signpost": "At the next G4+ storm, count objects losing custody and emergency maneuvers versus May 2024."
+    },
+    {
+      "id": "plasma-radbelt-charging-forecast",
+      "title": "Radiation-belt and charging forecasts a week ahead",
+      "tier": 6,
+      "kind": "mission",
+      "description": "Probabilistic, physics-consistent forecasts of MeV electron flux and surface/internal charging hazard 1-7 days ahead, used in satellite operations and to size shielding and charging margins.",
+      "status_oct2026": "Random-forest models (VAMPIRE/COVEN, Jun 2026) forecast ~2 MeV flux alert crossings up to a week ahead; SPARTAI gives multi-day MeV forecasts (Oct 2025); transformer and LSTM pipelines forecast 1 MeV flux 6 h ahead (arXiv 2605.15752). Charging codes (SPIS, NASCAP-2K) are mature; PAGER internal-charging models were validated against GEO anomalies (IEEE TPS 2026).",
+      "catalog_families": [],
+      "prerequisites": [
+        "plasma-swx-data-assimilation",
+        "cap-applied-math"
+      ],
+      "binding_gate": "data",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2030",
+        "S2": "2029",
+        "S3": "2028"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "n/a",
+      "why": "ML forecasts exist; AI applied math adds coupling to physics-based diffusion models and calibrated uncertainty so operators can act on probabilities (e.g. defer an orbit-raise or EP firing through a charging peak).",
+      "strongest_case_small": "Already ML-driven, so the math increment is modest; designers will keep worst-case design environments (e.g. AE9/AP9) regardless of forecasts, so design margins do not shrink.",
+      "signpost": "SWPC or ESA adopts a multi-day MeV electron probability product and an operator or insurer cites it in procedures."
+    },
+    {
+      "id": "plasma-vleo-at-scale",
+      "title": "Commercial constellations below 300 km",
+      "tier": 6,
+      "kind": "mission",
+      "description": "At least 100 commercial satellites operating sustainably below 300 km altitude, with propellant and drag margins sized from validated density statistics.",
+      "status_oct2026": "Albedo's Clarity-1 operated at 350-380 km for nine months (Mar-Dec 2025) and projects five-year life at 275 km averaged over solar cycles; it lost contact due to a radio memory fault, not drag (Albedo, Jan 2026). Solar Cycle 25 peaked Oct 2024; the declining phase runs to ~2030, lowering mean density but still producing large storms.",
+      "catalog_families": [],
+      "prerequisites": [
+        "plasma-thermo-density-uq"
+      ],
+      "binding_gate": "capital",
+      "pathway": "P1->P7",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2030"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Low",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "Drag make-up propellant scales with the density margin designers carry: cutting a ~2x margin to ~1.3x through validated statistics trims the propellant reserve by about a third (illustrative arithmetic), which helps VLEO business cases. But constellations need capital, launches and production first.",
+      "strongest_case_small": "Capital, demand for very-high-resolution imagery, EP throughput and atomic-oxygen-tolerant hardware bind this, not density mathematics.",
+      "signpost": "A sub-300 km operator raises >= $100M and orders >= 50 satellites by 2028."
+    },
+    {
+      "id": "plasma-nep-mars-cargo",
+      "title": "Megawatt electric cargo ships to Mars",
+      "tier": 6,
+      "kind": "mission",
+      "description": "An operational nuclear-electric (or megawatt solar-electric) cargo vehicle with MW-class electric propulsion flying to Mars.",
+      "status_oct2026": "NASA estimates 2-4 MW and >23,000 h thruster life for crewed nuclear-electric missions; earlier NASA Glenn COMPASS work sized a 1.9 MWe system for a 2-year crewed round trip and ~200 t cargo stages. Highest demonstrated single-thruster power: 120 kW lithium MPD (Feb 2026).",
+      "catalog_families": [],
+      "prerequisites": [
+        "plasma-high-power-ep-life"
+      ],
+      "binding_gate": "capital",
+      "pathway": "P7",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": ">2031",
+        "S3": ">2031"
+      },
+      "band_2031": {
+        "S1": "Speculative",
+        "S2": "Speculative",
+        "S3": "Speculative"
+      },
+      "premise_tier": "n/a",
+      "why": "Needs a flight reactor or MW-class arrays, launch approval for a space reactor, and life-tested MW thrusters; each is a multi-year hardware and regulatory program.",
+      "strongest_case_small": "Not applicable: this node records a nil effect inside the horizon.",
+      "signpost": "A funded flight-reactor program with a launch date, or a >= 500 kW thruster test campaign announced."
+    },
+    {
+      "id": "plasma-outcome-ep-cycle-time",
+      "title": "Faster, cheaper electric-propulsion development",
+      "tier": 7,
+      "kind": "outcome",
+      "description": "Development-to-qualification time for new EP thrusters falls ~30-50% and build-test iterations roughly halve because physics-based models replace parts of empirical iteration and wear testing.",
+      "status_oct2026": "AEPS: contract awarded 2016 (general), qualification still in progress with closeout expected mid-to-late 2027, about 11 years (Williams et al., Space Propulsion 2026).",
+      "catalog_families": [],
+      "prerequisites": [
+        "plasma-ep-predictive-design",
+        "plasma-ep-life-by-analysis"
+      ],
+      "binding_gate": "qualification",
+      "pathway": "P6->P7",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": ">2031",
+        "S3": "2031"
+      },
+      "band_2031": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Low"
+      },
+      "premise_tier": "n/a",
+      "why": "Combines predictive design (fewer iterations) with model-based life credit (shorter wear tests). Both arrive 2030-31 even in S2 and the outcome needs one full development cycle to show, so it is visible only at the edge of the horizon in S3.",
+      "strongest_case_small": "Program management, supply chain and funding dominate EP schedules; AEPS's own lessons learned are about risk management, contract oversight and requirement definition, not physics.",
+      "signpost": "A new EP product announced with qualification completed in under three years, citing model-based life credit."
+    }
+  ],
+  "scenario_contrast": "Of the 30 plasma nodes, 11 are first credibly reached by end-2031 in S1, 22 in S2 and 25 in S3; 2031 bands shift from 2 High / 8 Medium / 13 Low / 7 Speculative (S1) to 9/9/9/3 (S2) and 10/12/5/3 (S3). The exponential premise acts almost entirely on the cognitive clock: for tier 2-4 nodes (kinetic solvers, data assimilation, closures, density UQ, design tools) S2 pulls first achievement forward a median ~2 years versus S1 and S3 adds about one more year. From tier 5 down the shift collapses to 0-1 year, because the binding gates become validation campaigns, builds and rideshares (AI-designed thruster: >2031 in S2, 2031 in S3), wall-clock wear testing (23,000 h = 2.6 years), regulator acceptance of model-based life credit, observatories (Vigil launches 2031) and fusion hardware. Mission-level nodes (fusion thrust in space, MW nuclear-electric cargo to Mars, active crew shielding) stay beyond 2031 and Speculative in all three scenarios. S3's recursion mostly helps nodes gated by experiment campaigns that autonomous labs can run (closures, nozzle theory) and barely touches fabrication-, capital- or observation-gated nodes. Shifts for nodes marked '>2031' in S1 are understated because '>2031' is scored as 2032. Upstream shared-node years assumed for consistency: cap-research-math-public 2028/2027/2027; cap-applied-math 2029/2028/2027; cap-physics-theory >2031/2029/2028; cap-design-optimization 2030/2029/2028; infra-mathlib-applied 2030/2028/2027; infra-verified-numerics 2030/2028/2028; infra-tool-qualification >2031/2030/2029; verif-independent-check 2027 in all. If the capability team sets these later, the dependent plasma nodes move by the same amount.",
+  "key_insights": [
+    "The domain's hardest mathematics is not a conjecture. The 60-year Hall-thruster anomalous-transport closure, magnetic-nozzle detachment and space-weather data assimilation are physics-and-numerics problems; the catalog touches the domain directly only through family 362 (Vlasov-Maxwell global smoothness, T3), which is a confidence result.",
+    "Under S2 the cognitive bottleneck in electric propulsion (whole-device kinetic simulation, then closure theory) plausibly breaks in 2028-30, but design-before-build thrusters arrive ~2030 and the first AI-designed thruster flies ~2032, because validation campaigns, builds and rideshares bind. The gain shows up first as fewer build-test iterations, not better thrusters.",
+    "The fastest real payoff is in drag: thousands of GNSS-tracked constellation satellites are already drag sensors, and turning them into calibrated density products is solved-in-principle estimation theory that on-demand AI makes routine (S2: density UQ 2029, storm-robust operations 2030). The gates are access to proprietary ephemerides and storm-time driver forecasts.",
+    "Space-weather skill is input-limited: CME arrival error has sat near 13 h for 11 years and Bz is known only ~30-60 minutes ahead. AI mathematics can plausibly take arrival error toward ~8-10 h by 2030 in S2, but day-ahead Bz needs observatories that will not be operating by 2031.",
+    "High-power EP is governed by physical-clock arithmetic: a 23,000-hour life requirement is 2.6 years of continuous firing. The only lever is model-based life credit, which needs regulator acceptance (band capped at Medium) and lands 2030-31 even in S2/S3.",
+    "Fusion propulsion timelines are unchanged inside 2031 in every scenario. AI accelerates fusion design (millisecond turbulence surrogates already exist; closed-loop stellarator design ~2029 in S2) but not heating, net gain, D-He3 burn (~50 kg of He-3 per GW-year of fusion power against terrestrial supply of order kilograms per year) or flight-mass devices.",
+    "Formalizing plasma kinetic theory has become cheap (a Vlasov-Maxwell-Landau theorem in 10 days for ~$200), so 362's move from T3 to T4 is likely in 2027; the gate is definition alignment in the statement audit, not proof search. Its practical channel is unconditional convergence proofs for kinetic solvers (P2/P6, ~2029 in S2), not device performance.",
+    "Scenario sensitivity: S2 doubles the nodes reached by 2031 relative to S1 (11 -> 22 of 30), almost entirely in tiers 2-4 and in data-gated tier-6 forecasting services; S3 adds only three more, because beyond tier 4 the binding gates are physical."
+  ],
+  "nil_effects": [
+    "Fusion-powered thrust in space by 2031: no, in any scenario. Net gain, D-He3 burn, He-3 supply, flight specific power and launch approval are physical, fuel and regulatory gates.",
+    "Megawatt nuclear-electric cargo to Mars by 2031: no. Needs a flight reactor or MW arrays, space-reactor launch approval and multi-year thruster life tests.",
+    "Thruster performance (Isp, efficiency, life) from any catalog theorem: none. 362 (Vlasov-Maxwell) and 363/364 (Boltzmann) are model-confidence results (P5), per analyst position (d).",
+    "Galactic speedups do nothing for plasma codes: 107 (matrix multiplication exponent) and 130 (FFT below n log n) leave spectral and PIC solvers on practical FFTs and BLAS. 376 (universal computation in forced Navier-Stokes) and the Sep 8 forced-blowup claim do not bear on plasma or thermosphere modeling practice.",
+    "EP system-level limits: propellant supply and price (xenon, krypton, argon), power-processing-unit mass, solar-array specific power and thruster production rate at constellation scale are physics, materials and manufacturing questions.",
+    "Day-ahead CME magnetic orientation (Bz) without new observatories: not achievable; the limit is information, not mathematics.",
+    "Active radiation-shield mass: the field-length product needed to deflect GeV cosmic rays sets a mass floor that optimization trims but cannot remove.",
+    "Wall-clock test durations (thousands of hours of wear testing, D-T campaigns) do not compress with cognition; only regulator-accepted model credit can shorten them.",
+    "Validation opportunities for storm-time models: Solar Cycle 25 peaked in Oct 2024 and declines to ~2030, so fewer extreme storms are available before 2031 to validate improved density and forecast models (strong declining-phase events still occur)."
+  ],
+  "signposts": [
+    {
+      "event": "Outside Comparator run and statement audit of family 362 posted on Hexagon or by a kinetic-theory group (expected within 12 months).",
+      "what_it_changes": "Confirms T4 for plasma-vm-wellposed. A definition mismatch would downgrade plasma-verified-kinetic-numerics and show that PDE autoformalization still has statement-alignment problems."
+    },
+    {
+      "event": "Public release (API or product) of a model with research-grade mathematical capability by mid-2027.",
+      "what_it_changes": "Puts all P1-driven nodes (kinetic solvers, data assimilation, density UQ, Landau theory) on the S2 track; no release by 2028 means S1 timing."
+    },
+    {
+      "event": "Full-device 3D PIC of a >=5 kW Hall thruster at real mass ratio matching discharge current within 10% with no tuned coefficients (IEPC 2027 or AIAA 2028).",
+      "what_it_changes": "Confirms plasma-kinetic-solvers-at-scale on the S2 track and pulls the anomalous-transport closure and design-before-build forward; failure keeps EP on calibrated models through 2031."
+    },
+    {
+      "event": "NASA or ESA credits model-based life extrapolation in a qualification review (AEPS qualification milestones 2027-29 are the first test).",
+      "what_it_changes": "Unlocks plasma-ep-life-by-analysis and the EP cycle-time outcome; refusal confines AI gains to design, not qualification."
+    },
+    {
+      "event": "CCMC Arrival Time Scoreboard: rolling 12-month MAE below 10 h for the best models in 2027-28, or SWPC transitions an assimilative ensemble heliospheric model.",
+      "what_it_changes": "Confirms that on-demand data assimilation can move an input-limited forecast; no change by 2028 confirms the data-gate thesis and pushes plasma-cme-arrival-skill beyond 2031."
+    },
+    {
+      "event": "Next G4-G5 geomagnetic storm: objects losing tracking custody and emergency maneuvers compared with May 2024; any government density product with calibrated uncertainty built on commercial ephemerides.",
+      "what_it_changes": "Direct test of plasma-thermo-density-uq and plasma-storm-robust-leo-ops."
+    },
+    {
+      "event": "SPARC first-plasma and D-T dates, Helion Orion electricity, any peer-reviewed D-He3 fusion rate.",
+      "what_it_changes": "Moves plasma-fusion-net-gain and plasma-dhe3-burn-physics; none of these moves fusion propulsion inside 2031."
+    },
+    {
+      "event": "Pulsar Fusion's Sunbird orbital exhaust test (targeted 2027).",
+      "what_it_changes": "Watch for misreporting as 'fusion propulsion' (no fusion is involved); its far-field plume data could validate magnetic-nozzle detachment theory."
+    }
+  ],
+  "tables": [
+    {
+      "title": "Bottlenecks: problem type, what AI unlocks, what binds",
+      "columns": [
+        "Bottleneck",
+        "Share of effort (judgment)",
+        "Open research or expert-scarce?",
+        "What on-demand AI math unlocks (S2)",
+        "Binding gate",
+        "First payoff S1 / S2 / S3"
+      ],
+      "rows": [
+        [
+          "EP electron-transport closure",
+          "~20%",
+          "Open physics plus expert-scarce numerics",
+          "Whole-device kinetic simulation (2028); closure theory (2030)",
+          "Experiment: diagnostics, low-pressure facility data",
+          ">2031 / 2030 / 2029 (design-before-build)"
+        ],
+        [
+          "Ground-to-flight and life qualification",
+          "~20%",
+          "Expert-scarce plus materials data",
+          "Predictive wear models with UQ",
+          "Qualification acceptance; test hours",
+          ">2031 / 2031 / 2030 (life by analysis)"
+        ],
+        [
+          "Eruption and CME forecasting",
+          "~20%",
+          "Partly open physics; mostly data-limited",
+          "Ensemble assimilation; coronal-field inverse methods",
+          "Data: viewpoints, coronal field; Vigil 2031",
+          ">2031 / 2030 / 2029 (arrival MAE <= 8 h)"
+        ],
+        [
+          "Thermospheric density and drag",
+          "~15%",
+          "Expert-scarce estimation theory",
+          "Density from constellation drag with calibrated UQ",
+          "Data access; adoption",
+          "2030 / 2029 / 2028 (density UQ)"
+        ],
+        [
+          "Radiation belts and charging",
+          "~10%",
+          "Incremental, expert-scarce",
+          "Physics-coupled probabilistic forecasts",
+          "Data; design-standard conservatism",
+          "2030 / 2029 / 2028"
+        ],
+        [
+          "Fusion confinement and devices",
+          "~15%",
+          "Expert-scarce design; open burn physics",
+          "Closed-loop stellarator design (2029)",
+          "Fabrication; experiment; fuel",
+          "Design 2030 / 2029 / 2028; fusion thrust >2031 in all"
+        ]
+      ]
+    },
+    {
+      "title": "Quantitative baselines (Oct 2026) and plausible S2 values by end-2031",
+      "columns": [
+        "Metric",
+        "Today",
+        "Source",
+        "Plausible S2 value, end-2031"
+      ],
+      "rows": [
+        [
+          "Hall-thruster engineering-model error (one calibrated model, SPT-140)",
+          "Thrust 7%, discharge current 15%; 8% / 17% extrapolated to orbit",
+          "Whittaker et al., AIAA 2026",
+          "~3% / ~5% if the closure lands (Medium)"
+        ],
+        [
+          "Whole-device kinetic Hall-thruster simulation",
+          "Not feasible at facility scale",
+          "Whittaker et al., AIAA 2026",
+          "Days per run (High)"
+        ],
+        [
+          "CME arrival-time error",
+          "MAE 13.2 h, SD 17.4 h, bias -2.5 h",
+          "Kay et al., Space Weather 2024",
+          "~8-10 h (Medium)"
+        ],
+        [
+          "CME Bz warning time",
+          "~30-60 min (at L1)",
+          "General; SOLAR-1 operational 2026",
+          "Unchanged without new observatories"
+        ],
+        [
+          "Thermospheric density error",
+          "20-40% quiet; 2-6x storm swings",
+          "CPAESS 2026 abstract; Parker and Linares 2024",
+          "~10-15% quiet-time nowcast with calibrated UQ (High)"
+        ],
+        [
+          "Storm-time Ap forecast (Gannon, 1-3 day)",
+          "Underpredicted by 100-300",
+          "Parker and Linares 2024",
+          "Data-limited; modest gains"
+        ],
+        [
+          "Gyrokinetic turbulence evaluation",
+          "Hours to weeks on HPC; surrogates ~ms",
+          "arXiv 2609.28730; arXiv 2510.07314",
+          "Routine with error bars (High)"
+        ],
+        [
+          "EP life requirement",
+          "AEPS 1,770 kg Xe +50%; crewed-Mars MPD >23,000 h",
+          "Williams et al. 2026; NASA 2026",
+          "Test clock unchanged; model credit possible (Low)"
+        ],
+        [
+          "Highest-power EP demonstrated",
+          "120 kW lithium MPD (2026); 88 h at 80 kW VASIMR (2021)",
+          "NASA 2026; Ad Astra 2021",
+          ">= 5,000 h at >= 100 kW: Low"
+        ],
+        [
+          "Cost to formalize a plasma kinetic theorem with AI",
+          "10 days, ~$200 (VML equilibrium)",
+          "arXiv 2603.15929",
+          "Hours to days"
+        ]
+      ]
+    },
+    {
+      "title": "Chains and where they stop (S2 base case)",
+      "columns": [
+        "Chain",
+        "Cognitive steps (S2 year)",
+        "Physical step that binds",
+        "End node: S2 year / 2031 band"
+      ],
+      "rows": [
+        [
+          "First-principles thrusters",
+          "Kinetic solvers 2028 -> transport closure 2030 -> predictive design 2030",
+          "Validation campaign, build, rideshare",
+          "AI-designed thruster flies: >2031 / Low"
+        ],
+        [
+          "Faster qualification",
+          "Predictive design 2030 + near-wall closure 2030",
+          "Regulator acceptance; test hours",
+          "EP development cycle cut 30-50%: >2031 / Low"
+        ],
+        [
+          "Storm-proof low orbit",
+          "Data assimilation 2028 -> density UQ 2029",
+          "Ephemeris data access; operator adoption",
+          "Storm-robust operations: 2030 / Medium"
+        ],
+        [
+          "Space-weather warnings",
+          "Data assimilation 2028 -> eruption theory 2030",
+          "Observatories (Vigil 2031); research-to-operations",
+          "CME arrival <= 8 h: 2030 / Medium; day-ahead Bz: >2031 / Low"
+        ],
+        [
+          "Fusion rocket",
+          "Fusion design loops 2029; nozzle theory 2030; paper closure 2031",
+          "Net gain, D-He3 burn, He-3 fuel, flight-mass device",
+          "Fusion thrust in space: >2031 / Speculative"
+        ],
+        [
+          "Mars cargo by EP",
+          "Little cognitive content",
+          "MW thruster life tests (2.6 years), reactor, launch approval",
+          "NEP Mars cargo: >2031 / Speculative"
+        ]
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "openai/math repository (722 manuscripts, 372 families; family 362 Lean status)",
+      "url": "https://github.com/openai/math",
+      "date": "2026-10-06",
+      "used_for": "Trigger event; family 362 listed with a Lean formalization, unchecked by outsiders"
+    },
+    {
+      "title": "Brick, Roberts, Jorns - Self-consistent implementation of anomalous transport closures in a Hall effect thruster model (IEPC-2025-361)",
+      "url": "https://pepl.engin.umich.edu/pdf/Brick_IEPC_2025.pdf",
+      "date": "2025-09",
+      "used_for": "State of Hall-thruster anomalous-transport closures; limits of current self-consistent closures"
+    },
+    {
+      "title": "Whittaker, Marks, Gorodetsky - Bayesian calibration of a multi-component model of the SPT-140 Hall thruster (AIAA 2026)",
+      "url": "https://pepl.engin.umich.edu/pdf/Whittaker_AIAA_2026.pdf",
+      "date": "2026",
+      "used_for": "Engineering-model accuracy (7%/15%, 8%/17% to orbit); facility-scale kinetic simulation infeasible"
+    },
+    {
+      "title": "Liu, Zhao, Zhao - Near-wall pathways of anomalous electron transport in Hall thrusters revealed by 3D PIC simulations (arXiv 2603.14849)",
+      "url": "https://arxiv.org/abs/2603.14849",
+      "date": "2026-03-16",
+      "used_for": "Current frontier of 3D kinetic thruster simulation"
+    },
+    {
+      "title": "Mackey et al. - The effects of background pressure on SPT-140 Hall thruster performance (NTRS 20210008609)",
+      "url": "https://ntrs.nasa.gov/citations/20210008609",
+      "date": "2018-07-09",
+      "used_for": "Facility-pressure effect on thrust (2-4%)"
+    },
+    {
+      "title": "Williams et al. - Qualification progress and mission-enabling capabilities of the 12-kW AEPS thruster (Space Propulsion 2026, NTRS 20260002899)",
+      "url": "https://ntrs.nasa.gov/api/citations/20260002899/downloads/20260002899%20Final.pdf",
+      "date": "2026-05",
+      "used_for": "AEPS status: flight units delivered, environmental qual complete, life test in preparation, closeout 2027, 1,770 kg Xe +50% requirement, lessons learned"
+    },
+    {
+      "title": "NASA - NASA fires up powerful lithium-fed thruster for trips to Mars",
+      "url": "https://www.nasa.gov/missions/tech-demonstration/nasa-fires-up-powerful-lithium-fed-thruster-for-trips-to-mars/",
+      "date": "2026-02 (test on 2026-02-24)",
+      "used_for": "120 kW MPD; 2-4 MW and >23,000 h needed for crewed missions"
+    },
+    {
+      "title": "Satnews - Ad Astra's VASIMR plasma rocket champions high-power endurance test",
+      "url": "https://satnews.com/2021/07/22/ad-astras-vasimr-plasma-rocket-champions-high-power-endurance-test/",
+      "date": "2021-07-22",
+      "used_for": "VASIMR 88 h at 80 kW (latest public endurance figure found)"
+    },
+    {
+      "title": "Aerospace America - Electric propulsion continues to proliferate (year in review)",
+      "url": "https://aerospaceamerica.aiaa.org/year-in-review/electric-propulsion-continues-to-proliferate/",
+      "date": "2025 (year in review)",
+      "used_for": "Gateway PPE thruster deliveries (AEPS and BHT-6000)"
+    },
+    {
+      "title": "University of Washington thesis - Method for an in-situ diagnostic for inner pole erosion of a magnetically shielded Hall thruster",
+      "url": "https://digital.lib.washington.edu/researchworks/items/dddfafd8-10d2-45bf-bc4b-ba1f0e07809b/full",
+      "date": "2025",
+      "used_for": "Inner pole erosion as life limiter; erosion models underpredict"
+    },
+    {
+      "title": "Kim et al. - Kinetic electron cooling in magnetic nozzles: experiments and modeling (PSST)",
+      "url": "https://e-archivo.uc3m.es/entities/publication/c708adda-e137-4399-8861-eaa9863114c1",
+      "date": "2023-07",
+      "used_for": "Magnetic-nozzle closure problem and detachment physics"
+    },
+    {
+      "title": "Kay et al. - Updating measures of CME arrival time errors (Space Weather)",
+      "url": "https://predsci.com/~epalmerio/pubs/Kay2024b.pdf",
+      "date": "2024",
+      "used_for": "CME arrival MAE 13.2 h, SD 17.4 h, bias -2.5 h; errors input-limited"
+    },
+    {
+      "title": "Towards a fully automated pipeline for short-term forecasting of in situ CME magnetic field structure (arXiv 2602.06926)",
+      "url": "https://arxiv.org/abs/2602.06926",
+      "date": "2026-02",
+      "used_for": "Bz/magnetic structure as main forecasting bottleneck; human-in-the-loop tools"
+    },
+    {
+      "title": "Parker and Linares - Satellite drag analysis during the May 2024 Gannon geomagnetic storm (arXiv 2406.08617)",
+      "url": "https://arxiv.org/html/2406.08617v2",
+      "date": "2024-07-15",
+      "used_for": "Density up to ~6x; decay 38 -> 180 m/day; Ap underpredicted by 100-300; mass maneuvering"
+    },
+    {
+      "title": "CPAESS 2026 Space Weather Workshop abstract - Uncertainty-aware spacecraft guidance and navigation under space weather",
+      "url": "https://cpaess.ucar.edu/abstract-2026-sww/uncertainty-aware-spacecraft-guidance-and-navigation-under-space-weather",
+      "date": "2026",
+      "used_for": "Density as dominant LEO error; 2-5x storm enhancement; 20-40% quiet-time model disagreement; KANOPUS-V 3 decay"
+    },
+    {
+      "title": "SpaceWeatherLive - Geomagnetic storm blamed for the loss of 40 Starlink satellites",
+      "url": "https://www.spaceweatherlive.com/en/news/view/457/20220209-geomagnetic-storm-blamed-for-the-loss-of-40-starlink-satellites.html",
+      "date": "2022-02-09",
+      "used_for": "Feb 2022 Starlink loss: G2 storm, up to 50% more drag at ~210 km"
+    },
+    {
+      "title": "Licata and Mehta - Uncertainty quantification techniques for space weather modeling: thermospheric density application (arXiv 2201.02067)",
+      "url": "https://arxiv.org/abs/2201.02067",
+      "date": "2022-01",
+      "used_for": "Density models rarely provide uncertainty; ML UQ methods"
+    },
+    {
+      "title": "NWS/SWPC - New coupled WAM-IPE model operational",
+      "url": "https://www.weather.gov/news/072121-swpc-new-model",
+      "date": "2021-07-21",
+      "used_for": "Operational 2-day thermosphere-ionosphere forecasts"
+    },
+    {
+      "title": "Wikipedia - Space weather Observations at L1 to Advance Readiness-1 (SOLAR-1, ex-SWFO-L1)",
+      "url": "https://en.wikipedia.org/wiki/Space_weather_Observations_at_L1_to_Advance_Readiness_-_1",
+      "date": "accessed 2026-10-07",
+      "used_for": "Launch Sep 24 2025; L1 insertion Jan 23 2026; renamed SOLAR-1"
+    },
+    {
+      "title": "NOAA NESDIS - SWFO-L1 press kit",
+      "url": "https://www.nesdis.noaa.gov/our-satellites/future-programs/swfo/swfo-l1-press-kit",
+      "date": "2025-09",
+      "used_for": "SWFO-L1 mission context; Vigil/L5 partnership"
+    },
+    {
+      "title": "InfoQ - NASA and IBM release Surya heliophysics foundation model",
+      "url": "https://www.infoq.com/news/2025/08/surya-model-heliophysics",
+      "date": "2025-08",
+      "used_for": "Surya: 360M parameters, 9 years SDO data, ~16% flare-forecast improvement up to 2 h"
+    },
+    {
+      "title": "Forecasting MeV electron flux in the outer radiation belt with supervised ML and a time-series foundation model (arXiv 2605.15752)",
+      "url": "https://arxiv.org/abs/2605.15752",
+      "date": "2026-05",
+      "used_for": "Radiation-belt ML forecasting state of art"
+    },
+    {
+      "title": "Northumbria University - COVEN: threshold-based forecasts for the outer radiation belt",
+      "url": "https://researchportal.northumbria.ac.uk/en/publications/coven-providing-a-variety-of-threshold-based-forecasts-for-the-ou",
+      "date": "2026-06",
+      "used_for": "Week-ahead MeV electron alert forecasts"
+    },
+    {
+      "title": "SPIS - Spacecraft Plasma Interaction Software",
+      "url": "https://www.spis.org/software/spis/",
+      "date": "accessed 2026-10-07",
+      "used_for": "Charging and EP-plume interaction codes"
+    },
+    {
+      "title": "SIDC - Solar cycle 25 reached its maximum in October 2024",
+      "url": "https://www.sidc.be/article/solar-cycle-25-reached-its-maximum-october-2024",
+      "date": "2025",
+      "used_for": "Solar-cycle phase through 2031"
+    },
+    {
+      "title": "Albedo - Clarity-1: what worked and where we go next",
+      "url": "https://albedo.com/post/clarity-1-what-worked-and-where-we-go-next",
+      "date": "2026-01-23",
+      "used_for": "VLEO operations at 350-380 km; drag coefficient 12% better than design; nine months of operation"
+    },
+    {
+      "title": "TechCrunch - Fusion startup Helion hits blistering temps as it races toward 2028 deadline",
+      "url": "https://techcrunch.com/2026/02/13/fusion-startup-helion-hits-blistering-temps-as-it-races-toward-2028-deadline/",
+      "date": "2026-02-13",
+      "used_for": "Helion Polaris D-T fusion and 150 million deg C; D-He3 goal; 2028 Microsoft target"
+    },
+    {
+      "title": "Wikipedia - SPARC (tokamak)",
+      "url": "https://en.wikipedia.org/wiki/SPARC_(tokamak)",
+      "date": "accessed 2026-10-07",
+      "used_for": "SPARC first-plasma and net-gain targets"
+    },
+    {
+      "title": "ANS Nuclear Newswire - Trump Media to merge with fusion startup TAE Technologies in $6B deal",
+      "url": "https://www.ans.org/news/2025-12-19/article-7632/trump-media-to-merge-with-fusion-startup-tae-technologies-in-6b-deal/",
+      "date": "2025-12-19",
+      "used_for": "TAE status and timelines"
+    },
+    {
+      "title": "Proxima Fusion - EUR 130M Series A",
+      "url": "https://proximafusion.com/press-news/proxima-fusion-raises-eu130m-series-a-to-build-worlds-first-stellarator-based-fusion-power-plant-in-the-2030s",
+      "date": "2025-06-11",
+      "used_for": "Stellarator roadmap: model coil 2027, Alpha 2031"
+    },
+    {
+      "title": "World Nuclear News - Prototype fusion reactor planned for TVA site (Type One Energy)",
+      "url": "https://wnn.world-nuclear.org/articles/prototype-fusion-reactor-planned-for-tva-site",
+      "date": "2025-02",
+      "used_for": "Infinity Two mid-2030s"
+    },
+    {
+      "title": "Churchill, Landreman et al. - AI-accelerated gyrokinetic predictions of turbulent transport for stellarator design optimization and experimental planning (arXiv 2609.28730)",
+      "url": "https://arxiv.org/abs/2609.28730",
+      "date": "2026-09-23",
+      "used_for": "Millisecond turbulence surrogates trained on >200k GX simulations, used in optimization"
+    },
+    {
+      "title": "Paischer et al. - GyroSwin: 5D surrogates for gyrokinetic plasma turbulence simulations (arXiv 2510.07314)",
+      "url": "https://arxiv.org/abs/2510.07314",
+      "date": "2025-10-08 (rev. 2026-09-04)",
+      "used_for": "~1,000x cost reduction for nonlinear gyrokinetics"
+    },
+    {
+      "title": "Wilms et al. - PQLS: a quasilinear gyrokinetic transport solver with a Bayesian saturation-rule closure (arXiv 2609.29336)",
+      "url": "https://arxiv.org/abs/2609.29336",
+      "date": "2026-09-24",
+      "used_for": "Bayesian closure separating parameter and model-form uncertainty"
+    },
+    {
+      "title": "Mandell et al. - GX: a GPU-native gyrokinetic turbulence code (arXiv 2209.06731)",
+      "url": "https://arxiv.org/abs/2209.06731",
+      "date": "2022-09",
+      "used_for": "GPU gyrokinetics in minutes; cost context for CPU codes"
+    },
+    {
+      "title": "ANS Nuclear Newswire - PPPL-led STELLAR-AI to advance fusion research (Genesis Mission)",
+      "url": "https://www.ans.org/news/2026-01-28/article-7714/ppplled-stellarai-to-advance-fusion-research/",
+      "date": "2026-01-28",
+      "used_for": "DOE Genesis Mission AI-for-fusion platform"
+    },
+    {
+      "title": "Aerospace Testing International - Pulsar Fusion achieves first plasma in nuclear fusion rocket test",
+      "url": "https://www.aerospacetestinginternational.com/news/pulsar-fusion-achieves-first-plasma-in-nuclear-fusion-rocket-test.html",
+      "date": "2026-03",
+      "used_for": "Sunbird exhaust first plasma (krypton, no fusion); orbital test targeted 2027"
+    },
+    {
+      "title": "Wikipedia - Direct Fusion Drive",
+      "url": "https://en.wikipedia.org/wiki/Direct_Fusion_Drive",
+      "date": "accessed 2026-10-07",
+      "used_for": "DFD concept status (PSS/PPPL)"
+    },
+    {
+      "title": "Semi-autonomous formalization of the Vlasov-Maxwell-Landau equilibrium (arXiv 2603.15929)",
+      "url": "https://arxiv.org/abs/2603.15929",
+      "date": "2026-03",
+      "used_for": "AI-assisted Lean formalization of plasma kinetic theory: 10 days, ~$200; definition-alignment bugs"
+    },
+    {
+      "title": "Cao and Li - Global stability of vacuum for the relativistic Vlasov-Maxwell-Boltzmann system (arXiv 2601.04018)",
+      "url": "https://arxiv.org/abs/2601.04018v2",
+      "date": "2026-01-07",
+      "used_for": "Pre-release state of relativistic Vlasov-Maxwell regularity (small-data results)"
+    },
+    {
+      "title": "NASA NTRS - CREW HaT: Cosmic Radiation Extended Warding using the Halbach Torus (NIAC Phase I)",
+      "url": "https://ntrs.nasa.gov/citations/20250002403",
+      "date": "2025",
+      "used_for": "Active radiation shielding study status"
+    },
+    {
+      "title": "CORDIS - SR2S Space Radiation Superconductive Shield final report summary",
+      "url": "https://cordis.europa.eu/project/id/313224/reporting/es",
+      "date": "n.d. (project 2013-2015)",
+      "used_for": "Active shielding reached TRL 3"
+    }
+  ],
+  "file_written": "/Users/alex/projects/openai math paper/model/research/plasma.json"
+}

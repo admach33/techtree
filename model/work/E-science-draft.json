@@ -1,0 +1,2096 @@
+{
+ "notes": "E-science draft (2026-10-07): 2035/S4 extension of branch 'science'. All 36 nodes reviewed: every legacy '>2031' resolved (S1 years 2032-2034 for theory, readiness and regulatory nodes; BHEX 2033 in all scenarios; lightsail demo 2034 in S2-S4; LISA science stays >2035). S4 equals S3 on every node: the branch's gates are photons, budgets, launch dates, referees and regulators, and the two lab-throughput nodes (opacity line lists, biosignature theory) are dated 2029-30 in S3, no later than S4 lab robots (2030), so the four-condition rule gives no credit. Five new nodes extend chains into 2032-35: LISA launch (exogenous anchor, hard prerequisite of LISA science), routine satellite methane MRV, the ARIEL census, answer-first missions and a reconstruction-designed heliophysics constellation. Soft edges from robo-lab-bench-useful (biosignature theory) and robo-24x7-integration-test (private observatories); robo-lab-bench-useful -> science-opacity-line-lists is already in the robots draft. No hard edges to robo-* nodes. private-observatories description no longer says 'by 2031'.",
+ "update": [
+  {
+   "id": "science-energy-condition-nogo",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Done by 2028 in every scenario; 2032-35 may add sharper constants or a minimum mass for positive-energy shells, which changes nothing that can fly. S4 equals S3 because the work is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic: the 'planetary-scale mass' generalization and the 3.5-Jupiter-mass trapped-surface figure do not bind any published design (Fuchs et al. shell: 4.49e27 kg, r_s ~6.7 m inside its 10 m inner radius; resolver checked the arithmetic), so the description and why point (2) were rewritten. Auditor: Lentz 'refuted only in Nov 2025' contradicted by arXiv 2105.03079 (May 2021), status fixed; Natario sharp constant labelled unrefereed in premise_tier; hard prerequisite moved from cap-research-math-internal to cap-research-math-public because the node's years are public-access years. Years and bands unchanged. | E-science (2026-10-07): 2035/S4 extension: no year or band change; S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: no year or band change; S4 equals S3 (no S4 credit).",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-gr-foundations",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "By 2035 referee capacity stops binding, so the node rests on whether families 260 and 264 and the unrefereed Kerr-stability proofs survive review, and the joint-T1 rule keeps every scenario at Low. S4 equals S3 because refereeing is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic: years +1 (S1 2028->2029, S2/S3 2027->2028) and gate cognitive->adoption, because confirming hundreds of pages of Jun-Sep 2026 proofs is referee bandwidth (the 801-page 2021 predecessor still lists no journal reference on arXiv; Hintz 339 pp verified). Auditor: grounding rule, two unformalized T1 premises (260, 264) required jointly, so two bands down: Low/Medium/Medium -> Speculative/Low/Low. All three lenses: hard edge into science-lisa-precision-science removed; kept as a soft (confidence-only) link per advocate and auditor. | E-science (2026-10-07): 2035/S4 extension: band_2035 S1 Speculative->Low. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: band_2035 S1 Speculative->Low. S4 equals S3 (no S4 credit).",
+      "from": {
+       "band_2035": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Low",
+        "S4": "Low"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-beyond-gr-wellposed",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Cheap physics-grade analysis in 2032-35 gives proofs or proven failures for the strong-coupling cases before LISA flies, so S2 rises to High and S1 to Medium. S4 equals S3: this is PDE analysis.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic + auditor: S3 2027->2028 (capability parametrization makes S3 identical to S2 through 2027). Skeptic: hard edge into science-lisa-precision-science made soft (LISA masses, spins and Kerr tests do not need it; it enables theory-specific tests only). Advocate's S2 Medium->High rejected: strong-coupling well-posedness for dynamical Chern-Simons may have no clean answer either way, and the 'either outcome counts' argument fits S3 (already High). | E-science (2026-10-07): 2035/S4 extension: band_2035 S1 Low->Medium, S2 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: band_2035 S1 Low->Medium, S2 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-qei-curved",
+   "patch": {
+    "earliest_year": {
+     "S1": "2032",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Plateau reaches the problem about 2032, and a perturbative result for an interacting four-dimensional theory is a well-posed target, so S3 reaches High by 2035. S4 equals S3, and nothing that flies changes.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic (facts checked by resolver): free-field QEIs on arbitrary globally hyperbolic spacetimes (Fewster, gr-qc/9910060, 2000) and an interacting 2D QEI (massive Ising, arXiv 1304.7682, 2013) already exist, and Pfenning-Ford (gr-qc/9702026, 1997) applied QIs to Alcubierre walls, so description, status and signpost now target interacting 4D theories; S2 Medium->Low (target may not be statable). S1 Low->Speculative by the resolver to keep S1 below S2 for a harder target. Auditor: soft edges to propulsion-funding-redirect and claims-audit so the node is not an isolated leaf. | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2032; band_2035 S1 Speculative->Low, S2 Low->Medium, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: years S1 >2031->2032; band_2035 S1 Speculative->Low, S2 Low->Medium, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2029",
+        "S3": "2028",
+        "S4": "2028"
+       },
+       "band_2035": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-coronagraph-limits",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Bounds exist by 2028 everywhere and S1 reaches High by 2035; their use waits on HWO's architecture down-select, which follows appropriations. S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic: why notes that LP-optimal apodized-pupil designs already certify optimality within a design family (so the new P3 content is a cross-architecture bound) and that HWO's down-select timing now depends on restoring the FY2027 HWO line ($5M requested; resolver verified on Wikipedia HWO page). Skeptic: outgoing hard edges into science-wfsc-certified and science-hwo-design-closure made soft. Years and bands unchanged. | E-science (2026-10-07): 2035/S4 extension: band_2035 S1 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: band_2035 S1 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-vlbi-identifiability",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Results exist by 2028 everywhere and S1 reaches High by 2035; in 2032-35 they feed a BHEX build if it is selected, and ngEHT siting. S4 equals S3 because this is theory.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic + auditor: the theorem arrives after BHEX's 2026 Small Explorer proposal (cap-research-math-public is 2027 in S2), so it cannot steer that proposal; why rewritten. Auditor + skeptic: hard edge into science-bhex-flight made soft (team already forecasts spin with Fisher-matrix analysis, arXiv 2608.23672). | E-science (2026-10-07): 2035/S4 extension: band_2035 S1 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: band_2035 S1 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-cosmo-certified-inference",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Rubin, Euclid and Roman key-project analyses in 2032-35 are the adoption window, so every scenario reaches High. Blinded validation paces adoption, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic + auditor: S3 2027->2028 and S2 High->Medium (key-project adoption by 2031 is about even odds given 1-2 year pipeline freezes; P4 default Medium); misspecification caveat added. Skeptic: outgoing hard edge into science-dark-energy-verdict made soft (DESI and CMB analyses use standard compressed likelihoods). | E-science (2026-10-07): 2035/S4 extension: band_2035 S1 Medium->High, S2 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: band_2035 S1 Medium->High, S2 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "Medium",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-helio-tomography",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "ESA's Vigil at L5 (about 2031) adds a second viewpoint, so certified multi-view products become practical for forecast centers in 2032-35 and S1 rises to Medium, S2 to High. S4 equals S3 because data and operational adoption bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic + auditor: S3 2027->2028. Auditor: bands above scorecard defaults for a P5->P6 node whose signpost is operational adoption and whose own strongest case says the problem is underdetermined: Medium/High/High -> Low/Medium/High. Skeptic: outgoing hard edge into science-coronal-heating-theory made soft. Advocate's dependent push (helio-constellation-design S2 High) rejected for consistency with this band. | E-science (2026-10-07): 2035/S4 extension: band_2035 S1 Low->Medium, S2 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: band_2035 S1 Low->Medium, S2 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-retrieval-identifiability",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 identifiability statements are routine in every scenario, and ARIEL's survey (launch planned 2029) becomes their main user. S4 equals S3: this is statistics and adoption.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic + auditor: S3 2027->2028. Skeptic: status overstated novelty; linearized information-content theory (Rodgers optimal estimation) is standard, the gap is nonlinearity, multimodality and misspecification. Skeptic: outgoing hard edge into science-hwo-design-closure made soft. | E-science (2026-10-07): 2035/S4 extension: band_2035 S1 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: band_2035 S1 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-second-order-self-force",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "With LISA launching in 2035, even Plateau finishes generic Kerr orbits about 2033 (Medium), while S2 and S3 reach High with five or more years of slack. S4 equals S3 because research and compute bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic (resolver checked): generic Kerr orbits are partly research-hard (second-order metric reconstruction and gauge in Kerr are open; first-order adiabatic Kerr inputs exist only for equatorial orbits) and then compute- and validation-bound, so S2 2029->2030, S3 2028->2029, S3 High->Medium; 'four to six years' replaced by 'roughly three to five years (analyst judgment)', as the auditor asked. Advocate's S2 Medium->High rejected (the 'seconds for 20 m-modes' evidence is a first-order scalar-charge problem, not second-order gravitational self-force); advocate's status fact (arXiv 2504.09640, eccentric Schwarzschild formalism) verified and added. Skeptic's gate change to capital not taken: in the base case the research-hard part still binds; compute binds in S3 and is stated in why. | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2033; band_2035 S1 Low->Medium, S2 Medium->High, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "LISA's hardest waveforms: second-order self-force around spinning black holes",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: years S1 >2031->2033; band_2035 S1 Low->Medium, S2 Medium->High, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2029",
+        "S4": "2029"
+       },
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-nr-precision",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "GPU codes and large allocations ahead of the 2035 launch relieve the compute gate, so S2 and S3 reach High by 2035 and Plateau lands about 2033 at Medium. S4 equals S3: compute binds and labor does not.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic (resolver verified arXiv 2505.13378): status corrected to median resolution difference 4e-4, ~480M core-hours, precessing q<=8 and |chi|<=0.8, longest run 148 orbits; gap is ~400x, not 100x. Auditor: CQG date Oct 2025 (not Aug) and 100+ runs at q=8-20 (resolver confirmed on the IOP page). Advocate: soft edge from capability-algorithm-discovery accepted; gate capital->cognitive and S3 Medium->High rejected (the catalog alone took ~480M core-hours; the cited GPU speedups are for elliptic initial-data solvers, not evolutions). | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2033; band_2035 S1 Low->Medium, S2 Medium->High, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: years S1 >2031->2033; band_2035 S1 Low->Medium, S2 Medium->High, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2029",
+        "S4": "2029"
+       },
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-dark-energy-verdict",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Later Euclid releases, Rubin's early years and Roman's wide survey all arrive before 2035, so a decisive answer becomes likely in every scenario. Photons set the date, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic: hard edge from science-cosmo-certified-inference made soft (DESI BAO and CMB/SN analyses use standard compressed likelihoods); description fixed ('refutation at 5 sigma' is not defined for a null result). Auditor: new hard prerequisite science-stage4-survey-data makes the photon clock visible. Years and bands unchanged. | E-science (2026-10-07): 2035/S4 extension: band_2035 S1 Medium->High, S2 Medium->High, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: band_2035 S1 Medium->High, S2 Medium->High, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-biosignature-false-positive-theory",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Line lists and lab rate constants catch up in 2032-35, so S3 reaches High, S2 Medium and Plateau lands about 2033. S4 lab robots arrive about 2030, the same year as the S3 node, so they earn no credit.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic + auditor: experiment-gated node dated at zero lag from its line-list input and the AND of two S2-Medium prerequisites; S2 2030->2031, S3 2029->2030, S2 Medium->Low (skeptic and auditor), S1 Low->Speculative (auditor, P6 default). Skeptic: HWO wavelength effect made conditional on HWO funding (FY2027 request $5M). | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2033; band_2035 S1 Speculative->Low, S2 Low->Medium, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: years S1 >2031->2033; band_2035 S1 Speculative->Low, S2 Low->Medium, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2030",
+        "S4": "2030"
+       },
+       "band_2035": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-coronal-heating-theory",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Plateau's first blind test falls about 2033, and S2-S3 stay Medium by 2035 because tests need Parker Solar Probe or Solar Orbiter encounters into the 2030s, which budget cuts could end. Data bind, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Advocate: retitled and redefined to the measurable outcome its own signpost names (a discriminating blind prediction confirmed), since 'settled' is a consensus gate the node never named. Advocate's S2 Low->Medium rejected (the node needs cap-physics-theory, S2 Medium, then a model and a later encounter); skeptic's S3 Medium->Low not applied because the redefinition removes consensus, the reason for the cut. Skeptic: hard edge from science-helio-tomography made soft (global density tomography barely constrains kinetic-scale heating). | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2033; band_2035 S1 Speculative->Low, S2 Low->Medium. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: years S1 >2031->2033; band_2035 S1 Speculative->Low, S2 Low->Medium. S4 equals S3 (no S4 credit).",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2029",
+        "S4": "2029"
+       },
+       "band_2035": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-opacity-line-lists",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Autonomous spectroscopy and AI quantum chemistry clear most of the backlog by 2035, so S2 and S3 reach High; Plateau lands about 2033. S4 lab robots (about 2030) arrive after the S3 year and the band is already High, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Auditor: line lists come from established ab initio methods with lab refinement (a mature pipeline), so the hard prerequisite moves from cap-physics-theory to cap-applied-math, with cap-physics-theory kept as soft. Years unchanged (experiment gate binds). Advocate's S3 Medium->High rejected: 50+ lab-validated new species by 2031 depends on gas-handling and high-temperature spectroscopy capacity, which compresses only 1.3-1.5x in S3. | F2 audit (2026-10-07): T1 families 275 and 278 cited as established in why and status; reworded as conditional. | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2033; band_2035 S1 Low->Medium, S2 Medium->High, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "status_oct2026",
+       "why"
+      ],
+      "reason": "T1 families 275 and 278 cited as established in why and status; reworded as conditional"
+     },
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: years S1 >2031->2033; band_2035 S1 Low->Medium, S2 Medium->High, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2029",
+        "S4": "2029"
+       },
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-archival-discovery-engine",
+   "patch": {
+    "earliest_year": {
+     "S1": "2027",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Operating since 2027 in every scenario. In 2032-35 archive exhaustion and referee capacity bind, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Advocate: archival analysis needs today's public agentic models (GPT-6 Astra public since Sep 2026, research/capability.json), not the Oct-2026 internal mathematics level, so the hard edge from cap-research-math-public became soft and S1 2028->2027. Bands unchanged. | E-science (2026-10-07): 2035/S4 extension: no year or band change; S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: no year or band change; S4 equals S3 (no S4 credit).",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-claims-audit",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 certified re-analysis of extraordinary claims is standard in every scenario, and Lean checks of relativity claims become possible once a Lorentzian geometry library exists. S4 equals S3: the work is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic + auditor: hard edge from science-energy-condition-nogo made soft (auditing biosignature or dark-energy claims needs no warp theorem). Skeptic + auditor (contradicted fact): the Lentz claim drew a generic rebuttal in May 2021 (arXiv 2105.03079), and the K2-18 b DMS claim drew a rebuttal within about two weeks (arXiv 2504.21788, verified), so 'a five-year refutation lag shrinks to weeks' was replaced. Auditor: soft edge from science-qei-curved. Years and bands unchanged. | E-science (2026-10-07): 2035/S4 extension: band_2035 S1 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: band_2035 S1 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-lightsail-stability",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Laboratory force and torque checks on nanostructured membranes finish by the early 2030s in every scenario, so S1 reaches High. S4 equals S3: small university labs do this work and labor does not bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic + auditor: S3 2027->2028. Auditor: pathway P1->P6 -> P1->P4 (the node delivers designs and analyses). Auditor + skeptic boundary fix: laboratory force and torque tests count here; gram-scale propulsion belongs to science-lightsail-demo. Status adds the Caltech 2025 measurement (verified) cited by the advocate. | E-science (2026-10-07): 2035/S4 extension: band_2035 S1 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: band_2035 S1 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-quantum-sensor-design",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Ground and ISS validation finishes by the early 2030s in every scenario, so S1 reaches High. S4 equals S3: lasers and atom sources limit performance.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic + auditor: S3 2027->2028. Auditor: pathway P1->P6 -> P1 (designs and error models, default High). Auditor: gradiometer pathfinder funding claim could not be verified (publisher login), marked (unverified). | E-science (2026-10-07): 2035/S4 extension: band_2035 S1 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: band_2035 S1 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-helio-constellation-design",
+   "patch": {
+    "earliest_year": {
+     "S1": "2032",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Concept studies for missions after Vigil run in 2032-35, so Plateau lands about 2032 at Medium. Study-team adoption paces it, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Advocate: binding gate capital->adoption (the outcome is a concept study; capital gates only the later flight) and S3 Medium->High. Advocate's S2 Medium->High rejected because its hard prerequisite science-helio-tomography is now S2 Medium (auditor). Resolver: S3 2028->2029 (S3 equals S2 through 2028 and the node is adoption-gated, zero lag from its 2028 prerequisites otherwise). | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2032; band_2035 S1 Low->Medium, S2 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Observing constellations designed by inverse-problem theory",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: years S1 >2031->2032; band_2035 S1 Low->Medium, S2 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2029",
+        "S3": "2029",
+        "S4": "2029"
+       },
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-wfsc-certified",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Plateau reaches it about 2033, and HWO-level testbed time comes from the HWO line, so S2-S4 stay Medium by 2035 even with cheap control theory. Vacuum dwell and testbed scheduling bind, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic: hard edge from science-coronagraph-limits made soft (convergence proofs do not need a throughput bound; shared error budget is acceleration). Advocate: soft edges from physclock-optimal-test-campaigns and physclock-ai-run-test-stands accepted (they compress testbed time, the binding gate); advocate's S3 Medium->High rejected because HWO testbed campaigns are funded from the HWO line, which the FY2027 request cuts to $5M. Auditor's proposed Roman CGI node folded into status and signpost (already present). | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2033. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: years S1 >2031->2033. S4 equals S3 (no S4 credit).",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2029",
+        "S3": "2028",
+        "S4": "2028"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-hwo-design-closure",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "By 2035 a freeze is likely if the HWO line survives and AI-run integrated modeling is routine, so S2-S4 rise to Medium under the budget cap and Plateau lands about 2033. S4 equals S3 because appropriations pace the agency decision.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic (resolver verified the FY2027 HWO request of $5M versus $150M enacted and the 47% SMD cut): S2 Medium->Low, S3 Medium->Low, S3 2029->2030 (an agency freeze follows appropriations, 1.0x); hard edges from coronagraph-limits, wfsc-certified (also advocate) and retrieval-identifiability made soft; new hard prerequisite science-smd-budget-restored. Advocate: soft edge from physclock-cheap-mass-internal accepted (HWO page notes larger mirrors depend on launch vehicles); mass-rich-design node not added. Auditor: 'Exploratory Analytic Cases' corrected to 'Engineering Architecture Concepts (EACs)'. | B-fix (integrator, 2026-10-07): cheap-mass year in why updated to 2029 (B-trunk). | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2033; band_2035 S2 Low->Medium, S3 Low->Medium, S4 Low->Medium. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "HWO's design closed by AI-integrated modeling",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: years S1 >2031->2033; band_2035 S2 Low->Medium, S3 Low->Medium, S4 Low->Medium. S4 equals S3 (no S4 credit).",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2030",
+        "S4": "2030"
+       },
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Low",
+        "S3": "Low",
+        "S4": "Low"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-lisa-readiness",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "The consortium must be ready for the 2035 launch, so S2 and S3 reach High, while Plateau's inputs land about 2033 and leave readiness about 2034 with little margin (Low). S4 equals S3 because validation is cognitive and compute work.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic + auditor: adoption-gated node was dated the same year as its NR input; S2 2030->2031, S3 2029->2030, S2 Medium->Low (AND of two S2-Medium inputs plus a data-challenge round), full chain written out. Resolver: S1 Low->Speculative (neither input lands by 2031 in S1). Advocate's S3 Medium->High rejected (conditional on NR S3 High, which was not accepted). | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2034; band_2035 S1 Speculative->Low, S2 Low->High, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: years S1 >2031->2034; band_2035 S1 Speculative->Low, S2 Low->High, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2030",
+        "S4": "2030"
+       },
+       "band_2035": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-quantum-sensor-flight",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2031",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "By 2035 a next-generation clock or gradiometer pathfinder with AI-derived error models likely flies in S2-S4 (Medium), and Plateau flies about 2033. No S4 credit: small instrument teams and qualification physics bind, and robots reach suppliers only after 2031.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic + auditor: S3 2030->2031 (design lands 2028 in S2 and S3). Auditor: stated '4-7 year cycle' arithmetic contradicted the 2031 year; advocate: smallsat or hosted clock payloads follow the physclock lag ladder, not flagship cycles. Resolution: why rewritten with the full smallsat chain (new instrument, 18-24 months), S2 kept at 2031 and Low; auditor's S2 Speculative and advocate's S2/S3 Medium (and S2 2030, S3 2029) both rejected. | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2033; band_2035 S1 Speculative->Low, S2 Low->Medium, S3 Low->Medium, S4 Low->Medium. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: years S1 >2031->2033; band_2035 S1 Speculative->Low, S2 Low->Medium, S3 Low->Medium, S4 Low->Medium. S4 equals S3 (no S4 credit).",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2031",
+        "S4": "2031"
+       },
+       "band_2035": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Low",
+        "S4": "Low"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-lightsail-demo",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": "2034",
+     "S3": "2034",
+     "S4": "2034"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "A 2032-35 demonstration needs a sponsor for a 100 kW-class laser facility around 2030, and none is named, so S2-S4 are Low at 2034 and Plateau stays after 2035. Capital binds, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic + auditor: the node is propulsion of a gram-scale sail, not a force measurement ('or smaller' removed; lab force/torque tests moved to science-lightsail-stability). Auditor: S3 2031->>2031 and Low->Speculative because no sponsor or facility can be named and the tier-5 chain must be written out. Advocate's lab-scale redefinition (S2 2030 Medium, S3 2029 Medium) rejected: it relabels the stability node's validation step as the demonstration. | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->>2035, S2 >2031->2034, S3 >2031->2034, S4 >2031->2034; band_2035 S2 Speculative->Low, S3 Speculative->Low, S4 Speculative->Low. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: years S1 >2031->>2035, S2 >2031->2034, S3 >2031->2034, S4 >2031->2034; band_2035 S2 Speculative->Low, S3 Speculative->Low, S4 Speculative->Low. S4 equals S3 (no S4 credit).",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": ">2031",
+        "S3": ">2031",
+        "S4": ">2031"
+       },
+       "band_2035": {
+        "S1": "Speculative",
+        "S2": "Speculative",
+        "S3": "Speculative",
+        "S4": "Speculative"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-bhex-flight",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2033",
+     "S3": "2033",
+     "S4": "2033"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "A 2026-27 Small Explorer selection would fly about 2032-34, so the date is 2033 everywhere, and selection odds and the science budget keep it Low by 2035. Selection and appropriations bind, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic + auditor (resolver verified SMEX selection-to-launch spans and the BHEX site wording): a 2026 proposal cannot fly in 2031, so 2031 -> >2031 and Low -> Speculative in all scenarios; computed-probability arithmetic removed (grounding rule); hard edge from science-vlbi-identifiability made soft; new hard prerequisite science-smd-budget-restored (skeptic). | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2033, S2 >2031->2033, S3 >2031->2033, S4 >2031->2033; band_2035 S1 Speculative->Low, S2 Speculative->Low, S3 Speculative->Low, S4 Speculative->Low. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "First submillimeter space-VLBI mission flies",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: years S1 >2031->2033, S2 >2031->2033, S3 >2031->2033, S4 >2031->2033; band_2035 S1 Speculative->Low, S2 Speculative->Low, S3 Speculative->Low, S4 Speculative->Low. S4 equals S3 (no S4 credit).",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": ">2031",
+        "S3": ">2031",
+        "S4": ">2031"
+       },
+       "band_2035": {
+        "S1": "Speculative",
+        "S2": "Speculative",
+        "S3": "Speculative",
+        "S4": "Speculative"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-lisa-precision-science",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": ">2035",
+     "S3": ">2035",
+     "S4": ">2035"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "note_2035": "LISA's planned launch is 2035, so first-year science falls in 2036 or later in every scenario. Earlier readiness and robots move neither the launch, the transfer nor the first data year.",
+    "needs_2035_review": false,
+    "strongest_case_small": "By construction nothing happens before 2036: launch is planned for 2035, and science follows transfer and commissioning.",
+    "revision_note": "B-science resolver (2026-10-07): All three lenses: hard edge from science-gr-foundations removed (soft, confidence only, per advocate and auditor). Skeptic: hard edge from science-beyond-gr-wellposed made soft. Skeptic (resolver verified on Wikipedia LISA): status adds NASA's FY2026 LISA funding and ESA's alternative telescope contracts. 'Four to six years' replaced by 'roughly three to five years (analyst judgment)' to match the self-force change. | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->>2035, S2 >2031->>2035, S3 >2031->>2035, S4 >2031->>2035; strongest_case_small updated for the 2035 horizon. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "strongest_case_small",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: years S1 >2031->>2035, S2 >2031->>2035, S3 >2031->>2035, S4 >2031->>2035; strongest_case_small updated for the 2035 horizon. S4 equals S3 (no S4 credit).",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": ">2031",
+        "S3": ">2031",
+        "S4": ">2031"
+       },
+       "strongest_case_small": "By construction nothing happens before 2031."
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-propulsion-funding-redirect",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "Theorems have rarely moved this small funding pool, and positive-energy shells stay allowed, so the band stays Low through 2035 in every scenario. The gate is belief, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic + auditor: S3 2027->2028. Skeptic: Medium->Low in all scenarios and S1 2028->2029 (no observable redirect after the 2021 null-energy theorem; positive-energy subluminal shells are allowed by the theorems, so funders get no exclusion criterion; adoption at zero lag in S1 was inconsistent). | E-science (2026-10-07): 2035/S4 extension: no year or band change; S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: no year or band change; S4 equals S3 (no S4 credit).",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-return-per-dollar",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Archival yield per dollar doubles by 2035 in every scenario, and new photons and downlink then bind. S4 equals S3: analysis and refereeing are cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic + auditor: S3 2027->2028. Skeptic: binding gate data->adoption (the node's own text says nothing physical binds before 2031; referee bandwidth does). Advocate: measurable test added (at least a doubling of archival papers and confirmed results per mission dollar versus 2025) and soft edges from the two new nodes; advocate's S2 Medium->High rejected, keeping the A3 calibration and the auditor's view, because absorption and the FY2027 cut to research and analysis bind in the base case. | E-science (2026-10-07): 2035/S4 extension: band_2035 S1 Medium->High, S2 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: band_2035 S1 Medium->High, S2 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "Medium",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-portfolio-shift",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "The next astrophysics decadal survey (report about 2032) and FY2030-35 budgets are the test, so S2-S4 rise to Medium and Plateau lands about 2033, though budget cuts still confound attribution. S4 equals S3 because appropriations bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): Skeptic + auditor: S2 Medium->Low; skeptic: S3 Medium->Low and S3 2029->2030 (decadal surveys and appropriations compress 1.0x; FY2027 cuts confound attribution). All three lenses: hard edge from science-hwo-design-closure made soft. Advocate: soft edges from physclock-dev-capital-cut, physclock-cheap-mass-customer and science-private-observatories accepted (bands unchanged by them). | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2033; band_2035 S2 Low->Medium, S3 Low->Medium, S4 Low->Medium. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: years S1 >2031->2033; band_2035 S2 Low->Medium, S3 Low->Medium, S4 Low->Medium. S4 equals S3 (no S4 credit).",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2030",
+        "S4": "2030"
+       },
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Low",
+        "S3": "Low",
+        "S4": "Low"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-smd-budget-restored",
+   "patch": {
+    "earliest_year": {
+     "S1": "2027",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Defined by FY2027-31 appropriations. Politics does not compress, so the band stays Medium for 2035 and identical across scenarios, S4 included.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): New node from the skeptic. Resolver verified the FY2026 enacted $24.4B (~30% above request), the FY2027 request (-23% NASA, -47% SMD) and HWO $150M -> $5M on Wikipedia (https://en.wikipedia.org/wiki/Budget_of_NASA ; https://en.wikipedia.org/wiki/Habitable_Worlds_Observatory ; LISA share from https://en.wikipedia.org/wiki/Laser_Interferometer_Space_Antenna). Hard prerequisite of science-hwo-design-closure and science-bhex-flight. Tier 0 chosen to place an exogenous input with the roots; kind marks it as non-AI. | E-science (2026-10-07): 2035/S4 extension: no year or band change; S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "NASA science budget held near its FY2026 level",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: no year or band change; S4 equals S3 (no S4 credit).",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-stage4-survey-data",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "In hand by 2028, with full-depth Rubin and Roman data added in 2032-35. Identical in every scenario, S4 included.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): New node from the auditor: makes the data clock behind science-dark-energy-verdict visible after the skeptic's change left that node with no hard prerequisite. Hard prerequisite of science-dark-energy-verdict (2029 or later, so no ordering conflict). | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'exogenous (P7 physical data supply, independent of AI mathematics)'). | E-science (2026-10-07): 2035/S4 extension: no year or band change; S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Stage-IV survey data in hand",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'exogenous (P7 physical data supply, independent of AI mathematics)')",
+      "from": {
+       "pathway": "exogenous (P7 physical data supply, independent of AI mathematics)",
+       "premise_tier": "n/a"
+      }
+     },
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: no year or band change; S4 equals S3 (no S4 credit).",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-private-observatories",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Lazuli's 1.5-3x slip range puts first data between 2029 and 2033, so the node is High by 2035 in every scenario. No S4 credit: the build is set before robots do aerospace work at leading firms (2030-31).",
+    "needs_2035_review": false,
+    "description": "A philanthropically or commercially funded space telescope of 1 m aperture class or larger, built outside agency selection and appropriations, returns science data. The only current instance is Schmidt Sciences' 3 m Lazuli (announced Jan 2026, launch target July 2028). Smaller subscription missions (Blue Skies Space's 13 cm Mauve, 45 cm Twinkle planned) show the business model but are below the threshold. AI-run analysis, test-anomaly diagnosis and operations can trim its slips; they did not create it.",
+    "revision_note": "B-science resolver (2026-10-07): New node from the advocate, reshaped: AI-capability hard prerequisite dropped (Lazuli's funding and schedule predate public applied-math capability; AI enters as soft edges), bands set equal across scenarios at Medium (advocate had S3 High), and Mauve excluded by the 1 m threshold (resolver verified 13 cm). Facts verified on Sky & Telescope (Jan 14 2026) and bssl.space. | B-fix (integrator, 2026-10-07): mishap-analysis year in why corrected to S2 2027 (B-certification). | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (P1 assists in integration, test and operations)'). | E-science (2026-10-07): 2035/S4 extension: band_2035 S1 Medium->High, S2 Medium->High, S3 Medium->High, S4 Medium->High; description updated for the 2035 horizon. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (P1 assists in integration, test and operations)')",
+      "from": {
+       "pathway": "P7 (P1 assists in integration, test and operations)",
+       "premise_tier": "n/a"
+      }
+     },
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "description",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: band_2035 S1 Medium->High, S2 Medium->High, S3 Medium->High, S4 Medium->High; description updated for the 2035 horizon. S4 equals S3 (no S4 credit).",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       },
+       "description": "A philanthropically or commercially funded space telescope of 1 m aperture class or larger, built outside agency selection and appropriations, returns science data by 2031. The only current instance is Schmidt Sciences' 3 m Lazuli (announced Jan 2026, launch target July 2028). Smaller subscription missions (Blue Skies Space's 13 cm Mauve, 45 cm Twinkle planned) show the business model but are below the threshold. AI-run analysis, test-anomaly diagnosis and operations can trim its slips; they did not create it."
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-onboard-science-inference",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 several missions downlink certified onboard products, so S2-S4 are High and Plateau reaches Medium. Science-team acceptance is the gate, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-science resolver (2026-10-07): New node from the advocate, reshaped: precedent added (EO-1 ASE, AEGIS, Phi-sat-2), so the novelty is certified error bounds accepted by a science team; hard prerequisite materials-verified-fault-tolerance made soft (Phi-sat-2 flies COTS AI without proven fault bounds); S2 High -> Medium and S3 2028 -> 2029 (S3 equals S2 through 2028). | B-fix (integrator, 2026-10-07): cots-orbital-compute year in why corrected to S2 2029 (B-orbital-compute-power). | E-science (2026-10-07): 2035/S4 extension: band_2035 S1 Low->Medium, S2 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Science spacecraft downlink answers with certified error bounds",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: band_2035 S1 Low->Medium, S2 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-eo-retrieval-uq",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Copernicus CO2M (from about 2027), commercial hyperspectral fleets and repeated controlled releases make validated coverage statistics routine by 2035 in S2-S4 (High); Plateau reaches Medium. Field validation paces it, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "C-final integrator (2026-10-07): new node; merged C-sectors science-eo-retrieval-uq with its duplicate C-disciplines science-eo-retrieval-certified. Bands set Low/Medium/High (sectors proposed Medium/High/High, disciplines Medium/Medium/High): adoption by an operational provider under a data gate is Medium in S2, and S1 has one adoption year. | E-science (2026-10-07): 2035/S4 extension: band_2035 S1 Low->Medium, S2 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: band_2035 S1 Low->Medium, S2 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-eo-ghg-enforcement-grade",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "The EU Methane Regulation's importer duties (from 2027) and methane-intensity limits (from 2030) are a named path, so S3 reaches High by 2035, S2 stays Medium on political risk and Plateau lands about 2033 (Low). Regulators bind, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "C-final integrator (2026-10-07): new node; merged C-sectors science-eo-ghg-enforcement-grade with its duplicate C-disciplines science-eo-certified-products. Bands lowered from Low/Medium/Medium to Speculative/Low/Medium: a Medium prerequisite chained with a regulatory step, matching v2's regulator-gated T5-T7 nodes (mostly Low in S2). | E-science (2026-10-07): 2035/S4 extension: years S1 >2031->2033; band_2035 S1 Speculative->Low, S2 Low->Medium, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit).",
+    "revisions": [
+     {
+      "by": "E-science",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "2035/S4 extension: years S1 >2031->2033; band_2035 S1 Speculative->Low, S2 Low->Medium, S3 Medium->High, S4 Medium->High. S4 equals S3 (no S4 credit).",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2029",
+        "S4": "2029"
+       },
+       "band_2035": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "catalog_families": [],
+   "needs_2035_review": false,
+   "domain": "science",
+   "unlocks": [],
+   "revisions": [
+    {
+     "by": "E-science",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new node",
+     "from": {}
+    }
+   ],
+   "id": "science-35-lisa-launch",
+   "title": "LISA launches",
+   "tier": 6,
+   "kind": "mission",
+   "binding_gate": "launch",
+   "pathway": "P7 (exogenous)",
+   "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+   "description": "ESA's Laser Interferometer Space Antenna, three spacecraft 2.5 million km apart, launches toward its orbit around the Sun. It is the physical gate for all LISA science. The analysis stack can be ready years earlier, but no LISA data exist before this.",
+   "status_oct2026": "Adopted by ESA in Jan 2024 (general); construction began Jun 17 2025, with launch planned for 2035 on Ariane 6 (ESA). NASA supplies telescopes, lasers and charge management; Congress funded NASA's share at $80.5M in FY2026 against a proposed cut, and ESA has prepared mitigation, including alternative telescope contracts (Wikipedia, LISA). China's Taiji and TianQin space detectors are proposed for about the same period (general).",
+   "why": "Not an AI-math implication: an exogenous launch anchor that makes the physical clock visible in the LISA chain (science-lisa-precision-science needs it as a hard prerequisite). ESA's large science missions have usually launched one to three years after the date set at adoption (general), and the US share faces the FY2027 request's cuts. A launch inside 2035 therefore needs the plan to hold with no slip, so the node is Low in every scenario (judgment). AI mathematics and robots move integration and test by months at most. ESA budget phasing, the Ariane 6 manifest and the agency review cycle set the date, so the node is identical across scenarios, S4 included.",
+   "strongest_case_small": "ESA's large missions rarely launch on the date set at adoption, and a US withdrawal would force new telescope and laser contracts. Even an on-time launch gives first science only after about a year of transfer and commissioning.",
+   "signpost": "LISA critical design review and the launch date in ESA's science programme updates; the enacted NASA LISA line each year.",
+   "earliest_year": {
+    "S1": "2035",
+    "S2": "2035",
+    "S3": "2035",
+    "S4": "2035"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "note_2035": "New in the 2035 extension: the planned launch sits at the edge of the horizon, so any slip pushes it past 2035. No scenario, S4 included, moves an agency launch date.",
+   "prerequisites": [],
+   "accelerated_by": [
+    "science-smd-budget-restored"
+   ],
+   "revision_note": "E-science (2026-10-07): new node; exogenous launch anchor and hard prerequisite of science-lisa-precision-science."
+  },
+  {
+   "catalog_families": [],
+   "needs_2035_review": false,
+   "domain": "science",
+   "unlocks": [],
+   "revisions": [
+    {
+     "by": "E-science",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new node",
+     "from": {}
+    }
+   ],
+   "id": "science-35-eo-routine-mrv",
+   "title": "Satellite methane numbers routinely correct reported emissions",
+   "tier": 7,
+   "kind": "outcome",
+   "binding_gate": "regulatory",
+   "pathway": "P1->P5 (adoption into regulation; no hardware change)",
+   "premise_tier": "n/a",
+   "description": "Satellite emission-rate quantification with stated uncertainty becomes a standard verification input under at least one major regime: EU Methane Regulation operator reporting, importer equivalence or methane-intensity checks; a national regulator's penalty or super-emitter program; or national inventory review under the Paris transparency framework. Measurable test: at least 100 facility-level corrections a year, or a national inventory revision, rest on satellite numbers with their uncertainties.",
+   "status_oct2026": "Satellites trigger notifications but do not yet set numbers: UNEP IMEO's MARS sends plumes to governments and operators (European Commission). EU 2024/1787 phases in importer duties from 2027 and methane-intensity limits from 2030 (dates general). Supply is growing: Tanager-1 (2024) and GHGSat's satellites operate, and the Copernicus CO2M constellation is due from about 2027 (general); MethaneSAT was lost in Jun 2025 (Wikipedia).",
+   "why": "The step after first use (science-eo-ghg-enforcement-grade): one accepted case becomes a standard method. Chain (S2): first compliance use 2030 -> verifier methodologies and early disputes settle 2031-32 -> routine use under the EU intensity regime 2033. S3 is a year earlier through its earlier first use. Each step needs regulator acceptance and politics does not compress, so the node sits a band below first use: S3 Medium and S2 Low by 2035, S1 after 2035 (Speculative). No hardware step: existing and planned constellations suffice. Robots add nothing, so S4 equals S3. Bands are judgments.",
+   "strongest_case_small": "Regulators may keep satellites as screening tools and rely on operator reports and aerial surveys, which are easier to defend. The EU importer regime has faced pressure to relax for LNG suppliers (general), and orbital imagers see only large plumes, so most small leaks stay invisible from space (general).",
+   "signpost": "An EU or member-state verification report in which satellite quantification sets or corrects reported volumes; the methane-intensity methodology naming top-down measurement; a national inventory revised on satellite evidence.",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2033",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "note_2035": "New in the 2035 extension: the Earth-observation chain reaches routine use inside the horizon in S2-S4. Regulators and politics set the pace, so S4 equals S3.",
+   "prerequisites": [
+    "science-eo-ghg-enforcement-grade"
+   ],
+   "accelerated_by": [
+    "physclock-regulator-ai-capacity",
+    "physclock-credibility-evidence-standard"
+   ],
+   "revision_note": "E-science (2026-10-07): new node extending the Earth-observation chain past science-eo-ghg-enforcement-grade."
+  },
+  {
+   "catalog_families": [],
+   "needs_2035_review": false,
+   "domain": "science",
+   "unlocks": [],
+   "revisions": [
+    {
+     "by": "E-science",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new node",
+     "from": {}
+    }
+   ],
+   "id": "science-35-ariel-census",
+   "title": "A 1,000-planet atmosphere census with honest error bars",
+   "tier": 6,
+   "kind": "data",
+   "binding_gate": "data",
+   "pathway": "P1->P5 (exogenous data supply plus identifiability)",
+   "premise_tier": "n/a",
+   "description": "ESA's ARIEL, or another survey of hundreds of exoplanet atmospheres, publishes population results with per-planet identifiability statements: which molecules and temperature structures each spectrum determines and which it cannot. Population trends (metallicity, carbon-to-oxygen ratio, clouds) then rest on stated, comparable uncertainties.",
+   "status_oct2026": "ARIEL was adopted by ESA in Nov 2020 for a 2029 launch on Ariane 6 and plans to observe about 1,000 transiting planets over four years (general). JWST retrievals of the same spectrum still give 'parallel interpretations' (PNAS, Sep 2025).",
+   "why": "The first large, uniform exoplanet spectral survey is where identifiability theory (science-retrieval-identifiability, S2 2028) becomes standard practice for a whole dataset. Chain: launch 2029 -> commissioning and a first pass of the target list over about two years -> population papers 2033. Photons set the date, so the node is identical across scenarios; AI shortens the analysis by months. Medium by 2035 in every scenario because ESA missions often slip a year or two (general) and population results need most of the first survey pass. No S4 credit: the spacecraft is built before robots do aerospace work, and the survey clock is orbital.",
+   "strongest_case_small": "ARIEL's spectra have lower resolution than JWST's, so many retrievals will be degenerate whatever the theory. Identifiability statements may mostly list what cannot be known.",
+   "signpost": "ARIEL launch date and first survey data release; consortium population papers reporting identifiability maps per target.",
+   "earliest_year": {
+    "S1": "2033",
+    "S2": "2033",
+    "S3": "2033",
+    "S4": "2033"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Medium",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "note_2035": "New in the 2035 extension: ARIEL's survey data arrive in 2031-33, so the exoplanet chain reaches a population result inside the horizon. Photons bind, so S4 equals S3.",
+   "prerequisites": [
+    "science-retrieval-identifiability"
+   ],
+   "accelerated_by": [
+    "science-opacity-line-lists",
+    "science-archival-discovery-engine"
+   ],
+   "revision_note": "E-science (2026-10-07): new node extending the exoplanet retrieval chain past science-retrieval-identifiability."
+  },
+  {
+   "catalog_families": [],
+   "needs_2035_review": false,
+   "domain": "science",
+   "unlocks": [],
+   "revisions": [
+    {
+     "by": "E-science",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new node",
+     "from": {}
+    }
+   ],
+   "id": "science-35-answer-first-missions",
+   "title": "Science missions designed to send answers, not raw data",
+   "tier": 6,
+   "kind": "mission",
+   "binding_gate": "capital",
+   "pathway": "P1->P4",
+   "premise_tier": "n/a",
+   "description": "A science mission selected after 2028 puts onboard science products with certified error bounds into its requirements, so its downlink and ground segment are sized for answers. Raw data become the exception, kept for calibration and audits. A constellation, an Explorer-class or larger mission, or a deep-space probe counts.",
+   "status_oct2026": "No science mission is designed this way. Onboard autonomy flies as an add-on (EO-1 from 2004 and AEGIS on Mars rovers, general; Phi-sat-2 since 2024, ESA), and requirements still assume raw or losslessly compressed downlink (general).",
+   "why": "Second-generation step after the first mission accepts onboard products (science-onboard-science-inference, S2 2029). Chain (S2): first accepted use 2029 -> a proposal team baselines it for a 2029-30 opportunity -> selection 2030 -> build and launch about 2033 at smallsat or Explorer cadence. S3 is 2032 through an earlier, more confident start; S1 2035. Downlink is the domain's main data-supply limit, and deep-space links gain most. Medium by 2035 in S2-S4 because selections are scarce under the FY2027 request and review boards are wary of discarding raw data; S1 Low. No S4 credit: selection and launch bind.",
+   "strongest_case_small": "Optical links may raise downlink faster than onboard inference saves it, and science teams prize raw data for re-analysis, so missions may keep raw downlink as the baseline.",
+   "signpost": "An Explorer, Discovery, ESA M-class or commercial science proposal with onboard products in its top-level requirements; a smallsat science constellation that tasks itself from onboard products.",
+   "earliest_year": {
+    "S1": "2035",
+    "S2": "2033",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "note_2035": "New in the 2035 extension: missions selected around 2030 launch in 2032-35 with onboard products designed in. Selection binds, so S4 equals S3.",
+   "prerequisites": [
+    "science-onboard-science-inference"
+   ],
+   "accelerated_by": [
+    "materials-cots-orbital-compute-ops",
+    "verif-onboard-ai-guardrails"
+   ],
+   "revision_note": "E-science (2026-10-07): new node extending the onboard-inference chain past science-onboard-science-inference."
+  },
+  {
+   "catalog_families": [],
+   "needs_2035_review": false,
+   "domain": "science",
+   "unlocks": [],
+   "revisions": [
+    {
+     "by": "E-science",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new node",
+     "from": {}
+    }
+   ],
+   "id": "science-35-helio-constellation-flight",
+   "title": "A Sun-watching constellation designed for 3D reconstruction flies",
+   "tier": 6,
+   "kind": "mission",
+   "binding_gate": "capital",
+   "pathway": "P1->P6",
+   "premise_tier": "n/a",
+   "description": "A multi-spacecraft heliophysics or space-weather mission (smallsats at several viewpoints, or L4/L5 plus polar) whose number, placement and instruments were chosen by reconstruction-uniqueness analysis launches and returns 3D coronal or solar-wind reconstructions with stated uncertainty.",
+   "status_oct2026": "Multi-point missions fly or are planned with conventional trades: PUNCH (four smallsats, launched 2025), HelioSwarm (nine spacecraft, planned for about 2029) and ESA's Vigil at L5 (about 2031) (general). No mission concept is yet justified by reconstruction-uniqueness analysis (general).",
+   "why": "Flight step after the design method (science-helio-constellation-design, S2 2029). Chain (S2): concept studies 2029-30 -> selection in a 2030-31 Explorer, partner or operational opportunity -> four to five years to launch, about 2035. S3 is a year earlier through faster proposal and design closure; capital and selection still bind. Low by 2035 in S2-S4 because Explorer slots are scarce under the FY2027 request and a constellation needs one of them or a new operational space-weather budget; S1 after 2035 (Speculative). No S4 credit: selection and budgets bind, and smallsat integration is not the slow step.",
+   "strongest_case_small": "Constellations are chosen by launch slots, partner contributions and budgets. Uniqueness analysis may only confirm designs that heritage would have chosen anyway.",
+   "signpost": "A heliophysics Explorer or ESA mission selection whose proposal cites reconstruction-uniqueness analysis; a NOAA or ESA operational space-weather constellation designed the same way.",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2035",
+    "S3": "2034",
+    "S4": "2034"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "note_2035": "New in the 2035 extension: a constellation selected around 2030-31 could fly by 2034-35, at the edge of the horizon. Selection and budgets bind, so S4 equals S3.",
+   "prerequisites": [
+    "science-helio-constellation-design"
+   ],
+   "accelerated_by": [
+    "science-smd-budget-restored",
+    "physclock-cheap-mass-customer",
+    "physclock-satellite-gen-cadence"
+   ],
+   "revision_note": "E-science (2026-10-07): new node extending the heliophysics chain past science-helio-constellation-design."
+  }
+ ],
+ "add_edges": [
+  {
+   "from": "science-35-lisa-launch",
+   "to": "science-lisa-precision-science"
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "science-biosignature-false-positive-theory"
+  },
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "science-private-observatories"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "science",
+   "nodes": [
+    "science-35-lisa-launch",
+    "science-35-eo-routine-mrv",
+    "science-35-ariel-census",
+    "science-35-answer-first-missions",
+    "science-35-helio-constellation-flight"
+   ],
+   "spine": [
+    "science-35-lisa-launch",
+    "science-35-eo-routine-mrv"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "science",
+   "patch": {
+    "thesis": "Base case: AI doubles archival science per dollar from 2028 and readies LISA's analysis around 2031, well before launch. Satellite methane numbers become compliance evidence around 2030. LISA still launches in 2035 at the earliest. S4 adds no year: photons, budgets, regulators and launch dates set the pace.",
+    "revision_note": "B-science resolver (2026-10-07): Thesis: skeptic (HWO at the pace of appropriations, FY2027 $5M) and advocate (privately funded lane) combined; advocate's claim that AI moves private flight dates not adopted. Reader hook: self-force 2030, three to five years (analyst judgment), per skeptic and auditor. | C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Trunk nodes ['cap-applied-math'] are shown as the chain's entry anchors (also listed in roots); they stay members of the trunk branch only. Moved from spine to side_chains (still branch members): ['science-coronagraph-limits', 'science-hwo-design-closure']. Earth-observation chain added (new in v3). | E-science (2026-10-07): thesis rewritten for 2026-2035 and S4 (no S4 year anywhere in the branch); reader hook kept; spine extended with science-35-lisa-launch (launch gate of LISA science) and science-35-eo-routine-mrv."
+   }
+  }
+ ]
+}

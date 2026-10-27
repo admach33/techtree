@@ -1,0 +1,319 @@
+{
+ "notes": "F3 reader copy edit (2026-10-07): presentation fields only. Branch thesis <=45 words (one or two sentences) and reader_hook <=60 words; node titles <=60 characters with jargon expanded. No numbers, years, bands or claims changed.",
+ "branch_update": [
+  {
+   "branch": "trunk",
+   "patch": {
+    "thesis": "If research-grade AI math reaches outside engineers in 2027 (base case) and checking is cheap, on-demand analysis spreads through space engineering by 2028. New program schedules shrink about a quarter to a third (38% at most), since tests, factories and launches run on physical time.",
+    "reader_hook": "A research-grade result costs about $200-2,000 in tokens (the low figure counts only published successes), so 1,000 hard problems a year cost one to ten engineers before checking. Checking sets the price. Yet only about a third of a program's critical path is cognitive, so Amdahl's law caps base-case schedule compression at about 38%; realized gains are likelier 20-30%."
+   }
+  },
+  {
+   "branch": "math-frontier",
+   "patch": {
+    "thesis": "If AI settles famous fluid problems, up to unforced Navier-Stokes, the theorems change almost no engine, heat shield or orbit. Engineers get the proof machinery and on-demand error bars as verification evidence from about 2028 (base case), and math stops being a bottleneck around 2029.",
+    "reader_hook": "An AI agent formalized a Vlasov-Maxwell-Landau plasma result in 10 days for about $200, with no human-written code (one mathematician, 229 prompts). Two of its three failure modes, hypothesis creep and definition-alignment bugs, came from stating the problem. Only 16 partial-differential-equation and 12 dynamics families sit among the release's 372, because that is what was posed."
+   }
+  },
+  {
+   "branch": "verified-autonomy",
+   "patch": {
+    "thesis": "If AI agents can draft specifications and machine-checked proofs for flight code, verified code gets 15-120x cheaper per line by 2028-29 and flies widely from 2029-30 (base case). Regulators accept proof-based plans around 2030 (Medium); engine, entry, launch-safety and crewed credit stay Low by 2031.",
+    "reader_hook": "A fully verified line of flight code falls from about $300-600 to about $5-20 by 2028-29 (base case), yet a highest-criticality (Level A) program gets only about 2x cheaper (1.8-2.4x). And in all 9 software- or logic-related losses and near-losses among 12 notable cases, from Ariane 501 to Athena, a wrong assumption or spec was the missing piece."
+   }
+  },
+  {
+   "branch": "networks",
+   "patch": {
+    "thesis": "If AI proves routing and interference bounds, constellation meshes and direct-to-device service run on certified plans by 2029-30 (base case, Medium). Spectrum treaties (nothing before WRC-31), quantum links and encryption upgrades move at regulatory and hardware speed; cheaper AI code-breaking estimates make upgradeable encryption urgent.",
+    "reader_hook": "The FCC's 2026 rules (FCC 24-117 and FCC 26-26) replace fixed power masks with private coordination judged against simulated performance criteria: 3% throughput loss and 0.1% (geostationary) or 0.4% (non-geostationary) added unavailability. FCC 26-26 also lifted the cap on same-frequency beams per location, turning spectrum rights into a math problem."
+   }
+  },
+  {
+   "branch": "certification",
+   "patch": {
+    "thesis": "Commercial operators fly new hardware qualified mainly by AI analysis around 2029-30 (base case, Medium); government and crewed programs wait for a rulebook (2029, Medium) and broader credit (2030, Low). Analysis runs 2-5x faster, but test stands keep qualification only 10-20% shorter by 2031.",
+    "reader_hook": "Much of what 'certification by analysis' promises exists without AI: NASA-STD-5001B lets some metal structures skip strength tests. Skipping a launch vehicle's primary-structure qualification article saves tens of millions of dollars and up to a year. The base case puts the first AI-backed government credit beyond today's allowances around 2030-31, against 2040-2050 in NASA-sponsored studies of aircraft certification by analysis."
+   }
+  },
+  {
+   "branch": "engines-materials",
+   "patch": {
+    "thesis": "If AI can certify combustion, flow and materials models, engines could earn model-based reuse life from about 2029 and an AI-designed alloy could fly by 2031 (Low in the base case, Medium in S3). Engines stay test-paced: each failure mode costs a redesign and re-test.",
+    "reader_hook": "Proving 0.99 engine reliability at 90% confidence takes about 230 zero-failure starts. A high-cadence Starship fleet logs that many in a handful of flights, so finding and fixing failure modes paces engines. In an illustrative model, a validated boil-off model saves about 0-1 of the 1-5 extra tanker flights per lunar-lander refueling campaign, at one tanker every 6 days."
+   }
+  },
+  {
+   "branch": "entry",
+   "patch": {
+    "thesis": "With on-demand AI uncertainty analysis, commercial capsules fly thinner heat shields around 2030 (base case, Medium). Starship-scale shield reuse comes around 2030 from flight data, with AI adding months; routine reentry, heavy Mars landings and point-to-point cargo wait on demand, launch windows and regulation.",
+    "reader_hook": "For NASA's now-cancelled Mars Sample Retrieval Lander, a Monte Carlo at one stressing point found a heat shield at ~75% of baseline thickness kept its adhesive bondline below the limit in ~99% of cases. But it sampled heating error only up to existing margins, while at that 8 km/s entry the radiation model under-predicted shock-tube data by up to 2x."
+   }
+  },
+  {
+   "branch": "orbital-compute-power",
+   "patch": {
+    "thesis": "SpaceX's hardware, launch and capital clock paces orbital compute: 100-kW-class satellites fly about 2028 and earn revenue about 2029 in every scenario; 1 GW by 2031 is Low (base case). AI math adds confidence and a few percent; solar arrays and chip temperatures matter more.",
+    "reader_hook": "A gigawatt of orbital compute is about 4,000 Starmind-class satellites, 16,000-18,000 t and 110-180 Starship flights. AI-optimized radiator design might save about 350-1,400 t, or 4-14 flights (an assumption). Qualifying chips and memory to run about 30 C hotter would save more (about 1,900 t per GW in 33FG's model), and solar arrays, over half the satellite's mass, matter most."
+   }
+  },
+  {
+   "branch": "moon-mars",
+   "patch": {
+    "thesis": "If AI plans and checks robot work, lunar and Mars robots do severalfold more work per operator by about 2029 (base case, Medium). A self-running Moon base waits on heavy cargo landings (Low by 2031); oxygen plants wait on anode life, night survival and funding.",
+    "reader_hook": "A 2024 molten-regolith electrolysis rig made 0.07 kg of oxygen an hour and NASA's MOXIE made 12 g/h on Mars, against about 1.1 kg/h for a 10 t/yr lunar plant and about 65 kg/h for a Starship return. And the unknown form of polar ice swings excavation cost by two to three orders of magnitude."
+   }
+  },
+  {
+   "branch": "science",
+   "patch": {
+    "thesis": "If AI does the theory and inference behind missions, science per dollar rises from archives and satellite methane data get honest error bars by 2028 (Medium, base case). Launch dates hold: LISA still flies in 2035, and the Habitable Worlds Observatory moves at budget pace.",
+    "reader_hook": "The waveform physics LISA needs to hear small bodies spiral into giant black holes (second-order self-force) exists today only for circular orbits around non-spinning black holes. The base case finishes it around 2030, roughly three to five years ahead of the pre-AI path (analyst judgment). LISA still launches in 2035."
+   }
+  },
+  {
+   "branch": "safe-orbits",
+   "patch": {
+    "thesis": "If AI makes orbit, collision and space-weather forecasts honest, AI-designed trajectories fly and million-object screening exists by 2029, though SpaceX's Stargaze tracking narrows AI's share. Safe low orbit at 100,000 satellites is held back through 2031 by untracked 1-10 cm debris, regulators and uncooperative operators.",
+    "reader_hook": "Starlink already flies about 355,000 avoidance maneuvers a year at a collision threshold of 3 in 10 million, about 300 times stricter than the 1-in-10,000 norm. Meanwhile about 1.2 million 1-10 cm fragments go untracked, and solar-storm arrival forecasts have missed by about 13 hours on average for 11 years (about 10 hours for the best ensemble method)."
+   }
+  },
+  {
+   "branch": "plasma-nuclear",
+   "patch": {
+    "thesis": "If AI and new diagnostics solve Hall-thruster electron transport, thrusters can be designed before they are built around 2030 (base case Low). Wear tests cap life credit at Low, a politically paced U.S. space reactor by 2031 is Low, and fusion propulsion waits past 2031.",
+    "reader_hook": "A 23,000-hour thruster life requirement means 2.6 years of continuous firing that no proof shortens. NASA already credits the 50% life margin by analysis; the open question is whether analysis can replace part of the test itself. Deuterium-helium-3 fusion has never burned at meaningful power, and a megawatt-class demonstrator needs only grams of helium-3, so fuel is not the gate."
+   }
+  }
+ ],
+ "update": [
+  {
+   "id": "physclock-reliability-priors-credit",
+   "patch": {
+    "title": "Models cut the test flights needed to prove reliability"
+   }
+  },
+  {
+   "id": "hyper-aerothermal-design-loop",
+   "patch": {
+    "title": "AI co-designs vehicle shape, entry path and heat shield"
+   }
+  },
+  {
+   "id": "astro-pnt-integrity-overbounding",
+   "patch": {
+    "title": "Proven error and spoofing bounds for satellite navigation"
+   }
+  },
+  {
+   "id": "comms-ai-crqc-resource-cuts",
+   "patch": {
+    "title": "AI lowers the quantum cost of breaking today's encryption"
+   }
+  },
+  {
+   "id": "plasma-radbelt-charging-forecast",
+   "patch": {
+    "title": "Radiation-belt and charging risk forecasts days ahead"
+   }
+  },
+  {
+   "id": "verif-lander-verified-gnc-flight",
+   "patch": {
+    "title": "Lander flies proof-checked descent guidance and fault logic"
+   }
+  },
+  {
+   "id": "verif-rpo-assured-autonomy",
+   "patch": {
+    "title": "Proof-checked autonomous docking, servicing and refueling"
+   }
+  },
+  {
+   "id": "physclock-dev-capital-cut",
+   "patch": {
+    "title": "AI cuts new space hardware development cost by about 10-20%"
+   }
+  },
+  {
+   "id": "astro-catalog-dynamics-results",
+   "patch": {
+    "title": "Chaos theorems in the release (weak link to orbits)"
+   }
+  },
+  {
+   "id": "frontier-euler-blowup-r3",
+   "patch": {
+    "title": "Euler fluid equations proven to blow up in open space"
+   }
+  },
+  {
+   "id": "verif-skolem-positivity",
+   "patch": {
+    "title": "Skolem and Positivity problems for linear loops settled"
+   }
+  },
+  {
+   "id": "auton-blss-stability-theory",
+   "patch": {
+    "title": "Biological life-support loops with stability guarantees"
+   }
+  },
+  {
+   "id": "auton-mass-action-permanence",
+   "patch": {
+    "title": "Reaction networks that never lose an ingredient"
+   }
+  },
+  {
+   "id": "auton-temporal-logic-synthesis",
+   "patch": {
+    "title": "Mission planners that are correct by design"
+   }
+  },
+  {
+   "id": "auton-verified-surface-autonomy",
+   "patch": {
+    "title": "Proof-checked autonomy software for lunar robots"
+   }
+  },
+  {
+   "id": "auton-verified-autonomy-lunar-flight",
+   "patch": {
+    "title": "A lunar robot operates with proof-checked autonomy"
+   }
+  },
+  {
+   "id": "prop-psi-models",
+   "patch": {
+    "title": "Predicting how lander exhaust erodes the surface"
+   }
+  },
+  {
+   "id": "comms-expander-constructions",
+   "patch": {
+    "title": "Optimal expander graphs for networks and codes (conditional)"
+   }
+  },
+  {
+   "id": "comms-pq-fleet-migration",
+   "patch": {
+    "title": "Satellite fleets can swap encryption before the 2035 cutoff"
+   }
+  },
+  {
+   "id": "comms-crypto-agile-architecture",
+   "patch": {
+    "title": "Upgradeable satellite encryption with proven update paths"
+   }
+  },
+  {
+   "id": "plasma-stellarator-design-loop",
+   "patch": {
+    "title": "AI design loop for stellarator fusion machines"
+   }
+  },
+  {
+   "id": "astro-cislunar-traffic-management",
+   "patch": {
+    "title": "Traffic management service for Earth-Moon space"
+   }
+  },
+  {
+   "id": "astro-stability-atlas",
+   "patch": {
+    "title": "Certified map of stable Earth-Moon orbits"
+   }
+  },
+  {
+   "id": "astro-autonomous-nav-demo",
+   "patch": {
+    "title": "Autonomous Earth-Moon navigation with proven error bounds"
+   }
+  },
+  {
+   "id": "astro-multitarget-track-fusion-certified",
+   "patch": {
+    "title": "Certified merging of tracks from many sensors"
+   }
+  },
+  {
+   "id": "astro-proliferated-tracking-custody",
+   "patch": {
+    "title": "Missile-tracking satellites cite certified track merging"
+   }
+  },
+  {
+   "id": "frontier-nbody-arnold-diffusion",
+   "patch": {
+    "title": "Long-term orbit stability proven for realistic systems"
+   }
+  },
+  {
+   "id": "astro-leo-safety-at-scale",
+   "patch": {
+    "title": "Low Earth orbit stays safe at 100,000 satellites"
+   }
+  },
+  {
+   "id": "capability-cheap-trust",
+   "patch": {
+    "title": "AI results audited and trusted in days"
+   }
+  },
+  {
+   "id": "verif-environment-assumption-models",
+   "patch": {
+    "title": "Validated limits on sensor and terrain behavior"
+   }
+  },
+  {
+   "id": "materials-allowables-stats-framework",
+   "patch": {
+    "title": "Material strength limits from far fewer test samples"
+   }
+  },
+  {
+   "id": "materials-qual-cycle-compression",
+   "patch": {
+    "title": "New space materials reach flight in five years or less"
+   }
+  },
+  {
+   "id": "prop-mass-gauging",
+   "patch": {
+    "title": "Limits on measuring propellant in low gravity"
+   }
+  },
+  {
+   "id": "struct-fsp-lunar-100kwe",
+   "patch": {
+    "title": "A 100 kW-electric fission reactor operating on the Moon"
+   }
+  },
+  {
+   "id": "verif-nn-verification-scale",
+   "patch": {
+    "title": "Verifying neural-network perception at flight scale"
+   }
+  },
+  {
+   "id": "astro-capacity-licensing",
+   "patch": {
+    "title": "Licensing satellites against an orbital capacity budget"
+   }
+  },
+  {
+   "id": "prop-cfm-models",
+   "patch": {
+    "title": "Validated models of cryogenic propellant in microgravity"
+   }
+  },
+  {
+   "id": "astro-leo-pnt-assured-service",
+   "patch": {
+    "title": "Low-orbit navigation service with published error bounds"
+   }
+  }
+ ]
+}

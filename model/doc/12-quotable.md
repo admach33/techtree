@@ -1,0 +1,39 @@
+The figures a writer is most likely to quote, with where each comes from and how far it has been checked. *Verified* means the final reviewers or branch auditors checked the figure against the source named. *Model* means the figure is this model's own assumption or calculation. *Judgment* means it is an analyst estimate.
+
+| Figure | Meaning | Status | Source |
+| --- | --- | --- | --- |
+| 722 manuscripts, 372 families, about 4,000 problems posed, 127 families with agent-written Lean | Size of the openai/math release | Verified | [openai/math repository](https://github.com/openai/math) |
+| 3 of 16 PDE families and 5 of 6 logic families formalized | Applied mathematics formalizes least | Verified | [openai/math repository](https://github.com/openai/math) |
+| About $200–2,000 per research-grade result | Price of AI mathematics; $200 is the success-only cost of OpenAI's ten August results | Verified (OpenAI via press) | [The Decoder](https://the-decoder.com/openai-says-its-internal-model-solved-over-100-long-standing-math-problems-after-just-a-month-of-training/) |
+| Task horizon doubling every 6–9 months (base case) | Scenario parameter, near the measured long-run trend | Model, anchored on METR | [METR time horizons](https://metr.org/time-horizons/) |
+| 18% / 38% / 51% | Amdahl ceilings on new-program schedule compression by 2031 (Plateau / Exponential / Recursive; Recursive 56% by 2035) | Model (illustrative critical-path shares) | Section 3 table |
+| 20–30% | Realistic program compression by 2031, Exponential | Judgment (reviewers' resolution) | Section 10, the engine branch |
+| About a third | Realistic program compression by 2035, Exponential, for programs finished by then | Judgment (reviewers' resolution) | Section 10, the engine branch |
+| $300–600 to $5–20 per verified line (15–120x) | Cost of formally verified flight code | Model (cost assumptions) | Section 10, Software you can prove |
+| About 2x (1.8–2.4x) | Cost reduction for a highest-assurance (Level A) software program | Model | Section 10, Software you can prove |
+| 9 of 12 notable losses and near-losses involved software or logic, each missing a correct assumption or specification | Why specification, not proof, binds | Judgment (analyst compilation of mishap reports) | Mishap summaries, for example [Ariane 501](https://www.ida.liu.se/~simna73/teaching/IT6/vinjett-ariane5.html) |
+| 27 of 43 repository-scale verified builds | State of AI program verification, August 2026 | Verified | [Vero, arXiv 2608.13522](https://arxiv.org/abs/2608.13522) |
+| seL4: about 25 person-years for design, implementation and proof; 7,500 of 8,700 lines verified | Pre-AI cost of full verification | Verified | [Trustworthy Systems](https://trustworthy.systems/projects/OLD/l4.verified/numbers) |
+| 10 days, about $200, 229 human prompts | Agentic formalization of a plasma-physics result | Verified | [Ilin, arXiv 2603.15929](https://arxiv.org/abs/2603.15929) |
+| About 355,000 Starlink avoidance maneuvers a year, at a 3-in-10-million threshold | Collision-avoidance burden today | Reported (operator figures via press) | [Space.com via N2YO](https://www.n2yo.com/satellite-news/Every-SpaceX-Starlink-satellite-has-to-dodge-a-collision-almost-weekly-and-experts-fear-the-worst/11012) |
+| About 1.2 million untracked 1–10 cm fragments | Why sensors, not math, bound debris safety | Verified | [ESA Space Environment Report 2026](https://www.sdo.esoc.esa.int/publications/Space_Environment_Report_I10R0_20260501.pdf) |
+| About 13 h average CME arrival error (about 10 h for the best ensemble) | Space-weather forecast skill, flat for 11 years | Verified | [Kay et al. 2024](https://predsci.com/~epalmerio/pubs/Kay2024b.pdf) |
+| About $4,900, $650 and $300 per kg | Mach33 base-case SpaceX internal Starship cost, 2026 to 2028 (this model dates under $300/kg to about 2029) | Verified against Mach33; Mach33 discloses SpaceX equity holdings | [Mach33, Starship's first orbital cargo](https://research.33fg.com/analysis/starship-s-first-orbital-cargo) |
+| About 230 zero-failure trials | Test-only demonstration of 0.99 reliability at 90% confidence | Arithmetic | Binomial calculation |
+| 23,000 hours = 2.6 years of firing | Hall-thruster life requirement | Verified | [Williams et al. 2026 (NTRS)](https://ntrs.nasa.gov/api/citations/20260002899/downloads/20260002899%20Final.pdf) |
+| About 4,000 satellites, 16,000–18,000 t and 110–180 Starship flights per GW | Scale of a gigawatt of orbital compute | Model (reconstruction from 33FG/Mach33 data) | Section 10, Orbital compute and power |
+| 2–9% of launched mass | Saving from AI-optimized radiator design | Model (assumption) | Section 10, Orbital compute and power |
+| 0.07 kg/h (molten-regolith rig), 12 g/h (MOXIE), against about 0.11 kg/h for a 1 t/yr lunar plant | Scale gap for lunar and Mars oxygen | Verified | [MRE demonstration (ICES 2026)](https://doi.org/10.32865/2346/108973); [MOXIE](https://en.wikipedia.org/wiki/Mars_Oxygen_ISRU_Experiment) |
+| 2040–2050 | NASA-sponsored studies' date for aircraft certification by analysis | Verified | [NASA NTRS 20230016541](https://ntrs.nasa.gov/citations/20230016541) |
+| 3% throughput loss; 0.1% (GSO) or 0.4% (NGSO) added unavailability | FCC's 2026 performance-based spectrum-sharing criteria | Verified via 33FG summary of FCC documents | [33FG news](https://research.33fg.com/news/fcc-replaces-26-year-old-epfd-framework-with-performance-based-ngso-rules) |
+| About 75% of baseline thickness, about 99% of cases | Heat-shield margin study for the cancelled Mars Sample Retrieval Lander | Verified (one stressing point; sampled error only up to existing margins) | [NASA NTRS 20260005218](https://ntrs.nasa.gov/api/citations/20260005218/downloads/SRL_TPS_IPPW.pdf) |
+| LISA launch 2035 | Flagship date unchanged in every scenario | Verified | [ESA LISA](https://www.esa.int/Science_Exploration/Space_Science/LISA) |
+| About 13,300 humanoids shipped in 2025; about 19,000–25,000 in the first half of 2026 | Starting point for the robot fleet | Verified (Omdia; Smart Analytics Global and IDC for the first half of 2026) | [TechNode](https://technode.com/2026/01/09/chinas-agibot-leads-global-humanoid-robot-shipments-in-2025-omdia-says/); [Robotics and Automation News](https://roboticsandautomationnews.com/2026/10/02/idc-data-shows-agibot-led-global-humanoid-robot-shipments-in-h1-2026/105463/) |
+| About 6 million robots in 2031 and 60 million in 2035 | Embodied base path, general-purpose robots in service | Model (scenario estimate) | Section 4 |
+| 0.7% (2031) and about 9% (2035) of global manufacturing labor | Robot share of work in the Embodied case | Model | Section 4 |
+| 56% to 66–67% | Program compression ceiling at a robot-first firm, Recursive versus Embodied, 2035 | Model | Section 4 |
+| 70–73% | Ceiling on program compression with unlimited cognition and robots, 2035 (roughly 3.5x faster) | Model | Section 3 |
+| 34% | Most a drug program can shorten even with infinitely fast labs | Model, from BIO phase durations | [BIO](https://www.bio.org/clinical-development-success-rates-and-contributing-factors-2011-2020) |
+| 61 months | Median time from interconnection request to operation, US power plants built in 2025 | Verified | [LBNL Queued Up 2026](https://eta-publications.lbl.gov/sites/default/files/2026-06/queued_up_2026_edition.pdf) |
+| 116 GW of backlog and slot reservations (53 GW firm) against a 20 GW-a-year production target | GE Vernova gas-turbine queue | Verified (trade press) | [Turbomachinery International](https://www.turbomachinerymag.com/view/ge-vernova-gas-turbine-backlog-hits-116-gw-as-power-orders-more-than-double) |
+| Robots built by robots since 2001; output doubling about every 7 years from 1983 to 2016 | FANUC precedent for the robots-build-robots loop | Model calculation from company and press figures | [FANUC](https://fanuc.co.jp/en/ir/announce_other/pdf/2016/notice20161011_e.pdf) |

@@ -1,0 +1,116 @@
+{
+ "update": [
+  {
+   "id": "capability-program-cycle-compression",
+   "patch": {
+    "title": "Development cycles 20-30% shorter, not 10x",
+    "revision_note": "B-trunk resolver (2026-10-07): Debated (skeptic vs advocate, auditor on wording). Skeptic accepted: 38% is a ceiling, realized lower; S2 2030 -> 2031, S3 2029 -> 2030 (only post-adoption programs count). Advocate partly accepted: the qualification cap was misapplied (gate -> experiment), cap-design-optimization hard -> soft, soft edges from mishap analysis and cheap mass; its 35-50% S2 figure rejected as largely double-counting what the 1.1-1.2x physical multipliers already credit, and its S2 2029 / S3 High rejected (depended on adoption in 2027). Realized range set at 20-30% in S2 between the skeptic's 15-25% and the advocate's 35-50%. | B-fix (integrator, 2026-10-07): soft edges from frontier-math-unbinds (B-math-frontier request 3) and physclock-commercial-analysis-first-qual (B-certification request 2). | F2 audit (2026-10-07): band reasoning against the P7 default written out; years and bands unchanged. | R review (2026-10-07): title matches realized S2 estimate (20-30%, 38% ceiling)"
+   }
+  },
+  {
+   "id": "physclock-qual-cycle-compressed",
+   "patch": {
+    "title": "Qualification campaigns at least 15% shorter",
+    "revision_note": "B-certification: [skeptic+auditor] Title and description changed from 30-50% (contradicted by research/physclock.json: qualification campaign 0.8-0.9x S2, 0.7-0.8x S3; capability Amdahl 1.2x) to 15-30% with a 15% threshold. [auditor] tier-7 chain written out. [skeptic] S2 2030 -> 2031, S3 2029 -> 2030, S2 Medium -> Low (signpost cannot report before ~2031; also forced by physclock-qual-by-analysis-credit S2 2031/S3 2030). [skeptic+advocate] materials-am-digital-twin-qual hard -> soft; [skeptic] physclock-ai-run-test-stands hard -> soft. Advocate's S2 2029/S3 2028/S3 High and making qual-by-analysis-credit soft rejected (see debates); advocate's commercial node added as a soft accelerator instead. | R review (2026-10-07): title states the threshold; S2 estimate 10-20%"
+   }
+  },
+  {
+   "id": "frontier-ns-unforced",
+   "patch": {
+    "title": "AI answer on unforced Navier\u2013Stokes passes outside checks",
+    "revision_note": "B-math-frontier: [auditor] Retitled and redescribed: Clay breakdown statements (C)/(D) allow forcing, so the unforced question is not \"the Millennium problem\" as Clay states it; Clay status added. [skeptic+auditor+advocate] Euler blowup and the forced-NS check moved from hard prerequisites to soft (a regularity proof needs neither). [advocate, partly accepted] S1 >2031 -> 2030 (node's own 1-2 doubling arithmetic at 12-18 months) and S3 band Medium -> High (either answer counts; ~3-month doublings from 2028); S2 kept at 2029/Medium (discovery 2027-28 plus about a year for checking, consistent with the Euler node now at 2028). [auditor] band-semantics sentence. | R review (2026-10-07): band means established by check, not settled/Clay"
+   }
+  },
+  {
+   "id": "frontier-ns-clay-cd-ruling",
+   "patch": {
+    "title": "Clay rules on the forced Navier\u2013Stokes breakdown claim",
+    "revision_note": "B-math-frontier: [auditor] New node: separates the Clay (C)/(D) ruling on the forced claim from the unforced question. Band lowered from the auditor's Medium to Low (publication plus two-year rule plus unhurried review plus no claimant; 1.0x institutional clock). Clay facts checked (implicator.ai). | R review (2026-10-07): dash normalization"
+   }
+  },
+  {
+   "id": "materials-dft-limits",
+   "patch": {
+    "title": "Claimed limits of the workhorse quantum-chemistry method",
+    "revision_note": "B-math-frontier: [auditor] 263 statement gap (lean/docs/263.md, checked): Lean covers only large-ionization asymptotics; the bounded-excess-charge headline is T1. [skeptic] 278 mapping to named materials removed (existence theorem does not identify affected materials); 275 complexity assumption stated explicitly. Bands unchanged. | R review (2026-10-07): premises 278/275 are T1; never write proven below T4"
+   }
+  },
+  {
+   "id": "frontier-approx-ceilings",
+   "patch": {
+    "title": "Hardness limits for scheduling and network planning (unaudited)",
+    "description": "Hardness-of-approximation ceilings for the combinatorial problems behind constellation tasking, ground-station and gateway siting, routing, beam frequency assignment and network partitioning become formal claims awaiting outside checks rather than beliefs: beating Goemans-Williamson Max-Cut (beam two-colouring) or factor-2 vertex cover (minimal link/beam sets) is NP-hard given 102 (UGC claimed with an unaudited Lean proof, T3); uniform sparsest cut (mesh partitioning) has no constant-factor algorithm (conditional, T1); metric k-median siting is pinned at 1+2/e. These are worst-case ceilings for general graphs and metrics. Operational instances are geometric (toroidal +Grid/Motif laser meshes, Earth-surface siting, disk-like beam-conflict graphs), and there approximation schemes or O(1) algorithms exist, so the ceilings bound general-purpose solver research and vendor claims about general instances, not constellation planning.",
+    "revision_note": "B-networks resolver: Skeptic + auditor. Description now says the ceilings are worst-case for general graphs and do not bind on geometric constellation instances (KPR, doubling-metric PTAS, unit-disk PTAS, planar Max-Cut). Deleted the 144,000-maneuver sentence (collision avoidance is not an approximation problem). Premise tiers corrected against lean/docs (117: SDP gap only; 104: randomized mean-payoff only; 125: algorithm and threshold formalized, superseding the A1 merge_note's 'companion recovery result'). Bands unchanged. | R review (2026-10-07): tr-position-1 wording for T3/T1 results"
+   }
+  },
+  {
+   "id": "comms-hardness-aware-tasking",
+   "patch": {
+    "title": "Tasking and ground planning built on hardness limits",
+    "revision_note": "B-networks resolver: Skeptic: comms-certified-network-optimization hard -> soft (tasking does not use mesh routing); years 2028/2027/2027 -> 2029/2028/2028 (adoption gate plus P1 lag 0-2 years after public access in 2027 under S2; same-year operator reporting not credible); 124 example corrected; PTAS note added. Auditor: 125 is T3 per lean/docs/125.md. Bands unchanged. | B-fix (integrator, 2026-10-07): soft edge from capability-algorithm-discovery (B-trunk request 2). | R review (2026-10-07): limits are claimed, not proven"
+   }
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "trunk",
+   "patch": {
+    "thesis": "If research-grade AI math reaches outside engineers in 2027 (base case) and checking is cheap, on-demand analysis spreads through space engineering by 2028. New program schedules shrink about 20-30% (38% at most), since tests, factories and launches run on physical time."
+   }
+  },
+  {
+   "branch": "certification",
+   "patch": {
+    "thesis": "Commercial operators fly new hardware qualified mainly by AI analysis around 2029-30 (base case, Medium); government and crewed programs wait for a rulebook (2029, Medium) and broader credit (2030, Low). Analysis runs 2-5x faster, but test stands hold qualification savings to about 10-20% in the base case (at least 15% by 2031 is Low)."
+   }
+  },
+  {
+   "branch": "verified-autonomy",
+   "patch": {
+    "thesis": "If AI agents can draft specifications and machine-checked proofs for flight code, verified code gets 15-120x cheaper per line by 2028-29 and first flies on landers and constellations about 2029 (base case, Medium). Regulators accept proof-based plans around 2030 (Medium); engine, entry, launch-safety and crewed credit stay Low by 2031."
+   }
+  },
+  {
+   "branch": "engines-materials",
+   "patch": {
+    "thesis": "If AI can certify combustion, flow and materials models, engines could earn model-based reuse life from about 2029 and an AI-designed alloy could fly by 2031 (Low in the base case, Medium in Recursive). Engines stay test-paced: each failure mode costs a redesign and re-test."
+   }
+  },
+  {
+   "branch": "science",
+   "patch": {
+    "thesis": "If AI does the theory and inference behind missions, science return per dollar rises from archives by 2028, and satellite methane data get calibrated error bars (both Medium, base case). Launch dates hold: LISA still flies in 2035, and the Habitable Worlds Observatory moves at budget pace."
+   }
+  },
+  {
+   "branch": "math-frontier",
+   "patch": {
+    "reader_hook": "An AI agent formalized a Vlasov-Maxwell-Landau plasma result in 10 days for about $200, with no human-written code (one mathematician, 229 prompts). Two of its three failure modes, hypothesis creep and definition-alignment bugs, came from stating the problem. Only 16 partial-differential-equation and 12 dynamics families sit among the release's 372, reflecting which problems the lab chose to pose and which survived its filter."
+   }
+  },
+  {
+   "branch": "math-frontier",
+   "patch": {
+    "thesis": "If AI settles famous fluid problems, up to unforced Navier\u2013Stokes, the theorems change almost no engine, heat shield or orbit. Engineers get the proof machinery and on-demand error bars as verification evidence from about 2028 (base case), and math stops being a bottleneck around 2029."
+   }
+  },
+  {
+   "branch": "trunk",
+   "patch": {
+    "side_chains": [
+     [
+      "physclock-starship-full-reuse",
+      "physclock-cheap-mass-internal",
+      "physclock-cheap-mass-customer"
+     ],
+     [
+      "physclock-starship-full-reuse",
+      "physclock-heavy-cadence-100",
+      "physclock-cheap-mass-customer"
+     ]
+    ]
+   }
+  }
+ ],
+ "notes": "Final review fixes (numbers, grounding, editor lenses), 2026-10-07"
+}

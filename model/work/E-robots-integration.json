@@ -1,0 +1,43 @@
+{
+ "notes": "R-robots integration edits (2026-10-07). Apply after every branch final. Forward soft edges from robo-* nodes to 2035-extension nodes created by other branches (each robot node is dated before its target in S4), and removal of one moon-mars soft edge that now runs against the hard edge auton-robotic-landing-pad -> robo-lunar-construction. Edges already present are de-duplicated by the tool; edges whose target was dropped are skipped.",
+ "add_soft_edges": [
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "struct-35-qual-campaigns-30pct-shorter"
+  },
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "capability-35-cycle-halved"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "prop-35-alloy-enabled-engine"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "hyper-35-ai-tps-primary-zone"
+  },
+  {
+   "from": "robo-in-space-assembly",
+   "to": "struct-35-10gw-orbital-compute"
+  },
+  {
+   "from": "robo-launch-refurb",
+   "to": "capability-35-heavy-cadence-300"
+  },
+  {
+   "from": "robo-launch-refurb",
+   "to": "capability-35-internal-cost-100"
+  },
+  {
+   "from": "robo-mtbi-1000h",
+   "to": "auton-35-mars-robot-site-prep"
+  }
+ ],
+ "remove_soft_edges": [
+  {
+   "from": "robo-lunar-construction",
+   "to": "auton-robotic-landing-pad"
+  }
+ ]
+}

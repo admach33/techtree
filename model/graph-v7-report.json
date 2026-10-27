@@ -1,0 +1,64 @@
+{
+ "dangling": {},
+ "dangling_soft": {},
+ "monotonic_violations": [],
+ "cycles": [],
+ "unparsed_years": [],
+ "bad_bands": [],
+ "unresolved_gt2031": [],
+ "late_but_likely_2031": [],
+ "late_but_likely_2035": [],
+ "band_time_order": [],
+ "scenario_order_violations": [],
+ "branch_unknown_nodes": [],
+ "nodes_without_branch": [],
+ "nodes_in_two_branches": [],
+ "summary": {
+  "n_nodes": 478,
+  "n_hard_edges": 694,
+  "n_soft_edges": 1035,
+  "by_tier": {
+   "0": 27,
+   "1": 36,
+   "2": 75,
+   "3": 44,
+   "4": 68,
+   "5": 64,
+   "6": 103,
+   "7": 61
+  },
+  "reached_by_2031": {
+   "S1": 247,
+   "S2": 371,
+   "S3": 387,
+   "S4": 392
+  },
+  "reached_by_2035": {
+   "S1": 411,
+   "S2": 457,
+   "S3": 463,
+   "S4": 467
+  },
+  "n_branches": 13,
+  "counts": {
+   "dangling": 0,
+   "dangling_soft": 0,
+   "monotonic_violations": 0,
+   "cycles": 0,
+   "unparsed_years": 0,
+   "bad_bands": 0,
+   "unresolved_gt2031": 0,
+   "late_but_likely_2031": 0,
+   "late_but_likely_2035": 0,
+   "band_time_order": 0,
+   "scenario_order_violations": 0,
+   "branch_unknown_nodes": 0,
+   "nodes_without_branch": 0,
+   "nodes_in_two_branches": 0
+  }
+ },
+ "apply_log": [
+  "E-math-frontier-final.json: add_soft_edge skipped (missing end): {'from': 'frontier-35-certification-unbinds', 'to': 'struct-35-crewed-structure-analysis-credit'}"
+ ],
+ "autofixes": []
+}

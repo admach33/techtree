@@ -1,0 +1,428 @@
+{
+ "update": [
+  {
+   "id": "frontier-ns-unforced",
+   "patch": {
+    "title": "Unforced Navier-Stokes settled (regularity, or blowup with no force)",
+    "description": "A proof of global smoothness for the unforced 3D incompressible Navier-Stokes equations (Clay statements A/B), or of finite-time blowup from smooth data with zero force, on R^3 or the torus. This is the question most analysts mean by 'the Navier-Stokes problem'. Fefferman's official breakdown statements (C)/(D) allow a smooth, decaying force, so a verified forced blowup belongs to prop-ns-forced-verified and frontier-ns-clay-cd-ruling, not to this node.",
+    "status_oct2026": "Open. OpenAI's Sep 8, 2026 claim (Lean, T3) concerns forced flows; OpenAI states it establishes Clay statement (C), and also (D), but says it will not claim the prize. The Clay Institute still lists Navier-Stokes as unsolved; its president Martin Bridson called the evaluation 'deliberately unhurried'. Clay rules require publication in a qualifying outlet, two years, and general acceptance. A self-published replay (Sep 17, 2026) reports the Lean certificate builds with no sorry; this is not a Comparator run with a statement audit, so the tier is unchanged. Lei-Ren (Sep 28) wrote an expository reconstruction of the profile construction and call it 'a major advance'. Petrillo-Glimm (Sep 20) proposed the 'positive defect problem' as the target for a programmatic unforced search. Family 376 (T1) embeds universal computation in forced flows, Tao's proposed route to blowup.",
+    "earliest_year": {
+     "S1": "2030"
+    },
+    "band_2031": {
+     "S3": "High"
+    },
+    "why": "One rung beyond what fell. Removing the forcing means a singularity must sustain itself against viscosity, likely via an unstable self-similar profile stabilized by a computer-assisted argument, or a Tao-style computing flow (376, T1, conditional and not load-bearing). A regularity proof would need methods beyond energy estimates (Tao's averaged-NS blowup barrier, general). Judgment: 1-2 difficulty doublings past the Oct 2026 level, plus about a year for a Lean or independent check. S2 (6-9 months per doubling): capability mid-2027 to early 2028, settled and checked about 2029 (Medium). S3: the same capability date and faster checking give 2028; with roughly 3-month doublings from 2028, settlement by 2031 is likely (High) because either answer counts. S1 (12-18 months per doubling): capability late 2027 to late 2029, so 2030 at the earliest and Low by 2031. Smooth Euler blowup and the forced-NS check are stepping stones (soft links), not prerequisites: a regularity proof needs neither, and Euler blowup does not imply Navier-Stokes blowup. Band = judged chance the result is established (T4 Lean check or T2+ expert acceptance) by 2031; the engineering implication is judged separately and is nil to Low (P5). Either answer acts only through P5 (tl-position-2).",
+    "revision_note": "B-math-frontier: [auditor] Retitled and redescribed: Clay breakdown statements (C)/(D) allow forcing, so the unforced question is not \"the Millennium problem\" as Clay states it; Clay status added. [skeptic+auditor+advocate] Euler blowup and the forced-NS check moved from hard prerequisites to soft (a regularity proof needs neither). [advocate, partly accepted] S1 >2031 -> 2030 (node's own 1-2 doubling arithmetic at 12-18 months) and S3 band Medium -> High (either answer counts; ~3-month doublings from 2028); S2 kept at 2029/Medium (discovery 2027-28 plus about a year for checking, consistent with the Euler node now at 2028). [auditor] band-semantics sentence."
+   }
+  },
+  {
+   "id": "prop-ns-forced-verified",
+   "patch": {
+    "catalog_families": [],
+    "description": "Outside experts run Comparator on the Lean proof and audit the statement of OpenAI's Sep 8, 2026 claim that the forced 3D incompressible Navier-Stokes equations can blow up from smooth, finite-energy data. This moves that claim from T3 to T4. The concurrent Buckmaster-Alpöge Euler, Boussinesq and porous-medium blowup proofs are a parallel, separate check. Whether the result also satisfies Clay's breakdown statements (C)/(D) is a separate institutional question (frontier-ns-clay-cd-ruling).",
+    "status_oct2026": "Claimed Sep 8, 2026 with a 166-page manuscript and Lean repository (~17 h formalization; ~88 h of ~10,000 agents). OpenAI frames the result as establishing Clay statement (C), and also (D); Clay still lists the problem unsolved. Buckmaster and Alpöge posted Euler/Boussinesq/IPM blowup preprints with Lean formalizations about 12 h before the announcement (Decrypt reported the most advanced result still awaiting a final Lean check at disclosure), followed by a public credit dispute. Santibañez-Leal (Zenodo, Sep 17) replayed the NS and Euler Lean certificates through the kernel with zero sorryAx; that is not a Comparator run or statement audit, so the tier is unchanged. No independent review found as of Oct 7, 2026: T3. Duraiswami (arXiv 2609.17642, Sep 15, 2026) found nothing to suggest the mechanism is reachable in a flow one computes or builds. Related but separate: family 376 (universal computation in forced NS) is a catalog family, manuscript-only (T1).",
+    "why": "The Lean code is public and the dispute guarantees scrutiny, so a Comparator run plus a statement audit is likely within about 12 months in every scenario. The engineering consequence is a confidence change only (tl-position-2): the forced equations alone can fail to determine the flow, which CFD practice already assumes by adding numerical or model dissipation. No solver, closure or engine design changes. It is a stepping stone (soft link) to frontier-ns-unforced, not a prerequisite.",
+    "revision_note": "B-math-frontier: [skeptic] catalog_families 376 removed (the Sep 8 claim is outside the 722-paper catalog; 376 stays in status as a related, separate T1 family); description scoped to the OpenAI claim, Buckmaster-Alpoge as a parallel check. [auditor] status: kernel replay, Clay framing, Alpoge-Buckmaster Lean status; lettered position citation fixed. [advocate S2/S3 2026 rejected: signpost itself expects 6-12 months; no outside Comparator run a month after the claim; Hexagon has no deposits.] Hard edge into frontier-ns-unforced made soft; edge into prop-les-convergence-theory (engines-materials) left for that branch."
+   }
+  },
+  {
+   "id": "frontier-euler-blowup-r3",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028"
+    },
+    "why": "Ingredients exist: an AI-found candidate R^3 profile (Ganeshram-Duruisseaux-Anandkumar, Sep 2026), a stability framework that reduces nonlinear stability to a large but finite set of explicit estimates (not yet done), and computer-assisted estimate machinery. Difficulty is about the level that fell on Oct 6 (judgment: 0 doublings beyond), so discovery in 2027 is plausible under S2. Acceptance, not discovery, sets the year: the bar is a Lean- or interval-verified proof with an independent re-run; Chen-Hou's 2022 boundary proof was still drawing clarification notes in Jul-Aug 2026; and a Lean route needs verified interval arithmetic (infra-verified-numerics: S2 2028, S3 2027). Hence S2 2028, S3 2027, S1 2029. It accelerates frontier-ns-unforced and the ideal-MHD part of frontier-mhd-wellposedness (ideal MHD with zero field is Euler) but is a prerequisite of neither. Spillover, the one concrete channel from this famous problem to engineering: the interval-verified proof machinery it requires (rigorous enclosures, fixed-point arguments around a numerical profile, formal interval arithmetic) is the same stack that guaranteed error bounds for engineering PDEs need (frontier-certified-pde-error, infra-verified-numerics). Band = judged chance the result is established (T4 Lean check or T2+ expert acceptance) by 2031; the engineering implication is judged separately and is nil to Low (P5).",
+    "revision_note": "B-math-frontier: [skeptic+auditor] Hard prerequisite verif-independent-check added (node is defined as proven with an independent re-run). [skeptic] S1 2028 -> 2029, S2 2027 -> 2028: acceptance, not discovery, sets the year (Ganeshram et al. still lack the finite set of estimates; Chen-Hou clarifications ~4 years on; Lean route needs verified interval arithmetic, S2 2028). S3 kept at 2027 (optimistic end: the graph has infra-verified-numerics at S3 2027) [skeptic S3 2028 and advocate S2 2027 both rejected]. [advocate] spillover sentence and soft edge into frontier-certified-pde-error. [auditor] band semantics."
+   }
+  },
+  {
+   "id": "frontier-kinetic-global-regularity",
+   "patch": {
+    "binding_gate": "formalization",
+    "earliest_year": {
+     "S2": "2028"
+    },
+    "band_2031": {
+     "S2": "Medium"
+    },
+    "status_oct2026": "The space-homogeneous cases are done: Landau with Coulomb potential does not blow up (Guillen-Silvestre, Acta Math. 2025), and homogeneous Boltzmann with very soft potentials follows from monotone Fisher information (Imbert-Silvestre-Villani 2024). Inhomogeneous: regularity is known conditional on hydrodynamic bounds (Imbert-Silvestre program; Fernandez-Real-Ros-Oton-Weidner 2025), and a new continuation criterion largely rules out lifting a 3D Euler singularity into kinetics (Golding-Henderson-Silvestre, May 2026); it is not a regularity proof. The catalog claims 363 (Boltzmann nonuniqueness with exact local conservation, T1) and 364 (Boltzmann derived from Newtonian gases over its lifespan, with fluctuations, T1); 362 (relativistic Vlasov-Maxwell, T3) shows problems of this kind now fall. Not yet posed to the internal model as far as is public.",
+    "why": "Comparable in difficulty to 362, which was claimed in the Sep-Oct run (judgment: about D0), and the human program is close: conditional regularity reduces it to hydrodynamic bounds, and there is a new continuation criterion. Discovery could come in 2027 under S2 once a lab poses it; acceptance sets the year. A claim alone is T1, PDE is the release's least formalized area (3 of 16 families), and a long unformalized kinetic manuscript is absorbed on the 1-3 year expert clock (tr-position-5) until applied Lean libraries arrive (infra-mathlib-applied: S2 2028, S3 2027). Hence S2 2028, S3 2027, S1 2029. The S2 band is Medium, not High, because the node needs a positive answer for both Boltzmann and Landau with physical potentials far from equilibrium, and the truth may be partial (judgment). Band = judged chance the result is established (T4 Lean check or T2+ expert acceptance) by 2031; the engineering implication is judged separately. Effect: P5 confidence for DSMC and kinetic codes, plus quantitative moment and decay bounds that can feed solver error control (hyper-kinetic-solver-certification, plasma-verified-kinetic-numerics; tl-position-2 exception).",
+    "revision_note": "B-math-frontier: [skeptic+auditor] S2 2027 -> 2028 (a claim needs acceptance; no Lean path before applied Lean libraries; 1-3 year expert clock). [auditor] hard prerequisite verif-independent-check; gate cognitive -> formalization; S2 band High -> Medium (scope: both equations, physical potentials, far from equilibrium; truth may be partial); status \"rules out\" -> \"largely rules out\". S1 kept at 2029 (skeptic 2030 vs advocate 2028; matches Euler S1 2029). S3 kept at 2027 (Lean route: infra-mathlib-applied S3 2027)."
+   }
+  },
+  {
+   "id": "frontier-mhd-wellposedness",
+   "patch": {
+    "description": "Ill-posedness and singularity results for Hall and electron MHD, ideal-MHD blowup inherited from Euler, and conditional regularity and continuation criteria for resistive MHD in 3D, the models used for space weather, magnetic nozzles and fusion-propulsion concepts. A stretch goal is rigorous bounds on magnetic reconnection rates. Excludes 3D global regularity of visco-resistive MHD, which contains the Navier-Stokes problem as the zero-field case (frontier-ns-unforced).",
+    "signpost": "A proof of finite-time blowup from smooth, finite-energy data for 3D ideal, Hall or electron MHD (beyond the zero-field Euler case), or a rigorous resistive reconnection-rate bound.",
+    "calibration_note": "A3 note superseded (B-math-frontier, auditor): the scorecard internal-model cap (Medium unless a public model of similar capability exists) is lifted because every scenario makes research-grade capability public before 2031 (S2/S3 2027, S1 2028). If that premise fails, these bands drop to Medium.",
+    "why": "Ill-posedness matters in practice: codes that include Hall terms need regularization, and the map tells space-weather and nozzle modelers which models give results that converge under refinement (P3). Ideal-MHD blowup follows directly from smooth Euler blowup (soft link: frontier-euler-blowup-r3); Hall- and electron-MHD results need no Euler input; reconnection-rate bounds are harder (judgment: 1-2 doublings). Weak feed to plasma-eruption-onset-theory and plasma-magnetic-nozzle-theory. Band = judged chance the result is established (T4 Lean check or T2+ expert acceptance) by 2031; the engineering implication is judged separately and is nil to Low (P5).",
+    "revision_note": "B-math-frontier: [skeptic] Description rescoped: the full 3D map contained the Navier-Stokes problem (visco-resistive MHD with B=0 is NS) yet was dated before it; rescoped node keeps years and bands. [skeptic+auditor] Euler blowup moved from hard prerequisite to soft (Hall- and electron-MHD results need no Euler input). [auditor] signpost no longer fires on the known Jeong-Oh Hall-MHD ill-posedness; internal-model calibration note rewritten; band semantics."
+   }
+  },
+  {
+   "id": "frontier-nonuniqueness-map",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028"
+    },
+    "calibration_note": "A3 note superseded (B-math-frontier, auditor): the scorecard internal-model cap (Medium unless a public model of similar capability exists) is lifted because every scenario makes research-grade capability public before 2031 (S2/S3 2027, S1 2028). If that premise fails, these bands drop to Medium. Premise label: the map is future work; 363 and 376 are conditional examples.",
+    "why": "Negative results act fastest (fc-position-1 exception; tl-position-2). A nonuniqueness theorem for a regime tells V&V teams that solver-to-solver disagreement there may come from the equation rather than the code. Entropy admissibility is not enough: compressible Euler has infinitely many admissible solutions for some Riemann data (Chiodaroli-De Lellis-Kreml 2015, general), and mesh-refined Kelvin-Helmholtz simulations converge only in statistics (Fjordholm-Kappeli-Mishra-Tadmor 2017, general). The actionable V&V output is which quantities are statistically, not pointwise, convergent; 'add a selection principle' is not a solved recipe. Convex-integration constructions are long, technical and constructive, which suits agents. A map is a body of results whose signpost needs citation by a V&V or DSMC group, so it lands a year after the first results (S2 2028). Examples resting on 363 and 376 are conditional (T1). Feeds frontier-certified-turbulent-cfd; draws on hyper-boltzmann-foundations-check. Band = judged chance the result is established (T4 Lean check or T2+ expert acceptance) by 2031; the engineering implication is judged separately and is nil to Low (P5).",
+    "revision_note": "B-math-frontier: [skeptic] S2 2027 -> 2028 and S3 2027 -> 2028: a systematic map is a body of results and the signpost requires citation by a V&V or DSMC group (P5 lag 1-3 years), which does not compress before 2028; S1 2028 -> 2029 by the same lag (resolver consistency). [advocate: D0 nodes right at 2027, rejected for this node because of the citation lag.] [skeptic] Chiodaroli-De Lellis-Kreml and Fjordholm-Kappeli-Mishra-Tadmor evidence added. [auditor] lettered position citation fixed; T1 examples marked conditional; internal-model calibration note rewritten; band semantics."
+   }
+  },
+  {
+   "id": "frontier-turbulence-rigorous",
+   "patch": {
+    "why": "This is the theory engineering actually wants, because closures need statistics, not trajectories. It is harder than NS regularity in two respects: the right statements must be invented, so posing is part of the problem (judgment: 2-4 doublings plus posing), and only one answer counts, since the zeroth law for natural forcing may be false or unprovable in a given framework. At S2's 6-9 months per doubling, capability arrives late 2027 to late 2029; with posing and checking, 2030. S3 keeps Medium for the same truth risk, though it arrives a year earlier. Chain: zeroth law and scaling, then a rigorous LES convergence theory (prop-les-convergence-theory), then closures with error bounds for canonical flows, then (data-gated) engineering closures (prop-closure-theory, hyper-sbli-heating-closure). Band = judged chance the result is established (T4 Lean check or T2+ expert acceptance) by 2031; the engineering implication is judged separately and is Low (P5->P6).",
+    "revision_note": "B-math-frontier: [advocate, rejected] S2 2030 -> 2029, S3 2029 -> 2028 and S3 band High: unlike frontier-ns-unforced, this node needs one specific answer (the zeroth law and scaling hold for natural forcing), which may be false or unprovable in the posed form, and the statements must still be posed; the 2-4 doubling arithmetic gives capability late 2027 to late 2029, plus posing and checking. Years and bands kept. [auditor] band semantics added."
+   }
+  },
+  {
+   "id": "hyper-boltzmann-foundations-check",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028"
+    },
+    "why": "If 363 holds, the kinetic equation alone does not fix the physical solution in some regime, so DSMC and deterministic Boltzmann solvers need an explicit selection principle there (entropy, molecular chaos). If 364 holds, the particle-noise statistics of DSMC have a rigorous basis rather than being numerical artifacts. Both change confidence in the models, not the heating numbers. Band: P3 defaults to High, down one in every scenario because the implications are conditional on T1 premises (363, 364); as for the sibling confirmation nodes, the band is the chance that the results are checked and confirmed by 2031. The chance that a check either way (endorsement or refutation) is published by 2031 is higher (judgment: High in S2 and S3), and a refutation would also give hyper-kinetic-solver-certification the scoping it needs. Timing: before applied Lean libraries arrive (S2 2028, S3 2027) the realistic check is a few dozen kinetic-theory specialists reading long manuscripts, and absorption of deep results takes 1-3 years (tr-position-5). Hence S2 2028, S3 2027, S1 2029.",
+    "revision_note": "B-math-frontier: [skeptic] S1 2028 -> 2029, S2 2027 -> 2028: 363/364 are manuscript-only, PDE formalization is 3/16, the realistic check before applied Lean libraries is a few dozen specialists, absorption takes 1-3 years (tr-position-5); S3 kept at 2027 (Lean route, infra-mathlib-applied S3 2027). Gate kept as formalization. [advocate, rejected] S2/S3 band High: the band keeps the sibling semantics (results checked and confirmed), which carries the T1 drop; the higher chance of a check either way is now stated in why. Hard edge into hyper-kinetic-solver-certification (entry branch) recommended soft; left for that branch."
+   }
+  },
+  {
+   "id": "astro-catalog-dynamics-results",
+   "patch": {
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "premise_tier": "T1 (146, 343, and 143's uniform-bound headline); T3 (347 three-fixed-point counterexample; 143 only for quintic Lienard systems)",
+    "status_oct2026": "146 is T1 (manuscript only); 343 is T1. 347 is T3: the agent-written Lean proof covers a Hamiltonian diffeomorphism of the complex quadric threefold with exactly three fixed points, while the separate Morse-number construction is not formalized. 143's Lean part covers only quintic Lienard systems x'=y-F(x), y'=-x (at most two limit cycles, sharp); the uniform bound for planar polynomial fields is manuscript-only (T1). No outside Comparator report as of Oct 7, 2026. The release contains nothing on n-body dynamics, KAM theory for the three-body problem, or Arnold-diffusion rates.",
+    "why": "Band refers to the results becoming established (T4 for the Lean parts, outside endorsement (T2) for the manuscripts); it is Medium in every scenario because 146, 343 and the uniform-bound headline of 143 are T1 (one band down, as for the sibling confirmation nodes). Their astro implication is separately judged nil-to-Low. The standard map is the textbook model of resonance overlap (Chirikov criterion), used heuristically to judge where near-resonant orbits turn chaotic; if 146 holds (conditional, T1), chaos there is measure-theoretically real, not a numerical artefact. 347 limits what periodic-orbit existence theorems can promise for Hamiltonian maps; 343 bounds symplectic phase-space packing (conditional). None yields a stability region, timescale or station-keeping number for a real orbit, so the downstream astro effect is confidence only (P5).",
+    "revision_note": "B-math-frontier: [skeptic+auditor] Bands High -> Medium in every scenario: two of four headline results are T1 and 143 is formalized only for quintic Lienard systems (lean/docs/143.md, checked), so the sibling T1 drop applies. [auditor] premise_tier and status corrected for the 143 and 347 statement gaps (lean/docs/347.md checked). [advocate keep-High-by-scoping rejected: 143 Lean scope does not support it.]"
+   }
+  },
+  {
+   "id": "verif-game-solving-synthesis",
+   "patch": {
+    "description": "Family 104 claims quasipolynomial algorithms for mean-payoff, stochastic and parity games; its Lean part covers only a randomized algorithm for mean-payoff games. These games are the back end of reactive synthesis (building mode logic from temporal-logic specs) and of probabilistic model checking (fault management under random failures).",
+    "status_oct2026": "Family 104's Lean main result covers only a randomized quasipolynomial algorithm (success probability at least 7/8) for the zero-threshold winning set of finite mean-payoff games with signed binary weights, plus a counterexample to Truffet's elimination procedure (lean/docs/104.md); that part is T3, unchecked by outsiders. The stochastic-game and parity claims are manuscript-only (T1). Parity games have had quasipolynomial algorithms since 2017 (general). Practical solvers (strategy iteration, value iteration) already handle engineering-sized instances.",
+    "premise_tier": "T3 (randomized mean-payoff algorithm, Lean scope); T1 (stochastic games: conditional)",
+    "pathway": "P4 (theory only; practical effect nil)",
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "why": "Once independently checked (T4), the mean-payoff result resets the worst-case complexity map for quantitative synthesis; tool builders will cite it as a worst-case upper bound. The probabilistic model-checking implication rests on the stochastic-game part and is conditional (T1). Bands are one step below a checked result for that reason, in every scenario. The node is the result being established and known. Its effect on flight-verification practice is near nil: the 2017 quasipolynomial parity algorithms did not beat Zielonka-type solvers on benchmarks (van Dijk, TACAS 2018).",
+    "revision_note": "B-math-frontier: [auditor] 104 statement gap (lean/docs/104.md, checked): Lean covers only a randomized quasipolynomial algorithm for mean-payoff games plus a Truffet counterexample; stochastic and parity claims are manuscript-only (T1). Bands High -> Medium in every scenario (the engineering link runs through stochastic games, conditional). [skeptic] pathway P3 -> P4 (an algorithm is an upper bound, not a ceiling); wording fixed."
+   }
+  },
+  {
+   "id": "struct-elasticity-fracture-foundations",
+   "patch": {
+    "description": "Independent confirmation of the release's elasticity and fracture results: smooth isotropic Lame moduli are uniquely determined by boundary measurements (372); metric and connection recovery from one boundary patch, plus a conductivity nonuniqueness theorem from full boundary data (365); regularity of planar Mumford-Shah crack sets (366); the 3D Ball-Evans approximation problem (368).",
+    "status_oct2026": "372, 366 and 368 are T1 (manuscript only). 365's Lean part (T3, unchecked by outsiders) is nonuniqueness for bounded measurable, uniformly positive scalar conductivities on a 3D ball: two conductivities differing on a set of positive volume have identical full Dirichlet-to-Neumann maps. The metric-and-connection recovery from one boundary patch is manuscript-only (T1). No outside Comparator report as of 2026-10-07. PDE formalization is weak in the release (3 of 16 PDE families).",
+    "premise_tier": "T1 (372, 366, 368, and 365's recovery half); T3 (365 conductivity nonuniqueness)",
+    "why": "These four families are the release's only direct contact with structural mechanics. 372 tells inspection engineers that full boundary data determine elastic stiffness in principle; it says nothing about how stably, and Calderon-type problems are typically only logarithmically stable (general), so it raises confidence without changing tools. 366 underpins the Griffith/Francfort-Marigo variational fracture energies behind phase-field fracture codes: minimizing crack sets are well-behaved in 2D. 368 is a technical tool for nonlinear-elasticity existence and approximation theory (invertible deformations), relevant to large-deformation finite elements. The conductivity half of 365 is a negative result: some bounded measurable conductivities cannot be recovered even from full boundary data (T3). This limits electrical-resistance damage sensing in carbon-fiber structures only if real laminate damage fields fall in such rough classes (judgment). Under S2, AI-assisted formalization of PDE catches up (2028), so confirmation by 2031 is likely. The 372, 366, 368 and 365-recovery parts are conditional (T1, no Lean main results), so bands are one step down.",
+    "revision_note": "B-math-frontier: [auditor] 365 statement gap (lean/docs/365.md, checked): the Lean part is scalar-conductivity nonuniqueness from the full Dirichlet-to-Neumann map (T3); metric-and-connection recovery from one patch is manuscript-only (T1). Description, status, why and premise_tier corrected; bands unchanged (already one step down)."
+   }
+  },
+  {
+   "id": "materials-dft-limits",
+   "patch": {
+    "description": "Theorems marking where Kohn-Sham density functional theory (DFT), and any efficient universal method for electronic energies, must fail: some ensemble densities have no Kohn-Sham representation (278), the ground-state energy of continuum Coulomb systems is QMA-hard (275), and an atom can bind only a bounded number of extra electrons (263, conditional; only its large-ionization asymptotics are formalized).",
+    "status_oct2026": "Claimed in openai/math (Oct 6, 2026). 278 and 275 are manuscript-only (T1). 263's Lean part covers only large-ionization asymptotics for the nonrelativistic two-spin Coulomb atom (I_m(Z)/m^(7/3) tends to a Thomas-Fermi constant), T3; the bounded-excess-charge (ionization conjecture) headline is manuscript-only (T1). No named outside expert endorsement or Comparator run found as of Oct 7, 2026.",
+    "premise_tier": "T1 (278, 275, 263 headline); T3 (263 asymptotics only)",
+    "why": "DFT is the workhorse for screening alloys, ceramics, semiconductors, battery electrolytes and propellant chemistry. If 278 holds, some ensemble densities have no Kohn-Sham representation even with the exact functional; whether physically relevant open-shell or defect systems fall in that class is not shown (conditional, speculative mapping). If 275 holds, no efficient classical or quantum algorithm computes ground-state energies of all molecules and solids, assuming QMA is not contained in BQP. Ceiling results act within months (P3): they tell method developers to stop seeking one universal functional and to invest in domain-specific, data-driven corrections and targeted high-level methods. Band: P3 defaults to High; one band down in every scenario because the ceilings are conditional on 278 and 275 (T1). Formalization of continuum quantum mechanics catching up by ~2028 (S2/S3) speeds checking but does not raise the chance that an unverified result is correct.",
+    "revision_note": "B-math-frontier: [auditor] 263 statement gap (lean/docs/263.md, checked): Lean covers only large-ionization asymptotics; the bounded-excess-charge headline is T1. [skeptic] 278 mapping to named materials removed (existence theorem does not identify affected materials); 275 complexity assumption stated explicitly. Bands unchanged."
+   }
+  },
+  {
+   "id": "struct-hot-spots-thermal-modes",
+   "patch": {
+    "status_oct2026": "T1 (manuscript only). Human results cover special classes: all Euclidean triangles (Judge-Mondal, Annals 2020; erratum 2022), lip-type and symmetric domains in higher dimensions (TAMS-B Apr 2026), convex hyperbolic domains with small eigenvalues, trapezoids and kites. A certified-numerics project (cert-machine, Zenodo, Oct 5 2026, not refereed; machine-derived with Claude, not from family 369) certified a non-symmetric convex trapezoid case.",
+    "revision_note": "B-math-frontier: [auditor] Status completed with the best-known human result (all Euclidean triangles, Judge-Mondal) and cert-machine provenance."
+   }
+  },
+  {
+   "id": "frontier-nn-verification-complexity",
+   "patch": {
+    "description": "A substantially complete complexity map for verifying the properties of neural networks used in perception and control (robustness, reachability, Lipschitz bounds), including which architectures or training regimes make verification tractable.",
+    "calibration_note": "A3 note superseded (B-math-frontier, auditor): the scorecard internal-model cap (Medium unless a public model of similar capability exists) is lifted because every scenario makes research-grade capability public before 2031 (S2/S3 2027, S1 2028). If that premise fails, these bands drop to Medium.",
+    "why": "Ceilings tell assurance architects that exact verification of large perception networks will not scale (exponential in input dimension under ETH). That confirms the existing practice of runtime assurance (simplex wrappers; ASTM F3269, 2017 and 2021; verif-runtime-assurance) and verifiable-by-construction controllers rather than pushing designs toward it; the P3 effect is expectation-setting only. Positive results on tractable classes feed verif-nn-verification-scale. Complexity theory is the area where AI math is already strongest (40 TCS families, 20 with Lean).",
+    "revision_note": "B-math-frontier: [skeptic] \"complete\" -> \"substantially complete\"; runtime assurance is already standard (ASTM F3269), so the ceiling confirms practice rather than pushing it. [auditor] internal-model calibration note rewritten."
+   }
+  },
+  {
+   "id": "verif-skolem-positivity",
+   "patch": {
+    "band_2031": {
+     "S2": "Low"
+    },
+    "pathway": "P3",
+    "status_oct2026": "Open. Skolem is decidable only up to order 4, and Positivity up to order 5 (Ouaknine-Worrell 2014); extending Positivity to order 6 would require major breakthroughs in Diophantine approximation of transcendental numbers. Some results are conditional on number-theoretic conjectures (general). Not in the openai/math catalog.",
+    "signpost": "A lab, Hexagon or arXiv claim with a Lean statement deciding Skolem at order 5 or above, or Positivity at order 6 or above; verification-tool papers citing it within a year.",
+    "why": "Either a decision procedure or an undecidability proof would fix the ceiling for exact, unbounded verification of linear loops with rational coefficients, and would feed invariant generators and termination provers. It sits at the intersection of logic and number theory, where the Sep-Oct 2026 releases show progress, but the order-6 barrier is a known one, unlike unforced Navier-Stokes, so the S2 band is one below that node (Low). Bands reflect the chance an AI system settles it by 2031, not that it changes flight practice.",
+    "revision_note": "B-math-frontier: [skeptic+auditor] Signpost fixed: Positivity is already decidable up to order 5 (Ouaknine-Worrell, SODA 2014), so it would have fired on a known result; order 6 needs breakthroughs in Diophantine approximation, a known barrier, so S2 band Medium -> Low (S3 stays Medium). Unsupported status sentence removed. [skeptic] pathway P3->P6 -> P3 (tool effect near nil)."
+   }
+  },
+  {
+   "id": "frontier-applied-posing",
+   "patch": {
+    "earliest_year": {
+     "S2": "2028",
+     "S3": "2028"
+    },
+    "status_oct2026": "No applied problem bank exists at that scale. The Oct 6 problem set was pure-math-skewed: 16 PDE and 12 dynamics families of 372; formalized 3 of 16 and 2 of 12. First applied formal benchmarks: CAM-Bench (May 2026, 1,000 Lean targets in optimization, numerical linear algebra, numerical analysis; textbook-level, many concepts missing from Mathlib) and StochBench (Sep 2026, 450 stochastic-process problems; best agent 34.9%). Ilin (Mar 2026) formalized a Vlasov-Maxwell-Landau equilibrium result in 10 days for ~$200 with agents, one mathematician, 229 prompts and zero human-written code; the failure modes were 'hypothesis creep' and 'definition-alignment bugs' (posing errors) plus agent avoidance behaviors.",
+    "why": "For most applied problems the hard step is the statement, not the proof: which norm, which regime, which idealization. The catalog shows capability on hard PDE (362 Vlasov-Maxwell, the forced Navier-Stokes blowup), so the scarcity of applied results reflects what was posed. Under S2 models pose candidate statements from engineering context and agents build missing library pieces (Urban 2026: 130k lines of topology in the Megalodon prover, not Lean, in two weeks for ~$100). Textbook-level applied targets already exist (CAM-Bench), so the new content must be engineering-derived problems, which ITAR/EAR and proprietary rules keep in-house: export control keeps problems out of open banks, not out of internal posing. Posing at scale is an adoption step after public access (P1 lag), so 2028 in S2 and S3. Human review of definitions remains essential (Ilin). This node gates frontier-math-unbinds, accelerates frontier-xc-certified and capability-engineering-adoption, and feeds P2 verification chains through formal specification work (verif-spec-engineering).",
+    "signpost": "NASA, ESA, DARPA or AIAA publishes a formally stated applied open-problem bank (500+ problems), or a lab releases 50+ PDE/numerics/UQ/control families in one release, or a vertically integrated operator or prime reports internal AI-posed analysis at scale (100+ formally stated design or GNC problems per program).",
+    "revision_note": "B-math-frontier: [skeptic] S2 2027 -> 2028, S3 2027 -> 2028: adoption-gated posing cannot land in the year of public access (P1 lag 0-2 years; capability-engineering-adoption, the same engineers, is S2 2028). CAM-Bench already has 1,000 textbook-level Lean targets, so the new content must be engineering-derived. \"Gates every P2 chain\" replaced (no such edges; soft edge to verif-spec-engineering requested from verified-autonomy). [advocate] signpost alternative for internal posing at vertically integrated operators. [auditor] Ilin failure list completed; Urban library is in Megalodon, not Lean."
+   }
+  },
+  {
+   "id": "frontier-hjb-guarantees",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028"
+    },
+    "status_oct2026": "Viscosity-solution theory is mature (general). State-constrained and hybrid HJB regularity is partial. Grid solvers scale exponentially: 100 points per axis in 6 dimensions is 10^12 nodes. Neural and tensor solvers mostly lack guarantees, though verifiable error bounds for PINN Lyapunov/HJB solutions appeared (Liu, Mar 2026), along with policy iteration under control constraints (Kundu-Kunisch, Sep 2026). Catalog (weak links): 104 randomized quasipolynomial mean-payoff games (T3 for the Lean scope; the stochastic-game claim is T1, conditional) is the discrete analogue, though 104 is outside the space-math map; 139 log-concave sampling (T3) bears only on sampling-based solvers.",
+    "why": "GNC teams mostly need bespoke guarantees, such as a reachable-set bound for one vehicle or a stability certificate for one controller. These are expert-scarce rather than open and easier than catalog problems. With research-grade applied math public (S2: 2027) they become on-demand, and with the P1 adoption lag and a publication cycle the first guidance study using them lands about 2028; they can be checked formally once infra-mathlib-applied matures. Deterministic error bounds for a neural HJB solution require bounding the PDE residual over the whole state domain, which is itself a neural-network range or Lipschitz verification problem (frontier-nn-verification-complexity), whose exact worst-case cost grows exponentially with input dimension under ETH; expect deterministic certificates for small networks at about 6 states and statistical certificates beyond (12-13 states for 6-DOF relative motion). Downstream: astro-scp-guarantees, verif-closed-loop-guarantees, hyper-certified-edl-guidance, astro-autonomous-ca-at-scale.",
+    "revision_note": "B-math-frontier: [skeptic] S1 2029 -> 2030, S2 2027 -> 2028, S3 2027 -> 2028: P1 lag (0-2 years) after its only prerequisite, and the signpost needs a published guidance study using the bound. NN-verification ceiling on deterministic residual bounds added. [advocate: HJB right at S2 2027, rejected for the lag.] [auditor] 104 status corrected (T3 only for the randomized mean-payoff part); both families labeled weak links."
+   }
+  },
+  {
+   "id": "frontier-rare-event-certified",
+   "patch": {
+    "binding_gate": "adoption",
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028"
+    },
+    "status_oct2026": "Practice uses multilevel Monte Carlo, subset simulation and importance sampling with asymptotic or sample-based guarantees (general). Conjunction assessment at scale relies on Gaussian approximations (Starlink: 207,152 collision-avoidance maneuvers in Dec 2025-May 2026, after 148,696 in Jun-Nov 2025), and space-weather drag uncertainty feeds directly into Pc (Parker et al. 2024). Catalog: 139 subpolynomial-query log-concave sampling (T3) and 140 memory-sample lower bounds for regression (T3) give ceilings. 360 Villani convexity/regular OT (T3) and 374 sharp 1/3 stability of OT maps (T1) bound transport-map filters (weak link).",
+    "why": "Certified estimators are mostly expert-scarce, so on-demand AI unlocks them, but not fully: non-asymptotic bounds for black-box, high-dimensional, non-Gaussian simulators are partly open, since importance sampling degenerates in high dimension (Au-Beck 2003, general) and guaranteed bounds need regularity constants that FEM codes and propagators do not supply. Low-dimensional cases such as Pc are within reach. Data bind the answers, not the methods: no estimator beats the information in the data. Demonstrating 0.99 reliability at 90% confidence with zero failures takes ln(0.1)/ln(0.99) = 230 tests unless a validated physics model carries the extrapolation. Operators with hardware-rich fleets (Starlink, reusable stages) hold the data, so adoption binds for them first. Structural example (data-gated, already partly realized): NASA's Shell Buckling Knockdown Factor project used 8 subscale and 2 full-scale cylinder tests plus imperfection-based analysis to raise knockdown factors for stiffened launch-vehicle barrels, now used on the SLS core stage with mass and cost savings (NASA, no figure given). Certified imperfection statistics extend that credit to new shells only with measured imperfection data from the production line: the math supplies the certificate and the tests supply the number. (A blanket 0.65 has been used in NASA studies of composite shells and is now flagged as possibly unconservative; the thickness scaling t ~ sqrt(1/knockdown) holds only for unstiffened cylinders in axial compression.) The transport-map filter link via 374 is conditional (T1). Downstream: astro-nongaussian-uq-certified, hyper-certified-margin-uq, materials-allowables-stats-framework, prop-life-twin.",
+    "revision_note": "B-math-frontier: [skeptic] Structural example replaced: the 0.65 -> 0.8 knockdown gain was already realized by NASA SBKF through tests (data gate), and 0.65 is not a monocoque launch-vehicle value (SP-8007 gives ~0.18-0.32 at R/t 500-1500); SBKF facts checked on the NASA and NTRS pages. S1 2029 -> 2030, S2/S3 2027 -> 2028 (signpost is an adoption event; P1 lag). [advocate] gate data -> adoption (\"data bind the answers, not the methods\"); hardware-rich operators sentence; soft edge to physclock-optimal-test-campaigns requested from the certification branch. [auditor] Starlink figure updated to match research/astro.json and verif.json; 374 marked conditional in why."
+   }
+  },
+  {
+   "id": "frontier-certified-pde-error",
+   "patch": {
+    "signpost": "Guaranteed (non-asymptotic) a posteriori bounds within 10x of the true error, published for a nonlinear thermal-structural or laminar-flow benchmark of spacecraft relevance and derived on demand by an AI system.",
+    "why": "The methods exist in pieces. Applying them per problem (deriving the estimator and the constants for a given nonlinear operator) is expert-scarce, and AI does it on demand once applied math is public. The gain is a guarantee, not compute: a three-level grid study (refinement ratio sqrt(2) to 2, 3D steady) adds only ~15-50% to a fine-grid production solve (3-10x only when production runs on the medium grid), and a guaranteed estimator itself costs roughly one extra adjoint or flux-equilibration solve (general). Residual-based bounds are solver-agnostic, so they also certify outputs of learned emulators and reduced-order models (capability-learned-emulators); the bound is cheap online only for affinely parametrized problems, as in certified reduced-basis methods (Rozza-Huynh-Patera 2008, general). The rigorous-numerics machinery built for computer-assisted blowup proofs (frontier-euler-blowup-r3) is the same stack. Credit in standards such as NASA-STD-7009 is a separate adoption step (capped at Medium; prop-cfd-auto-vv). Downstream: hyper-verified-aerothermal-numerics, plasma-verified-kinetic-numerics, prop-cfd-auto-vv, materials-multiscale-certified, and frontier-certified-turbulent-cfd.",
+    "revision_note": "B-math-frontier: [skeptic] Grid-study cost corrected (a three-level study adds ~15-50% to a fine-grid solve: 1 + 1/r^3 + 1/r^6 = 1.14 at r=2, 1.48 at r=sqrt 2; arithmetic checked). [auditor] signpost made method-level; the NASA-STD-7009 credit belongs to downstream adoption nodes (prop-cfd-auto-vv). With the certification alternative removed, the High band rates method availability (P1) and stays. [skeptic S2 2029/Medium and advocate S3 2027 both rejected: P1 nodes land one year after public applied math in S2 and S3.] [advocate] solver-agnostic bounds also certify emulator outputs (folded in here instead of a new frontier-certified-surrogates node); soft edge from frontier-euler-blowup-r3 (computer-assisted proof machinery)."
+   }
+  },
+  {
+   "id": "frontier-scalable-global-certificates",
+   "patch": {
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium"
+    },
+    "premise_tier": "n/a (capability premise); 102 (T3) is ceiling context only",
+    "why": "Certificates for specific instances are not ruled out by worst-case hardness, so frontier-approx-ceilings is context, not a prerequisite. Exploiting problem structure (sparsity, symmetry, term sparsity) is expert-scarce, technique-heavy work that compounds under S2. Scale binds: multi-gravity-assist dynamics are transcendental (Kepler/Lambert) and need polynomial surrogates with rigorous remainders; a degree-4 relaxation in 100 variables has C(104,4) = 4.6 million moment variables, so only first-order solvers apply, and their floating-point output is a certificate only after rigorous rounding (Jansson-Chaykin-Keil 2007, general; infra-verified-numerics helps). P4 default is Medium at best; S3 is raised to High because cognitive work is near-free from ~2029. Downstream: verif-onboard-optimizer-certificates, astro-trajectory-design-on-demand, comms-constellation-design-optimizer, and design-space closure for prop-ai-engine-design-loop. The value is assurance and an end to search; gains, if any, are limited to closing gaps that local multistart missed, so on mature benchmarks expect assurance, not percent-level delta-v (judgment).",
+    "revision_note": "B-math-frontier: [skeptic+auditor] S2 band High -> Medium (P4 default is Medium at best; signpost far beyond the Jul 2026 CR3BP demonstration). [skeptic] S1 Medium -> Low; frontier-approx-ceilings hard -> soft (worst-case ceilings do not gate instance certificates); infra-verified-numerics added as soft (rigorous rounding of SDP output is needed but can be done outside Lean, VSDP-style, so not a hard prerequisite); unsupported \"few percent\" gain removed. [auditor] premise_tier. Soft edge into cap-design-optimization (advocate) requested from trunk."
+   }
+  },
+  {
+   "id": "frontier-transport-certified",
+   "patch": {
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium"
+    },
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "why": "The mathematical gap is partly open: rank-truncation error control for dynamical low-rank solvers and uniform-in-epsilon error estimates for asymptotic-preserving schemes lack general theory; the rest is expert-scarce and falls once applied math is on demand. The effect is lower V&V cost and certified low-rank solvers fast enough for design loops, not better dose accuracy. Pull is weak: DRACO, the nuclear-thermal flagship, was cancelled in 2025, and crew dose is already validated blind (Artemis I), so use in a design trade (the signpost, P6) is Medium at best in S2. Downstream: hyper-radiation-kinetics (radiative heating), prop-ntp-fuel-model (neutronics), materials-see-system-models (single-event effects).",
+    "revision_note": "B-math-frontier: [skeptic+auditor] S2 band High -> Medium: the signpost (certified solver used in a design trade) is a P6 endpoint (default Low) with weak pull (DRACO cancelled 2025; crew dose already validated blind). [skeptic] S1 Medium -> Low; S3 2027 -> 2028 (data and adoption gates do not compress before 2028); \"expert-scarce rather than deep\" replaced with the open pieces."
+   }
+  },
+  {
+   "id": "frontier-inverse-stability",
+   "patch": {
+    "catalog_families": [
+     "372",
+     "365",
+     "366"
+    ],
+    "status_oct2026": "Catalog: 372 global uniqueness for smooth isotropic Lame moduli from boundary data (T1); 365 metric-plus-connection recovery from one boundary patch (T1) and, in its Lean part, nonuniqueness of bounded measurable scalar conductivities from full boundary data (T3); 366 planar Mumford-Shah crack regularity (T1). Uniqueness typically comes with only logarithmic stability for Calderon-type problems, and that rate is optimal (Mandache 2001, general), which is why practice relies on regularized inversion calibrated by test.",
+    "premise_tier": "n/a (capability premise: bespoke stability estimates on demand); 372, 366 and 365-recovery are T1 conditional side links; 365 conductivity nonuniqueness is T3",
+    "pathway": "P1->P6",
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "why": "Uniqueness says the data suffice in principle; stability constants for a given sensor layout say how many sensors and what noise level are needed. Deriving them is bespoke, expert-scarce work AI does on demand (P1). Known theory sets the band: Calderon-type problems have only logarithmic stability (optimal, Mandache 2001); Lipschitz stability holds when damage is described by finitely many parameters (Alessandrini-Vessella 2005), but the constants grow exponentially with the number of unknowns (Rondi 2006), so sensor-count answers will often be impractically large outside coarse damage models (general). That, plus the P6 step to flight use, keeps the band at Medium in S2 and S3. Results resting on 372, 366 and the recovery half of 365 are conditional (T1). Downstream (soft): hyper-tps-inverse-nde, materials-am-digital-twin-qual, struct-shm-inverse-limits.",
+    "revision_note": "B-math-frontier: [skeptic] catalog_families 368 and 369 dropped (Ball-Evans is approximation, hot spots is spectral, neither is inverse stability); band now grounded in known stability theory (Mandache 2001; Alessandrini-Vessella 2005; Rondi 2006) instead of the T1 drop; S3 2027 -> 2028 (data gate). [advocate, partly accepted] premise is the capability, not the T1 families; Lipschitz stability for finitely parametrized damage added; band increase to Medium/High/High rejected: the stability constants grow exponentially with the number of unknowns, so sensor-count answers are often impractical, and the signpost is flight use (P6); the consumer edges are soft, not hard. [auditor] 365 scope corrected. Pathway P5->P6 -> P1->P6."
+   }
+  },
+  {
+   "id": "frontier-xc-certified",
+   "patch": {
+    "title": "Density functionals with certified error bars",
+    "description": "Exchange-correlation functionals, learned or constructed, with statistically certified (conformal or Bayesian) error bars relative to a stated reference method (CCSD(T) or QMC) on defined chemical classes relevant to space (propellants, ablators, high-temperature alloys, electrolytes), within the limits set by hardness results. Proven two-sided bounds are out of reach: CCSD(T) has no rigorous error bound and fixed-node DMC gives only a variational upper bound.",
+    "status_oct2026": "The exact functional exists, but computing it is QMA-hard on lattice models (Schuch-Verstraete 2009, general). The catalog claims tighter limits: 275 QMA-hardness of continuum Coulomb energy (T1) and 278 failure of Kohn-Sham ensemble representability (T1); also 263 ionization asymptotics (T3; the bounded-excess-charge headline is T1). Learned functionals now beat hybrids at semi-local cost: Skala reaches 2.8 kcal/mol on GMTKN55 (Luise et al., Jun 2025) and was implemented in CP2K in Aug-Sep 2026. None carries an error certificate.",
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028"
+    },
+    "band_2031": {
+     "S3": "High"
+    },
+    "why": "The hardness results say no universal efficient functional exists. This is established for lattice models (Schuch-Verstraete 2009, general) and claimed, conditionally, for continuum Coulomb systems (275, T1) and ensemble Kohn-Sham (278, T1). So the path is class-restricted functionals with statistical certificates against high-accuracy wavefunction references. That needs no new physics theory: distribution-free calibration on a held-out class is routine applied statistics (general), and the reference data are generated by compute rather than experiment, cheaply for molecular propellant chemistry and expensively for solids and alloys, which is where the data gate binds. Defining the class is domain judgment (frontier-applied-posing helps). The signpost also needs adoption by a propulsion or materials group, so S2 2028 (Medium), S3 High with abundant compute. Downstream: materials-learned-functionals, hyper-gas-surface-chemistry, materials-energetics-design. Overlaps materials-dft-limits, which owns the hardness side.",
+    "signpost": "A functional published with a statistically certified error bound (conformal or Bayesian, against a stated reference method) on a defined chemical class and adopted by a propulsion or materials group.",
+    "revision_note": "B-math-frontier: [skeptic+advocate] Rescoped to statistically certified (conformal or Bayesian) error bars against a stated reference method; \"provable\" two-sided bounds are not reachable by 2031. [advocate] cap-physics-theory hard -> soft and cap-applied-math added as hard (class-restricted statistical certification is applied statistics plus compute-generated reference data); S1 >2031 -> 2030, S2 2029 -> 2028, S3 band Medium -> High. [skeptic] frontier-applied-posing hard -> soft (defining a chemical class is domain judgment). [auditor] hardness ceilings marked conditional; 263 scope corrected."
+   }
+  },
+  {
+   "id": "frontier-math-unbinds",
+   "patch": {
+    "why": "Under S2 the cognitive clock runs years ahead of the physical one. Engineering math needs, mostly easier than the catalog, are met by about 2028-29, and the binding constraints become tests, data and qualification (fc-position-3; tl-position-4). Scale (judgment on general shares): analysis and V&V take ~20-30% of development engineering hours; if about half of that is mathematical work AI can take over, S1 (~2x) saves ~5-8% of engineering hours and S2 (5-10x) ~8-14%, which is roughly 2-7% of program cost when engineering labor is ~30-50% of development cost (general). On schedule, the design-and-analysis line of the trunk's Amdahl table (15% of the critical path at 10x in S2) is worth ~13 of the ~38 points of S2 compression; most of the rest comes from non-math cognitive work (requirements, trades, software) and small physical gains. This is the domain's main point for readers: the exponential mostly accelerates what was never the long pole. The node does not require certification credit; replacing specialist analysis as certification evidence waits for infra-tool-qualification (S2 2030) and is capped at Medium. Leading adopters are vertically integrated operators that own or route to frontier models and need no certifying authority for their own mission assurance.",
+    "signpost": "A prime contractor, NASA center or vertically integrated operator reports that AI-produced, human-reviewed analysis (stability proofs, error bounds, optimality certificates) has replaced most specialist math effort in design iteration and trade studies on a flight program, under its own engineering sign-off rather than certification credit.",
+    "revision_note": "B-math-frontier: [skeptic alternative + advocate] Signpost rescoped to design iteration and trade studies under the program's own sign-off, so it needs no certification credit and the Medium cap does not apply; certification use of AI proofs is infra-tool-qualification (added as a soft link). Years and bands kept: S2 Medium (advocate High rejected: sweeping organizational claim over seven correlated hard prerequisites, two adoption-gated), S3 High (skeptic and auditor Medium rested on the certification cap, removed by the rescope). [skeptic+advocate] \"halves\" arithmetic replaced: S2 is 5-10x on cognitive work, and hours are not program cost. [auditor] lettered position citation fixed. Soft edges to trunk outcomes requested from trunk."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "id": "frontier-ns-clay-cd-ruling",
+   "title": "Clay rules on the forced Navier-Stokes breakdown claim",
+   "tier": 1,
+   "kind": "math",
+   "description": "The Clay Mathematics Institute states whether OpenAI's Sep 8, 2026 forced blowup result satisfies its official breakdown statements (C)/(D), which permit a smooth, decaying force. Clay rules need publication in a qualifying outlet, two years, and general acceptance. OpenAI says it will not claim the prize, so the ruling may come only as a change to Clay's 'unsolved' listing. This is the event readers will hear as 'AI solved Navier-Stokes'. Its engineering effect is nil.",
+   "status_oct2026": "Clay still lists Navier-Stokes as unsolved; its president Martin Bridson called the evaluation 'deliberately unhurried' and 'absolutely rigorous'. OpenAI says the result establishes statement (C), and also (D), and will not pursue the prize. The underlying Lean claim is T3 with no independent Comparator run or statement audit; the manuscript is not yet published in a refereed outlet.",
+   "catalog_families": [],
+   "prerequisites": [
+    "prop-ns-forced-verified"
+   ],
+   "accelerated_by": [],
+   "binding_gate": "adoption",
+   "pathway": "P5 (science only)",
+   "earliest_year": {
+    "S1": "2029",
+    "S2": "2029",
+    "S3": "2029"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Low",
+    "S3": "Low"
+   },
+   "premise_tier": "T3 (forced NS Lean claim, pending independent check)",
+   "why": "Chain: a Comparator run and statement audit (prop-ns-forced-verified, T4), then refereed publication (earliest 2027), then the two-year rule and general acceptance, then a Clay statement. The institutional clock runs at 1.0x in every scenario, so the earliest year is 2029 in all three. Band Low (judgment, not a computed probability): the check is likely, but publication of a 166-page manuscript, Clay's unhurried review, open questions about whether the force meets (C)'s decay conditions on [0, infinity), and the lack of a claimant make a Clay statement by 2031 less likely than not. Separates the reader-facing 'Millennium problem' headline from frontier-ns-unforced, the force-free question most analysts mean. Engineering effect nil (tl-position-2).",
+   "strongest_case_small": "Clay may never rule if nobody claims the prize, and most mathematicians already treat the unforced question as the real problem, so the ruling changes nothing for mathematics or engineering beyond headlines.",
+   "signpost": "A Clay Institute statement, or a change to its Millennium Problems listing, on whether the forced result satisfies (C)/(D); a refereed publication of the OpenAI manuscript starts the two-year clock.",
+   "domain": "frontier",
+   "revision_note": "B-math-frontier: [auditor] New node: separates the Clay (C)/(D) ruling on the forced claim from the unforced question. Band lowered from the auditor's Medium to Low (publication plus two-year rule plus unhurried review plus no claimant; 1.0x institutional clock). Clay facts checked (implicator.ai)."
+  }
+ ],
+ "remove_edges": [
+  {
+   "from": "frontier-euler-blowup-r3",
+   "to": "frontier-ns-unforced"
+  },
+  {
+   "from": "prop-ns-forced-verified",
+   "to": "frontier-ns-unforced"
+  },
+  {
+   "from": "frontier-euler-blowup-r3",
+   "to": "frontier-mhd-wellposedness"
+  },
+  {
+   "from": "frontier-approx-ceilings",
+   "to": "frontier-scalable-global-certificates"
+  },
+  {
+   "from": "cap-physics-theory",
+   "to": "frontier-xc-certified"
+  },
+  {
+   "from": "frontier-applied-posing",
+   "to": "frontier-xc-certified"
+  }
+ ],
+ "add_edges": [
+  {
+   "from": "verif-independent-check",
+   "to": "frontier-euler-blowup-r3"
+  },
+  {
+   "from": "verif-independent-check",
+   "to": "frontier-kinetic-global-regularity"
+  },
+  {
+   "from": "cap-applied-math",
+   "to": "frontier-xc-certified"
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "frontier-euler-blowup-r3",
+   "to": "frontier-ns-unforced"
+  },
+  {
+   "from": "prop-ns-forced-verified",
+   "to": "frontier-ns-unforced"
+  },
+  {
+   "from": "frontier-euler-blowup-r3",
+   "to": "frontier-mhd-wellposedness"
+  },
+  {
+   "from": "frontier-approx-ceilings",
+   "to": "frontier-scalable-global-certificates"
+  },
+  {
+   "from": "infra-verified-numerics",
+   "to": "frontier-scalable-global-certificates"
+  },
+  {
+   "from": "cap-physics-theory",
+   "to": "frontier-xc-certified"
+  },
+  {
+   "from": "frontier-applied-posing",
+   "to": "frontier-xc-certified"
+  },
+  {
+   "from": "frontier-euler-blowup-r3",
+   "to": "frontier-certified-pde-error"
+  },
+  {
+   "from": "infra-tool-qualification",
+   "to": "frontier-math-unbinds"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "math-frontier",
+   "nodes": [
+    "frontier-ns-clay-cd-ruling"
+   ],
+   "spine": [
+    "frontier-ns-clay-cd-ruling"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "math-frontier",
+   "patch": {
+    "thesis": "If AI settles the headline problems of fluid and kinetic mathematics (Euler blowup, Boltzmann regularity, even unforced Navier-Stokes) and delivers certified error bars on demand, engineers get sharper tools and more confidence from about 2028 in the base case, and math stops being a program bottleneck around 2029. The famous theorems themselves change almost no engine, heat shield or orbit. What reaches engineering codes is the machinery built to prove them (computer-assisted proofs, verified interval numerics) and bespoke guarantees on demand, and it arrives as verification evidence, not performance.",
+    "reader_hook": "An AI agent formalized a Vlasov-Maxwell-Landau result in 10 days for about $200 with no human-written code (one mathematician, 229 prompts); two of its three failure modes (hypothesis creep, definition-alignment bugs) were in stating the problem, not proving it. Only 16 PDE and 12 dynamics families sit among the release's 372, because that is what was posed.",
+    "band_note": "For tier-1 math nodes, band_2031 is the judged chance the result is established (T4 Lean check or T2+ expert acceptance) by 2031; the engineering implication is judged separately in why (usually nil to Low, via P5). For tier-2 applied nodes it is the chance the capability is available and used as the signpost describes. Bands are judgments, not computed probabilities.",
+    "revision_note": "B-math-frontier: [advocate, partly] thesis now dates tools to 2028 and names the computer-assisted-proof spillover; [auditor] reader hook corrected (Ilin: 229 prompts, three failure modes) and band-semantics note added."
+   }
+  }
+ ],
+ "notes": "B-math-frontier resolver (2026-10-07), on graph-v1. Lenses: physics/engineering skeptic, exponential advocate, grounding/fact auditor.\n\nPRINCIPLES USED FOR TIMING\n- Tier-2 applied P1 nodes land one year after public research-grade applied math (cap-applied-math 2027 in S2/S3): P1 lag 0-2 years plus a publication or adoption step. Posing, HJB and rare-event moved to 2028 in S2 and S3; certified PDE error, transport, inverse stability already 2028.\n- S3 equals S2 doubling before 2028. S3 stays a year ahead of S2 only where the binding step is formal infrastructure that the graph already dates a year earlier in S3 (infra-mathlib-applied and infra-verified-numerics at S3 2027): Euler R^3, kinetic regularity, Boltzmann check. Where the binding step is human adoption or citation, S3 = S2 (nonuniqueness map, transport, inverse stability, posing, HJB, rare event).\n- Tier-1 math years include acceptance (check or expert absorption), not just discovery.\n\nFACTS CHECKED BY THE RESOLVER\n- lean/docs/104.md, 143.md, 263.md, 347.md, 365.md on github.com/openai/math: scope statements confirm the auditor's statement gaps (104 randomized mean-payoff only; 143 quintic Lienard only; 263 large-ionization asymptotics only; 347 three-fixed-point counterexample, Morse-number construction excluded; 365 scalar-conductivity nonuniqueness from the full DN map, recovery half unformalized).\n- arXiv 2603.15929 (Ilin): 229 human prompts; failure modes hypothesis creep, definition-alignment bugs, agent avoidance behaviors; 10 days, $200.\n- implicator.ai: Clay still lists NS unsolved; (C)/(D) permit forcing; OpenAI will not pursue the prize; Bridson 'deliberately unhurried'.\n- NASA NESC SBKF page: 8 subscale and 2 full-scale tests; new KDFs used on SLS core stage with mass and cost savings (no figure). NTRS 20240000391: blanket 0.65 used for composite shells in NASA studies, flagged as possibly unconservative. The skeptic's 'about 6% in one flight case' was NOT verified and was not used.\n- Arithmetic: SP-8007 monocoque knockdown 0.18-0.32 at R/t 500-1500; grid study 1.14x (r=2) to 1.48x (r=sqrt 2); C(104,4) = 4,598,126; Amdahl S2 total 37.6% with design-and-analysis worth 13.5 points.\n- Starlink 207,152 / 148,696 maneuvers: matches research/astro.json and research/verif.json. DRACO cancelled 2025: research/physclock.json.\n\nNEW NODES\n- Added: frontier-ns-clay-cd-ruling (auditor), band Low not Medium.\n- Rejected: frontier-wellposedness-on-demand (advocate): a generic subcase of capability-engineering-adoption and frontier-math-unbinds (whose description already lists well-posedness checks), with instance nodes already in other branches (auton-granular-wellposedness, auton-contact-wellposedness, science-beyond-gr-wellposed, plasma-vm-wellposed, frontier-mhd-wellposedness); its value lay in soft edges into other branches' nodes, which this resolver may not add.\n- Rejected: frontier-certified-reference-solutions (advocate): weak mechanism. Similarity and traveling-wave references (Noh, Sedov, Guderley, ZND) are ODE solutions already computable to near machine precision, so certified digits add little; computer-assisted proofs for multi-D shocked reacting flows are not credible by 2031; overlaps prop-cfd-auto-vv. The spillover channel is kept as a soft edge frontier-euler-blowup-r3 -> frontier-certified-pde-error plus text.\n- Rejected: frontier-certified-surrogates (advocate): duplicate of frontier-certified-pde-error (solver-agnostic a posteriori bounds) combined with capability-learned-emulators (which already promises certified bounds). Folded into frontier-certified-pde-error's why; 'small fraction of a solve' holds only for affinely parametrized problems.\n\nCROSS-BRANCH REQUESTS (edges whose target is outside this branch; not applied here)\n1. engines-materials: prop-les-convergence-theory - move prop-ns-forced-verified from prerequisites to accelerated_by (skeptic: the forced-NS check gates nothing in LES theory; the node's own why says no closure changes). Relaxes only.\n2. entry: hyper-kinetic-solver-certification - move hyper-boltzmann-foundations-check from prerequisites to accelerated_by (skeptic: its own why says its band rests on the capability channel). Relaxes only; years still consistent (check now 2029/2028/2027 vs solver >2031/2029/2028).\n3. trunk: add soft edges frontier-math-unbinds -> capability-program-cycle-compression and -> physclock-dev-capital-cut; frontier-certified-pde-error -> capability-learned-emulators; frontier-euler-blowup-r3 -> infra-verified-numerics; frontier-scalable-global-certificates -> cap-design-optimization (advocate).\n4. certification: add soft edge frontier-rare-event-certified -> physclock-optimal-test-campaigns (advocate).\n5. verified-autonomy: add soft edge frontier-applied-posing -> verif-spec-engineering (skeptic; replaces the unsupported 'gates every P2 chain' claim).\n6. Graph-wide (auditor): lettered 'position x' citations do not resolve (KB positions are fc-1..4, tl-1..6, tr-1..5); fix in astro-certified-gnc-toolchain, astro-trajectory-design-on-demand, cap-applied-math, frontier-lattice-crypto-watch, verif-assumption-falsification.\n7. Domain text (prop key insight): 'even a future resolution of the unforced Clay problem' -> 'even a future unforced result' (Clay (C)/(D) allow forcing). Not editable through apply_edits.\n8. Consistency flag: the skeptic's acceptance-lag argument (T1 manuscripts absorbed in 1-3 years) was applied here only where a reviewer raised it with node-specific evidence (hyper-boltzmann-foundations-check). Sibling T1 confirmation nodes in this branch (materials-dft-limits, struct-elasticity-fracture-foundations, struct-hot-spots-thermal-modes, astro-catalog-dynamics-results) remain at S2 2027; a later calibration pass may want to review them together.\n"
+}

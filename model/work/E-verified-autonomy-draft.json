@@ -1,0 +1,1061 @@
+{
+ "notes": "E-verified-autonomy: 2035 horizon and S4 for branch verified-autonomy (32 existing nodes, 4 new). Legacy >2031 resolved: S1 for infra-tool-qualification 2032, prop-verified-engine-software 2033, hyper-certified-edl-guidance 2033, verif-afss-part450 2033, verif-hls-autonomy-certification 2033, verif-new-entrant-advantage 2032, astro-gnc-assurance-cost 2034, verif-nn-verification-scale 2035, verif-mission-loss-rate >2035; S2 for verif-mission-loss-rate 2033. No year <=2031 and no band_2031 changed. S4 equals S3 on every existing node: the binding gates are cognitive, adoption, regulatory, launch or qualification steps that land before robots are useful in aerospace, so none meets the four-condition rule. Only High band_2035 under a regulatory gate: infra-tool-qualification (S2-S4), justified by DO-333 formal-methods credit with DO-330 qualified checkers, a named mechanism already in use. Crewed, engine, EDL and Part 450 nodes stay capped at Medium. New nodes: verif-35-mars-verified-landing (spine), verif-35-standards-proof-route (spine), verif-35-proven-timing-isolation, verif-35-verification-calendar-halved (the branch's only S4 credit, one year). Robo soft edges (skipped until the robots file is applied): robo-24x7-integration-test and robo-requal-standard -> verif-35-verification-calendar-halved; robo-24x7-integration-test -> astro-gnc-assurance-cost; robo-lab-bench-useful -> verif-environment-assumption-models. No hard edges to robo-*. Suggestion for the robots branch (not applied here): verif-runtime-assurance is the natural safety case for learned robot controllers, so a soft edge verif-runtime-assurance -> robo-in-space-assembly or robo-lunar-construction may fit.",
+ "update": [
+  {
+   "id": "astro-formal-astrodynamics-library",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches High by 2035 as its cognition catches up with S2's 2029-30 level. S4 equals S3 because formalization is cognitive work.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Auditor: 'in under four weeks' corrected (it describes manuscript dates); the uncited Lyapunov library now cited (Zenodo, May 31 2026). Years and bands unchanged. | E-verified-autonomy (2035 horizon, S4): band_2035 S1 Medium -> High; S4 equals S3. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-code-proof-agents",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "High in every scenario before 2031, and 2032-35 only widens language coverage (C++, Rust). S4 equals S3 because proof writing is cognitive work.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Advocate: Jul 2026 SPARK and Sep 2026 AdaCore evidence added to status. Auditor: 'in under four weeks' corrected (it describes manuscript dates). Skeptic's S1 2028 -> 2029 rejected: the Jul 2026 SPARK result already shows near-target human effort on new code with existing agents, which supports S1 2028. Years and bands unchanged. | E-verified-autonomy (2035 horizon, S4): no year or band change; note added. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "infra-tool-qualification",
+   "patch": {
+    "earliest_year": {
+     "S1": "2032",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches plan acceptance in 2032. By 2035 S2-S4 are High because the checker route runs through a named mechanism already in use (DO-333 formal-methods credit with DO-330 qualified checkers such as GNATprove, with vendors building agent workflows on them); S4 equals S3 because regulator review is an institutional clock.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Skeptic + advocate (definition): 'achieved' is now plan acceptance on the checker-not-generator route, with completed certification 2-4 years later; Lean-kernel qualification named as a later step dependents do not need. Skeptic: infra-verified-numerics and verif-spec-engineering moved from hard to soft (FDIR or parser proofs need no verified floating point; human-written specs qualify). Advocate's split into a separate verif-checker-route-credit node at S2 2029 rejected: it re-creates verif-checker-not-generator, which A1 merged into this node, and it would move the client's base-case premise (first credit S2 2030). Advocate's 2026 evidence added to status. Years and bands unchanged. | E-verified-autonomy (2035 horizon, S4): S1 >2031 -> 2032 (S1 proof agents 2028 plus the S2 three-year lag to plan acceptance, rounded later for S1 adoption); band_2035 S1 Low -> Medium, S2-S4 Medium -> High under the named-mechanism rule. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "astro-scp-guarantees",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches High by 2035 as on-demand research math reaches outside teams. S4 equals S3 because the work is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Skeptic: scope limited to what High in 2027 supports (global optimality for nonconvex 6-DoF excluded); 'same-week theorem' softened and marked conditional on S2; benefit stated as P5 confidence. Years and bands unchanged. | E-verified-autonomy (2035 horizon, S4): band_2035 S1 Medium -> High. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-spec-engineering",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "High everywhere before 2031. Human spec review stays the bottleneck for downstream nodes through 2035, and robots do not touch it, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Skeptic: clarified that 'achieved' is first flight-program use, not review bandwidth at fleet scale. Auditor: 'losses' -> 'losses and near-losses'. Auditor's S1 High -> Medium rejected: the node is P1->P2 (P1 default High), and a single flight-program use by 2031 does not need certification or public models beyond the 2028 S1 release. Years and bands unchanged. | B-fix (integrator, 2026-10-07): lettered citation 'analyst position h' replaced with the KB position id tr-position-2. soft edge from frontier-applied-posing (B-math-frontier request 5). | E-verified-autonomy (2035 horizon, S4): no year or band change; note added. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "astro-hybrid-rpo-verification",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches High by 2035. S4 equals S3 because the proofs are cognitive work, and contact dynamics sit outside the node's scope on the hardware-test clock.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Skeptic + advocate: infra-mathlib-applied moved from hard to soft (the KeYmaera X and SOS bypass named in the verification domain's shared-upstream table). Skeptic: contact and capture dynamics removed from the achieved scope, so the cognitive gate and High band stand. Auditor: Artemis III status corrected (two landers' pathfinders; NET mid-2027). Years and bands unchanged. | B-fix (integrator, 2026-10-07): S3 2027 -> 2028 (S3 equals S2 through 2027; the S2 one-year lag after cap-applied-math 2027 applies equally in S3). | E-verified-autonomy (2035 horizon, S4): band_2035 S1 Medium -> High. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-onboard-optimizer-certificates",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches High by 2035 once its 2029-30 prerequisites land. S4 equals S3 because timing characterization runs on existing rigs and is not labor-bound.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Skeptic: verif-closed-loop-guarantees and astro-formal-astrodynamics-library moved from hard to soft (solver properties need neither); 2018 interior-point verification precedent added to status (checked: arXiv 1801.03833 is code-level IPM verification for linear MPC; the skeptic's 'SOCP with floating-point analysis' wording is not in the abstract, so it is not repeated). Years and bands unchanged (verified numerics still holds S2 2028). | E-verified-autonomy (2035 horizon, S4): band_2035 S1 Medium -> High. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-closed-loop-guarantees",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches High by 2035. S4 equals S3 because stability certificates are cognitive work.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: All three lenses: family 143 removed from catalog_families (the node itself says it does not reach this workflow; it would draw a false 'family 143 unlocks GNC stability' edge); premise_tier -> n/a; 'achieved' no longer requires a flown loop (a tier-5 outcome). Skeptic + advocate: infra-mathlib-applied hard -> soft; advocate + auditor: verif-verified-gnc-numerics hard -> soft. Advocate: S2 2028 -> 2027 accepted, because the skeptic's reason to keep 2028 (the numerics edge) is gone and the KeYmaera X/SOS route is mature (mechanism in the verification domain's table; 2026 Lean Lyapunov work checked by the auditor). Downstream nodes do not move. S1 and bands unchanged. | B-fix (integrator, 2026-10-07): lettered citation 'analyst position (a' replaced with the KB position id tl-position-4. | E-verified-autonomy (2035 horizon, S4): band_2035 S1 Medium -> High. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-verified-gnc-numerics",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches High by 2035 once its verified-numerics libraries exist. S4 equals S3 because round-off proofs are compute and review.",
+    "needs_2035_review": false,
+    "revision_note": "E-verified-autonomy (2035 horizon, S4): band_2035 S1 Medium -> High. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-nn-verification-scale",
+   "patch": {
+    "earliest_year": {
+     "S1": "2035",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 gets the needed cognition only about 2035. By 2035 S2-S4 rise to Medium as verification-friendly networks and narrower operational-domain specs mature, while the spec gap keeps them below High; S4 equals S3 because robot fleets add demand for verified perception but no new cognition.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Auditor: ARP6983 June 2026 target marked unconfirmed (date has passed; only the ED-324 Q4 2026 schedule is confirmed). Years and bands unchanged. | E-verified-autonomy (2035 horizon, S4): S1 >2031 -> 2035 (S1 cognition reaches S2's 2030 level about 2035); band_2035 S1 Speculative -> Low, S2-S4 Low -> Medium. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-environment-assumption-models",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 dozens of lunar landings supply the truth data that held S2 and S3 at Medium, so they rise to High and S1 to Medium. S4 equals S3: lab robots could speed ground sensor tests, but the node lands in 2028, before robots are useful, and lunar data binds.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Auditor: pathway P1->P6 -> P1->P5. Skeptic: orphan fixed (hard edge to verif-mission-loss-rate; soft edges to verif-assumption-falsification and verif-lander-verified-gnc-flight). Advocate: soft edges from physclock-ai-run-test-stands and cap-autonomous-labs accepted; advocate's S3 band Medium -> High rejected, because lunar truth data and shared adoption by two lander teams do not speed up with cognition (the node's own reasoning, unchanged by the advocate's evidence). Years and bands unchanged. | E-verified-autonomy (2035 horizon, S4): band_2035 S1 Low -> Medium, S2-S4 Medium -> High; soft edge from robo-lab-bench-useful. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-assumption-falsification",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "High everywhere before 2031, and simulator fidelity stays the limit through 2035. S4 equals S3 because the search is computational.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Auditor: hard edge from verif-spec-engineering made soft (falsification runs against existing requirements); hard edge from cap-research-math-public added so the P1 node keeps a capability gate (2028/2027/2027, equal to this node's years). Skeptic: soft edge from verif-environment-assumption-models. Years and bands unchanged. | B-fix (integrator, 2026-10-07): lettered citation 'analyst position c' replaced with the KB position id fc-position-1. | E-verified-autonomy (2035 horizon, S4): no year or band change; note added. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-fdir-model-checking",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "High everywhere before 2031, and hardware characterization data stays the limit through 2035. S4 equals S3 because model checking is computational.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Auditor: 'losses' -> 'losses and near-losses'; pathway P2 -> P1->P2 (tool use without certification, which justifies S1 High); IM-1 data-valid flag re-cited to SpacePolicyOnline; Beresheet 'reboot loop' and Starliner 'skipped end-to-end test' were not in the cited articles, so the first is softened and the second marked general. Skeptic: verif-code-proof-agents moved from hard to soft (model extraction plus model checking needs no deductive code proofs). Years and bands unchanged. | E-verified-autonomy (2035 horizon, S4): no year or band change; note added. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "astro-certified-gnc-toolchain",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 adopts by 2035 and reaches High. S4 equals S3 because adoption is an organizational choice that robots do not change.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Skeptic: S3 2027 -> 2028 (adoption gate; S3 equals S2 until 2028); verif-onboard-optimizer-certificates moved from hard to soft; 'timing' scoped to static WCET on single-core with multicore timing measured. Auditor: verif-closed-loop-guarantees moved from soft to hard (no year change: 2030/2027/2027 <= 2030/2028/2028) and timing wording aligned with the A1 merge. S1, S2 and bands unchanged. | B-fix (integrator, 2026-10-07): lettered citation 'analyst position b' replaced with the KB position id tl-position-6. | E-verified-autonomy (2035 horizon, S4): band_2035 S1 Medium -> High. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-runtime-assurance",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches High by 2035. S4 equals S3 for space use, though S4's robot fleets make proven guards the likely safety case for learned robot controllers on Earth.",
+    "needs_2035_review": false,
+    "revision_note": "F2 audit (2026-10-07): regulator-cap check: binding gate 'qualification' with High bands; the why now says why the Medium cap does not apply. | E-verified-autonomy (2035 horizon, S4): band_2035 S1 Medium -> High. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "prop-verified-engine-software",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 follows S1 regulator credit (2032) by a year, so 2033. By 2035 S2-S4 reach Medium, capped there because a human-rating review must accept the evidence and no named route for AI proofs is in motion; S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Skeptic + auditor: S2 2030 -> 2031, S3 2029 -> 2030 and S2 band Medium -> Low (zero lag after the general-credit premise; only crewed programs can accept the evidence). Auditor: S1 Low -> Speculative and S3 Medium -> Low under the A4 rule (a dependent of a Medium regulatory node with a further uncertain human-rating step belongs below Medium); skeptic's S3 Medium rejected for consistency with verif-hls-autonomy-certification. Skeptic: description 'accepted in certification' -> crewed-program review; Raptor sensor-trip claim labeled as unverified commentary. Advocate's re-pointing to a separate checker-route node rejected with that node; its uncertified counterpart is added as verif-launch-fsw-per-flight. | E-verified-autonomy (2035 horizon, S4): S1 >2031 -> 2033 (A4 conjunctive rule: a year after infra-tool-qualification S1 2032); band_2035 S1 Speculative -> Low, S2-S4 Low -> Medium (regulatory cap). S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "hyper-certified-edl-guidance",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 lands in 2033, a year after S1 regulator credit. By 2035 S2 rises to Medium as lander, HLS and capsule programs reach new guidance baselines; acceptance caps every scenario at Medium, and S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Skeptic: S2 band Medium -> Low (conjunction of general credit and one EDL project within a year, the A4 logic); aerocapture motivation replaced, since ARRIVAL was at conceptual design in Jun 2025 (checked: Military & Aerospace Electronics, Jun 27 2025). Advocate's re-pointing to a separate checker-route node rejected with that node. Years unchanged. | E-verified-autonomy (2035 horizon, S4): S1 >2031 -> 2033 (a year after infra-tool-qualification S1 2032); band_2035 S2 Low -> Medium. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-verified-onboard-stack",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 a verified parser, update authentication or kernel on an ordinary mission is High in S2-S4 and Medium in S1. S4 equals S3 because qualification and platform ports bind and the node lands before robots are useful in aerospace.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Skeptic + auditor: S2 band High -> Medium and S3 2028 -> 2029 (kernel proofs are sunk and free; OS services, ports and qualification bind; S3 equals S2 until 2028); auditor: S1 Medium -> Low; skeptic: '$5M' -> '$2-5M'. Advocate's S2 2029 -> 2028 rejected (two lenses opposite; A3 lag ladder), but its scope point is adopted: the first operational flight of any one component counts, and parsers or update authentication can be uploaded to existing buses. Skeptic's proposed new node verif-multicore-timing-evidence not added: it is not necessary for this node as scoped, A1 already left timing and HIL evidence to the flight nodes, and its 2026 flight-qualification evidence could not be checked (source returned 403); the gate is stated in the description and why instead. | E-verified-autonomy (2035 horizon, S4): band_2035 S1 Low -> Medium, S2 Medium -> High. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-lander-verified-gnc-flight",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Several landers fly each year after 2029, so by 2035 S2-S4 are High and S1 is Medium. S4 equals S3 because adoption decisions and software freezes bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Skeptic + auditor: S3 2028 -> 2029 (a 2028 flight freezes software in 2026-27, when S3 equals S2). Skeptic: binding gate launch -> adoption (launch slots are not scarce); astro-scp-guarantees and verif-onboard-optimizer-certificates made soft (closed-form guidance needs no solver proofs); terrestrial-testbed clause moved to the signpost as a precursor; solver proofs made conditional. Skeptic's S3 High -> Medium rejected and advocate's S2 Medium -> High rejected: with the conjunction relaxed and the testbed path removed, Medium in the base case and High in the recursive case keep a meaningful spread (the advocate's high-cadence argument holds only once cognitive work is near-free, i.e. in S3). Auditor: Luna-25, Chandrayaan-2 and the success denominator added (general). | F2 audit (2026-10-07): Beresheet 'reboot loop' wording (not in the cited sources) aligned with verif-fdir-model-checking; band reasoning against the P7 default added. | E-verified-autonomy (2035 horizon, S4): band_2035 S1 Low -> Medium, S2 Medium -> High. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-rpo-assured-autonomy",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 servicing and propellant-transfer flights multiply, so S3 and S4 reach High; S2 stays Medium because proofs as primary safety evidence need flight heritage and disclosure. S4 equals S3 because flight demonstrations bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Skeptic + auditor (grounding rule): full tier-5 chain written. Auditor: status corrected ('15-17 flights' was not in the cited article; about 15 tankers per Spaceflight Now; the Q4 2026 date is unconfirmed; Isaacman's 'very early 2027' added from The Space Review, Sep 28 2026; both landers' pathfinders named). Skeptic's S2 2029 -> 2030 and S1 2031 -> >2031 rejected: Starship transfer software changes between flights, so the 12-18-month freeze does not bind every route, and the auditor's chain gives 2029-30 with 2029 as earliest. Advocate's S3 2029 -> 2028 and S3 High rejected: S3 equals S2 through 2028, and the node's own strongest case (proofs may stay internal; hardware dominates docking risk) does not move with cognition. Advocate's soft edge from prop-hls-refuel-campaign accepted. Years and bands unchanged. | F2 audit (2026-10-07): band reasoning against the P7 default written out; years and bands unchanged. | E-verified-autonomy (2035 horizon, S4): band_2035 S1 Low -> Medium, S3-S4 Medium -> High. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-constellation-verified-updates",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 six years of reviewed invariant specs lift S2 to High, still no higher than astro-proof-backed-flight-software-ops. S4 equals S3 because spec review and disclosure bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Skeptic + auditor: S1 2029 -> 2031, S2 2028 -> 2029, S3 2027 -> 2029 (skeptic; auditor proposed 2028, but the prerequisites are 2027 in both S2 and S3 and S3 equals S2 until 2028), bands S1 Medium -> Low, S2 High -> Medium (S3 High kept), because this is a stronger instance of astro-proof-backed-flight-software-ops and broke A3's lag ladder. Chain written (auditor). Skeptic: 'deorbit capability' -> 'deorbit command and decision logic'. Advocate: SpaceX-xAI vertical integration added to why; advocate's alternative of raising the general node instead was rejected (see astro-proof-backed-flight-software-ops). Auditor: 'mostly decided onboard' is not in the cited source and is marked general. | E-verified-autonomy (2035 horizon, S4): band_2035 S1 Low -> Medium, S2 Medium -> High. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "astro-proof-backed-flight-software-ops",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 S2 rises to High and S1 to Medium as proof-backed GNC spreads across uncrewed fleets. S4 equals S3 because adoption is a cost decision with no labor gate.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Skeptic: S3 2028 -> 2029 (adoption-gated; its toolchain prerequisite moves to S3 2028; S3 equals S2 until 2028). Advocate's S1 2031 -> 2030, S2 2029 -> 2028 and bands Medium/High rejected: skeptic and auditor resolved the inconsistency with verif-constellation-verified-updates by moving that node later, which keeps the A3 lag ladder (proof-carrying flight software flies S2 2029). Soft edge from the constellation node added (auditor + advocate). | E-verified-autonomy (2035 horizon, S4): band_2035 S1 Low -> Medium, S2 Medium -> High. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-afss-part450",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 lands in 2033 on FAA AST's own acceptance chain. By 2035 S2 reaches Medium, perhaps through the next RCC-319 edition; the regulatory cap holds every scenario at Medium, and S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Skeptic + auditor: S2 band Medium -> Low (weak applicant incentive; separate FAA AST acceptance step; conjunctive-regulatory logic as in A4); S3 Medium kept. Skeptic: RCC-319 revision dropped as a pre-2031 signpost. Advocate (mechanism checked against 14 CFR 450.35, which lists 450.145(b) but not 450.141): hard edge from infra-tool-qualification made soft and hard edge from verif-code-proof-agents added; advocate's S2 2030 -> 2029 and S3 2029 -> 2028 rejected because the flight safety system still needs an FAA-accepted means of compliance and no lens other than the advocate saw a 2029 incentive. Years unchanged. | E-verified-autonomy (2035 horizon, S4): S1 >2031 -> 2033 (S1 proof agents 2028 plus FAA AST's acceptance chain and the RCC-319 cycle); band_2035 S2 Low -> Medium. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-hls-autonomy-certification",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 lands in 2033, a year after S1 regulator credit. By 2035 S2-S4 rise to Medium as crewed landers take block upgrades after the first credits; post-Starliner caution and the human-rating cap keep it there, and S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Auditor: Sep 2028 date attributed to the Nov 2025 leaked schedule and the slipped Jun 2026 transfer demo noted. Advocate's S3 Low -> Medium and re-pointing to a checker-route node rejected: A4 already resolved S3 at Low (conjunctive regulatory logic under a post-Starliner testing posture), and the checker route is this branch's infra-tool-qualification. Years and bands unchanged. | E-verified-autonomy (2035 horizon, S4): S1 >2031 -> 2033 (a year after infra-tool-qualification S1 2032); band_2035 S1 Speculative -> Low, S2-S4 Low -> Medium (one band below infra-tool-qualification, regulatory cap). S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-assurance-cost-collapse",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 S1's per-line cost also falls 15x or more, so S1 reaches High. S4 equals S3 because the remaining cost is proof compute plus human spec review.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: All three lenses: program-level '2.4x certified program' claim and its cost model moved to astro-gnc-assurance-cost; node rescoped to per-line cost. Skeptic: arithmetic corrected ($300-600 -> $5-20 is 15-120x, not 30-100x). Skeptic + auditor: S3 2027 -> 2028 (S3 equals S2 until 2028). Auditor + advocate: S2 band Medium -> High, since A3's downgrade applied only to the certified-program claim that moved out. Skeptic's S2 2028 -> 2029 rejected: the domain table's '2029' is a 'by' date, two lenses keep 2028, and 2026 SPARK evidence already shows 20-40x supervision savings. Auditor: status cost figures scoped to their source. | E-verified-autonomy (2035 horizon, S4): band_2035 S1 Medium -> High. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-new-entrant-advantage",
+   "patch": {
+    "earliest_year": {
+     "S1": "2032",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 follows its 2030 cost collapse by two procurement years, so 2032. By 2035 S2-S4 are High, and S4 equals S3 because procurement cycles are institutional.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Skeptic (alternative) + advocate: hard edge from infra-tool-qualification made soft and scope limited to work that needs no certification credit, since the node's own why says uncrewed work has no certifying regulator. Years and bands kept: skeptic's S2 2031/S3 2030/S2 Low depended on the zero lag after credit, which no longer applies, and advocate's S2 2029/S3 2028 ignores the 1-2-year procurement lag (politics 1.0x). Auditor: IM-1 is a near-loss, not a loss. | E-verified-autonomy (2035 horizon, S4): S1 >2031 -> 2032 (cost collapse S1 2030 plus 1-2 years from RFP to award); band_2035 S1 Low -> Medium, S2-S4 Medium -> High. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "astro-gnc-assurance-cost",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches about half the cost only around 2034, when its cognition matches S2's 2029-30 level. By 2035 S2-S4 are High, and S4 equals S3 for cost; robot-run testing affects calendar time, tracked in verif-35-verification-calendar-halved.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Skeptic + auditor: made this the program-level cost node (2.4x claim moved in from verif-assurance-cost-collapse and restated as about 2x, 1.8-2.4x, because the x0.7 requirements multiplier contradicts the branch's specs-become-the-bottleneck thesis; x1.0 gives 48.5%). Skeptic: 'calendar time halves' replaced, because experiment and test compress 1.1-1.3x in S2. Auditor: pathway P2->P7 -> P2 (a cost outcome is not a flown-performance outcome) and chain written. Advocate's S2 2031 -> 2029, S3 2030 -> 2028 and S3 High rejected: two lenses keep the years, the chain to a published comparison gives 2030-31, and the advocate's earlier date depended on proof-backed ops in 2028, which this resolution does not accept. Years and bands unchanged. | E-verified-autonomy (2035 horizon, S4): S1 >2031 -> 2034 (S1 proof-backed GNC 2031 plus slower program savings); band_2035 S2-S4 Medium -> High; soft edge from robo-24x7-integration-test. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-mission-loss-rate",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": "2033",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Seeing a lower rate needs at least 6 verified landings; S2 has them about 2033, S1 only after 2035. By 2035 S2-S4 are Medium, with risk homeostasis and non-AI learning keeping S3 below High, and S4 equals S3 because the landing count sets the pace.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: Skeptic + auditor: S2 band Low -> Speculative (P7 default; at least 6 verified landings needed to see the effect). Auditor's S3 Low -> Speculative and S3 2031 -> >2031 rejected to keep a scenario spread: S3 adds lander flights and near-free cognition from 2029, which makes Low (10-30%) defensible. Skeptic: hard edge from verif-environment-assumption-models added (the direct edge from verif-assumption-falsification is omitted because it already sits upstream through the lander node). Auditor: success denominator added. | E-verified-autonomy (2035 horizon, S4): S1 >2031 -> >2035, S2 >2031 -> 2033 (2-5 verified landings by 2031 plus several a year after); band_2035 S1 Speculative -> Low, S2 Speculative -> Medium, S3-S4 Low -> Medium. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-launch-fsw-per-flight",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "With many reusable operators flying often by 2035, S2-S4 reach High and S1 Medium, and disclosure remains the main risk. S4 equals S3 because adoption and disclosure bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: New node from the advocate (the uncertified counterpart of prop-verified-engine-software, joining the launch-cadence and cognitive curves). Advocate's 2030/2028/2028 Low/Medium/High tempered to 2031/2029/2029 Low/Medium/Medium: the A3 lag ladder puts proof-carrying flight software in flight at S2 2029, S3 equals S2 through 2028, and disclosure, not cognition, binds the public signpost. physclock-flight-test-cadence made soft, because Falcon 9 already gives a reusable vehicle with frequent software changes. Not a duplicate: prop-verified-engine-software is the certified crewed-program version and astro-proof-backed-flight-software-ops covers spacecraft, not launch vehicles. Soft unlocks are limited to this branch's nodes; edges into external nodes (physclock-test-loop-monthly) are left to that branch. | B-fix (integrator, 2026-10-07): Starship interval aligned with physclock-flight-test-cadence (48-91 days in 2025; 63-66 in 2026). | E-verified-autonomy (2035 horizon, S4): band_2035 S1 Low -> Medium, S2-S4 Medium -> High. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-onboard-ai-guardrails",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 onboard agents are common on orbital-compute and defense missions, so S2 rises to High and S1 to Medium. S4 equals S3 because the guard is software on buses that fly anyway.",
+    "needs_2035_review": false,
+    "revision_note": "B-verified-autonomy: New node from the advocate (onboard AI agents under proof-checked guards; the operational instance of verif-runtime-assurance for generalist agents). Kept the advocate's bands Low/Medium/High; S3 2028 -> 2029 because S3 equals S2 through 2028 and its prerequisite runtime assurance is 2028 in both. verif-verified-onboard-stack made soft rather than hard, because the guard can run on the existing flight computer while the agent runs on a payload computer, as current demonstrations do. Evidence checked: Satnews Aug 24 2026 (SAFE is simulation-based, not formal), ASTREA arXiv 2509.13380. Not a duplicate: verif-runtime-assurance is the tier-4 tool, and the auton nodes cover surface robots. Soft unlocks into external nodes (astro-autonomous-ca-at-scale, auton-*) are left to those branches. | E-verified-autonomy (2035 horizon, S4): band_2035 S1 Low -> Medium, S2 Medium -> High. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-ml-statistical-guarantees",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches High by 2035. S4 equals S3 because calibration data and shift assumptions bind.",
+    "needs_2035_review": false,
+    "revision_note": "C-final integrator (2026-10-07): new node from C-disciplines (downstream-discipline coverage), accepted; title shortened from 'Statistical guarantees for onboard learning and fleet anomaly monitors'. | E-verified-autonomy (2035 horizon, S4): band_2035 S1 Medium -> High. S4 = S3 (no four-condition credit)."
+   }
+  },
+  {
+   "id": "verif-adaptive-control-proofs",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 S2 reaches High and S1 Medium as large flexible structures fly more often. S4 equals S3 because the proofs are cognitive, even though S4 builds more of the structures that use them.",
+    "needs_2035_review": false,
+    "revision_note": "C-final integrator (2026-10-07): new node from C-disciplines (downstream-discipline coverage), accepted; title shortened from 'Adaptive control of flexible, changing spacecraft with proven stability'. Hard prerequisite changed from cap-applied-math to verif-closed-loop-guarantees (adaptive-law proofs extend that machinery); no year changes. | E-verified-autonomy (2035 horizon, S4): band_2035 S1 Low -> Medium, S2 Medium -> High. S4 = S3 (no four-condition credit)."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "id": "verif-35-mars-verified-landing",
+   "title": "A Mars lander flies proof-checked landing and fault logic",
+   "tier": 5,
+   "kind": "technology",
+   "domain": "verif",
+   "description": "A lander reaches the surface of Mars flying entry, descent and landing guidance and fault-management logic whose key properties are machine-checked: sensor gating, mode switches, engine and reboot logic, and guidance numerics, with assumptions red-teamed against Mars atmosphere and terrain models. The team says so publicly. Any Mars lander counts, from a 20 t Starship to a small commercial lander.",
+   "status_oct2026": "No lander has reached Mars since 2021. Launch windows: late 2026, Dec 2028-Jan 2029, early 2031, about Apr 2033 and about mid-2035, so landings inside the horizon come in late 2029, late 2031 and late 2033. Landers already scheduled for 2028, such as ESA's Rosalind Franklin rover, fix their software before proof agents mature (general). Schiaparelli (2016) crashed when a saturated inertial unit led its software to compute a negative altitude.",
+   "catalog_families": [],
+   "prerequisites": [
+    "verif-lander-verified-gnc-flight"
+   ],
+   "accelerated_by": [
+    "hyper-mars-heavy-landing",
+    "verif-environment-assumption-models",
+    "verif-onboard-optimizer-certificates",
+    "hyper-certified-edl-guidance"
+   ],
+   "binding_gate": "launch",
+   "pathway": "P2->P7",
+   "premise_tier": "n/a (capability premise)",
+   "earliest_year": {
+    "S1": "2033",
+    "S2": "2033",
+    "S3": "2031",
+    "S4": "2031"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "why": "Mars is where proof-checked autonomy matters most. One-way light time of 3-22 minutes rules out ground help during a descent of about 7 minutes, and Schiaparelli shows that one wrong assumption in fault logic loses a lander. The clock is the window. Chain (S2): toolchain 2028 and first lunar flight 2029 -> a software freeze 12-18 months before an early-2031 launch is possible but early for a new program -> first likely case in the about Apr 2033 window, landing late 2033. S3: near-free cognition from 2029 makes proofs routine by the 2030 freeze, so 2031. The 2035 window lands in 2036, past the horizon. Bands: Medium by 2035 in S2-S4, above the P7 default, because the flown change is software on landers that fly anyway; whether Mars landings happen by 2033 and whether the lead operator discloses keep it below High.",
+   "strongest_case_small": "Mars landings stay rare through 2035, perhaps a handful, and most risk sits in entry physics, supersonic retropropulsion and hardware, which proofs do not touch. The lead candidate builds confidence through flight and may never say what it proved.",
+   "signpost": "A Mars lander team, commercial or government, stating in a press kit, paper or review that its descent guidance and fault logic are machine-checked, for the 2031 or 2033 window.",
+   "note_2035": "New node: the late-2031 and late-2033 Mars landings fall inside the 2035 horizon, so the lunar lander chain extends to Mars. S4 equals S3 because launch windows and landing physics bind, and robots add nothing to either.",
+   "needs_2035_review": false,
+   "revision_note": "E-verified-autonomy (2035 horizon, S4): added for the 2035 horizon. Hard edge from verif-lander-verified-gnc-flight; soft from hyper-mars-heavy-landing (any Mars lander counts), environment envelopes, optimizer certificates and certified EDL guidance."
+  },
+  {
+   "id": "verif-35-proven-timing-isolation",
+   "title": "Space processor flies with proven timing isolation",
+   "tier": 5,
+   "kind": "technology",
+   "domain": "verif",
+   "description": "A radiation-tolerant multicore processor or SoC flies on an operational mission with machine-checked proofs that flight software keeps its worst-case timing whatever runs on the other cores, including an onboard AI payload. This closes the gap left by today's verified stacks, where spatial isolation is proven and timing interference is only measured.",
+   "status_oct2026": "Multicore timing interference is measured and argued, and aviation accepts that evidence through FAA AC 20-193 and EASA AMC 20-193 (general). No flight processor has a proof of it. seL4 proves spatial isolation, and its time-protection work is research (general). verif-verified-onboard-stack and verif-onboard-ai-guardrails both name measured timing as their open gap.",
+   "catalog_families": [],
+   "prerequisites": [
+    "verif-hardware-proof-agents",
+    "verif-verified-onboard-stack"
+   ],
+   "accelerated_by": [
+    "capability-ai-eda-space-processor",
+    "verif-onboard-ai-guardrails"
+   ],
+   "binding_gate": "qualification",
+   "pathway": "P2->P7",
+   "premise_tier": "n/a (capability premise)",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2033",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "why": "Orbital compute and onboard agents put AI payloads on the same processor as flight software, and this branch's verified-stack and guardrail nodes stop where timing is measured. Proving timing needs a processor designed for analyzable timing (partitioned caches, a predictable interconnect) plus RTL proofs, which hardware proof agents make cheap. Fabrication runs of 3-4 months, scarce heavy-ion beam time and 1-2 years of qualification do not compress. Chain (S2): hardware proof agents 2028 -> a timing-predictable design proved 2029-30 -> tape-out and radiation test 2030-31 -> qualification and first flight 2033. S3 is a year earlier; S1 lands after 2035. Medium by 2035 because mixed-criticality orbital compute creates demand, but most operators accept measured isolation.",
+   "strongest_case_small": "Operators can put flight software and AI on separate processors, which costs little mass at orbital-compute scale, and aviation already certifies multicore systems on measured evidence. A proven-timing processor may stay a niche part.",
+   "signpost": "A space processor vendor or agency program releasing a part with formal timing-isolation proofs; a flight announcement that cites them.",
+   "note_2035": "New node: a second-generation item that closes the timing gap the verified onboard stack leaves open, reachable in 2032-33 in S2-S4. S4 equals S3 because fabs, beam time and qualification bind, and none is labor-bound.",
+   "needs_2035_review": false,
+   "revision_note": "E-verified-autonomy (2035 horizon, S4): added for the 2035 horizon. Hard edges from verif-hardware-proof-agents and verif-verified-onboard-stack; soft from capability-ai-eda-space-processor and verif-onboard-ai-guardrails (demand)."
+  },
+  {
+   "id": "verif-35-standards-proof-route",
+   "title": "Flight-software standards write in credit for AI proofs",
+   "tier": 7,
+   "kind": "outcome",
+   "domain": "verif",
+   "description": "A flight-software or assurance standard names AI-written, checker-verified proofs as an accepted verification method, so programs no longer argue the route plan by plan. Examples: a revision of NASA's NPR 7150.2 or NASA-STD-8739.8, an ECSS software standard, or an RTCA/EUROCAE update to DO-333.",
+   "status_oct2026": "DO-333 (2011) gives aviation credit for formal methods, and NPR 7150.2D (2022) and ECSS software standards permit them. No standard mentions AI-generated proofs. DO-178B came in 1992 and DO-178C in 2011; RCC 319 editions came in 2014, 2019 and 2025.",
+   "catalog_families": [],
+   "prerequisites": [
+    "infra-tool-qualification"
+   ],
+   "accelerated_by": [
+    "physclock-credibility-evidence-standard",
+    "physclock-regulator-ai-capacity",
+    "verif-hls-autonomy-certification"
+   ],
+   "binding_gate": "regulatory",
+   "pathway": "P2",
+   "premise_tier": "n/a (capability premise)",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2033",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "why": "Plan-by-plan acceptance (infra-tool-qualification) sets precedent; a standard makes it the default and lets suppliers and small teams use the route without a bespoke argument. Standards bodies revise on 5-10 year cycles and usually codify practice after several programs have used it. Chain (S2): first plan acceptance 2030 -> a completed certification that banks the credit about 2032 -> the next revision of a NASA, ESA or RTCA document naming the route 2033. S3 is a year earlier; S1 lands after 2035. Medium by 2035 and capped there, because no revision that addresses AI proofs is in motion today.",
+   "strongest_case_small": "Standards may never single out AI. The checker-not-generator route already fits DO-333 and DO-330, so bodies can leave it to guidance material and individual plans, and this node would never be marked achieved even as practice changes.",
+   "signpost": "A draft revision of NPR 7150.2, NASA-STD-8739.8, an ECSS software standard or DO-333 that mentions machine-generated proofs; an RTCA or EUROCAE committee taking up the topic.",
+   "note_2035": "New node: codifying the route becomes reachable in 2032-33 once first credits are banked. S4 equals S3 because committees, comment periods and revision cycles are institutional clocks.",
+   "needs_2035_review": false,
+   "revision_note": "E-verified-autonomy (2035 horizon, S4): added for the 2035 horizon. Hard edge from infra-tool-qualification; soft from the credibility-evidence standard, regulator AI capacity and the crewed certification precedent."
+  },
+  {
+   "id": "verif-35-verification-calendar-halved",
+   "title": "Flight-software verification takes half the calendar time",
+   "tier": 7,
+   "kind": "outcome",
+   "domain": "verif",
+   "description": "At a leading space firm, the calendar time to fully verify a safety-critical flight-software release, including proofs, hardware-in-the-loop runs and integrated vehicle regression, falls to half its 2026 level, and the firm reports it. Proof work stops being the long pole by about 2029; this node needs the physical test slice to shrink as well.",
+   "status_oct2026": "Proof and unit verification are a large share of software cost, but hardware-in-the-loop rigs and integrated tests set release pace at most programs (general). astro-gnc-assurance-cost expects only a 20-30% cut in verification calendar time in S2 for that reason. Starliner's 2019 software errors were catchable by the end-to-end integrated test the program did not run (general).",
+   "catalog_families": [],
+   "prerequisites": [
+    "astro-gnc-assurance-cost"
+   ],
+   "accelerated_by": [
+    "physclock-ai-run-test-stands",
+    "verif-launch-fsw-per-flight"
+   ],
+   "binding_gate": "qualification",
+   "pathway": "P2",
+   "premise_tier": "n/a (capability premise)",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2034",
+    "S3": "2033",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "why": "Once proofs are cheap, hardware-in-the-loop rigs and integrated vehicle tests set the verification calendar. Halving it needs that slice to shrink: more rigs (capital), AI-run sequencing (S3) and, in S4, general-purpose robots that reconfigure rigs, swap units and run integrated tests around the clock. Sketch (assumption): if rigs and integrated tests are about 80% of calendar time, cutting them to 0.65 of 2026 (S3 in 2035) gives about 0.55 overall; robot-run integration and test at about 2.2x gives about 0.4. Chain (S3): program cost halved 2030 -> AI-run rigs spread 2031-32 -> first firm reporting half the calendar 2033. S4: robots useful in aerospace integration and test from 2030-31 -> 2032. S2: test compresses only 1.2-1.4x by 2035, so 2034 and Low.",
+   "strongest_case_small": "Leading firms already release flight software fast by flying often, so the change may not be measurable, and firms rarely publish verification calendars. Requalifying robot-run test processes also costs 6-24 months before any gain.",
+   "signpost": "A launch or spacecraft operator reporting release verification time, hardware-in-the-loop and integrated tests included, at half its earlier level; robot-run integration and test at a leading space firm.",
+   "note_2035": "New node and the one place in this branch where S4 differs: robot-run integration and test at robot-first firms takes about a year off (S4 2032, S3 2033). It meets the four conditions because rig and integration labor binds at the firm, robots are useful there from 2030-31, no prerequisite lands later, and S3 counts only specialized test-stand automation.",
+   "needs_2035_review": false,
+   "revision_note": "E-verified-autonomy (2035 horizon, S4): added for the 2035 horizon. Hard edge from astro-gnc-assurance-cost; soft from AI-run test stands, per-flight re-proof, robo-24x7-integration-test and robo-requal-standard. S4 credit of one year under the four-condition rule."
+  }
+ ],
+ "add_edges": [],
+ "add_soft_edges": [
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "verif-35-verification-calendar-halved"
+  },
+  {
+   "from": "robo-requal-standard",
+   "to": "verif-35-verification-calendar-halved"
+  },
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "astro-gnc-assurance-cost"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "verif-environment-assumption-models"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "verified-autonomy",
+   "nodes": [
+    "verif-35-mars-verified-landing",
+    "verif-35-proven-timing-isolation",
+    "verif-35-standards-proof-route",
+    "verif-35-verification-calendar-halved"
+   ],
+   "spine": [
+    "verif-35-mars-verified-landing",
+    "verif-35-standards-proof-route"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "verified-autonomy",
+   "patch": {
+    "thesis": "Verified flight code gets 15-120x cheaper per line by 2028-29 and flies on landers and constellations about 2029 (base case). By 2035 regulators accept AI-written proofs (High) and a Mars lander may fly them (Medium); crewed credit stays Medium. S4 adds little, because robots speed only hardware testing."
+   }
+  }
+ ]
+}

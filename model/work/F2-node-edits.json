@@ -1,0 +1,1478 @@
+{
+ "notes": "F2 high-band hardware audit and residual-error sweep (2026-10-07), applied on top of graph-v3. The file contains update patches only. Each patch appends an 'F2 audit' entry to revision_note, following the ' | ' convention, and adds a revisions record that keeps the old values of any band, year, pathway, premise or description it changed.\n\n(1) High-band P7 audit. 40 tier 5-7 nodes have P7 in the pathway and Medium or High in S2. The v3 summary's 'about 31' came from v2; C-final added 9 more.\n- 25 nodes are exogenous physical anchors. Their pathway is now exactly 'P7 (exogenous)', the premise label is standard, and the why opens with 'Not an AI-math implication', followed by band reasoning where it was missing. Four nodes were relabelled from AI-math pathways because their own text says AI math is not on the critical path: prop-hls-refuel-campaign (was P1->P7), auton-lunar-o2-flight-demo (was P1->P6->P7), comms-space-qkd-network-demo (was bare P7) and materials-wbg-rad-hard-power. The wbg description now matches its signpost, so the milestone no longer requires the mechanism model. Its edges already treat theory as soft.\n- 15 nodes are AI-math implications. Each why now says why its band sits above the P7 default (Speculative), or the band comes down. Band changes:\n  - capability-ai-native-spacecraft: Medium/High/High -> Low/Medium/High.\n  - astro-cislunar-traffic-management: S2 Medium -> Low.\n  - physclock-critical-payload-reuse-acceptance: S2 Medium -> Low; S3 stays at the certification cap (Medium).\n  - materials-closed-loop-discovery: S1 Medium -> Low.\n  - physclock-satellite-gen-cadence: S1 2030/Medium -> 2031/Low.\n  - hyper-thinner-tps-flown was already compliant and is not edited.\n- comms-space-qkd-network-demo keeps High as an exogenous anchor. Several funded programs can satisfy it independently, and Jinan-1 has already produced an intercontinental key.\n- Hidden P7s. Three tier-5 hardware anchors were labelled 'P1 (marginal)', which kept them outside the literal P7 filter: prop-ship-transfer-demo (High), prop-loxsat-cfm-flight-data (Medium) and prop-rde-flight-demo (Medium). They are relabelled 'P7 (exogenous)' on the same terms as the other anchors. prop-ship-transfer-demo is also the hard prerequisite of prop-hls-refuel-campaign, which is now exogenous.\n- Not edited, flagged for the owners:\n  - comms-pq-ttc-flight-demo and auton-verified-autonomy-lunar-flight are tier-5 flight demonstrations tagged 'P2'. The accurate tag would be 'P2->P7', but each why already writes the chain and argues for Medium.\n  - astro-ai-designed-trajectory-flown (T6, P1, S2 High) carries the same disclosure risk that took capability-ai-native-spacecraft to Medium. It stays High because trajectory design is a narrow task whose methods are routinely published. Worth a second look.\n- No re-banded node has a hard dependent with a higher band, and no year moves earlier than a hard prerequisite.\n\n(2) Residual contradicted claims in node text, fixed:\n- Gateway 'cancelled' -> 'paused in its current form'. The Mar 24, 2026 NASA release is quoted by 33FG news 445; 33FG's own commentary says 'canceling', which is probably the source of the error. Fixed in the status and strongest case of astro-cislunar-od-uq and astro-cislunar-traffic-management.\n- Beresheet 'command-triggered reboot loop' (verif-lander-verified-gnc-flight) now uses the wording of verif-fdir-model-checking.\n- Urban's 130k-line library is identified as Megalodon, not Lean (infra-mathlib-applied).\n- The superseded AI1 June spec is now labelled as superseded (plasma-nep-mars-cargo).\n- The rest of the listed claims are already corrected in node text: 52x, lower attenuation, Oracle-Prime dates, 13.4M, 'No Starship stage has reflown', Copernicus, '$10M directed', Rocket Cargo 30 t, Varda monthly cadence, the warp 'five-year lag', presidential approval, 48-90 days, 3e-7 vs 1e-4, Surya, Kinetica, 59 m/s, 4-24 min and the lettered analyst-position citations.\n- Residual copies remain in domain-level text, which the edit format cannot reach. They are listed with exact paths, from-text and to-text in 'domain_patches_proposed' (41 entries). B-science-edits.json already proposes the science-domain items: BHEX, 'four to six years', key_insights[6] and the warp bottleneck. They are not repeated here.\n- The research/*.json files also still carry these claims, and this file does not edit them:\n  - physclock.json: $1-2B, presidential approval, Gateway, $10M.\n  - plasma.json: 30-50% EP, thruster year, He-3 framing.\n  - materials.json: ZBLAN 'lower attenuation' and the GNoME source.\n  - astro.json: Star2207 for 3e-7.\n  - auton.json: 52x.\n  - verif.json: 30-100x and the Hakuto-R URL.\n  - prop.json: the RDRE anchor row.\n  - capability.json: the cost row and the RSS source.\n\n(3) T1 wording and regulator caps.\n- Every node whose premise_tier starts with T1 already says 'conditional' in its why.\n- Four places cited T1 families as established and are reworded as conditional claims: frontier-stiff-certified status (149), physclock-twin-reflight-clearance why (372), and science-opacity-line-lists why and status (275, 278).\n- Every node that needs regulator or certification acceptance is at Medium or below. The exception is cap-research-math-public, the S2 premise, whose gate refers to pre-release review; it is left unchanged.\n- Two nodes have a 'qualification' gate and High bands: comms-pq-verified-implementations and verif-runtime-assurance. Their why now says why the Medium cap does not apply: a flight program adopts on its own authority, and certification credit is scored elsewhere.\n- hyper-aerothermal-design-loop's cross-reference to capability-ai-native-spacecraft is updated. Its own band is unchanged.",
+ "update": [
+  {
+   "id": "auton-icy-regolith-ground-truth",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: an exogenous physical anchor set by lander manifests, landing success and drill reach, so the P7 Speculative default does not apply. This node exists to show a gate AI cannot move: the excavation models above cannot be validated until a polar lander digs into ice-bearing regolith and returns strength or excavation data, not just detection. Chain: CS-7 base task -> Mk1 pathfinder (slipped by the LC-36 loss; New Glenn return to flight or Falcon Heavy) -> delivery option exercised -> VIPER on a second Mk1 (NET 2028, realistically 2029) -> landing -> TRIDENT drilling in ice-bearing regolith. Alternates: PROSPECT's drill (2027, sunlit site, ice possibly out of reach), LUPEX's drill (~2028-29) and Chang'e-8 (~2028-29). Chang'e-7 (2027) gives water data only. Landing success in the CLPS era has been near half (IM-1 and IM-2 tipped, Peregrine failed, ispace M1 and M2 crashed, Blue Ghost 1 succeeded; general), and ice-bearing layers may lie beyond drill reach. At least one usable dataset by 2031 is therefore Medium (judgment, roughly 50-65%), the same in every scenario because the gate is physical. The earliest year stays 2028, given several independent 2027-28 attempts.",
+    "revision_note": "B-moon-mars: Skeptic and auditor (both lenses): bands High -> Medium in all scenarios. Measuring how hard the ice is to dig needs strength or excavation data from ice-bearing regolith. VIPER now sits behind two sequential physical gates (the Mk1 pathfinder, then the option), Chang'e-7 slipped and carries no drill, and CLPS-era landing success is near half. Advocate's High rejected; its new PROSPECT fact is added (verified on ESA's page: Nova-C, 2027, ~84.5 S, ~1 m drill), but the site is sunlit and ice may be out of reach. Auditor's 2028 -> 2029 rejected: the skeptic and advocate both keep 2028, and PROSPECT and LUPEX are 2027-28 attempts. Auditor (contradicted fact): the VIPER task order was Sep 19, 2025 (CS-7, $190M, option contingent), not Dec 2025 (verified, 33FG). The LC-36 damage wording is corrected, and the tier-5 chain is written out. Advocate's MoonFall drone claim is omitted (not verified). | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (physical gate; no math pathway)').",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (physical gate; no math pathway)')",
+      "from": {
+       "pathway": "P7 (physical gate; no math pathway)",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "auton-lunar-o2-flight-demo",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: an exogenous physical anchor, so the P7 Speculative default does not apply; the scenario spread comes from general AI help with test design, anomaly closure and launch cadence. The date is set by CLPS manifests, payload funding and lander success, not by AI math, and the demo would happen on roughly this schedule without it. AI reactor models are therefore an accelerator: they can shorten the cognitive third or so of a payload schedule, worth at most about a year between S1 and S2 (Amdahl ~18% vs ~38%). Chain (S1): a LIFT-1-class or commercial MRE or carbothermal payload manifested 2027-28 -> 12-18 months of integration plus typical slips (announced schedules run 1.5-3x long) -> landing 2030. Chain (S2): the same payloads with AI-assisted test design and anomaly closure from 2027 -> landing 2029. Chain (S3): ROM-tuned flight unit and faster integration -> landing 2028. With several independent candidates (LIFT-1, Helios, ORACLE, and Moon Base Phase 1's up to 30 landings) at CLPS-era landing odds of roughly 50-65% (general), at least one success by 2031 is Medium in S1 and S2, where no qualifying payload is yet manifested. It is High in S3, where launch cadence runs 0.5-1 year earlier and more attempts fit before 2031. Bands are judgments, not computed probabilities.",
+    "revision_note": "B-moon-mars: All three lenses (edge): auton-isru-rom-control moved from hard prerequisite to soft accelerator. The node's own strongest case says the demo happens on roughly this schedule without AI math. The A3 lag-ladder push (S1 2030 -> 2031, Medium -> Low) was an artifact of that edge and is undone: S1 2031 -> 2030 (the skeptic's year) and S1 Low -> Medium (the advocate's band; a non-AI schedule should not be rated below S2). Advocate's S2 2028 and S2 High rejected: no qualifying payload is manifested as of Oct 2026 (auditor), and payloads need 12-18 months after manifesting. S3 Medium -> High accepted from the advocate: multiple independent attempts plus launch cadence 0.5-1 year earlier in S3 (I verified LIFT-1 cost and target, ProSPA's 2027 Nova-C flight and Moon Base Phase 1's up to 30 landings). Advocate: description now requires at least 1 g, so ProSPA's sub-gram run does not trivially satisfy it. Auditor: S1/S2/S3 chains written out. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P1->P6->P7').",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P1->P6->P7')",
+      "from": {
+       "pathway": "P1->P6->P7",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "comms-space-qkd-network-demo",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: these missions are funded and largely built, so they run on the physical clock regardless of AI mathematics, and the P7 Speculative default does not apply. They are the platform where AI-tightened proofs (comms-finite-key-qkd-proofs) would be applied. Band High in every scenario (judgment, not a computed probability): several independent programs can satisfy the node (Eagle-1's three years of in-orbit validation after a late-2026/early-2027 launch, SPOQC in orbit since Mar 2026, SpeQtre, QEYSSat and successors to China's Jinan-1), and Jinan-1 has already produced an intercontinental key (China-South Africa), so even a slip of a year or two in Eagle-1 leaves routine multi-country campaigns inside the window. The year is 2028 in every scenario because AI does not move launch or ground-station schedules.",
+    "revision_note": "B-networks resolver: Auditor: pathway 'physical enabler (feeds P2)' -> P7 (grounding rule: valid tag required); SPOQC status de-staled (launch verified via The Quantum Insider). Years and bands unchanged. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7'); High kept after a second look: the band is the judgment that one of several funded, largely built programs runs routine multi-country campaigns by 2031, not an AI-math effect; that reasoning is now written out.",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Multi-node satellite QKD demonstrations",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7'); High kept after a second look: the band is the judgment that one of several funded, largely built programs runs routine multi-country campaigns by 2031, not an AI-math effect; that reasoning is now written out",
+      "from": {
+       "pathway": "P7",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "hyper-rapid-reuse-heatshield",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: an exogenous physical anchor paced by SpaceX's flight count and tile hardware, so the P7 Speculative default does not apply; the AI soft inputs described below are the whole scenario spread. Ship catch, then reflight, then 5 reflights is a hardware-iteration sequence paced by flight count. Super Heavy: first catch Oct 2024 and first caught-booster reflight ~7 months later, yet V3 boosters failed landing burns on Flights 12-13 in 2026, so booster reflight is not routine two years on. Falcon 9 took ~4 years from first landing to a booster's 5th flight (general), and each life data point costs a flight (physclock reuse-learning row, 0.8-0.9x in S2). Mach33's base case has 3.3, 4.8, 8.9 and 18 flights per stack in 2027-30; 18 implies a ~20-day average turnaround in 2030, so a ship with 5 reflights and under-2-week heat-shield turnaround is on the base path around 2030 in S2. AI damage models, fleet-trained heating models and inspection theory pull it forward by perhaps 6-12 months; they do not change the ceramic material or the flight clock. The band stays Medium in every scenario: this node is strictly harder than physclock-heavy-cadence-100 (High in S2), and the dead-end risk is real.",
+    "revision_note": "B-entry: [skeptic+advocate+auditor] Hard edges from hyper-tile-damage-accumulation and hyper-tps-inverse-nde made soft (the node's own strongest case: SpaceX gets there with or without AI mathematics). [advocate] Soft edges added from physclock-twin-reflight-clearance and new hyper-fleet-aerothermal-twin. [skeptic] Years 2030/2029/2028 -> 2031/2030/2029: no ship caught as of Oct 2026; S3 2028 predated S3's divergence from S2; the advocate's own Mach33 arithmetic puts the base path at ~2030. [advocate vs skeptic/auditor] Advocate's S2/S3 High rejected: 5 reflights with <2-week turnaround is strictly harder than 100+ reusable launches a year, so High there implies roughly Medium here, consistent with physclock nodes. [skeptic] Booster-reuse sentence replaced with the Super Heavy record. | B-fix (integrator, 2026-10-07): soft edge from physclock-twin-reflight-clearance removed: this node is a hard prerequisite of that one, so it cannot accelerate it (hard/soft 2-cycle). | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (physical clock; AI effect ~months)').",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (physical clock; AI effect ~months)')",
+      "from": {
+       "pathway": "P7 (physical clock; AI effect ~months)",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "materials-wbg-rad-hard-power",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "description": "SiC power MOSFETs (600-1,200 V class) redesigned to run near rated voltage in space, whether by empirical hardening or with a mechanism-level model of heavy-ion single-event burnout and leakage degradation. Achieved when a vendor qualifies such a part free of single-event burnout at 80% or more of rated voltage under standard heavy-ion testing (the signpost).",
+    "why": "Not an AI-math implication: vendors are already hardening SiC empirically with TCAD and beam tests (CoolCAD's vendor-reported burnout threshold above 900 V at LET above 40, Jul 2026), so the date is set by fab cycles and heavy-ion beam time, and the P7 Speculative default does not apply. High-voltage (300-800 V class) buses cut harness mass and losses for 100 kW-class orbital compute and electric propulsion; derating 1,200 V parts to ~50% throws away much of SiC's advantage. LEO plasma arcing on high-voltage arrays also limits bus voltage (NASA-HDBK-4006, general). Explaining the burnout mechanism (impact ionization and thermal runaway along the ion track, defect physics) is a physics-theory problem that AI could speed (cap-physics-theory, P6, soft), but theory is an accelerator, not a prerequisite; each redesign takes about a year per fab cycle plus beam tests, which bind. Chain (S2): hardened-by-design parts reported 2026 -> one or two redesign, fab and beam-test cycles 2027-29 -> a part qualified free of burnout at 80% or more of rated voltage 2030. Band Medium in S2 and S3 (judgment): the empirical route is close but the mechanism is still debated and the rad-hard power market is small, so fab priority is low. S3 2029 through faster design iteration; S1 2031 and Low because a capability plateau slows design iteration and the soft theory input arrives late.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic + auditor: hard edge from materials-see-system-models removed (GPU silent-data-corruption models say nothing about SiC burnout) and made soft; skeptic: materials-learned-functionals hard -> soft; soft edge from cap-physics-theory added (both). Auditor: title and description narrowed to SiC (GaN is voltage-limited, not burnout-limited); status adds the 2026 CoolCAD result (vendor-reported; primary text not re-fetched in this pass). Skeptic: plasma-arcing limit added. Pathway relabelled. Years and bands unchanged. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (empirical hardening under way without AI math; AI physics theory accelerates via P6)'); description aligned with the signpost so the milestone no longer requires the mechanism model (the why and the edges already treat theory as a soft accelerator); chain and band reasoning written out.",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Radiation-robust high-voltage SiC power electronics",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "description",
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (empirical hardening under way without AI math; AI physics theory accelerates via P6)'); description aligned with the signpost so the milestone no longer requires the mechanism model (the why and the edges already treat theory as a soft accelerator); chain and band reasoning written out",
+      "from": {
+       "pathway": "P7 (empirical hardening under way without AI math; AI physics theory accelerates via P6)",
+       "premise_tier": "n/a",
+       "description": "SiC power MOSFETs (600-1,200 V class) with a mechanism-level model of heavy-ion single-event burnout and leakage degradation, redesigned to run near rated voltage in space."
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "materials-cots-orbital-compute-ops",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: orbital compute happens on SpaceX's and Starcloud's hardware, launch and capital schedules, so this is an exogenous anchor and the P7 Speculative default does not apply. Operators already fly commercial accelerators without triple redundancy. AI math adds confidence, not the milestone: validated fault models (materials-see-system-models) and proven fault-tolerance layers (materials-verified-fault-tolerance) right-size mitigation, roughly 5-20% more useful compute per watt (assumption), which improves unit economics. Chain (all scenarios): first 100-kW-class Starmind flight 2028 (SpaceX target Q4 2027, slipped per the tree's 1.5-3x calibration) -> commissioning and first paying workloads 2029. Launch, not capital, is the gate for the leader (SpaceX held $100.8B of cash after its 2026 IPO; Mach33 names launch the physical gate). S1 stays Medium because weaker AI demand in a plateau may defer paying service. High in S2 and S3 (judgment): the chain leaves about two years of slack before 2031 and has several independent attempts (Starmind, Starcloud-2 and -3, Google's Suncatcher line).",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic: hard edge from materials-see-system-models made soft and the AI-math clause removed from the description, so the node is the commercial milestone and AI math no longer appears to gate 1 GW (this also resolves the auditor's cots-ops -> 1 GW finding, so that hard edge, a true physical precursor, is kept). Skeptic: S2/S3 2028 -> 2029 following the 100-kW radiator first-flight slip to 2028. Advocate: gate capital -> launch (capital does not bind the leader); soft edge from materials-verified-fault-tolerance. Auditor + skeptic: pathway relabelled (not AI-math-driven); ~2.5x lever removed; status updated (Starmind Q4 2027 target, Suncatcher launch, Starcloud-3, FT debt report). Bands unchanged. | B-fix (integrator, 2026-10-07): soft edge from plasma-radbelt-charging-forecast (B-safe-orbits request: 500-2,000 km SSO fleets gain from charging forecasts). | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven; AI math enters via P1 fault models and P2 proven fault tolerance, both soft)').",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven; AI math enters via P1 fault models and P2 proven fault tolerance, both soft)')",
+      "from": {
+       "pathway": "P7 (not AI-math-driven; AI math enters via P1 fault models and P2 proven fault tolerance, both soft)",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-flight-test-cadence",
+   "patch": {
+    "why": "Not an AI-math implication: an exogenous physical anchor (vehicle builds and pad turnaround), so the P7 Speculative default does not apply. Cadence is set by vehicle build and pad turnaround: about nine weeks per V3 loop with one active pad. A second Starbase pad, LC-39A and first reflights (expected early 2027) bring the interval to 3-4 weeks, giving 12 or more flights in 2027. AI barely changes this: Flight 12 went from Musk's 'about 6 weeks' (Jan 26 2026) to May 22, about 2.8 times the stated interval, because of V3 hardware readiness and a Starbase component failure in April, not analysis. Starship has never met a yearly flight plan: 2, 4, 5 and 3 flights (2023 to Oct 2026), 5 against 25 authorized in 2025. Twelve in 2027 needs about 3x the 2026 rate, a debut of LC-39A (not yet launched) and roughly a dozen new ships before ship reuse arrives, which makes 2027 about a coin flip, so the central year is 2028. AI-assisted mishap diagnosis (physclock-ai-mishap-analysis) shortens stand-downs whose cause is not hardware, a marginal accelerator only.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: 2027 -> 2028 in all scenarios (slip-ratio table; 2,4,5,3 flights per year; 12 in 2027 is about a coin flip). Auditor: tier 0 -> 5 (a launch cadence is not an AI capability), stale strongest-case and engine-out wording fixed, interval range 48-91, exogenous P7 label. Advocate kept cadence unchanged without a counter-mechanism. Band unchanged. Cascade: physclock-test-loop-monthly S3 -> 2028. | B-fix (integrator, 2026-10-07): soft edge from physclock-ai-mishap-analysis added (B-certification request; carries the content of the removed physclock-test-loop-monthly). 2028 High in all scenarios re-checked against physclock.json (S2 interval 0.6-0.8x of 63-66 days = 38-53 days, short of monthly without new pads and reflight): kept. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication"
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-starship-full-reuse",
+   "patch": {
+    "why": "Not an AI-math implication: an exogenous physical anchor (flight tests of catch and reflight), so the P7 Speculative default does not apply. Reuse is a flight-test result. Falcon 9 took 15 months from first landing (Dec 2015) to first reflight (Mar 2017). AI shortens failure analysis between attempts but does not change the number of attempts needed. Starship's booster went from catch to reflight in about 4.3 months (B14, Jan-May 2025), far faster than Falcon 9. For the ship, Falcon's 15-month landing-to-reflight lag applied to a first ship catch around late 2026 would give early 2028, so ship reflight in 2027 is roughly 50-60% (judgment); 2027 stays the earliest year. Mach33 projections are a single commercial forecaster's model estimates, not independent research (an equity disclosure was reported on its pages; unverified here).",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: status corrected (boosters already caught three times and reflown twice; the open item is the ship); Flight 15 date updated (stale \"about Dec 2026\"); exogenous P7 label; Mach33 source-weight caveat. Year and band unchanged. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication"
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-pad-propellant-infra",
+   "patch": {
+    "why": "Not an AI-math implication: an exogenous physical anchor (pad construction, pipelines and propellant plants), so the P7 Speculative default does not apply. Pad construction (2-4 years per heavy pad, general) and air-separation and liquefaction plants run on the physical clock. On-site propellant costs about $0.2M per flight against $1.7-2.7M merchant, and trucking becomes physically implausible above about 100 flights a year (106 deliveries a day) (Mach33). AI barely touches this; it bounds every high-cadence node. LC-39A has not launched Starship as of Oct 2026, against a late-2025 plan (Spectrum News 13, Mar 2025) and an H2-2026 target (Mach33, Apr 2026); SLC-37 was approved in Dec 2025 and is under construction; at 2-4 years per pad and 1-3 years for the Florida pipeline (filed Oct 2026), four pads with pipeline or on-site supply is a 2029 central year. The node is AI-independent, so all scenarios move together. Environmental caps: Starbase 25 a year (FAA, May 2025), LC-39A 44 (FAA, Jan 2026, per NASASpaceflight) and SLC-37 76 (Department of the Air Force, Dec 2025).",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: 2028 -> 2029 in all scenarios (every element on its best-case schedule; LC-39A a year behind plan; table compresses pads only 0.9-1.0x). Auditor: exogenous P7 label. Bands unchanged. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication"
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-heavy-cadence-100",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: an exogenous physical anchor (stack production, reuse reliability, pads and propellant), so the P7 Speculative default does not apply; AI enters only through anomaly closure, which is the whole scenario spread. At Mach33's 2028 base of 4.8 flights per stack, 100 flights need about 21 new stacks (roughly $3B at $143M each, Mach33's 2028 learned-stack estimate against about $250M today) and four or more pads; at 2030's 18 flights per stack, about 6 stacks. Production, reuse reliability and propellant bind. Launch cadence follows its own curve: AI moves it 0-0.5 year in S2 (anomaly closure only) and 0.5-1 year in S3 (AI-run factories from about 2029). Environmental caps also bind: Starbase 25 a year (FAA, May 2025), LC-39A 44 (Jan 2026) and SLC-37 76 (Dec 2025), so 100 flights needs both Florida sites running above half their caps. Chain (S2): first V3 reflights 2027 -> four pads with pipeline or on-site propellant 2029 -> 100+ flights 2030; S3 2029 only if the four-pad set is ready early that year; S1 about 2030 on SpaceX's own trajectory. Mach33 projections are a single commercial forecaster's model estimates, not independent research (an equity disclosure was reported on its pages; unverified here). High in S2 and S3 (judgment): at Mach33's 2030 flights per stack about 6 stacks suffice and the S2 chain leaves a year of slack; S1 is Medium because the plateau removes the anomaly-closure margin and weakens AI-compute launch demand.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S2 2029 -> 2030 and S3 2028 -> 2029 (physclock table allows 0-0.5 year in S2 and 0.5-1 year in S3; pads now 2029). Environmental caps, chain and $143M label added; status fixed (only Flight 14 of 2026 was orbital). Advocate: soft edges from physclock-ai-mishap-analysis (the AI channel the why names) and the new compute-demand node; the soft edge from test-loop-monthly was not added (it is a consequence, not a cause). Bands unchanged. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (mostly exogenous; AI adds 0-0.5 year in S2 through anomaly closure)').",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (mostly exogenous; AI adds 0-0.5 year in S2 through anomaly closure)')",
+      "from": {
+       "pathway": "P7 (mostly exogenous; AI adds 0-0.5 year in S2 through anomaly closure)",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-reusable-competition",
+   "patch": {
+    "why": "Not an AI-math implication: an exogenous physical anchor (competitors' engines, upper stages and pads), so the P7 Speculative default does not apply. Mach33 modeled 15-36 New Glenn launches over 2026-27 and found cadence gated by BE-4 and upper-stage production, not reuse; every competitor slipped 1-5 years against announced first flights. AI helps new entrants most (no legacy process) but cannot shorten engine qualification or pad rebuilds. New Glenn, Neutron, Terran R and LM-10B were designed before 2027, so AI helps them mainly through anomaly closure (0-0.5 year in S2, physclock table); clean-sheet compression applies only to programs started in 2028 or later. Blue Origin has flown one New Glenn in 2026 against a goal of 24. Medium in every scenario (judgment): several programs can reach 20 reflown-booster missions in a year by 2031, but every one has slipped 1-5 years against announced dates.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: S2 2029 -> 2030 (existing programs get 0-0.5 year of AI help, not a full year). Advocate: Zhuque-3 landing added to status (verified on Wikipedia, with the post-landing tip-over). Auditor: exogenous P7 label. S1, S3 and bands unchanged. Its hard edge into physclock-cheap-mass-customer is now soft. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication"
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-cheap-mass-internal",
+   "patch": {
+    "why": "Not an AI-math implication: an exogenous physical anchor, so the P7 Speculative default does not apply. Mach33 splits the 2026-27 decline (log basis) into reuse 56%, payload 32% and production learning 12%. None is a mathematics lever. This is the independent physical exponential in this tree: it would happen at the same pace with no AI math at all. Mach33 projections are a single commercial forecaster's model estimates, not independent research (an equity disclosure was reported on its pages; unverified here).",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: 2028 -> 2029 in all scenarios (2028 is Mach33's base-case median, not a likely year; slip ratio applied). Auditor: exogenous P7 label and Mach33 source-weight caveat. Advocate: soft edge to program-cycle-compression (cheap mass can buy schedule). Bands unchanged. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication"
+     }
+    ]
+   }
+  },
+  {
+   "id": "plasma-fusion-net-gain",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: an exogenous physical-clock anchor, so the P7 Speculative default does not apply. Physical-clock anchor: magnets, vacuum vessel, assembly, commissioning and tritium operations set the date. Chain: SPARC TF magnets installed 2026-27 -> first plasma 2027 -> D-D then D-T campaign -> Q>1 in 2028 at the earliest; Helion Orion (50 MW, Microsoft PPA) targeted 2028. AI contributes through plasma control and scenario design (plasma-ai-fusion-operations, soft) and faster commissioning in S3, not through mathematics. S3's 1.3-1.5x experiment multiplier applies only after 2028 and cannot pull Q>1 into SPARC's first-plasma year. Medium in every scenario (judgment): SPARC's Q > 1 needs first plasma (2027, already slipped from 2025 and 2026) and then a D-T campaign, and Helion's 2028 Orion target is unproven; two independent attempts with about three years of slack keep it at Medium rather than Low.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + auditor: S3 2027 -> 2028 (physical-clock node; S3 equals S2 through 2027-28; SPARC first plasma is itself 2027). Auditor (verified): TAE's Copernicus was cancelled Nov 2025; unsourced SPARC vacuum-vessel date replaced by the verified TF-magnet milestone; dated chain added. Advocate's S3 Medium -> High rejected (hardware binds; one of its three attempts is cancelled); its plasma-ai-fusion-operations added as a soft accelerator. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7').",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7')",
+      "from": {
+       "pathway": "P7",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "prop-hls-refuel-campaign",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: an exogenous physical anchor (launch cadence, vehicle reliability, docking and pad turnaround), so the P7 Speculative default does not apply; AI models trim planning margin and shorten anomaly closure only. Launch cadence binds. At one tanker every ~6 days a campaign takes about 2 months, and every slip in cadence multiplies boil-off losses (tables). Validated boil-off and transfer models (prop-cfm-models) trim ~0-1 tanker of planning margin per mission at a 6-day cadence, more only at slow cadence and high boil-off, a regime operators avoid by flying faster. Reliable relights (prop-start-transient) protect the landing rather than the tanker count. Schedule gain: weeks to months. Chain (S2): prop-ship-transfer-demo (2027) -> 10-20-tanker depot fill on the launch clock -> transfer to HLS (2029 at the earliest). S1 and S2 share the date and band because launch cadence runs on its own curve (physclock: 0-0.5 year earlier in S2); S3's broader acceleration of hardware iteration and mishap closure (launch 0.5-1 year earlier) lifts it to 2028 and High. Medium in S1 and S2 (judgment): NASA's OIG tracks cryogenic-transfer maturity as a top risk and ASAP warned HLS could be years late, but the campaign has two years of slack before 2031.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (claim, two lenses): '~1-4 tankers saved' conflated the physical boil-off loss with a model's value; corrected to ~0-1 tanker of planning margin (depot table reproduced; margin re-simulated). Soft edges added (advocate): prop-cfm-models, prop-start-transient, prop-mass-gauging, physclock-ai-mishap-analysis, physclock-heavy-cadence-100, so the tree shows what the text already credits. Bands kept: advocate's S2 High and auditor's S3 2029/Medium both rejected (see debates). Chain written out. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P1->P7'); previously labelled P1->P7, but its own strongest case says AI mathematics is not on the critical path.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P1->P7'); previously labelled P1->P7, but its own strongest case says AI mathematics is not on the critical path",
+      "from": {
+       "pathway": "P1->P7",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-highflux-radiator-flight",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: an exogenous physical anchor on SpaceX's and Starcloud's hardware schedules, so the P7 Speculative default does not apply. Anchor node for the orbital-compute chain: the hardware arrives regardless, sized with conventional tools. 33FG's June reconstruction puts AI1's thermal system (June spec) at ~532 kg of 2.1 t (25%) and notes that below ~5 kg/m2 it relies on two-phase hardware SpaceX does not yet build in-house; the October reference satellite is ~4.0-4.5 t. Between June and October 2026 the power point moved twice and the radiator envelope grew from 110 to up to 200 m2, with thermal closure (HBM temperature) still open. With design-complete at best ~Q1 2027, a 12-18 month lag from design-complete to flight for a derivative payload (physclock lag ladder) and announced SpaceX schedules running 1.5-3x long, first flight lands in 2028 in every scenario. AI-math effects enter on the second iteration. High in every scenario (judgment): SpaceX targets Q4 2027 and Starcloud-3 is a second attempt, so a first flight by 2031 survives a slip of two to three years.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Auditor + advocate + skeptic: status and description updated from the superseded June AI1 spec to the Aug 2026 product page, Sep 16 2026 FCC envelope and Oct 2026 statements; 'launch date not published' corrected (SpaceX targets Q4 2027). Skeptic: years 2027 -> 2028 in all scenarios (design not frozen, 12-18 month lag ladder, 1.5-3x slip calibration; same practice the trunk resolver applied to launch-clock nodes). Advocate's reliance on a Q4 2027 first flight rejected on that calibration. Bands High unchanged. New soft edges out to two-phase, deployment and sail nodes (fleet data and deployable supply base). | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven)').",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven)')",
+      "from": {
+       "pathway": "P7 (not AI-math-driven)",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-radiator-lightweight-production",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: serial production of light radiators is a manufacturing and insourcing ramp on the physical clock, so this is an exogenous anchor and the P7 Speculative default does not apply; AI design and validated two-phase models are soft accelerators (P1). Going from ~3.7 kg/m2 (AI1 implied) to 2.5 kg/m2 saves ~850 t of radiator per GW at 1,400 W/m2 (~1,550 t at ~765 W/m2), ~9-16 Starship flights at 100 t. Prototypes already reach ~1.9-3.9 kg/m2 without AI design, so serial production is a manufacturing and insourcing problem; AI design (2028 in S2) and validated two-phase models shorten iteration but are not prerequisites. The manufacturing ramp and qualification bind, so S2 and S3 tie at 2030 (first flight of the new panel in 2029, then the production ramp). Economic pull is modest: 33FG finds the radiator is the subsystem with room to spare (each kg/m2 off the ~600 m2 solar array buys ~6x what the same cut buys on the radiator), and the October design is short of radiator area, not areal density. S3's AI-run factories speed a ramp but do not create demand for it. S1 is 2031 and Low because a capability plateau slows design iteration and weakens compute-satellite demand; S2 and S3 Medium (judgment) because prototypes already reach the target density but the economic pull is modest.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic + auditor: hard edge from struct-radiator-optimization made soft (prototypes reach 1.9-3.9 kg/m2 without AI design); S3 High -> Medium (fabrication compresses only 1.2-1.3x in S3; weak economic pull; S2 and S3 tie on year); 'AI-run factories' sentence removed as a justification. Auditor: S1 >2031 -> 2031 (band Low unchanged) now that the S1 2030 AI design is no longer a hard prerequisite. Skeptic: numbers updated (~3.7 -> 2.5 kg/m2; ~850-1,550 t per GW). Soft edges added from struct-two-phase-microgravity-models (all three lenses), physclock-satellite-gen-cadence and physclock-optimal-test-campaigns (advocate). Advocate's S2 Medium -> High rejected (see debates). | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (manufacturing; AI design and two-phase models accelerate via P1)').",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Sub-2.5 kg/m2 radiators in serial production",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (manufacturing; AI design and two-phase models accelerate via P1)')",
+      "from": {
+       "pathway": "P7 (manufacturing; AI design and two-phase models accelerate via P1)",
+       "premise_tier": "n/a (capability premise)"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-compute-launch-demand",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "why": "Not an AI-math implication: an exogenous demand anchor that couples the launch clock to the AI capability curve, not to AI mathematics, so the P7 Speculative default does not apply. Full chain (S2): both Starship stages reflown 2027 -> first 100-kW-class compute satellites flown 2028 (struct-highflux-radiator-flight) -> paying 100-kW-class operations in orbit 2029 (materials-cots-orbital-compute-ops) -> internal launch cost under ~$300/kg, Mach33's orbital-compute base-case input, 2029 -> 10 or more compute flights in one year, 2030, with little slack. At about 4.0-4.5 t per AI1-class satellite (Oct 2026 reference), 10 flights of 100 t carry roughly 220-250 satellites, about 40-60 MW at 175-250 kW each. This is where the AI curve meets the launch clock: frontier training compute grows ~5x a year and a GW-scale ground site takes ~2.1 years (Epoch), so S2 and S3 raise demand for compute that needs no grid interconnection. S3 is a year earlier because demand and the physical multiplier both rise from 2028; S1 is later because a capability plateau slows the build-out. More flights also speed Starship production learning. Mach33 projections are a single commercial forecaster's model estimates, not independent research (an equity disclosure was reported on its pages; unverified here). Medium in S2 and S3 (judgment): the chain has little slack and the economics are unproven (strongest case).",
+    "revision_note": "B-trunk resolver (2026-10-07): New node from the advocate (proposed as physclock-compute-manifest-anchor; renamed to the trunk's domain prefix). Years moved one year later than proposed (S1 2031 / S2 2030 / S3 2029) to follow physclock-cheap-mass-internal (now 2029) and the launch-slip calibration; S3 High -> Medium (economics unproven). Labelled as an AI-capability demand effect, not AI math. Not a duplicate: struct-gw-orbital-compute is the 1 GW cumulative outcome downstream. | B-fix (integrator, 2026-10-07): status, chain and strongest case re-based on the orbital-compute branch: radiator first flight 2028 and paying ops 2029 (was 2027/2028), AI1 ~4.0-4.5 t (was 2.1 t), 10 flights ~220-250 satellites / ~40-60 MW (was ~450 / 70-110 MW); soft edge to struct-gw-orbital-compute added. Years and bands unchanged (S2 2030 Medium matches the GW node chain). | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (demand coupling from AI capability, not an AI-math effect)').",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (demand coupling from AI capability, not an AI-math effect)')",
+      "from": {
+       "pathway": "P7 (demand coupling from AI capability, not an AI-math effect)"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-hot-chip-hbm-qualification",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: qualification here is a vendor and operator program (life tests, flight telemetry, re-specification), so this is an exogenous anchor and the P7 Speculative default does not apply; AI applied math (P1/P5 accelerated-life models) is a soft accelerator. Radiator area scales as 1/T^4 of the radiating temperature, so allowable chip and HBM temperature is the largest thermal lever. Raising the radiating temperature from ~368 K (95 C) to ~407 K (134 C) cuts panel area ~33% at fixed heat (calculation); 33FG's model puts the gap at ~200 versus ~327 m2 for a 250 kW satellite. At ~3.7 kg/m2 that is ~470 kg per satellite (~10% of a ~4.5 t satellite), or ~1,900 t (~19 Starship flights at 100 t) per GW of 4,000 satellites, more than the whole AI radiator-design lever (~350-1,400 t per GW). Physics stays fixed: DRAM retention roughly halves per ~10 C, so hotter HBM needs faster refresh at a bandwidth cost, and Arrhenius wear-out shortens life (general), so the trade is service life (3-5 years, matching chip obsolescence) against radiator mass. The AI-math role is P1/P5: hierarchical Bayesian accelerated-life models, competing-risk wear-out and optimal accelerated-test design let qualification rest on weeks of high-temperature operating life tests (~1,000 h, general) plus first-flight telemetry rather than years of exposure. Chain (S2): first 100-kW-class flights 2028 -> life tests and telemetry 2028-29 -> vendor re-specification of HBM and a published orbital operating envelope 2029. The gate is qualification by the operator and chip vendors, with no regulator, so S2 and S3 tie. Medium in every scenario (judgment): first flights in 2028 leave two to three years for life data and a published envelope, but SpaceX may instead accept a shorter chip life, a larger radiator or a cooler package (strongest case).",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): New node merging the skeptic's materials-hot-hbm-qualification (T5, qualification) and the advocate's materials-hot-chip-wearout-models (T3, P1->P5); renamed to the branch's main domain prefix. Both lenses identify allowable chip/HBM temperature as a bigger thermal lever than radiator design (verified in 33FG's Oct 6 2026 model). One node, not two: physics-of-failure models already exist at vendors, and validation needs life tests and flight telemetry, so the advocate's High-by-2028 model node overstated the AI-math share; the AI role is kept as soft accelerators. Not a duplicate (no chip-temperature node in the graph). | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (vendor qualification; AI applied math accelerates via P1/P5 accelerated-life models)').",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "AI chips and HBM qualified to run hot in orbit",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (vendor qualification; AI applied math accelerates via P1/P5 accelerated-life models)')",
+      "from": {
+       "pathway": "P7 (vendor qualification; AI applied math accelerates via P1/P5 accelerated-life models)",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-light-solar-array-production",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: array production at constellation volume is a manufacturing ramp that happens without AI mathematics, so this is an exogenous anchor and the P7 Speculative default does not apply. Solar is the largest mass block on a compute satellite; every kg/m2 off a ~600 m2 array buys ~6x what the same cut buys on a ~110 m2 radiator (33FG). At ~1,000-1,500 m2 per 250 kW satellite, 1 GW needs ~4-6 km2 of array, many times Starlink's yearly array output (assumption), so array production rather than radiator design is the fabrication gate at GW scale. Reaching 100 kW/t needs this and more: the June AI1 design already assumed ROSA-class arrays to reach ~70 kW/t, so 100 kW/t also needs thinner or higher-efficiency cells (materials-perovskite-primary-power) and hotter chips. Chain (all scenarios): first Starmind flights 2028 -> serial satellite production with arrays at constellation volume 2029. Medium rather than High because the filing allows a heavier 1,500 m2 array within 4,000 kg, so SpaceX may not need the light blanket at volume.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): New node from the auditor (verified against 33FG's AI1 reconstruction: solar 56% of mass, 'primary constraint is solar areal density'); defined by array specific power so the hard edge to struct-100kw-per-tonne-fleet is a necessary condition. Years moved from the proposed 2028 to 2029 to follow the first-flight slip to 2028. Not a duplicate: the perovskite chain is the materials route; this is the architecture and production route. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven; AI touches array structural and deployment design only, marginal P1)').",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven; AI touches array structural and deployment design only, marginal P1)')",
+      "from": {
+       "pathway": "P7 (not AI-math-driven; AI touches array structural and deployment design only, marginal P1)",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-formation-compute-clusters",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: an exogenous physical anchor (optical terminals, station-keeping propellant and the compute fleet), so the P7 Speculative default does not apply; AI math enters only through soft inputs (P2 collision-safety proofs, certified link scheduling). Forcing a frontier model into one satellite forgoes up to 44% of achievable serving output (33FG, Jul 2026); tight clusters recover much of it, and microsecond-scale synchronization bounds a coherent domain to under ~750 m (Mach33). Chain (S2): first 100-kW-class Starmind flights 2028 -> a batch of ten or more satellites launched and phased into formation, with Google's two-satellite link test (2027) as a precursor -> operational cluster 2029-30. AI math lowers risk and operations cost (machine-checked collision safety for dense multi-year formations under thruster faults and communication loss; certified gaps for link scheduling) but does not set the date. Physical gates do not move: optical-terminal throughput, differential-drag and J2 station-keeping propellant, and the debris consequence of a dense cluster. S3 equals S2 in band because the gates are physical and no cluster has flown. S1 is Low because a capability plateau weakens demand for models too large for one satellite and delays the compute fleet (as in capability-compute-launch-demand); S2 and S3 are Medium (judgment) because SpaceX has stated the requirement and Google has a precursor test, but no cluster has flown.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): New node from the advocate (verified: SpaceX 10-satellite cluster statement and Suncatcher Transporter-18 plan via 33FG news). Not a duplicate: struct-km-monolith covers the structure route and only mentions formation flying as its competitor. Advocate's S3 High lowered to Medium (first formation statement Oct 6 2026, no cluster flown, physical gates); S1 2031 -> 2030 since the node is not AI-math-driven. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven; AI math second-order via P2 collision-safety proofs and certified link scheduling)').",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven; AI math second-order via P2 collision-safety proofs and certified link scheduling)')",
+      "from": {
+       "pathway": "P7 (not AI-math-driven; AI math second-order via P2 collision-safety proofs and certified link scheduling)",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "auton-lunar-heavy-cargo-landing",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: an exogenous physical anchor on SpaceX's and Blue Origin's launch and refuelling programs, so the P7 Speculative default does not apply. Launch cadence and refueling, not cognition, set this date. AI contributes at the margin through boil-off and transfer models (prop-cfm-models), faster anomaly closure and PSI-informed site selection: 0-0.5 year in S2 and 0.5-1 year in S3 (physclock launch row). Chain (S2): ship-to-ship transfer 2027 -> full refuel campaign 2029 -> uncrewed or cargo-configured landing carrying 15 t or more 2029, under the Moon Base bulk-buy model. Chain (S1): the same curve without AI-assisted anomaly closure -> 2030. Chain (S3): refuel 2028 -> cargo landing 2028. The band is Medium in every scenario: it cannot exceed the refuel campaign's Medium in S1 and S2, announced schedules slip 1.5-3x, and a first landing of a new vehicle class on south-polar terrain carries real tip-over risk even in S3. Second-order unlock where the two curves combine: once landed mass is cheap and design iterations cost almost nothing, lunar hardware can be built mass-tolerant and rich in spares. That shifts reliability gates (ECLSS MTBF, MRE anode life) from 'demonstrate MTBF' toward 'carry spares and let robots swap them'.",
+    "revision_note": "B-moon-mars: New node. It merges the advocate's auton-lunar-heavy-cargo-landing with the auditor's physclock-lunar-heavy-cargo; the advocate's 15 t threshold is kept because that is the gate struct-fsp-lunar-100kwe names and the one base infrastructure needs. The advocate's 2030/2029/2028 years are kept. Its S3 High is tempered to Medium (auditor's Medium; announced schedules slip 1.5-3x; landing risk), and the 'second landing within 12 months' clause is dropped so the year marks a single event. Not a duplicate: prop-hls-refuel-campaign is the propellant campaign, and no node covered landed heavy cargo. Edges into external nodes (a hard edge into struct-fsp-lunar-100kwe) are left for the struct branch. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (physical exponential, largely independent of AI math)').",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (physical exponential, largely independent of AI math)')",
+      "from": {
+       "pathway": "P7 (physical exponential, largely independent of AI math)",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-stage4-survey-data",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous data supply: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: an exogenous data-supply anchor, so the P7 Speculative default does not apply. AI mathematics does not move survey data releases; the dark-energy verdict arrives with them. Identical across scenarios by construction. High because DESI's final analyses and Euclid's first cosmology release are both scheduled well before 2031 (general), so slips of a year leave the node inside the window. Bands are judgments.",
+    "revision_note": "B-science resolver (2026-10-07): New node from the auditor: makes the data clock behind science-dark-energy-verdict visible after the skeptic's change left that node with no hard prerequisite. Hard prerequisite of science-dark-energy-verdict (2029 or later, so no ordering conflict). | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'exogenous (P7 physical data supply, independent of AI mathematics)').",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Stage-IV survey data in hand",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'exogenous (P7 physical data supply, independent of AI mathematics)')",
+      "from": {
+       "pathway": "exogenous (P7 physical data supply, independent of AI mathematics)",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-private-observatories",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: an exogenous physical anchor (foundation capital, mirror and detector fabrication, test and launch), so the P7 Speculative default does not apply; AI assists only in integration, test and operations (soft). Full P7 chain: (1) capital was committed by a foundation in Jan 2026, not by appropriations; (2) design and build run 2026-28, mostly before public research-grade applied math (S2 2027), so AI's share is integration analysis, test-anomaly diagnosis (physclock-ai-mishap-analysis, S2 2027) and operations; (3) mirror and detector fabrication, thermal-vacuum testing and integration stay physical (1.05-1.3x); (4) launch is not scarce; (5) commissioning, then data. Announced schedules run 1.5-3x long (physclock slip table), so a 2.5-year plan from Jan 2026 implies launch from late 2029 to 2033 and data by 2031 at roughly even odds: Medium in every scenario (judgment). AI trims slips at the margin but does not change the earliest year, so the node is identical across scenarios. It qualifies 'no observatory flies sooner': outside agency selection and appropriations, the physical clock is the only clock. A second, AI-native private observatory started in 2028 and flying by 2031 would need an unannounced funder and is not counted.",
+    "revision_note": "B-science resolver (2026-10-07): New node from the advocate, reshaped: AI-capability hard prerequisite dropped (Lazuli's funding and schedule predate public applied-math capability; AI enters as soft edges), bands set equal across scenarios at Medium (advocate had S3 High), and Mauve excluded by the 1 m threshold (resolver verified 13 cm). Facts verified on Sky & Telescope (Jan 14 2026) and bssl.space. | B-fix (integrator, 2026-10-07): mishap-analysis year in why corrected to S2 2027 (B-certification). | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (P1 assists in integration, test and operations)').",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (P1 assists in integration, test and operations)')",
+      "from": {
+       "pathway": "P7 (P1 assists in integration, test and operations)",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "plasma-aeps-life-qual",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: a real-time wear test on the physical clock, so this is an exogenous anchor and the P7 Speculative default does not apply. Physical-clock anchor: a multi-year wear test cannot run faster than real time in any scenario. AI's levers are the margin already credited by analysis and the speed of data reduction. A 1-2 year slip still lands by 2031, hence High in all scenarios. If SR-1 launches on its Dec 2028 target, AEPS flies before its life test ends; flying while a ground life test continues is normal practice (general) and is not model-based life credit. Feeds plasma-ep-life-by-analysis as validation data (soft).",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): New node from the auditor. Facts verified in Williams et al. 2026 (wear test fall 2026 to Sep 2029; 100% test plus 50% margin by analysis; SEP closeout 2029). Not a duplicate (no AEPS or EP life-test node in the graph). Linked softly to plasma-ep-life-by-analysis. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven)').",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "12 kW AEPS Hall thruster life-qualified by a three-year wear test",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven)')",
+      "from": {
+       "pathway": "P7 (not AI-math-driven)",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "astro-adr-large-object-removed",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "why": "Not an AI-math implication: government-funded demonstrations fly on their own schedule and AI math enters only through soft inputs, so this is an exogenous anchor and the P7 Speculative default does not apply. Two funded missions are in build: ADRAS-J2 (launch 2027) and ClearSpace-1 (2028). One of them succeeding by 2031 is plausible on its own, but slips are common (ClearSpace-1 moved from 2026 to 2028) and capturing an unprepared object is a hard first, so Medium rather than High in every scenario. AI math changes the date little; where it could show by 2031 is a second, cheaper removal with a shorter test campaign and safety review. Recurring removal depends on who pays (regulation and liability), which AI math does not change.",
+    "revision_note": "C-final integrator (2026-10-07): new node from C-sectors (space-sector coverage), accepted; title shortened from 'A large piece of debris is captured and deorbited'. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (exogenous: government-funded demonstrations on their own schedule; AI math enters only through soft inputs)').",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (exogenous: government-funded demonstrations on their own schedule; AI math enters only through soft inputs)')",
+      "from": {
+       "pathway": "P7 (exogenous: government-funded demonstrations on their own schedule; AI math enters only through soft inputs)"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "prop-ship-transfer-demo",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: an exogenous physical anchor (flight tests and vehicle readiness), so the P7 Speculative default does not apply. Flights and vehicle readiness set the timing, and AI mathematics moves this node by roughly zero. It is on the tree because its data unlock prop-cfm-models and, downstream, the refueling economy. High in every scenario (judgment): NASA's administrator expects the demonstration in early 2027 and every HLS landing needs it, so even a multi-year slip lands inside the window.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Auditor (fact, contradicted; verified): Flight 15 is a single-vehicle flight and cannot perform ship-to-ship transfer; the transfer demo was not yet scheduled as of Sep 2026 (Wikipedia, updated Oct 4, 2026), and Flight 15 (NET Oct 19, 2026) targets the first ship catch and begins docking and hatch tests (Basenor). Years and bands unchanged. | F2 audit (2026-10-07): tier-5 hardware outcome labelled 'P1 (marginal)', which hid it from the P7 rule; relabelled 'P7 (exogenous)' with the standard premise label, and the why now says plainly that it is not an AI-math implication.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "tier-5 hardware outcome labelled 'P1 (marginal)', which hid it from the P7 rule; relabelled 'P7 (exogenous)' with the standard premise label, and the why now says plainly that it is not an AI-math implication",
+      "from": {
+       "pathway": "P1 (marginal)",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "prop-rde-flight-demo",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: an exogenous physical anchor (vacuum testing, funding and a flight slot), so the P7 Speculative default does not apply; cheaper analysis is a marginal soft input. Hardware is limited by testing and funding. Cheaper analysis under S2 (mode theory, thermal design) trims iterations but cannot shorten vacuum testing, flight integration or the wait for a funded flight slot. S3 equals S2 until 2028, and autonomous test stands (S3 2028) cannot pull a funded flight into the same year, so all three scenarios share 2029. Chain: InRoDES vacuum test and industry transfer, or a Venus- or Juno-class program (2026-28) -> funded >=1,000 lbf space or lander demonstration (2029 at the earliest). Medium in every scenario (judgment): several programs (NASA InRoDES, Venus, Juno) could fly a demonstration of 1,000 lbf or more by 2031, but it depends on a customer and money (strongest case).",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (timing, accepted): S3 2028 -> 2029; S3 equals S2 until 2028, and autonomous test stands (S3 2028) cannot pull a funded flight into the same year. Auditor: pathway 'P1 (marginal)' and soft edge from physclock-ai-run-test-stands; advocate: soft edge from prop-ai-engine-design-loop (Venus credits AI-enabled design). InRoDES durations corrected (only Dec 2025 exceeded 340 s). Chain written out. Bands unchanged. | F2 audit (2026-10-07): tier-5 hardware outcome labelled 'P1 (marginal)', which hid it from the P7 rule; relabelled 'P7 (exogenous)' with the standard premise label, and the why now says plainly that it is not an AI-math implication.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "tier-5 hardware outcome labelled 'P1 (marginal)', which hid it from the P7 rule; relabelled 'P7 (exogenous)' with the standard premise label, and the why now says plainly that it is not an AI-math implication",
+      "from": {
+       "pathway": "P1 (marginal)",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "prop-loxsat-cfm-flight-data",
+   "patch": {
+    "pathway": "P7 (exogenous)",
+    "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+    "why": "Not an AI-math implication: a physical-clock anchor with nil AI-math effect on its date, so the P7 Speculative default does not apply. It supplies public microgravity validation data that does not depend on SpaceX releasing its Starship transfer data, which prop-cfm-models' strongest case says SpaceX will keep. Chain: Electron launch (NET Jul 2026, unverified) -> nine months of LOX storage, gauging and transfer tests (to about mid-2027) -> NASA model-versus-flight comparisons published (2028 at the earliest). The data are small-tank and LOX-only, so they calibrate models (soft links to prop-cfm-models and prop-mass-gauging) rather than validate Starship-scale methane behaviour. Medium, not High, in every scenario: launch, spacecraft performance over nine months and publication must all go right (the 2019 Robotic Refueling Mission 3 lost its methane early when its cryocooler failed, general).",
+    "revision_note": "B-engines-materials resolver (2026-10-07): New node from the auditor, accepted: not a duplicate (no LOXSAT or public-CFM-data node in node-index-v1), mechanism sound, all fields filled; bands set to Medium rather than the auditor's High because launch is unverified and nine-month operations and publication must all succeed. Links are soft, as the auditor specified. | F2 audit (2026-10-07): tier-5 hardware outcome labelled 'P1 (marginal)', which hid it from the P7 rule; relabelled 'P7 (exogenous)' with the standard premise label, and the why now says plainly that it is not an AI-math implication.",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Public microgravity cryogenic flight data (LOXSAT)",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "tier-5 hardware outcome labelled 'P1 (marginal)', which hid it from the P7 rule; relabelled 'P7 (exogenous)' with the standard premise label, and the why now says plainly that it is not an AI-math implication",
+      "from": {
+       "pathway": "P1 (marginal)",
+       "premise_tier": "n/a"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "astro-autonomous-nav-demo",
+   "patch": {
+    "why": "Navigation demos fly on their own schedule; the AI-math contribution is certified integrity in the filter, cheap in S2 by 2028. Chain (S2): nav-filter guarantees 2028 -> integrity monitor coded into a LunaNet/Moonlight user receiver or flight-software load (software only, ~12 months) -> flown in the 2029 interoperability tests or on a CLPS lander with a LuGRE-class receiver. S3 cannot beat the launch manifest, so S2 and S3 share a year. Band: S2 and S3 Medium, above the P7 default (Speculative), because no new hardware is needed: the receivers and flights exist on their own funded schedule (Moonlight interoperability tests, CLPS landers), so the band is set by the P2 software step (default Medium) and one team's decision to fly the monitor and say so, and navigation programs may not prioritize proofs (strongest case). S1 Low: the guarantees arrive in 2030, leaving one flight year. Bands are judgments, not computed probabilities.",
+    "revision_note": "B-safe-orbits: Skeptic: retitled, since GNSS-at-the-Moon and Moonlight/LunaNet signals depend on Earth-based orbit determination and timing, so the demo is not Earth-independent. Auditor: chain written out (tier 5 by 2031); Lunar Pathfinder status stated as planned. | F2 audit (2026-10-07): band reasoning against the P7 default written out; years and bands unchanged.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "band reasoning against the P7 default written out; years and bands unchanged"
+     }
+    ]
+   }
+  },
+  {
+   "id": "astro-cislunar-traffic-management",
+   "patch": {
+    "status_oct2026": "None operational. NASA paused Gateway in its current form on Mar 24, 2026, redirecting resources to a roughly $20B, seven-year lunar surface base (NASA via 33FG); Moonlight relay and navigation services 2028-2030; AFRL's Oracle-Prime cislunar demonstrator is past PDR (Dec 2025) with no launch date announced.",
+    "strongest_case_small": "Cislunar traffic remains tens of objects; demand for a formal service may lag the capability; Gateway's pause in its current form removes the most congested planned orbit for now.",
+    "why": "Algorithms are ready by 2028-29 in S2; space-based cislunar sensors and a funded operator are the gates, and US civil SSA funding is under pressure (Office of Space Commerce FY2027 request down about 80%). Screening tens of cislunar objects uses ordinary propagation, so certified million-object screening, provably safe coordination protocols and a certified stability atlas improve the service but do not gate it. Chain (S2): certified collision-probability math 2028 -> cislunar tracking with honest uncertainty in chaotic dynamics (astro-cislunar-od-uq, 2028) -> algorithms ready 2028-29 -> space-based cislunar sensors and a funded operator, which AI math does not supply -> a basic service 2031 at the earliest. Band (F2 audit): S2 Low, down from Medium. The P7 default is Speculative, AI math supplies neither gate, Gateway's pause removes the main planned NRHO traffic, and the S2 earliest year (2031) leaves no slack, so a basic military or commercial service by 2031 is plausible but less likely than not. S3 Medium (judgment): one year of slack and faster physical clocks. S1 Low. Bands are judgments, not computed probabilities.",
+    "band_2031": {
+     "S2": "Low"
+    },
+    "revision_note": "B-safe-orbits: Edges: stability atlas -> soft (all three lenses), certified catalog-scale screening -> soft (skeptic and auditor: screening tens of cislunar objects uses ordinary propagation), coordination protocols -> soft (auditor: TraCSS screens without arbitration). astro-cislunar-od-uq stays hard. Auditor: Oracle-Prime dates removed (not in the cited release). Years and bands unchanged (capital gate). | F2 audit (2026-10-07): S2 band Medium -> Low (P7 implication whose gates are capital and sensors, earliest year 2031 with no slack); 'Gateway cancelled' corrected to 'paused in its current form' in status and strongest case (contradicted fact; NASA via 33FG news 445).",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "why",
+      "reason": "framework rule: tier 5-7 outcome by 2031 needs its chain written out"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2031",
+       "status_oct2026",
+       "strongest_case_small",
+       "why"
+      ],
+      "reason": "S2 band Medium -> Low (P7 implication whose gates are capital and sensors, earliest year 2031 with no slack); 'Gateway cancelled' corrected to 'paused in its current form' in status and strongest case (contradicted fact; NASA via 33FG news 445)",
+      "from": {
+       "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-ai-eda-space-processor",
+   "patch": {
+    "why": "Design and verification (12-24 months for a rad-hard SoC, general) compress several-fold; fabrication (3-4 months per run), scarce heavy-ion beam time and, for traditional space parts, QML-class qualification (1-2 years) do not. Orbital compute adds a funded commercial customer with no certifying regulator, which raises the odds of an AI-designed space accelerator, but credit to agentic EDA for an Nvidia or Tesla part is unlikely to be disclosed. First tape-out in 2029-30 under S2; flight qualification of traditional rad-hard parts after 2031. Chain (S2): research-grade math public 2027 -> AI multiphysics design with guarantees and agentic EDA (cap-design-optimization, 2028) plus agent-written hardware proofs (verif-hardware-proof-agents, 2028) -> a radiation-tolerant SoC designed and formally verified 2028-29 -> tape-out (3-4 months per run) and heavy-ion test 2029-30 -> credited first silicon 2030 (Medium; disclosure of the AI share is the main risk). Band: S2 and S3 Medium, above the P7 default (Speculative), because the hardware outcome is first silicon plus a heavy-ion test, not flight or qualification, the design step is P1 capability already moving in commercial EDA, and orbital compute supplies a customer with no certifying regulator; not higher because fab and beam time leave about a year of slack and the AI share may go undisclosed. S1 Low. Bands are judgments.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Auditor: EDA dates corrected to the auditor's primary sources (Jul 27 and Sep 30 2026; the earlier dates came from a news-search RSS feed). Advocate: description broadened to include accelerators designed for orbit (commercial customer, no regulator). Advocate's S2 2030 -> 2029 and S3 Medium -> High rejected: zero lag behind cap-design-optimization (2028) plus fab and beam time, and attribution 'mainly to agentic EDA' is unlikely to be disclosed. Years and bands unchanged. | F2 audit (2026-10-07): band reasoning against the P7 default written out; years and bands unchanged.",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "why",
+      "reason": "framework rule: tier 5-7 outcome by 2031 needs its chain written out"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "band reasoning against the P7 default written out; years and bands unchanged"
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-ai-native-spacecraft",
+   "patch": {
+    "why": "Chain (S2): engineering adoption 2028 -> smallsat design-complete -> build, integration and environmental test in 12-18 months (lag ladder) -> rideshare launch -> operations 2029, with published evidence that most analyses, trades and verification artifacts were AI-generated. S3 the same year (S3 equals S2 until 2028); S1 2031 (adoption 2029). It needs adoption and agentic analysis, not multiphysics optimization with guarantees, so design optimization is an accelerator. A small company with no legacy process is the likely first mover; build, integration and test bind, not cognition or rideshare slots, which are not scarce. This is a process outcome, not a performance claim. Band (F2 audit): the P7 default (Speculative) is raised because the physical step is routine (a smallsat reaching orbit and operating, with no regulator beyond licensing), but S2 is Medium, not High. The node is a conjunction on top of its High prerequisite (adoption, a build, a launch, on-orbit success and public evidence of the AI share); 'majority AI-generated' is hard to verify and the first claims will be marketing (strongest case); and the same disclosure risk holds capability-ai-eda-space-processor and verif-lander-verified-gnc-flight at Medium. It sits at the upper edge of Medium because several independent teams can try and the chain has two years of slack. S3 High: cognitive work is near-free from 2029 and two flight years remain. S1 Low: adoption lands in 2029, so the chain has no slack. Bands are judgments, not computed probabilities.",
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium"
+    },
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + advocate: cap-design-optimization hard -> soft; binding gate launch -> fabrication. Advocate soft edge from struct-agentic-analysis-workflows added. Advocate's S2/S3 2028 rejected because it depended on adoption in 2027, which was not accepted; years unchanged. | F2 audit (2026-10-07): bands Medium/High/High -> Low/Medium/High: a P7 conjunction (adoption, build, launch, on-orbit success, public evidence) cannot carry the same High as its prerequisite, and disclosure risk matches the sibling Medium nodes; S1 Low because the S1 chain has no slack; years unchanged.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2031",
+       "why"
+      ],
+      "reason": "bands Medium/High/High -> Low/Medium/High: a P7 conjunction (adoption, build, launch, on-orbit success, public evidence) cannot carry the same High as its prerequisite, and disclosure risk matches the sibling Medium nodes; S1 Low because the S1 chain has no slack; years unchanged",
+      "from": {
+       "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-program-cycle-compression",
+   "patch": {
+    "why": "Illustrative critical-path shares (general): requirements and trades 10%, design and analysis 15%, software 10%, fabrication and procurement 25%, integration and test 25%, qualification and reviews 10%, launch campaign 5%. Speedups of 5-10x on cognitive work and 1.1-1.2x on physical work (S2) give a 1.6x speedup, a ~38% shorter schedule; S3 (20-50x cognitive, 1.3-1.5x physical) ~51%; S1 (2x cognitive) ~18%. These are ceilings: they assume every cognitive step is on the critical path and fully compressible. Requirements negotiation, hardware-in-the-loop software testing and review gates compress far less, and long-lead parts (12-24+ months) often run in parallel with design, so compressing design can leave the critical path unchanged; each 10 points of effectively compressible cognitive share is worth about 7 points of compression. Counting more of the analysis inside test and build phases as cognitive (anomaly diagnosis, procedures, data reduction, material-review paperwork) lifts the S2 ceiling to roughly 45%, but the table's 1.1-1.2x physical multipliers already credit about 10 of those 60 points (if the residual physical work runs at 1.0x), so most of that gain is already inside the 38%. Fewer design escapes found in test cut rework, a second-order gain. Chain (S2): engineering adoption 2028 -> commercial programs started 2028 or later (smallsat lag ladder 12-18 months) -> first completions 2029-30 -> an attributable schedule analysis 2031. S3: 2030. Band Medium: evidence must come from programs started after adoption and finished by 2031, and government flagships dilute any average. Uncrewed commercial programs need no certifier, so the binding gate is integration and test hardware (experiment), not qualification. Band: the P7 default (Speculative) is raised to Medium in S2 and S3 because the outcome is a schedule measured on programs that need no new physics or certifier, and a company schedule analysis counts as well as a GAO or ESA review (signpost); not higher because the S2 earliest attributable analysis is 2031 and government flagships dilute averages. S1 Low. Bands are judgments.",
+    "revision_note": "B-trunk resolver (2026-10-07): Debated (skeptic vs advocate, auditor on wording). Skeptic accepted: 38% is a ceiling, realized lower; S2 2030 -> 2031, S3 2029 -> 2030 (only post-adoption programs count). Advocate partly accepted: the qualification cap was misapplied (gate -> experiment), cap-design-optimization hard -> soft, soft edges from mishap analysis and cheap mass; its 35-50% S2 figure rejected as largely double-counting what the 1.1-1.2x physical multipliers already credit, and its S2 2029 / S3 High rejected (depended on adoption in 2027). Realized range set at 20-30% in S2 between the skeptic's 15-25% and the advocate's 35-50%. | B-fix (integrator, 2026-10-07): soft edges from frontier-math-unbinds (B-math-frontier request 3) and physclock-commercial-analysis-first-qual (B-certification request 2). | F2 audit (2026-10-07): band reasoning against the P7 default written out; years and bands unchanged.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "band reasoning against the P7 default written out; years and bands unchanged"
+     }
+    ]
+   }
+  },
+  {
+   "id": "materials-closed-loop-discovery",
+   "patch": {
+    "why": "Robotic powder synthesis is now cheap and repeatable; with reliable characterization and trustworthy screening, discovery rates can rise roughly tenfold. The node stacks two criteria: independent replication, which needs other groups to synthesize and characterize the material (6-18 months), and a >10x rate for which no agreed baseline exists; High is defensible only for replication alone, so S2 is Medium. For space, the first beneficiaries are materials made by simple routes (PV absorbers, coatings, electrolytes), not superalloys or ceramic composites whose processing autonomous labs cannot yet do. Chain (S2): applied math public 2027 -> reliable automated characterization (2027) and atomistic models with trustworthy error bars (2028) -> autonomous labs at scale (2028) -> candidate materials synthesized 2028-29 -> independent replication 6-18 months later, so first credited discoveries 2029-30 (Medium). Band: the P7 default (Speculative) is raised because the physical step is laboratory synthesis and outside replication in funded, operating labs (Periodic Labs, Lila, DeepMind's UK lab), not a flown system. S2 Medium for the two stacked criteria above; S3 High because labs at scale and candidates arrive earlier and replication fits before 2031. S1 Low (F2 audit, down from Medium): all three hard prerequisites are Medium and land in 2029, leaving one to two years for candidates plus 6-18 months of outside replication. Bands are judgments.",
+    "band_2031": {
+     "S1": "Low"
+    },
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (band, two lenses): S2 High -> Medium; the node stacks outside replication and an unmeasured >10x rate, the only precedent (A-Lab) failed expert audit, and P7 defaults to Speculative. Skeptic's S2 2029 -> 2030 not applied: the A3 lag (labs 2028 -> outside replication 2029) already sits at the optimistic edge. S3 High kept. | F2 audit (2026-10-07): S1 band Medium -> Low (three Medium prerequisites landing in 2029 plus replication leave no room for Medium); S2/S3 reasoning against the P7 default written out.",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "why",
+      "reason": "framework rule: tier 5-7 outcome by 2031 needs its chain written out"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2031",
+       "why"
+      ],
+      "reason": "S1 band Medium -> Low (three Medium prerequisites landing in 2029 plus replication leave no room for Medium); S2/S3 reasoning against the P7 default written out",
+      "from": {
+       "band_2031": {
+        "S1": "Medium",
+        "S2": "Medium",
+        "S3": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "materials-tps-new-material-flight",
+   "patch": {
+    "why": "Chain (S2): AI-selected UHTC or ablator composition (materials-uhtc-tps-design, 2029) -> coupon fabrication (6-12 months) -> arc-jet screening (~1 year; the arc-jet queue binds) -> manifest on a Varda-class capsule or a Starship reentry -> flight in 2030. Commercial capsules turn flight testing from a once-a-decade event into a quarterly one, a physical-gate compression independent of AI, and coupons need no qualification. S2 stays Medium because the material itself lands only in 2029 and developers must say it is AI-designed; S3 is High because closed-loop labs deliver candidates earlier and coupon slots are plentiful. Band: above the P7 default (Speculative) because the flight article is a coupon that needs no qualification and commercial capsules offer frequent slots (W-6 already flew material samples); S2 Medium because it cannot exceed its design prerequisite (Medium, 2029); S3 High with that prerequisite High. S1 Low. Bands are judgments.",
+    "revision_note": "B-entry: [advocate+skeptic+auditor] Achievement defined at the coupon flight and 'AI-designed' made falsifiable. [skeptic] S2/S3 2029 -> 2030 (the node's own 'about a year after arc-jet screening', with the design node now 2029). [advocate, partly accepted] S3 Medium -> High (cheap coupon slots plus S3 closed-loop labs); S2 High rejected because the prerequisite design capability is Medium in S2 and arrives only in 2029. [auditor] Chain and W-6 coupon-channel status added. | F2 audit (2026-10-07): band reasoning against the P7 default written out; years and bands unchanged.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "band reasoning against the P7 default written out; years and bands unchanged"
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-critical-payload-reuse-acceptance",
+   "patch": {
+    "why": "Falcon's lag (first reflight Mar 2017; NASA crew on a reused booster with Crew-2, Apr 2021; first NSSL mission on a reused booster, GPS III SV05, Jun 2021) came from accumulated flight history; AI evidence cannot create flight cycles and saves about a year at most, conditional on the credibility standard (S2 2029). Chain (S2): data-cleared reflight 2030 -> acceptance on flight history plus AI evidence 2031; S3 one year earlier. Band (F2 audit): the P7 default is Speculative and customer certification caps every scenario at Medium. S2 is Low, down from Medium: both hard prerequisites are Medium (data-cleared reflight 2030, credibility standard 2029), the S2 earliest year is 2031 with no slack, and the Falcon analog (about four years from first reflight to NASA crew) puts the flight-history route alone near 2031, so meeting the node's stricter test (clearance resting largely on flight data and life models) by 2031 is less likely than not. S3 Medium (the cap): one year of slack. S1 Low. Bands are judgments.",
+    "band_2031": {
+     "S2": "Low"
+    },
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S2 2030 -> 2031, S3 2029 -> 2030 (follows the revised twin timing). Skeptic: scope limited to NASA crew, Category 3 and NSSL Lane 2 (a Lane 1 mission could fly with no AI evidence and break the causal chain); why rewritten around flight history. Bands unchanged. | B-fix (integrator, 2026-10-07): soft edge from physclock-reliability-priors-credit (B-certification request 2). | F2 audit (2026-10-07): S2 band Medium -> Low (P7 plus certification, two Medium prerequisites, earliest year 2031 with no slack); S3 stays at the Medium cap.",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Crew and national-security missions on data-cleared reused hardware",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2031",
+       "why"
+      ],
+      "reason": "S2 band Medium -> Low (P7 plus certification, two Medium prerequisites, earliest year 2031 with no slack); S3 stays at the Medium cap",
+      "from": {
+       "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-satellite-gen-cadence",
+   "patch": {
+    "why": "Chain (S2): engineering adoption 2028 -> first AI-era bus or payload designed, qualified and retooled in about 12-15 months -> fielded 2029 -> a second generation about 12 months later shows the cadence, 2030. S3: same adoption year, but commercial generations compress 0.5-0.7x (18-36 months becomes 9-25), so 2029 at the optimistic edge; an annual cadence sits at the favorable end even there, so Medium. Design, software and verification compress in S2; payload qualification, radiation testing, line retooling and the launcher bind (V3's timing was set by Starship). Upside not driven by AI math: orbital-compute satellites may track the accelerator makers' annual cadence (general) with modular chip inserts on a common bus, making a yearly payload generation a chip swap. Faster generations raise capacity per kilogram (V3 carries about three times V2 mini's capacity per kilogram, Mach33). Band: the P7 default (Speculative) is raised to Medium in S2 because the physical steps are commercial with no regulator, Starlink already fields generations every 18-36 months so only a 1.5-3x compression is needed, and the chain leaves a year of slack; not High because qualification, retooling and the launcher bind. S1 (F2 audit): adoption lands in 2029, so the first AI-era generation flies about 2030 and the second, which shows the cadence, about 2031; S1 moves 2030 -> 2031 and Medium -> Low, and the non-AI chip-swap path stays upside, not the base case. Bands are judgments.",
+    "earliest_year": {
+     "S1": "2031"
+    },
+    "band_2031": {
+     "S1": "Low"
+    },
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S2 2029 -> 2030, S3 2028 -> 2029, S3 High -> Medium; chain written out. Advocate: optimal-test-campaigns hard -> soft (Starlink iterated without them), soft edge from starship-full-reuse, AI1 modular-insert status added; advocate's S2 High rejected (the chip-cadence mechanism is not AI-math-driven and depends on unproven orbital-compute economics). | B-fix (integrator, 2026-10-07): soft edges from physclock-commercial-analysis-first-qual (B-certification request 2) and materials-see-system-models (B-orbital-compute-power request 2: radiation testing is a named binding item here). | F2 audit (2026-10-07): S1 2030 -> 2031 and Medium -> Low (the S1 chain from adoption in 2029 needs two AI-era generations); S2 reasoning against the P7 default written out.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2031",
+       "earliest_year",
+       "why"
+      ],
+      "reason": "S1 2030 -> 2031 and Medium -> Low (the S1 chain from adoption in 2029 needs two AI-era generations); S2 reasoning against the P7 default written out",
+      "from": {
+       "earliest_year": {
+        "S1": "2030",
+        "S2": "2030",
+        "S3": "2029"
+       },
+       "band_2031": {
+        "S1": "Medium",
+        "S2": "Medium",
+        "S3": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "prop-reuse-extended",
+   "patch": {
+    "why": "Cheaper refurbishment and faster turnaround feed directly into launch cost. Life models pull fleet-leader life extension forward by roughly 6-12 months (physclock reuse-learning row, 0.8-0.9x in S2); a 2x interval is an illustration that still has to be earned in flight cycles, because each life data point costs a flight. Data arrive on the launch exponential: Mach33's base case has flights per stack rising from 3.3 (2027) to 8.9 (2029) and 18 (2030), which needs overhaul intervals to stretch several-fold, and at near-zero analysis cost an operator doing that will lean on calibrated life models. Chain (S2): cap-applied-math (2027) -> prop-life-twin (2028) -> Raptor 3 fleet cycles after physclock-starship-full-reuse (2027) and ~90 Starship flights in Mach33's 2028 reference case -> overhaul intervals set by calibrated models (2029 at the earliest; P1->P6->P7). The band stays Medium because the model must be validated on fleet leaders and the practice must become visible. Band: the P7 default (Speculative) is raised to Medium in S2 and S3 because the flown change is an operating decision by a self-certifying operator that needs no new hardware or regulator acceptance, and the data arrive on the launch exponential; not higher because fleet-leader validation and visible attribution are both required and operators may extend life empirically just as fast (strongest case). S1 Low. Bands are judgments.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (claim, accepted): replaced the 'doubled overhaul interval is plausible' sentence with the physclock quantification (models pull fleet-leader life extension forward 6-12 months; each life data point costs a flight). Chain written out (grounding rule). Soft edge from physclock-heavy-cadence-100 (advocate: data arrive on the launch exponential). Skeptic's S2 2029 -> 2030 and advocate's S2/S3 Medium -> High both rejected (see debates): ~90 Starship flights in Mach33's 2028 reference case make model-set intervals in 2029 a fair optimistic edge, but validation on fleet leaders and visible attribution keep the band at Medium; no regulator cap is involved. Gate convention (advocate, accepted): the first mover is a self-certifying commercial operator; FAA Part 450 regulates public safety, not engine materials or test counts, so the regulator/certification Medium cap does not apply unless the node needs NASA crew, NSSL or other customer certification. The band here rests on physical clocks, not on that cap. | F2 audit (2026-10-07): band reasoning against the P7 default written out; years and bands unchanged.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "band reasoning against the P7 default written out; years and bands unchanged"
+     }
+    ]
+   }
+  },
+  {
+   "id": "prop-cislunar-propellant-economy",
+   "patch": {
+    "why": "The economics depend on tankers per delivered tonne. Boil-off costs ~1-5 extra tankers per HLS-class campaign (illustrative table). Validated boil-off and transfer models recover only the planning margin on top of that, ~0-1 tanker at <=6-day cadence; gauging error at 1% of a 1,200 t load is ~12 t, ~0.1 tanker. Together that is a few percent of campaign launches. The rest comes down to cadence and vehicle reuse. Chain (S2): prop-ship-transfer-demo (2027) -> prop-cfm-models (2029) + prop-hls-refuel-campaign (2029) + physclock-heavy-cadence-100 (2030, after B-trunk) -> more than 20 transfers in a year (2030 at the earliest, from a second lunar campaign plus fuelling Mars ships for the early-2031 window; P1->P6->P7). Chain (S3): the same prerequisites in 2028-29 (heavy cadence 2029) -> early-2029 Mars-window fuelling plus lunar campaigns (2029). The band stays Medium: the earliest years are optimistic and AI mathematics is not on the critical path. Against the P7 default (Speculative): the physical outcome rides on exogenous prerequisites (heavy cadence, the refuel campaign), and the AI-math share is a model whose output is a planning number, not a hardware change, so Medium is the ceiling set by prop-hls-refuel-campaign (Medium in S2). S1 Low.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (claim, two lenses): model value restated as margin (~0-1 tanker) and gauging (~0.1 tanker), not the 1-5-tanker physical loss; '10-30% of campaign launches' dropped. Edges (skeptic, accepted): prop-mass-gauging hard -> soft (worth ~0.1 tanker; operators can gauge after a settling burn); physclock-heavy-cadence-100 soft -> hard (dozens of transfers a year need heavy cadence; year-consistent in all scenarios). premise_tier -> n/a (auditor; 365 no longer load-bearing). Timing (advocate, concrete mechanism accepted): S2 2031 -> 2030 and S3 2030 -> 2029 (a second lunar campaign plus Mars-ship fuelling for the early-2031 window, or the early-2029 window in S3, can exceed 20 transfers once all prerequisites land by 2029/2028); this also removes the auditor's 'Medium with earliest year 2031' inconsistency, so the auditor's S2 Low is not applied. Advocate's S3 High rejected (tier-7 P7 outcome; AI math not on the critical path). | B-fix (integrator, 2026-10-07): heavy-cadence years in the chains updated (S2 2030, S3 2029, B-trunk); node years unchanged and still consistent with that hard prerequisite. | F2 audit (2026-10-07): band reasoning against the P7 default written out; years and bands unchanged.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "band reasoning against the P7 default written out; years and bands unchanged"
+     }
+    ]
+   }
+  },
+  {
+   "id": "verif-lander-verified-gnc-flight",
+   "patch": {
+    "status_oct2026": "Commercial and agency landers 2016-2025: Schiaparelli (IMU-saturation logic), Beresheet (a command to restart one IMU set off a chain that shut down the main engine), Hakuto-R M1 (filter rejected valid altimetry after a crater rim), IM-1 (configuration and patch flag), Peregrine (helium valve), Resilience (rangefinder), Athena (altimeter, lighting, tipped over). No lander has publicly flown formally verified descent logic (general). Agency losses with logic or GNC causes also belong in this record: Chandrayaan-2's Vikram (2019, deviation during the braking phase) and Luna-25 (Aug 2023, engine failed to cut off on time after a control-unit fault) (general). Successes in the same period include Chandrayaan-3 (2023), SLIM (2024, landed on its nose) and Blue Ghost M1 (Mar 2025) (general).",
+    "why": "New-entrant landers face no certifying regulator for mission software and have repeatedly lost missions to logic errors (Beresheet, Hakuto-R M1), so the incentive is strong. Chain (S2): research-grade applied math public 2027 -> verified numerics and fault-logic checks 2027-28 -> GNC toolchain adopted 2028 -> software freeze 12-18 months before flight -> first flight 2029-30 on a CLPS-class lander. Launch slots are not scarce (up to 30 CLPS landings planned from 2027); the development cycle, the freeze and one team's adoption decision bind, not cognition. S3 equals S2 through 2028, so a flown article cannot beat S2's 2029 in S3. Many CLPS-class landers fly closed-form or Apollo-derived guidance with no onboard solver, so optimizer certificates and SCP guarantees accelerate rather than gate this node. Bands: S2 Medium, because several landers fly each year from 2029 but a team must adopt and say so; S3 High, because cognitive work is near-free from 2029 and two flight years remain. No regulator is involved for commercial lunar landers, so there is no Medium cap. Both bands sit above the P7 default (Speculative) because the flown change is software on landers that fly anyway.",
+    "revision_note": "B-verified-autonomy: Skeptic + auditor: S3 2028 -> 2029 (a 2028 flight freezes software in 2026-27, when S3 equals S2). Skeptic: binding gate launch -> adoption (launch slots are not scarce); astro-scp-guarantees and verif-onboard-optimizer-certificates made soft (closed-form guidance needs no solver proofs); terrestrial-testbed clause moved to the signpost as a precursor; solver proofs made conditional. Skeptic's S3 High -> Medium rejected and advocate's S2 Medium -> High rejected: with the conjunction relaxed and the testbed path removed, Medium in the base case and High in the recursive case keep a meaningful spread (the advocate's high-cadence argument holds only once cognitive work is near-free, i.e. in S3). Auditor: Luna-25, Chandrayaan-2 and the success denominator added (general). | F2 audit (2026-10-07): Beresheet 'reboot loop' wording (not in the cited sources) aligned with verif-fdir-model-checking; band reasoning against the P7 default added.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "status_oct2026",
+       "why"
+      ],
+      "reason": "Beresheet 'reboot loop' wording (not in the cited sources) aligned with verif-fdir-model-checking; band reasoning against the P7 default added"
+     }
+    ]
+   }
+  },
+  {
+   "id": "verif-rpo-assured-autonomy",
+   "patch": {
+    "why": "Each lunar landing chains many autonomous rendezvous and transfers. Proven passive safety and abort logic lower the risk per operation and the test burden per software change. But confidence is gated by flight demonstrations, not by proof capacity, and launch cadence does not compress with cognition. Chain (S2): verif-closed-loop-guarantees 2027; astro-hybrid-rpo-verification, verif-runtime-assurance and astro-certified-gnc-toolchain 2028 -> proofs added as late verification evidence to an already-contracted servicing or inspection mission (contract to launch 2-4 years; software freeze 12-18 months) or to Starship transfer-flight software, which changes between flights -> first flight using them as primary safety evidence, accepted in an operator or NASA safety review, 2029-30. S3: identical through 2028 -> 2029. S1: prerequisites 2030 -> 2031 at the earliest. Starship transfer flights in 2027 fly baselines set before the toolchain exists. Band: S2 and S3 Medium, above the P7 default (Speculative), because the flown change is software and safety evidence on missions that fly anyway; Medium is also the cap when acceptance runs through a NASA safety review. S1 Low. Bands are judgments.",
+    "revision_note": "B-verified-autonomy: Skeptic + auditor (grounding rule): full tier-5 chain written. Auditor: status corrected ('15-17 flights' was not in the cited article; about 15 tankers per Spaceflight Now; the Q4 2026 date is unconfirmed; Isaacman's 'very early 2027' added from The Space Review, Sep 28 2026; both landers' pathfinders named). Skeptic's S2 2029 -> 2030 and S1 2031 -> >2031 rejected: Starship transfer software changes between flights, so the 12-18-month freeze does not bind every route, and the auditor's chain gives 2029-30 with 2029 as earliest. Advocate's S3 2029 -> 2028 and S3 High rejected: S3 equals S2 through 2028, and the node's own strongest case (proofs may stay internal; hardware dominates docking risk) does not move with cognition. Advocate's soft edge from prop-hls-refuel-campaign accepted. Years and bands unchanged. | F2 audit (2026-10-07): band reasoning against the P7 default written out; years and bands unchanged.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "band reasoning against the P7 default written out; years and bands unchanged"
+     }
+    ]
+   }
+  },
+  {
+   "id": "astro-leo-pnt-assured-service",
+   "patch": {
+    "why": "Chain (S2): integrity overbounds 2028 -> provider fault-rate monitoring over one to two years of signal history -> a published integrity specification and paying critical-infrastructure users 2029-30. The service itself runs on the launch and capital clock: hundreds of satellites for continuous global coverage, mostly rideshare-launched, with Xona only now in scaled production, so S3 gains nothing over S2 (launch cadence follows its own curve). Demand is real (about 1,500 spoofed flights a day in 2024), but buyers may take an unbounded backup before an integrity-bounded one, which is why S2 is Medium, not High. S1 follows the later overbounds (2030) plus a year. Against the P7 default (Speculative): the physical part is an exogenous service deployment (Xona, Iridium, Celeste) and the AI-math share is the integrity layer, so the band is set by provider adoption and buyer demand: Medium in S2 and S3, Low in S1.",
+    "revision_note": "C-final integrator (2026-10-07): new node from C-sectors (space-sector coverage), accepted; title shortened from 'Low-orbit navigation service with published integrity'. | F2 audit (2026-10-07): band reasoning against the P7 default written out; years and bands unchanged.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "band reasoning against the P7 default written out; years and bands unchanged"
+     }
+    ]
+   }
+  },
+  {
+   "id": "astro-cislunar-od-uq",
+   "patch": {
+    "status_oct2026": "Earth-centric surveillance networks are not designed for cislunar space, and three-body dynamics make uncertainty dominate performance; more than 30 lunar missions are planned 2024-2030. AFRL's Oracle-Prime (Terran Orbital) completed its Preliminary Design Review in Dec 2025 (announced Apr 2026); no delivery or launch date is public. NASA paused Gateway in its current form on Mar 24, 2026, redirecting resources to a lunar surface base (NASA via 33FG), which removes the main planned NRHO traffic node for now.",
+    "strongest_case_small": "Cislunar object counts stay in the tens through 2031, so manual analyst attention suffices; with Gateway paused in its current form, NRHO congestion is no longer a near-term driver.",
+    "revision_note": "B-safe-orbits: Auditor: Oracle-Prime 'delivery in 2026, launch sought for 2027' is not in the cited Terran Orbital release (resolver checked: PDR completed Dec 2025, 'on track toward delivery', no dates); likely fabricated, removed from status and signpost. S3 2027 -> 2028: capability.json defines S3 as S2 until 2028 with the same end-2027 horizon, and the trunk resolver moved infra-verified-numerics and infra-mathlib-applied to S3 2028 (skeptic, systemic finding). | F2 audit (2026-10-07): contradicted fact fixed: Gateway was paused in its current form on Mar 24, 2026, not cancelled (NASA via 33FG news 445).",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Cislunar tracking in chaotic dynamics",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "status_oct2026",
+       "strongest_case_small"
+      ],
+      "reason": "contradicted fact fixed: Gateway was paused in its current form on Mar 24, 2026, not cancelled (NASA via 33FG news 445)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "infra-mathlib-applied",
+   "patch": {
+    "why": "Agents now write library code at FLT scale, so proof labor is not the gate; good abstractions and community review are. Under S2, agent-built applied libraries mature in 2027 and are integrated into Mathlib by 2028; under S1, review bandwidth stretches this to 2030. Every P2 chain that touches continuous physics (GNC stability, plasma, CFD error bounds) waits on this node. Companion libraries may reach partial coverage in 2027 (three groups each built Sobolev theory in Lean in 2026; Urban built 130k lines of formal topology in the Megalodon prover, not Lean, in two weeks for ~$100, per frontier research), but routine formalization of applied results needs reviewed, maintained coverage, which the S2 premise dates to 2028; S3 equals S2 until 2028, and review does not compress before the recursion starts.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S3 2027 -> 2028. Advocate's S2 2027 (companion libraries) rejected: S2 2028 for applied Lean libraries is the client premise; the evidence is kept in why as a 2027 signpost. P2-override note added. | F2 audit (2026-10-07): flagged fact fixed: Urban's 130k-line library is in Megalodon, not Lean (it had read as Lean evidence).",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Lean libraries for analysis, PDE and numerics",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "flagged fact fixed: Urban's 130k-line library is in Megalodon, not Lean (it had read as Lean evidence)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "plasma-nep-mars-cargo",
+   "patch": {
+    "why": "Needs a flight reactor or MW-class arrays, launch approval for a space reactor, and life-tested MW-scale EP; each is a multi-year hardware and regulatory program. Clusters of qualified 12 kW thrusters cover the few-hundred-kW range, so MW class still needs higher-power thrusters (plasma-high-power-ep-life) or impractically large clusters (~80-330 units). The solar route rides on compute-satellite power buses (AI1's superseded June 2026 spec: ~150 kW array at ~127 W/kg on a ~2.1 t satellite, 33FG reconstruction; the Aug-Sep 2026 revision runs 175 kW average / 250 kW peak under 4,000 kg; struct-100kw-per-tonne-fleet, soft). That route could enable 100 kW-class solar-electric tugs, but not MW cargo before 2031.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Auditor: COMPASS figure marked (general); SR-1 calibration point added. Advocate: NASA's clustering path (up to 300 kW from 12 kW thrusters) added; its proposal to soften plasma-high-power-ep-life and add a compute-bus tug as a hard prerequisite rejected (MW class lies beyond NASA's stated cluster range; the tug is not a causal precondition). Compute-satellite power route recorded as a soft edge from struct-100kw-per-tonne-fleet. Years and bands unchanged. | F2 audit (2026-10-07): stale AI1 June spec labelled as superseded (orbital-compute auditor: Aug 2026 product page and Sep 16 2026 FCC envelope).",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "stale AI1 June spec labelled as superseded (orbital-compute auditor: Aug 2026 product page and Sep 16 2026 FCC envelope)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "frontier-stiff-certified",
+   "patch": {
+    "status_oct2026": "Classical stiff theory (A- and B-stability, B-convergence) assumes one-sided Lipschitz or dissipative structure that combustion chemistry lacks (general). Order reduction is understood for linear problems (2025). Verified ODE integration exists in Isabelle (IsaVODEs 2024; 'Numerical Methods in Isabelle', Jan 2026), not yet at reaction-network scale. Catalog: 149 claims a proof of boundedness and persistence for weakly reversible mass-action networks (T1, so conditional; the headline says permanence, and the formal statement is narrower) and would give structural boundedness for an important class of chemistry models.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (claim, accepted): the several-fold speedup from mechanism reduction already exists (DRG/DRGEP-class); the AI-math increment is a certificate (P5 confidence), not speed. Years and bands unchanged. | F2 audit (2026-10-07): T1 family 149 was stated as established; now 'claims ... (T1, so conditional)', matching the moon-mars correction.",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Stiff chemistry with certified error (reduced mechanisms and solvers)",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "status_oct2026"
+      ],
+      "reason": "T1 family 149 was stated as established; now 'claims ... (T1, so conditional)', matching the moon-mars correction"
+     }
+    ]
+   }
+  },
+  {
+   "id": "physclock-twin-reflight-clearance",
+   "patch": {
+    "why": "Mach33's base case has flights per stack at 3.3 (2027), 4.8 (2028), 8.9 (2029, about a 40-day average cycle) and 18 (2030, about 20 days), so record turnarounds under 7 days (booster) and 14 days (ship) fit 2030 in S2; Falcon 9 took 8 years from first reflight (Mar 2017) to a 9-day record (Mar 2025), and its 2025 median was still 38 days. Mach33's 2028 base-to-bull cost spread ($1.6B) covers every reuse driver; data-based clearance is one contributor and its share is not quantified, and because this node lands in 2029-30 it affects the 2029-31 manifests, not 2028. Chain (S2): first V3 reflights 2027 -> life twin 2028 -> rapidly reusable heat shield 2029 -> data-cleared turnaround on both stages 2030; S3 one year earlier (reuse learning 0.7-0.8x); S1: heat shield and life twin 2030 -> 2031, Low because both Medium prerequisites must land first. Life data still accrue one flight at a time. Family 372 (claims a proof that Lame moduli are uniquely determined from boundary data, smooth isotropic case; T1, so conditional) would support identifiability for inverse inspection in principle; damaged composites and welds lie outside its hypotheses. Mach33 projections are a single commercial forecaster's model estimates, not independent research (an equity disclosure was reported on its pages; unverified here).",
+    "revision_note": "B-trunk resolver (2026-10-07): Auditor: flat factual error fixed (\"No Starship stage has reflown\"). Skeptic + auditor: S1 2030 -> 2031, S3 2028 -> 2029; skeptic: S2 2029 -> 2030 (Falcon precedent, Mach33 flights per stack, reuse learning only 0.8-0.9x in S2), S1 Medium -> Low, hard edge from hyper-rapid-reuse-heatshield, $1-2B-on-2028 claim removed (wrong lever share and wrong year). Chain written into why. Cascade: critical-payload acceptance. | F2 audit (2026-10-07): T1 family 372 cited without 'conditional' in the why; reworded.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "T1 family 372 cited without 'conditional' in the why; reworded"
+     }
+    ]
+   }
+  },
+  {
+   "id": "science-opacity-line-lists",
+   "patch": {
+    "why": "Ab initio line-list production is labor-heavy and expert-scarce applied computation; AI compresses it (cap-applied-math), better physics theory helps at the margin, and autonomous spectroscopy labs (S2/S3) validate faster. Lab validation stays the slowest link (toxic, reactive and high-temperature species need specialized setups), so even S3 is only Medium. The claimed hardness results (275, 278; T1, so conditional) would say no general algorithm exists, which reinforces the need for lab checks rather than blocking progress.",
+    "status_oct2026": "Opacity data of uneven quality underlie broad molecule searches (661 species tested for K2-18 b, ApJL May 2026); incomplete opacities are a known retrieval systematic (general). Catalog 275 (claimed QMA-hardness of continuum Coulomb energy, T1) and 278 (claimed failure of Kohn-Sham ensemble representability, T1) would be worst-case ceilings, conditional on the claims, on general electronic-structure methods, not obstacles for small molecules.",
+    "revision_note": "B-science resolver (2026-10-07): Auditor: line lists come from established ab initio methods with lab refinement (a mature pipeline), so the hard prerequisite moves from cap-physics-theory to cap-applied-math, with cap-physics-theory kept as soft. Years unchanged (experiment gate binds). Advocate's S3 Medium->High rejected: 50+ lab-validated new species by 2031 depends on gas-handling and high-temperature spectroscopy capacity, which compresses only 1.3-1.5x in S3. | F2 audit (2026-10-07): T1 families 275 and 278 cited as established in why and status; reworded as conditional.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "status_oct2026",
+       "why"
+      ],
+      "reason": "T1 families 275 and 278 cited as established in why and status; reworded as conditional"
+     }
+    ]
+   }
+  },
+  {
+   "id": "hyper-aerothermal-design-loop",
+   "patch": {
+    "why": "Entry design iterates between aerodynamics, trajectory and TPS, and each loop needs nonequilibrium CFD at 10-100 trajectory points (general). Agents plus surrogates could compress a cycle 10-30x (judgment). That opens shapes that were too costly to explore, such as lifting bodies and biconic Mars landers, and lowers the analysis-cost barrier for small companies (see the aerocapture demo). The loop can run on margin factors and transition correlations; certified margins and on-demand stability analysis improve it but do not gate it. Commercial entry-vehicle makers (SpaceX, Varda, Inversion) face no certification body for their design method, and the threshold is a design review citing AI-surrogate trade studies, not certification credit, consistent with capability-engineering-adoption (High, S2 2028). Its flown counterpart, capability-ai-native-spacecraft, is Medium in S2 (F2 audit) because it also needs a build, a launch and public evidence; this node needs only a design review.",
+    "revision_note": "B-entry: [skeptic] Hard edges from hyper-certified-margin-uq and hyper-stability-analysis-on-demand made soft (accelerators, not gates). [advocate] Soft edge from capability-engineering-adoption; S2 Medium -> High for consistency with the capability branch's High ratings for engineering adoption and AI-native spacecraft in S2. [skeptic vs advocate] Skeptic's S3 High -> Medium rejected: the band is judged at 2031, three years after S3 diverges from S2, and S3 must stay >= S2. | F2 audit (2026-10-07): cross-reference updated after capability-ai-native-spacecraft S2 High -> Medium; this node's band is unchanged (its analog is engineering adoption, not a flight).",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "AI-run aerothermal design loop (shape + trajectory + TPS)",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "cross-reference updated after capability-ai-native-spacecraft S2 High -> Medium; this node's band is unchanged (its analog is engineering adoption, not a flight)"
+     }
+    ]
+   }
+  },
+  {
+   "id": "comms-pq-verified-implementations",
+   "patch": {
+    "why": "Most real cryptographic failures are implementation bugs and side channels, not broken mathematics (general). Space adds unusual targets (LEON or radiation-hardened RISC-V cores, FPGAs) and tight memory, so verified libraries must be re-targeted and re-proven. That is proof labor, which agents now supply. The AI-attributable part is this re-targeting and masking work; AArch64 and x86-64 are already done. Flight-software and crypto baselines freeze long before launch and qualification compresses only 1.2-1.5x after 2029-30 (physclock), so adoption by a flight program trails the proofs by about a year. Certification credit is a separate node, so no certifier gates this one and the regulator Medium cap does not apply: a flight program adopts the library on its own authority.",
+    "revision_note": "B-networks resolver: Skeptic: narrowed to targets without verified libraries (mlkem-native already covers AArch64/x86-64, verified against its README); S2/S3 2027 -> 2028 (flight-program adoption within a year is inconsistent with the qualification gate). Resolver: S1 2028 -> 2029 for the same lag and to keep S1 behind S2. Advocate's S1 2027/High rejected: the AArch64 result is human-made and not attributable to the AI-math channel, and the advocate's 'AI-assisted proofs' claim is not supported by the AWS post or the README. Bands unchanged. | F2 audit (2026-10-07): regulator-cap check: binding gate 'qualification' with High bands; the why now says why the Medium cap does not apply.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "regulator-cap check: binding gate 'qualification' with High bands; the why now says why the Medium cap does not apply"
+     }
+    ]
+   }
+  },
+  {
+   "id": "verif-runtime-assurance",
+   "patch": {
+    "why": "Neural and learned components (hazard detection, terrain-relative navigation) cannot be verified directly (see verif-nn-verification-scale), so assurance moves to a small, provable monitor and a simple backup. Agents make the barrier-certificate and switching proofs cheap. The binding gate is showing, on hardware-in-the-loop rigs and in flight, that the backup really recovers. The band scores agent-proven Simplex wrappers in use on uncrewed programs, which need no certifier, so the regulator Medium cap does not apply; credit as a certification path (the signpost's second half) would be capped at Medium and is not required here.",
+    "revision_note": "F2 audit (2026-10-07): regulator-cap check: binding gate 'qualification' with High bands; the why now says why the Medium cap does not apply.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "regulator-cap check: binding gate 'qualification' with High bands; the why now says why the Medium cap does not apply"
+     }
+    ]
+   }
+  }
+ ],
+ "domain_patches_proposed": [
+  {
+   "path": "domains.astro.key_insights[6]",
+   "from": "Gateway's cancellation (Mar 24, 2026) removes the main NRHO traffic node",
+   "to": "Gateway's pause in its current form (Mar 24, 2026) removes the main NRHO traffic node for now",
+   "reason": "Contradicted: Gateway was paused in its current form, not cancelled (NASA via 33FG news 445)."
+  },
+  {
+   "path": "domains.astro.sources[36].used_for",
+   "from": "Gateway cancellation and lunar surface base plan",
+   "to": "Gateway paused in its current form; lunar surface base plan",
+   "reason": "Same Gateway correction (the source headline itself says 'cancel')."
+  },
+  {
+   "path": "domains.astro.sources[3].used_for",
+   "from": "Starlink maneuver threshold Pc 3e-7 versus 1e-4 industry standard",
+   "to": "SpaceX's 2022 stated maneuver threshold (1e-5); the 3e-7 figure comes from FOD News on ESA's 2026 report",
+   "reason": "Safe-orbits auditor: Star2207 gives 1e-5, not 3e-7."
+  },
+  {
+   "path": "domains.auton.bottlenecks[0].description",
+   "from": "1.3 s (Moon) to 4-24 min (Mars)",
+   "to": "1.3 s (Moon) to 3-22 min (Mars)",
+   "reason": "Moon-mars resolver: Earth-Mars one-way light time is 3-22 min."
+  },
+  {
+   "path": "domains.auton.key_insights[4]",
+   "from": "excavation energy varies 52x across plausible polar ice forms",
+   "to": "excavation energy varies 52x with ice content (1 to 12 wt%) within ice-cemented simulant alone, while pressure-sintered ice gets about 3.2x easier to dig with more ice",
+   "reason": "Contradicted '52x across' framing (moon-mars resolver, Crossref abstract)."
+  },
+  {
+   "path": "domains.capability.bottlenecks[3].ondemand_math_help",
+   "from": "(FLT: 13.4M lines)",
+   "to": "(FLT: about 13M lines)",
+   "reason": "Contradicted: Anthropic's page says about 13 million lines."
+  },
+  {
+   "path": "domains.hyper.key_insights[3]",
+   "from": "with 365's conductivity nonuniqueness the most actionable as a P3 design rule (do not rely on thermal boundary data alone)",
+   "to": "with 365's formalized part (nonuniqueness of bounded measurable scalar conductivities from the full boundary map on a 3D ball; T3, unaudited) a P3 caution rather than a design rule (do not rely on thermal boundary data alone; its recovery headline is T1, conditional)",
+   "reason": "Entry resolver flag: 365 statement gap; 'most actionable P3 design rule' overstated."
+  },
+  {
+   "path": "domains.hyper.scenario_contrast",
+   "from": "The flight-data node grows linearly, not exponentially, in every scenario.",
+   "to": "Shared civil flight data grow roughly linearly in every scenario, while owner and defense flight data ride the launch exponential (hyper-fleet-aerothermal-twin).",
+   "reason": "Entry resolver flag: 'linear in all scenarios' is stale after the flight-data split."
+  },
+  {
+   "path": "domains.hyper.nil_effects[1]",
+   "from": "Ground-test capacity: no scenario builds new arc jets or shock tubes fast.",
+   "to": "Ground-test capacity: AI does not build arc jets or shock tubes; new U.S. capacity (Kratos Project Helios, a 20-25 MW arc jet plus a 200 kW fiber laser, $68.3M, awarded Oct 2025) is being built independently of AI on a construction clock.",
+   "reason": "Entry resolver flag: outdated given Kratos Helios (verified)."
+  },
+  {
+   "path": "domains.hyper.sources[15].used_for",
+   "from": "Mach 25+ reentries; expected monthly reentry cadence",
+   "to": "Mach 25+ reentries; Varda's monthly-cadence target (slipped: three 2026 attempts, W-4 lost)",
+   "reason": "Contradicted Varda monthly cadence (entry auditor)."
+  },
+  {
+   "path": "domains.materials.sources[37].used_for",
+   "from": "~12 km ZBLAN on ISS; longest 1,141 m; lower attenuation",
+   "to": "11.9 km ZBLAN on ISS; longest 1,141 m (no published attenuation comparison)",
+   "reason": "Unsupported 'lower attenuation' claim (moon-mars resolver)."
+  },
+  {
+   "path": "domains.physclock.bottlenecks[2].share_of_effort",
+   "from": "48-90 day loops in 2025",
+   "to": "48-91 day loops in 2025",
+   "reason": "Certification resolver: 2025 intervals were 48-91 days."
+  },
+  {
+   "path": "domains.physclock.tables[0].rows[2][1]",
+   "from": "48-90 days (Starship 2025)",
+   "to": "48-91 days (Starship 2025)",
+   "reason": "Same."
+  },
+  {
+   "path": "domains.physclock.bottlenecks[4].description",
+   "from": "presidential-level approval for nuclear launches (NSPM-20)",
+   "to": "nuclear launch authorization under NSPM-20 (agency head after INSRB review for LEU, Tier II; presidential only for Tier III)",
+   "reason": "Plasma-nuclear resolver (NSPM-20 text verified)."
+  },
+  {
+   "path": "domains.physclock.nil_effects[5]",
+   "from": "presidential nuclear launch approval",
+   "to": "NSPM-20 nuclear launch authorization",
+   "reason": "Same."
+  },
+  {
+   "path": "domains.physclock.tables[0].rows[16][5]",
+   "from": "presidential launch approval",
+   "to": "NSPM-20 launch authorization (agency head for LEU)",
+   "reason": "Same."
+  },
+  {
+   "path": "domains.physclock.bottlenecks[5].share_of_effort",
+   "from": "Mars Sample Return, Gateway and DRACO cancelled 2025-26",
+   "to": "Mars Sample Return and DRACO cancelled and Gateway paused in its current form, 2025-26",
+   "reason": "Gateway correction."
+  },
+  {
+   "path": "domains.physclock.key_insights[8]",
+   "from": "Gateway (cancelled Mar 2026)",
+   "to": "Gateway (paused in its current form, Mar 2026)",
+   "reason": "Gateway correction."
+  },
+  {
+   "path": "domains.physclock.key_insights[8]",
+   "from": "$10M directed",
+   "to": "$10M recommended by the House Appropriations Committee within $50M for nuclear-electric propulsion",
+   "reason": "Contradicted '$10M directed' (plasma-nuclear resolver)."
+  },
+  {
+   "path": "domains.physclock.key_insights[5]",
+   "from": " (worth ~$1-2B on the 2028 Starlink manifest)",
+   "to": "",
+   "reason": "Withdrawn by the trunk resolver (the full $1.6B bull-case spread was credited to one lever)."
+  },
+  {
+   "path": "domains.physclock.nil_effects[6]",
+   "from": "(Gateway, Mars Sample Return and DRACO cancellations; SR-1's $10M against a $2.1B estimate)",
+   "to": "(the Gateway pause and the Mars Sample Return and DRACO cancellations; SR-1's $10M House committee recommendation against a $2.1B estimate)",
+   "reason": "Gateway and $10M corrections."
+  },
+  {
+   "path": "domains.physclock.tables[0].rows[16][2]",
+   "from": "$10M directed (Wikipedia)",
+   "to": "$10M recommended by the House Appropriations Committee (Wikipedia)",
+   "reason": "Same."
+  },
+  {
+   "path": "domains.physclock.tables[0].rows[17][2]",
+   "from": "Gateway cancelled Mar 2026 (Wikipedia)",
+   "to": "Gateway paused in its current form Mar 2026 (NASA via 33FG)",
+   "reason": "Gateway correction."
+  },
+  {
+   "path": "domains.physclock.sources[26].used_for",
+   "from": "Gateway cancellation Mar 2026",
+   "to": "Gateway pause Mar 2026",
+   "reason": "Gateway correction."
+  },
+  {
+   "path": "domains.physclock.sources[29].used_for",
+   "from": "$10M directed",
+   "to": "$10M House committee recommendation",
+   "reason": "$10M correction."
+  },
+  {
+   "path": "domains.plasma.sources[20].used_for",
+   "from": "Surya: 360M parameters",
+   "to": "Surya: 366M parameters",
+   "reason": "Safe-orbits auditor: 366M."
+  },
+  {
+   "path": "domains.plasma.tables[2].rows[0][3]",
+   "from": "AI-designed thruster flies: >2031 / Low",
+   "to": "AI-designed thruster flies: 2031 / Low",
+   "reason": "Matches plasma-ai-designed-thruster-flight (S2 2031, Low)."
+  },
+  {
+   "path": "domains.plasma.tables[2].rows[1][3]",
+   "from": "EP development cycle cut 30-50%: >2031 / Low",
+   "to": "Faster, cheaper EP development (plasma-outcome-ep-cycle-time): >2031 / Speculative",
+   "reason": "30-50% withdrawn (physclock-qual-cycle-compressed); node is Speculative in every scenario."
+  },
+  {
+   "path": "domains.plasma.key_insights[5]",
+   "from": "(~50 kg of He-3 per GW-year of fusion power against terrestrial supply of order kilograms per year)",
+   "to": "(~54 kg of He-3 per GW-year of fusion power against terrestrial supply of order kilograms per year, though a 1 MW demonstrator running 1,000 h needs only ~6 g)",
+   "reason": "Plasma-nuclear arithmetic check (grams-for-demonstrators qualifier)."
+  },
+  {
+   "path": "domains.prop.key_insights[1]",
+   "from": "even a future resolution of the unforced Clay problem",
+   "to": "even a future unforced result",
+   "reason": "Math-frontier resolver flag (Clay statements allow a forcing)."
+  },
+  {
+   "path": "domains.prop.tables[3].rows[7][1]",
+   "from": "up to ~10% thrust/Isp or 5x lower feed pressure",
+   "to": "Isp gain a potential still being assessed; demonstrated benefit an engine 10-50% shorter",
+   "reason": "NTRS 20240000933 has no '5x lower feed pressure' (engines-materials resolver)."
+  },
+  {
+   "path": "domains.prop.sources[7].used_for",
+   "from": "RDRE benefit: up to ~10% thrust/Isp or 5x lower feed pressure",
+   "to": "RDRE benefit: Isp gain under assessment; engine 10-50% shorter",
+   "reason": "Same."
+  },
+  {
+   "path": "domains.prop.tables[1].rows[0][3]",
+   "from": "2030 / Medium",
+   "to": "2031 / Low",
+   "reason": "Matches prop-stability-design-tool (S2 2031, Low)."
+  },
+  {
+   "path": "domains.prop.tables[1].rows[0][4]",
+   "from": "2029 / Medium",
+   "to": "2031 / Low",
+   "reason": "Matches prop-stability-design-tool (S3 2031, Low)."
+  },
+  {
+   "path": "domains.struct.signposts[2].event",
+   "from": "SpaceX AI1 launches and publishes thermal telemetry (sustained ~1,400 W/m2, chip temperature, radiator areal density), 2027.",
+   "to": "First Starmind (AI1) launch (Q4 2027 target; 2028 in the model) with published thermal telemetry (sustained ~1,250-1,400 W/m2 of planform, chip and HBM temperatures, radiator areal density).",
+   "reason": "Orbital-compute resolver: first flight 2028 in every scenario; spec superseded."
+  },
+  {
+   "path": "domains.struct.key_insights[7]",
+   "from": "streaming thermal telemetry from ~2027-28",
+   "to": "streaming thermal telemetry from ~2028-29",
+   "reason": "Same first-flight slip."
+  },
+  {
+   "path": "domains.struct.bottlenecks[3].description",
+   "from": "~25% of SpaceX AI1's reconstructed 2.1 t (33FG, Jun 2026)",
+   "to": "~25% of SpaceX AI1's reconstructed 2.1 t under the superseded June 2026 spec (33FG); the Oct 2026 reference satellite is ~4.0-4.5 t",
+   "reason": "AI1 June spec superseded."
+  },
+  {
+   "path": "domains.frontier.scenario_contrast",
+   "from": "infra-verified-numerics 2030 / 2028 / 2028; infra-mathlib-applied 2030 / 2028 / 2027",
+   "to": "infra-verified-numerics 2029 / 2028 / 2028; infra-mathlib-applied 2030 / 2028 / 2028",
+   "reason": "Graph values after B-trunk (S3 equals S2 through 2028)."
+  },
+  {
+   "path": "domains.plasma.scenario_contrast",
+   "from": "infra-mathlib-applied 2030/2028/2027; infra-verified-numerics 2030/2028/2028",
+   "to": "infra-mathlib-applied 2030/2028/2028; infra-verified-numerics 2029/2028/2028",
+   "reason": "Same."
+  },
+  {
+   "path": "domains.prop.scenario_contrast",
+   "from": "infra-verified-numerics 2030 / 2028 / 2028",
+   "to": "infra-verified-numerics 2029 / 2028 / 2028",
+   "reason": "Same."
+  },
+  {
+   "path": "domains.hyper.scenario_contrast",
+   "from": "infra-mathlib-applied 2030/2028/2027; infra-verified-numerics after 2031, 2029, 2028",
+   "to": "infra-mathlib-applied 2030/2028/2028; infra-verified-numerics 2029/2028/2028",
+   "reason": "Same."
+  }
+ ]
+}

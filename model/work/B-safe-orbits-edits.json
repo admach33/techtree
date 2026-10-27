@@ -1,0 +1,571 @@
+{
+ "update": [
+  {
+   "id": "astro-nongaussian-uq-certified",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "why": "Starlink executed 148,696 avoidance maneuvers Jun-Nov 2025 and 207,152 Dec 2025-May 2026 (over 40 per satellite per year) at a Pc threshold of 3e-7 (1 in 3.3 million), about 330x stricter than the 1e-4 industry norm (FOD News on ESA's 2026 Space Environment Report; in 2022 SpaceX's stated threshold was 1e-5, planet4589 Star2207). Certified Pc removes numerical-method error (2D-Pc breakdown, Monte Carlo sampling error) but not input error: a bound computed from an unrealistic covariance certifies nothing about true risk, and in the dilution region a poor covariance lowers Pc (false confidence, Balch, Martin and Ferson, Proc. R. Soc. A 2019). Starlink's 3e-7 threshold is a risk-posture choice made affordable by cheap autonomous electric-propulsion maneuvers. Fewer maneuvers would come from relaxing that threshold, a risk-acceptance decision the math informs (P5) but does not make; under an even-across-decades Pc distribution, 3e-7 -> 1e-5 removes about 1.5-1.8x of maneuvers (illustrative arithmetic: count proportional to log10(Pmax) - log10(threshold), Pmax 1e-2 to 1e-3). The covariance input is a separate problem (see astro-constellation-hosted-ssa). Rigorous Pc error bounds can be statistical (certified-variance importance sampling, large-deviation bounds) or analytic, so verified floating point accelerates this node but is needed as a hard input only downstream, in production screening code. Band High scores the methods existing and entering at least one operational tool (P1->P4).",
+    "revision_note": "B-safe-orbits: Why rewritten. Skeptic: the 2-5x maneuver claim did not follow from its own even-across-decades assumption (resolver re-derived 3.52/2.0 = 1.76x for Pmax 1e-3 and 4.52/3.0 = 1.51x for Pmax 1e-2), and the reduction comes from threshold policy (P5), not from certifying the arithmetic; certified Pc does not fix covariance realism or dilution (Balch et al. 2019). Auditor: '100x stricter' corrected to about 330x (1e-4/3e-7 = 333) and the 3e-7 source moved from Star2207 (which gives 1e-5 in 2022) to FOD News on ESA 2026. Hard edge from infra-verified-numerics made soft (skeptic: bounds can be statistical or analytic; verified floating point is needed in the screening code, which keeps its own hard edge). S3 2027 -> 2028: capability.json defines S3 as S2 until 2028 with the same end-2027 horizon, and the trunk resolver moved infra-verified-numerics and infra-mathlib-applied to S3 2028 (skeptic, systemic finding)."
+   }
+  },
+  {
+   "id": "astro-catalog-scale-screening",
+   "patch": {
+    "title": "Certified screening that scales to a million objects",
+    "binding_gate": "formalization",
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029"
+    },
+    "band_2031": {
+     "S1": "Low"
+    },
+    "description": "Conjunction screening and risk software whose filters are proven never to discard a conjunction above threshold (under stated covariance assumptions), whose code is formally verified, and which is benchmarked to scale to 100,000-1 million objects plus operator ephemerides. A million is a capacity benchmark, not an operational catalog: about 40,000-47,000 objects are tracked today and about 1.2 million 1-10 cm fragments are not.",
+    "status_oct2026": "Screening runs on Space Force and commercial catalogs of roughly 35,000-40,000 tracked objects; TraCSS added on-demand bulk ephemeris screening for constellations (May 2025) and is onboarding operators, but the FY2027 request cuts the Office of Space Commerce from $52.5M to $11M. Since Jan 30, 2026 SpaceX Stargaze has screened with about 30,000 Starlink star trackers (~30 million transits a day), returning orbit estimates and conjunction predictions within minutes, and offers screening to other operators free (Starlink via 33FG). None of these screening codes is formally verified.",
+    "why": "Filter soundness (apogee-perigee, orbit-path and time filters) is a classic formal-methods target, and false negatives are a known risk class. The catalog will grow severalfold as sensors improve and constellations deploy (Starlink above 10,900; Amazon Leo in the hundreds; Guowang and Qianfan each planned above 10,000; orbital-compute fleets filed). Compute is not binding; trust in completeness is. The binding step is formal verification of a production propagator, filter and Pc code on top of verified numerics and certified Pc (both 2028 in S2), which takes at least a year, so 2029; agent-written formalizations also need audit because kernel acceptance overstates quality (arXiv 2606.14000). Tracking data governs the tool's operational value, not whether it exists. Band scores the existence of the verified tool by 2031 (P1 capability); certified or regulator-credited use follows P2's 2-4 year lag and is scored downstream (astro-autonomous-ca-at-scale).",
+    "revision_note": "B-safe-orbits: Skeptic and advocate agree: binding_gate data -> formalization (the tool exists or not on formal verification of production code; tracking data sets its value). Skeptic: years +1 (S1 2031, S2 2029) because a production code cannot be built and verified in the same year as its 2028 prerequisites; S1 band Medium -> Low; retitled and million-object scope marked as a benchmark capacity. S3 set to 2029 = S2 (S3 equals S2 through 2028 and verified numerics is S3 2028 after the trunk resolver). Advocate's request to soften the certified-Pc hard edge rejected: the node certifies risk computation, not only geometric filters. Stargaze added to status (all three lenses). Auditor: P2-above-default band reason added."
+   }
+  },
+  {
+   "id": "astro-autonomous-ca-at-scale",
+   "patch": {
+    "earliest_year": {
+     "S2": "2031",
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S2": "Low"
+    },
+    "binding_gate": "adoption",
+    "description": "Satellites of at least two large constellation operators (for example Starlink, Amazon Leo, OneWeb; Guowang and Qianfan would need a US-China agreement) detect, negotiate and execute avoidance maneuvers autonomously under a shared protocol with formal safety guarantees, in operational use at the active population then in orbit (roughly 25,000-40,000 active satellites by 2030-31 on current deployment paths, judgment) and analyzed to scale to 100,000-plus.",
+    "status_oct2026": "Starlink is autonomous within its own fleet; ESA CREAM's AutoCA and AutoSTM components are in pilot use with in-orbit demos being prepared; cross-operator coordination is manual or bilateral; there is no US-China ephemeris sharing (Kinetica-1 payload close pass to Starlink-6079, Dec 2025; reported distance about 200 m, unverified). SpaceX Stargaze (Jan 30, 2026) turns about 30,000 Starlink star trackers into an SSA network (~30 million transits a day, orbit estimates and conjunction predictions within minutes) and offers screening to other operators free. Five moderate-to-high-risk Starlink conjunctions clustered on Aug 9-13, 2026, one reported at a 24% maximum collision probability (a worst-case screening metric, not an operator Pc; one of the five was Starlink-Starlink).",
+    "why": "The coordination math (astro-coordination-protocols) is ready around 2028 in S2 and certified screening in 2029. No regulator approves bilateral machine-to-machine coordination (the FCC requires disclosure and reports), so the gate is adoption: a standard (CCSDS, ISO or CONFERS; typically 3-5 years, general) or a bilateral protocol agreement, then multi-operator software rollout. Chain (S2): protocols 2028 and certified screening 2029 -> draft standard or bilateral maneuver-intent agreement 2030 (3-5 years at the tree's 1.5-2x regulatory/standards multiplier, identical in S2 and S3) -> software rollout across two operators -> operational 2031. S3 gets 2030 from cheaper guarantees and faster rollout, not from faster standards or politics. Inclusion of Chinese constellations is a geopolitical gate the math cannot move. SpaceX's free hosted screening (Stargaze) is a non-formal route that removes much of the demand for a formally guaranteed shared protocol, which is why S2 is Low. Proof-carrying GNC code accelerates but does not gate: Starlink already maneuvers autonomously without it.",
+    "strongest_case_small": "Bilateral automation between Western operators will arrive without formal guarantees and will handle most of the risk, and free hosted screening (Stargaze) may become the de facto shared layer; proofs add assurance, not capability.",
+    "revision_note": "B-safe-orbits: Skeptic and auditor both: years S2 2030 -> 2031, S3 2029 -> 2030 (math 2028 plus 3-5 year standards at the 1.5-2x regulatory multiplier, identical in S2 and S3; politics 1.0x). S2 band Medium -> Low (skeptic: one-year window, FCC aggregate-risk rule unadopted since 2020, free Stargaze screening as a non-formal substitute). Advocate accepted on gate: regulatory -> adoption (no regulator approves bilateral machine-to-machine coordination; standards bodies and operator agreements bind), but its S3 High rejected (adoption and politics do not compress with recursion). Skeptic and advocate: hard edge from astro-certified-gnc-toolchain made soft (Starlink's autonomy runs without proof-carrying GNC). All three: population clause rewritten (50k+ active cannot exist by 2030); Stargaze added. Auditor: 24% figure is a maximum (worst-case) collision probability; Kinetica-1 distance marked unverified. Chain written out."
+   }
+  },
+  {
+   "id": "astro-leo-safety-at-scale",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative",
+     "S3": "Low"
+    },
+    "status_oct2026": "Maneuvers per Starlink satellite rose to more than 40 per year (Jun 2025-May 2026), with yearly totals more than 3x 2024; ESA puts LEO collision risk up 20% since 2024; close approaches under 1 km occur every 22 minutes in the 550 km Starlink shell (Thiele et al.). SpaceX Stargaze (Jan 2026) adds minutes-latency tracking of the trackable population, and Starlink's lowering from 550 to 480 km is under way during 2026.",
+    "why": "AI math contributes three levers: certified Pc (fewer false alarms, though the maneuver count is set mainly by each operator's threshold policy), verified coordination (no maneuver-into-each-other events) and better capacity models (P5 confidence that informs policy but removes no risk physically). The dominant residual risk is about 1.2 million untracked 1-10 cm fragments that no math can see (astro-small-debris-catalog), plus drag-forecast limits and non-cooperating operators. Heavy launch cadence is a stressor, not an accelerant: it grows the population and the conjunction rate. The physical gate (sensors that track smaller objects, and their deployment) binds, so even S2 does not deliver this by 2031. Chain (S3): certified Pc 2028 and certified screening 2029 -> cross-operator autonomous collision avoidance 2030 -> screening-grade small-debris catalog 2030 -> at least two semiannual reports with conjunctions per satellite flat or falling while the fleet grows -> earliest evidence 2031, and only for the tracked population. Sensors compress about 1.0-1.3x and politics 1.0x even in S3, so S3 is Low.",
+    "strongest_case_small": "Most per-satellite risk reduction will come from non-math moves already under way: lower altitudes (Starlink 550 to 480 km; SpaceX cites a more-than-80% cut in ballistic decay time at solar minimum, unverified), five-year disposal rules and better sensors.",
+    "signpost": "Conjunctions under 1 km per satellite per year (threshold-independent) flat or falling while the fleet grows; ESA's 2027-28 environment reports showing LEO risk growth slowing.",
+    "accelerated_by": [
+     "plasma-storm-robust-leo-ops"
+    ],
+    "revision_note": "B-safe-orbits: Skeptic and auditor both: S3 band Medium -> Low (sensor and political gates compress ~1.0-1.3x and 1.0x; P7 default Speculative). S3 year kept at 2031 with the auditor's chain (earliest evidence, tracked population only) rather than the skeptic's >2031. Skeptic and advocate: hard edge from astro-debris-evolution-models made soft (Kessler thresholds are P5 confidence, not physical risk reduction). Skeptic: soft edge from physclock-heavy-cadence-100 removed (cadence grows the population, so it is a stressor, now stated in why); new hard prerequisite astro-small-debris-catalog (the binding sensor gate the why names); signpost moved to a threshold-independent conjunction rate because maneuvers per satellite move with Starlink's own Pc threshold and the 550 -> 480 km lowering. Auditor: decay-time claim marked unverified. Resolver: S1 band Low -> Speculative so the node does not outrank its new hard prerequisite astro-small-debris-catalog (S1 Speculative); S1 is >2031 and P7 defaults to Speculative."
+   }
+  },
+  {
+   "id": "plasma-thermo-density-uq",
+   "patch": {
+    "description": "Thermospheric density nowcasts and 1-3 day forecasts with calibrated uncertainty that bring public, operator-usable products from empirical-model spread (20-40% disagreement even in quiet times) to HASDM-class error (about 10-15%) and keep them calibrated through 2-6x storm enhancements, by assimilating drag observed on thousands of constellation satellites (which needs operator attitude and thrust data, since constellation satellites station-keep continuously), so LEO orbit predictions and covariances stay realistic through geomagnetic storms. Storm-time forecast skill beyond about a day stays bounded by CME arrival and magnetic-orientation forecasts.",
+    "status_oct2026": "Density is the dominant error in low-orbit prediction; storms raise it 2-5x within hours and empirical models disagree by 20-40% even in quiet times (CPAESS 2026 abstract). Gannon storm, May 2024: density up to ~6x baseline within 12 h, decay of tracked objects 38 -> 180 m/day, thousands of satellites maneuvered, Ap forecasts underpredicted by 100-300 at 1-3 day lead (Parker and Linares 2024). Feb 2022: a minor (G1-G2) storm raised drag up to 50% at the ~210 km deployment altitude (SpaceX update, Feb 2022) and 38 of 49 new Starlink satellites reentered. The Space Force's High Accuracy Satellite Drag Model (HASDM; Storz et al. 2005) already assimilates calibration-satellite drag into JB2008-based nowcasts and is described as the state of the art; its 2000-2019 archive is public as the SET HASDM database, and ML emulators of it reach <10% MAE (Licata et al., arXiv 2109.07651) and 11% with well-calibrated uncertainty (Licata and Mehta, arXiv 2201.02067). Starlink ephemerides are posted publicly via Space-Track and CelesTrak supplemental GP (general).",
+    "why": "Thousands of GNSS-tracked constellation satellites are potential drag probes. Using them requires joint estimation of density and each satellite's unknown, attitude-dependent ballistic coefficient, net of continuous thrusting, an identifiability and estimation problem that is solved in principle but expert-scarce, which S2's on-demand applied math supplies by 2028; an operational product with data access follows in 2029. The increment over HASDM is scale (thousands of probes rather than a calibration set), public access and calibrated 1-3 day forecasts, so the AI-math share is modest. The gates are data access (the attitude, ballistic-coefficient, thrust and maneuver logs that density inversion needs are proprietary, although Starlink ephemerides themselves are public) and storm-driver forecasts. Sun-to-Earth assimilation helps the 1-3 day forecast but is not needed for the nowcast, so it is a soft input.",
+    "revision_note": "B-safe-orbits: Skeptic and auditor: the Space Force's HASDM (operational assimilative drag model, 'state of the art') and ML emulators with calibrated uncertainty (<10% MAE, arXiv 2109.07651; 11% with well-calibrated uncertainty, arXiv 2201.02067; both abstracts checked by the resolver) were missing, so the description's 20-40% baseline (model disagreement) and the AI-math increment were overstated. Advocate and auditor: hard edge from plasma-swx-data-assimilation made soft (nowcasting is an estimation problem). Advocate's earlier years (S2 2028, S3 2027) rejected: the gate is data access (attitude, ballistic-coefficient and thrust logs; Starlink station-keeps continuously), the signpost is an operational product, and S3 equals S2 through 2028. Auditor: Feb 2022 storm wording corrected (G1-G2 'minor'; 50% from SpaceX's update); why's 'by 2028' reconciled with the S2 2029 year."
+   }
+  },
+  {
+   "id": "plasma-storm-robust-leo-ops",
+   "patch": {
+    "band_2031": {
+     "S3": "Medium"
+    },
+    "description": "Constellation operators and space-traffic services run conjunction screening and station-keeping on probabilistic density forecasts with realistic covariance, so that at the next G4+ storm the number of objects losing custody and of emergency maneuvers is at least halved versus May 2024.",
+    "why": "Once density products carry calibrated uncertainty (2029 in S2), propagating it into covariance and screening is mature astrodynamics; the gate is adoption by operators and the government catalog, which typically takes 1-2 years and faces the FY2027 Office of Space Commerce cut. The May 2024 degradation came mostly from storm-driver forecasts (Ap underpredicted by 100-300 at 1-3 days), which stay data-limited (plasma-bz-forecast), and the government catalog already runs assimilative density (HASDM), so the achievable gain is partial. Validating the outcome also needs a G4+ storm in 2029-31, in the declining phase of Cycle 25 (maximum Oct 2024, SIDC), when G4 storms still occur but less often (general).",
+    "strongest_case_small": "The largest operators already manage storms with margin and autonomy; the benefit concentrates in smaller operators and the public catalog. Losses like Feb 2022 were an operations choice and were fixed operationally. Fast-revisit sensing (SpaceX Stargaze, minutes-latency orbit updates) can deliver much of the custody gain without new density math.",
+    "revision_note": "B-safe-orbits: Skeptic and auditor both: S3 band High -> Medium (adoption gate barely compresses in S3; government catalog faces an ~80% Office of Space Commerce cut; P6 default Low). Skeptic: 'storms no longer cause...' replaced with a testable criterion (at least halved versus May 2024 at the next G4+ storm); Stargaze added to strongest case. Advocate's S2 2029 High and S3 2028 rejected: they assume zero adoption lag after the 2029 density product and credit a non-AI sensing system (Stargaze) for the AI-math node; the advocate's soft edge from constellation-hosted tracking accepted."
+   }
+  },
+  {
+   "id": "plasma-radbelt-charging-forecast",
+   "patch": {
+    "title": "Probabilistic radiation-belt and charging forecasts days ahead",
+    "binding_gate": "adoption",
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium"
+    },
+    "description": "Probabilistic, physics-consistent forecasts of MeV electron flux and surface/internal charging hazard, 1-3 days ahead for CME-driven enhancements and up to about a week for recurrent high-speed-stream driving, used in satellite operations (for example deferring an orbit-raise or electric-propulsion firing through a charging peak).",
+    "status_oct2026": "SWPC's operational Relativistic Electron Forecast Model (REFM) already gives deterministic 1-3 day >2 MeV electron fluence forecasts at GEO from 30 days of solar-wind speed (SWPC). Random-forest models (VAMPIRE/COVEN, Jun 2026) forecast ~2 MeV flux threshold crossings up to 6 days ahead from the AL index history alone (Northumbria); SPARTAI gives multi-day MeV forecasts (Oct 2025); transformer and LSTM pipelines forecast 1 MeV flux 6 h ahead (arXiv 2605.15752). Charging codes (SPIS, NASCAP-2K) are mature; PAGER internal-charging models were validated against GEO anomalies (IEEE TPS 2026).",
+    "why": "ML forecasts and a deterministic operational baseline exist; AI applied math adds coupling to physics-based diffusion models and calibrated probabilities so operators can act on them. Week-ahead skill exists only for recurrent high-speed-stream driving (27-day recurrence); CME-driven enhancements stay at 1-3 days. The binding step is adoption: an agency product (SWPC or ESA) and an operator or insurer procedure citing it. Chain (S2): calibrated physics-coupled methods 2028 -> SWPC or ESA pre-operational probabilistic product 2029 -> an operator or insurer procedure citing it 2029-30. Software-only, so no hardware lag; agency R2O and operator uptake set the pace, which is why S2 is Medium.",
+    "revision_note": "B-safe-orbits: All three lenses: hard edge from plasma-swx-data-assimilation made soft (radiation-belt forecasts run on L1 solar wind, in-situ flux and geomagnetic indices; COVEN uses only the AL index history, checked). Skeptic and auditor: 'size shielding and charging margins' deleted (designers keep AE9/AP9). Auditor: S1 Medium -> Low, S2 High -> Medium, gate data -> adoption (signpost is agency R2O plus operator citation; P6 default Low; week-ahead ML products exist); 'a week' -> 'up to 6 days' (checked). Skeptic: SWPC REFM baseline added; week-ahead skill limited to recurrent high-speed streams; title adjusted. Advocate's S2 2028 rejected (agency adoption plus operator citation in the year after applied math arrives leaves no R2O time). Advocate's soft edge into materials-cots-orbital-compute-ops not applied (outgoing edge into another branch)."
+   }
+  },
+  {
+   "id": "plasma-cme-arrival-skill",
+   "patch": {
+    "earliest_year": {
+     "S2": "2031",
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S2": "Low"
+    },
+    "description": "Operational CME arrival-time forecasts whose best routinely-run ensemble reaches mean absolute error <= 8 h (vs 10.3 h for NASA M2M's Ensemble WSA-Enlil+Cone and 13.2 h across all CCMC scoreboard submissions), with calibrated probability windows.",
+    "status_oct2026": "CCMC Arrival Time Scoreboard, 2013-2023: 1,702 predictions of 256 impacting CMEs, bias -2.5 h, mean absolute error 13.2 h, standard deviation 17.4 h, only slight improvement; the most established models do better (EnsWEC M2M: MAE 10.3 h on 95 predictions), and errors are dominated by CME reconstruction and background solar wind (Kay et al., Space Weather 2024). STEREO-A is 70.6 degrees ahead of Earth (Oct 7, 2026, STEREO Science Center) and gives a side view now; PUNCH (2025) adds polarimetric 3D imaging and CCOR coronagraphs fly on GOES-19 and SOLAR-1. ESA's Vigil at L5 (carrying NOAA's CCOR coronagraph) is planned to launch in 2031.",
+    "why": "AI-built ensembles, multi-view assimilation and better background-solar-wind modeling (coronal field extrapolation, an ill-posed inverse problem where mathematics genuinely helps) could cut the best ensemble's MAE by roughly 20-30% (judgment, illustrative), enough to reach 8 h before Vigil data exist. Validation runs on an event-count clock that does not compress: about 24 impacting CMEs a year on average, fewer near the next solar minimum around 2030, and with an error SD near 17 h about 40 events (roughly two years) are needed to show 8 h against 10.3 h. Chain (S2): assimilation methods 2028 -> real-time scoreboard submissions 2028-30 -> operational transition 2031. S3 saves a year on methods and transition, not on events.",
+    "strongest_case_small": "Eleven years of model development barely moved the error, including periods when STEREO-A gave a side view (roughly 2020-22, general); the limit is input reconstruction and background wind, and robust day-ahead skill may need Vigil.",
+    "signpost": "The best routinely-submitting scoreboard model posts MAE below 9 h over at least 40 impacting CMEs (about a 24-month window) during 2027-29.",
+    "revision_note": "B-safe-orbits: Skeptic: S2 2030 -> 2031, S3 2029 -> 2030, S2 band Medium -> Low on the event-count clock (resolver checked: Kay et al. 2024 Table 2 gives 256 impacting CMEs over 2013-2023; with SD 17.4 h a 20-event MAE has ~2.3 h standard error, so showing <= 8 h needs ~40 events, about two years, with fewer CMEs near the ~2030 minimum). Auditor: baseline corrected (13.2 h is the all-submission average; EnsWEC(M2M) is at 10.3 h, weighted 9.9 h, on 95 predictions, checked in Table 3); '~30-40%' marked as judgment and restated against the best ensemble; signpost merged with the skeptic's event-count version. Advocate: strongest case rewritten (STEREO-A gives a side view now, 70.6 degrees ahead on Oct 7, 2026, checked; earlier side-view periods did not cut error), soft edges from science-helio-tomography and the new side-view monitor node."
+   }
+  },
+  {
+   "id": "plasma-swx-data-assimilation",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "description": "Coupled data assimilation from the Sun (SDO imagery and magnetograms, coronagraphs) through the solar wind (SOLAR-1 at L1) to the magnetosphere, ionosphere and thermosphere, producing ensemble forecasts with calibrated probabilities rather than single deterministic runs (demonstrated in a research or pre-operational testbed; operational transition is a later step).",
+    "status_oct2026": "SOLAR-1 (ex-SWFO-L1) launched Sep 24, 2025 and reached L1 Jan 23, 2026. NOAA's WAM-IPE gives 2-day ionosphere-thermosphere forecasts (operational since July 2021, upgraded 2023). NASA/IBM's open Surya heliophysics foundation model (Aug 2025, 366M parameters, 9 years of SDO data) beats flare benchmarks by ~16% up to 2 h ahead. STEREO-A (70.6 degrees ahead of Earth, Oct 2026) and PUNCH (2025) add off-axis and 3D views. Density models rarely propagate uncertainty to orbit decisions (CPAESS 2026 workshop abstract).",
+    "signpost": "A published assimilative ensemble Sun-to-Earth forecast system with reliability diagrams on CCMC benchmarks (research or pre-operational testbed) by 2028; SWPC or ESA operational transition by 2030.",
+    "revision_note": "B-safe-orbits: Skeptic and auditor: signpost split into testbed demonstration by 2028 and operational transition by 2030 (research-to-operations runs on appropriations; WAM-IPE took years to reach operations in July 2021), and maturity stated in the description. Auditor: Surya is 366M parameters (InfoQ). S3 2027 -> 2028: capability.json defines S3 as S2 until 2028 with the same end-2027 horizon, and the trunk resolver moved infra-verified-numerics and infra-mathlib-applied to S3 2028 (skeptic, systemic finding)."
+   }
+  },
+  {
+   "id": "plasma-eruption-onset-theory",
+   "patch": {
+    "description": "Physics-based, probabilistic prediction of flare and CME onset (torus and kink instability thresholds, reconnection onset) from observed active-region magnetic fields, 1-3 days ahead, beating the best operational statistical or ML forecast on an independent benchmark (for example by at least 0.1 Brier skill score at 24 h).",
+    "signpost": "A physics-informed eruption forecast whose Brier skill score for M-class-plus flares at 24 h exceeds the best statistical or ML baseline on the same independent community benchmark by at least 0.1 (reaching about 0.3), by 2028.",
+    "revision_note": "B-safe-orbits: Skeptic: success criterion was nearly met already (statistical flare forecasts beat climatology); now requires beating the best operational statistical or ML forecast on an independent benchmark, and the signpost is stated relative to that baseline. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-bz-forecast",
+   "patch": {
+    "status_oct2026": "Magnetic structure is recognized as the main bottleneck; operationally Bz is known only as the CME passes L1, roughly 30-60 minutes before impact (SOLAR-1 operational 2026; timing general). Established short-term in-situ reconstruction tools mostly need a human in the loop; arXiv 2602.06926 (Feb 2026) automates one pipeline from partial L1 passage (~5 h timing and ~10 nT field errors), at lead times of hours.",
+    "revision_note": "B-safe-orbits: Skeptic: hard edge from plasma-eruption-onset-theory made soft (Bz depends on flux-rope orientation, chirality and rotation, not on onset timing); soft edges added from science-helio-tomography and the new side-view monitor node. Auditor: arXiv 2602.06926 is an automated pipeline, so the status no longer cites it for the opposite point. Years unchanged (>2031)."
+   }
+  },
+  {
+   "id": "plasma-vleo-at-scale",
+   "patch": {
+    "why": "Validated density statistics trim only the model-error share of the drag reserve; most of the reserve at 250-300 km covers solar-cycle and storm variability (density varies several-fold over a cycle, general), which no density model removes, so plausible savings are ~10-20% of drag propellant (illustrative). That helps VLEO business cases at the margin, but constellations need capital, launches and production first.",
+    "revision_note": "B-safe-orbits: Skeptic: hard edge from plasma-thermo-density-uq made soft (Clarity-1 flew at 350-380 km and projects five-year life at 275 km without calibrated density products; the node is capital-gated), and the margin arithmetic corrected: most of the drag reserve covers solar-cycle and storm variability that no density model removes. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "astro-ai-designed-trajectory-flown",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2029"
+    },
+    "pathway": "P1 (operational adoption; no hardware change)",
+    "why": "Designs freeze 6-18 months before launch (general), and there are many small lunar and cislunar missions (more than 30 planned 2024-2030), whose launches routinely slip months to years (physclock slip table). Chain (S2): design agents trusted by flight-dynamics teams 2027-28 -> an agent-designed baseline accepted and re-verified 2028 -> design freeze 6-18 months before launch -> launch 2029 with normal slip margin -> public credit in a press kit or AAS/AIAA paper. S3 cannot compress the manifest, so it matches S2.",
+    "revision_note": "B-safe-orbits: Skeptic: years +1 (S1 2030, S2 2029, S3 2029): the design tool is 2027 in S2 and its GTOC signpost is unmet (GTOC 12 study: unit, boundary-condition and debugging failures), and a 2028 flight needed a 2027 freeze with zero launch slip (physclock slip table). Advocate's thesis 'fly from 2028' changed to 2029 accordingly. Auditor: pathway P1->P7 -> P1 (a trajectory is not hardware, per A3; P7's Speculative default contradicted High) and chain written out."
+   }
+  },
+  {
+   "id": "astro-trajectory-design-on-demand",
+   "patch": {
+    "why": "Trajectory design is solved in principle but expert-scarce (analyst position a): perhaps a few hundred specialists worldwide design multi-body low-thrust transfers (general). The GTOC 12 failure modes are exactly what stronger reasoning plus verification removes. Low-energy and multi-body designs matter most for small lunar missions that cannot buy expert time. Global-optimality certificates (frontier-scalable-global-certificates) strengthen but do not gate this node.",
+    "revision_note": "B-safe-orbits: Skeptic: the 59 m/s ballistic-transfer figure (a 2013 pre-AI result attributed to search summaries) deleted; it showed design-space exploration in general, not an AI effect."
+   }
+  },
+  {
+   "id": "astro-stability-atlas",
+   "patch": {
+    "earliest_year": {
+     "S3": "2029"
+    },
+    "band_2031": {
+     "S3": "High"
+    },
+    "description": "Validated (interval or Taylor-model) certified regions where lunar frozen orbits, DROs and stable resonant orbits stay bounded for 10-100 years without control, plus, for unstable halo/NRHO families, certified controlled envelopes and station-keeping delta-v budgets for stated navigation and maneuver-execution errors.",
+    "why": "Long-lived lunar relay and navigation constellations (Moonlight: four navigation and one communication satellite), surface-base support orbits and disposal orbits need decade-scale budgets. A certified atlas turns propellant margins from 'Monte Carlo 99th percentile plus engineering margin' into a proven envelope; illustratively, halving a 20-30% station-keeping margin extends propellant-limited life by roughly 10-15% (about a year on a 10-year relay), less where batteries, eclipses or parts set life, and the saving is P5 confidence rather than a physical delta-v gain. It needs new theory plus verified numerics, so it lands a year after the pure proofs.",
+    "revision_note": "B-safe-orbits: Skeptic: description corrected (halo and NRHO families are linearly unstable with horizons of days to weeks, so only stable families get uncontrolled decade-scale bounds; unstable ones get certified controlled envelopes and station-keeping budgets) and the life gain recomputed (1.25/1.125 = 1.11, 1.30/1.15 = 1.13: about 10-15%, not 'years'). Advocate: S3 band Medium -> High accepted for the narrowed deliverable (purely cognitive plus verified numerics; near-free cognition from 2029 is an S3-only argument). S3 year 2028 -> 2029 (= S2): both prerequisites (transport proofs, verified numerics) are now S3 2028, and the node lands a year after them as in S2."
+   }
+  },
+  {
+   "id": "astro-nbody-transport-proofs",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "description": "Computer-assisted proofs, with explicit constants, of transport, diffusion and escape-time bounds in realistic restricted and full three- and four-body models (Earth-Moon CR3BP and bicircular models; ephemeris-forced models only over short horizons), for example how long trajectories starting near a DRO or lunar frozen orbit provably stay bounded.",
+    "status_oct2026": "Open frontier; not in the catalog. Capinski and Gidea gave a computer-assisted proof of Arnold diffusion in the planar full three-body problem (arXiv 2504.09273, Apr 2025), with explicit perturbation-parameter ranges and diffusion-time estimates for an astronomical (Neptune-Triton-asteroid) system, not for cislunar operational orbits. Practice relies on Monte Carlo propagation.",
+    "why": "This is the bespoke, hard-but-not-famous problem class that analyst position (a) says the capability absorbs first. A single computer-assisted diffusion proof took a leading group years; at release-level reasoning cost (the openai/math ~3 hours per result applies to posed pure-math problems with roughly 9% yield, ~372 families from ~4,000 problems, not to validated interval computation), a library of system-specific theorems (one per orbit family of operational interest) becomes affordable once outside teams have access. Value: replaces 'we ran 10^4 propagations' with 'no trajectory starting in set A leaves before time T', the form a disposal-orbit or parking-orbit safety case wants.",
+    "revision_note": "B-safe-orbits: Skeptic: ephemeris-forced scope limited to short horizons (wrapping effect), keeping S2 High; the ~3 hours per result applies to posed pure-math problems with ~9% yield (ref-release-anatomy: ~4,000 posed, 372 families), not to validated interval computation. Auditor: Capinski-Gidea do give diffusion-time estimates; the limit is the system covered. S3 2027 -> 2028: capability.json defines S3 as S2 until 2028 with the same end-2027 horizon, and the trunk resolver moved infra-verified-numerics and infra-mathlib-applied to S3 2028 (skeptic, systemic finding)."
+   }
+  },
+  {
+   "id": "astro-cislunar-od-uq",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "status_oct2026": "Earth-centric surveillance networks are not designed for cislunar space, and three-body dynamics make uncertainty dominate performance; more than 30 lunar missions are planned 2024-2030. AFRL's Oracle-Prime (Terran Orbital) completed its Preliminary Design Review in Dec 2025 (announced Apr 2026); no delivery or launch date is public. NASA cancelled the Gateway station on Mar 24, 2026, removing the main planned NRHO traffic node.",
+    "signpost": "Oracle-Prime launch (date not announced) and published custody performance; a Space Force or commercial cislunar object catalog.",
+    "revision_note": "B-safe-orbits: Auditor: Oracle-Prime 'delivery in 2026, launch sought for 2027' is not in the cited Terran Orbital release (resolver checked: PDR completed Dec 2025, 'on track toward delivery', no dates); likely fabricated, removed from status and signpost. S3 2027 -> 2028: capability.json defines S3 as S2 until 2028 with the same end-2027 horizon, and the trunk resolver moved infra-verified-numerics and infra-mathlib-applied to S3 2028 (skeptic, systemic finding)."
+   }
+  },
+  {
+   "id": "astro-coordination-protocols",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "status_oct2026": "No standard exists. Starlink is autonomous within its own fleet; on Dec 9, 2025 a payload from a Chinese Kinetica-1 launch passed close to Starlink-6079 (reported about 200 m, unverified) with no coordination or ephemeris sharing. TraCSS screens (52 pilot users plus UK and Australia accounts, about 11,125 satellites, Jun 2026) but does not arbitrate. Catalog 104 (quasipolynomial algorithms for mean-payoff, stochastic and parity games, T3) is a weak, theory-level link to synthesizing strategies for game models of such protocols.",
+    "why": "This is aviation's TCAS problem in orbit, and TCAS logic took years of formal analysis to trust. Multi-agent protocols with timing, message loss and asymmetric information are a natural target for agent-written proofs, which removes the expert-cost barrier. With about 13-14k active satellites today and filings for roughly 200k (China, Dec 2025) and up to 1 million (SpaceX orbital data centers, Jan 2026), pairwise human coordination cannot scale. Band scores the existence of the proofs by 2031 (P1 capability); certified or regulator-credited use follows P2's 2-4 year lag and is scored downstream (astro-autonomous-ca-at-scale).",
+    "revision_note": "B-safe-orbits: Auditor: reason for exceeding the P2 default band stated (band scores existence of the proofs). Kinetica-1 distance marked unverified (auditor could not retrieve the source). S3 2027 -> 2028: capability.json defines S3 as S2 until 2028 with the same end-2027 horizon, and the trunk resolver moved infra-verified-numerics and infra-mathlib-applied to S3 2028 (skeptic, systemic finding)."
+   }
+  },
+  {
+   "id": "astro-nav-filter-guarantees",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "catalog_families": [
+     "139"
+    ],
+    "status_oct2026": "EKF/UKF variants dominate, tuned by experts; integrity frameworks are mature for aviation GNSS but not for lunar PNT. LuGRE tracked GPS and Galileo and obtained a navigation fix on the lunar surface (Mar 3, 2025); NASA's SEXTANT demonstrated real-time X-ray pulsar navigation (general). Catalog 140 (T3) bounds high-dimensional streaming regression; onboard navigation filters carry about 6-20 states, so it does not bind (nil). 139 (T3) helps only where posteriors are log-concave.",
+    "premise_tier": "T3 for the catalog piece (139, weak); n/a for the main chain",
+    "why": "Lunar PNT (Moonlight initial services end-2028, LunaNet interoperability tests 2029) needs integrity guarantees like aviation GNSS has. Proving filter consistency and fault detection under weak-signal geometry is bespoke applied math that on-demand capability makes routine. Band scores the existence of the proofs by 2031 (P1 capability); certified or regulator-credited use follows P2's 2-4 year lag and is scored downstream (astro-autonomous-nav-demo).",
+    "revision_note": "B-safe-orbits: Skeptic: family 140 removed from catalog_families (memory-sample bounds bind only at high dimension; onboard filters carry ~6-20 states), kept in status as a nil effect. Auditor: hard edge from astro-nongaussian-uq-certified made soft (protection levels do not need certified Pc first) and P2-above-default band reason stated. S3 2027 -> 2028: capability.json defines S3 as S2 until 2028 with the same end-2027 horizon, and the trunk resolver moved infra-verified-numerics and infra-mathlib-applied to S3 2028 (skeptic, systemic finding)."
+   }
+  },
+  {
+   "id": "astro-autonomous-nav-demo",
+   "patch": {
+    "title": "Autonomous cislunar navigation with certified integrity",
+    "status_oct2026": "ESA Moonlight: Lunar Pathfinder relay in a lunar frozen orbit planned to begin operations in 2026 (ESA, Oct 2024), initial navigation services end-2028, interoperability tests 2029, full operations 2030. LuGRE proved GNSS fixes at the Moon (2025).",
+    "why": "Navigation demos fly on their own schedule; the AI-math contribution is certified integrity in the filter, cheap in S2 by 2028. Chain (S2): nav-filter guarantees 2028 -> integrity monitor coded into a LunaNet/Moonlight user receiver or flight-software load (software only, ~12 months) -> flown in the 2029 interoperability tests or on a CLPS lander with a LuGRE-class receiver. S3 cannot beat the launch manifest, so S2 and S3 share a year.",
+    "revision_note": "B-safe-orbits: Skeptic: retitled, since GNSS-at-the-Moon and Moonlight/LunaNet signals depend on Earth-based orbit determination and timing, so the demo is not Earth-independent. Auditor: chain written out (tier 5 by 2031); Lunar Pathfinder status stated as planned."
+   }
+  },
+  {
+   "id": "astro-debris-evolution-models",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "strongest_case_small": "Outputs are dominated by inputs no theorem fixes: future launch rates, disposal compliance and fragment distributions drawn from a handful of hypervelocity tests. Estimates will span an order of magnitude regardless; Lifson et al.'s risk-based model, as summarized in Mach33's Oct 2025 analysis, puts LEO environmental carrying capacity near 2.9 million objects, far above today's population.",
+    "accelerated_by": [
+     "plasma-thermo-density-uq"
+    ],
+    "revision_note": "B-safe-orbits: Skeptic: soft edge from frontier-nbody-arnold-diffusion removed (KAM and Arnold-diffusion times play no role in source-sink or Monte Carlo debris models). Auditor: the 2.9 million capacity figure is Lifson et al.'s model as summarized by Mach33 (Mach33's own volumetric figure is 6.3 million). Advocate: soft edge from constellation-hosted tracking (breakup-cloud custody for >10 cm fragments). S3 2027 -> 2028: capability.json defines S3 as S2 until 2028 with the same end-2027 horizon, and the trunk resolver moved infra-verified-numerics and infra-mathlib-applied to S3 2028 (skeptic, systemic finding)."
+   }
+  },
+  {
+   "id": "astro-cislunar-traffic-management",
+   "patch": {
+    "status_oct2026": "None operational. Gateway cancelled (Mar 24, 2026) in favour of a roughly $20B lunar surface base over seven years; Moonlight relay and navigation services 2028-2030; AFRL's Oracle-Prime cislunar demonstrator is past PDR (Dec 2025) with no launch date announced.",
+    "why": "Algorithms are ready by 2028-29 in S2; space-based cislunar sensors and a funded operator are the gates, and US civil SSA funding is under pressure (Office of Space Commerce FY2027 request down about 80%). Screening tens of cislunar objects uses ordinary propagation, so certified million-object screening, provably safe coordination protocols and a certified stability atlas improve the service but do not gate it. A basic military or commercial service is plausible by 2031.",
+    "revision_note": "B-safe-orbits: Edges: stability atlas -> soft (all three lenses), certified catalog-scale screening -> soft (skeptic and auditor: screening tens of cislunar objects uses ordinary propagation), coordination protocols -> soft (auditor: TraCSS screens without arbitration). astro-cislunar-od-uq stays hard. Auditor: Oracle-Prime dates removed (not in the cited release). Years and bands unchanged (capital gate)."
+   }
+  },
+  {
+   "id": "astro-capacity-licensing",
+   "patch": {
+    "earliest_year": {
+     "S3": "2031"
+    },
+    "band_2031": {
+     "S2": "Low",
+     "S3": "Low"
+    },
+    "status_oct2026": "The FCC has a five-year post-mission disposal rule (2022) but no aggregate capacity regime. Its 2020 orbital-debris FNPRM sought comment on a system-wide (aggregate) collision-risk assessment for multi-satellite systems using the ODMSP 0.001 probability as a threshold or safe harbor; the Space Bureau refreshed that record in May 2024 (comments June-July 2024), and no order had been adopted by Oct 2026. SpaceX filed for up to 1 million orbital data center satellites at 500-2,000 km on Jan 30, 2026; China filed for roughly 200k satellites at the ITU (Dec 2025).",
+    "why": "Filings at the million-satellite scale press for a capacity framework this decade regardless of AI. AI math changes whether the framework rests on defensible, auditable models (proven thresholds, quantified uncertainty) or on rules of thumb, a P5 contribution to quality, not timing. The closest FCC step has been pending since 2020, and the 2026 FCC moved fast toward faster licensing (performance-based EPFD rules Apr 30, Part 100 Jul 22, NEPA exclusion late Sep), not toward caps. Uncompressed rulemaking (notice, comment, order) takes 2-4 years (general); at the tree's 1.5-2x regulatory multiplier, identical in S2 and S3, an order by 2031 needs an NPRM by about 2029, and politics runs at 1.0x, so S3 cannot beat S2. A license condition on the 1-million-satellite application is the faster route (see signpost). Capped at Medium because it needs regulator acceptance; Low on the record above. Verified million-object screening helps but is not required: aggregate-risk rules use environment models and disclosure.",
+    "revision_note": "B-safe-orbits: Skeptic and auditor both: S2 band Medium -> Low (politics 1.0x; the FCC's 2020 aggregate collision-risk proposal, refreshed May 2024 and checked by the resolver, is still unadopted; current FCC direction is faster licensing, not caps). Skeptic: S3 2030 -> 2031 and Medium -> Low, because the physclock table gives S3 the same regulatory multiplier as S2 (the auditor's own 1.0x reasoning implies the same). Advocate's earlier years (2030/2029) rejected: the 2026 FCC actions it cites (EPFD Apr 30, Part 100 Jul 22, NEPA exclusion late Sep) are streamlining, the opposite direction to capacity caps. Skeptic: hard edge from catalog-scale screening made soft. Auditor: 'accepted for filing' (unverifiable) reworded to the Jan 30, 2026 filing."
+   }
+  },
+  {
+   "id": "frontier-nbody-arnold-diffusion",
+   "patch": {
+    "status_oct2026": "Arnold diffusion is proven in the planetary spatial 4-body problem (Clarke-Fejoz-Guardia, Publ. IHES 2024), and a degenerate mechanism in the restricted 3-body problem (Guardia-Paradela-Seara, Ann. ENS, Dec 2025). KAM for planetary systems is known only for tiny masses (general). Solar-system instability is known numerically (Laskar: ~1% chance of Mercury destabilizing in 5 Gyr, general). The catalog touches only model problems: 146 (Sinai positive entropy of the standard map, T1) and 343 (sharp symplectic ball packing, T1); 347 (T3) concerns Arnold's fixed-point conjecture in symplectic topology, not Arnold diffusion. It has no n-body results.",
+    "revision_note": "B-safe-orbits: Auditor: family 347 concerns Arnold's fixed-point conjecture in symplectic topology, not Arnold diffusion or a model map; status reworded so it no longer implies a link."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "id": "astro-small-debris-catalog",
+   "title": "Screening-grade catalog of small debris",
+   "tier": 6,
+   "kind": "mission",
+   "description": "Tracking data shared with operators that keeps custody of at least 100,000 LEO objects, reaching about 5 cm in the main constellation shells (450-600 km), with covariances good enough for conjunction screening. Most of the ~1.2 million 1-10 cm fragments would still be untracked; full 1-10 cm custody (of order a million objects) is beyond 2031 in every scenario.",
+   "status_oct2026": "ESA's 2026 Space Environment Report counts more than 40,000 catalogued objects against about 54,000 larger than 10 cm and about 1.2 million of 1-10 cm. Space Fence (operational 2020, general) has not visibly grown the public catalog several-fold. LeoLabs' sub-10 cm RANGER radar is still in development (LeoLabs). SpaceX Stargaze (Jan 30, 2026) adds minutes-latency tracking from about 30,000 star trackers, but star-tracker sensitivity limits it to roughly 10 cm and larger at useful ranges (general estimate), so it does not close the small-debris gap. The FY2027 request cuts the Office of Space Commerce (TraCSS) from $52.5M to $11M.",
+   "catalog_families": [],
+   "prerequisites": [],
+   "accelerated_by": [
+    "cap-applied-math"
+   ],
+   "binding_gate": "data",
+   "pathway": "P1 (track association and orbit determination); sensor build-out and data sharing are not AI-math-driven",
+   "earliest_year": {
+    "S1": ">2031",
+    "S2": "2031",
+    "S3": "2030"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a",
+   "why": "This is the sensor gate that astro-leo-safety-at-scale names as binding. Physical sensors (radar power-aperture, optical revisit) and data-sharing policy bind; AI applied math helps only with the cognitive share: associating uncorrelated tracks and determining initial orbits from sparse detections at 10^5-10^6 scale. Chain (S2): existing radars (Space Fence, commercial S-band) plus at least one new sub-10 cm sensor 2028-30 -> AI-built association and orbit determination for uncorrelated tracks from 2028 -> a shared screening-grade catalog above 100,000 objects in 2031. S3 is a year earlier only because association and orbit determination become nearly free from 2029 and existing sensors may already detect more than is catalogued; sensor deployment compresses only about 1.0-1.3x (physclock fabrication row) and data-sharing politics 1.0x.",
+   "strongest_case_small": "The binding constraints are radar power-aperture, funding and willingness to share: US civil SSA funding is being cut and the Space Force may track more than it releases. Lower operating altitudes (Starlink 480 km) reduce exposure to long-lived small debris without any tracking.",
+   "signpost": "A public or commercial catalog above 100,000 LEO objects with screening-grade covariances; operational acceptance of LeoLabs RANGER or a comparable sub-10 cm radar; TraCSS or Space-Track publishing small-object conjunction data.",
+   "domain": "astro",
+   "revision_note": "B-safe-orbits: New node merging the skeptic's astro-small-debris-catalog (>=100,000 objects, ~5 cm in the main shells; >2031/2031/2030, Low/Medium/Medium, data gate) and the auditor's astro-small-debris-tracking (most 1-10 cm; >2031 everywhere, Speculative/Low/Low, fabrication gate). Kept the skeptic's attainable threshold and years, with the auditor's caution on bands (S1 Speculative to match >2031, S2 Low, S3 Medium). Wired as a hard prerequisite of astro-leo-safety-at-scale because that node's own why names small-object sensing as the binding gate; no year change results (S2 >2031, S3 2031 there). Soft into catalog-scale screening (value) per the skeptic. Not a duplicate: no tracking or sensor node exists in node-index-v1."
+  },
+  {
+   "id": "astro-constellation-hosted-ssa",
+   "title": "Constellation-hosted tracking with validated covariances",
+   "tier": 6,
+   "kind": "mission",
+   "description": "Star trackers and hosted cameras on at least one megaconstellation (SpaceX Stargaze today) feed conjunction screening used beyond the owner's fleet, by other operators and a government or commercial catalog, with minutes latency and published, validated covariance realism for the trackable population (roughly 10 cm and larger). AI-built association, too-short-arc initial orbit determination and covariance-realism pipelines handle tens of millions of detections a day. This improves the input that dominates Pc error and storm-time custody; it does not see the 1-10 cm population.",
+   "status_oct2026": "SpaceX Stargaze (Jan 30, 2026): about 30,000 star trackers and about 30 million transits a day, orbit estimates and collision predictions within minutes versus hours industry-standard, screening offered free to other operators (Starlink via 33FG). SpaceX built it before the openai/math release. No published covariance-realism statistics or government catalog ingest of Stargaze data were found in the sources reviewed. An analytical framework for proliferated-LEO optical SSA gives 0.4-5.7 day revisit at 552-650 km (arXiv 2605.01241).",
+   "catalog_families": [],
+   "prerequisites": [],
+   "accelerated_by": [
+    "cap-applied-math"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P1 (association, orbit determination and covariance realism); the sensor network itself is not AI-math-driven",
+   "earliest_year": {
+    "S1": "2029",
+    "S2": "2028",
+    "S3": "2028"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "High"
+   },
+   "premise_tier": "n/a",
+   "why": "Two curves combine. The constellation and launch exponential puts the sensors up at no marginal cost, and the cognitive exponential turns tens of millions of short streaks a day into catalog-grade orbits with honest uncertainty: multi-target association, too-short-arc orbit determination and covariance-realism validation are expert-scarce estimation work, on demand from 2027 in S2 (P1). Chain (S2): Stargaze operational 2026 -> covariance-realism validation and third-party ingest built with on-demand applied math 2027-28 -> published realism statistics and use by a government or commercial catalog 2028. The sensing and the free screening offer exist without AI math, so the AI-math share is the realism and validation increment, and whether it is published or shared is SpaceX's choice, which is why S2 is Medium. Physics floor (general estimate): a 10 cm object at 100 km is about magnitude 7-8 at good phase before trailing losses, against a star-tracker limit near 6-7, so cm-class fragments stay invisible.",
+   "strongest_case_small": "SpaceX built Stargaze before the release and may keep its covariance statistics proprietary; the government catalog faces an ~80% Office of Space Commerce cut, so third-party ingest may not happen; better tracking of 10 cm-plus objects leaves the dominant small-debris risk untouched.",
+   "signpost": "Starlink's Jun-Nov 2026 semiannual FCC report (the first full Stargaze period); TraCSS, Space Force or a commercial SSA firm ingesting Stargaze data; published covariance-realism statistics for constellation-hosted tracking.",
+   "domain": "astro",
+   "revision_note": "B-safe-orbits: New node from the advocate (astro-constellation-hosted-ssa), rescoped. Stargaze is real (33FG news item checked) and all three lenses cite it, but it exists without AI math, so the node has no hard AI-math prerequisite (cap-applied-math soft, as for physclock anchors) and its achievement is the step beyond Stargaze: use beyond SpaceX plus published covariance realism. Advocate's 2029/2028/2027 Medium/High/High tempered to 2029/2028/2028 Low/Medium/High (S3 equals S2 through 2028; publication and sharing are owner decisions). It answers the skeptic's point that certified Pc does not fix covariance realism. Soft edges out to screening, density, storm-robust ops, autonomous CA, debris models and LEO safety (advocate). Not a duplicate in node-index-v1."
+  },
+  {
+   "id": "plasma-side-view-monitors",
+   "title": "Side-view and upstream solar-wind monitoring",
+   "tier": 6,
+   "kind": "mission",
+   "description": "Operational, guaranteed real-time off-Sun-Earth-line coronagraph and heliospheric imaging (ESA Vigil at L5 with NOAA's CCOR coronagraph) and/or an in-situ monitor well upstream of L1 (sub-L1), giving CME speed, direction and early magnetic-structure data well before arrival, rather than opportunistic views from aging research spacecraft.",
+   "status_oct2026": "Vigil is planned to launch in 2031 (ESA), so routine L5 data cannot arrive by end-2031. STEREO-A, a 2006 research spacecraft, is 70.6 degrees ahead of Earth (Oct 7, 2026, STEREO Science Center) and gives an opportunistic side view now. PUNCH (2025) adds polarimetric 3D imaging; CCOR coronagraphs fly on GOES-19 and SOLAR-1, both on the Sun-Earth line. No operational sub-L1 monitor is scheduled to fly before 2031 (general).",
+   "catalog_families": [],
+   "prerequisites": [],
+   "accelerated_by": [
+    "science-helio-constellation-design"
+   ],
+   "binding_gate": "launch",
+   "pathway": "P7 (not AI-math-driven)",
+   "earliest_year": {
+    "S1": ">2031",
+    "S2": ">2031",
+    "S3": ">2031"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative"
+   },
+   "premise_tier": "n/a",
+   "why": "A physical anchor with no AI-math prerequisite, like the physclock nodes. Kay et al. (2024) attribute arrival-time error mainly to CME reconstruction and background solar wind, which side views constrain; Bz a day ahead needs routine coronal magnetic-field measurement or in-situ sampling well upstream of L1. Launch dates do not move with the cognitive clock, so the node sits beyond 2031 in all scenarios and shows the gate AI math cannot move for plasma-cme-arrival-skill (full gain) and plasma-bz-forecast.",
+   "strongest_case_small": "STEREO-A already provides a side view, and earlier side-view periods did not cut arrival-time error much; the main gain may come from better background solar-wind modeling, which is mathematics, not a new spacecraft.",
+   "signpost": "Vigil launch and commissioning (planned 2031); funding of a sub-L1 in-situ space-weather monitor.",
+   "domain": "plasma",
+   "revision_note": "B-safe-orbits: New node from the auditor (plasma-side-view-monitors). Status updated with the advocate's STEREO-A fact (70.6 degrees ahead on Oct 7, 2026, checked on the STEREO Science Center page), so the node is defined as operational, guaranteed monitoring. Soft edges into plasma-cme-arrival-skill and plasma-bz-forecast; soft accelerant from science-helio-constellation-design (an external node into this branch). Not a duplicate: science-helio-constellation-design is the design method, not the flown monitor."
+  }
+ ],
+ "add_edges": [
+  {
+   "from": "astro-small-debris-catalog",
+   "to": "astro-leo-safety-at-scale"
+  }
+ ],
+ "remove_edges": [
+  {
+   "from": "infra-verified-numerics",
+   "to": "astro-nongaussian-uq-certified"
+  },
+  {
+   "from": "astro-certified-gnc-toolchain",
+   "to": "astro-autonomous-ca-at-scale"
+  },
+  {
+   "from": "astro-debris-evolution-models",
+   "to": "astro-leo-safety-at-scale"
+  },
+  {
+   "from": "plasma-swx-data-assimilation",
+   "to": "plasma-thermo-density-uq"
+  },
+  {
+   "from": "plasma-swx-data-assimilation",
+   "to": "plasma-radbelt-charging-forecast"
+  },
+  {
+   "from": "plasma-eruption-onset-theory",
+   "to": "plasma-bz-forecast"
+  },
+  {
+   "from": "plasma-thermo-density-uq",
+   "to": "plasma-vleo-at-scale"
+  },
+  {
+   "from": "astro-nongaussian-uq-certified",
+   "to": "astro-nav-filter-guarantees"
+  },
+  {
+   "from": "astro-stability-atlas",
+   "to": "astro-cislunar-traffic-management"
+  },
+  {
+   "from": "astro-catalog-scale-screening",
+   "to": "astro-cislunar-traffic-management"
+  },
+  {
+   "from": "astro-coordination-protocols",
+   "to": "astro-cislunar-traffic-management"
+  },
+  {
+   "from": "astro-catalog-scale-screening",
+   "to": "astro-capacity-licensing"
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "infra-verified-numerics",
+   "to": "astro-nongaussian-uq-certified"
+  },
+  {
+   "from": "astro-certified-gnc-toolchain",
+   "to": "astro-autonomous-ca-at-scale"
+  },
+  {
+   "from": "astro-debris-evolution-models",
+   "to": "astro-leo-safety-at-scale"
+  },
+  {
+   "from": "plasma-swx-data-assimilation",
+   "to": "plasma-thermo-density-uq"
+  },
+  {
+   "from": "plasma-swx-data-assimilation",
+   "to": "plasma-radbelt-charging-forecast"
+  },
+  {
+   "from": "plasma-eruption-onset-theory",
+   "to": "plasma-bz-forecast"
+  },
+  {
+   "from": "plasma-thermo-density-uq",
+   "to": "plasma-vleo-at-scale"
+  },
+  {
+   "from": "astro-nongaussian-uq-certified",
+   "to": "astro-nav-filter-guarantees"
+  },
+  {
+   "from": "astro-stability-atlas",
+   "to": "astro-cislunar-traffic-management"
+  },
+  {
+   "from": "astro-catalog-scale-screening",
+   "to": "astro-cislunar-traffic-management"
+  },
+  {
+   "from": "astro-coordination-protocols",
+   "to": "astro-cislunar-traffic-management"
+  },
+  {
+   "from": "astro-catalog-scale-screening",
+   "to": "astro-capacity-licensing"
+  },
+  {
+   "from": "science-helio-tomography",
+   "to": "plasma-bz-forecast"
+  },
+  {
+   "from": "science-helio-tomography",
+   "to": "plasma-cme-arrival-skill"
+  },
+  {
+   "from": "astro-small-debris-catalog",
+   "to": "astro-catalog-scale-screening"
+  },
+  {
+   "from": "astro-constellation-hosted-ssa",
+   "to": "astro-catalog-scale-screening"
+  },
+  {
+   "from": "astro-constellation-hosted-ssa",
+   "to": "plasma-thermo-density-uq"
+  },
+  {
+   "from": "astro-constellation-hosted-ssa",
+   "to": "plasma-storm-robust-leo-ops"
+  },
+  {
+   "from": "astro-constellation-hosted-ssa",
+   "to": "astro-autonomous-ca-at-scale"
+  },
+  {
+   "from": "astro-constellation-hosted-ssa",
+   "to": "astro-debris-evolution-models"
+  },
+  {
+   "from": "astro-constellation-hosted-ssa",
+   "to": "astro-leo-safety-at-scale"
+  },
+  {
+   "from": "plasma-side-view-monitors",
+   "to": "plasma-cme-arrival-skill"
+  },
+  {
+   "from": "plasma-side-view-monitors",
+   "to": "plasma-bz-forecast"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "safe-orbits",
+   "nodes": [
+    "astro-small-debris-catalog",
+    "astro-constellation-hosted-ssa",
+    "plasma-side-view-monitors"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "safe-orbits",
+   "patch": {
+    "thesis": "If AI can make orbit uncertainty, collision risk and space-weather forecasts mathematically honest, then AI-designed trajectories fly from 2029 and certified collision screening that scales to a million objects exists by 2029. The tracking-data gate is loosening on its own track, through the constellations themselves (SpaceX Stargaze: 30,000 star trackers, about 30 million transits a day, free screening, Jan 2026) and existing drag assimilation (the Space Force's HASDM), which narrows the AI-math increment to honest uncertainty and verified software. Keeping LEO safe at 100,000 satellites stays bound through 2031 by sensors that cannot yet track 1-10 cm debris, by regulators and by non-cooperating operators.",
+    "reader_hook": "Starlink already flies about 355,000 avoidance maneuvers a year at a 3e-7 collision threshold, about 300 times stricter than the 1-in-10,000 norm, while about 1.2 million 1-10 cm fragments go untracked and CME arrival-time error has averaged about 13 hours across all forecasts (about 10 hours for the best ensemble) for 11 years.",
+    "spine": [
+     "astro-nongaussian-uq-certified",
+     "astro-catalog-scale-screening",
+     "astro-autonomous-ca-at-scale",
+     "astro-small-debris-catalog",
+     "astro-leo-safety-at-scale",
+     "plasma-swx-data-assimilation",
+     "plasma-thermo-density-uq",
+     "plasma-storm-robust-leo-ops",
+     "plasma-radbelt-charging-forecast",
+     "plasma-bz-forecast",
+     "astro-trajectory-design-on-demand",
+     "astro-ai-designed-trajectory-flown"
+    ],
+    "revision_note": "B-safe-orbits: Thesis merges the advocate's two-curves framing (Stargaze) with the skeptic's increment point (HASDM, Stargaze shrink the AI-math share); trajectory flight year 2028 -> 2029 and screening dated 2029 (skeptic). Reader hook: auditor's corrections (about 330x, rounded to 'about 300 times'; 13.2 h is the all-submission average, best ensemble 10.3 h). Spine: astro-small-debris-catalog inserted before LEO safety as its binding gate."
+   }
+  }
+ ],
+ "notes": "B-safe-orbits resolver (2026-10-07), on graph-v1. Lenses: physics/engineering skeptic, exponential advocate, grounding/fact auditor. 24 node updates, 3 new nodes, 1 new hard edge, 12 hard edges softened, 11 further soft edges, 2 soft edges removed (physclock-heavy-cadence-100 -> LEO safety; frontier-nbody-arnold-diffusion -> debris models; via accelerated_by patches), branch thesis, reader_hook and spine rewritten.\nPRINCIPLES: (1) S3 equals S2 through 2028 (capability.json; trunk resolver moved infra-verified-numerics and infra-mathlib-applied to S3 2028): eight tier-1/2/3 nodes moved S3 2027 -> 2028; screening and stability atlas land a year after their 2028 prerequisites in both S2 and S3. (2) Physical clocks: regulatory multiplier identical in S2 and S3 (physclock), politics 1.0x, event-count clocks (CME validation) and sensor build-out do not compress, so S3 bumps on licensing, LEO safety and storm ops were removed. (3) Hard edges kept only for 'must be solved first'; 12 softened where the dependent works without the input (Starlink autonomy without proof-carrying GNC; COVEN and REFM without Sun-to-Earth DA; HASDM-style nowcasts without coupled DA; Clarity-1 without density products; cislunar screening of tens of objects without certified million-object screening).\nFACTS CHECKED BY THE RESOLVER: Kay et al. 2024 PDF (Table 2: 1,702 impact predictions, 256 impacting CMEs; Table 3: full set MAE 13.2 h, SD 17.4 h; EnsWEC(M2M) MAE 10.3 h, wMAE 9.9 h, 95 predictions; fewer predictions near the 2018-2020 minimum); Licata et al. arXiv 2109.07651 (HASDM 'state-of-the-art', <10% MAE, NLPD + MC dropout) and Licata & Mehta arXiv 2201.02067 (11%, well-calibrated); Terran Orbital Oracle-Prime release (PDR Dec 2025, no dates); STEREO-A 70.584 deg ahead on Oct 7, 2026 (STEREO Science Center); FCC May 2024 refresh of the 2020 FNPRM (system-wide vs per-satellite, ODMSP 0.001 safe harbor, comments Jun 27/Jul 12, 2024; govinfo); COVEN 'up to 6 days', inputs AL index only; SWPC REFM (>2 MeV fluence at GEO, +1 to +3 days, 30 days of solar-wind speed); Stargaze (33FG news id 378); FCC EPFD vote Apr 30, 2026 and NEPA exclusion vote (~Sep 30, 2026) via 33FG; ref-release-anatomy (~4,000 problems, 372 families, ~3 h per result); arithmetic for maneuver reduction (1.51-1.76x), CME MAE standard error (~2.3 h at n=20), stability-atlas life gain (11-13%).\nREJECTED NEW NODES: astro-maneuver-burden-falls (advocate): rests on the 2-5x figure the skeptic showed does not follow (1.5-1.8x), and a >=2x drop in maneuvers per satellite would be driven by Starlink's own threshold policy and the 550 -> 480 km lowering, so it fails attribution; the measurable intermediate is kept as the threshold-independent conjunction-rate signpost on astro-leo-safety-at-scale. astro-multi-target-debris-removal (advocate): the AI-math share (tour design) is a small cost share already solved by humans in GTOC 9, and the binding gates (who pays, capital, politics 1.0x) are not unlocked by AI; multi-client removal efforts proceed on their own track. The auditor's astro-small-debris-tracking was merged into the skeptic's astro-small-debris-catalog.\nNOT APPLIED (outside this branch): advocate's soft edge plasma-radbelt-charging-forecast -> materials-cots-orbital-compute-ops (suggest to the orbital-compute-power resolver: 500-2,000 km SSO fleets gain from charging forecasts). Research files not edited: research/astro.json still cites Star2207 for the 3e-7 threshold (Star2207 gives 1e-5, 2022); research/plasma.json Surya 360M (should be 366M)."
+}

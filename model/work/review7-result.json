@@ -1,0 +1,992 @@
+[
+ {
+  "lens": "NUMBERS AND CONSISTENCY: every number, year, band, count and node title in doc/*.md and the 13 narratives, checked against graph-v7.json and analytics-v7.json for S1\u2013S4 at both checkpoints, plus stale 2031-era text and contradictions between sections.",
+  "verdict": "The generated layer is sound. I rebuilt the document with tools/build_doc.py and recomputed the clock curve, gap counts, S4 credit counts (29 nodes, 23 earlier, 22 likelier), tier shifts, keystones and critical paths from the graph. All of them match analytics-v7. Every hard edge is date-ordered in all four scenarios, no 2035 band is below its 2031 band, and all 13 narratives are 448\u2013449 words.\n\nAlmost every node year and band quoted in the 13 narratives and in the 06 table checks out. The errors are concentrated in these areas:\n- **Stale 2031-era statements:** \"twelve branch main chains\", \"including Recursive\", \"by 2031\" scope on the frontier-math bands and the regulator cap, \"not computed\" 2035 Amdahl ceilings, and 2031-only insurance and qualification figures.\n- **Embodied claims that overreach:**\n  - \"It starts to differ in 2032\u201335, where 29 nodes gain\" counts 21 robots-branch nodes, 14 of which differ before 2032.\n  - \"Robots do not move launch- or budget-bound outcomes\" is contradicted by launch-gated and capital-gated nodes that robots do move.\n  - \"Most\" robot date-setting paths are in the robots branch, when in fact all 13 are.\n  - The spine labels mark 58 Recursive-driven year changes as \"Embodied\".\n- **Factual mismatches:**\n  - 10 GW of compute is dated 2035 in Recursive and Embodied, yet listed as after 2035 in every scenario.\n  - Starship under $100/kg is 2032 in Plateau, not 2031 in every scenario.\n  - The AI-designed heat-shield material is Medium by 2031, not Low.\n  - One cognitive-gated node sits in tier 4, not tiers 0\u20132.\n  - The test-data commons ranks 17th by dependents, not in the top 15.\n  - The humanoid-shipment signpost thresholds conflict with the robot paths' own 2026 shipment values.\n- **Graph and builder issues:**\n  - 73 non-robot node-scenario pairs are dated after 2031 but rated Low or higher by 2031. That breaks the year/band convention the trunk resolver itself applied.\n  - The year-by-year list drops 49 tier 4\u20137 nodes that are dated by 2031 and rated Medium or High only by 2035.\n\nThe checked-in \"Space Unlock Tree - model.md\" is also older than its sources and needs a rebuild.",
+  "findings": [
+   {
+    "severity": "high",
+    "file": "doc/08-findings.md",
+    "current_text": "Eleven of the twelve branch main chains start from that capability, and none rests on a catalog result. The orbital-compute chain starts from SpaceX hardware.",
+    "replacement_text": "Eleven of the thirteen branch main chains start from that capability, and none rests on a catalog result. The orbital-compute chain starts from SpaceX hardware, and the robots chain starts from robot AI models and fleet growth, with AI mathematics only a second-order input.",
+    "why": "Stale count from the 12-branch version: the graph has 13 branches. The robots spine roots (Robot AI models that work on sites they have never seen; An accepted route to requalify robot-made flight hardware; One million general-purpose robots) have no hard AI-math prerequisite. Its narrative calls AI mathematics 'a second-order input for robots'."
+   },
+   {
+    "severity": "high",
+    "file": "doc/07-by-year.md",
+    "current_text": "- **After 2035.** These lie beyond the window in every scenario:\n  - fusion propulsion;\n  - a nuclear thermal stage for crewed Mars;\n  - 10 GW of compute in orbit;\n  - LISA's science;\n  - robots supplying 10% of global manufacturing labor.",
+    "replacement_text": "- **After 2035.** These lie beyond the window in every scenario:\n  - fusion propulsion;\n  - a nuclear thermal stage for crewed Mars;\n  - LISA's science;\n  - robots supplying 10% of global manufacturing labor.\n\n  10 GW of compute in orbit comes after 2035 in the Exponential case but about 2035 in Recursive and Embodied (Low by 2035).",
+    "why": "Graph struct-35-10gw-orbital-compute is >2035 / >2035 / 2035 / 2035 with band_2035 S/S/L/L, so it is not beyond the window in every scenario. The orbital-compute narrative correctly says 'about 2035 in Recursive (Low by 2035)'."
+   },
+   {
+    "severity": "high",
+    "file": "doc/04-two-clocks.md",
+    "current_text": "It dates internal cost under $300/kg to about 2029 and under $100/kg to about 2031 (High by 2035) in every scenario.",
+    "replacement_text": "It dates internal cost under $300/kg to about 2029 in every scenario, and under $100/kg to about 2031 (2032 in Plateau), High by 2035 in every scenario.",
+    "why": "Graph capability-35-internal-cost-100 is 2032 / 2031 / 2031 / 2031 (band_2031 L/L/M/M, band_2035 H in all four). The trunk 2035 dispute resolution set 'Years become 2032/2031/2031/2031'. Only the $300/kg node is 2029 in every scenario."
+   },
+   {
+    "severity": "high",
+    "file": "doc/04b-embodied.md",
+    "current_text": "It starts to differ in 2032\u201335, where {{n_s4_credit}} nodes gain from robots: {{n_s4_year}} arrive earlier and {{n_s4_band}} become more likely by 2035.",
+    "replacement_text": "Across the tree, {{n_s4_credit}} nodes gain from robots: {{n_s4_year}} arrive earlier and {{n_s4_band}} become more likely by 2035. Twenty-one are robots-branch milestones, {{n_s4_pre2032}} of which already differ before 2032. The other eight differ from Recursive only in 2032\u201335 dates or in their 2035 likelihood.",
+    "why": "The current sentence says all 29 credited nodes differ only from 2032. In the graph, 21 of the 29 are robots-branch nodes, and 14 of those (analytics s4_credit.n_pre2032_diff) differ before 2032: one million robots 2031\u21922029, multi-task factory work 2031\u21922029, robot AI models 2029\u21922028, and others. Only 8 nodes outside the branch differ, all in 2032\u201335 dates or 2035 bands. Consider adding generated counts for 'in the robots branch' and 'outside it' to the builder."
+   },
+   {
+    "severity": "high",
+    "file": "doc/01-bottom-line.md",
+    "current_text": "  - Robots do not move launch-, physics-, regulator- or budget-bound outcomes.",
+    "replacement_text": "  - Outside the robots branch, robots move no launch, landing, regulator or appropriations date and no science flight. They do not shorten physics-bound steps.",
+    "why": "Contradicted by the graph's binding gates on credited nodes:\n- Robots build lunar pads, berms and roads at outpost scale: gate launch, 2035\u21922033, Low\u2192Medium.\n- Robots assemble large structures in orbit at scale: gate launch, 2035\u21922033.\n- Arc-jet test runs per year double: gate capital, 2034\u21922033, Low\u2192Medium.\n- Ten million general-purpose robots in service: gate capital.\n\nThe 04b wording ('no launch date, no lunar or Mars landing date, no regulator or appropriations milestone and no science flight') is the accurate version."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/02-method.md",
+    "current_text": "- anything that needs a regulator's acceptance is capped at Medium;",
+    "replacement_text": "- anything that needs a regulator's acceptance is capped at Medium by 2031. By 2035 it may reach High only where an existing, named acceptance route covers the node's own condition. Examples are regulators accepting AI-produced proofs through already-qualified checkers (DO-333 credit) and, in Embodied, the route to requalify robot-made flight hardware;",
+    "why": "The 2035 bands break the rule as written:\n- infra-tool-qualification (gate regulatory) is band_2035 M/H/H/H. The trunk table, 08-findings and the verified-autonomy narrative all say High by 2035.\n- robo-requal-standard calls Medium by 2031 'the regulator cap' and is High by 2035 in S4.\n- The 2035 dispute resolutions apply a named-mechanism rule (networks: 'The regulatory cap allows High only with a named mechanism'; entry: 'the cap now applies through 2031 only')."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/02-method.md",
+    "current_text": "4. For frontier-mathematics nodes, the band is the judged chance that the result is independently checked by 2031.",
+    "replacement_text": "4. For frontier-mathematics nodes, the two bands are the judged chances that the result is independently checked by 2031 and by 2035.",
+    "why": "Stale 2031-only statement. Every frontier node now carries a band_2035; for example, AI answer on unforced Navier\u2013Stokes passes outside checks is M by 2031 and H by 2035 in Exponential."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/04-two-clocks.md",
+    "current_text": "| Plateau | about 18% | not computed |\n| Exponential | about 38% | not computed |",
+    "replacement_text": "| Plateau | about 18% | about 28\u201332% |\n| Exponential | about 38% | about 42\u201352% |",
+    "why": "The graph does compute these. The note_2035 on capability-program-cycle-compression says S1 programs under 2032\u201334 conditions have a ceiling near 28\u201332%, and the S2 ceiling by 2035 rises to about 42\u201352% (physical gates 1.2\u20131.4x), with realized gains near 30\u201340%. 'Not computed' also clashes with the bottom line and trunk narrative, which give an Exponential 2035 figure ('about a third')."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/07b-critical-paths.md",
+    "current_text": "- {{n_cp_noai_crit_s2_2031}} paths have no AI-mathematics step at all.",
+    "replacement_text": "- {{n_cp_noai_crit_s2_2031}} date-setting paths have no AI-mathematics step.",
+    "why": "n_cp_noai_crit counts nodes with no AI step on the date-setting path (35). Three of those still have AI mathematics upstream: Reflight cleared by data, not teardown; Sensor-based inspection credit for reusable stages; Routine orbital refueling economy. Only 32 (n_cp_noai_any, the next bullet) have none 'at all'."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/07b-critical-paths.md",
+    "current_text": "Robots set the date for only a handful of outcomes even by 2035. Most of the paths they lie on are inside the robots branch.",
+    "replacement_text": "Even by 2035, every date-setting path that robots lie on ends at a robots-branch milestone. Outside that branch robots enter only through soft edges: they make a node earlier or likelier but are never its latest hard prerequisite.",
+    "why": "In analytics critical_paths.S4_2035, all 13 nodes with robots_on_critical_path are robots-branch nodes (from Precision actuators for 1 million robots a year to Ten million general-purpose robots in service). The eight credited nodes outside the branch (qualification campaigns 30% shorter, verification calendar halved, four-year engine, and others) have robots only as soft edges. 'Most' understates this."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/08-findings.md",
+    "current_text": "Cognition binds {{n_gate_cognitive}}, all of them in the capability and mathematics tiers (0\u20132).",
+    "replacement_text": "Cognition binds {{n_gate_cognitive}}, all but one of them in the capability and mathematics tiers (0\u20132). The exception is a 2034 engineering tool, whole-thruster kinetic runs fast enough for design loops.",
+    "why": "The cognitive-gate count by tier is 0: 4, 1: 18, 2: 24, 4: 1. plasma-35-kinetic-design-loop is tier 4 with binding_gate cognitive."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/08-findings.md",
+    "current_text": "- A shared, AI-ready database of structural and thermal test results is one of the 15 most depended-on nodes in the tree.",
+    "replacement_text": "- A shared, AI-ready database of structural and thermal test results is among the 20 most depended-on nodes in the tree, with 18 nodes downstream.",
+    "why": "In analytics keystones, struct-test-data-commons ranks 17th (reach 18, tied with ranks 16, 18 and 19). The keystones table in section 9 prints only the top 15, so a reader cannot find it there."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/10-signposts.md",
+    "current_text": "| 2030\u201331 (Low by 2031, Medium to High by 2035) |",
+    "replacement_text": "| 2030\u201331 (Low to Medium by 2031, Medium to High by 2035) |",
+    "why": "materials-tps-new-material-flight (AI-designed heat-shield material flies) is Exponential 2030 with band_2031 Medium and band_2035 High. Only the alloy (2030, L/M) and the thruster (2031, L/H) are Low by 2031."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/10-signposts.md",
+    "current_text": "| Early 2027 | Under 50,000 points to the slow robot path, 60,000\u2013100,000 to the Embodied base path, over 150,000 to the fast path. |",
+    "replacement_text": "| Early 2027 (2026 count); early 2029 (2028 count) | The paths assume about 50,000 (slow), 60,000 (base) and 80,000 (fast) shipped in 2026, too close to tell apart on one year. 2028 shipments of about 0.15, 0.32 and 0.67 million separate them; linear quarterly output points to the slow path. |",
+    "why": "The thresholds contradict the robot paths' own 2026 shipments (s4-embodied.md table: slow 0.05M, base 0.06M, fast 0.08M; 2028: 0.15 / 0.32 / 0.67M). Under the signpost, the fast path's own 80,000 would 'point to base', and 150,000 is almost twice the fast path. The same thresholds sit in graph robo-fleet-1m.signpost, in the robots domain signposts and in doc/branches/robots.md, so fix them together."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/10-signposts.md",
+    "current_text": "Its absence by 2033 would cap the Embodied fleet near the slow path.",
+    "replacement_text": "Its absence by 2033 would hold the 2035 Embodied fleet nearer 30 million than 62 million.",
+    "why": "The base path already has 6.2M robots in 2031, more than the slow path's 4.6M in 2035, so it cannot fall back 'near the slow path'. Graph robo-fleet-10m note_2035 gives 30\u2013104M across the loop sensitivities, and s4-embodied.md gives 30M if growth saturates at 1.3x a year, which is the no-loop case."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/branches/robots.md",
+    "current_text": "Under 50,000 points to the slow path, 60,000-100,000 to the base path and over 150,000 to the fast path.",
+    "replacement_text": "Paths assume 50,000, 60,000 and 80,000 shipped in 2026; 2028 output (0.15, 0.32, 0.67 million) separates them better.",
+    "why": "Same inconsistency as the signpost: the fast path ships about 80,000 in 2026 (s4-embodied.md path table), below the narrative's 'over 150,000' fast threshold. The replacement is 18 words against 19, so the narrative stays at or under 450 words."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/09-nil.md",
+    "current_text": "These hold in every scenario, including Recursive.",
+    "replacement_text": "These hold in every scenario, including Recursive and Embodied.",
+    "why": "Stale three-scenario wording. The section's own last bullet is about robots (Embodied), and every nil effect listed is S4 = S3 in the graph."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/01-bottom-line.md",
+    "current_text": "So \"2033 (Low / Medium)\" means the node could happen as early as 2033. It has roughly a 10\u201330% chance by 2031 and a 30\u201370% chance by 2035.",
+    "replacement_text": "So \"2029 (Low / Medium)\" means the node could happen as early as 2029. It has roughly a 10\u201330% chance by 2031 and a 30\u201370% chance by 2035. In the robots branch, years follow the base robot path while bands include the faster path, so a robot node dated after 2031 can still be Low by 2031.",
+    "why": "The example contradicts itself: a node whose earliest credible year is 2033 cannot have a 10\u201330% chance by 2031. The trunk resolver applied that rule itself, setting S1 band_2031 to Speculative when it moved 'AI speeds up its own development 3x' to 2035. The robots resolver deliberately chose the base-path-year and fast-path-band convention, and the added sentence states it."
+   },
+   {
+    "severity": "medium",
+    "file": "graph",
+    "current_text": "band_2031 = Low for nodes whose earliest_year is after 2031. Exponential examples: Low Earth orbit stays safe at 100,000 satellites (2032), Narrower uncertainty on crew radiation risk (2033), Tonne-per-year lunar oxygen plant (2032), Mars-class closed-loop life support, demonstrated (2033), Deuterium-helium-3 fusion demonstrated at useful rates (2032), 100 kW-class thruster runs for thousands of hours (2033), Knowing a solar storm's magnetic punch a day ahead (2034), Engine development time and cost cut (2033). Recursive and Embodied: 100 kW-class thruster (2032), solar storm's magnetic punch (2033), 300+ fully reusable heavy launches a year (2032), A launcher or large spacecraft engineered mostly by AI flies (2032). Plus 57 Plateau cases, e.g. AI builds validated physics theory (S1 2033, L) and Regulators accept AI-produced proofs (S1 2032, L).",
+    "replacement_text": "Set band_2031 to Speculative for every non-robots-branch node and scenario where year_num > 2031 (73 pairs: 57 S1, 8 S2, 4 S3, 4 S4). Keep the robots branch as is, where base-path years and fast-path bands are a recorded convention. Then rebuild, and update the S1 cells in doc/05-trunk.md and the moon-mars narrative sentence on the oxygen plant.",
+    "why": "An earliest credible year after 2031 makes Low (10\u201330%) by 2031 impossible under the doc's own definitions. The trunk resolver fixed exactly this case for capability-ai-rnd-acceleration ('S1's 2031 band becomes Speculative to match'), but most S1 re-datings left the 2031 band in place. The mismatch is visible in the 05-trunk table, in the branch node tables and in the moon-mars narrative ('tonne-per-year lunar oxygen plant are Low by 2031', a node dated 2032)."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/05-trunk.md",
+    "current_text": "| AI builds validated physics theory | 2033 | 2029 | 2029 | 2029 | L / M / M / M | M / H / H / H |\n| Regulators accept AI-produced proofs | 2032 | 2030 | 2029 | 2029 | L / M / M / M | M / H / H / H |",
+    "replacement_text": "| AI builds validated physics theory | 2033 | 2029 | 2029 | 2029 | S / M / M / M | M / H / H / H |\n| Regulators accept AI-produced proofs | 2032 | 2030 | 2029 | 2029 | S / M / M / M | M / H / H / H |",
+    "why": "The Plateau years are 2033 and 2032, so a Low (10\u201330%) chance by 2031 contradicts them. Apply this together with the graph band_2031 fix, and extend the legend to 'H = High, M = Medium, L = Low, S = Speculative.'"
+   },
+   {
+    "severity": "medium",
+    "file": "builder",
+    "current_text": "            cpi = 3 if int(yr) <= 2031 else 4\n            items = [r for r in items if r[1] >= 4 and RANK.get(r[cpi], 0) >= 2]",
+    "replacement_text": "            items = [r for r in items if r[1] >= 4 and (RANK.get(r[3], 0) >= 2 or RANK.get(r[4], 0) >= 2)]\n(and change the per-year heading to '(High or Medium by 2031 or by 2035; bands shown as 2031 / 2035)'; update doc/07-by-year.md line 84 to match)",
+    "why": "49 tier 4\u20137 nodes are dated 2031 or earlier in Exponential, Low by 2031 and Medium or High by 2035. The current filter drops all of them from the full year-by-year list. Among them are Starship internal cost under $100 per kg (High by 2035), 1 GW of compute operating in orbit, Lunar base runs itself between crew visits, Qualification campaigns at least 15% shorter, Customers buy orbit under $1,000 per kg and AI-designed thruster flies (High by 2035). The bottom line and the 07 prose call several of these the second wave, yet they appear nowhere in the list."
+   },
+   {
+    "severity": "medium",
+    "file": "builder",
+    "current_text": "        s4 = f\"; Embodied {n['earliest_year']['S4']}\" if n['earliest_year']['S4'] != n['earliest_year']['S2'] else ''",
+    "replacement_text": "        y2, y3, y4 = n['earliest_year']['S2'], n['earliest_year']['S3'], n['earliest_year']['S4']\n        s4 = (f\"; Recursive {y3}\" if y3 != y2 else '') + (f\"; Embodied {y4}\" if y4 != y3 else '')\n(and change the main-chain header and doc/06-branches-intro.md line 23 to 'Recursive and Embodied years shown where they differ')",
+    "why": "The label compares Embodied with Exponential, so it shows Recursive cognition gains as 'Embodied'. Of 68 spine nodes with an Embodied tag, 58 have S4 = S3. An example is 'Qualification campaigns at least 15% shorter \u2026 Embodied 2030', a Recursive effect. That contradicts the narratives' 'Embodied equals Recursive on every node' and the 06 intro's 'what robots add'."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/08-findings.md",
+    "current_text": "Physical gates alone set it for the other {{n_cp_noai_crit_s2_2031}}.",
+    "replacement_text": "Physical gates alone set it for the other {{n_cp_noai_crit_s2_2031}}. By 2035 the split is {{n_cp_ai_s2_2035}} of {{n_cp_s2_2035}}, with physical gates alone setting {{n_cp_noai_crit_s2_2035}}.",
+    "why": "The finding is headed 'For space through 2035' but cites only 2031 critical-path counts (37 of 72). At 2035 the generated values are 65 of 131 with AI on the path and 66 physical-only, so physical gates set the majority. The placeholders already exist in build_doc.py."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/04b-embodied.md",
+    "current_text": "A drug program cannot get more than 34% shorter even with infinitely fast labs, because Phase I through review takes 10.5 of its 16 years.",
+    "replacement_text": "Faster labs alone cannot make a drug program more than 34% shorter, because Phase I through review takes 10.5 of its 16 years. The larger drug figures in the table above add AI-shortened clinical operations and reviews.",
+    "why": "The table a few lines up gives the small-molecule drug program 41% (Recursive 2035), 44% (Embodied) and 48% with institutional change, all above the 'cannot get more than 34%' cap. The cap is lab-only (s4-embodied.md: 'Even infinitely fast labs cap the gain at 34%'; clinical operations shrink through cognitive work). Apply the same clarification to the robots bullet in doc/09-nil.md."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/06-branches-intro.md",
+    "current_text": "| Everything here moves 1\u20133 years earlier: a million robots in 2029, ten million in late 2032 |",
+    "replacement_text": "| Most milestones move 1\u20133 years earlier; actuator supply moves four years and general lab bench work from after 2035 to 2030: a million robots in 2029, ten million in late 2032 |",
+    "why": "Embodied versus Recursive in the robots branch:\n- Precision actuators: 2033\u21922029 (4 years).\n- General lab bench work: >2035\u21922030.\n- Ten million robots: >2035\u21922032.\n- Unmoved: the humanoid safety standard (2028), proven safety envelopes (2028), 10% of manufacturing labor and a quarter of aerospace labor (>2035).\n\n'Everything \u2026 1\u20133 years' is inaccurate."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/06-branches-intro.md",
+    "current_text": "(one word when both are the same)",
+    "replacement_text": "(in the 'by 2031' and 'by 2035' columns a single word is the band at that column's checkpoint; elsewhere one word means both bands are the same)",
+    "why": "Several single-word entries have different bands at the two checkpoints:\n- Development cycles 20\u201330% shorter (Medium): M/H.\n- Regulators accept AI-produced proofs (Medium): M/H.\n- Routine orbital refueling economy (Medium): M/H.\n- 1 GW of compute in orbit (Low): L/M.\n- Engines fly 50 missions without overhaul (Medium): S/M.\n- Nuclear thermal engine ground hot fire (Low): S/L.\n\nThe alternative is to spell out both bands in those six entries."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/08-findings.md",
+    "current_text": "Even so, qualification campaigns shorten only about 10\u201320% in the base case (20\u201330% in Recursive).",
+    "replacement_text": "Even so, qualification campaigns shorten only about 10\u201320% by 2031 in the base case (20\u201330% in Recursive), and about 17\u201329% by 2035 (28\u201337% in Recursive).",
+    "why": "Stale 2031-only figure in a 2035 document. The struct-35-qual-campaigns-30pct-shorter rationale gives environmental qualification at 0.71\u20130.83x in S2 2035 and 0.63\u20130.72x in S3 2035, from the gate table and s4-embodied.md."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/08b-for-whom.md",
+    "current_text": "The model rates a measurable effect on insurance capacity by 2031 as Low.",
+    "replacement_text": "The model rates a measurable effect on insurance capacity as Low by 2031 and Medium by 2035, when one disclosed model-priced program is about a coin flip.",
+    "why": "physclock-space-insurance-capacity is Exponential 2031, band_2031 Low, band_2035 Medium. Its note_2035 reads 'one disclosed model-priced program is a coin flip in S2-S4'. The sentence gives only the 2031 band."
+   },
+   {
+    "severity": "low",
+    "file": "doc/08b-for-whom.md",
+    "current_text": "The base case puts a credibility rulebook at about 2029 and acceptance of AI-produced proofs at about 2030, both Medium.",
+    "replacement_text": "The base case puts a credibility rulebook at about 2029 and acceptance of AI-produced proofs at about 2030, both Medium by 2031; proof acceptance reaches High by 2035, while the rulebook stays Medium.",
+    "why": "2031-only statement. infra-tool-qualification is M by 2031 and H by 2035; physclock-credibility-evidence-standard is M/M."
+   },
+   {
+    "severity": "low",
+    "file": "doc/08-findings.md",
+    "current_text": "about 2030, capped at Medium by 2031 and High by 2035.",
+    "replacement_text": "about 2030: Medium by 2031, where the regulatory cap holds, and High by 2035.",
+    "why": "'Capped at \u2026 High' is self-contradictory and clashes with the cap rule in section 1. The graph values are M by 2031 and H by 2035."
+   },
+   {
+    "severity": "low",
+    "file": "doc/09-nil.md",
+    "current_text": "Predicting a solar storm's magnetic orientation a day ahead needs observatories that will not be operating by 2031.",
+    "replacement_text": "Predicting a solar storm's magnetic orientation a day ahead needs observatories that are not planned even by 2035, so the model rates it no better than Low by 2035.",
+    "why": "Stale 2031 horizon. The plasma-bz-forecast note_2035 says no sub-L1 monitor or routine coronal field measurement is planned, so day-ahead Bz stays Low by 2035 (band_2035 S/L/L/L)."
+   },
+   {
+    "severity": "low",
+    "file": "doc/01-bottom-line.md",
+    "current_text": "- **2032\u201335 brings the second wave, all in the Exponential case.**",
+    "replacement_text": "- **By 2035 a second wave becomes likely, all in the Exponential case.** Some of it is first credible in 2030\u201331 but rated Medium or High only by 2035.",
+    "why": "Several listed items are not dated 2032\u201335 in Exponential:\n- Starship internal cost under $100/kg: 2031.\n- Routine orbital refueling economy: 2030.\n- 1 GW of compute: 2031.\n- Self-running lunar base: 2031.\n- Regulators accept AI-produced proofs: 2030.\n- Crewed-lander autonomy: 2031.\n\nWhat happens in 2032\u201335 is that they become likely."
+   },
+   {
+    "severity": "low",
+    "file": "doc/01-bottom-line.md",
+    "current_text": "Most are robotics milestones; the rest are test, qualification and verification throughput, development cycles and lunar robot fleets.",
+    "replacement_text": "Most are robotics milestones; the rest are test, qualification and verification throughput, laser-terminal production, development cycles and lunar robot fleets.",
+    "why": "The eight credited nodes outside the robots branch include Merchant laser terminals ship at 3,000 a year (gate fabrication), which is production throughput rather than test, qualification or verification."
+   },
+   {
+    "severity": "low",
+    "file": "doc/04b-embodied.md",
+    "current_text": "Outside that branch, robots move only throughput-bound nodes, and the gains land in 2033\u201335:",
+    "replacement_text": "Outside that branch, robots move only throughput-bound nodes, and the gains are 2033\u201335 dates or higher 2035 likelihoods:",
+    "why": "Two of the listed nodes keep their Recursive year: a new reusable launcher in three years (2031 in both, M\u2192H by 2035) and a hundred robots on the Moon (2032 in both, L\u2192M). Their gain is a 2035 band step, not a 2033\u201335 date."
+   },
+   {
+    "severity": "low",
+    "file": "doc/04b-embodied.md",
+    "current_text": "| Slow (25%; also used for Plateau, Exponential and Recursive) | 0.24 / 1.4 / 4.6 | 18 / 32 months | 2031 / after 2035 |",
+    "replacement_text": "| Slow (25%; also used for Exponential and Recursive, with Plateau about a year behind) | 0.24 / 1.4 / 4.6 | 18 / 32 months | 2031 (Plateau 2032) / after 2035 |",
+    "why": "Graph robo-fleet-1m is 2032 in S1: 'S1 runs a little slower because cognition lags'. 11-assumptions also says Plateau sits slightly behind. Apply the same fix to doc/03-premise.md: 'The other three scenarios assume a slow robot path: 1.4 million by 2031 and 4.6 million by 2035.' becomes 'Exponential and Recursive assume a slow robot path, 1.4 million by 2031 and 4.6 million by 2035, and Plateau runs about a year behind it.'"
+   },
+   {
+    "severity": "low",
+    "file": "doc/06-branches-intro.md",
+    "current_text": "| Leading firms halve development cycles, 2034 (Medium) |",
+    "replacement_text": "| Leading firms halve development cycles, 2034 (Medium); a new launcher from start to orbit in three years becomes High by 2035, against Medium |",
+    "why": "The trunk branch has two S4-credited nodes. physclock-new-entrant-fast-orbit is band_2035 S/L/M/H, and the row omits it."
+   },
+   {
+    "severity": "low",
+    "file": "doc/branches/trunk.md",
+    "current_text": "There, leading firms halve development cycles about 2034 in the Embodied case (Medium by 2035), against about 2035 and Low in Recursive. Physics still fills 44% of what remains.",
+    "replacement_text": "There, leading firms halve development cycles about 2034 in the Embodied case (Medium by 2035), against 2035 and Low in Recursive, and a three-year launcher rises from Medium to High by 2035.",
+    "why": "The narrative implies only cycle-halving separates Embodied from Recursive in the trunk. The new-entrant three-year launcher also steps from M (S3) to H (S4) by 2035. The replacement is 32 words for 31, so the narrative reaches exactly 450 words."
+   },
+   {
+    "severity": "low",
+    "file": "doc/04b-embodied.md",
+    "current_text": "This section summarizes the reviewed analysis behind S4; the full version, with sources, is in `model/embodied/s4-embodied.md`.",
+    "replacement_text": "This section summarizes the reviewed analysis behind S4; the full version, with sources, is in `model/embodied/s4-embodied.md`. Its tree-impact passages predate the 2035 extension round, and where they differ the tree's node values govern.",
+    "why": "Two passages in the referenced file contradict the tree:\n- Section 1 says 'No tier 5-7 node moves by a year or a band' by 2031, yet the robots branch moves one million robots 2031\u21922029.\n- Section 7 credits S4 on the self-running lunar base, tonne-scale lunar oxygen, 12\u201314 km/s entry and kilometre-scale structures, all of which are S3 = S4 in graph-v7."
+   },
+   {
+    "severity": "low",
+    "file": "doc/04b-embodied.md",
+    "current_text": "What caps the loop, in order:",
+    "replacement_text": "What caps the loop, in the order the caps bind:",
+    "why": "The list ranks magnets third, while 10-signposts says 'Magnets are the hardest cap on a 60-million-robot fleet by 2035'. The s4 'What caps it' table is ordered by when each cap binds, and magnets bind in 2035, so the order should be labeled as timing, not severity."
+   },
+   {
+    "severity": "low",
+    "file": "doc/04b-embodied.md",
+    "current_text": "Physics is 44%, materials and capital 18%, and institutions 20%.",
+    "replacement_text": "Physics is 44%, materials and capital 18%, and institutions 20% (shares rounded).",
+    "why": "Labor 16 + physics 44 + materials and capital 18 + institutions 20 = 98%. The same rounding is in s4-embodied.md."
+   },
+   {
+    "severity": "low",
+    "file": "doc/12-quotable.md",
+    "current_text": "| 70\u201373% | Program compression floor with unlimited cognition and robots, 2035 | Model | Section 4 |",
+    "replacement_text": "| 70\u201373% | Most a new space program can be shortened with unlimited cognition and robots, 2035 (the schedule floor) | Model | Section 4 |",
+    "why": "70\u201373% is the maximum compression, the ceiling; the floor is on the schedule. Calling it a 'compression floor' inverts it against the bottom line ('no more than about 70\u201373% shorter')."
+   },
+   {
+    "severity": "low",
+    "file": "doc/12-quotable.md",
+    "current_text": "| 18% / 38% / 51% | Amdahl ceilings on new-program schedule compression (Plateau / Exponential / Recursive) |",
+    "replacement_text": "| 18% / 38% / 51% | Amdahl ceilings on new-program schedule compression by 2031 (Plateau / Exponential / Recursive; Recursive 56% by 2035) |",
+    "why": "Now that there are two checkpoints, the row needs its year. Section 3's table gives Recursive 56% by 2035."
+   },
+   {
+    "severity": "low",
+    "file": "doc/02-method.md",
+    "current_text": "A node with an early year and a Low band could happen that early but probably will not by 2031.",
+    "replacement_text": "A node with an early year and a Low band could happen that early but probably will not by the checkpoint the band refers to.",
+    "why": "Stale 2031-only wording; nodes now carry Low bands at the 2035 checkpoint too."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "domains.struct.nil_effects: \"Launch cadence, heavy-lander availability, capital and chip supply set the dates for GW-scale orbital compute and lunar fission power under all three scenarios.\"",
+    "replacement_text": "Launch cadence, heavy-lander availability, capital and chip supply set the dates for GW-scale orbital compute and lunar fission power in every scenario.",
+    "why": "Stale 'three scenarios'. It is printed in section 7's 'Limits recorded by each domain researcher'."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "domains.auton.nil_effects: \"Mars launch windows (late 2026, which SpaceX is not using; late 2028/early 2029; early 2031) and transit times: orbital mechanics, not mathematics, limit Mars ISRU and outpost chains to at most two attempts in the horizon.\"",
+    "replacement_text": "Mars launch windows (late 2026, which SpaceX is not using; late 2028/early 2029; early 2031; April 2033; mid-2035) and transit times: orbital mechanics, not mathematics, limit Mars ISRU and outpost chains to at most two attempts by 2031 and four by 2035.",
+    "why": "Stale 2031 horizon, printed in section 7. 09-nil already lists the April 2033 and mid-2035 windows, and the moon-mars narrative relies on the 2033 window."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "domains.capability.tables['Capability-curve parametrization\u2026'] rows: ['Validated physics theory', '>2031', '2029', '2029'] and ['Regulator credit for AI proofs', '>2031', '2030', '2029']",
+    "replacement_text": "['Validated physics theory', '2033', '2029', '2029'] and ['Regulator credit for AI proofs', '2032', '2030', '2029']",
+    "why": "The S1 values are 2031-horizon placeholders. The graph nodes cap-physics-theory (S1 2033) and infra-tool-qualification (S1 2032) now have dated S1 years. The table is rendered in section 2."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "branches[robots].thesis: \"\u2026Physics, launch, landed mass and paperwork still set most dates, so S4 changes almost nothing in the tree before 2032.\"",
+    "replacement_text": "\u2026Physics, launch, landed mass and paperwork still set most dates, so outside this branch S4 changes almost nothing before 2032.",
+    "why": "The thesis's own earlier sentences date robots-branch S4 changes to 2029\u201331 (one million robots in late 2029, flight hardware 2030, around-the-clock lines 2031). 14 robots-branch nodes differ before 2032."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "domains.robots.signposts[*].what_it_changes = '' (3 rows); domains.robots.nil_effects[0] and [2] both start 'Physics time constants: \u2026'",
+    "replacement_text": "Fill what_it_changes for the three robots signposts (for example, the shipment row: 'Points to the slow, base or fast robot path, which sets the S4 fleet and every robots-branch date'). Merge the two duplicate physics-time-constant nil effects into one.",
+    "why": "The 'All domain signposts' table in section 8 prints three robots rows with an empty 'What it would change' cell. The robots nil-effects list repeats itself."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "robo-requal-standard.why: \"(3-12 months per process for 2028-30 adopters)\"; robo-aerospace-tolerance-work.why: \"after 3-12 months of requalification drag per process\"",
+    "replacement_text": "State both figures consistently, for example '6-24 months per process per supplier (3-12 months for the first single-task processes at leading firms in 2028-30)'.",
+    "why": "The doc says '6\u201324 months per process per supplier' in 04b, 08b and the certification and robots narratives, as does s4-embodied.md. The graph nodes that set the S4 dates use 3\u201312 months without saying why they differ."
+   },
+   {
+    "severity": "low",
+    "file": "builder",
+    "current_text": "Space Unlock Tree - model.md (built 23:56) bottom line: \"Even with robots, the floor is about 70\u201373%, and they never get 10x faster.\" and the old robots nil effects",
+    "replacement_text": "Re-run: python3 tools/build_doc.py graph-v7.json work/analytics-v7.json doc \"Space Unlock Tree - model.md\" work/wf2-result.json work/wf4-result.json",
+    "why": "A rebuild from the current sources differs from the checked-in document in 12 diff lines: the bottom-line compression sentence and three robots nil-effect lines. The published file is older than doc/01-bottom-line.md and graph-v7.json."
+   }
+  ]
+ },
+ {
+  "lens": "Grounding and facts: analyst rules (pathway and band, conditional T1/T2, no galactic speedups, bands as judgments, catalog families, nothing above T3) and a fact-check of the robotics, 2032\u201335 launch and lunar, and branch-narrative claims added in this version",
+  "verdict": "The added material is mostly well grounded. I checked these against primary sources, research JSON, 33FG/Mach33 and Python, and they hold:\n- Omdia 13,318 shipments in 2025; IDC about 25,000 in H1 2026.\n- Fleet paths in 04b, which match s4-embodied.json exactly (0.46/6.2/62M, 10- and 16-month doublings, crossing years).\n- Epoch's \"clearly achievable\" 1.5\u20133M, from the 22 Apr 2026 post.\n- LBNL's 61-month median, for power plants built in 2025.\n- BIO's 10.5 years from Phase I to approval, the 34% lab-only ceiling and the 28\u201342% Phase II arithmetic.\n- 2,303 h and 229 trials.\n- Mach33's $4,915, $656, about $300 and $13/kg (Sep 23 post).\n- Approved Starship caps of about 145 a year; Moon Base Phase 2 in 2029\u201332 (NBC and Spectrum, citing NASA); ARIEL in 2031; Vigil in 2031.\n- The Department of War's end-2031 post-quantum use deadline, and the FY2027 NASA request of $18.8B against $24.4B.\n- Ames as NASA's \"sole\" reentry test facility (NTRS abstract); AI1 solar at 56% (33FG); 3 of 13 booster relights failing on Flight 13 (article text); Helix 9% to 56%.\n- Mars windows and the magnet-tonnage arithmetic.\n\nAll 37 family numbers cited in the narratives exist in ref-family-catalog.md, with tiers that match their Lean flags. T1 results are labeled conditional, nothing in the release is called above T3, and galactic results are not treated as practical.\n\nSome claims are wrong or overstated:\n- **Contradicted by cited sources:** the WWII aircraft benchmark (Wikipedia's 1940 figure covers only July\u2013December) and the Musk quote (Electrek's own text has Musk saying Optimus did \"some basic tasks\").\n- **Overstated or unsupported:** GE Vernova's \"116 GW of orders\" includes 63 GW of slot reservations; the FANUC notice supports neither \"since 2001\" nor the seven-year doubling; IFR says humanoids \"often\", not mostly, need teleoperation; and the 330 kt magnet figure is not in the FAI source.\n- **Internal inconsistencies:**\n  - The 2026 shipment signposts misclassify the model's own fast path.\n  - The magnets signpost contradicts the cap ordering in section 4.\n  - The bottom line's \"2032\u201335 second wave\" lists nodes dated 2030\u201331.\n  - High by 2035 for regulator acceptance breaks the stated regulatory cap.\n  - The 10 GW node and its narrative credit robot pads that are dated 2035.\n  - The bottom line's own band example contradicts its definition of earliest year; 88 node-scenario pairs have a year after 2031 but a band above Speculative by 2031.\n  - The \"1.5\u20133x slip \u2026 in every scenario\" sentence is wrong for Plateau.\n- **Estimates stated as fact, or stale 2031-only text:** a few analyst estimates (6\u201324 months requalification, 45% of campaign time) carry no label, and two statements still stop at 2031 (Bz, insurance).",
+  "findings": [
+   {
+    "severity": "high",
+    "file": "doc/04b-embodied.md",
+    "current_text": "Even the base path is historic. A 10-month doubling held for five years matches US aircraft production in 1940\u201344. [Epoch AI](https://epoch.ai/blog/how-fast-could-robot-production-scale-up) calls 1.5\u20133 million robots a year by 2030 \"clearly achievable\" after a demand shock. Bank forecasts for 2030 (0.45\u20131.2 million) sit between the slow and base paths.",
+    "replacement_text": "Even the base path is historic. It needs a 10-month doubling held for five years. US military aircraft production under total mobilization doubled only about every 12 months over 1940\u201344, and grew just 13% from 1943 to 1944. [Epoch AI](https://epoch.ai/blog/how-fast-could-robot-production-scale-up) calls 1.5\u20133 million humanoids a year by the end of 2030 \"clearly achievable\" if a demand shock hits at the end of 2027. Bank forecasts for 2030 (0.9\u20131.2 million worldwide; Morgan Stanley's 0.45 million covers China alone) sit between the slow and base paths.",
+    "why": "The comparison is contradicted by its own source. The 10-month figure (research-ramp: 3,611 to 96,270) uses Wikipedia's 1940 value, which is footnoted as July\u2013December 1940 only. Annualized, 1940\u201344 doubles every 12.0\u201312.8 months (Python), and 1943 to 1944 is +13%. The base path (0.06 to 3.35M, 10.3 months, Python) is therefore faster and longer than the WWII precedent, not equal to it. Epoch's estimate is for humanoids and assumes the shock at end-2027 (verified on the 22 Apr 2026 post). The 0.45M low end of the bank range is Morgan Stanley's China-only figure (research-ramp bank_and_analyst_forecasts). The same claim sits in graph robo-fleet-1m.why ('the pace of US aircraft production in 1940-44') and in embodied/s4-embodied.md, and should be fixed there too."
+   },
+   {
+    "severity": "high",
+    "file": "doc/04b-embodied.md",
+    "current_text": "- *Paid work.* Most still need teleoperation ([IFR](https://www.zawya.com/en/press-release/asia-press-releases/global-sales-of-professional-service-robots-surge-24-1458551)). In January 2026 Musk said no Optimus robot was doing useful work at Tesla ([Electrek](https://electrek.co/2026/01/28/musk-admits-no-optimus-robots-are-doing-useful-work-at-tesla-after-claiming-otherwise/)).",
+    "replacement_text": "- *Paid work.* Most current uses are narrow and often need teleoperation ([IFR](https://www.zawya.com/en/press-release/asia-press-releases/global-sales-of-professional-service-robots-surge-24-1458551)). In January 2026 Musk said Optimus was \"not in usage in our factories in a material way\" ([Electrek](https://electrek.co/2026/01/28/musk-admits-no-optimus-robots-are-doing-useful-work-at-tesla-after-claiming-otherwise/)).",
+    "why": "Both claims overstate their sources (fetched). On the Q4 2025 call Musk said \"We have had Optimus do some basic tasks in the factory\" and \"not in usage in our factories in a material way\"; \"no Optimus did useful work\" is Electrek's headline, not his words. IFR wrote that \"most current applications remain specialized and often require human teleoperation\", not that most units need it. The graph repeats both: robo-structured-factory-useful and robo-launch-refurb ('Musk said in Jan 2026 that no Optimus did useful work at Tesla') and capability-35-cycle-halved ('most need teleoperation (IFR, Sep 30, 2026)'). Apply the same wording there."
+   },
+   {
+    "severity": "high",
+    "file": "doc/10-signposts.md",
+    "current_text": "| Full-year 2026 humanoid shipments, and whether quarterly output at the leading makers breaks from linear growth | Early 2027 | Under 50,000 points to the slow robot path, 60,000\u2013100,000 to the Embodied base path, over 150,000 to the fast path. |",
+    "replacement_text": "| Full-year 2026 and 2027 humanoid shipments, and whether quarterly output at the leading makers breaks from linear growth | Early 2027 and early 2028 | The slow, base and fast paths assume about 50,000, 60,000 and 80,000 shipments in 2026, so 2026 barely separates them. 2027 does: about 90,000 points to the slow path, 140,000 to the Embodied base path and 240,000 to the fast path. |",
+    "why": "The thresholds do not match the model's own paths. In s4-embodied.json fleet_trajectory, 2026 shipments are 0.05M (slow), 0.06M (base) and 0.08M (fast), and 2027 shipments are 0.09M, 0.138M and 0.24M. A 2026 count of 80,000, exactly the fast path, would be read as 'base' under the current text, and the 'over 150,000' threshold matches no final path; it is left over from the draft or research fast path of 100k+. The same text is in doc/branches/robots.md ('Watch full-year 2026 humanoid shipments. Under 50,000 points to the slow path, 60,000-100,000 to the base path and over 150,000 to the fast path.') and in graph robo-fleet-1m.signpost. Replace both the same way, for example: 'Watch 2027 humanoid shipments: about 90,000 fits the slow path, 140,000 the base path and 240,000 the fast path; 2026 totals (50,000, 60,000 and 80,000) barely separate them.'"
+   },
+   {
+    "severity": "medium",
+    "file": "doc/04b-embodied.md",
+    "current_text": "GE Vernova held 116 GW of turbine orders against about 20 GW a year of output.",
+    "replacement_text": "GE Vernova held 116 GW of gas-turbine backlog and slot reservations, 53 GW of it firm orders, against a production rate it expected to reach 20 GW a year in the third quarter of 2026.",
+    "why": "The Turbomachinery article (23 Jul 2026, fetched) describes 116 GW as \"equipment backlog and slot reservation agreements\": 53 GW of backlog plus 63 GW of reservations. The 20 GW a year is the annualized output target for Q3 2026, not achieved output. Calling all 116 GW 'orders' overstates the queue (53/20 is about 2.7 years, not 5.8). Fix doc/12-quotable.md the same way: '| 116 GW of backlog and slot reservations (53 GW firm) against a 20 GW-a-year rate targeted for Q3 2026 | GE Vernova gas-turbine queue | Verified (trade press) |'. Also fix graph robo-capital-goods-loop.status_oct2026 ('GE Vernova held 116 GW of gas-turbine orders against about 20 GW a year of output')."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/04b-embodied.md",
+    "current_text": "- *Precedent.* FANUC has built robots with robots since 2001, and its output doubled only about every seven years, because demand set the pace.",
+    "replacement_text": "- *Precedent.* FANUC has run lines where robots build robots since 2001, yet its robot output grew from about 185 a month in 1983 to a capacity of 5,000\u20136,000 a month in 2016, a doubling about every seven years, because demand set the pace.",
+    "why": "The cited FANUC notice (11 Oct 2016, read in full) says only that capacity is 5,000 a month, rising to 6,000 with Tsukuba. It says nothing about robots building robots since 2001 or about a doubling time. The seven-year figure is research-ramp's own calculation: 185 a month in 1983 (Christian Science Monitor) against 2016 capacity, about 33 years and 4.8 doublings. The lights-out date comes from SME 2020. The measured span is 1983\u20132016, not the post-2001 period the sentence implies. In doc/12-quotable.md, change the row status from 'Verified (company)' to 'Model (calculation from 1983 output, CS Monitor, and 2016 capacity, FANUC; lights-out since 2001 per SME)' and add the SME source."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/01-bottom-line.md",
+    "current_text": "- **2032\u201335 brings the second wave, all in the Exponential case.**\n  - *Launch and logistics:* Starship internal cost under $100/kg (High by 2035); a routine orbital refueling economy (High by 2035); 300 or more heavy launches a year (Medium); a gigawatt of compute in orbit (Medium).\n  - *The Moon:* a self-running lunar base and a tonne-a-year oxygen plant (both Medium).\n  - *Software and certification:* regulators accept AI-written proofs (High); crewed-lander autonomy certified with AI proofs (Medium).",
+    "replacement_text": "- **By 2035 a second wave becomes likely, all in the Exponential case.** Most of it is first credible in 2030\u201331 but rated only Low or Medium by 2031; two items first arrive after 2031.\n  - *Launch and logistics:* a routine orbital refueling economy (2030) and Starship internal cost under $100/kg (2031), both High by 2035; a gigawatt of compute in orbit (2031, Medium); 300 or more heavy launches a year (2033, Medium).\n  - *The Moon:* a self-running lunar base (2031) and a tonne-a-year oxygen plant (2032), both Medium by 2035.\n  - *Software and certification:* regulators accept AI-written proofs (2030, High by 2035); crewed-lander autonomy certified with AI proofs (2031, Medium by 2035).",
+    "why": "This is stale 2031-era framing. In graph-v7 the S2 years are: prop-cislunar-propellant-economy 2030, capability-35-internal-cost-100 2031, struct-gw-orbital-compute 2031, auton-crew-optional-lunar-ops 2031, infra-tool-qualification 2030 and verif-hls-autonomy-certification 2031. Only auton-lunar-oxygen-ops (2032) and capability-35-heavy-cadence-300 (2033) first arrive in 2032\u201335. Section 7 and the trunk list already date these to 2030\u201331, so the bottom line tells readers that 2030\u201331 nodes 'arrive' in 2032\u201335."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/02-method.md",
+    "current_text": "- anything that needs a regulator's acceptance is capped at Medium;",
+    "replacement_text": "- anything that needs a regulator's acceptance is capped at Medium, except that by 2035 a node may reach High when acceptance runs through a mechanism already in use (DO-333 credit through already-qualified checkers lifts \"Regulators accept AI-produced proofs\" to High by 2035);",
+    "why": "The stated rule is broken by the model's own headline node. infra-tool-qualification ('Regulators accept AI-produced proofs', binding_gate regulatory) is High by 2035 in S2\u2013S4, under a 'named-mechanism rule' given in its note_2035, and the bottom line, trunk table and section 5 all show it as High. Meanwhile the node's own why still says 'Capped at Medium because it needs regulator acceptance.' Either state the 2035 exception here, or drop the node to Medium. In the graph, change that why sentence to 'Capped at Medium by 2031 because it needs regulator acceptance; by 2035 the named-mechanism exception applies.'"
+   },
+   {
+    "severity": "medium",
+    "file": "doc/branches/orbital-compute-power.md",
+    "current_text": "Robot-built pads add 0.2-2 GW by end-2035, short of a band step.",
+    "replacement_text": "Robot-built pads arrive only about 2035 in Embodied (Low), too late to add compute before end-2035.",
+    "why": "This is unsupported by the graph. robo-earth-pads-plants is S4 2035, Low by 2035, and prop-35-mars-window-fueling's revision note says it 'lands too late (S4 2035 in the robots final)'. The 0.2\u20132 GW credit comes from stale text in graph struct-35-10gw-orbital-compute.why, which still says 'robo-earth-pads-plants, S4 2033) add some flights in 2034-35, worth roughly 0.2-2 GW'. In the graph, change it to '(robo-earth-pads-plants) arrive only about 2035 in S4 (Low by 2035), too late to add flights before end-2035; that leaves S4 at Low'. Make the matching change to its note_2035 ('Robot-built pads add flights in 2034-35, too few to change the band')."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/01-bottom-line.md",
+    "current_text": "So \"2033 (Low / Medium)\" means the node could happen as early as 2033. It has roughly a 10\u201330% chance by 2031 and a 30\u201370% chance by 2035.",
+    "replacement_text": "So \"2029 (Low / Medium)\" means the node could happen as early as 2029. It has roughly a 10\u201330% chance by 2031 and a 30\u201370% chance by 2035.",
+    "why": "The worked example contradicts the definition next to it. If 2033 is the earliest credible year, the chance by end-2031 cannot be 10\u201330%. This affects more than the example: 88 node-scenario pairs in graph-v7 have a year after 2031 but a band above Speculative by 2031, and 8 more have a year after 2035 but a band above Speculative by 2035 (Python), for instance robo-fleet-10m S4 2032 Low by 2031, where the fast path crosses in mid-2031. Also add to doc/11-assumptions.md, after 'Earliest year is optimistic by construction.': 'In about 80 nodes the year follows the scenario's central path, and a faster path inside the scenario gives a band above Speculative at a checkpoint before that year.'"
+   },
+   {
+    "severity": "medium",
+    "file": "doc/10-signposts.md",
+    "current_text": "Magnets are the hardest cap on a 60-million-robot fleet by 2035.",
+    "replacement_text": "Magnets bind politically now, and in volume only on the fast path: the base path needs 26\u2013118 thousand tonnes in 2035, about 8\u201336% of 2025 output.",
+    "why": "This contradicts the model's own ranking. Section 4 orders the caps as actuators, reliability, then magnets third. research-ramp says magnets bind 'physically only in fast ramp after ~2033', and s4-embodied.json gives base-2035 needs of 8\u201336% of 2025 output. Calling magnets the 'hardest cap' on the base fleet is unsupported."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/04-two-clocks.md",
+    "current_text": "- This model applies the 1.5\u20133x slip historically seen between announced and actual schedules. It dates internal cost under $300/kg to about 2029 and under $100/kg to about 2031 (High by 2035) in every scenario. It puts 300 or more heavy launches a year at about 2033 (Medium by 2035) in the Exponential case.",
+    "replacement_text": "- This model dates each cost threshold about a year after Mach33's path. It puts internal cost under $300/kg at about 2029 in every scenario, and under $100/kg at about 2031 (2032 in Plateau, which waits for a later reusable heat shield). The latter is High by 2035 only while that heat shield stays High. It puts 300 or more heavy launches a year at about 2033 (Medium by 2035) in the Exponential case.",
+    "why": "Two errors. First, capability-35-internal-cost-100 is S1 2032, not 2031, so 'in every scenario' is wrong. Second, the node's why says the model applies a one-year lag to Mach33 ($300/kg 2028 to 2029; Mach33's parameters cross $100/kg in 2030 by the model's own estimate, so 2031). A 1.5\u20133x slip on a four-year horizon would give 2032\u201338. Mach33's $4,915, $656, about $300 and $13/kg figures were verified on the Sep 23 2026 post."
+   },
+   {
+    "severity": "low",
+    "file": "doc/04b-embodied.md",
+    "current_text": "- *Shipments.* Humanoid shipments were about 13,300 in 2025 ([Omdia via TechNode](https://technode.com/2026/01/09/chinas-agibot-leads-global-humanoid-robot-shipments-in-2025-omdia-says/)) and about 19,000\u201325,000 in the first half of 2026 ([IDC](https://roboticsandautomationnews.com/2026/10/02/idc-data-shows-agibot-led-global-humanoid-robot-shipments-in-h1-2026/105463/)). Over 97% were Chinese.\n- *Paid work.*",
+    "replacement_text": "- *Shipments.* Humanoid shipments were about 13,300 in 2025 ([Omdia via TechNode](https://technode.com/2026/01/09/chinas-agibot-leads-global-humanoid-robot-shipments-in-2025-omdia-says/)) and about 19,000 ([Smart Analytics Global via TechNode](https://technode.com/2026/08/11/chinese-makers-accounted-for-more-than-97-of-global-humanoid-robot-shipments-in-h1-2026/)) to 25,000 ([IDC](https://roboticsandautomationnews.com/2026/10/02/idc-data-shows-agibot-led-global-humanoid-robot-shipments-in-h1-2026/105463/)) in the first half of 2026. Over 97% were Chinese (Smart Analytics Global).\n- *Paid work.*",
+    "why": "The attribution is wrong. The IDC article (fetched) gives 'approached 25,000' and no Chinese share. The 19,100 figure and the >97% share are Smart Analytics Global's, via TechNode on 11 Aug (research-ramp, research-capability). Update the doc/12-quotable.md status 'Verified (Omdia, IDC)' to 'Verified (Omdia; Smart Analytics Global and IDC for H1 2026)'. Also change 'Output at the leading makers grew linearly through 2026' to 'in the first three quarters of 2026': Q4 data do not exist on 7 Oct, and the evidence is AgiBot and UBTech only."
+   },
+   {
+    "severity": "low",
+    "file": "doc/04b-embodied.md",
+    "current_text": "against about 330 thousand tonnes of 2025 output",
+    "replacement_text": "against roughly 250\u2013350 thousand tonnes of 2025 output (estimates differ by source; general)",
+    "why": "The figure has no source. The cited FAI piece (fetched) gives 2\u20134.5 kg per robot and EV demand of about 30 kt, but no world output; research-ramp marks 330 kt as '(general)'. Industry figures run from about 252 kt of global sales (ACREI/CIC) to 340\u2013350 kt of Chinese output. The base-2035 share is then 8\u201347%, not 8\u201336%. This also affects the 8\u201336% in the s4 analysis and the proposed 10-signposts text."
+   },
+   {
+    "severity": "low",
+    "file": "doc/04b-embodied.md",
+    "current_text": "Putting robots on flight hardware is a process change that needs requalification, 6\u201324 months per process per supplier.",
+    "replacement_text": "Putting robots on flight hardware is a process change that needs requalification under AS9100 and NADCAP, an estimated 6\u201324 months per process per supplier.",
+    "why": "A scenario estimate is stated as fact. research-space.json labels '~6-24 months per process per supplier (estimate)', and s4-embodied.md cites no source for it. The same unlabeled figure is in doc/08b-for-whom.md ('at 6\u201324 months per process per supplier'), doc/branches/robots.md and doc/branches/certification.md; add 'an estimated' or '(analyst estimate)' in each."
+   },
+   {
+    "severity": "low",
+    "file": "doc/branches/certification.md",
+    "current_text": "Robots take setup, instrumentation and teardown, about 45% of campaign time; thermal-vacuum plateaus and cycles stay fixed.",
+    "replacement_text": "Robots take setup, instrumentation and teardown, about 45% of campaign time (analyst estimate); thermal-vacuum plateaus and cycles stay fixed.",
+    "why": "The 45% is the S4 gate table's analyst split for environmental qualification (L/P/M/I 45/25/10/20 in s4-embodied.md), not a measured share. The parallel figures in entry.md (40%, 'analyst estimate') and verified-autonomy.md (80%, 'analyst assumption') are labeled; this one is not."
+   },
+   {
+    "severity": "low",
+    "file": "doc/04b-embodied.md",
+    "current_text": "A drug program cannot get more than 34% shorter even with infinitely fast labs, because Phase I through review takes 10.5 of its 16 years.",
+    "replacement_text": "Faster labs alone cannot make a drug program more than 34% shorter, because Phase I through review takes 10.5 of its 16 years (BIO durations; 16 years is a model baseline). The larger cuts in the table come from AI shortening clinical operations and reviews, which is cognitive and institutional work.",
+    "why": "The BIO 10.5 years is verified (2.3/3.6/3.3/1.3 years), and 5.5/16 = 34%. But the table directly above shows 41\u201348% cuts for the same 16-year program in 2035, which reads as a contradiction unless the source of the extra gain is named. research-biology attributes it to cognitive clinical-operations gains; the 16-year total is a model estimate."
+   },
+   {
+    "severity": "low",
+    "file": "doc/branches/robots.md",
+    "current_text": "Embodied passes ten million robots in late 2032 and 62 million by 2035 (High by 2035).",
+    "replacement_text": "Embodied passes ten million robots in late 2032 (High by 2035) and reaches about 62 million by 2035 on its base path (30\u2013104 million across the loop sensitivities).",
+    "why": "As written, the band can be read as attaching to 62 million. The High is robo-fleet-10m's band: about 75% of S4 weight, base plus fast, passes 10M. The 62M figure is the base path's point estimate, which no more than about half the S4 weight reaches. The sensitivities come from s4-embodied.json."
+   },
+   {
+    "severity": "low",
+    "file": "doc/09-nil.md",
+    "current_text": "Predicting a solar storm's magnetic orientation a day ahead needs observatories that will not be operating by 2031.",
+    "replacement_text": "Predicting a solar storm's magnetic orientation a day ahead needs observatories, such as a monitor well upstream of L1, that are not planned; it stays Low even by 2035.",
+    "why": "This is a stale 2031-only statement. plasma-bz-forecast note_2035: 'no sub-L1 monitor or routine coronal field measurement is planned, so day-ahead Bz stays Low by 2035' (S2 2034, Low)."
+   },
+   {
+    "severity": "low",
+    "file": "doc/08b-for-whom.md",
+    "current_text": "The model rates a measurable effect on insurance capacity by 2031 as Low.",
+    "replacement_text": "The model rates a measurable effect on insurance capacity as Low by 2031 and Medium by 2035.",
+    "why": "This is a stale 2031-only statement. physclock-space-insurance-capacity has band_2035 Medium in S2\u2013S4."
+   },
+   {
+    "severity": "low",
+    "file": "doc/12-quotable.md",
+    "current_text": "| 61 months | Median US grid interconnection wait | Verified |",
+    "replacement_text": "| 61 months | Median time from interconnection request to commercial operation, US power plants built in 2025 (regions with data) | Verified |",
+    "why": "The figure is verified (LBNL 2026: 'median project built in 2025 took 61 months'), but it covers generator projects, with in-service dates available for only 73% of operational projects. It is not a general grid wait, and it does not measure data-center load connections; 04b's Amdahl row covers both. doc/09-nil.md's '(61 months median in the US)' could read '(a 61-month median from request to operation for US power plants built in 2025)'."
+   },
+   {
+    "severity": "low",
+    "file": "doc/branches/robots.md",
+    "current_text": "[Figure's Helix 2.5](https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization) raised full-task success in 30 unseen homes from 9% to 56% in September 2026.",
+    "replacement_text": "In September 2026 [Figure's Helix 2.5](https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization) completed 56% of full tasks zero-shot in 30 unseen homes, against 9% for the same policy trained from scratch.",
+    "why": "The Figure post (17 Sep 2026, fetched) compares an Index-pretrained policy with a from-scratch baseline in the same study. 'Raised from 9%' implies an improvement over a previous model."
+   },
+   {
+    "severity": "low",
+    "file": "doc/05-trunk.md",
+    "current_text": "- Customer prices under $1,000/kg: about 2031 (Low / High).",
+    "replacement_text": "- Customer prices under $1,000/kg: about 2031 (Low / High; the High rests on Mach33's reference spot path, while its 2035 median across all customer classes is $945/kg, with a 90% range of $587\u20133,591).",
+    "why": "The band rests on a single scenario, which the line does not say. physclock-cheap-mass-customer reached High by 2035 on Mach33's reference spot path ($820/kg in 2031), described as an 'inference from the reference path'. Mach33 puts that reference case near the 14th percentile of its simulated revenue, and Mach33's own third-party price fade has a 2033 midpoint (range 2030\u201336). The High is a contested judgment resting on one commercial forecaster's low-price path, and Mach33 discloses SpaceX equity. The line should show that basis, or the band should be Medium."
+   }
+  ]
+ },
+ {
+  "lens": "EDITOR",
+  "verdict": "Mostly yes. A writer could draft the paper from this document today. The argument is clear: the two clocks, the Amdahl ceilings, the catalog-versus-capability point, where the effect is nil, and signposts with dates. Appendix A gives quotable figures with their status, and the numbers I spot-checked against graph-v7 and analytics-v7 match the generated text.\n\nFour problems would mislead a writer and should be fixed before drafting.\n1. The \"2032\u201335 second wave\" bullet in the bottom line lists nodes whose earliest years are 2030\u201331. What changes in 2032\u201335 is their likelihood.\n2. The robots branch counts toward every Embodied share. Leave it out and robots add almost nothing to space hardware by 2035. They lift 111 hardware nodes against Recursive's 110, and the physical share by 2035 to 74% against 71%. The current tables read as a 5-point gain on physical shares and a 6-node gain on hardware nodes, both caused by robots.\n3. Several rules are still stated in their 2031 form. The regulator cap and the frontier-band definition still say 2031, the \"nil\" intro still says \"including Recursive\", and the scenario table still has \">2031\". Finding 10 and the critical-path section give base-case numbers only for 2031, although the builder already computes 2035 values: AI math sets the date for 65 of 131 outcomes.\n4. The rule that decides Embodied credit appears nowhere in the reader-facing text. That is the four-condition test, with Embodied set equal to Recursive through 2031. Yet the disputes cite \"condition 1\", and the 04b text presents a rule as a finding.\n\nThe 2035 and robots material reads partly bolted on. Robot items are appended at the end of most lists (findings, nil effects, signposts, the waterfall). The Embodied node list and the fleet numbers appear four or five times. The rumor block and the Amdahl ceilings are duplicated between sections 2\u20133 and 4. Terminology mostly holds, with these exceptions:\n- \"trunk\" means both section 9 and the engine branch;\n- \"floor\" is used where the rest of the document says \"ceiling\";\n- \"plateau\" in section 3 collides with the scenario name Plateau;\n- the branch theses use S-codes where the rest of the prose uses scenario names;\n- the dispute text leaks internal ids and field names (band_2035, why field, the brief, file names). These come from short-form node ids that the builder's scrub() misses.\n\nHouse style is good overall. There are no em dashes and only one colon-then-reveal.\n\nWith the 25 edits below, and a rebuild, the document gives a writer what they need.",
+  "findings": [
+   {
+    "severity": "high",
+    "file": "doc/01-bottom-line.md",
+    "current_text": "- **2032\u201335 brings the second wave, all in the Exponential case.**",
+    "replacement_text": "- **By 2035 a second wave becomes likely, all in the Exponential case.** Most of these could first happen in 2030\u201333. Each is Low or Medium by 2031 and rises to the band shown by 2035.",
+    "why": "Most listed items are not 2032\u201335 events. In S2, internal cost under $100/kg is 2031, the refueling economy 2030, 1 GW in orbit 2031, the self-running base 2031, regulators accepting AI proofs 2030 and crewed-lander autonomy 2031. Only 300+ launches (2033) and the oxygen plant (2032) are dated 2032\u201335. What changes in 2032\u201335 is the likelihood. A writer quoting '2032\u201335 brings' would misdate six of eight items."
+   },
+   {
+    "severity": "high",
+    "file": "doc/01-bottom-line.md",
+    "current_text": "  | Exponential | {{cc_2031_phys_s2}} | {{cc_2035_phys_s2}} |\n  | Recursive | {{cc_2031_phys_s3}} | {{cc_2035_phys_s3}} |\n  | Embodied (robots added) | {{cc_2031_phys_s4}} | {{cc_2035_phys_s4}} |\n\n  New programs get about 20\u201330% shorter by 2031",
+    "replacement_text": "  | Plateau | {{cc_2031_phys_s1}} | {{cc_2035_phys_s1}} |\n  | Exponential | {{cc_2031_phys_s2}} | {{cc_2035_phys_s2}} |\n  | Recursive | {{cc_2031_phys_s3}} | {{cc_2035_phys_s3}} |\n  | Embodied (robots added) | {{cc_2031_phys_s4}} | {{cc_2035_phys_s4}} |\n\n  The robots branch counts toward these shares. Without it, Embodied and Recursive are equal by 2031, at 44%, and Embodied leads by about 2 points by 2035, 74% against 71%.\n\n  In the Exponential case, new programs get about 20\u201330% shorter by 2031",
+    "why": "This is a buried finding. I recomputed it from graph-v7 without the 18 tier 5\u20137 robots-branch nodes: S3 44.3%, S4 44.3% by 2031; S3 71.4%, S4 73.8% by 2035. Half of Embodied's apparent 5-point lift by 2035 is robots unlocking robot milestones. A Plateau row shows the full spread. The placeholders cc_2031_phys_s1 and cc_2035_phys_s1 already exist. The 'without the robots branch' numbers are hard-coded; add builder placeholders if they should stay in sync. 'In the Exponential case' fixes a figure that otherwise has no scenario."
+   },
+   {
+    "severity": "high",
+    "file": "doc/01-bottom-line.md",
+    "current_text": "So \"2033 (Low / Medium)\" means the node could happen as early as 2033. It has roughly a 10\u201330% chance by 2031 and a 30\u201370% chance by 2035.",
+    "replacement_text": "So \"2030 (Low / Medium)\" means the node could happen as early as 2030. It has roughly a 10\u201330% chance by the end of 2031 and a 30\u201370% chance by the end of 2035. A node counts as **unlocked** in a year once that year has arrived and it is rated High or Medium at the next checkpoint: end-2031 for years through 2031, end-2035 after.",
+    "why": "The example contradicts itself: a node that can first happen in 2033 cannot have a 10\u201330% chance by 2031. 'Unlocked' is also used three times in the bullets above before it is defined. Separately, the graph has 76 nodes (88 node-scenario pairs) dated after 2031 but rated Low by 2031, for example 'Low Earth orbit stays safe at 100,000 satellites' (S2 2032, Low by 2031). The extension brief allowed this. Either cap those at Speculative or say in 02-method why a post-2031 node can be Low by 2031."
+   },
+   {
+    "severity": "high",
+    "file": "doc/02-method.md",
+    "current_text": "- anything that needs a regulator's acceptance is capped at Medium;",
+    "replacement_text": "- anything that needs a regulator's or certifier's acceptance is capped at Medium by 2031. By 2035 it may be High only where the regulatory path is already moving through a named mechanism, such as DO-333 credit through an already-qualified checker;",
+    "why": "This is the 2031 rule left unchanged. 'Regulators accept AI-produced proofs' is High by 2035 in S2\u2013S4, and the bottom line, findings and trunk table all say so. Read literally, the method contradicts them. The extension brief's actual rule is the named-mechanism rule, which several disputes cite."
+   },
+   {
+    "severity": "high",
+    "file": "doc/04b-embodied.md",
+    "current_text": "- *The tree through 2031.* Outside the robots branch, Embodied therefore equals Recursive for every node through 2031. It starts to differ in 2032\u201335, where {{n_s4_credit}} nodes gain from robots: {{n_s4_year}} arrive earlier and {{n_s4_band}} become more likely by 2035.",
+    "replacement_text": "- *The tree through 2031.* The robot review found no node outside the robots branch that robots move by a year or a band before 2032, so the model holds Embodied equal to Recursive there through 2031. Across the tree, {{n_s4_credit}} nodes gain from robots: {{n_s4_year}} arrive earlier and {{n_s4_band}} become more likely by 2035. Of these, {{n_s4_pre2032}}, all in the robots branch, already differ before 2032. Outside that branch, eight space nodes each rise one band by 2035, and four of them also arrive a year or two earlier.",
+    "why": "The current text has two problems. 'It starts to differ in 2032\u201335' is wrong: analytics n_pre2032_diff = 14, since the robots-branch nodes differ from 2028. 'Therefore' also presents as a result what the extension brief sets as a rule: 'Through 2031, S4 equals S3 for every existing node.' I checked the split: 21 credited nodes in the robots branch; outside it, arc-jet runs, laser terminals, the lunar robot fleet, halved cycles, the three-year launcher, the four-year engine, 30% shorter qualification and halved flight-software verification. All eight gain one band, and four gain a year. The placeholder n_s4_pre2032 already exists."
+   },
+   {
+    "severity": "high",
+    "file": "doc/04b-embodied.md",
+    "current_text": "**What robots compress, and what they cannot.** A robot works around the clock and in parallel. It removes labor, shift and queue time and turns capacity limits into capital limits. It cannot shorten a step set by physics, statistics, orbital mechanics, biology or statute.",
+    "replacement_text": "**What robots compress, and what they cannot.** A robot works around the clock and in parallel. It removes labor, shift and queue time and turns capacity limits into capital limits. It cannot shorten a step set by physics, statistics, orbital mechanics, biology or statute.\n\n**How the model gives robots credit.** From 2032, a node gets an Embodied gain only if four conditions hold. First, its binding gate at the firm that will achieve it is labor- or throughput-bound. Second, general-purpose robots are useful there before the node's year. Third, no hard prerequisite lands later. Fourth, the gain is not specialized automation already counted in Exponential or Recursive. A typical gain is 0.5\u20131.5 years, sometimes one band. Nodes bound by institutions, physics, launch windows or appropriations get none. The branch disputes refer to these as conditions 1 to 4.",
+    "why": "This is the main method rule of the extension (extension-brief.md, 'S4 rules'), and the reader-facing text never states it. Disputes in at least six branches say a node 'fails condition 1' or 'S4 condition 1' with no definition. Stating the rule also lets the writer explain why so few space nodes move."
+   },
+   {
+    "severity": "high",
+    "file": "doc/07b-critical-paths.md",
+    "current_text": "**Embodied case, by 2035: {{n_cp_s4_2035}} nodes.**",
+    "replacement_text": "**Exponential case, by 2035: {{n_cp_s2_2035}} nodes.**\n\n- AI mathematics lies on the date-setting path for {{n_cp_ai_s2_2035}}; {{n_cp_public_s2_2035}} of those paths run through public access in 2027.\n- {{n_cp_noai_crit_s2_2035}} paths have no AI-mathematics step at all.\n- The final binding gates are {{cp_gates_s2_2035}}.\n\n**Embodied case, by 2035: {{n_cp_s4_2035}} nodes.**",
+    "why": "Section 12 compares Exponential by 2031 with Embodied by 2035, which mixes a scenario change with a checkpoint change. The builder already computes S2_2035 (131 nodes; AI math on the path for 65, 41 through public access, 66 with no AI step; gates adoption 31, launch 30, fabrication 19, qualification 15). Also replace the closing line 'Robots set the date for only a handful of outcomes even by 2035. Most of the paths they lie on are inside the robots branch.' with 'All 13 nodes whose date-setting path runs through a robot node are in the robots branch itself. Elsewhere robots act through soft edges, which can pull a date earlier or raise a band but never set the date.' I verified that all 13 are robo-* nodes and that crit() follows hard prerequisites only. Add to _skeleton.md after the S2_2031 details block: '<details><summary>Date-setting paths, Exponential case, rated High or Medium by 2035</summary>\\n\\n{{critical_paths_S2_2035}}\\n\\n</details>'."
+   },
+   {
+    "severity": "high",
+    "file": "doc/08-findings.md",
+    "current_text": "Of the {{n_cp_s2_2031}} technologies, systems and outcomes rated High or Medium by 2031 in the Exponential case, AI mathematics sets the date for {{n_cp_ai_s2_2031}}. Physical gates alone set it for the other {{n_cp_noai_crit_s2_2031}}.",
+    "replacement_text": "In the Exponential case, AI mathematics sets the date for {{n_cp_ai_s2_2031}} of the {{n_cp_s2_2031}} technologies, systems and outcomes rated High or Medium by 2031, and for {{n_cp_ai_s2_2035}} of the {{n_cp_s2_2035}} rated High or Medium by 2035. Physical gates alone set the rest. The split stays near half as the tree fills in.",
+    "why": "The finding is headed 'For space through 2035' but its evidence stops at 2031. The 2035 placeholders already exist in the builder (65 of 131). Both checkpoints are 51% and 50%, which a writer can quote."
+   },
+   {
+    "severity": "high",
+    "file": "doc/04-two-clocks.md",
+    "current_text": "- *2035.* The counts are {{gap_2035_cog_s2}} and {{gap_2035_phys_s2}}. {{gap_2035_phys_hm}} hardware nodes are rated High or Medium under Exponential and {{gap_2035_phys_hm_s4}} under Embodied.",
+    "replacement_text": "- *2035.* The counts are {{gap_2035_cog_s2}} of {{n_t13}} and {{gap_2035_phys_s2}} of {{n_t56}}. Of the hardware nodes, {{gap_2035_phys_hm}} are rated High or Medium under Exponential, 117 under Recursive and {{gap_2035_phys_hm_s4}} under Embodied. Robots add few of these outside their own branch. Leave the robots branch out, and Embodied leads Recursive by one node, 111 against 110.",
+    "why": "'154 and 154' reads like a typo; it is 154 of 155 and 154 of 167. The sentence also starts with a numeral. Jumping from Exponential (100) to Embodied (123) mixes the recursion gain (+17) with robots (+6), and 5 of those 6 are robots-branch nodes. Recomputed from graph-v7. A gap_2035_phys_hm_s3 placeholder would avoid hard-coding 117."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/04-two-clocks.md",
+    "current_text": "The plateau after 2033 is real: nodes that could first happen in 2034\u201335 are rarely more likely than not by 2035.",
+    "replacement_text": "Most of the jump from 2031 to 2032 comes from the change of checkpoint, not from new events. In the Exponential case, about four-fifths of the physical jump is nodes dated 2031 or earlier that are Low by 2031 but Medium or better by 2035. The curves flatten after 2033 because nodes that could first happen in 2034\u201335 are rarely more likely than not by 2035.",
+    "why": "The table's 32% to 53% jump (Exponential, physical) invites the headline '2032 is the breakout year'. Recomputed: re-scoring nodes dated 2031 or earlier at the 2035 checkpoint gives 49%, and new 2032 nodes add only 4 points. 'The plateau' also collides with the scenario name Plateau, and the colon-then-reveal goes."
+   },
+   {
+    "severity": "medium",
+    "file": "builder",
+    "current_text": "    global _IDRE\n    if not text:\n        return text\n    if _IDRE is None:\n        ids = sorted(N, key=len, reverse=True)\n        _IDRE = re.compile(r'(?<![\\w-])(' + '|'.join(re.escape(i) for i in ids) + r')(?![\\w-])')\n    text = _IDRE.sub(lambda m: '\"' + N[m.group(1)]['title'] + '\"', text)",
+    "replacement_text": "    global _IDRE, _ALIAS\n    if not text:\n        return text\n    if _IDRE is None:\n        short = lambda i: re.sub(r'^[a-z]+-(?:35-)?', '', i)\n        cnt = collections.Counter(short(i) for i in N)\n        _ALIAS = {i: i for i in N}\n        _ALIAS.update({short(i): i for i in N if short(i) != i and '-' in short(i) and cnt[short(i)] == 1 and short(i) not in N})\n        _ALIAS['cadence-300'] = 'capability-35-heavy-cadence-300'\n        ids = sorted(_ALIAS, key=len, reverse=True)\n        _IDRE = re.compile(r'(?<![\\w-])(' + '|'.join(re.escape(i) for i in ids) + r')(?![\\w-])')\n    text = re.sub(r'\\s*\\(which absorbed [\\w-]+\\)', '', text)\n    text = _IDRE.sub(lambda m: '\"' + N[_ALIAS[m.group(1)]]['title'] + '\"', text)\n    for a, b in ((r'\\bband_(20\\d\\d)\\b', r'the \\1 band'), (r\"(?i)\\bthe brief's\\b\", \"the extension's\"), (r'(?i)\\bthe brief\\b', 'the extension rules'),\n                 (r\"\\b(?:its|the node's) own why\\b\", 'its own rationale'), (r'\\bwhy fields?\\b', 'rationale'),\n                 (r'\\bs4-embodied\\b', 'the Embodied analysis'), (r'\\bE-robots-integration\\.json\\b', 'a final integration pass')):\n        text = re.sub(a, b, text)",
+    "why": "Dispute, signpost and nil-effect text leaks internal ids and field names into the reader-facing document. Examples: fleet-10m, mfg-10pct, heavy-cadence-100, cadence-300, cycle-halved, satellite-gen-cadence, mtbi-1000h, contact-sim-to-real, '(which absorbed verif-checker-not-generator)', band_2035 (10 times), 'why field' (6), 'the brief' (9) and E-robots-integration.json. scrub() matches only full ids, and the review text uses ids without their domain prefix. I tested this patch on a copy of the builder: band_20, why field, the brief, fleet-10m, mtbi and 'absorbed' all drop to 0. Also add '_ALIAS = {}' under '_IDRE = None'. Leave 'condition 1' in place, because the 04b credit-rule finding defines it."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/08-findings.md",
+    "current_text": "**11. Robots are the bridge, and the bridge opens after 2031.** Every explosive-growth model needs physical work to be automated, so robots are the right place to look for the acceleration reaching hardware. The fleet grows fast but stays a small share of the work for years. In the Embodied case it reaches about 6 million robots in 2031, 0.7% of global manufacturing labor, and about 60 million in 2035, about 9%.\n\n- *What robots compress.* They raise throughput: more test articles, more experiments and more parallel lines. They shorten single programs only where time is labor or queue.\n- *What they cannot compress.* Thermal-vacuum dwells, creep tests, reliability statistics, launch windows, trial endpoints and statutory reviews do not shrink.\n- *What they do to the tree.* Outside the robots branch, Embodied equals Recursive through 2031. By 2035 it moves {{n_s4_credit}} nodes, mostly robotics milestones and test, qualification and verification throughput.\n- *Program schedules.* A robot-first firm's ceiling on program compression rises from about 56% to 66\u201367% by 2035. A typical program gains a few points.\n\nThe robots-build-robots loop starts to bite about 2032 and is not super-exponential before 2035. Actuators, magnets, chips, capital and certification bind before assembly labor does. Every domain then moves at the pace of its slowest essential input. Robot production, lab experiments and space hardware at integrated firms can double output in under two years. Grid power, construction, drug approvals and magnet supply cannot, before 2035.",
+    "replacement_text": "**11. Robots are the bridge, and the bridge opens after 2031.** Robots are the one mechanism in the model that acts on the physical clock directly. In the Embodied case the fleet reaches about 6 million in 2031 and 60 million in 2035, 0.7% and 9% of global manufacturing labor. Robots raise throughput far more than they shorten any single program. Outside the robots branch, Embodied equals Recursive through 2031. By 2035 robots lift eight space nodes by one band each. These cover arc-jet, qualification and flight-software verification throughput, laser-terminal output, a four-year engine, a three-year launcher, halved development cycles and a hundred robots on the Moon. A robot-first firm's ceiling on program compression rises from about 56% to 66\u201367% by 2035, and a typical program gains a few points. Section 4 gives the evidence, including why the robots-build-robots loop is not super-exponential before 2035.",
+    "why": "The finding nearly repeats section 4's short answer, its loop section and the bottom-line bullet. It also uses undefined jargon ('explosive-growth model'). The rewrite keeps the conclusion, names the eight space nodes that move, and sends readers to section 4 for detail. '29 nodes, mostly robotics milestones' blurs the point that only eight are space nodes."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/03-premise.md",
+    "current_text": "A rumor says the October release is one of three planned \"dumps\" of solved problems. As of 7 October 2026 it was unconfirmed; OpenAI spoke only of \"future releases\". If true, it is moderate evidence for the upper Exponential or an earlier Recursive case. It says almost nothing about robots or launch dates (section 4).",
+    "replacement_text": "A rumor says the October release is one of three planned \"dumps\" of solved problems. As of 7 October 2026 it was unconfirmed, and OpenAI spoke only of \"future releases\". If true, it is moderate evidence for the upper Exponential or an earlier Recursive case. The real test is whether each release comes from a newer, stronger model. It says little about robots or space programs. Better mathematics is worth about 1.1\u20131.5x on the robotics timeline, and unlimited cognition moves the Recursive ceiling on program compression only from 51% to 53%.",
+    "why": "The rumor is handled twice: here and in 04b's 'What the three-dumps rumor would and would not mean' block, which repeats the status and the 'moderate evidence' sentence word for word. The rumor is about cognition, so it belongs in section 2. With this change, delete 04b lines 97\u2013101, from '**What the three-dumps rumor would and would not mean.**' through '...moves the Recursive ceiling only from 51% to 53%.'"
+   },
+   {
+    "severity": "medium",
+    "file": "doc/10-signposts.md",
+    "current_text": "| China's rare-earth licensing decisions, and magnet mass per robot in new designs | From November 2026 | Magnets are the hardest cap on a 60-million-robot fleet by 2035. |",
+    "replacement_text": "| China's rare-earth licensing decisions, and magnet mass per robot in new designs | From November 2026 | Sets how tightly magnets cap the robot fleet. The 2035 base fleet needs 26\u2013118 thousand tonnes, 8\u201336% of 2025 output, depending on magnet mass per robot. |",
+    "why": "This contradicts 04b, which lists magnets third under 'What caps the loop, in order'. s4-embodied.md gives no severity ranking; its cap table is ordered by when each cap binds. Also change 04b 'What caps the loop, in order:' to 'What caps the loop, roughly in the order each starts to bind:'. In the same file, the two Starship rows are split by the robot rows, which makes the robot rows look inserted. Merge them: replace the earlier Starship row's middle and last cells with 'Reflights 2027; 100 or more flights a year about 2030; ship turnaround under a week and 300 flights a year 2030\u201333 | Sets the dates for refueling, orbital compute, lunar cargo and Mars in every scenario. It is the physical exponential, independent of AI mathematics, and robots do not move it. |', retitle it 'Starship ship reflights, ship turnaround and annual heavy-launch cadence', and delete the last row."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/06-branches-intro.md",
+    "current_text": "| Robots assemble flight hardware at leading firms, 2032 (Low / Medium) | Everything here moves 1\u20133 years earlier: a million robots in 2029, ten million in late 2032 |",
+    "replacement_text": "| Robots assemble flight hardware at leading firms, 2032 (Medium by 2035) | Most milestones arrive one to four years earlier than in Recursive: a million robots in 2029, flight hardware in 2030, ten million in late 2032 |",
+    "why": "'Everything here moves 1\u20133 years earlier' is wrong, and it does not say compared with what. Against Recursive, the moves are: actuators 2033 to 2029 (4 years), the requalification route 2032 to 2029 (3), lab bench work after 2035 to 2030, and ten million robots after 2035 to 2032. The ISO standard and safety envelopes do not move, and the 10% and quarter-of-aerospace labor nodes stay after 2035. Every other 'Where it gets by 2035' cell uses '(Medium by 2035)' form. In the same table, change 'LISA launches, 2035 (Low by end-2035)' to 'LISA launches, 2035 (Low by 2035)'."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/04-two-clocks.md",
+    "current_text": "The reviewers settled on 20\u201330% as the realistic Exponential gain by 2031, and the trunk puts it at about a third by 2035.",
+    "replacement_text": "The reviewers settled on 20\u201330% as the realistic Exponential gain by 2031, and on about a third by 2035 for programs finished by then (section 10, the engine branch).",
+    "why": "'Trunk' means section 9 ('The trunk: what everything grows from'), but the figure lives in the engine branch, whose internal id is 'trunk'. A reader looking in section 9 will not find it. The same leak occurs in doc/branches/trunk.md: change 'Embodied equals Recursive on every trunk node through 2031.' to 'Embodied equals Recursive on every node in this branch through 2031.'"
+   },
+   {
+    "severity": "medium",
+    "file": "doc/12-quotable.md",
+    "current_text": "| 70\u201373% | Program compression floor with unlimited cognition and robots, 2035 | Model | Section 4 |",
+    "replacement_text": "| 70\u201373% | Ceiling on program compression with unlimited cognition and robots, 2035 (roughly 3.5x faster) | Model | Section 3 |",
+    "why": "Section 3 calls 70\u201373% a ceiling. 'Floor' (also used in 04b's Amdahl table) inverts the meaning for anyone quoting it. After the '20\u201330%' row, add: '| About a third | Realistic program compression by 2035, Exponential, for programs finished by then | Judgment (reviewers' resolution) | Section 10, the engine branch |'. The 2035 base-case figure is quoted in the bottom line but missing from the appendix. Change the source cell of the '56% to 66\u201367%' row to 'Section 3'. In 04b, change '~229 trials for 0.99 at 90%' to '~230 trials for 0.99 at 90%': ln(0.1)/ln(0.99) = 229.1, so 230 trials are needed, and every other mention says 230."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/04-two-clocks.md",
+    "current_text": "| Plateau | about 18% | not computed |\n| Exponential | about 38% | not computed |\n| Recursive | about 51% | about 56% |\n| Embodied, robot-first firm | 56\u201360% | 66\u201367% |",
+    "replacement_text": "| Plateau | about 18% | not modeled |\n| Exponential | about 38% | not modeled; about a third realized (judgment) |\n| Recursive | about 51% | about 56% |\n| Embodied, typical program | about 52% | about 58% |\n| Embodied, robot-first firm | 56\u201360% | 66\u201367% |",
+    "why": "The ceilings for space programs appear in two tables, here and in 04b's 'Amdahl, by domain'. The base case's 2035 cell reads 'not computed', which a writer needs explained. Keep one canonical table here. In 04b, replace '**Amdahl, by domain.** Physics time constants and institutions are held at Recursive values in every Embodied case.' with '**Amdahl beyond space.** Section 3 gives the space-program ceilings. The same method gives lower ceilings in three other domains, because permits, trials and material tests fill more of each schedule. Physics time constants and institutions are held at Recursive values in every Embodied case.' Then delete that table's three space rows (typical, robot-first, 'Floor'). In _skeleton.md, change '(illustrative Amdahl bound; section 4 extends it to robots and 2035)' to '(the illustrative Amdahl bound behind the 2031 ceilings above)'."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/02-method.md",
+    "current_text": "**Scope.** Space technology and development, including the physics and engineering disciplines that feed it, from October 2026 to the end of 2035. The original model ran to 2031; it was extended to 2035, with a fourth scenario for general-purpose robots, after the first version was complete.",
+    "replacement_text": "**Scope.** Space technology and development, including the physics and engineering disciplines that feed it, from October 2026 to the end of 2035. Likelihoods are judged at two checkpoints, the end of 2031 and the end of 2035.",
+    "why": "The scope sentence opens the method by presenting 2035 as an add-on. Stage 7 already records the extension history. 'Checkpoint' is used throughout but never defined in section 1. Two more 2031-only remnants in this file: change '4. For frontier-mathematics nodes, the band is the judged chance that the result is independently checked by 2031.' to '...independently checked by each checkpoint.', and change '...could happen that early but probably will not by 2031.' to '...could happen that early but probably will not by the checkpoint.'"
+   },
+   {
+    "severity": "medium",
+    "file": "graph",
+    "current_text": "domains.capability.tables['Capability-curve parametrization by scenario'] rows: ['Design optimization with guarantees', '2030', '2028', '2028'] / ['Autonomous labs at scale', '2029', '2028', '2028'] / ['Validated physics theory', '>2031', '2029', '2029'] / ['Regulator credit for AI proofs', '>2031', '2030', '2029'] / ['Schedule compression, new space programs (Amdahl ceiling; expected realized value in brackets)', ...]",
+    "replacement_text": "['AI multiphysics design with guarantees', '2030', '2028', '2028'] / ['AI-run closed-loop labs at scale', '2029', '2028', '2028'] / ['AI builds validated physics theory', '2033', '2029', '2029'] / ['Regulators accept AI-produced proofs', '2032', '2030', '2029'] / ['Schedule compression by 2031, new space programs (Amdahl ceiling; expected realized value in parentheses)', ...]",
+    "why": "The section 2 table still shows the legacy '>2031', which the extension brief says 'must not remain anywhere'. The trunk table two sections later gives Plateau 2033 and 2032 for the same nodes. Four row labels also use different names from the trunk nodes, so a reader cannot match them. The compression row has no year."
+   },
+   {
+    "severity": "medium",
+    "file": "graph",
+    "current_text": "domains.robots.signposts[0..2].what_it_changes = '' (three blank cells in 'All domain signposts'); domains.struct.nil_effects: '...lunar fission power under all three scenarios.'; domains.auton.nil_effects: 'Mars launch windows (late 2026, which SpaceX is not using; late 2028/early 2029; early 2031) and transit times: orbital mechanics, not mathematics, limit Mars ISRU and outpost chains to at most two attempts in the horizon.'",
+    "replacement_text": "robots.signposts[0].what_it_changes = 'Sets the robot path: under 50,000 points to the slow path, 60,000\u2013100,000 to the Embodied base path, over 150,000 to the fast path.'; [1] = 'First evidence that robots are reliable enough for paid work at scale. The Embodied case needs 1,000 hours between interventions by about 2030.'; [2] = 'Dates the humanoid safety standard (High by 2028) and shows whether rules slow uncaged deployment.'; struct: '...lunar fission power in every scenario.'; auton: 'Mars launch windows (late 2026, which SpaceX is not using; late 2028/early 2029; early 2031; about April 2033; mid-2035) and transit times: orbital mechanics, not mathematics, limit Mars ISRU and outpost chains to at most two attempts by 2031 and four by 2035.'",
+    "why": "The only robot rows in the domain signpost table have empty 'What it would change' cells, which looks unfinished. Two nil effects are stale 2031/three-scenario text. Also, the robots nil_effects list (edited after the last build) now opens with two 'Physics time constants' items, and the builder shows only the first three. Reorder it so the third shown item is 'Statistics: confidence needs trials or accepted priors...'."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/09-nil.md",
+    "current_text": "A credible forecast says where the effect is nil. These hold in every scenario, including Recursive.",
+    "replacement_text": "A credible forecast says where the effect is nil. These hold in every scenario, including Recursive and Embodied.",
+    "why": "This is stale three-scenario text, and the list ends with a robots bullet. In the same file, the 'Sensors and information' bullet is also 2031-only. Change 'Predicting a solar storm's magnetic orientation a day ahead needs observatories that will not be operating by 2031.' to 'Predicting a solar storm's magnetic orientation a day ahead needs new observatories. The model dates that forecast to about 2034 in the Exponential case and rates it Low even by 2035.' This matches node 'Knowing a solar storm's magnetic punch a day ahead': S2 2034, Low by 2035."
+   },
+   {
+    "severity": "low",
+    "file": "doc/08b-for-whom.md",
+    "current_text": "- **New entrants.** Analysis stops being a moat by about 2028: a small team can carry the analysis load of a large engineering organization. Capital, test facilities and launch access become the gates, and development labor cost falls by perhaps 10\u201320%. For a hardware program, that is a meaningful saving but not a different business.\n- **Agencies and regulators.** The biggest lever on the physical clock is theirs. They decide what AI-made analysis and AI-written proofs are worth as evidence. The base case puts a credibility rulebook at about 2029 and acceptance of AI-produced proofs at about 2030, both Medium. Earlier action would move every certification-gated node in the tree. Agencies also own the one gate AI cannot touch: appropriations.\n- **Insurers and financiers.** Better uncertainty models narrow error bars on some risks, such as collision, drag and heat-shield margins. They do not change the statistics of launch failure or the small number of flights behind them. The model rates a measurable effect on insurance capacity by 2031 as Low.",
+    "replacement_text": "- **New entrants.** Analysis stops being a moat by about 2028, because a small team can carry the analysis load of a large engineering organization. Capital, test facilities and launch access become the gates. Development cost falls by about 10\u201320%, a meaningful saving for a hardware program but not a different business.\n- **Agencies and regulators.** The biggest lever on the physical clock is theirs. They decide what AI-made analysis and AI-written proofs are worth as evidence. The base case puts a credibility rulebook at about 2029 and acceptance of AI-produced proofs at about 2030, both Medium by 2031. Earlier action would move every certification-gated node in the tree. Agencies also control appropriations, a gate AI cannot touch.\n- **Insurers and financiers.** Better uncertainty models narrow error bars on some risks, such as collision, drag and heat-shield margins. They do not change the statistics of launch failure or the small number of flights behind them. In the Exponential case, model-priced insurance for new rockets and constellations is Low by 2031 and Medium by 2035.",
+    "why": "'Development labor cost' mixes up the two figures. The reviewed node is 'AI cuts new space hardware development cost by about 10-20%', which is total cost, and the labor-cost figure was 15\u201330%. The insurer line is stale 2031-only text; the node is S2 2031, Low by 2031 and Medium by 2035. 'Both Medium' needs a checkpoint, because the rulebook stays Medium but proof acceptance becomes High by 2035. 'The one gate AI cannot touch: appropriations' is a colon-then-reveal."
+   },
+   {
+    "severity": "low",
+    "file": "doc/07-by-year.md",
+    "current_text": "- **What Embodied adds after 2031.** Robots pull these earlier or make them more likely by 2035:\n  - ten million robots, from late 2032;\n  - robots on flight hardware across the supplier base, 2033;\n  - qualification campaigns 30% shorter at leading firms, 2033 (High by 2035);\n  - the flight-software verification calendar halved, 2033;\n  - a new large engine in four years, 2033;\n  - a hundred robots on the Moon at once (Medium);\n  - leading firms halving development cycles, 2034 (Medium).",
+    "replacement_text": "- **What Embodied adds after 2031.** Outside the robots branch, robots lift eight space nodes by one band by 2035, among them qualification campaigns 30% shorter at leading firms (2033, High by 2035) and leading firms halving development cycles (2034, Medium). Section 4 lists all eight. The robots branch itself runs one to four years ahead of Recursive, with ten million robots from late 2032.",
+    "why": "This is the fourth near-identical copy of the Embodied node list (04b bullets, the 04b details table, the section 10 table column, here), and it sits awkwardly in an Exponential-case waterfall. A pointer keeps the waterfall on its own scenario. Also change line 1 'Bands in brackets' to 'Bands in parentheses', which matches the text and US usage."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "branches[*].thesis S-code phrasing. trunk: 'Robots (S4) add little before 2032; robot-first firms approach half on programs started after 2032.' robots: 'If S3-grade AI makes dexterity mostly software by about 2028 (the S4 premise), ... so S4 changes almost nothing in the tree before 2032.' certification: 'S4 robots add a band at leading firms: 30% shorter campaigns, High by 2035 against Medium in S3.' math-frontier: 'Robots (S4) speed nothing here.' entry: 'Robots (S4) speed only arc-jet testing.' orbital-compute-power: 'Robots (S4) change nothing here: launch binds.' moon-mars: 'S4 robots add one band only to the size of the lunar robot fleet.' science: 'S4 adds no year, even on a second private telescope.' safe-orbits: 'S4 adds nothing because no gate here is labor-bound, removal at scale included.' verified-autonomy: 'S4 adds about two years on one node:' plasma-nuclear: 'by 2033 (S3)' and 'Robots (S4) move no year or band here.'",
+    "replacement_text": "trunk: 'Robots add little before 2032. In the Embodied case, programs started after 2032 at robot-first firms approach a 50% schedule cut.' robots: 'In the Embodied case, Recursive-grade AI makes dexterity mostly software by about 2028, and the fleet passes 1 million robots in late 2029 and 10 million in late 2032. ... so Embodied changes almost nothing outside this branch before 2032.' certification: 'In the Embodied case, robots add a band at leading firms. Campaigns 30% shorter are High by 2035, against Medium in Recursive.' math-frontier: 'Robots speed nothing here, even in the Embodied case.' entry: 'In the Embodied case, robots speed only arc-jet testing.' orbital-compute-power: 'Robots change nothing here, even in the Embodied case, because launch binds.' moon-mars: 'In the Embodied case, robots add one band, and only to the size of the lunar robot fleet.' science: 'Embodied adds no year, even on a second private telescope.' safe-orbits: 'Embodied adds nothing, because no gate here is labor-bound, removal at scale included.' verified-autonomy: 'Embodied adds about two years on one node.' plasma-nuclear: 'by 2033 (Recursive)' and 'Robots move no year or band here, even in the Embodied case.'",
+    "why": "The theses are the first line of each branch, and they are the only prose that uses S-codes where everything else uses scenario names. The robots thesis's 'S4 changes almost nothing in the tree before 2032' is wrong for its own branch, which moves from 2028. 'Approach half' has no noun. Two colon-reveals ('launch binds', '30% shorter campaigns') go."
+   }
+  ]
+ },
+ {
+  "lens": "COPY EDIT OF BRANCH THESES AND HOOKS (writes work/R7-copy.json)",
+  "verdict": "I wrote /Users/alex/projects/openai math paper/model/work/R7-copy.json with 13 branch_update entries (20 thesis or hook fields) and 16 node title updates. It applies cleanly: apply_edits.py apply graph-v7.json /tmp/r7.json work/R7-copy.json gives /tmp/r7-report.json with every check count at 0, the same as the graph-v7 baseline, an empty apply_log and no autofixes; only titles, theses, hooks and the tool's empty 'revisions' default changed. Before the edits, all 13 theses broke the 50-word cap except science, which was at 50 (robots 92, math-frontier 69, plasma 66, safe-orbits 64, engines 64, networks 63, certification 63). Four hooks were over 60 words (networks 88, engines 82, orbital 73, math-frontier 63). After the edits every thesis is 49-50 words, every hook is 60 words or fewer, and every edited title is 59 characters or fewer. Numbers were kept or their claims cut. The cut claims are the RSA-2048 qubit estimates (networks hook) and the 20-30% dawn-dusk payload penalty (orbital hook). Two stale or wrong statements are fixed. The certification thesis gave the 2031 band ('Medium') for operator analysis-first qualification; it now gives High by 2035. The science thesis and hook stated LISA's 2035 launch as fact, but its node is Low by 2035 in every scenario; both now say 'planned'. The trunk thesis's vague robot-first claim now uses node capability-35-cycle-halved: S4 2034, Medium by 2035. Four renamed titles are quoted word for word in hand-written docs, so four doc findings (safe-orbits.md twice, plasma-nuclear.md, 06-branches-intro.md) must be applied with R7-copy.json. One more 06-branches-intro.md wording change is optional.",
+  "findings": [
+   {
+    "severity": "medium",
+    "file": "graph",
+    "current_text": "[branch certification thesis] Operators fly hardware qualified mainly by AI analysis about 2029 (base case, Medium). Government credit follows in 2030-31. Test standards and new government designs follow about 2033 but stay Low in the base case. A regulator cap holds 15% shorter qualification at Medium by 2035. S4 robots add a band at leading firms: 30% shorter campaigns, High by 2035 against Medium in S3.",
+    "replacement_text": "Operators fly hardware qualified mainly by AI analysis about 2029 (base case, High by 2035). Government credit follows in 2030-31. Test standards and new government designs follow about 2033, still Low. Qualification 15% shorter stays capped at Medium by 2035. S4 lifts 30% shorter campaigns at leading firms to High.",
+    "why": "63 words, over the 50 cap. It was also stale: '(base case, Medium)' is the 2031 band, and node physclock-commercial-analysis-first-qual is High by 2035 in S2, so the thesis now gives the 2035 band. 'A regulator cap' is cut because the node's why says 'Capped at Medium' for physical and government-signpost reasons, not only regulators. 50 words."
+   },
+   {
+    "severity": "medium",
+    "file": "graph",
+    "current_text": "[branch science thesis] Base case: AI doubles archival science per dollar from 2028 and readies LISA's analysis around 2031, well before its 2035 launch. Satellite methane numbers become compliance evidence around 2030. Photons, budgets, regulators and launch dates set the pace to 2035. S4 adds no year, even on a second private telescope.",
+    "replacement_text": "Base case: AI doubles archival science per dollar from 2028 and readies LISA's analysis around 2031, well before its planned 2035 launch. Satellite methane numbers become compliance evidence around 2030. Photons, budgets, regulators and launch dates set the pace. S4 adds no year, even on a second private telescope.",
+    "why": "The thesis stated LISA's 2035 launch as fact, but node science-35-lisa-launch is Low by 2035 in every scenario. It now says 'planned 2035 launch'. Cut 'to 2035' to stay within the cap. 49 words."
+   },
+   {
+    "severity": "medium",
+    "file": "graph",
+    "current_text": "[branch science reader_hook] The waveform physics LISA needs to hear small bodies spiral into giant black holes (second-order self-force) exists today only for circular orbits around non-spinning black holes. The base case finishes it around 2030, roughly three to five years ahead of the pre-AI path (analyst judgment). LISA still launches in 2035.",
+    "replacement_text": "The waveform physics LISA needs to hear small bodies spiral into giant black holes (second-order self-force) exists today only for circular orbits around non-spinning black holes. The base case finishes it around 2030, roughly three to five years ahead of the pre-AI path (analyst judgment). LISA's launch is still planned for 2035.",
+    "why": "'LISA still launches in 2035' contradicts science-35-lisa-launch, which is Low by 2035 in every scenario. 52 words."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/branches/safe-orbits.md",
+    "current_text": "*Chinese and Western fleets coordinate maneuvers automatically* about 2033",
+    "replacement_text": "*Chinese and Western fleets coordinate maneuvers by machine* about 2033",
+    "why": "The narrative quotes the node title, which R7-copy.json renames (astro-35-cross-bloc-coordination). Apply this together with R7-copy.json."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/branches/safe-orbits.md",
+    "current_text": "*Vigil side views time storm arrivals to within 6 hours* land about 2035",
+    "replacement_text": "*Solar-storm arrival forecast within 6 hours, using Vigil* land about 2035",
+    "why": "The narrative quotes the node title, which R7-copy.json renames (astro-35-l5-storm-arrival-forecast)."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/branches/plasma-nuclear.md",
+    "current_text": "*Whole-thruster kinetic runs fast enough for design loops* arrive about 2034 as a second design route.",
+    "replacement_text": "*Full-thruster plasma simulation fast enough for design work* arrives about 2034 as a second design route.",
+    "why": "The narrative quotes the node title, which R7-copy.json renames (plasma-35-kinetic-design-loop). The verb becomes singular."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/06-branches-intro.md",
+    "current_text": "In-orbit post-quantum switch over proven update paths, 2032 (Medium by 2035)",
+    "replacement_text": "Satellites in service switch to post-quantum encryption, 2032 (Medium by 2035)",
+    "why": "The intro table quotes the node title, which R7-copy.json renames (comms-35-in-orbit-pq-cutover)."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[branch trunk thesis] If research-grade AI math reaches outside engineers in 2027 (base case), on-demand analysis is routine in space engineering by 2028. Tests, factories and launches run on physical time, so schedules shrink 20-30% by 2031 and about a third by 2035. Robots (S4) add little before 2032; robot-first firms approach half on programs started after 2032.",
+    "replacement_text": "If research-grade AI math reaches outside teams in 2027 (base case), space engineers use it on demand by 2028. Tests, factories and launches run on physical time, so schedules shrink 20-30% by 2031 and about a third by 2035. In S4, leading firms halve cycles about 2034 (Medium by 2035).",
+    "why": "55 words, over the cap. The vague robot-first sentence is replaced by the claim of node capability-35-cycle-halved (S4 2034, Medium by 2035), which doc/branches/trunk.md also states. 50 words."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[branch trunk reader_hook] A research-grade result costs about $200-2,000 in tokens (the low figure counts only published successes), so 1,000 hard problems a year cost one to ten engineers before checking. Checking sets the price. Yet only about a third of a program's critical path is cognitive, so Amdahl's law caps base-case schedule compression at about 38%; realized gains are likelier 20-30%.",
+    "replacement_text": "A research-grade result costs about $200-2,000 in tokens (the low figure counts only published successes), so 1,000 hard problems a year cost one to ten engineers before checking. Checking sets the price. Only about a third of a program's critical path is thinking work, so base-case schedule cuts top out near 38%. Realized gains are likelier 20-30%.",
+    "why": "Within the word limit, but 'Amdahl's law caps ... compression' is jargon; it is now in plain words. Numbers unchanged. 57 words."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[branch math-frontier thesis] If AI settles famous fluid problems, the theorems change almost no engine, heat shield or orbit. Engineers get proof machinery and on-demand error bars from about 2028 (base case). Math stops limiting leading programs about 2029 and suppliers about 2032. Certifiers start auditing AI analysis instead of redoing it about 2033. Robots (S4) speed nothing here. The one link runs the other way: reachability math feeds robot safety envelopes.",
+    "replacement_text": "If AI settles famous fluid problems, almost no engine, heat shield or orbit changes. Engineers get proof tools and on-demand error bars from about 2028 (base case). Math stops limiting leading programs about 2029, suppliers about 2032. Certifiers audit AI analysis instead of redoing it about 2033. S4 adds nothing.",
+    "why": "69 words, over the cap. Cut the side point that reachability math feeds robot safety. All years kept. 50 words."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[branch math-frontier reader_hook] An AI agent formalized a Vlasov-Maxwell-Landau plasma result in 10 days for about $200, with no human-written code (one mathematician, 229 prompts). Two of its three failure modes, hypothesis creep and definition-alignment bugs, came from stating the problem. Only 16 partial-differential-equation and 12 dynamics families sit among the release's 372, reflecting which problems the lab chose to pose and which survived its filter.",
+    "replacement_text": "An AI agent formalized a plasma physics result (Vlasov-Maxwell-Landau) in 10 days for about $200, with no human-written code (one mathematician, 229 prompts). Two of its three failure modes came from stating the problem. Only 16 of the release's 372 families concern partial differential equations and 12 concern dynamics, reflecting which problems the lab chose to pose.",
+    "why": "63 words, over 60. Cut the jargon names of the failure modes and 'which survived its filter'. 57 words."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[branch verified-autonomy thesis] Verified flight code gets 15-120x cheaper per line by 2028-29 and flies on landers and constellations about 2029 (base case). By 2035 certifiers accept AI-written proofs (High); crewed credit stays Medium and a proof-checked Mars landing is Low. S4 adds about two years on one node: robot-run ground tests halve the verification calendar at robot-first firms about 2033.",
+    "replacement_text": "Verified flight code gets 15-120x cheaper per line by 2028-29 and flies on landers and constellations about 2029 (base case). By 2035 certifiers accept AI-written proofs (High). Crewed credit stays Medium and a proof-checked Mars landing Low. In S4, robot-run tests halve verification time about 2033, two years early.",
+    "why": "58 words, over the cap. 'Two years early' means S4 2033 against S3 2035 on verif-35-verification-calendar-halved. 49 words."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[branch networks thesis] Certified routing and interference bounds put meshes and phone-to-satellite service on proven plans by 2029-30 (base case). Through 2035 the rest moves at the pace of the 2031 defense post-quantum deadline, WRC-31, standards cycles and launches, so the base and recursive cases end close together. Robots add a year only to merchant laser-terminal supply, because mandates, committees and launches set the other dates.",
+    "replacement_text": "Certified routing and interference bounds put meshes and phone-to-satellite service on proven plans by 2029-30 (base case). Then the 2031 defense post-quantum deadline, WRC-31, standards and launches set the pace, so the base and Recursive cases end close together by 2035. Robots (S4) gain one year, on laser-terminal supply.",
+    "why": "63 words, over the cap. Cut the explanation of why robots matter only for laser terminals. 49 words."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[branch networks reader_hook] The FCC's 2026 rules judge satellite interference against simulated criteria, such as 3% throughput loss, which turns spectrum rights into a math problem. The Department of War requires post-quantum crypto in use on all its systems by the end of 2031, and NIST's draft rules disallow today's public-key encryption in 2035. A GEO satellite launched in 2028 flies to about 2043. Estimates of the qubits needed to break RSA-2048 fell from 20 million in 2019 to under 1 million in 2025, and one 2026 preprint claims under 100,000.",
+    "replacement_text": "The FCC's 2026 rules judge satellite interference against simulated criteria, such as 3% throughput loss, so spectrum rights become a math problem. The Department of War requires post-quantum crypto on all its systems by the end of 2031, and NIST's draft rules disallow today's public-key encryption in 2035. A GEO satellite launched in 2028 flies to about 2043.",
+    "why": "88 words, far over 60. The RSA-2048 qubit-estimate sentence is cut whole, so none of its numbers are altered. 58 words."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[branch engines-materials thesis] Certified flow, combustion and materials models give engines model-based reuse life from about 2029 in the base case. In 2032-35 the likeliest gains are 50-flight engine life and reusable lunar landers. An AI-designed alloy may fly by 2035, and likely does in Recursive. Hot fire, flights and launch windows set the pace. Robots lift one band: a four-year large engine at a robot-first firm.",
+    "replacement_text": "Certified flow and materials models give engines reuse life by analysis from about 2029 (base case). Hot fire and flights set the pace. In 2032-35, 50-flight engines and reusable lunar landers are likeliest. An AI-designed alloy may fly, likely in Recursive. Robots (S4) lift one band: a four-year large engine.",
+    "why": "64 words, over the cap. Cut 'combustion', 'launch windows' and 'at a robot-first firm'. The alloy sentence drops 'by 2035' because the 2032-35 sentence before it sets the window. Every year and the S4 one-band point are kept. 50 words."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[branch engines-materials reader_hook] A reusable rocket engine spends about 3-6 minutes at full temperature per flight, up to about 5 hours over 50 flights, so its hot parts can be life-tested on rigs in weeks. Reliability takes longer. Showing 0.99 engine reliability at 90% confidence takes about 230 independent zero-failure starts. One Starship flight logs about 65-70 starts, but they share a vehicle and a build lot, and each failure found resets the count. Failure modes found in hot fire and flight set the pace.",
+    "replacement_text": "A reusable rocket engine spends about 3-6 minutes at full temperature per flight, up to about 5 hours over 50 flights, so rigs can life-test its hot parts in weeks. Reliability takes longer: 0.99 at 90% confidence needs about 230 independent zero-failure starts. One Starship flight logs about 65-70 starts, but they share a vehicle and a build lot.",
+    "why": "82 words, over 60. Cut 'each failure found resets the count' and the last sentence, which repeated the thesis. The 230 starts check out: ln 0.1 / ln 0.99 = 229. 59 words."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[branch entry thesis] AI uncertainty analysis lets commercial capsules fly thinner heat shields around 2030 (base case, Medium). Ship heat shields reach five reflights by 2030. Three-day turnaround and crews on a reusable ship stay long shots in the base case by 2035. Mars landings, aerocapture and crewed margins wait on windows, budgets and certifiers. Robots (S4) speed only arc-jet testing.",
+    "replacement_text": "AI uncertainty analysis lets commercial capsules fly thinner heat shields around 2030 (base case, Medium). Ship heat shields reach five reflights by 2030. Three-day turnaround and crewed reusable ships stay Low by 2035. Windows, budgets and certifiers pace Mars landings and crewed margins. Robots (S4) speed only arc-jet testing.",
+    "why": "58 words, over the cap. 'Long shots' becomes the band, Low, which matches hyper-35-ship-heatshield-72h and hyper-35-crewed-ship-reentry in S2. Aerocapture cut. 49 words."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[branch entry reader_hook] For NASA's now-cancelled Mars Sample Retrieval Lander, a Monte Carlo at one stressing point found a heat shield at ~75% of baseline thickness kept its adhesive bondline below the limit in ~99% of cases. But it sampled heating error only up to existing margins, while at that 8 km/s entry the radiation model under-predicted shock-tube data by up to 2x.",
+    "replacement_text": "For NASA's now-cancelled Mars Sample Retrieval Lander, a random-sampling study at one stressing point found a heat shield at ~75% of baseline thickness kept its glue line below the limit in ~99% of cases. But it sampled heating error only up to existing margins, while at that 8 km/s entry the radiation model under-predicted shock-tube data by up to 2x.",
+    "why": "At 60 words but jargon-heavy. 'Monte Carlo' becomes 'random-sampling study' and 'adhesive bondline' becomes 'glue line'. Same word count and numbers."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[branch orbital-compute-power thesis] SpaceX's launch, hardware and capital clock paces orbital compute. Base case: 100-kW-class satellites fly about 2028, 1 GW is Low by 2031 and Medium by 2035, and 10 GW comes after 2035. AI math adds a few percent; arrays and chip temperatures matter more. Robots (S4) change nothing here: launch binds.",
+    "replacement_text": "SpaceX's launch, hardware and capital clock paces orbital compute. Base case: 100-kW-class satellites fly about 2028, 1 GW is Low by 2031 and Medium by 2035, and 10 GW comes after 2035. AI math adds a few percent. Arrays and chip temperatures matter more. Robots (S4) change nothing: launch binds.",
+    "why": "51 words, one over the cap. 50 words."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[branch orbital-compute-power reader_hook] A gigawatt of orbital compute is about 4,000 Starmind-class satellites and 110-180 Starship flights. Ten gigawatts needs about 700-1,800 flights at low-orbit payloads, and more to dawn-dusk orbit, where each flight carries roughly 20-30% less (assumption). That is two to six years of every flight at the 300 a year the model expects in the early 2030s. Qualifying chips to run about 30 C hotter saves about 1,900 t per GW (33FG model).",
+    "replacement_text": "A gigawatt of orbital compute is about 4,000 Starmind-class satellites and 110-180 Starship flights. Ten gigawatts needs about 700-1,800 flights at low-orbit payloads, more to dawn-dusk orbit. That is two to six years of every flight at 300 a year, the model's early-2030s rate. Qualifying chips to run about 30 C hotter saves about 1,900 t per GW (33FG model).",
+    "why": "73 words, over 60. Cut the assumed 20-30% payload penalty to dawn-dusk orbit; the penalty is still mentioned as 'more'. The 700-1,800 flights at 300 a year check out as 2.3-6 years. 60 words."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[branch moon-mars thesis] AI-planned, machine-checked operations give lunar and Mars robots severalfold more work per operator by about 2029 (base case). A self-running Moon base and tonne-scale lunar oxygen are Medium by 2035. Landed mass, night power, funding and Mars windows set the pace. S4 robots add one band only to the size of the lunar robot fleet.",
+    "replacement_text": "AI-planned, machine-checked operations give Moon and Mars robots severalfold more work per operator about 2029 (base case). A self-running Moon base and tonne-scale lunar oxygen are Medium by 2035. Landed mass, night power, funding and Mars windows set the pace. Robots (S4) lift one band, on lunar robot fleet size.",
+    "why": "55 words, over the cap. 50 words."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[branch safe-orbits thesis] AI makes orbit, collision and space-weather forecasts honest. Certified million-object screening exists and AI-designed trajectories fly by 2029 (base case), and paid debris removal can recur from about 2030. Through 2035, safe low orbit waits on small-debris sensors, standards and US-China politics. Storm forecasts reach 8 hours first, then need Vigil. S4 adds nothing because no gate here is labor-bound, removal at scale included.",
+    "replacement_text": "AI makes orbit, collision and storm forecasts honest. Certified million-object screening and AI-designed trajectories arrive by 2029 (base case), recurring paid debris removal about 2030. Safe low orbit waits on small-debris sensors, standards and US-China politics through 2035. Storm forecasts reach 8 hours, then need Vigil. S4 adds nothing.",
+    "why": "64 words, over the cap. Cut the labor-bound explanation for S4. 49 words."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[branch plasma-nuclear thesis] If AI and diagnostics solve Hall-thruster electron transport around 2030 (base case), thrusters are designed before they are built, and cheap kinetic runs add a second design route by 2033 (S3). Model-based life credit and a U.S. reactor launch are still Low by 2035: wear hours, agency rules, budgets and Mars windows bind. Fusion propulsion waits past 2035. Robots (S4) move no year or band here.",
+    "replacement_text": "If AI and diagnostics solve Hall-thruster electron transport around 2030 (base case), thrusters are designed before being built. Cheap full-thruster simulations add a second design route by 2033 (S3). Analysis-based life credit and a U.S. reactor launch stay Low by 2035. Fusion propulsion waits past 2035. Robots (S4) move nothing.",
+    "why": "66 words, over the cap. The jargon 'kinetic runs' becomes 'full-thruster simulations', and the list of binding gates is cut. Years and the Low band are kept. 50 words."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[branch robots thesis] If S3-grade AI makes dexterity mostly software by about 2028 (the S4 premise), the fleet passes 1 million robots in late 2029 and 10 million in late 2032. Robots reach flight hardware at leading firms about 2030 (Medium by 2031), run integration and test lines around the clock from about 2031 and reach suppliers about 2033. Off Earth they build outpost-scale lunar pads and roads and assemble structures in orbit about 2033. Physics, launch, landed mass and paperwork still set most dates, so S4 changes almost nothing in the tree before 2032.",
+    "replacement_text": "S4 premise: S3-grade AI makes dexterity mostly software about 2028. The fleet passes 1 million in late 2029 and 10 million in late 2032. Robots build flight hardware at leading firms about 2030 (Medium by 2031), suppliers about 2033. Elsewhere S4 changes little before 2032: physics, launch and paperwork bind.",
+    "why": "92 words, nearly twice the cap. Cut the round-the-clock test and off-Earth construction clauses. Kept the fleet years, which match the node data (1.22M at end-2029, past 10M in late 2032), the leading-firm year with its Medium-by-2031 band, and the before-2032 point. 50 words."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[node science-35-eo-routine-mrv title] Satellite methane numbers routinely correct reported emissions",
+    "replacement_text": "Satellite methane data routinely correct reported emissions",
+    "why": "62 characters, over 60. Now 59."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[node plasma-35-fusion-drive-ground-test title] A fusion-drive prototype makes fusion and thrust on the ground",
+    "replacement_text": "Fusion-drive ground prototype makes fusion and thrust",
+    "why": "62 characters, over 60. Now 53."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[node comms-35-ntn-standard-ai-codes title] AI-designed codes ship in a published satellite link standard",
+    "replacement_text": "AI-designed codes ship in a satellite link standard",
+    "why": "61 characters, over 60. Now 51."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[node science-35-answer-first-missions title] Science mission flies with downlink sized for onboard answers",
+    "replacement_text": "Science mission built to downlink onboard answers flies",
+    "why": "61 characters, over 60. The node's chain has the mission launch about 2033, so the title keeps 'flies'. Now 55."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[node astro-35-cross-bloc-coordination title] Chinese and Western fleets coordinate maneuvers automatically",
+    "replacement_text": "Chinese and Western fleets coordinate maneuvers by machine",
+    "why": "61 characters, over 60. The description says the exchange is machine to machine. Quoted in doc/branches/safe-orbits.md (see the doc finding). Now 58."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[node astro-35-lunar-nav-certified-service title] Lunar navigation service with proven integrity in routine use",
+    "replacement_text": "Lunar navigation with proven error bounds in routine use",
+    "why": "61 characters, over 60. 'Integrity' is jargon; the description means machine-checked protection levels. Now 56."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[node plasma-35-kinetic-design-loop title] Whole-thruster kinetic runs fast enough for design loops",
+    "replacement_text": "Full-thruster plasma simulation fast enough for design work",
+    "why": "Jargon: 'kinetic runs', 'design loops'. Quoted in doc/branches/plasma-nuclear.md (see the doc finding)."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[node comms-35-in-orbit-pq-cutover title] In-orbit post-quantum switch over proven update paths",
+    "replacement_text": "Satellites in service switch to post-quantum encryption",
+    "why": "Jargon and hard to parse. Quoted in doc/06-branches-intro.md (see the doc finding)."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[node comms-35-joint-detection-ground-station title] Deep-space ground station receiver beats photon counting",
+    "replacement_text": "Deep-space laser ground station gets more bits per photon",
+    "why": "Jargon: 'beats photon counting'. The description says the station returns more bits per received photon."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[node astro-35-l5-storm-arrival-forecast title] Vigil side views time storm arrivals to within 6 hours",
+    "replacement_text": "Solar-storm arrival forecast within 6 hours, using Vigil",
+    "why": "Jargon: 'Vigil side views time'. The new title parallels the existing node 'Solar-storm arrival forecast within about 8 hours'. Quoted in doc/branches/safe-orbits.md (see the doc finding)."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[node verif-35-proven-timing-isolation title] Space processor flies with proven timing isolation",
+    "replacement_text": "Multicore space chip flies with proven worst-case timing",
+    "why": "Jargon: 'timing isolation'. The description means flight software keeps its worst-case timing whatever runs on the other cores."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[node comms-35-merchant-laser-terminals title] Merchant laser terminals ship at 3,000 a year",
+    "replacement_text": "Independent suppliers ship 3,000 laser terminals a year",
+    "why": "Jargon: 'merchant'. The description means suppliers outside SpaceX, Amazon and China."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[node comms-35-certified-shell-in-service title] Constellation shell designed with certified tools in service",
+    "replacement_text": "Constellation designed with certified tools enters service",
+    "why": "60 characters and hard to parse; 'shell' is jargon. Now 58."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[node science-35-helio-constellation-flight title] Sun-watching constellation built for 3D reconstruction flies",
+    "replacement_text": "Sun-watching fleet built to map the solar wind in 3D flies",
+    "why": "60 characters, and '3D reconstruction' is jargon. The description says coronal or solar-wind reconstructions. Now 58."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[node struct-35-beyond-dawn-dusk-compute title] Orbital compute at scale beyond dawn-dusk orbits",
+    "replacement_text": "100 MW of orbital compute outside dawn-dusk orbits",
+    "why": "'At scale' is vague. The description sets the bar at 100 MW, so the title now says so."
+   },
+   {
+    "severity": "low",
+    "file": "graph",
+    "current_text": "[node robo-capital-goods-loop title] Robots work in the plants that make long-lead equipment",
+    "replacement_text": "Robots work in the plants that make heavy equipment",
+    "why": "Jargon: 'long-lead equipment'. The description means power transformers, cryogenic and compressor plant, and machine tools. The new title parallels 'Robots work in the plants that make robot parts'."
+   },
+   {
+    "severity": "low",
+    "file": "doc/06-branches-intro.md",
+    "current_text": "Merchant laser terminals at 3,000 a year, a year earlier",
+    "replacement_text": "3,000 laser terminals a year from independent suppliers, a year earlier",
+    "why": "Optional. The intro table paraphrases this title, so it is not a verbatim break, but this matches the plainer title of comms-35-merchant-laser-terminals."
+   }
+  ]
+ }
+]

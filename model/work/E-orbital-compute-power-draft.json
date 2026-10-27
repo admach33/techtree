@@ -1,0 +1,1727 @@
+{
+ "notes": "E-orbital-compute-power (2026-10-07): branch extended to 2035 and S4. All 27 nodes reviewed: note_2035 written, needs_2035_review false, S4 = S3 for every year and band_2031 where the S3 year is 2031 or earlier. Legacy >2031 values resolved: struct-deployment-mechanics S1 2033, struct-two-phase-microgravity-models S1 2033 (both after cap-physics-theory S1 2032 in the trunk draft), struct-fsp-next-gen-design S1 2032, capability-ai-eda-space-processor S1 2032, materials-perovskite-tandem-flight S1 2033, struct-large-sail-flight S1 2034, struct-100kw-per-tonne-fleet S1 2033, materials-perovskite-primary-power S1 2034, struct-fsp-lunar-100kwe 2033 in all scenarios, struct-km-monolith S1/S2 >2035, S3 2034, S4 2033, struct-gw-orbital-compute S1 2033, materials-specific-power-step S1 >2035 and S2-S4 2033. S4 credit: one year on struct-km-monolith only (robotic in-orbit assembly, per s4-embodied credit_only_2032_2035); every other node is launch-, flight-data-, qualification- or funding-bound, or lands before robots are useful in aerospace. Four new nodes: struct-35-mw-class-compute-satellite, struct-35-10gw-orbital-compute (spine), struct-35-orbital-training-run, struct-35-beyond-dawn-dusk-compute. Soft edges from robo-structured-factory-useful and robo-aerospace-tolerance-work to new nodes; the robots draft already adds robo-* soft edges to existing branch nodes, so they are not repeated. Soft edges from capability-35-heavy-cadence-300 and capability-35-internal-cost-100 (trunk draft) are skipped unless that draft is applied first. Regulatory cap: High by 2035 on struct-gw-orbital-compute and struct-formation-compute-clusters rests on the Starmind FCC filing (Jan 2026, Sep 16 2026 response) as the named mechanism.",
+ "update": [
+  {
+   "id": "materials-perovskite-degradation-models",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 perovskite tandems will have five to ten years of on-orbit data from several flights, so validated lifetime models are High in S2-S4 and Medium in S1. S4 equals S3 because the binding data come from orbit, and robots add nothing there.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic: materials-learned-functionals hard -> soft (ion-migration and defect parameters can be fit from experiment). Auditor: cap-autonomous-labs hard -> soft (zero lag behind it was implausible; first models can use published aging and flight data); signpost no longer cites Chinese tandems in orbit (the Tianjin-led 27.49% cell flew on a balloon). Years and bands unchanged. | E-orbital-compute-power (2026-10-07): 2035/S4 extension. band_2035: S1 Low -> Medium, S2 Medium -> High, S3 Medium -> High, S4 Medium -> High.",
+    "revisions": [
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035: S1 Low -> Medium, S2 Medium -> High, S3 Medium -> High, S4 Medium -> High",
+      "from": {
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "materials-see-system-models",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 compute fleets will have flown for six years and error statistics will be routine, so every scenario is High, S1 included. S4 equals S3 because the work is analysis of beam and flight data.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic + advocate + auditor: the ~2.5x compute-per-watt lever (TMR replaced by ABFT) removed; no orbital-compute operator flies accelerators in TMR, so the lever is right-sized mitigation (~5-20%, assumption) and confidence. Skeptic: S3 2027 -> 2028 (S3 equals S2 through 2027; the first TPU flight only reached orbit Oct 1 2026). Auditor: CORHA-2 marked unverified; Space-1 2027 date flagged as secondary. Status and signpost updated for the Transporter-18 launch. Advocate's outgoing soft edges to physclock-satellite-gen-cadence and capability-ai-native-spacecraft left to those branches (see notes). | E-orbital-compute-power (2026-10-07): 2035/S4 extension. band_2035: S1 Medium -> High.",
+    "revisions": [
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035: S1 Medium -> High",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-deployment-mechanics",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 resolves to 2033, a year after its physics-theory prerequisite (2032). By 2035 hundreds of compute satellites a year deploy 75 m arrays, which supplies validation data, so S2-S4 rise to High; S4 equals S3 because the gate is flight data.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Advocate: soft edge from struct-highflux-radiator-flight (compute-satellite array deployments as flight data) and why updated. Advocate's S2 2030 -> 2029 rejected: zero lag behind cap-physics-theory (S2 2029), Starmind deployments at volume only from ~2029, and km-scale extrapolation remains. Years and bands unchanged. | E-orbital-compute-power (2026-10-07): 2035/S4 extension. earliest_year: S1 >2031 -> 2033; band_2035: S1 Low -> Medium, S2 Medium -> High, S3 Medium -> High, S4 Medium -> High.",
+    "revisions": [
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "earliest_year: S1 >2031 -> 2033; band_2035: S1 Low -> Medium, S2 Medium -> High, S3 Medium -> High, S4 Medium -> High",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2029",
+        "S4": "2029"
+       },
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-two-phase-microgravity-models",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 resolves to 2033, a year after its physics-theory prerequisite. By 2035 compute fleets will have streamed years of thermal telemetry, so S2-S4 rise to High, though the best data may stay with the fleet owner; S4 equals S3 because the gate is microgravity data.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): All three lenses: node was a dead end; soft edges added to struct-radiator-optimization and struct-radiator-lightweight-production. Advocate: soft edges from struct-highflux-radiator-flight (fleet telemetry) and to struct-fsp-radiator-qual (heat-pipe radiators). Skeptic: telemetry date ~2027-28 -> ~2028-29 (first-flight slip) and single-phase caveat. Advocate's S2 2030 -> 2029 rejected (zero lag behind cap-physics-theory S2 2029; first fleet data 2028-29 and possibly single-phase). Years and bands unchanged. | E-orbital-compute-power (2026-10-07): 2035/S4 extension. earliest_year: S1 >2031 -> 2033; band_2035: S1 Low -> Medium, S2 Medium -> High, S3 Medium -> High, S4 Medium -> High.",
+    "revisions": [
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "earliest_year: S1 >2031 -> 2033; band_2035: S1 Low -> Medium, S2 Medium -> High, S3 Medium -> High, S4 Medium -> High",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2029",
+        "S4": "2029"
+       },
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "materials-battery-life-qual",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 model-based life prediction has years of use behind it, so a supplier qualification on that basis is High in S2-S4 and Medium in S1. It matters more if compute fleets move to orbits with eclipses (struct-35-beyond-dawn-dusk-compute); S4 equals S3 because customer acceptance binds.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic + auditor: S2/S3 2028 -> 2029 (a prediction tool needs early-cycle data generated after its 2028 inputs; node signpost already says 2029); dawn-dusk note added. Skeptic: materials-learned-functionals and cap-autonomous-labs hard -> soft; gate data -> qualification. Auditor: ISRO 'qualified' corrected to a 21-hour, 15-orbit flight demonstration. Bands unchanged. | E-orbital-compute-power (2026-10-07): 2035/S4 extension. band_2035: S1 Low -> Medium, S2 Medium -> High, S3 Medium -> High, S4 Medium -> High.",
+    "revisions": [
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035: S1 Low -> Medium, S2 Medium -> High, S3 Medium -> High, S4 Medium -> High",
+      "from": {
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "materials-verified-fault-tolerance",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Training runs in orbit (struct-35-orbital-training-run) make silent data corruption costly from about 2032, so demand for proven bounds rises: S2 goes to High and S1 to Medium by 2035. S4 equals S3 because the work is proofs and adoption.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic + auditor: S2 2028 -> 2029 and S3 2027 -> 2028 (zero lag behind 2028 prerequisites; P2 lag); S2 High -> Medium (P2 default Medium, adoption gate, weak demand). Auditor: S1 Medium -> Low (P2 lag from 2029 prerequisites); Lean wording made T3/unaudited; families 177/178 noted as nil P6 links. Skeptic: floating-point ABFT claim corrected (detection threshold plus error bound, not 1 - 1e-9 for any single-bit fault). ~2.5x lever removed (all three lenses). Advocate: soft edge to materials-cots-orbital-compute-ops added for spine continuity. S3 High kept. | E-orbital-compute-power (2026-10-07): 2035/S4 extension. band_2035: S1 Low -> Medium, S2 Medium -> High.",
+    "revisions": [
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035: S1 Low -> Medium, S2 Medium -> High",
+      "from": {
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-radiator-optimization",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "AI radiator design is routine by 2035 in every scenario, S1 included. S4 equals S3 because design is cognitive work.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic + auditor: prerequisites cap-applied-math and cap-research-math-public replaced by cap-design-optimization (same years; this is a multiphysics design tool); gate fabrication -> adoption; the 2.5 kg/m2 target moved out of the description (it belongs to struct-radiator-lightweight-production). Skeptic: radiator flux 1,400 -> 765-1,400 W/m2 per the Oct 2026 33FG model and counterfactual set to SpaceX's own second iteration. Auditor: arithmetic fixed (2.5-6% was 2.5-9%; now ~2-9% on the revised mass per GW); 1,400 W/m2 attributed to Musk; chip-life channel added. Advocate: $/GW framing (Mach33 thermal sensitivity, verified) added; soft edges from struct-agentic-analysis-workflows, struct-two-phase-microgravity-models (all three lenses) and the new hot-chip node. Years and bands unchanged. | E-orbital-compute-power (2026-10-07): 2035/S4 extension. band_2035: S1 Medium -> High.",
+    "revisions": [
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035: S1 Medium -> High",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-fsp-next-gen-design",
+   "patch": {
+    "earliest_year": {
+     "S1": "2032",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 resolves to 2032. If NASA awards Lunar Reactor-1 by about 2028, a follow-on design study fits before 2035, so S2-S4 rise to Medium; S4 equals S3 because appropriations and the first unit's schedule bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Auditor: status corrected (final RFP never issued; Mar 26 2026 reset); PDR ~2027 -> not before ~2028; bands S1 Low -> Speculative, S2/S3 Medium -> Low. Years unchanged. | E-orbital-compute-power (2026-10-07): 2035/S4 extension. earliest_year: S1 >2031 -> 2032; band_2035: S1 Speculative -> Low, S2 Low -> Medium, S3 Low -> Medium, S4 Low -> Medium.",
+    "revisions": [
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "earliest_year: S1 >2031 -> 2032; band_2035: S1 Speculative -> Low, S2 Low -> Medium, S3 Low -> Medium, S4 Low -> Medium",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2029",
+        "S4": "2029"
+       },
+       "band_2035": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Low",
+        "S4": "Low"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-hv-power-bus-stability",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Megawatt-class compute satellites (struct-35-mw-class-compute-satellite) and lunar power grids make large-signal stability a design driver by 2035, so S2 rises to High and S1 to Medium. S4 equals S3 because the work is analysis.",
+    "needs_2035_review": false,
+    "revision_note": "C-final integrator (2026-10-07): new node from C-disciplines (downstream-discipline coverage), accepted; title shortened from 'Proven stability for 100 kW-class spacecraft and lunar power grids'. Achievement criterion added. | E-orbital-compute-power (2026-10-07): 2035/S4 extension. band_2035: S1 Low -> Medium, S2 Medium -> High.",
+    "revisions": [
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035: S1 Low -> Medium, S2 Medium -> High",
+      "from": {
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "verif-hardware-proof-agents",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Agent-written hardware proofs are standard practice by 2035 in every scenario. S4 equals S3 because the work is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "C-final integrator (2026-10-07): new node from C-disciplines (downstream-discipline coverage), accepted; title shortened from 'Proof agents verify spacecraft processors and FPGA logic'. | E-orbital-compute-power (2026-10-07): 2035/S4 extension. band_2035: S1 Medium -> High.",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Proof agents verify space processors and FPGA logic",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035: S1 Medium -> High",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-highflux-radiator-flight",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Done by 2028 in every scenario; 2032-35 brings larger Starmind generations, carried by struct-35-mw-class-compute-satellite. S4 equals S3 because the first flight comes before robots are useful in aerospace.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Auditor + advocate + skeptic: status and description updated from the superseded June AI1 spec to the Aug 2026 product page, Sep 16 2026 FCC envelope and Oct 2026 statements; 'launch date not published' corrected (SpaceX targets Q4 2027). Skeptic: years 2027 -> 2028 in all scenarios (design not frozen, 12-18 month lag ladder, 1.5-3x slip calibration; same practice the trunk resolver applied to launch-clock nodes). Advocate's reliance on a Q4 2027 first flight rejected on that calibration. Bands High unchanged. New soft edges out to two-phase, deployment and sail nodes (fleet data and deployable supply base). | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven)'). | E-orbital-compute-power (2026-10-07): 2035/S4 extension. No year or band change.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven)')",
+      "from": {
+       "pathway": "P7 (not AI-math-driven)",
+       "premise_tier": "n/a"
+      }
+     },
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "note_2035"
+      ],
+      "reason": "No year or band change",
+      "from": {}
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-fsp-radiator-qual",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2030",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "If the LR-1 procurement restarts by about 2028, a provider will have radiator qualification results before 2035, so every scenario rises to Medium. S4 equals S3 because program funding and test time bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Auditor: with the FSP procurement reset (Mar 2026) and no provider, a 2027-28 PDR is off the table; years 2029 -> 2030 and bands Medium -> Low in all scenarios; JBIS figure marked unverified (paywalled). Advocate: soft edge from struct-two-phase-microgravity-models. | E-orbital-compute-power (2026-10-07): 2035/S4 extension. band_2035: S1 Low -> Medium, S2 Low -> Medium, S3 Low -> Medium, S4 Low -> Medium.",
+    "revisions": [
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035: S1 Low -> Medium, S2 Low -> Medium, S3 Low -> Medium, S4 Low -> Medium",
+      "from": {
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Low",
+        "S3": "Low",
+        "S4": "Low"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-radiator-lightweight-production",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2030",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S2-S4 stay Medium by 2035: internal launch cost near $13/kg (Mach33 base) shrinks the value of each kg/m2 saved, and the October design is limited by radiator area. S1 rises to Medium; S4 gains about a quarter-year within 2030 (s4-embodied) and no band, because demand sets the pace.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic + auditor: hard edge from struct-radiator-optimization made soft (prototypes reach 1.9-3.9 kg/m2 without AI design); S3 High -> Medium (fabrication compresses only 1.2-1.3x in S3; weak economic pull; S2 and S3 tie on year); 'AI-run factories' sentence removed as a justification. Auditor: S1 >2031 -> 2031 (band Low unchanged) now that the S1 2030 AI design is no longer a hard prerequisite. Skeptic: numbers updated (~3.7 -> 2.5 kg/m2; ~850-1,550 t per GW). Soft edges added from struct-two-phase-microgravity-models (all three lenses), physclock-satellite-gen-cadence and physclock-optimal-test-campaigns (advocate). Advocate's S2 Medium -> High rejected (see debates). | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (manufacturing; AI design and two-phase models accelerate via P1)'). | E-orbital-compute-power (2026-10-07): 2035/S4 extension. band_2035: S1 Low -> Medium.",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Sub-2.5 kg/m2 radiators in serial production",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (manufacturing; AI design and two-phase models accelerate via P1)')",
+      "from": {
+       "pathway": "P7 (manufacturing; AI design and two-phase models accelerate via P1)",
+       "premise_tier": "n/a (capability premise)"
+      }
+     },
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035: S1 Low -> Medium",
+      "from": {
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "capability-ai-eda-space-processor",
+   "patch": {
+    "earliest_year": {
+     "S1": "2032",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 resolves to 2032, two years after its design prerequisite. By 2035 agentic design is standard in chip work, so a credited radiation-tolerant tape-out is High in S2-S4; S4 equals S3 because fab runs and beam time bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Auditor: EDA dates corrected to the auditor's primary sources (Jul 27 and Sep 30 2026; the earlier dates came from a news-search RSS feed). Advocate: description broadened to include accelerators designed for orbit (commercial customer, no regulator). Advocate's S2 2030 -> 2029 and S3 Medium -> High rejected: zero lag behind cap-design-optimization (2028) plus fab and beam time, and attribution 'mainly to agentic EDA' is unlikely to be disclosed. Years and bands unchanged. | F2 audit (2026-10-07): band reasoning against the P7 default written out; years and bands unchanged. | E-orbital-compute-power (2026-10-07): 2035/S4 extension. earliest_year: S1 >2031 -> 2032; band_2035: S1 Low -> Medium, S2 Medium -> High, S3 Medium -> High, S4 Medium -> High.",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "why",
+      "reason": "framework rule: tier 5-7 outcome by 2031 needs its chain written out"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "why"
+      ],
+      "reason": "band reasoning against the P7 default written out; years and bands unchanged"
+     },
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "earliest_year: S1 >2031 -> 2032; band_2035: S1 Low -> Medium, S2 Medium -> High, S3 Medium -> High, S4 Medium -> High",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2029",
+        "S4": "2029"
+       },
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "materials-perovskite-tandem-flight",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 resolves to 2033, three years after its degradation models. By 2035 several tandem flights will have a year or more of data, so S2-S4 rise to Medium; S4 equals S3 because a year in orbit cannot be compressed.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Auditor: S2 Medium -> Low and S3 Medium -> Low (P7 default Speculative; a model-qualified cell must fly within ~12 months of the models and match prediction over a year, with no slack); chain written out. Years unchanged. | E-orbital-compute-power (2026-10-07): 2035/S4 extension. earliest_year: S1 >2031 -> 2033; band_2035: S1 Speculative -> Low, S2 Low -> Medium, S3 Low -> Medium, S4 Low -> Medium.",
+    "revisions": [
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "earliest_year: S1 >2031 -> 2033; band_2035: S1 Speculative -> Low, S2 Low -> Medium, S3 Low -> Medium, S4 Low -> Medium",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2030",
+        "S4": "2030"
+       },
+       "band_2035": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Low",
+        "S4": "Low"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "materials-wbg-rad-hard-power",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 vendors will have run several fab and beam-test cycles, and megawatt-class satellites add demand for 300-800 V buses, so S2-S4 rise to High and S1 to Medium. S4 equals S3 because fab cycles and beam time bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic + auditor: hard edge from materials-see-system-models removed (GPU silent-data-corruption models say nothing about SiC burnout) and made soft; skeptic: materials-learned-functionals hard -> soft; soft edge from cap-physics-theory added (both). Auditor: title and description narrowed to SiC (GaN is voltage-limited, not burnout-limited); status adds the 2026 CoolCAD result (vendor-reported; primary text not re-fetched in this pass). Skeptic: plasma-arcing limit added. Pathway relabelled. Years and bands unchanged. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (empirical hardening under way without AI math; AI physics theory accelerates via P6)'); description aligned with the signpost so the milestone no longer requires the mechanism model (the why and the edges already treat theory as a soft accelerator); chain and band reasoning written out. | E-orbital-compute-power (2026-10-07): 2035/S4 extension. band_2035: S1 Low -> Medium, S2 Medium -> High, S3 Medium -> High, S4 Medium -> High.",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "Radiation-robust high-voltage SiC power electronics",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "description",
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (empirical hardening under way without AI math; AI physics theory accelerates via P6)'); description aligned with the signpost so the milestone no longer requires the mechanism model (the why and the edges already treat theory as a soft accelerator); chain and band reasoning written out",
+      "from": {
+       "pathway": "P7 (empirical hardening under way without AI math; AI physics theory accelerates via P6)",
+       "premise_tier": "n/a",
+       "description": "SiC power MOSFETs (600-1,200 V class) with a mechanism-level model of heavy-ion single-event burnout and leakage degradation, redesigned to run near rated voltage in space."
+      }
+     },
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035: S1 Low -> Medium, S2 Medium -> High, S3 Medium -> High, S4 Medium -> High",
+      "from": {
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-large-sail-flight",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2031",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "S1 resolves to 2034, after its deployment-model prerequisite (2033). No funded 1,000 m2 sail mission exists as of Oct 2026, so every scenario stays Low by 2035; S4 equals S3 because the gate is funding.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic: S3 2030 -> 2031 (no funded 1,000 m2 mission; appropriations compress 1.0x; a 2030 flight would need funding by ~2027, before the hard prerequisite exists). Advocate: soft edge from struct-highflux-radiator-flight (deployable supply base). Auditor: wingspan wording updated. Bands unchanged. | E-orbital-compute-power (2026-10-07): 2035/S4 extension. earliest_year: S1 >2031 -> 2034.",
+    "revisions": [
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "note_2035"
+      ],
+      "reason": "earliest_year: S1 >2031 -> 2034",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2031",
+        "S4": "2031"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-hot-chip-hbm-qualification",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 several chip generations will have been built for orbit and the filed radiator envelope rewards hot operation, so S2-S4 rise to High and S1 stays Medium. S4 equals S3 because life tests and telemetry bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): New node merging the skeptic's materials-hot-hbm-qualification (T5, qualification) and the advocate's materials-hot-chip-wearout-models (T3, P1->P5); renamed to the branch's main domain prefix. Both lenses identify allowable chip/HBM temperature as a bigger thermal lever than radiator design (verified in 33FG's Oct 6 2026 model). One node, not two: physics-of-failure models already exist at vendors, and validation needs life tests and flight telemetry, so the advocate's High-by-2028 model node overstated the AI-math share; the AI role is kept as soft accelerators. Not a duplicate (no chip-temperature node in the graph). | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (vendor qualification; AI applied math accelerates via P1/P5 accelerated-life models)'). | E-orbital-compute-power (2026-10-07): 2035/S4 extension. band_2035: S2 Medium -> High, S3 Medium -> High, S4 Medium -> High.",
+    "revisions": [
+     {
+      "by": "C-fix",
+      "date": "2026-10-07",
+      "field": "title",
+      "from": "AI chips and HBM qualified to run hot in orbit",
+      "reason": "reader-friendly title pass (id unchanged)"
+     },
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (vendor qualification; AI applied math accelerates via P1/P5 accelerated-life models)')",
+      "from": {
+       "pathway": "P7 (vendor qualification; AI applied math accelerates via P1/P5 accelerated-life models)",
+       "premise_tier": "n/a"
+      }
+     },
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035: S2 Medium -> High, S3 Medium -> High, S4 Medium -> High",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-light-solar-array-production",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 arrays are made at several km2 a year if orbital compute scales, and array mass sets flights per GW while cadence stays capped, so S2-S4 rise to High; S1 stays Medium. S4 equals S3 because the node lands in 2029, before robots are useful in aerospace.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): New node from the auditor (verified against 33FG's AI1 reconstruction: solar 56% of mass, 'primary constraint is solar areal density'); defined by array specific power so the hard edge to struct-100kw-per-tonne-fleet is a necessary condition. Years moved from the proposed 2028 to 2029 to follow the first-flight slip to 2028. Not a duplicate: the perovskite chain is the materials route; this is the architecture and production route. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven; AI touches array structural and deployment design only, marginal P1)'). | E-orbital-compute-power (2026-10-07): 2035/S4 extension. band_2035: S2 Medium -> High, S3 Medium -> High, S4 Medium -> High.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven; AI touches array structural and deployment design only, marginal P1)')",
+      "from": {
+       "pathway": "P7 (not AI-math-driven; AI touches array structural and deployment design only, marginal P1)",
+       "premise_tier": "n/a"
+      }
+     },
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035: S2 Medium -> High, S3 Medium -> High, S4 Medium -> High",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "materials-cots-orbital-compute-ops",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Paying orbital compute service is High by 2035 in every scenario, S1 included. S4 equals S3 because launch binds.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic: hard edge from materials-see-system-models made soft and the AI-math clause removed from the description, so the node is the commercial milestone and AI math no longer appears to gate 1 GW (this also resolves the auditor's cots-ops -> 1 GW finding, so that hard edge, a true physical precursor, is kept). Skeptic: S2/S3 2028 -> 2029 following the 100-kW radiator first-flight slip to 2028. Advocate: gate capital -> launch (capital does not bind the leader); soft edge from materials-verified-fault-tolerance. Auditor + skeptic: pathway relabelled (not AI-math-driven); ~2.5x lever removed; status updated (Starmind Q4 2027 target, Suncatcher launch, Starcloud-3, FT debt report). Bands unchanged. | B-fix (integrator, 2026-10-07): soft edge from plasma-radbelt-charging-forecast (B-safe-orbits request: 500-2,000 km SSO fleets gain from charging forecasts). | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven; AI math enters via P1 fault models and P2 proven fault tolerance, both soft)'). | E-orbital-compute-power (2026-10-07): 2035/S4 extension. band_2035: S1 Medium -> High.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven; AI math enters via P1 fault models and P2 proven fault tolerance, both soft)')",
+      "from": {
+       "pathway": "P7 (not AI-math-driven; AI math enters via P1 fault models and P2 proven fault tolerance, both soft)",
+       "premise_tier": "n/a"
+      }
+     },
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035: S1 Medium -> High",
+      "from": {
+       "band_2035": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High",
+        "S4": "High"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-100kw-per-tonne-fleet",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2031",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 resolves to 2033. By 2035 S2 rises to Medium because capped launch cadence keeps kW/t valuable and better arrays and hotter chips arrive, while SpaceX may still prefer heavier satellites; S4 equals S3 because the gate is design and cell technology.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic + auditor: S2 Medium -> Low (filed envelope implies ~55-62 kW/t; trend runs away from 100). Auditor: S1 Low -> Speculative; new hard prerequisite struct-light-solar-array-production (array specific power is the primary constraint, 33FG). All three lenses: hard edge from struct-radiator-lightweight-production made soft. Soft edges added from materials-perovskite-primary-power (skeptic), physclock-satellite-gen-cadence and the hot-chip node (advocate). Auditor's S3 Medium -> Low not taken and advocate's S3 2031 -> 2030 rejected (see debates). Years unchanged. | E-orbital-compute-power (2026-10-07): 2035/S4 extension. earliest_year: S1 >2031 -> 2033; band_2035: S1 Speculative -> Low, S2 Low -> Medium.",
+    "revisions": [
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "earliest_year: S1 >2031 -> 2033; band_2035: S1 Speculative -> Low, S2 Low -> Medium",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2031",
+        "S4": "2031"
+       },
+       "band_2035": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "materials-perovskite-primary-power",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2031",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 resolves to 2034. By 2035 risk-tolerant compute operators, including Chinese programs near the perovskite supply base, are likely first adopters, so S2-S4 rise to Medium; S4 equals S3 because flight evidence binds.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic: launch-saving claim corrected (the 600/1,200 figures are 33FG's idealized high-Earth-orbit plateaus, verified in its Nov 2025 post; AI1-era arrays are ~0.13 kW/kg). Advocate: short chip-limited design lives lower the evidence bar (appended; bands unchanged). Auditor: hard edge from materials-perovskite-tandem-flight (the model-qualified version) made soft, since adoption can rest on any flight heritage. Years and bands unchanged. | E-orbital-compute-power (2026-10-07): 2035/S4 extension. earliest_year: S1 >2031 -> 2034; band_2035: S1 Speculative -> Low, S2 Low -> Medium, S3 Low -> Medium, S4 Low -> Medium.",
+    "revisions": [
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "earliest_year: S1 >2031 -> 2034; band_2035: S1 Speculative -> Low, S2 Low -> Medium, S3 Low -> Medium, S4 Low -> Medium",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2031",
+        "S4": "2031"
+       },
+       "band_2035": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Low",
+        "S4": "Low"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-fsp-lunar-100kwe",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2033",
+     "S3": "2033",
+     "S4": "2033"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "Resolved to 2033 in every scenario: an LR-1 award around 2027-28 plus 4-6 years from a funded start, behind SR-1 and a heavy lander. Low by 2035 everywhere; S4 equals S3 because fuel, launch approval and the lander bind, and robots help only with site work.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Auditor (verified: SAM.gov notice of Mar 26 2026 via bidpulsar; Wikipedia on LR-1/SR-1): status corrected (procurement reset, no provider); years 2031 -> >2031 and bands Low -> Speculative in all scenarios (no provider five years out; LR-1 behind SR-1). | B-fix (integrator, 2026-10-07): hard prerequisite auton-lunar-heavy-cargo-landing added (B-moon-mars request: the node names a ~15 t lander as its gate); the soft edge from prop-hls-refuel-campaign removed as redundant (it is the lander node's hard prerequisite). Years and bands unchanged (>2031, Speculative). | E-orbital-compute-power (2026-10-07): 2035/S4 extension. earliest_year: S1 >2031 -> 2033, S2 >2031 -> 2033, S3 >2031 -> 2033, S4 >2031 -> 2033; band_2035: S1 Speculative -> Low, S2 Speculative -> Low, S3 Speculative -> Low, S4 Speculative -> Low.",
+    "revisions": [
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "earliest_year: S1 >2031 -> 2033, S2 >2031 -> 2033, S3 >2031 -> 2033, S4 >2031 -> 2033; band_2035: S1 Speculative -> Low, S2 Speculative -> Low, S3 Speculative -> Low, S4 Speculative -> Low",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": ">2031",
+        "S3": ">2031",
+        "S4": ">2031"
+       },
+       "band_2035": {
+        "S1": "Speculative",
+        "S2": "Speculative",
+        "S3": "Speculative",
+        "S4": "Speculative"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-km-monolith",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": ">2035",
+     "S3": "2034",
+     "S4": "2033"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "S3 resolves to 2034 and S4 to 2033: robotic in-orbit assembly makes 100-m-class structures plausible by 2035, which earns S4 one year. Bands stay Low at best because formation flying meets the same need without a structure.",
+    "needs_2035_review": false,
+    "revision_note": "E-orbital-compute-power (2026-10-07): 2035/S4 extension. earliest_year: S1 >2031 -> >2035, S2 >2031 -> >2035, S3 >2031 -> 2034, S4 >2031 -> 2033.",
+    "revisions": [
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "note_2035"
+      ],
+      "reason": "earliest_year: S1 >2031 -> >2035, S2 >2031 -> >2035, S3 >2031 -> 2034, S4 >2031 -> 2033",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": ">2031",
+        "S3": ">2031",
+        "S4": ">2031"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-formation-compute-clusters",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "SpaceX has stated the need for ten-satellite clusters, so operating clusters are High by 2035 in S2-S4, with the Starmind FCC filing as the regulatory path; S1 rises to Medium. S4 equals S3 because launch and optical terminals bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): New node from the advocate (verified: SpaceX 10-satellite cluster statement and Suncatcher Transporter-18 plan via 33FG news). Not a duplicate: struct-km-monolith covers the structure route and only mentions formation flying as its competitor. Advocate's S3 High lowered to Medium (first formation statement Oct 6 2026, no cluster flown, physical gates); S1 2031 -> 2030 since the node is not AI-math-driven. | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven; AI math second-order via P2 collision-safety proofs and certified link scheduling)'). | E-orbital-compute-power (2026-10-07): 2035/S4 extension. band_2035: S1 Low -> Medium, S2 Medium -> High, S3 Medium -> High, S4 Medium -> High.",
+    "revisions": [
+     {
+      "by": "F2",
+      "date": "2026-10-07",
+      "fields": [
+       "pathway",
+       "premise_tier",
+       "why"
+      ],
+      "reason": "classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (not AI-math-driven; AI math second-order via P2 collision-safety proofs and certified link scheduling)')",
+      "from": {
+       "pathway": "P7 (not AI-math-driven; AI math second-order via P2 collision-safety proofs and certified link scheduling)",
+       "premise_tier": "n/a"
+      }
+     },
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "band_2035: S1 Low -> Medium, S2 Medium -> High, S3 Medium -> High, S4 Medium -> High",
+      "from": {
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "struct-gw-orbital-compute",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2031",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 resolves to 2033. Four more years of heavy launch and stated demand (Anthropic and SpaceX named multi-GW orbital interest in May 2026) make 1 GW High by 2035 in S2-S4, with the Starmind FCC filing as the named regulatory path; S4 equals S3 because launch binds.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic: S2 Medium -> Low (revised mass ~16,000-18,000 t is 1.3-1.8x the old basis; first flight slips to 2028; zero slack), supported by the trunk resolver's note that 1 GW S2 Medium sat above capability-compute-launch-demand (10 compute flights in a year, S2 2030 Medium) and by Mach33's early-2030s scaled-deployment date. Advocate's S1 >2031 -> 2031, S2/S3 2031 -> 2030 and S3 Medium -> High rejected: their chain used heavy-cadence-100 at S2 2029 / S3 2028, which the trunk resolver moved to 2030 / 2029 (see debates). Auditor + advocate: pathway relabelled 'not AI-math-driven'; chain written out; mass basis and peak-versus-average definition fixed; family 107 nil note added. Auditor's cots-ops hard -> soft not applied: cots-ops is now the non-AI commercial milestone (its AI-math edge is soft), so the edge is a true physical precursor. Soft edges added: light solar arrays, hot-chip qualification, formation clusters, capability-ai-rnd-acceleration (trunk resolver proposal). Years unchanged; S1 Low and S3 Medium unchanged. | B-fix (integrator, 2026-10-07): soft edge from capability-compute-launch-demand (B-trunk and B-orbital-compute-power requests); kept soft, not hard, because 1 GW could in principle be lofted partly by non-Starship launchers. | E-orbital-compute-power (2026-10-07): 2035/S4 extension. earliest_year: S1 >2031 -> 2033; band_2035: S1 Low -> Medium, S2 Low -> High, S3 Medium -> High, S4 Medium -> High.",
+    "revisions": [
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "earliest_year: S1 >2031 -> 2033; band_2035: S1 Low -> Medium, S2 Low -> High, S3 Medium -> High, S4 Medium -> High",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2031",
+        "S4": "2031"
+       },
+       "band_2035": {
+        "S1": "Low",
+        "S2": "Low",
+        "S3": "Medium",
+        "S4": "Medium"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "materials-specific-power-step",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": "2033",
+     "S3": "2033",
+     "S4": "2033"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "S2-S4 resolve to 2033, two years after perovskite primary power, and S1 to after 2035. Low by 2035 because each material leg needs multi-year flight evidence; S4 equals S3 because qualification runs on physics time.",
+    "needs_2035_review": false,
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic + advocate: wide-bandgap electronics and battery qualification made soft prerequisites; a 30% power-system specific-power step can come from the array leg alone (solar is 56% of AI1's reconstructed mass; the battery is small in dawn-dusk orbit). materials-perovskite-primary-power stays hard. Years and bands unchanged (>2031, Speculative). | E-orbital-compute-power (2026-10-07): 2035/S4 extension. earliest_year: S1 >2031 -> >2035, S2 >2031 -> 2033, S3 >2031 -> 2033, S4 >2031 -> 2033; band_2035: S2 Speculative -> Low, S3 Speculative -> Low, S4 Speculative -> Low.",
+    "revisions": [
+     {
+      "by": "E-orbital-compute-power",
+      "date": "2026-10-07",
+      "fields": [
+       "earliest_year",
+       "band_2035",
+       "note_2035"
+      ],
+      "reason": "earliest_year: S1 >2031 -> >2035, S2 >2031 -> 2033, S3 >2031 -> 2033, S4 >2031 -> 2033; band_2035: S2 Speculative -> Low, S3 Speculative -> Low, S4 Speculative -> Low",
+      "from": {
+       "earliest_year": {
+        "S1": ">2031",
+        "S2": ">2031",
+        "S3": ">2031",
+        "S4": ">2031"
+       },
+       "band_2035": {
+        "S1": "Speculative",
+        "S2": "Speculative",
+        "S3": "Speculative",
+        "S4": "Speculative"
+       }
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "id": "struct-35-mw-class-compute-satellite",
+   "title": "Megawatt-class compute satellites fly",
+   "tier": 6,
+   "kind": "mission",
+   "domain": "struct",
+   "description": "A compute satellite with at least 1 MW of solar power flies and operates. That is four times the 250 kW Starmind design, with roughly 4,000-6,000 m2 of array and a high-voltage power bus.",
+   "status_oct2026": "Starmind's design point rose from 150 kW peak (Jun 2026) to 250 kW peak and 175 kW average (Aug 2026); SpaceX's Sep 16 2026 FCC response bounds it under 4,000 kg, 200 m2 of radiator and 1,500 m2 of solar. Starcloud-3 (~200 kW) is designed for Starship. 33FG estimates that holding a 256-expert model inside one 72-GPU satellite costs up to 44% of serving output (Jul 2026). No flight-dated compute satellite above about 250 kW was found as of Oct 2026.",
+   "prerequisites": [
+    "struct-highflux-radiator-flight",
+    "struct-light-solar-array-production",
+    "materials-cots-orbital-compute-ops"
+   ],
+   "accelerated_by": [
+    "struct-deployment-mechanics",
+    "struct-hv-power-bus-stability",
+    "materials-wbg-rad-hard-power",
+    "struct-radiator-lightweight-production",
+    "struct-hot-chip-hbm-qualification",
+    "struct-radiator-optimization",
+    "physclock-satellite-gen-cadence"
+   ],
+   "binding_gate": "qualification",
+   "pathway": "P7 (exogenous)",
+   "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+   "earliest_year": {
+    "S1": "2034",
+    "S2": "2032",
+    "S3": "2031",
+    "S4": "2031"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "why": "Not an AI-math implication in its timing: satellite size is a SpaceX design choice on the hardware clock, so the P7 Speculative default does not apply. Cheap launch removes the reason to keep satellites small, and a larger satellite holds more GPUs inside one coherent domain, which cuts the penalty of splitting a model across satellites (up to 44% of serving output for one 72-GPU satellite, 33FG). At 1 MW a 250 V bus would carry 4,000 A, so the design pulls in 300-800 V buses (materials-wbg-rad-hard-power, struct-hv-power-bus-stability) and 4,000-6,000 m2 deployable arrays whose shape and loads must be predicted (struct-deployment-mechanics). These are the AI-math inputs, all soft. Chain (S2): first Starmind flights 2028 -> yearly generations from 2030 -> a MW-class design after two generations of telemetry, qualified and flown in 2032. S3 is a year earlier through faster generations. Bands (judgment): Medium by 2035 in S2-S4 because SpaceX may prefer many 250 kW satellites in tight formation; S1 Low.",
+   "strongest_case_small": "SpaceX may keep satellites near 250 kW and scale by numbers and formation flying, as Starlink did. Software that shrinks the single-satellite penalty would remove the main reason to go bigger.",
+   "signpost": "A Starmind version or competing design above 500 kW announced with a flight date; a SiC or GaN power stage above 300 V named on a compute satellite.",
+   "note_2035": "New in the 2035 extension. S4 equals S3 because the S3 year is 2031, before robots count, and the gates are qualification of large deployables and power electronics.",
+   "revision_note": "E-orbital-compute-power (2026-10-07): new node extending the hardware chain past the first 100-kW-class flights; gives the deployment, bus-stability and SiC nodes a 2032-35 outcome.",
+   "catalog_families": [],
+   "needs_2035_review": false,
+   "revisions": [
+    {
+     "by": "E-orbital-compute-power",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "struct-35-10gw-orbital-compute",
+   "title": "10 GW of compute operating in orbit",
+   "tier": 7,
+   "kind": "outcome",
+   "domain": "struct",
+   "description": "Orbital data centers with at least 10 GW of combined power operate in orbit, about 40,000 satellites at 250 kW or fewer larger ones.",
+   "status_oct2026": "Orbital compute is at kilowatt scale. Musk has suggested Starship could support about 10 GW a year of space compute in the 2030s and projected 300-500 GW a year later (Nov 2025). Beijing Astro-Future has proposed 16 GW of dawn-dusk orbital data centers. Anthropic and SpaceX said in May 2026 that they are interested in jointly developing multiple GW of orbital compute. Approved Starship site caps total about 145 launches a year (Starbase 25, LC-39A 44, SLC-37 76).",
+   "prerequisites": [
+    "struct-gw-orbital-compute"
+   ],
+   "accelerated_by": [
+    "struct-100kw-per-tonne-fleet",
+    "struct-light-solar-array-production",
+    "struct-hot-chip-hbm-qualification",
+    "struct-formation-compute-clusters",
+    "struct-35-mw-class-compute-satellite",
+    "capability-compute-launch-demand",
+    "physclock-cheap-mass-internal"
+   ],
+   "binding_gate": "launch",
+   "pathway": "P7 (exogenous)",
+   "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2035",
+    "S3": "2034",
+    "S4": "2034"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "why": "Not an AI-math implication: an exogenous anchor on launch, satellite production, chip supply and capital, so the P7 Speculative default does not apply. At 16,000-18,000 t per GW today, or about 10,000 t at 100 kW/t, 10 GW is 100,000-180,000 t: about 700-1,800 Starship flights at 100-150 t, or five to twelve years of today's approved site caps. Chain (S2): 1 GW in 2031-32 -> 300+ heavy flights a year from 2033 (capability-35-heavy-cadence-300) -> compute takes a third to a half of them -> 2-3 GW a year by 2034-35 -> 10 GW cumulative in 2035, with no slack. S3 is a year earlier because heavy cadence and compute demand arrive earlier. Capital is large but reachable: Mach33's base case puts orbital capex at $46B per GW, falling toward $24B over a decade, so 10 GW is roughly $240-460B (a single commercial forecaster's model). Musk names chip and packaging supply as the main limit. AI math is second-order: hotter chips, lighter radiators and right-sized radiation mitigation cut launched mass by a few percent to about 10%. S4 gets no credit: robots speed satellite and array lines, but those already run ahead of flights, and pads and approvals do not compress. Bands (judgment): S2 Low because the chain has no slack; S3 and S4 Medium; S1 Speculative because a plateau weakens compute demand.",
+   "strongest_case_small": "AI mathematics could vanish from the chain without moving this node by more than months: launch cadence, chip supply and capital set the date. If terrestrial power and permits ease, orbital compute may stall well below 10 GW.",
+   "signpost": "Starmind production above 10,000 satellites a year, or more than 150 dedicated compute flights in one year, by 2033; SpaceX reporting several GW deployed by end-2033.",
+   "note_2035": "New in the 2035 extension. S4 adds nothing because launch binds; robots speed satellite and array lines that already run ahead of flights.",
+   "revision_note": "E-orbital-compute-power (2026-10-07): new node extending the spine past struct-gw-orbital-compute.",
+   "catalog_families": [],
+   "needs_2035_review": false,
+   "revisions": [
+    {
+     "by": "E-orbital-compute-power",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "struct-35-orbital-training-run",
+   "title": "A large AI model is trained in orbit",
+   "tier": 7,
+   "kind": "outcome",
+   "domain": "struct",
+   "description": "An AI lab releases or deploys a model whose main training run, at least 1e26 FLOP, ran mainly on orbital compute.",
+   "status_oct2026": "Starcloud trained a small language model on one H100 in orbit within 38 days of its Nov 2025 launch. Anthropic and SpaceX said in May 2026 that they are interested in multiple GW of orbital compute, citing ground constraints on training and inference. 33FG argues that high orbits suit asynchronous training and low orbits suit inference (Dec 2025). No multi-satellite training run has been reported.",
+   "prerequisites": [
+    "materials-cots-orbital-compute-ops",
+    "struct-formation-compute-clusters"
+   ],
+   "accelerated_by": [
+    "materials-verified-fault-tolerance",
+    "materials-see-system-models",
+    "comms-certified-network-optimization",
+    "struct-gw-orbital-compute",
+    "struct-35-mw-class-compute-satellite"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P2->P7",
+   "premise_tier": "n/a",
+   "earliest_year": {
+    "S1": "2035",
+    "S2": "2033",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "why": "Training uses the most power and tolerates latency, so it is the workload that fits orbit best, and Anthropic named it among its reasons. It is also where radiation errors cost most: a silent error can corrupt weeks of work. That is where validated error rates (materials-see-system-models) and proven fault-tolerance bounds (materials-verified-fault-tolerance) earn their keep. A 1e26 FLOP run needs on the order of 100 NVL72-class satellites for about a month (calculation at about 40% utilization, assumption), so it spans several ten-satellite clusters (struct-formation-compute-clusters) joined by laser links and low-communication training methods. Chain (S2): paying operations 2029 -> clusters 2029-30 -> hundreds of MW in orbit 2031-32 -> a disclosed main run in 2033. S3 is a year earlier. Bands (judgment): Medium by 2035 in S2-S4 because ground sites may stay cheaper for the largest runs and labs may not say where a model trained; S1 Low.",
+   "strongest_case_small": "Labs may keep their largest runs on the ground, where interconnect is denser and failed parts are easy to swap, and use orbit for inference. Even then AI mathematics moves the date by months, since fleet size and links bind.",
+   "signpost": "A lab states that a released model's main training run ran in orbit; a training job spanning 50 or more compute satellites reported by 2032.",
+   "note_2035": "New in the 2035 extension. S4 equals S3 because fleet size, optical links and labs' choices bind, and none of them is robot labor.",
+   "revision_note": "E-orbital-compute-power (2026-10-07): new node giving the radiation side lane (error models -> proven fault tolerance) a 2032-35 outcome.",
+   "catalog_families": [],
+   "needs_2035_review": false,
+   "revisions": [
+    {
+     "by": "E-orbital-compute-power",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "struct-35-beyond-dawn-dusk-compute",
+   "title": "Orbital compute at scale beyond dawn-dusk orbits",
+   "tier": 6,
+   "kind": "mission",
+   "domain": "struct",
+   "description": "At least 100 MW of compute operates in orbits with eclipses or harsher radiation than dawn-dusk sun-synchronous orbit, such as inclined low orbits, medium Earth orbit or high Earth orbit.",
+   "status_oct2026": "Starmind, Starcloud and Suncatcher designs use dawn-dusk sun-synchronous orbit, which gives near-continuous sunlight, needs only ~100 um of coverglass and keeps array loss under 1% a year (33FG, Dec 2025). 33FG estimates the dawn-dusk band is about 1% of usable low-orbit volume; in medium Earth orbit, belt exposure drives coverglass to ~700 um and array loss to ~3% a year.",
+   "prerequisites": [
+    "materials-cots-orbital-compute-ops"
+   ],
+   "accelerated_by": [
+    "materials-see-system-models",
+    "materials-verified-fault-tolerance",
+    "materials-battery-life-qual",
+    "plasma-radbelt-charging-forecast",
+    "materials-perovskite-primary-power",
+    "struct-35-10gw-orbital-compute"
+   ],
+   "binding_gate": "capital",
+   "pathway": "P1->P7",
+   "premise_tier": "n/a",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2034",
+    "S3": "2033",
+    "S4": "2033"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "why": "Dawn-dusk orbits give near-continuous sun and mild radiation, so early fleets stay there and leave only when the band fills. At 10 GW, about 40,000 satellites at 250 kW, slot allocation, conjunction risk and licensing start to push fleets elsewhere. Inclined low orbits put batteries through about 5,500 eclipse cycles a year; higher orbits raise array loss from under 1% to about 3% a year and raise chip error rates. Here the branch's AI-math side lanes pay off: validated workload-level error rates (materials-see-system-models), proven fault-tolerance bounds (materials-verified-fault-tolerance) and model-based battery qualification (materials-battery-life-qual) let operators size shielding, batteries and mitigation before flight data exist. Chain (S2): dawn-dusk fleets reach several GW in 2033 -> a first non-dawn-dusk tranche authorized and flown in 2034. Bands (judgment): Low by 2035 in S2-S4 because MW-class satellites let dawn-dusk shells hold 10 GW or more and the chain needs fleets near 10 GW; S1 Speculative.",
+   "strongest_case_small": "Larger satellites let dawn-dusk shells hold well over 10 GW, and operators may fly, measure and iterate in a new orbit instead of relying on models; AI mathematics then changes little.",
+   "signpost": "An FCC or ITU filing for compute satellites in inclined low, medium or high Earth orbit; published error and degradation statistics from a compute satellite outside dawn-dusk orbit.",
+   "note_2035": "New in the 2035 extension. S4 equals S3 because licensing, launch and the cost of batteries and shielding bind.",
+   "revision_note": "E-orbital-compute-power (2026-10-07): new node giving the radiation and battery lanes a 2033-35 outcome.",
+   "catalog_families": [],
+   "needs_2035_review": false,
+   "revisions": [
+    {
+     "by": "E-orbital-compute-power",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new node",
+     "from": {}
+    }
+   ]
+  }
+ ],
+ "add_edges": [],
+ "add_soft_edges": [
+  {
+   "from": "robo-structured-factory-useful",
+   "to": "struct-35-10gw-orbital-compute"
+  },
+  {
+   "from": "robo-aerospace-tolerance-work",
+   "to": "struct-35-mw-class-compute-satellite"
+  },
+  {
+   "from": "capability-35-heavy-cadence-300",
+   "to": "struct-35-10gw-orbital-compute"
+  },
+  {
+   "from": "capability-35-internal-cost-100",
+   "to": "struct-35-10gw-orbital-compute"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "orbital-compute-power",
+   "nodes": [
+    "struct-35-mw-class-compute-satellite",
+    "struct-35-10gw-orbital-compute",
+    "struct-35-orbital-training-run",
+    "struct-35-beyond-dawn-dusk-compute"
+   ],
+   "spine": [
+    "struct-35-10gw-orbital-compute"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "orbital-compute-power",
+   "patch": {
+    "thesis": "SpaceX's launch, hardware and capital clock paces orbital compute. Base case: 100-kW-class satellites fly about 2028, 1 GW is Low by 2031 and High by 2035, 10 GW Low by 2035. AI math adds a few percent; arrays and chip temperatures matter more. Robots (S4) change little: launch binds.",
+    "reader_hook": "A gigawatt of orbital compute is about 4,000 Starmind-class satellites and 110-180 Starship flights. Ten gigawatts needs about 700-1,800 flights, five to twelve years of today's approved Starship launch caps (about 145 a year). Qualifying chips to run about 30 C hotter saves about 1,900 t per GW (33FG model); AI radiator design might save 350-1,400 t (an assumption).",
+    "side_chains": [
+     [
+      "materials-see-system-models",
+      "materials-verified-fault-tolerance",
+      "struct-35-orbital-training-run"
+     ],
+     [
+      "struct-radiator-optimization"
+     ],
+     [
+      "struct-light-solar-array-production",
+      "struct-35-mw-class-compute-satellite"
+     ],
+     [
+      "materials-cots-orbital-compute-ops",
+      "struct-35-beyond-dawn-dusk-compute"
+     ]
+    ],
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Thesis rewritten so AI math is no longer stated as the condition for orbital compute (all three lenses); 1 GW band per the resolved node (S2 Low, S3 Medium). Reader hook re-based on the Sep 2026 filing envelope and 33FG's Oct 6 2026 model, flags the 10-25% as an assumption (auditor), and names the solar and chip-temperature levers (skeptic, advocate, auditor). Spine re-cut (skeptic: the old spine jumped between unconnected nodes): it now renders the physical anchor tree (100-kW radiator flight -> commercial operations -> 1 GW, with arrays, hot-chip qualification and 100 kW/t) beside the AI-math side chains (fault models -> proven fault tolerance; AI radiator design). cap-physics-theory added to roots (soft edge to SiC power). | C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Moved from spine to side_chains (still branch members): ['materials-see-system-models', 'materials-verified-fault-tolerance', 'struct-radiator-optimization']. The main chain is hardware on SpaceX's clock, matching the thesis; the AI-math lanes (radiation models, radiator optimization) feed it only softly. | E-orbital-compute-power (2026-10-07): thesis extended to 2035 and S4 (1 GW High by 2035 in S2-S4; 10 GW Low in S2, Medium in S3-S4; robots add one year only to the kilometre-scale structure). Reader hook re-based on the 10 GW launch count against today's approved Starship caps. Spine extended to struct-35-10gw-orbital-compute; three side lanes added for the new MW-class, training-run and beyond-dawn-dusk nodes."
+   }
+  }
+ ]
+}

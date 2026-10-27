@@ -1,0 +1,181 @@
+{
+ "research": [
+  {
+   "topic": "Robotics capability and deployment, October 2026: general-purpose and humanoid robots and robot foundation models, as input to scenario S4 'Embodied' (S3 Recursive cognition plus general-purpose robotics at scale) of the Space Unlock Tree",
+   "file": "/Users/alex/projects/openai math paper/model/embodied/research-capability.json",
+   "n_anchors": 42
+  },
+  {
+   "topic": "S4 Embodied, ramp assignment: robot production ramps and the robots-build-robots loop (humanoid and general-purpose robot capacity, industrial robot base, supply-chain bottlenecks, historical ramp analogues, fleet size 2028/2029/2031 under slow/base/fast ramps, robot labor share, and how far robots can shorten the doubling time of robot production itself)",
+   "file": "/Users/alex/projects/openai math paper/model/embodied/research-ramp.json",
+   "n_anchors": 48
+  },
+  {
+   "topic": "Robotics and the space physical clock under S4 'Embodied' (S3 Recursive cognition plus general-purpose robotics at scale): gate-by-gate compression of the Space Unlock Tree's physical gates by 2031 and 2035, factory-automation evidence from SpaceX, Rocket Lab, Relativity, Firefly and others, and whether a robots-build-robots loop matters by 2031 versus 2035",
+   "file": "/Users/alex/projects/openai math paper/model/embodied/research-space.json",
+   "n_anchors": 36
+  },
+  {
+   "topic": "S4 Embodied scenario, infrastructure assignment: how fast robots plus AI can compress the build time of data centers, power plants and grid, semiconductor fabs, factories, housing, roads and bridges, and which parts of a build are labor-bound versus equipment-, materials-, permit-, physics- and capital-bound (research date 2026-10-07)",
+   "file": "/Users/alex/projects/openai math paper/model/embodied/research-infrastructure.json",
+   "n_anchors": 44
+  },
+  {
+   "topic": "S4 Embodied, biology/chemistry/materials assignment: robotics and autonomous labs in biology, chemistry and materials. Which physical gates robots compress, by how much, by 2031 and 2035, and what Amdahl's law leaves for a whole drug or materials program",
+   "file": "/Users/alex/projects/openai math paper/model/embodied/research-biology.json",
+   "n_anchors": 39
+  },
+  {
+   "topic": "S4 'Embodied' theory and evidence: the industrial-explosion literature, the history of general-purpose technologies (GPTs), energy limits to 2031, a check on the '1 of 3 dumps' rumor, and what three dumps would mean for S2 versus S3",
+   "file": "/Users/alex/projects/openai math paper/model/embodied/research-theory.json",
+   "n_anchors": 37
+  }
+ ],
+ "synthesis": {
+  "file_written": "/Users/alex/projects/openai math paper/model/embodied/s4-embodied-draft.md",
+  "json_written": "/Users/alex/projects/openai math paper/model/embodied/s4-embodied.json",
+  "headline": "Robotics is already bleeding in fast in growth rate but not yet in share. By 2031, S4 is a step change at a few robot-first firms, not across the economy. It lifts the new-space-program ceiling from 51% (S3) to 56-64%, and to 68-73% by 2035, against a floor of about 77% that physics, statistics, launch windows and institutions set. The robots-build-robots loop stops the usual slowdown rather than going super-exponential before the early 2030s. Before 2035, energy rules out the whole physical economy doubling in under two years.",
+  "s4_definition": "S4 Embodied is S3 Recursive cognition (cognitive work 20-50x faster from about 2029) plus general-purpose robots deployed at scale. These are humanoids and mobile manipulators run by foundation models, working in factories, labs, test facilities, construction and off Earth, including robots helping build robots, factories and infrastructure. S4 assumes S3 cognition turns dexterity and reliability into mainly software problems by about 2028. It adds 24/7, parallel, cheap labor on top of S3's AI-run factories (S3 physical multipliers about 1.3-1.5x). Labor-bound steps compress further, and capacity, replicate, queue and crew gates become capital-bound. Physics time constants, statistics, orbital mechanics, biology's clocks and institutions do not move. When robots become useful at scale (base path): structured single-task work now; multi-task factory work and robot makers' own lines 2028-30; general lab bench work 2029-31; aerospace I&T, test stands and refurbishment at leading firms 2029-30, and supply-chain-wide after 2031; general construction trades 2031-35; lunar and in-space pilots 2029-31. S4 multipliers for 2031 / 2035: fabrication 1.5-1.8x / 2.0-2.7x; ground I&T 1.7-2.1x / 2.1-2.8x; qualification 1.5-1.8x / 1.9-2.6x; construction 1.2-1.35x / 1.4-1.8x; regulatory, politics, orbital mechanics and biology unchanged.",
+  "amdahl": {
+   "s3_space_program": "S3 2031: 51% shorter ceiling (2.05x), 35-45% realized. S3 with infinite cognition: 53%. S3 2035 without general-purpose robots: 56% (2.25x), 40-48% realized.",
+   "s4_space_program_2031": "Ceilings: 56% (2.3x) for a typical program, 60% (2.5x) at a leading firm, 64% (2.8x) at a robot-first integrated firm. Realized: 38-46% typical, 45-55% robot-first. That is 5-13 points over S3. Labor-multiplier gains drive it (2.2-4x on labor sub-shares). Floor with infinite cognition and robots under 2031 institutions: 69%.",
+   "s4_space_program_2035": "Ceiling 68% (3.1x) central and 73% (3.7x) high; realized 50-62%. That is 12-17 points over S3 2035. Floor with infinite cognition and robots: about 77% (4.4x). The remaining critical path shifts to physics and statistics (43%) and institutions (22%); labor falls to 16% from 29% in S3.",
+   "s4_construction": "U.S. grid-connected data center or power plant: S3 2031 19%, S4 2031 21% (average) to 28% (leading edge); S3 2035 25%, S4 2035 38-45%; ceiling 56% with labor and equipment free. Permissive or behind-the-meter build: S3 18%, S4 2031 21-31%, S3 2035 25%, S4 2035 45-54%, ceiling 79%. Interconnection (61-month median), permits and equipment queues bind, and AI demand grows the queues as fast as robots raise throughput.",
+   "s4_drug_program": "Typical small molecule, 16-year baseline: S3 2031 30% shorter (11.3 yr), S4 2031 35% (10.4 yr), S3 2035 41% (9.4 yr), S4 2035 48% (8.3 yr). Even if every lab step took zero time, the program would be at most 34% shorter, because Phase I through review is 10.5 of the 16 years. New material to flight qualification, 15-year baseline: S3 2031 32%, S4 2031 38%, S3 2035 43%, S4 2035 55%; without model-based allowables, 40-45%."
+  },
+  "robot_fleet": "Active general-purpose robot fleet at end of year, 5-year service life; weights within S4 are 25/55/20.\n\n- **Slow:** 0.24M (2028), 0.49M (2029), 1.4M (2031), 4.7M (2035). Output doubling 18 months (2026-31) and 32 months (2031-35). Passes 1M about Q2 2031.\n- **Base:** 0.76M, 2.0M, 9.0M, 71M. Shipments 4.5M/yr in 2031 and 30M/yr in 2035. Output doubling 10 months, then 18. Passes 1M about Q2 2029 and 10M about Q1 2032.\n- **Fast:** 1.6M, 4.6M, 24M, about 200M, capped after 2031 by magnets and capital. Doubling 8.5 months, then 20. Passes 1M about Q3 2028, 10M about Q4 2030 and 100M about mid-2034.\n\nRobot labor as a share of today's workforce (slow / base / fast):\n\n| Sector | 2031 | 2035 |\n| --- | --- | --- |\n| Manufacturing | 0.1 / 1.3 / 4.8% | 0.4 / 11 / 41% |\n| Construction | 0.02 / 0.2 / 0.8% | 0.1 / 3 / 11% |\n| Lab technicians | 0.4 / 5 / 20% | 0.9 / 26% / saturates |\n| Aerospace production | 0.6 / 7 / 24% | 1.2 / 32% / saturates |\n\nCross-checks: bank 2030 forecasts (0.45-1.2M shipments) sit between slow and base. Epoch calls 1.5-3M/yr by 2030 \"clearly achievable\" after a demand shock. The base path matches the US 1940-44 aircraft ramp held for five years.",
+  "key_points": [
+   "Starting point, Oct 2026: about 13k humanoids shipped in 2025 (Omdia) and about 25k in H1 2026 (IDC, +432%), over 97% Chinese. IFR counts about 7k full-size professional units and says most need teleoperation. Only low thousands do paid work. Western nameplate capacity has been 1-25% realized.",
+   "Robots compress throughput, not latency. Labor, shift, queue and replicate time shrink. Thermal-vacuum dwells, creep tests, hot-fire failure discovery, the 229-trial reliability statistic, the 26-month Mars window, Phase III endpoints and statutory clocks do not.",
+   "Gate table: production rate 0.7-0.8x (S3) becomes 0.5-0.7x (S4 2031) and 0.35-0.55x (2035). Environmental qualification goes to 0.6-0.7x, then 0.45-0.6x. Pads and propellant plants go to 0.75-0.85x, then 0.55-0.7x, because transformers take 128-160+ weeks. Material qualification goes to 0.5-0.6x, then 0.4-0.55x. FAA, NEPA, spectrum and the Mars learning loop stay unchanged. Each gate is split into labor, physics, materials-energy-capital and institution shares.",
+   "Evidence that automation moves steps, not cadence: Rocket Lab's Rosie cut a composite step about 33x, but cadence rose only about 3.5x over six years. SpaceX builds about 70 Starlinks a week and Starship hulls are ahead of flights, so the gate has moved to launch and flight learning.",
+   "Robots-build-robots: production labor is small, about 0.2-0.7M full-time workers for 4.5M robots a year, so the loop is cheap to close on labor. Its leverage is removing hiring lag and running capital 24/7. It holds doubling near 9-12 months instead of 15-18, which means about 2x more robots by 2031 and about 9x by 2035. It is not super-exponential before robots build machine tools, fabs and factories (mid-2030s). It bites inside robot makers in 2028-29, across the robot supply chain in 2030-32, and up the capital-goods chain in the mid-2030s.",
+   "Caps on the loop: precision actuators (2026-28); the reliability long tail; capital ($70-180B/yr base by 2031, $0.4-1.2T by 2035); NdFeB magnets (base 2035 needs 18-40% of 2025 world output, fast 42-94%); leading-edge chips shared with AI data centers; factory build and permits; energy. Energy does not cap the robots themselves (base fleet about 14 TWh in 2031, 107 TWh in 2035), but it does cap compute, fabs and any economy-wide doubling, since grid growth tops out at about 4-8% a year.",
+   "Earliest under-2-year doublings: High and already happening for robot production, robot actuators and autonomous-lab capacity. Medium for mass to orbit in 2027-28 (Starship, not robots), satellite manufacturing in 2027-29 and lunar surface activity in 2028-30. Low for manufacturing value added in a leading economy (2033-35, fast path only) and leading-edge wafers (2031-33). Speculative before 2035 for construction, grid electricity, drug approvals and magnets.",
+   "The rumor is unsubstantiated as of Oct 7 2026: there is one repository commit and only 'for future releases' language. Three dumps would measure throughput (a 12.6-day doubling in result count), not capability. They would justify shifting 10-15 points toward S3 and running a sensitivity case with recursion from 2027. They would not speed robots: AI math is about 1.1-1.5x on the robotics timeline. Nor would they shorten space programs: infinite cognition moves the ceiling only from 51% to 53%.",
+   "Tree impact: 19 of 150 tier 5-7 nodes move earlier, by 0.86 years on average. Examples: 100+ fully reusable heavy launches a year (2029 to 2028); Rapidly reusable orbital heat shield (2029 Medium to 2028 High); Qualification campaigns at least 15% shorter (2030 Medium to 2029 High); Engine development time and cost cut (2031 Low to 2030 Medium); First robot-built landing pad or blast berm on the Moon and Robotic assembly in space with certified skills (2030 Low to 2029 Medium). Across all 150 nodes the mean move is 0.13 years, about a third of S3's 0.39-year gain over S2. High-or-Medium nodes go from 92 to 95, High nodes from 35 to 41.",
+   "113 tier 5-7 nodes do not move. These are bound by regulation (9), orbital mechanics (6), nuclear (4), physics and frontier technology (7), data and nature (8), chip fabs (3), institutional acceptance (8), cognitive adoption (25), or launch, demonstrations and funding (43). Three nodes move only by 2035: Kilometre-scale monolithic structure in orbit; New space materials reach flight in five years or less; A new reusable launcher from start to orbit in three years. Recommended new node: a robotic-process requalification standard (AS9100, NADCAP, customer acceptance of robot-made flight hardware).",
+   "Method caveat: WebSearch quota was exhausted, so no new web searches were run in this synthesis step. Numbers come from the six research files (Oct 7 2026) plus two 33FG Terafab items checked directly. Fleet paths, splits, multipliers, Amdahl results and node moves are estimates, computed by scratchpad scripts s4_model.py and s4_build.py. The draft has about 2,700 words of prose plus about 2,400 words of tables, so it runs over the 3,500-word target if the tables are counted."
+  ]
+ },
+ "final": {
+  "file_written": "/Users/alex/projects/openai math paper/model/embodied/s4-embodied.md",
+  "json_written": "/Users/alex/projects/openai math paper/model/embodied/s4-embodied.json",
+  "answer_in_brief": "You are partly right, but \"quickly\" is the wrong word before about 2031. Robotics is reaching the physical world: the growth rate is fast, the share is small. In the corrected base path the general-purpose robot fleet reaches about 6M in 2031 and about 62M in 2035. That is 0.7% of global manufacturing labor in 2031 and about 9% in 2035.\n\nRobots become useful for flight-tolerance aerospace work at leading firms only around 2030-31. Most of the tree's physical milestones land in 2028-31, so S4 moves no tier 5-7 node by a full year or a band by 2031. Six nodes gain about a quarter-year, and the year-scale gains come in 2032-35.\n\nRobots raise throughput much more than they shorten single programs. With physics and institutions held at S3 values, a new space program's compression ceiling moves from 51% (S3) to:\n- 52% for a typical 2031 program\n- 56-60% at a robot-first firm in 2031\n- 66-67% at a robot-first firm in 2035\n\nEven infinite cognition plus infinite robots stops at about 67-73%.\n\n\"Every domain\" accelerates only as fast as its slowest essential input:\n- **Could double output in under two years by 2035:** robot production, lab experiments and space hardware at integrated firms.\n- **Cannot:** grid power, construction, drug approvals and magnet supply.\n\nThe robots-build-robots loop adds only about 1.0-1.2x by 2031. It matters from about 2032, and it is not super-exponential before 2035.\n\nThe three-dumps rumor is unconfirmed. Even if true, it bears on the cognitive clock (S2 versus S3), not on robots or launch dates.\n\nMethod note: WebSearch quota was exhausted. One European Commission page was fetched directly, and the rest rests on the six research files, graph-v5.json and both reviews. The corrected model is in scratchpad/s4_model_v2.py (output s4_calc_v2.json), and the JSON was updated by scratchpad/s4_json_update.py. Draft values are kept under draft_* keys, and the draft JSON is backed up at scratchpad/s4-embodied.draft-backup.json.",
+  "key_numbers": [
+   "Humanoid shipments: 13,318 in 2025 (Omdia); 19-25k in H1 2026 (IDC); over 97% Chinese; output at the leading makers grew linearly through 2026 (AgiBot about 5k a quarter, 20k cumulative Sep 24)",
+   "Base fleet (rebased): 2026 shipments 60k; fleet 0.46M (2028), 6.2M (2031), 62M (2035); output doubling about 10 months 2026-31 and about 16 months 2031-35. Slow path 1.4M / 4.6M; fast path 14M / 158M",
+   "Sensitivities for 2035: loop held at a 12-month doubling gives 104M; saturating at 1.3x a year gives 30M; early onset (the draft's old base) gives 9.0M in 2031 and 71M in 2035",
+   "Robot share of labor, base path: manufacturing 0.7% (2031) and 8.7% (2035); aerospace production 3.4% and 25%; labs 2.8% and 20%; construction 0.1% and 2.4%. Robots reach 10% of global manufacturing labor about 2036 (base) and 2034 (fast)",
+   "Labor gain over S3 = robot hours ratio x productivity x parallel-crew factor: 1.43x (0.94-2.03) in 2031 and 2.31x (1.58-3.06) in 2035",
+   "Space program Amdahl ceiling: S3 51.3%; S4 2031 typical 51.5-51.9%, leading 54.2%, robot-first 55.8-60.0%; S3 2035 55.6%; S4 2035 typical 58.1%, leading 62.1%, robot-first 65.9-67.2%; floor 67-70% (2031) and 70-73% (2035); 75% with a 1.5x institutional overlay that is not robotic",
+   "Realized compression: S4 2031 typical 35-45% (same as S3); robot-first 40-50%; S4 2035 robot-first 50-58%",
+   "Remaining critical path, S4 2035 robot-first: labor 16%, physics 44%, materials and capital 18%, institutions 20%",
+   "Infrastructure (U.S. grid-connected): S3 19% (2031) and 25% (2035); S4 typical 19% and 27%; leading site 21% and 33%. Permissive builds: up to 37% by 2035",
+   "Drugs: robots add +3.7 points in 2031 and +2.9 in 2035; including non-robotic changes the S4 total is 35% (2031) and 48% (2035); even infinitely fast labs cap the gain at 34%",
+   "Materials: robots add +4.7-4.8 points; model-based allowables, an institutional change, add about +7 more by 2035 (55% total)",
+   "Tree, tier 5-7 nodes: 0 move by a year or a band by 2031 (the draft had 19); 6 gain a quarter-year within their year, 2 more only if ship turnaround falls under a week; mean gain 0.01 years against 0.39 for S3 over S2; 9 nodes get credit only in 2032-35",
+   "Base magnets in 2035: 26, 53 or 118 kt at 1, 2 or 4.5 kg per robot (8-36% of about 330 kt 2025 output); fast path needs 69-309 kt",
+   "Capital: base $50-100B a year in 2031 and $0.4-0.8T in 2035; fast path passes $1T a year around 2035",
+   "Energy: base fleet uses about 9 TWh (2031) and about 93 TWh (2035), so energy does not limit the robots themselves"
+  ],
+  "where_user_is_right": [
+   "Robotics is reaching the physical world: shipments rose about 6x in 2025, and the base path holds a roughly 10-month output doubling through 2031, which matches the WWII aircraft mobilization pace.",
+   "Every explosive-growth model (Davidson, Epoch GATE, Forethought) needs physical labor to be automated, so robots really are the bridge from cognition to physical acceleration.",
+   "Measured by output, domains next to robots or launch do double in under two years from 2027-30: robot units, actuators, lab experiments, mass to orbit, satellites and lunar activity.",
+   "By 2035, robots at robot-first firms roughly double the room S3 cognition alone leaves: about 66-67% compression against 56% for S3.",
+   "Robots shift more and more gates from labor and queue limits to capital limits. After about 2032 the loop starts working in the robot supply chain, and 2035 fleets of 60-100M+ are plausible within S4.",
+   "If the rumor is true, it is moderate evidence for upper S2 or an earlier S3, which makes S4 somewhat more likely."
+  ],
+  "where_it_stops": [
+   "Timing: robots become useful for flight-tolerance aerospace work only around 2030-31. Hardware generations take 12-30 months, field reliability needs about 2,300 failure-free hours per task class for a 1,000-hour MTBI, and putting robots on flight hardware needs requalification (6-24 months per process per supplier). So tree milestones dated 2028-31 barely move.",
+   "Latency: robots cannot shorten physics time constants (thermal-vacuum soaks, creep tests, 28-day concrete), statistics (about 229 trials for 0.99 reliability at 90% confidence), orbital mechanics (26-month Mars windows), biology's clocks (trial endpoints) or statutory reviews.",
+   "Where robots concentrate, labor often is not the binding gate. SpaceX satellites and Starship hulls are ahead of launch, and Rocket Lab's 33x Rosie speedup on one step produced about 3.5x more launches over six years.",
+   "Weak links (Baumol): each domain moves only as fast as its slowest essential input. Permits, interconnection (61 months median), turbines (116 GW backlog against about 20 GW a year of output), clinical time and magnet mines (7-15 years) do not double before 2035.",
+   "The loop is not super-exponential before 2035. Assembly labor does not bind robot production; actuators, magnets, chips, capital and certification do, and the loop only reaches those in 2032 and later.",
+   "Institutions can speed up (EO 14300, FDA priority vouchers), but that is not robotic and can reverse, as the Texas data-center permit freeze of Sep 21 2026 shows.",
+   "Energy and compute are shared with S3. Robot training and robot factories compete with AI data centers for chips, turbines and interconnection, and energy rules out an economy-wide doubling in under two years before 2035."
+  ],
+  "debates": [
+   {
+    "topic": "Physics sub-multipliers and the Amdahl floor",
+    "skeptic": "The draft raised physics, materials and institution multipliers, so 40-50% of the S4 gain was not robotic. The floor should be 65-69%, not 77%.",
+    "advocate": "The physics bins mix true time constants with serial build-test-learn iterations, which cheap parallel test articles compress. The floor is about 85%.",
+    "resolution": "Time constants and institutions are held at S3 same-year values. Iteration credit is 1.25x (2031) and 1.5x (2035), robot-first firms only, and counted as a capital lever. Floor is 67-73%, or 75% with a non-robotic institutional overlay. SpaceX flew SN8-SN15 in 147 days in 2020-21 without robots, so hardware-rich iteration is already in the baseline."
+   },
+   {
+    "topic": "Typical program and labor multipliers",
+    "skeptic": "56% used multipliers that assume robots are deployed, but robots cover only about 7% of aerospace labor, so about 52%. Labor multipliers of 4-8x exceed what 24/7 operation gives over crews already working several shifts.",
+    "advocate": "Not contested.",
+    "resolution": "Skeptic accepted. Typical 52%, leading firm 54%, robot-first 56-60%. The labor gain is now derived (hours ratio x productivity x parallel-crew factor) at 1.43x for 2031 and 2.31x for 2035."
+   },
+   {
+    "topic": "Node moves in the tree",
+    "skeptic": "Three moves break hard prerequisites (verified: 100+ heavy launches against pads in 2029, qualification against analysis credit in 2030, engine development against the stability tool in 2031). Eight 2028 moves come before robot onset. Starship, satellite and lunar nodes are not labor-bound.",
+    "advocate": "Pass the cadence move through to every node bound by launch cadence (5-10 more nodes).",
+    "resolution": "All 19 draft moves revert to their S3 year and band. With the cadence move withdrawn, there is nothing to pass through. 6 nodes keep a quarter-year credit within their year and 2 get it only if ship turnaround falls under a week. A robotic-process requalification node is added (2029-30, Medium)."
+   },
+   {
+    "topic": "Fleet trajectory 2026-2031",
+    "skeptic": "The 4-5 month doubling is a year-over-year artifact; the leaders grew linearly in 2026; base sits at the top of the research range; actuator caps were named but never applied.",
+    "advocate": "Converting idle Chinese car capacity removes factory shells as a cap; the fast path should carry 30-35% weight; Chinese actuator supply is elastic (about an 11-month doubling).",
+    "resolution": "Base rebased to 60k shipments in 2026, then 2.3x a year in 2027-28, giving 6.2M in 2031 (was 9.0M). This path fits the growth in reducer capacity. The old base is kept as an early-onset sensitivity, and weights are unchanged. Brownfield conversion is noted, but usefulness and actuators bind first."
+   },
+   {
+    "topic": "Fleet after 2031 and the robots-build-robots loop",
+    "skeptic": "Historical ramps saturate at 1.2-1.3x a year. The loop adds only 1.0-1.2x by 2031, the draft's 2.1x double-counted, and the 1-3% arithmetic was wrong (it is 1.5-5.2%).",
+    "advocate": "The draft's base after 2031 is a no-loop path (17.7-month doubling), and its fast path slowed more than base. Holding the loop at a 12-month doubling gives about 156M robots by 2035.",
+    "resolution": "Both partly right. The loop adds about 1.0-1.2x by 2031. Base grows 1.8x then 1.6x a year after 2031, with loop credit from about 2032 (62M in 2035). The loop-held case (104M) and the saturating case (30M) are both shown, and the fast path is no longer slower than base. The arithmetic is corrected: 3-8% of the rebased fleet."
+   },
+   {
+    "topic": "Institutions",
+    "skeptic": "Hold institutions at S3 values, and add a cap for politics, labor and safety regulation (EU 2027, ISO 25785-1, unions, state backlash).",
+    "advocate": "2025-26 shows 2-8x speedups on specific clocks (EO 14300's 18-month NRC deadline, Seven County, FDA vouchers at about 50 days), so treat institutions as a distribution.",
+    "resolution": "Institutions become an overlay applied to S3 and S4 alike: +2-3 points by 2035, labeled non-robotic, with a backlash case at about 1.0x. A politics, labor and safety cap row is added. The EU Machinery Regulation start date of 20 Jan 2027 was confirmed on the EC page."
+   },
+   {
+    "topic": "Qualification, queues and requalification",
+    "skeptic": "Robotic process changes force requalification, so early adopters face a J-curve (Tesla Model 3, Relativity, Neutron).",
+    "advocate": "GEVS dwell is only 5-20% of a campaign, and queue waits are nonlinear (Kingman), so 24/7 capacity cuts waits several-fold.",
+    "resolution": "The environmental qualification split changes from 35/40/10/15 to 45/25/10/20. A requalification gate is added with a 1.3-point drag on robot-first 2031. The queue credit is cancelled out by rising test demand, the same logic as the GE Vernova backlog."
+   },
+   {
+    "topic": "Throughput versus latency, and Baumol",
+    "skeptic": "Growth is capped by the hardest-to-automate essential tasks (Jones-Tonetti, Aghion-Jones-Jones), so measure doubling in physical units.",
+    "advocate": "The user asked about domain acceleration, which is throughput. Lead with output rates, not one program's Amdahl ceiling.",
+    "resolution": "Both accepted. The bottom line now separates throughput from latency, and the sector table uses physical units with a named weak link for each sector."
+   },
+   {
+    "topic": "Drugs and materials",
+    "skeptic": "61% of the 2035 drug increment is clinical or review time, not robots. The materials gain depends on model-based allowables, and multi-lot, multi-heat requirements cannot be parallelized.",
+    "advocate": "The clinical calendar is mostly operations (enrollment, gaps between phases). The creep-test floor is about 4 of 15 years. A commercial internal-insertion route exists.",
+    "resolution": "Gains are split. Robots add drugs +3.7 (2031) and +2.9 (2035), and materials +4.7-4.8. Clinical operations gains are real but cognitive (S3), and allowables are institutional. The commercial-insertion node is already Low by 2031 in S3."
+   },
+   {
+    "topic": "Infrastructure and energy",
+    "skeptic": "Scale the labor multiplier by robot share and hold the equipment queue at S3; U.S. 2035 is about 27%, not 38%.",
+    "advocate": "Energy has slack: about 0.45-0.5 TW a year of idle module capacity is 5-6x the base fleet's 2035 need.",
+    "resolution": "Skeptic on Amdahl: U.S. grid-connected 2035 is 27% typical and 33% at leading sites. Advocate on energy: energy does not limit robots, labs or space, but does limit compute, fabs and any economy-wide doubling."
+   },
+   {
+    "topic": "Flight as test bed, Mars and rumor sensitivity",
+    "skeptic": "Drop the 12.6-day doubling time, which measures OpenAI's disclosure policy.",
+    "advocate": "Use Varda capsules as a TPS test bed, count parallel landers per Mars window, and run an S4 case with 2027 onset.",
+    "resolution": "Doubling time dropped. Flight-test cadence is a launch effect already in S2/S3, and LEO returns at about 7.8 km/s do not validate 12-14 km/s entry. The Mars variable is noted with no node move. The early-onset case adds under 1 point to a typical 2031 program."
+   }
+  ],
+  "signposts": [
+   "Full-year 2026 humanoid shipments: under 50k points to slow, 60-100k to base, over 150k to fast. H1 2026 points to the boundary between slow and base. Watch whether quarterly output at AgiBot and UBTech breaks from linear growth.",
+   "A humanoid maker publishes fleet mean time between interventions, or Tesla reports Optimus units in productive use",
+   "ISO 25785-1 reaches DIS; first uncaged deployments; EU Machinery Regulation third-party assessments begin from 20 Jan 2027",
+   "Humanoids do final assembly of humanoids, then work in reducer, roller-screw and magnet plants (the loop starts)",
+   "Humanoids do paid aerospace assembly or test-stand work; the first robotic-process requalification for flight hardware; SpaceX discloses robot counts",
+   "Starship ship turnaround falls under one week (this unlocks the conditional credit for cadence and the heat shield)",
+   "Transformer lead times fall below about 100 weeks while demand is still rising",
+   "China's rare-earth licensing decision around Nov 10 2026; kilograms of magnet per robot in new designs; new magnet capacity outside China",
+   "A regulator accepts model-based allowables or reliability priors (the institutional overlay, not robotics)",
+   "A further OpenAI math batch from a newer, stronger model within weeks (an S3 signal)"
+  ],
+  "rumor_status": "Unsubstantiated as of Oct 7 2026. No OpenAI statement or named report calls the Oct 6 openai/math release one of three dumps. The repository has a single commit, and OpenAI mentions only \"future releases\" (Engadget, Oct 7). The rumor likely blends three things: three OpenAI math releases in about 9.5 weeks (Aug 1, Sep 8, Oct 6), staff remarks about held-back results (Scientific American) and reported progress on other Millennium problems (Fortune).\n\nIf true, it means a large backlog and moderate evidence for upper S2 or an earlier S3: shift 10-15 points toward S3. The deciding test is whether each release comes from a newer, stronger model. It does not imply faster robots (AI math is worth about 1.1-1.5x on the robotics timeline) or shorter space programs (the ceiling moves only from 51% to 53%). An early S4 onset would add under 1 point to a typical 2031 program. The draft's 12.6-day doubling figure is withdrawn because release dates measure disclosure policy."
+ }
+}

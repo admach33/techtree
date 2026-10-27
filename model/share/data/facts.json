@@ -1,0 +1,636 @@
+{
+ "scenario_names": {
+  "S1": "Plateau",
+  "S2": "Exponential",
+  "S3": "Recursive",
+  "S4": "Embodied"
+ },
+ "n_nodes": 478,
+ "n_cognitive": 250,
+ "n_physical": 228,
+ "n_branches": 13,
+ "clock_curve": {
+  "S1": [
+   {
+    "year": 2026,
+    "cognitive": 1,
+    "physical": 0,
+    "gap": 1
+   },
+   {
+    "year": 2027,
+    "cognitive": 6,
+    "physical": 1,
+    "gap": 5
+   },
+   {
+    "year": 2028,
+    "cognitive": 14,
+    "physical": 4,
+    "gap": 10
+   },
+   {
+    "year": 2029,
+    "cognitive": 34,
+    "physical": 9,
+    "gap": 25
+   },
+   {
+    "year": 2030,
+    "cognitive": 51,
+    "physical": 13,
+    "gap": 38
+   },
+   {
+    "year": 2031,
+    "cognitive": 52,
+    "physical": 14,
+    "gap": 38
+   },
+   {
+    "year": 2032,
+    "cognitive": 71,
+    "physical": 33,
+    "gap": 38
+   },
+   {
+    "year": 2033,
+    "cognitive": 76,
+    "physical": 35,
+    "gap": 41
+   },
+   {
+    "year": 2034,
+    "cognitive": 76,
+    "physical": 35,
+    "gap": 41
+   },
+   {
+    "year": 2035,
+    "cognitive": 76,
+    "physical": 35,
+    "gap": 41
+   }
+  ],
+  "S2": [
+   {
+    "year": 2026,
+    "cognitive": 1,
+    "physical": 0,
+    "gap": 1
+   },
+   {
+    "year": 2027,
+    "cognitive": 18,
+    "physical": 1,
+    "gap": 17
+   },
+   {
+    "year": 2028,
+    "cognitive": 56,
+    "physical": 7,
+    "gap": 49
+   },
+   {
+    "year": 2029,
+    "cognitive": 75,
+    "physical": 22,
+    "gap": 53
+   },
+   {
+    "year": 2030,
+    "cognitive": 83,
+    "physical": 29,
+    "gap": 54
+   },
+   {
+    "year": 2031,
+    "cognitive": 83,
+    "physical": 32,
+    "gap": 51
+   },
+   {
+    "year": 2032,
+    "cognitive": 93,
+    "physical": 53,
+    "gap": 40
+   },
+   {
+    "year": 2033,
+    "cognitive": 93,
+    "physical": 57,
+    "gap": 36
+   },
+   {
+    "year": 2034,
+    "cognitive": 93,
+    "physical": 57,
+    "gap": 36
+   },
+   {
+    "year": 2035,
+    "cognitive": 93,
+    "physical": 57,
+    "gap": 36
+   }
+  ],
+  "S3": [
+   {
+    "year": 2026,
+    "cognitive": 1,
+    "physical": 0,
+    "gap": 1
+   },
+   {
+    "year": 2027,
+    "cognitive": 18,
+    "physical": 1,
+    "gap": 17
+   },
+   {
+    "year": 2028,
+    "cognitive": 69,
+    "physical": 10,
+    "gap": 59
+   },
+   {
+    "year": 2029,
+    "cognitive": 87,
+    "physical": 29,
+    "gap": 58
+   },
+   {
+    "year": 2030,
+    "cognitive": 90,
+    "physical": 38,
+    "gap": 52
+   },
+   {
+    "year": 2031,
+    "cognitive": 90,
+    "physical": 42,
+    "gap": 48
+   },
+   {
+    "year": 2032,
+    "cognitive": 95,
+    "physical": 63,
+    "gap": 32
+   },
+   {
+    "year": 2033,
+    "cognitive": 95,
+    "physical": 69,
+    "gap": 26
+   },
+   {
+    "year": 2034,
+    "cognitive": 95,
+    "physical": 69,
+    "gap": 26
+   },
+   {
+    "year": 2035,
+    "cognitive": 95,
+    "physical": 69,
+    "gap": 26
+   }
+  ],
+  "S4": [
+   {
+    "year": 2026,
+    "cognitive": 1,
+    "physical": 0,
+    "gap": 1
+   },
+   {
+    "year": 2027,
+    "cognitive": 18,
+    "physical": 1,
+    "gap": 17
+   },
+   {
+    "year": 2028,
+    "cognitive": 70,
+    "physical": 10,
+    "gap": 60
+   },
+   {
+    "year": 2029,
+    "cognitive": 88,
+    "physical": 30,
+    "gap": 58
+   },
+   {
+    "year": 2030,
+    "cognitive": 91,
+    "physical": 41,
+    "gap": 50
+   },
+   {
+    "year": 2031,
+    "cognitive": 91,
+    "physical": 44,
+    "gap": 47
+   },
+   {
+    "year": 2032,
+    "cognitive": 95,
+    "physical": 66,
+    "gap": 29
+   },
+   {
+    "year": 2033,
+    "cognitive": 96,
+    "physical": 73,
+    "gap": 23
+   },
+   {
+    "year": 2034,
+    "cognitive": 96,
+    "physical": 74,
+    "gap": 22
+   },
+   {
+    "year": 2035,
+    "cognitive": 96,
+    "physical": 74,
+    "gap": 22
+   }
+  ]
+ },
+ "gap_peak": {
+  "S1": {
+   "year": 2033,
+   "cognitive": 76,
+   "physical": 35,
+   "gap": 41
+  },
+  "S2": {
+   "year": 2030,
+   "cognitive": 83,
+   "physical": 29,
+   "gap": 54
+  },
+  "S3": {
+   "year": 2028,
+   "cognitive": 69,
+   "physical": 10,
+   "gap": 59
+  },
+  "S4": {
+   "year": 2028,
+   "cognitive": 70,
+   "physical": 10,
+   "gap": 60
+  }
+ },
+ "proved_vs_flown": {
+  "2029": {
+   "proof_reached": 122,
+   "proof_total": 155,
+   "hardware_reached": 44,
+   "hardware_total": 167
+  },
+  "2031": {
+   "proof_reached": 149,
+   "proof_total": 155,
+   "hardware_reached": 103,
+   "hardware_total": 167
+  },
+  "2035": {
+   "proof_reached": 154,
+   "proof_total": 155,
+   "hardware_reached": 154,
+   "hardware_total": 167
+  }
+ },
+ "outcome_gates": {
+  "total": 164,
+  "counts": {
+   "capital": 34,
+   "adoption": 33,
+   "launch": 29,
+   "regulatory": 19,
+   "qualification": 18,
+   "fabrication": 13,
+   "data": 12,
+   "experiment": 6
+  },
+  "cognition": 0
+ },
+ "physical_share": {
+  "S1": {
+   "2031": 14,
+   "2035": 35
+  },
+  "S2": {
+   "2031": 32,
+   "2035": 57
+  },
+  "S3": {
+   "2031": 42,
+   "2035": 69
+  },
+  "S4": {
+   "2031": 44,
+   "2035": 74
+  }
+ },
+ "cognitive_share": {
+  "S1": {
+   "2031": 52,
+   "2035": 76
+  },
+  "S2": {
+   "2031": 83,
+   "2035": 93
+  },
+  "S3": {
+   "2031": 90,
+   "2035": 95
+  },
+  "S4": {
+   "2031": 91,
+   "2035": 96
+  }
+ },
+ "amdahl": {
+  "rows": [
+   {
+    "activity": "Requirements and trade studies",
+    "share": 0.1,
+    "kind": "think",
+    "speedup": [
+     2,
+     5,
+     20
+    ]
+   },
+   {
+    "activity": "Design and analysis",
+    "share": 0.15,
+    "kind": "think",
+    "speedup": [
+     2,
+     10,
+     50
+    ]
+   },
+   {
+    "activity": "Software and verification",
+    "share": 0.1,
+    "kind": "think",
+    "speedup": [
+     2,
+     5,
+     20
+    ]
+   },
+   {
+    "activity": "Fabrication and procurement",
+    "share": 0.25,
+    "kind": "do",
+    "speedup": [
+     1.0,
+     1.1,
+     1.3
+    ]
+   },
+   {
+    "activity": "Integration and test",
+    "share": 0.25,
+    "kind": "do",
+    "speedup": [
+     1.0,
+     1.2,
+     1.5
+    ]
+   },
+   {
+    "activity": "Qualification and reviews",
+    "share": 0.1,
+    "kind": "do",
+    "speedup": [
+     1.0,
+     1.2,
+     1.5
+    ]
+   },
+   {
+    "activity": "Launch campaign",
+    "share": 0.05,
+    "kind": "do",
+    "speedup": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  ],
+  "scenarios": [
+   {
+    "scenario": "S1",
+    "length": 0.825,
+    "shorter_pct": 18,
+    "speedup": 1.2,
+    "think_min": 2,
+    "think_max": 2
+   },
+   {
+    "scenario": "S2",
+    "length": 0.624,
+    "shorter_pct": 38,
+    "speedup": 1.6,
+    "think_min": 5,
+    "think_max": 10
+   },
+   {
+    "scenario": "S3",
+    "length": 0.489,
+    "shorter_pct": 51,
+    "speedup": 2.0,
+    "think_min": 20,
+    "think_max": 50
+   }
+  ],
+  "think_share": 0.35
+ },
+ "cards": [
+  {
+   "id": "verif-assurance-cost-collapse",
+   "figure": null,
+   "title": "Verified flight code 15-120x cheaper per line",
+   "branch": "verif",
+   "gate": "adoption",
+   "year": {
+    "S1": "2030",
+    "S2": "2028",
+    "S3": "2028",
+    "S4": "2028"
+   },
+   "band_2031": {
+    "S1": "Medium",
+    "S2": "High",
+    "S3": "High",
+    "S4": "High"
+   },
+   "band_2035": {
+    "S1": "High",
+    "S2": "High",
+    "S3": "High",
+    "S4": "High"
+   }
+  },
+  {
+   "id": "astro-ai-designed-trajectory-flown",
+   "figure": "orrery",
+   "title": "Missions fly AI-designed trajectories",
+   "branch": "astro",
+   "gate": "launch",
+   "year": {
+    "S1": "2030",
+    "S2": "2029",
+    "S3": "2029",
+    "S4": "2029"
+   },
+   "band_2031": {
+    "S1": "Medium",
+    "S2": "High",
+    "S3": "High",
+    "S4": "High"
+   },
+   "band_2035": {
+    "S1": "High",
+    "S2": "High",
+    "S3": "High",
+    "S4": "High"
+   }
+  },
+  {
+   "id": "materials-cots-orbital-compute-ops",
+   "figure": "compute-sat",
+   "title": "Commercial AI chips running in orbit at scale",
+   "branch": "materials",
+   "gate": "launch",
+   "year": {
+    "S1": "2029",
+    "S2": "2029",
+    "S3": "2029",
+    "S4": "2029"
+   },
+   "band_2031": {
+    "S1": "Medium",
+    "S2": "High",
+    "S3": "High",
+    "S4": "High"
+   },
+   "band_2035": {
+    "S1": "High",
+    "S2": "High",
+    "S3": "High",
+    "S4": "High"
+   }
+  },
+  {
+   "id": "prop-cislunar-propellant-economy",
+   "figure": "refuel",
+   "title": "Routine orbital refueling economy",
+   "branch": "prop",
+   "gate": "launch",
+   "year": {
+    "S1": "2032",
+    "S2": "2030",
+    "S3": "2029",
+    "S4": "2029"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "band_2035": {
+    "S1": "High",
+    "S2": "High",
+    "S3": "High",
+    "S4": "High"
+   }
+  },
+  {
+   "id": "auton-lunar-oxygen-ops",
+   "figure": "lunar-o2",
+   "title": "Tonne-per-year lunar oxygen plant",
+   "branch": "auton",
+   "gate": "capital",
+   "year": {
+    "S1": "2034",
+    "S2": "2032",
+    "S3": "2031",
+    "S4": "2031"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "Medium"
+   }
+  },
+  {
+   "id": "prop-35-engine-50-flight-life",
+   "figure": "raptor",
+   "title": "Engines fly 50 missions without overhaul",
+   "branch": "prop",
+   "gate": "data",
+   "year": {
+    "S1": "2034",
+    "S2": "2033",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "Medium"
+   }
+  },
+  {
+   "id": "robo-24x7-integration-test",
+   "figure": "robot-it",
+   "title": "Robots run integration and test around the clock",
+   "branch": "robots",
+   "gate": "qualification",
+   "year": {
+    "S1": "2035",
+    "S2": "2033",
+    "S3": "2033",
+    "S4": "2031"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "High"
+   }
+  }
+ ]
+}

@@ -1,0 +1,760 @@
+{
+ "update": [
+  {
+   "id": "hyper-flight-data-pipeline",
+   "patch": {
+    "description": "A steady stream of instrumented hypersonic and orbital-reentry flights (Varda W-series, Talon-A, MACH-TB, Inversion Arc once flying, BOLT-class experiments) whose surface heating, pressure and in-depth TPS temperatures reach model builders beyond the vehicle operator. Defined as achieved at 12 or more instrumented hypersonic or reentry flights per year whose reconstructed data reach at least one modelling team beyond the operator (a government sponsor, national lab or university). Owner-only data, including most Starship data, do not count (see hyper-fleet-aerothermal-twin). Publicly released calibration datasets remain ~1-3 a year.",
+    "status_oct2026": "Varda 2026 to date: W-5 (29 Jan, AFRL Prometheus, in-house C-PICA heat shield) and W-6 (launched 30 Mar on Transporter-16, recovered 18-19 May at Koonibba) were recovered; W-4 (launched Jun 2025) failed to re-enter properly and burned up on 22 May 2026. W-6 carried a Sandia nose tile embedded with TPS material samples and two NASA Ames instrumented eChar shoulder tiles. Varda's stated target of a monthly cadence by 2026 has slipped. Inversion's Arc has not yet flown (first flight planned for 2026). MACH-TB targets up to 50 tests a year (Task Area 3 awarded to Stratolaunch and Varda, Jan 2026), and Talon-A passed 10 hypersonic flights (Jul 2026). DoD describes test capacity as a national bottleneck across ~70 hypersonic programs.",
+    "why": "Every AI-built aerothermal or material model in this tree has to be calibrated against flight data, because ground facilities cannot reproduce the combined flight environment. There are two data curves. Open and sponsor-shared calibration data grow roughly linearly (capsules, BOLT-class experiments, testbeds), set by rideshare cadence, capital and classification rather than cognition; this is the slope limiter for civil and shared-data model builders in all three scenarios. Owner and defense flight data ride the launch exponential: Starship reentries go from 3 in 2026 to 12+ in 2027 (physclock-flight-test-cadence) and to tens a year once physclock-heavy-cadence-100 is reached, MACH-TB targets up to 50 tests a year, and Talon-A is reusable. For the vehicle owner, and for AI working inside classified enclaves (capability-controlled-data-access), the data clock is much faster for its own vehicle; that channel is carried by hyper-fleet-aerothermal-twin, not by this node.",
+    "strongest_case_small": "Much of the best data is classified (defense hypersonics) or proprietary (SpaceX) and never reaches civil model builders. Cadence claims for commercial capsules have slipped before (Varda: monthly targeted for 2026, three 2026 attempts with one loss). MACH-TB and Talon-A flights are suborbital or hypersonic-cruise, not orbital reentry.",
+    "pathway": "n/a (physical enabler; feeds P5/P6 calibration)",
+    "revision_note": "B-entry: [skeptic+auditor] Definition narrowed to data shared beyond the operator (owner-only Starship data no longer count; the node's own nil_effects say classified data will not reach civil builders). [skeptic+auditor] Status corrected: Varda's monthly target slipped; W-4 burned up 22 May 2026 (Wikipedia); W-6 carried Sandia material samples plus two Ames instrumented eChar tiles (Varda/KXAN release). [advocate] Why rewritten as two data curves; the owner-data curve is now a separate node (hyper-fleet-aerothermal-twin). [auditor] Pathway given a non-P-code 'n/a' label. Year kept at 2027 (auditor proposed 2028): with sponsor-shared data counted (Talon-A ~6/yr, Varda 3 attempts, MACH-TB campaigns), 12+ in 2027 remains the earliest plausible year; High unchanged. Downstream hard edges whose real data source is owner data (tile damage, SRP, Mars landing) or ground/DNS data (SBLI, blackout) or capital (aerocapture) were made soft."
+   }
+  },
+  {
+   "id": "hyper-optimal-test-design",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028"
+    },
+    "binding_gate": "adoption",
+    "status_oct2026": "The methods are known but rarely applied at program scale. The Ames Arc Jet Complex is the agency's sole ground test facility for reentry TPS, and its throughput is limited: in 2026 the 30 kW mARC II needed a cooling-sleeve fix just to extend run times. The Artemis I char-loss investigation took 121 tests across 8 campaigns. New U.S. arc-jet capacity is being built independently of AI: Kratos Project Helios (20-25 MW arc jet plus a 200 kW fiber laser, $68.3M, awarded 23 Oct 2025 under the Industrial Base Analysis and Sustainment program), plus defense arc-heating capacity at AEDC (advocate source, not re-verified).",
+    "why": "When facility hours are the binding constraint, the lever is information gained per run. Well-designed sequential calibration campaigns can cut the runs needed for parameter estimation by 2-5x (judgment); where envelope-coverage qualification matrices fix the test list, the gain is ~20-30%. Applied to the arc-jet and EAST queues, this multiplies the scarcest physical gate in the domain, which defense money is expanding only by a few facilities by ~2028-30. It accelerates the tier-3 physics nodes and the margin chain but is not required by any of them: SRL's probabilistic margins (2026) and the Artemis I root cause (121 conventional tests) were found without it. Domain instance of physclock-optimal-test-campaigns.",
+    "revision_note": "B-entry: [skeptic] Hard edges to hyper-certified-margin-uq, hyper-probabilistic-tps-sizing, hyper-ablator-multiscale-response and hyper-radiation-kinetics made soft (none needs OED to exist). [skeptic] Years 2028/2027/2027 -> 2029/2028/2028: the signpost is an adoption event and test-article fabrication plus arc-jet scheduling take 6-12 months, so same-year-as-public-access assumed zero lag; S3 equals S2 before 2028. Gate experiment -> adoption. Why: '2-5x (general)' relabelled as judgment with the 20-30% qualification case. [advocate] Kratos Helios arc jet added to status (verified on kratosdefense.com); the advocate's claim that the link to physclock-optimal-test-campaigns was missing is wrong (it already exists as a soft edge)."
+   }
+  },
+  {
+   "id": "hyper-stability-analysis-on-demand",
+   "patch": {
+    "earliest_year": {
+     "S2": "2028",
+     "S3": "2028"
+    },
+    "revision_note": "B-entry: [skeptic] S2/S3 2027 -> 2028: the signpost (a published, validated, AI-set-up 3D PSE/BiGlobal analysis) needs a high-fidelity base flow, HPC runs and publication (~1 year) after public applied-math access in 2027; S3 equals S2 before 2028. Soft edge from capability-controlled-data-access added (ITAR geometry). Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-certified-margin-uq",
+   "patch": {
+    "title": "Joint probabilistic TPS margin budgets on demand",
+    "description": "Deterministic aerothermal factors and a separate material branch, combined by the traditional three-branch root-sum-square method, are replaced by a joint probabilistic budget that carries material, aerothermal and recession uncertainty across the full aeroshell to a reliability statement on bondline temperature, set up on demand by AI agents. The open part, bounding model-form error for ground-to-flight extrapolation, is split out as hyper-model-form-error-bounds.",
+    "status_oct2026": "NASA's SRL TPS design (IPPW 2026) uses Mars 2020-derived aerothermal factors (convective 1.22 forebody / 2.0 aftbody, radiative 1.5 / 1.47, pressure 1.05 / 1.25, shear 1.25 / 1.5), a FIAT Monte Carlo bondline margin and +20% recession, combined by the three-branch RSS method; material properties dominate the thickness (conductivity 2-sigma ~32%). A preliminary alternative-margining Monte Carlo at one stressing forebody location (8,000 FIAT cases; aerothermal factors sampled uniformly between 1 and the existing margins, i.e. assuming those factors bound the truth) found ~75% of baseline thickness keeps the bondline below its limit in ~99% of cases, against 0 of 8,000 exceedances at full thickness (1 at 80%, 160 at 70%); full-aeroshell analysis is listed as future work. SRL itself ended when Mars Sample Return received no FY2026 funding (appropriations passed Jan 2026).",
+    "why": "Adding deterministic factors compounds conservatism where the worst cases do not coincide. NASA's preliminary, forebody-only SRL Monte Carlo suggests the traditional thickness may be ~25% conservative at one location, but that thinning is bought by accepting ~1% per-location exceedance under an aerothermal error model capped at the existing factors, which excludes the up-to-2x VUV under-prediction found for the same 8 km/s entry. Joint UQ of this kind is solved in principle but expert-scarce, the classic case where on-demand AI applied math pays first (P1, then P5). This remains the shortest path from AI mathematics to mass on a flown vehicle, with the model-form piece (hyper-model-form-error-bounds) deciding how far the thinning can be trusted.",
+    "signpost": "A published full-aeroshell joint probabilistic TPS margin analysis (material, aerothermal and recession uncertainty propagated together to a bondline reliability statement), set up largely by AI agents, from NASA, ESA, a university or a capsule maker.",
+    "binding_gate": "cognitive",
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "revision_note": "B-entry: [auditor] Split: retitled to the solved-in-principle joint budget; the open model-form part moved to new node hyper-model-form-error-bounds; 'stacked' corrected to three-branch RSS; gate adoption -> cognitive (adoption is hyper-probabilistic-tps-sizing). [skeptic+auditor] SRL anchor number restated with its assumptions (single location, aerothermal error sampled within existing factors, ~1% exceedance accepted, full aeroshell future work) and MSR cancellation added. [skeptic vs advocate] Both wanted S2 = S3 (S3 equals S2 before 2028); resolved at 2028 for both (skeptic's lag argument; the signpost needs publication). [skeptic] Signpost replaced (old one duplicated hyper-probabilistic-tps-sizing and was an agency-acceptance event). Skeptic's S2 High -> Medium and gate -> data were addressed by the split instead: they apply to the model-form node. Hard edge from hyper-optimal-test-design made soft. Bands Medium/High/High unchanged."
+   }
+  },
+  {
+   "id": "hyper-probabilistic-tps-sizing",
+   "patch": {
+    "earliest_year": {
+     "S2": "2029",
+     "S3": "2029"
+    },
+    "band_2031": {
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "status_oct2026": "Shown only as a preliminary, forebody-only alternative-margining study for SRL (~75% of baseline thickness kept the bondline below its limit in ~99% of Monte Carlo cases at one location; IPPW 2026). That study sampled aerothermal error uniformly between 1 and each margin factor, so radiative error was capped at 1.5x, while the companion radiation study found VUV under-predicted by up to 2x against EAST. SRL no longer proceeds: Mars Sample Return received no FY2026 funding (Jan 2026). Varda makes its C-PICA heat shields in-house; it lost W-4 on reentry in May 2026 (cause not public).",
+    "why": "Applying SRL-style thinning frees up to ~1-3% of entry mass for Mars-class entries (judgment; an upper bound, since bond, carrier structure and aftbody mass do not scale with ablator thickness) and less for LEO-return capsules, whose margin stack lacks the 1.5 radiative factor. On ablator-shielded NASA 20 t-class Mars lander concepts that is plausibly 0.5-1 t (judgment); it does not apply to Starship's reusable tiles. Commercial capsule makers are not bound by NASA margin policy, but adoption happens at a design review about a year after the method is available, is visible only if disclosed, and post-Artemis I and post-W-4 risk posture pushes operators to spend margin on reliability. A NASA crewed adopter would be capped at Medium.",
+    "signpost": "A NASA EDL margin-policy update, or Varda, Inversion or another capsule maker disclosing reliability-based TPS sizing or reduced TPS mass.",
+    "revision_note": "B-entry: [skeptic+auditor] S2/S3 High -> Medium: adoption is a cultural/policy clock (~1.0x) that S3 cognition does not compress, the nearest NASA adopter (SRL) was cancelled with MSR, and commercial adoption is mostly unobservable. [skeptic] S2/S3 2028 -> 2029: same-year adoption after the enabling method assumed zero lag. [skeptic] '1-4% (general)' relabelled as a judgment upper bound for Mars-class entries; 0.5-1 t figure scoped to ablator-shielded NASA concepts. [auditor] SRL Monte Carlo caveats and MSR cancellation added. Hard edge from hyper-optimal-test-design made soft; soft edge from new hyper-model-form-error-bounds."
+   }
+  },
+  {
+   "id": "hyper-thinner-tps-flown",
+   "patch": {
+    "description": "A flown reentry capsule or planetary probe whose TPS was sized by probabilistic, model-based margins and is at least ~10% thinner (or lighter) than the same operator's previous flown design for a comparable entry, with the reduction attributed to probabilistic sizing and flight data confirming the bondline predictions.",
+    "earliest_year": {
+     "S2": "2030",
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S3": "Medium"
+    },
+    "status_oct2026": "Commercial capsules fly every few months: Varda W-5 (Jan 2026) and W-6 (recovered May 2026) were recovered, W-4 burned up on reentry (22 May 2026). W-6 flew two NASA Ames instrumented eChar shoulder tiles and a Sandia nose tile with TPS material samples, so the instrumented flight-experiment channel exists. Varda holds an FAA Part 450 operator licence (Jun 2025, issued for W-4) that covers repeated W-series reentries without mission-by-mission approval (valid through 2028 per The Register, 2029 per Wikipedia). NASA's preliminary SRL study suggests ~25% thinning at one location under stated assumptions.",
+    "why": "This is the shortest chain in the domain from AI mathematics to flown hardware. Chain (S2): cap-applied-math (2027) -> joint margin budgets on demand (hyper-certified-margin-uq, 2028) -> a capsule maker adopts probabilistic sizing at a design review (2029) -> shield build and arc-jet check (12-18 months on the lag ladder) -> a commercial reentry with an instrumented bondline (2030). The transferable thinning for LEO capsules (~7.5-7.8 km/s, little radiative heating) is smaller than SRL's Mars figure, hence the >=10% threshold. It frees up to ~1-3% of entry mass (judgment) and turns each flight into a calibration point. P7 defaults to Speculative; the band is raised to Medium in S2 and S3 because commercial capsules iterate in months, operator licensing no longer gates each flight, and no certification body must accept margins. It cannot exceed its adoption prerequisite (Medium), and S3 adds no physical speed-up to the launch and adoption gates that bind here.",
+    "revision_note": "B-entry: [skeptic] Threshold redefined against the operator's own previous design (stacked-factor baseline is unobservable for commercial operators; LEO thinning smaller than Mars). [skeptic] S2/S3 2029 -> 2030, following the sizing shift plus the 12-18 month lag ladder. [skeptic+auditor vs advocate] S3 High -> Medium; advocate's S2 Medium -> High rejected: both S2 and S3 sit at the Medium of the hard prerequisite hyper-probabilistic-tps-sizing, which resolves the advocate's 'no S2/S3 mechanism' point in the other direction. [advocate+auditor] Part 450 licence and W-6 instrumented tiles added to status (licence verified; validity date differs between sources). Full P7 chain written out."
+   }
+  },
+  {
+   "id": "hyper-reentry-cadence-economy",
+   "patch": {
+    "description": "Commercial capsule returns (in-space manufacturing, defense hypersonic testbeds, cargo) exceed ~50 a year worldwide, and TPS is no longer a pacing or major cost item. Counts free-flying return capsules only; excludes Starship and other launch-vehicle stage returns and ISS crew and cargo vehicles.",
+    "earliest_year": {
+     "S2": "2031",
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S2": "Low",
+     "S3": "Low"
+    },
+    "pathway": "P7 (market and physical clock; AI-math effect marginal)",
+    "status_oct2026": "Varda 2026 to date: W-5 (29 Jan) and W-6 (18-19 May) recovered, W-4 failed and burned up (22 May); its stated monthly-by-2026 target has slipped. Varda's FAA Part 450 operator licence (Jun 2025) removes mission-by-mission approval for W-series reentries. Inversion's Arc has not yet flown (first flight planned 2026); The Exploration Company and others are developing capsules (general). Landing sites are limited, for example Koonibba in South Australia.",
+    "why": "Going from ~3-5 commercial returns a year (2026) to 50+ is a >10x increase, and announced cadences in this tree have missed by 1.5-3x or more (physclock slip table). Chain (S2): Varda reaches monthly (2027-28) -> 3-4 more operators reach monthly cadence -> MACH-TB Task Area 3 capsule tests and in-space manufacturing demand fill manifests -> 50+ a year, 2031 at the earliest. Binding: demand for returned products, rideshare slots, landing-site licensing and operations staffing. AI mathematics contributes at the margin: cheaper qualification by analysis for each new capsule variant, thinner and partly reusable TPS (up to ~1-3% of entry mass), faster design iterations and some operations automation (S3). Licensing reform (physclock-licensing-in-weeks) and cheap launch (physclock-heavy-cadence-100) matter more than any of these.",
+    "revision_note": "B-entry: [skeptic+advocate+auditor] Hard edge from hyper-thinner-tps-flown made soft (the node's own why says TPS is a marginal contributor); soft edges added from physclock-licensing-in-weeks and physclock-heavy-cadence-100. [skeptic+auditor] S2 Medium -> Low. [skeptic vs advocate] S3: skeptic Low, advocate High (operator says automation binds; S3 brings AI-run operations); resolved Low on the 2026 record (3 attempts, 1 loss), the >10x increase needed and the slip ratios, with demand and landing sites binding ahead of labour. [skeptic] Years S2 2030 -> 2031, S3 2029 -> 2030. [auditor] Exclusions added so Starship returns cannot satisfy the node; tier-7 chain written out; pathway given a P-code."
+   }
+  },
+  {
+   "id": "hyper-tps-inverse-nde",
+   "patch": {
+    "status_oct2026": "Family 372 (global uniqueness for smooth isotropic elasticity from boundary data) is T1. Family 365: only its manuscript 'Nonuniqueness for bounded measurable scalar conductivities in three dimensions' has a formalized main result in lean/formalization.yaml (T3, unaudited); the headline joint metric-and-connection recovery result is manuscript-only (T1, conditional). Family 366 (planar Mumford-Shah crack regularity) is T1. Practice relies on visual, tap and thermographic inspection with empirical thresholds. Starship's heat shield has about 18,000 tiles; Musk has described the job as inspecting tens of thousands of tiles.",
+    "why": "Rapid reuse benefits from inspect-by-exception: cheap sensors that show which tiles need attention. Uniqueness and stability results say when boundary data determine interior properties. Nonuniqueness for anisotropic conductivity and only logarithmic stability for boundary-data inversion are classical (Kohn-Vogelius 1984; Mandache 2001; general), Lipschitz scalar conductivities are already known to be uniquely determined (general), transient thermography is a different data type, and multi-modal inspection is already standard. So 365's formalized rough-coefficient nonuniqueness is at most a conditional P5 caution, not a new design rule. The main lever is P1: AI makes bespoke inversion and probability-of-detection modelling for a specific tile stack cheap. The band is Medium because the signpost needs a published POD scheme, which needs seeded-defect specimen campaigns (MIL-HDBK-1823A practice, general), and the largest operator does not publish.",
+    "pathway": "P1->P6 (365/372/366: P5, conditional)",
+    "premise_tier": "n/a (capability premise); 365 formal part T3, headline T1; 372 and 366 T1; all conditional and supportive only",
+    "band_2031": {
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "revision_note": "B-entry: [auditor, verified] 365 statement gap: only the scalar-conductivity nonuniqueness manuscript appears in lean/formalization.yaml, so the headline result stays T1. [skeptic+auditor] The 'fast-acting P3 design rule' removed (classical results already imply it; tiles are porous, anisotropic and inspected transiently); pathway and premise_tier relabelled. [skeptic] Hard edge from verif-independent-check made soft (families are supportive, not load-bearing). [skeptic] S2/S3 High -> Medium: P6 default Low, POD needs seeded-defect campaigns and operator publication; the A3 parity argument no longer binds because this node's hard dependents (tile damage, rapid reuse) now link to it softly."
+   }
+  },
+  {
+   "id": "hyper-tile-damage-accumulation",
+   "patch": {
+    "earliest_year": {
+     "S2": "2029",
+     "S3": "2029"
+    },
+    "band_2031": {
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "signpost": "A tile-TPS operator (SpaceX, Sierra Space) states zone-level tile life limits or an inspect-by-exception policy, with per-reflight tile replacement counts.",
+    "revision_note": "B-entry: [skeptic+auditor] Hard edge added from physclock-starship-full-reuse: the model's data clock is reflights of the same tiles, and no ship has been caught or reflown. [skeptic+advocate] Hard edge from hyper-tps-inverse-nde made soft (camera/ML and direct inspection can substitute). Hard edge from hyper-flight-data-pipeline made soft because that node now counts only data shared beyond the operator, while this model runs on the operator's own reflight data (soft edge from new hyper-fleet-aerothermal-twin). [skeptic] S2/S3 2028 -> 2029: zone-level cycles-to-failure needs several reflights per ship after a 2027 first reflight; S3's 1.3-1.5x physical multiplier does not change that. [auditor] S2/S3 High -> Medium (P6 default Low; proprietary data; disclosure needed). [skeptic] Signpost replaced (old one duplicated hyper-rapid-reuse-heatshield)."
+   }
+  },
+  {
+   "id": "hyper-rapid-reuse-heatshield",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2030",
+     "S3": "2029"
+    },
+    "pathway": "P7 (physical clock; AI effect ~months)",
+    "status_oct2026": "First orbital flight on 28 Sep 2026 (Flight 14, two orbits, early deorbit, splashdown). No ship has been caught or reflown; Musk gives the Flight 15 ship-catch attempt 'at least 50 or 60 percent' odds. The tile stress test on Flight 13 showed cracking and gap streaks; Musk called the heat-shield problem solved (4 Aug 2026) while Dan Rasky called the current tile TPS a dead end for rapid reuse (29 Jul 2026).",
+    "why": "Ship catch, then reflight, then 5 reflights is a hardware-iteration sequence paced by flight count. Super Heavy: first catch Oct 2024 and first caught-booster reflight ~7 months later, yet V3 boosters failed landing burns on Flights 12-13 in 2026, so booster reflight is not routine two years on. Falcon 9 took ~4 years from first landing to a booster's 5th flight (general), and each life data point costs a flight (physclock reuse-learning row, 0.8-0.9x in S2). Mach33's base case has 3.3, 4.8, 8.9 and 18 flights per stack in 2027-30; 18 implies a ~20-day average turnaround in 2030, so a ship with 5 reflights and under-2-week heat-shield turnaround is on the base path around 2030 in S2. AI damage models, fleet-trained heating models and inspection theory pull it forward by perhaps 6-12 months; they do not change the ceramic material or the flight clock. The band stays Medium in every scenario: this node is strictly harder than physclock-heavy-cadence-100 (High in S2), and the dead-end risk is real.",
+    "revision_note": "B-entry: [skeptic+advocate+auditor] Hard edges from hyper-tile-damage-accumulation and hyper-tps-inverse-nde made soft (the node's own strongest case: SpaceX gets there with or without AI mathematics). [advocate] Soft edges added from physclock-twin-reflight-clearance and new hyper-fleet-aerothermal-twin. [skeptic] Years 2030/2029/2028 -> 2031/2030/2029: no ship caught as of Oct 2026; S3 2028 predated S3's divergence from S2; the advocate's own Mach33 arithmetic puts the base path at ~2030. [advocate vs skeptic/auditor] Advocate's S2/S3 High rejected: 5 reflights with <2-week turnaround is strictly harder than 100+ reusable launches a year, so High there implies roughly Medium here, consistent with physclock nodes. [skeptic] Booster-reuse sentence replaced with the Super Heavy record."
+   }
+  },
+  {
+   "id": "hyper-mars-heavy-landing",
+   "patch": {
+    "band_2031": {
+     "S3": "Low"
+    },
+    "why": "The binding clock is the 26-month synodic window. Chain: first ship-to-ship propellant transfer (prop-ship-transfer-demo, 2027?) -> tanker campaign for trans-Mars injection -> uncrewed launch in the late-2028/early-2029 window or the Feb-Mar 2031 window -> 6-7 month cruise -> entry at ~6-7.5 km/s in CO2 plus supersonic retropropulsive landing, arriving ~Sep-Nov 2031 for the later window. SpaceX has made no 2028-window commitment and in Feb 2026 put Mars about 5-7 years out behind a Moon-first priority, so a landing by end-2031 most likely needs first-attempt success on the last window. AI mathematics improves SRP and aerothermal models, which raises the odds of a first attempt succeeding but cannot add windows; the gates (windows, propellant transfer at scale, corporate priority) compress ~1.0x in every scenario, so the band is Low in all three. Radiative heating matters more than for Earth return at this speed for a ~9 m vehicle (hyper-radiation-kinetics).",
+    "revision_note": "B-entry: [skeptic+advocate+auditor] Hard edge from hyper-srp-aeropropulsive-models made soft (SpaceX can land on proprietary empirical models and accept risk, per the SRP node's own strongest case). [skeptic] Hard edge from hyper-flight-data-pipeline removed (capsule and testbed data carry no Mars SRP information); owner data enter via soft edge from hyper-fleet-aerothermal-twin (advocate). [advocate] Soft edge from hyper-radiation-kinetics (CO2 radiative heating at large nose radius). [skeptic+auditor] S3 Medium -> Low: the S3 'whole program' argument acts on gates that compress ~1.0x. [skeptic] '0.5-1 t on a 20 t-class lander' removed here (it applies to ablator-shielded NASA concepts, not Starship tiles). [auditor] Chain written out."
+   }
+  },
+  {
+   "id": "hyper-p2p-cargo-demo",
+   "patch": {
+    "status_oct2026": "AFRL awarded SpaceX a $102M, 5-year contract (2022) to demonstrate rocket cargo; the program goal is ~100 short tons anywhere within an hour, and a demonstration was targeted as early as 2026. The Johnston Atoll environmental assessment (filed Feb 2025; up to 10 reentry-vehicle landings a year) was suspended in July 2025. No demonstration as of Oct 2026.",
+    "why": "Chain: ship catch and reflight (physclock-starship-full-reuse) -> landing at a remote pad under a new environmental assessment -> range, overflight and host-nation approvals -> 3 recovered cargo flights. Three demo flights need a ship that survives entry and lands, not 5 reflights at 2-week turnaround, and suborbital P2P entries are below orbital speed. Of the remaining gates only the aerothermal design is cognitive, and it is already adequate. AI mathematics has essentially no effect on the regulatory and range gates.",
+    "revision_note": "B-entry: [skeptic+advocate+auditor] Hard prerequisite hyper-rapid-reuse-heatshield replaced by physclock-starship-full-reuse; rapid reuse and the fleet-trained heating model kept as soft edges. [auditor, verified on Wikipedia] Status corrected: the source does not support '~30 t in a 2026 test' ($102M contract, ~100 short-ton goal, demo as early as 2026). Chain written out. Years and bands unchanged (regulatory gate)."
+   }
+  },
+  {
+   "id": "hyper-aerocapture-demo",
+   "patch": {
+    "earliest_year": {
+     "S2": "2030",
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S2": "Low",
+     "S3": "Low"
+    },
+    "status_oct2026": "Aerocapture has never flown. On 11 Sep 2026 Inversion received a $350k firm-fixed-price NASA order to study an Arc-based Earth aerocapture demo, running to 30 Jun 2027 with NASA Ames support. Inversion's Arc, a maneuvering lifting reentry vehicle, is planned to fly first in 2026, so a candidate demo vehicle exists. Uranus studies find MSL-heritage aeroshells adequate; that a flight demo must precede flagship reliance is widely assumed (general, unverified against the cited abstract).",
+    "why": "Chain (S2): the $350k NASA/Inversion study ends 30 Jun 2027 -> a NASA flight award in FY2028 at the earliest, or Inversion self-funding (capital and appropriations, 1.0x; continuing resolutions are common) -> Arc modification and guidance, dispersion, aerothermal and rarefied analysis (AI-compressed) -> rideshare launch -> single-pass Earth aerocapture, 2030 at the earliest. AI collapses analysis cost, so a small commercial vehicle could attempt the demo for tens of millions of dollars, but analysis cost was never the barrier: funding and a ride bind, and S3 cannot speed a 2027-28 funding decision because S3 equals S2 until 2028. Without an award by 2028 the domain's own signpost keeps this Low.",
+    "revision_note": "B-entry: [skeptic+auditor] S2/S3 Medium -> Low (P7 default Speculative; only a $350k study is funded; capital gate 1.0x). [skeptic] S2/S3 2029 -> 2030 (FY2028 award plus ~2 years build and manifest). [skeptic+auditor] Hard edges from cap-applied-math and hyper-flight-data-pipeline made soft. [advocate] Soft edges from hyper-aerothermal-design-loop and hyper-certified-edl-guidance (the why names this analysis); kinetic-solver soft edge not added (aerocapture peak heating is continuum, per skeptic). [advocate] Arc first-flight status added. [auditor] 'Require a flight demo' claim marked unverified; chain written out."
+   }
+  },
+  {
+   "id": "hyper-outer-planet-aerocapture-baseline",
+   "patch": {
+    "earliest_year": {
+     "S2": ">2031",
+     "S3": "2031"
+    },
+    "band_2031": {
+     "S2": "Speculative",
+     "S3": "Speculative"
+    },
+    "status_oct2026": "The Uranus Orbiter and Probe baseline uses propulsive orbit insertion with a 13-15 year cruise (arXiv 2310.14514). Uranus aerocapture studies find MSL-heritage aeroshells adequate (NTRS 20240014677); that a flight demo must come first is widely assumed (general).",
+    "why": "Aerocapture can cut cruise to Uranus by several years and save insertion propellant (Uranus aerocapture literature). Chain: aerocapture demo succeeds (2030 at the earliest) -> NASA new start for the Uranus Orbiter and Probe, or an ESA study, adopts aerocapture -> aerocapture is baseline at mission concept review (2031 or later). Flagship programs run 8-15 years and appropriations compress 1.0x. AI-cheapened analysis and verifiable guidance lower perceived risk, but a first-ever demo (Low) and a flagship baseline decision must both land inside 2031.",
+    "revision_note": "B-entry: [skeptic+auditor] S2/S3 Low -> Speculative (conjunction of a Low first-ever demo and a flagship decision; P7 default). [skeptic] S2 2031 -> >2031, S3 2030 -> 2031 (a baseline in the demo year assumed zero review lag; demo now 2030). [auditor] Chain written out; cruise-time claim sourced to arXiv 2310.14514; 'requires a flight demo' marked general."
+   }
+  },
+  {
+   "id": "materials-uhtc-tps-design",
+   "patch": {
+    "earliest_year": {
+     "S2": "2029",
+     "S3": "2029"
+    },
+    "band_2031": {
+     "S2": "Medium"
+    },
+    "catalog_families": [],
+    "premise_tier": "n/a",
+    "status_oct2026": "AI-driven, high-throughput design of ultra-high-temperature high-entropy ceramics is an active field (Engineering, 2026); ML-accelerated simulations have predicted high-entropy carbides melting above ~4,400 K (general). Varda manufactures C-PICA heat shields in-house. Family 366 (scalar planar Mumford-Shah regularity, T1) was considered and judged near-nil: phase-field fracture uses the vectorial Griffith energy, and Ambrosio-Tortorelli convergence was already known (general).",
+    "why": "TPS performance is set by surface chemistry (oxide-scale formation and volatilization above ~1,800 C), ablation kinetics and thermal-shock fracture, each a multiphysics model AI can build and optimize. The signpost needs a synthesized, densified and machined coupon plus an arc-jet slot (6-18 months; arc-jet capacity binds), and UHTC oxidation in arc jets depends strongly on microstructure and facility conditions, so 'matching pre-test predictions' is a high bar: Medium in S2. S3 is High because closed-loop labs compress materials iteration there.",
+    "signpost": "A new AI-designed ultra-high-temperature ceramic or ablator tested in an arc jet with performance matching pre-test predictions, by 2029.",
+    "revision_note": "B-entry: [skeptic] S2/S3 2028 -> 2029 (same year as cap-design-optimization assumed zero lag; coupon fabrication and an arc-jet slot take 6-18 months) and S2 High -> Medium (high bar; P6 default Low); S3 High kept. [auditor] Family 366 removed (scalar Mumford-Shah, not the Griffith energy of phase-field fracture; the T1 claim lacked 'conditional'); materials-learned-functionals moved from hard to soft (AI-driven UHTC design is already active without chemical accuracy at DFT cost). [advocate] Soft edge from physclock-ai-run-test-stands (arc-jet utilization)."
+   }
+  },
+  {
+   "id": "materials-tps-new-material-flight",
+   "patch": {
+    "description": "An AI-designed thermal-protection material, coating or ablator flies on a reentry vehicle. 'AI-designed' means composition or microstructure selected by an AI/ML-driven design loop and so stated by the developer. Achieved at the first flight of an instrumented coupon or tile of such a material; adoption as a primary heat-shield zone is tracked in the signpost.",
+    "earliest_year": {
+     "S2": "2030",
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S3": "High"
+    },
+    "status_oct2026": "Varda's W-5 (Jan 2026) and W-6 (May 2026) capsules re-entered with in-house C-PICA heat shields; W-4 burned up on reentry (May 2026). W-6 already flew Sandia TPS material samples and NASA Ames instrumented eChar tiles, and Starship Flight 10 (Aug 2025) flew metallic and actively cooled tiles, so the coupon channel exists. No AI-designed TPS material has flown (general).",
+    "why": "Chain (S2): AI-selected UHTC or ablator composition (materials-uhtc-tps-design, 2029) -> coupon fabrication (6-12 months) -> arc-jet screening (~1 year; the arc-jet queue binds) -> manifest on a Varda-class capsule or a Starship reentry -> flight in 2030. Commercial capsules turn flight testing from a once-a-decade event into a quarterly one, a physical-gate compression independent of AI, and coupons need no qualification. S2 stays Medium because the material itself lands only in 2029 and developers must say it is AI-designed; S3 is High because closed-loop labs deliver candidates earlier and coupon slots are plentiful.",
+    "signpost": "A capsule operator or hypersonic testbed flies an announced AI-designed TPS coupon and returns its data; later, a primary heat-shield zone of such a material.",
+    "revision_note": "B-entry: [advocate+skeptic+auditor] Achievement defined at the coupon flight and 'AI-designed' made falsifiable. [skeptic] S2/S3 2029 -> 2030 (the node's own 'about a year after arc-jet screening', with the design node now 2029). [advocate, partly accepted] S3 Medium -> High (cheap coupon slots plus S3 closed-loop labs); S2 High rejected because the prerequisite design capability is Medium in S2 and arrives only in 2029. [auditor] Chain and W-6 coupon-channel status added."
+   }
+  },
+  {
+   "id": "hyper-radiation-kinetics",
+   "patch": {
+    "catalog_families": [],
+    "pathway": "P1->P6",
+    "premise_tier": "n/a",
+    "band_2031": {
+     "S2": "Low"
+    },
+    "status_oct2026": "For SRL's 8 km/s Mars entry, baseline simulations under-predicted VUV by up to 2x against EAST, and three UQ methods gave 30-100% uncertainty (Hansson, 24 Sep 2026). The forebody radiative heating factor is 1.5. Mars Sample Return, including SRL, received no FY2026 funding (appropriations passed Jan 2026), removing the motivating mission; no funded crewed 12+ km/s return exists either.",
+    "why": "Radiative uncertainty sets the 1.5x factor on Mars forebody radiative heating. For large-radius Earth return at 12 km/s or more, radiation dominates and the uncertainty decides material choice (HEEET-class versus PICA). Halving the uncertainty could bring the factor toward ~1.2-1.25 and cut the radiative design heat load by ~15-20% (judgment). AI can generate rate sets and reduced kinetics for the few-electron species involved (N, O, N2, CO), but the missing physics at SRL (heavy-particle excitation) was found by measurement, EAST shot time follows mission pull, and S2 cognition does not compress the shock-tube gate.",
+    "strongest_case_small": "The gap is experimental, not theoretical. The best AI theory still needs shock-tube shots that take months to schedule, and with SRL cancelled few programs will pay for them before 2031.",
+    "revision_note": "B-entry: [auditor] Family 275 removed (worst-case many-electron QMA-hardness; DFT-functional hardness already known; the needed rates are for few-electron species; the T1 claim lacked 'conditional'); pathway and premise relabelled. [skeptic] S2 Medium -> Low (MSR/SRL cancelled, verified via The Register; the gate is shock-tube data; the 20%-without-tuning signpost is below 30% in S2); S3 Medium kept. [auditor] 'large-radius' qualifier added. Hard edge from hyper-optimal-test-design made soft; [advocate] soft edge from physclock-ai-run-test-stands."
+   }
+  },
+  {
+   "id": "hyper-sbli-heating-closure",
+   "patch": {
+    "band_2031": {
+     "S2": "Low"
+    },
+    "revision_note": "B-entry: [skeptic+advocate] Hard edge from hyper-flight-data-pipeline made soft (closures are trained on DNS and validated against DNS and ground facilities; the signpost is a blind ground comparison). [advocate] Soft edge from capability-learned-emulators. [skeptic vs advocate] Skeptic S2 Medium -> Low accepted (P6 default Low; out-of-distribution generalization is where ML RANS closures repeatedly fail; +/-15-20% approaches SBLI peak-heating scatter). Advocate's S3 High and gate data -> cognitive rejected: more DNS compute does not fix out-of-distribution failure, and blind validation still needs ground experiments; S3 stays Medium."
+   }
+  },
+  {
+   "id": "hyper-transition-prediction-theory",
+   "patch": {
+    "earliest_year": {
+     "S3": "2030"
+    },
+    "why": "Turbulent heating is roughly 3-5x laminar (general), so without trusted transition prediction, slender and lifting vehicles carry TPS sized for turbulent flow over much of their acreage. Predictive transition could save tens of percent of acreage TPS mass on such vehicles (judgment). Under S2, AI can produce the theory by 2029-30. Validation needs flight transition datasets: open ones remain a handful (BOLT, HIFiRE), while defense datasets grow toward dozens a year (MACH-TB up to 50 tests a year, reusable Talon-A) inside classified enclaves that S2 models can reach (capability-controlled-data-access, 2027) but whose results may not be published. The flight disturbance environment is poorly characterized, and a blind test needs a new instrumented article (BOLT-1B's forebody took ~14 months). The physical clock keeps S2 at Low.",
+    "revision_note": "B-entry: [skeptic] S3 2029 -> 2030: a blind prediction on a new flight needs the theory (cap-physics-theory S3 2028) plus a ~14-month instrumented article, and flight count compresses only 1.3-1.5x in S3. [advocate, partly accepted] Soft edge from capability-controlled-data-access and defense-dataset growth added to why; S2 Low -> Medium rejected: classified validation may never be published, the disturbance-environment problem remains, and the domain signpost makes a flight-validated prediction the trigger for that raise."
+   }
+  },
+  {
+   "id": "hyper-blackout-prediction-tools",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "signpost": "A published coupled flowfield-plasma-EM blackout prediction, set up by AI agents, validated against flight signal-attenuation or electron-density data (RAM-C II or shared capsule telemetry) and used in a vehicle antenna-placement trade.",
+    "revision_note": "B-entry: [skeptic+auditor vs advocate] S3 2027 -> 2028 rather than S2 2028 -> 2027: all three agree S2 = S3 before 2028; two lenses put it at 2028 (a validated, published tool a year after applied-math access). [skeptic+auditor] Signpost replaced (the old one, active blackout mitigation in flight, 'would be a surprise before 2030' and contradicted a High node dated 2028). [skeptic] Hard edge from hyper-flight-data-pipeline made soft (pipeline capsules carry thermal sensors, not plasma diagnostics). [advocate] Soft edge from capability-controlled-data-access."
+   }
+  },
+  {
+   "id": "hyper-kinetic-solver-certification",
+   "patch": {
+    "pathway": "P5",
+    "status_oct2026": "DSMC (SPARTA and other codes) is standard practice, and a Fokker-Planck module in SPARTA matches DSMC at lower cost. No production solver carries certified error bounds. DSMC convergence to the Boltzmann equation is already proven (Wagner 1992, general); the dominant error is collision-model input. Families 363 and 364 are manuscript-only (T1).",
+    "why": "Transitional-regime heating (Knudsen number ~0.01-1) matters for upper-atmosphere entry, early-entry heating and plume backflow; aerocapture peak heating occurs in the continuum. Today it is DSMC with expert-tuned collision models. Certified solver-to-Boltzmann error bounds raise confidence (P5) without changing predicted heat fluxes. The band rests on the capability channel; the T1 catalog results (363/364) are supportive only and conditional.",
+    "revision_note": "B-entry: [skeptic+auditor] Hard edge from hyper-boltzmann-foundations-check (a T1-premise node) made soft, so the node no longer rests on a T1 premise and needs no band drop. [skeptic] Wagner 1992 DSMC convergence noted; pathway P5->P6 -> P5 (confidence, not heating numbers, per the domain nil_effects); aerocapture emphasis removed. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-verified-aerothermal-numerics",
+   "patch": {
+    "description": "Proven a-posteriori error bounds and formally verified kernels (positivity-preserving shock capturing, stiff finite-rate chemistry integrators, radiation-transport quadrature). Kernel-level properties (positivity, conservation, stiff-integrator stability) are proven and kept separate from physics-model error; whole-solution heat-flux error bars remain out of reach.",
+    "band_2031": {
+     "S2": "Low"
+    },
+    "why": "Separating numerical error from model error stops grid effects from being double-counted inside physics margins. In S2, Mathlib coverage of PDE and numerics plus a verified-numerics toolchain (both ~2028 in S2) make kernel-level proofs routine, and P2 adoption in production codes typically follows 2-4 years later. Proofs about the full solution remain out of reach. Numerical error is not the dominant TPS uncertainty, so production adoption (the signpost) lacks demand pull by 2031 in S2.",
+    "revision_note": "B-entry: [skeptic] Description corrected (it claimed certified heat-flux error bars, contradicting its own why). [skeptic] S2 Medium -> Low (no demand pull for production adoption; the node's own strongest case). [advocate, partly accepted] Stale '(~2029)' toolchain date corrected to ~2028 in S2; advocate's earlier years (S2 2029, S3 2028) rejected because the signpost is production adoption and P2 runs 2-4 years after the libraries."
+   }
+  },
+  {
+   "id": "hyper-aerothermal-design-loop",
+   "patch": {
+    "band_2031": {
+     "S2": "High"
+    },
+    "why": "Entry design iterates between aerodynamics, trajectory and TPS, and each loop needs nonequilibrium CFD at 10-100 trajectory points (general). Agents plus surrogates could compress a cycle 10-30x (judgment). That opens shapes that were too costly to explore, such as lifting bodies and biconic Mars landers, and lowers the analysis-cost barrier for small companies (see the aerocapture demo). The loop can run on margin factors and transition correlations; certified margins and on-demand stability analysis improve it but do not gate it. Commercial entry-vehicle makers (SpaceX, Varda, Inversion) face no certification body for their design method, and the threshold is a design review citing AI-surrogate trade studies, not certification credit, consistent with capability-engineering-adoption (High, S2 2028) and capability-ai-native-spacecraft (High, S2 2029).",
+    "revision_note": "B-entry: [skeptic] Hard edges from hyper-certified-margin-uq and hyper-stability-analysis-on-demand made soft (accelerators, not gates). [advocate] Soft edge from capability-engineering-adoption; S2 Medium -> High for consistency with the capability branch's High ratings for engineering adoption and AI-native spacecraft in S2. [skeptic vs advocate] Skeptic's S3 High -> Medium rejected: the band is judged at 2031, three years after S3 diverges from S2, and S3 must stay >= S2."
+   }
+  },
+  {
+   "id": "hyper-gas-surface-chemistry",
+   "patch": {
+    "status_oct2026": "Finite-rate models exist, for example vitreous-carbon oxidation mechanisms extended to FiberForm (the PICA precursor), but they rely on fitted mechanisms. Family 278 claims a proof that Kohn-Sham ensemble representability fails (T1, conditional); family 275 claims QMA-hardness of continuum Coulomb energies (T1, conditional). Both are foundational or worst-case and do not bound the approximate-functional DFT used for surface rates (general).",
+    "why": "On reusable, non-ablating tiles, surface catalycity can shift heating by tens of percent up to ~2x between the non-catalytic and fully catalytic limits (general), so designers assume the worst case. Recession-rate uncertainty sets the 20% recession margin on ablators. AI-built mechanisms validated by autonomous molecular-beam and plasma-tunnel experiments (S2 from ~2028-29) could tighten both, but molecular-beam and plasma-tunnel data come from a few specialized facilities and arc-jet calibration remains the gate.",
+    "revision_note": "B-entry: [auditor] 278/275 restated with 'claims' and 'conditional' (T1 wording rule) and their near-nil relevance noted. [skeptic] Hard edge from cap-autonomous-labs made soft (data come from specialized conventional facilities). [advocate, partly accepted] Autonomous-experiment date aligned to ~2028-29; soft edge from physclock-ai-run-test-stands; S3 Medium -> High rejected (P6 default Low; the signpost needs plasma-tunnel or arc-jet validation on a new material, which compresses only 1.3-1.5x)."
+   }
+  },
+  {
+   "id": "hyper-ablator-multiscale-response",
+   "patch": {
+    "revision_note": "B-entry: [skeptic] Hard edge from hyper-optimal-test-design made soft (validation needs arc-jet shots, not a particular design of them). [advocate] Soft edge from physclock-ai-run-test-stands (arc-jet utilization). Years and bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-heavy-deployable-decelerator",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030"
+    },
+    "status_oct2026": "LOFTID (6 m) flew in Nov 2022. No funded 10 m-class follow-on was found as of Oct 2026. Commercial inflatable decelerators now fly on rideshare: ATMOS Space Cargo's Phoenix 1 inflated its heat shield before entry interface on Bandwagon-3 (Apr 2025), though it was not recovered; none is 10 m class. NASA's EDL Architecture Study considered HIAD and ADEPT for 20 t Mars payloads.",
+    "why": "Coupled fluid-structure-thermal behavior of flexible TPS (nonlinear membrane mechanics, flutter, fabric permeability) suits AI applied math well, but LOFTID flew without it. Chain: NASA STMD, ULA or a commercial firm funds a 10 m+ HIAD or ADEPT flight (no line as of Oct 2026) -> multi-year build (LOFTID took several years; general) -> secondary ride on a LEO launch -> orbital entry, 2030 at the earliest in every scenario, because the capital gate compresses 1.0x.",
+    "revision_note": "B-entry: [skeptic+auditor] Hard edge from cap-applied-math made soft (LOFTID flew without AI mathematics; the gate is a budget line). [auditor] S1 >2031 -> 2030 (capital gate is 1.0x, so S1 should not trail S2 on cognition alone); chain written out. [advocate, verified on SatNews] ATMOS Phoenix 1 added. Bands Low x3 unchanged."
+   }
+  },
+  {
+   "id": "hyper-12kms-entry-design-basis",
+   "patch": {
+    "description": "A validated aerothermal environment (radiative plus convective) and TPS response model (HEEET-class 3D woven material) for crewed Mars-return or other large-radius (nose radius above ~2-3 m) Earth entries at 12-14 km/s, where radiation dominates, with radiative uncertainty of 25% or less, accepted by a mission project.",
+    "status_oct2026": "HEEET is qualified for ~1,500-8,000 W/cm2 and 1-10 atm (HEEET-1004). Radiation becomes first-order above ~12 km/s for large nose radii. Small fast sample-return capsules already fly ~12-13 km/s entries on heritage PICA-class TPS (Stardust, OSIRIS-REx; general), where radiative heating is minor at small nose radius; CNSA's Tianwen-2 capsule (landing planned 29 Nov 2027) and JAXA's MMX (launch NET 19 Oct 2026, sample return 2031) are funded examples (~12 km/s class, general). No funded large-radius or crewed 12+ km/s entry is planned before 2031.",
+    "why": "Specific kinetic energy is ~72 MJ/kg at 12 km/s against ~30 MJ/kg from LEO, and for large-radius bodies radiation dominates. Radiative uncertainty sets material choice and thickness. Chain (S2): mission pull -> AI-built kinetics and ablator models (2030) -> EAST and arc-jet validation (1-2 years) -> project acceptance, 2031 at the earliest. Without a mission to pull the work, nobody spends the shock-tube and arc-jet time.",
+    "strongest_case_small": "No funded large-radius or crewed mission needs it before 2031. Ground facilities cannot replicate the combined environment, and flight tests at these speeds are extremely rare.",
+    "revision_note": "B-entry: [skeptic+auditor] 'No funded mission needs this before 2031' was false for small sample-return capsules (Tianwen-2 landing date verified on Wikipedia; its entry speed is not stated there, so given as ~12 km/s class, general); scope narrowed to large-radius or crewed entries. [auditor] ESA '>3,000 W/cm2, ~250 kPa' figures deleted (the cited ESA page has none); chain written out. Soft edge from new hyper-model-form-error-bounds. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-srp-aeropropulsive-models",
+   "patch": {
+    "status_oct2026": "NASA's EDL Architecture Study found that all its 20 t human-scale concepts need SRP. Large DES and CFD runs on leadership supercomputers are the main tool (general). Falcon 9 and Starship Earth-reentry burns are the only full-scale data; most are proprietary, though a limited NASA-SpaceX Falcon 9 reentry-burn dataset from the 2014-era data-sharing agreement is public (general; NTRS 20180006608).",
+    "signpost": "Published SRP models validated against Starship or Falcon flight data and accepted by a lander program.",
+    "revision_note": "B-entry: [skeptic] Signpost: 'or a NASA Mars architecture selecting a lander concept' deleted (not evidence of validated models); status notes the limited public Falcon 9 dataset. Hard edge from hyper-flight-data-pipeline made soft: that node now counts only data shared beyond the operator, and the skeptic notes capsule and testbed flights carry no SRP data; validation data are SpaceX's own. Years and bands unchanged."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "id": "hyper-model-form-error-bounds",
+   "title": "Model-form error bounds for ground-to-flight aerothermal extrapolation",
+   "tier": 2,
+   "kind": "applied-math",
+   "domain": "hyper",
+   "description": "Rigorous or coverage-calibrated bounds on the error of aerothermal and material-response models when extrapolated from arc-jet and shock-tube conditions to flight, so that a probabilistic TPS margin can carry model-form error with stated coverage instead of a judgment factor. Achieved when a published TPS sizing carries a ground-to-flight model-form term calibrated against instrumented flight bondline or heating data.",
+   "status_oct2026": "Open. The SRL alternative-margining Monte Carlo sampled aerothermal error only between 1 and the existing factors (https://ntrs.nasa.gov/api/citations/20260005218/downloads/SRL_TPS_IPPW.pdf, slide 13), while at the same 8 km/s entry baseline simulations under-predicted VUV by up to 2x against EAST and three UQ methods disagreed between 30% and 100% (Hansson, ESA, 24 Sep 2026). BOLT-1B showed flight transition differs from tunnel transition (Jan 2026). Paired ground-flight datasets are starting to exist: W-6 (May 2026) flew two NASA Ames instrumented eChar tiles.",
+   "catalog_families": [],
+   "prerequisites": [
+    "cap-applied-math",
+    "hyper-flight-data-pipeline"
+   ],
+   "accelerated_by": [
+    "hyper-optimal-test-design",
+    "hyper-certified-margin-uq",
+    "frontier-rare-event-certified"
+   ],
+   "binding_gate": "data",
+   "pathway": "P1->P5",
+   "earliest_year": {
+    "S1": ">2031",
+    "S2": "2030",
+    "S3": "2029"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a",
+   "why": "AI doing research-grade applied math can derive model-discrepancy frameworks with coverage guarantees cheaply (P1), but demonstrating coverage needs paired ground and flight datasets (Varda/Ames instrumented tiles, BOLT-class flights, Orion), which accrue at flight cadence. This is what decides whether the ~25% SRL-style thinning survives once aerothermal error is not assumed to sit inside the existing factors. It matters most where radiation is significant (Mars, Venus, 12+ km/s return) and least for convectively dominated LEO capsules. S2 lands the method by ~2029 and the first flight-calibrated application by ~2030; S1 lacks both the capability and the data in time.",
+   "strongest_case_small": "Model-form error under extrapolation may be irreducible without flight data at the exact condition; a few paired datasets a year may not support stated coverage, and engineers may keep judgment factors regardless.",
+   "signpost": "A published TPS sizing whose ground-to-flight model-form error term is calibrated against instrumented flight bondline data (e.g. Varda W-6 Ames tiles, Orion) and carried through to a reliability statement.",
+   "revision_note": "B-entry: New node. [auditor] Split from hyper-certified-margin-uq, whose own why called model-form error 'genuinely open'. [skeptic] Signpost and data gate taken from the skeptic's certified-margin finding. Links to hyper-probabilistic-tps-sizing and hyper-12kms-entry-design-basis are soft, as the auditor proposed: LEO capsules can size probabilistically without it."
+  },
+  {
+   "id": "hyper-fleet-aerothermal-twin",
+   "title": "Fleet-trained reentry heating model for one reusable vehicle",
+   "tier": 4,
+   "kind": "engineering-tool",
+   "domain": "hyper",
+   "description": "A physics-constrained model of reentry heating and TPS thermal response specific to one reusable vehicle family (Starship first), assimilated from 50 or more instrumented orbital reentries of that family (thermocouple and load-sensing tiles, imagery, trajectory reconstruction). It predicts per-zone heating for the next flight within ~+/-15-20% and is used to shape entry trajectories and plan tile work. For the owner it turns the open transition and SBLI problems into a fitting problem inside the flown envelope; it does not transfer to other vehicles or to CO2 (Mars) entry. Achieved when the operator states that entries are shaped or tile work is planned from such a model.",
+   "status_oct2026": "Starship ships have re-entered on most integrated flights since 2024; Flight 10 (Aug 2025) deliberately removed tiles and flew metallic and actively cooled tiles, and Flight 13 (Jul 2026) flew load-sensing and reflown tiles in a heat-shield stress test. Starship flew 3 times in 2026 to Oct 7; physclock-flight-test-cadence expects 12+ in 2027, and Mach33's reference case has ~90 flights in 2028. SpaceX does not publish its heating models; no ship has been caught.",
+   "catalog_families": [],
+   "prerequisites": [
+    "physclock-flight-test-cadence"
+   ],
+   "accelerated_by": [
+    "cap-applied-math",
+    "capability-learned-emulators",
+    "capability-engineering-adoption",
+    "physclock-heavy-cadence-100"
+   ],
+   "binding_gate": "data",
+   "pathway": "P1->P6 (owner data; AI effect ~months)",
+   "earliest_year": {
+    "S1": "2029",
+    "S2": "2029",
+    "S3": "2028"
+   },
+   "band_2031": {
+    "S1": "Medium",
+    "S2": "Medium",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a",
+   "why": "Two curves combine. Launch cadence supplies the owner with the flight data that the general tier-3 closure nodes lack: roughly 8-10 ship reentries with data through Oct 2026 (general count), 12+ flights in 2027 and tens a year once physclock-heavy-cadence-100 is reached, so ~50 instrumented reentries of one family accumulate around 2028-29. On-demand applied math (S2 2027) makes data assimilation, inverse heat conduction and Bayesian updating cheap to build and maintain. The general transition and SBLI nodes exclude per-vehicle tuning by definition, yet per-vehicle tuning is what an operator needs, so for the owner the open physics leaves the critical path while it stays open for everyone else. The data clock is the launch curve, which is largely independent of AI (S3 runs 0.5-1 year ahead), so S1 and S2 share a year. P6 defaults to Low; Medium because the owner needs no outside acceptance, held below High because the operator may never say it uses such a model.",
+   "strongest_case_small": "SpaceX builds this with or without frontier AI mathematics, so AI pulls it forward by months, not years. A per-vehicle fit can fail outside the flown envelope (new trajectories, Mars entry), and the operator may never disclose it.",
+   "signpost": "SpaceX or another reusable-vehicle operator states that entry trajectories or tile replacement are set from a model trained on its own fleet's reentry data, or publishes per-zone predicted-versus-measured heating.",
+   "revision_note": "B-entry: New node from the advocate, narrowed. Carries the owner-data curve that the skeptic and auditor removed from hyper-flight-data-pipeline. Scoped to heating so it does not duplicate hyper-tile-damage-accumulation (tile fatigue) or physclock-twin-reflight-clearance (reflight clearance); hard prerequisite is the flight-cadence node rather than ship reuse because reentries accrue on expended ships too. Advocate's bands Medium/High/High and years 2029/2028/2028 lowered to Medium x3 and 2029/2029/2028: disclosure risk does not vary by scenario, and the launch curve moves S2 by at most 0-0.5 year."
+  }
+ ],
+ "remove_edges": [
+  {
+   "from": "hyper-optimal-test-design",
+   "to": "hyper-certified-margin-uq"
+  },
+  {
+   "from": "hyper-optimal-test-design",
+   "to": "hyper-probabilistic-tps-sizing"
+  },
+  {
+   "from": "hyper-optimal-test-design",
+   "to": "hyper-ablator-multiscale-response"
+  },
+  {
+   "from": "hyper-optimal-test-design",
+   "to": "hyper-radiation-kinetics"
+  },
+  {
+   "from": "hyper-thinner-tps-flown",
+   "to": "hyper-reentry-cadence-economy"
+  },
+  {
+   "from": "verif-independent-check",
+   "to": "hyper-tps-inverse-nde"
+  },
+  {
+   "from": "hyper-tps-inverse-nde",
+   "to": "hyper-tile-damage-accumulation"
+  },
+  {
+   "from": "hyper-flight-data-pipeline",
+   "to": "hyper-tile-damage-accumulation"
+  },
+  {
+   "from": "hyper-tile-damage-accumulation",
+   "to": "hyper-rapid-reuse-heatshield"
+  },
+  {
+   "from": "hyper-tps-inverse-nde",
+   "to": "hyper-rapid-reuse-heatshield"
+  },
+  {
+   "from": "hyper-srp-aeropropulsive-models",
+   "to": "hyper-mars-heavy-landing"
+  },
+  {
+   "from": "hyper-flight-data-pipeline",
+   "to": "hyper-mars-heavy-landing"
+  },
+  {
+   "from": "hyper-rapid-reuse-heatshield",
+   "to": "hyper-p2p-cargo-demo"
+  },
+  {
+   "from": "cap-applied-math",
+   "to": "hyper-aerocapture-demo"
+  },
+  {
+   "from": "hyper-flight-data-pipeline",
+   "to": "hyper-aerocapture-demo"
+  },
+  {
+   "from": "materials-learned-functionals",
+   "to": "materials-uhtc-tps-design"
+  },
+  {
+   "from": "hyper-flight-data-pipeline",
+   "to": "hyper-sbli-heating-closure"
+  },
+  {
+   "from": "hyper-flight-data-pipeline",
+   "to": "hyper-blackout-prediction-tools"
+  },
+  {
+   "from": "hyper-boltzmann-foundations-check",
+   "to": "hyper-kinetic-solver-certification"
+  },
+  {
+   "from": "hyper-certified-margin-uq",
+   "to": "hyper-aerothermal-design-loop"
+  },
+  {
+   "from": "hyper-stability-analysis-on-demand",
+   "to": "hyper-aerothermal-design-loop"
+  },
+  {
+   "from": "cap-autonomous-labs",
+   "to": "hyper-gas-surface-chemistry"
+  },
+  {
+   "from": "cap-applied-math",
+   "to": "hyper-heavy-deployable-decelerator"
+  },
+  {
+   "from": "hyper-flight-data-pipeline",
+   "to": "hyper-srp-aeropropulsive-models"
+  }
+ ],
+ "add_edges": [
+  {
+   "from": "physclock-starship-full-reuse",
+   "to": "hyper-tile-damage-accumulation"
+  },
+  {
+   "from": "physclock-starship-full-reuse",
+   "to": "hyper-p2p-cargo-demo"
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "hyper-optimal-test-design",
+   "to": "hyper-certified-margin-uq"
+  },
+  {
+   "from": "hyper-optimal-test-design",
+   "to": "hyper-probabilistic-tps-sizing"
+  },
+  {
+   "from": "hyper-optimal-test-design",
+   "to": "hyper-ablator-multiscale-response"
+  },
+  {
+   "from": "hyper-optimal-test-design",
+   "to": "hyper-radiation-kinetics"
+  },
+  {
+   "from": "capability-controlled-data-access",
+   "to": "hyper-stability-analysis-on-demand"
+  },
+  {
+   "from": "hyper-model-form-error-bounds",
+   "to": "hyper-probabilistic-tps-sizing"
+  },
+  {
+   "from": "hyper-model-form-error-bounds",
+   "to": "hyper-12kms-entry-design-basis"
+  },
+  {
+   "from": "hyper-thinner-tps-flown",
+   "to": "hyper-reentry-cadence-economy"
+  },
+  {
+   "from": "physclock-licensing-in-weeks",
+   "to": "hyper-reentry-cadence-economy"
+  },
+  {
+   "from": "physclock-heavy-cadence-100",
+   "to": "hyper-reentry-cadence-economy"
+  },
+  {
+   "from": "verif-independent-check",
+   "to": "hyper-tps-inverse-nde"
+  },
+  {
+   "from": "hyper-tps-inverse-nde",
+   "to": "hyper-tile-damage-accumulation"
+  },
+  {
+   "from": "hyper-flight-data-pipeline",
+   "to": "hyper-tile-damage-accumulation"
+  },
+  {
+   "from": "hyper-tile-damage-accumulation",
+   "to": "hyper-rapid-reuse-heatshield"
+  },
+  {
+   "from": "hyper-tps-inverse-nde",
+   "to": "hyper-rapid-reuse-heatshield"
+  },
+  {
+   "from": "physclock-twin-reflight-clearance",
+   "to": "hyper-rapid-reuse-heatshield"
+  },
+  {
+   "from": "hyper-srp-aeropropulsive-models",
+   "to": "hyper-mars-heavy-landing"
+  },
+  {
+   "from": "hyper-radiation-kinetics",
+   "to": "hyper-mars-heavy-landing"
+  },
+  {
+   "from": "hyper-rapid-reuse-heatshield",
+   "to": "hyper-p2p-cargo-demo"
+  },
+  {
+   "from": "cap-applied-math",
+   "to": "hyper-aerocapture-demo"
+  },
+  {
+   "from": "hyper-flight-data-pipeline",
+   "to": "hyper-aerocapture-demo"
+  },
+  {
+   "from": "hyper-aerothermal-design-loop",
+   "to": "hyper-aerocapture-demo"
+  },
+  {
+   "from": "hyper-certified-edl-guidance",
+   "to": "hyper-aerocapture-demo"
+  },
+  {
+   "from": "materials-learned-functionals",
+   "to": "materials-uhtc-tps-design"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "materials-uhtc-tps-design"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "hyper-radiation-kinetics"
+  },
+  {
+   "from": "hyper-flight-data-pipeline",
+   "to": "hyper-sbli-heating-closure"
+  },
+  {
+   "from": "capability-learned-emulators",
+   "to": "hyper-sbli-heating-closure"
+  },
+  {
+   "from": "capability-controlled-data-access",
+   "to": "hyper-transition-prediction-theory"
+  },
+  {
+   "from": "hyper-flight-data-pipeline",
+   "to": "hyper-blackout-prediction-tools"
+  },
+  {
+   "from": "capability-controlled-data-access",
+   "to": "hyper-blackout-prediction-tools"
+  },
+  {
+   "from": "hyper-boltzmann-foundations-check",
+   "to": "hyper-kinetic-solver-certification"
+  },
+  {
+   "from": "hyper-certified-margin-uq",
+   "to": "hyper-aerothermal-design-loop"
+  },
+  {
+   "from": "hyper-stability-analysis-on-demand",
+   "to": "hyper-aerothermal-design-loop"
+  },
+  {
+   "from": "capability-engineering-adoption",
+   "to": "hyper-aerothermal-design-loop"
+  },
+  {
+   "from": "cap-autonomous-labs",
+   "to": "hyper-gas-surface-chemistry"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "hyper-gas-surface-chemistry"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "hyper-ablator-multiscale-response"
+  },
+  {
+   "from": "cap-applied-math",
+   "to": "hyper-heavy-deployable-decelerator"
+  },
+  {
+   "from": "hyper-flight-data-pipeline",
+   "to": "hyper-srp-aeropropulsive-models"
+  },
+  {
+   "from": "hyper-fleet-aerothermal-twin",
+   "to": "hyper-tile-damage-accumulation"
+  },
+  {
+   "from": "hyper-fleet-aerothermal-twin",
+   "to": "hyper-rapid-reuse-heatshield"
+  },
+  {
+   "from": "hyper-fleet-aerothermal-twin",
+   "to": "hyper-mars-heavy-landing"
+  },
+  {
+   "from": "hyper-fleet-aerothermal-twin",
+   "to": "hyper-p2p-cargo-demo"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "entry",
+   "nodes": [
+    "hyper-model-form-error-bounds",
+    "hyper-fleet-aerothermal-twin"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "entry",
+   "patch": {
+    "thesis": "If AI can run rigorous uncertainty analysis on demand, commercial capsules may fly thinner, model-based heat shields around 2030 (S2, Medium). For the owner of a high-cadence vehicle, its own flight data rather than new theory closes the heating models, so Starship-scale heat-shield reuse arrives around 2030 on the launch curve, with AI adding months. Routine 50-a-year reentry, heavy Mars landings, point-to-point cargo and large fast returns stay paced by demand, launch windows, regulation and shock-tube time.",
+    "reader_hook": "For NASA's now-cancelled Mars Sample Retrieval Lander, a Monte Carlo at one stressing point found a heat shield at ~75% of baseline thickness kept the bondline below its limit in ~99% of cases. But it sampled aerothermal error only up to the existing margin factors, while at that 8 km/s entry the baseline radiation model under-predicted shock-tube data by up to 2x.",
+    "roots": [
+     "hyper-flight-data-pipeline",
+     "hyper-optimal-test-design",
+     "hyper-certified-margin-uq",
+     "hyper-tps-inverse-nde",
+     "hyper-fleet-aerothermal-twin"
+    ],
+    "spine": [
+     "hyper-flight-data-pipeline",
+     "hyper-optimal-test-design",
+     "hyper-certified-margin-uq",
+     "hyper-probabilistic-tps-sizing",
+     "hyper-thinner-tps-flown",
+     "hyper-reentry-cadence-economy",
+     "hyper-tps-inverse-nde",
+     "hyper-fleet-aerothermal-twin",
+     "hyper-tile-damage-accumulation",
+     "hyper-rapid-reuse-heatshield",
+     "hyper-srp-aeropropulsive-models",
+     "hyper-mars-heavy-landing"
+    ],
+    "spine_soft_links": [
+     "hyper-optimal-test-design -> hyper-certified-margin-uq",
+     "hyper-thinner-tps-flown -> hyper-reentry-cadence-economy",
+     "hyper-tps-inverse-nde -> hyper-tile-damage-accumulation",
+     "hyper-tps-inverse-nde -> hyper-rapid-reuse-heatshield",
+     "hyper-fleet-aerothermal-twin -> hyper-tile-damage-accumulation",
+     "hyper-tile-damage-accumulation -> hyper-rapid-reuse-heatshield",
+     "hyper-srp-aeropropulsive-models -> hyper-mars-heavy-landing"
+    ],
+    "revision_note": "B-entry: [skeptic+auditor] Thesis and hook rewritten to the source's actual assumptions (single location, aerothermal error capped at existing factors, MSR cancelled) and to the corrected bands. [advocate] Two-curve result (owner data on the launch curve) added via new node hyper-fleet-aerothermal-twin, placed on the spine. [skeptic] Spine order kept; soft links listed in spine_soft_links."
+   }
+  }
+ ],
+ "notes": "B-entry resolver edits (2026-10-07). Lenses: skeptic = physics and engineering realism; advocate = exponential advocate; auditor = grounding and fact auditor. Main moves: AI-math hard edges into physically clocked outcomes made soft (rapid reuse, Mars landing, cadence economy, P2P, aerocapture, deployables); margin chain split into a solved joint-budget node and an open model-form node, then shifted one year later with Medium adoption bands; flight-data node narrowed to shared data with the owner-data curve carried by a new fleet heating-model node; factual corrections (Varda record, SRL assumptions, MSR cancellation, Rocket Cargo, 12 km/s missions, 365 statement gap). Rejected: advocate node hyper-reentry-testbed-market (duplicates the pipeline and cadence thresholds; 2028 High contradicted by the 2026 record). Domain-level text (hyper nil_effects on arc-jet capacity; key_insights on 365 as a P3 rule) is outdated but outside this branch's edit scope."
+}

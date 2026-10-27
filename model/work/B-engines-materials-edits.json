@@ -1,0 +1,641 @@
+{
+ "merge": [
+  {
+   "keep": "frontier-certified-turbulent-cfd",
+   "drop": [
+    "prop-les-convergence-theory"
+   ],
+   "patch": {
+    "prerequisites": [
+     "frontier-turbulence-rigorous",
+     "frontier-chaos-linear-response",
+     "frontier-nonuniqueness-map",
+     "frontier-certified-pde-error"
+    ],
+    "accelerated_by": [],
+    "catalog_families": [
+     "363",
+     "376"
+    ],
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Low"
+    },
+    "description": "Rigorous statistical error bounds for simulations of chaotic, turbulent and shock-laden flows (combustors, plumes, reentry wakes): a proven framework (for example statistical or measure-valued solutions) that states which LES/DNS statistics converge under mesh refinement, with computable bounds on averaged quantities rather than individual trajectories, so that 'grid-converged LES' has a defined meaning.",
+    "status_oct2026": "No such theory exists. LES has no classical grid-convergence theory; practitioners use heuristics such as resolving ~80% of turbulent kinetic energy (general). Pathwise error grows exponentially in chaotic flows. Boltzmann nonuniqueness with exact local conservation (363, T1, conditional) shows kinetic limits need not be unique, and universal computation in forced Navier-Stokes (376, T1, conditional) implies that some long-time behaviour is undecidable for some forcings, so any convergence statement has to be statistical and state its selection principle. Practice relies on grid studies and validation data; turbulence, transition and separation are the leading CFD gap (CFD Vision 2030, general).",
+    "premise_tier": "n/a (rests on open problems: frontier-turbulence-rigorous, frontier-chaos-linear-response); 363 and 376 are T1, conditional, context only",
+    "why": "This is the hardest applied node, and possibly impossible in pointwise form. What is achievable: bounds on statistics under ergodicity assumptions, with the selection principle stated explicitly and model-form error estimated from data. It chains four upstream nodes, two of them genuinely open (frontier-turbulence-rigorous and frontier-chaos-linear-response, each Medium), so S2 is Speculative and even S3 stays Low. If it lands, the credibility statement for an injector LES in prop-cfd-auto-vv could carry a numerical error bar instead of an expert's judgment, and closure credibility (prop-closure-theory, hyper-sbli-heating-closure) becomes a computed quantity. Computable bounds would also show analysts where design LES is under- or over-resolved; in propulsion, where design LES is usually cost-limited and under-resolved, that is more likely to raise compute than to cut it (judgment).",
+    "strongest_case_small": "Even if achieved, closure (model-form) error dominates and is set by data, so the bound would be correct but large, and the theory may give only asymptotic rates with no usable constants. Engineers would still calibrate against tests.",
+    "signpost": "A rigorous convergence-of-statistics theorem for LES of forced turbulence (on the torus or in 3D) with explicit rates, cited in an AIAA CFD workshop guideline.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Auditor (duplicate, accepted): prop-les-convergence-theory and this node had the same achievement and near-identical signposts but were rated Medium/2029 vs Low/2031; merged into this id with this node's prerequisites (frontier-turbulence-rigorous, frontier-chaos-linear-response, frontier-nonuniqueness-map, frontier-certified-pde-error). The prop-ns-forced-verified edge was not carried over (skeptic and auditor: forced-NS blowup is context only). The dropped node's '2-4x compute saving' was not carried over: skeptic's mechanism accepted (propulsion design LES is usually cost-limited and under-resolved, so bounds more likely raise compute). Fact fix (skeptic + auditor): 376 is universal computation in forced Navier-Stokes, not convex-integration nonuniqueness. S2 band Low -> Speculative (skeptic): four chained prerequisites, two open theorems each Medium, earliest year at the window edge. Soft edge added to prop-cfd-auto-vv (all three lenses) so the node is no longer a dead end."
+   }
+  }
+ ],
+ "update": [
+  {
+   "id": "frontier-chaos-linear-response",
+   "patch": {
+    "why": "Adjoint design is routine for steady flows but breaks for unsteady chaotic flows, because pathwise sensitivities grow like exp(lambda*t). Combustors, nozzles and thrusters are therefore designed by sampling, at roughly one simulation per parameter direction. A theorem saying when averaged sensitivities exist, with an algorithm, would turn chaotic-flow design into gradient optimization with thousands of parameters (frontier-chaotic-adjoint-design) for flows with few unstable modes. A linear-response theorem alone does not make gradients cheap for wall-bounded turbulence, where shadowing-type adjoints cost roughly one simulation per positive Lyapunov exponent (about 1,200-1,500 for channel flow at Re_tau=180; Blonigan et al., arXiv 1702.06809). A negative answer would also help (P3), since it ends a research line. This is an under-appreciated node: less famous than Navier-Stokes, far more consequential for design.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (claim, accepted; verified in Blonigan et al., ar5iv 1702.06809): a linear-response theorem does not by itself make gradients cheap for wall-bounded turbulence; added the Lyapunov-count caveat. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-chaotic-adjoint-design",
+   "patch": {
+    "band_2031": {
+     "S3": "Low"
+    },
+    "why": "If frontier-chaos-linear-response lands (S2: 2029), turning it into a tool is method design plus validation of designed hardware against tests, which is the binding physical gate. Downstream (soft): prop-ai-engine-design-loop, prop-stability-design-tool, plasma-ep-predictive-design. The cost of shadowing-type chaotic adjoints (LSS, NILSS) scales with the number of positive Lyapunov exponents: O(1) extra runs for low-Reynolds bluff-body wakes (at least two positive exponents, so about three forward runs, for an axisymmetric bluff body at Re_D=900) but about 1,200-1,500 for channel flow at Re_tau=180, i.e. at least O(1000) simulations per gradient (Blonigan et al., arXiv 1702.06809; Ni and Wang, arXiv 1611.00880). Wall-bounded combustor and nozzle LES therefore pay O(1000) simulations per gradient unless the theory yields a reduced algorithm, so the near-term gain is confined to flows with few unstable modes. Even S3 stays Low: the tool rests on an open theorem (Medium in S3) plus hardware validation that compresses only 1.3-1.5x.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (claim + band, accepted). The 'two simulations per gradient' figure is the steady-adjoint cost; for chaotic flows LSS/NILSS cost scales with the number of positive Lyapunov exponents (verified: n+ ~1,200-1,500 for channel flow at Re_tau=180, >=2 for an axisymmetric bluff body at Re_D=900; Blonigan et al., ar5iv 1702.06809). S3 band Medium -> Low: P6 default Low, the hard prerequisite is an open theorem rated only Medium in S3, and hardware validation compresses 1.3-1.5x. Years unchanged."
+   }
+  },
+  {
+   "id": "frontier-stiff-certified",
+   "patch": {
+    "why": "Mostly expert-scarce: AI can derive mechanism-specific error bounds and produce reduced mechanisms with a proven bound on ignition delay or species error. Reducing a ~50-species mechanism to ~15 typically cuts chemistry cost several-fold in reacting CFD (general), but error-controlled reduction (DRG/DRGEP-class, general) already delivers that speedup; the AI-math increment is a proven bound on ignition delay or species error relative to the detailed mechanism (a P5 confidence gain), not extra speed. Rate-constant uncertainty (2-10x) still dominates. Downstream: propulsion combustion-kinetics solvers (the propulsion stiff-chemistry node is merged here), prop-flame-response, prop-start-transient (soft), hyper-gas-surface-chemistry, materials-battery-life-qual.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (claim, accepted): the several-fold speedup from mechanism reduction already exists (DRG/DRGEP-class); the AI-math increment is a certificate (P5 confidence), not speed. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "materials-mlip-certified-uq",
+   "patch": {
+    "earliest_year": {
+     "S2": "2028",
+     "S3": "2028"
+    },
+    "description": "Universal machine-learned interatomic potentials (MLIPs) that report calibrated, property-level uncertainty (melting point, diffusion barrier, elastic constants) with documented coverage on held-out chemistries (formal coverage only under stated distribution-shift assumptions) and out-of-distribution flags, so atomistic predictions can feed design decisions without case-by-case DFT checks.",
+    "status_oct2026": "Universal MLIPs are fast but uncertified. Meta's UMA family was trained on ~500M structures; UMA-M-1.1 scores F1 = 0.929 on Matbench Discovery, and UMA-S runs 1,000 atoms at ~16 steps/s on one GPU and fits >100,000 atoms in 80 GB (arXiv 2506.23971). Ensemble and conformal uncertainty methods exist, but without guarantees for properties derived from long molecular-dynamics runs; distribution-free conformal coverage does not survive covariate shift unless the likelihood ratio is known (Tibshirani et al., arXiv 1904.06019), and otherwise degrades with the size of the shift (Barber et al., arXiv 2202.13415). No catalog family addresses this.",
+    "why": "MLIPs are roughly 10^4-10^5 times cheaper than DFT for the same atoms (general), enabling nanosecond simulations of 10^5-atom cells, the scale where creep-relevant diffusion, grain-boundary oxidation and radiation-damage cascades happen. What blocks engineering use is trust: errors in unfamiliar configurations propagate unpredictably into derived properties. Bounding that propagation (perturbation bounds for stochastic dynamics, conformal coverage under distribution shift) is bespoke applied math that S2's research-grade capability attacks directly; the binding gate then becomes high-level reference data to test coverage, which is why the node lands in 2028, a year after cap-applied-math. Coverage on novel chemistries is conditional on the stated shift assumptions by construction. Unlocks high-throughput alloy, ceramic and electrolyte screening with error bars.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (timing, two lenses): S2 and S3 2027 -> 2028; a data-gated node cannot land the same year as cap-applied-math (2027) because coverage must be tested against new high-level reference data and long MD runs. Description: 'coverage guarantees' -> documented coverage, formal only under stated shift assumptions (Tibshirani et al. 1904.06019; Barber et al. 2202.13415). Status: UMA figures corrected (auditor; arXiv 2506.23971). Bands unchanged; downstream nodes (2028-2030) stay consistent."
+   }
+  },
+  {
+   "id": "materials-learned-functionals",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S3": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "status_oct2026": "Microsoft's Skala (preprint Jun 2025) reaches 2.8 kcal/mol on the GMTKN55 benchmark and chemical accuracy on small-molecule atomization energies at semi-local cost; transition metals and solids are not yet covered. 278 (T1, conditional) marks a class of ensemble densities that no Kohn-Sham scheme can represent.",
+    "why": "Cutting energy errors from ~3-5 kcal/mol (hybrid functionals, general) to ~1 kcal/mol changes the reliability of rankings for propellant decomposition pathways, oxide-scale formation on ceramics and superalloys, defect levels in radiation-damaged semiconductors and electrolyte stability windows. Reference data bind: coupled-cluster and quantum Monte Carlo labels are compute-expensive, so S2 brings the node forward mainly through AI-derived exact constraints and active learning that cut data needs. For multireference transition-metal chemistry the coupled-cluster references are themselves rarely accurate to 1 kcal/mol (general), so the target is partly limited by its own benchmarks; that keeps the band at Medium even in S3. 278 (T1, conditional) tells developers where Kohn-Sham-based learning must fail (strong static correlation), steering effort to embedding methods there. Alloy design and main-group energetics do not need this node (soft links): alloys run on CALPHAD and kinetics, energetics on main-group chemistry Skala-class functionals already cover.",
+    "strongest_case_small": "Most space-materials properties are limited by temperature, kinetics and microstructure, not by 1-3 kcal/mol of electronic energy; and 278/275 (T1, conditional) set worst-case limits for strongly correlated systems.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (band, two lenses): S1 Medium -> Low, S2 High -> Medium; S3 High -> Medium (auditor; reference labels for multireference transition-metal chemistry are themselves rarely 1 kcal/mol accurate, and 278 bounds scope). Years: S1 2029 -> 2030 and S3 2027 -> 2028 (skeptic; lag ladder: both equalled cap-applied-math under a data gate). Skeptic's S2 2028 -> 2029 NOT applied: it would push three hard dependents outside this branch (materials-perovskite-degradation-models, materials-uhtc-tps-design, materials-battery-life-qual, all S2 2028) and 2028 is already one year after the capability; flagged for those branches. Edges to materials-ht-alloy-design and materials-energetics-design made soft (all three lenses). Grounding: 278/275 now say 'conditional'. FLAG for hyper/materials resolver: materials-uhtc-tps-design (Medium/High/High) now rates above this hard prerequisite (Low/Medium/Medium)."
+   }
+  },
+  {
+   "id": "materials-energetics-design",
+   "patch": {
+    "catalog_families": [],
+    "premise_tier": "n/a",
+    "status_oct2026": "Machine learning plus genetic algorithms screened >1,000 candidates down to 7 energetic compounds with predicted specific impulse up to 278 s for solid propellants (NWPU); transfer-learned message-passing networks predict impact sensitivity and vapour pressure from small datasets (UC Irvine seminar, Mar 2026).",
+    "why": "Propellant design is a constrained multi-objective search in which sensitivity and stability, not specific impulse, eliminate most candidates; impact sensitivity is a crystal and mesoscale property, not one limited by electronic-energy accuracy. Energetic molecules are main-group CHNO chemistry, where Skala-class functionals and composite methods with isodesmic schemes already give heats of formation to ~1-2 kcal/mol (general), so the transition-metal extension in materials-learned-functionals accelerates this node but does not gate it. Autonomous microsynthesis supplies data. Synthesis and hazard testing in the few labs licensed for energetics bind.",
+    "strongest_case_small": "Chemical propellants sit near thermochemical ceilings; realistic gains are handling, toxicity and density worth single-digit percent.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (edge, two lenses): materials-learned-functionals hard -> soft; energetics are main-group CHNO chemistry already covered by Skala-class functionals and composite methods. Auditor (grounding): family 149 removed (T1, cited without 'conditional', and the node itself said it changes no practice). Auditor's optional S2 2028 -> 2029 not applied: hazard tests (impact, friction, ESD, DSC) take days to weeks after small-scale synthesis, so the lag after cap-autonomous-labs can be short."
+   }
+  },
+  {
+   "id": "materials-ht-alloy-design",
+   "patch": {
+    "why": "Design is already the short pole (weeks to months); AI agents push it toward days and widen the search to multi-principal-element and oxide-dispersion-strengthened chemistries tuned for printability. The loop runs on CALPHAD thermodynamics, precipitation, creep and oxidation kinetics, printability models and MLIP screening with error bars; sub-1 kcal/mol functionals and multiphysics design guarantees help but are not required (GRX-810 was found with thermodynamic modeling alone). The value is hit rate: fewer failed powder lots and builds, each a months-long physical cycle, which is why AM defect physics (printability) matters. Validation coupons, creep tests and hot-fire bind.",
+    "status_oct2026": "Human-led ICME is already fast: GRX-810's composition was set by thermodynamic modeling in weeks rather than years (NASA, 2022); a NASA burn-resistant alloy went from concept to test specimens in about three months (AMAA, Jul 2026); QuesTek's Ferrium M54 was designed in under a year. AI-driven loops are arriving: a University of Toronto self-driving lab used active learning to find six printable Ni-Co-Cr alloys in a few weeks, one beating Inconel 625 hardness at 600 C by 4.5% and another its oxidation resistance at 1,000 C by 85% (npj Advanced Manufacturing; U of T, Jul 13, 2026). DARPA's METALS program funds multi-objective alloy-and-structure design.",
+    "signpost": "An engine maker or NASA announces an AI-agent-designed alloy validated on coupons (AMRL 3) by 2029 and entering AMRL 4-5 (parameter development and property characterization) by 2030.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Edges: materials-learned-functionals hard -> soft (all three lenses); cap-design-optimization hard -> soft and cap-applied-math added as hard (advocate; mechanism accepted: alloy ICME runs on CALPHAD, kinetics, printability models, MLIP screening and active learning, and GRX-810 and the U of T self-driving lab found alloys without 'multiphysics design with guarantees'); materials-am-defect-physics added as soft (skeptic: hit rate on powder lots and builds is printability). Advocate's S2/S3 2028 -> 2027 rejected: the hard prerequisite materials-mlip-certified-uq moved to 2028 (two lenses) and a high coupon hit rate needs coupons tested after the capability arrives. Signpost re-timed (skeptic): AMRL 4-5 cannot happen the same year the design capability arrives. U of T result (Jul 13, 2026) verified and added to status."
+   }
+  },
+  {
+   "id": "materials-ai-alloy-flight",
+   "patch": {
+    "title": "First AI-agent-designed alloy flies in a rocket engine",
+    "earliest_year": {
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S2": "Low"
+    },
+    "binding_gate": "experiment",
+    "description": "An alloy proposed by an agentic AI/ICME design loop after 2027 (materials-ht-alloy-design) flies in flight hardware (combustion chamber, preburner, turbine or nozzle, including a small thruster or kick-stage part) on a commercial launch vehicle or spacecraft. Pre-existing computationally designed alloys such as GRX-810, and alloys from pre-2027 ML-assisted searches, do not count: they owe nothing to this chain.",
+    "why": "With design compressed to weeks (materials-ht-alloy-design, S2 2028), the floor is physical: powder atomization lots, AM parameter development (1-3 years per machine and process, physclock), 1,000-10,000-hour property tests (10,000 h is about 14 months) and hot-fire campaigns, roughly 2-3 years for a risk-tolerant commercial engine maker that certifies its own hardware. Historical benchmarks are slower: GRCop-42 took about eight years from AM start to flight, Ferrium M54 under six. Material qualification compresses only 0.7-0.8x in S2 and 0.5-0.7x in S3. Chain (S2): cap-applied-math (2027) -> materials-mlip-certified-uq (2028) -> materials-ht-alloy-design (2028) -> powder lot, AM parameter development, coupon and 1,000-10,000 h property tests (2029-30) -> hot fire -> first flight in a small thruster or upper-stage hot part (2030 at the earliest; P1->P7). P7 defaults to Speculative; the band is Low in S2 and Medium in S3, where cognition is near-free from 2029 and the physical multiplier is 1.3-1.5x. Value: hotter preburners and turbines and longer-life chambers for reusable engines.",
+    "signpost": "An AI-agent-designed alloy enters hot-fire testing at SpaceX, Relativity, Ursa Major or NASA Marshall by 2029.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (timing/band, two lenses): S3 2029 -> 2030 (one year after 2028 design is below the node's own 2-3-year physical floor even at 1.3-1.5x); S2 Medium -> Low (powder, AM-parameter, creep and hot-fire clocks; material qualification compresses only 0.7-0.8x in S2; P7 default Speculative). S2 year kept at 2030 as the optimistic edge (design 2028 + 2 years for a self-certifying maker flying a small hot part); auditor's 2031 not applied. Advocate's S2 2029/High and S3 High rejected (see debates); advocate's gate change qualification -> experiment accepted. Gate convention (advocate, accepted): the first mover is a self-certifying commercial operator; FAA Part 450 regulates public safety, not engine materials or test counts, so the regulator/certification Medium cap does not apply unless the node needs NASA crew, NSSL or other customer certification. The band here rests on physical clocks, not on that cap. Description tightened (skeptic) so the hard prerequisite is causal, not definitional; title adjusted to match. Full chain written out (grounding rule). Soft edge from physclock-optimal-test-campaigns (advocate)."
+   }
+  },
+  {
+   "id": "materials-hot-section-reuse",
+   "patch": {
+    "earliest_year": {
+     "S2": ">2031"
+    },
+    "band_2031": {
+     "S2": "Speculative"
+    },
+    "binding_gate": "data",
+    "why": "Hot-section refurbishment is a major reuse cost driver (general); doubling the life of the most-replaced parts would cut turnaround cost, but proving life needs fleet hours and post-flight tear-downs, a physical clock: reuse learning took 15 months from first landing to first reflight and 3-5 years to mature life, compressing only 0.8-0.9x in S2 (physclock). Chain (S2): materials-ai-alloy-flight (2030 at the earliest, Low) + materials-creep-oxidation-life-models (2029) -> fleet-leader parts run past the prior refurbishment interval and torn down -> operator-attributed interval increase (after 2031). Chain (S3): alloy flight (2030) -> parts flown on a subset of a high-cadence fleet (100+ heavy flights a year from 2028) -> attributed interval increase (2031 at the earliest, Low).",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (timing/band, two lenses): S2 2031 -> >2031, S2 Low -> Speculative; an alloy first flying in 2030 (Low) cannot have a fleet-proven, operator-attributed interval increase within a year (reuse learning: 15 months to first reflight, 3-5 years to mature life, 0.8-0.9x in S2). S3 kept at 2031 Low; advocate's S3 Medium rejected (alloy flight is now S3 2030, leaving one year for fleet hours and attribution; P7 default Speculative). Gate qualification -> data (fleet hours and teardowns bind; first mover self-certifies). Gate convention (advocate, accepted): the first mover is a self-certifying commercial operator; FAA Part 450 regulates public safety, not engine materials or test counts, so the regulator/certification Medium cap does not apply unless the node needs NASA crew, NSSL or other customer certification. The band here rests on physical clocks, not on that cap. Chains written out (grounding rule). Soft edge from physclock-heavy-cadence-100 (advocate: cadence accrues fleet hours)."
+   }
+  },
+  {
+   "id": "materials-creep-oxidation-life-models",
+   "patch": {
+    "binding_gate": "experiment",
+    "why": "A 10,000-hour creep test takes about 14 months of real time; it is the physical clock on any new hot-section alloy. Models linking atomistic diffusion to dislocation climb, precipitate coarsening and oxide growth could justify qualification decisions at ~1,000 hours with confirmatory long tests running in parallel, saving roughly a year per alloy (assumption). Validation can start on held-out legacy long-term creep data (tests beyond 100,000 h exist for heritage alloys, general), but credibility for new chemistries needs a prospective blind prediction, either against long tests already under way when the model is built or against new ones, so the experiment clock, not data, binds. Bulk diffusion coefficients for most alloy systems are measured; the open problem is mesoscale bridging (climb, coarsening, oxide spallation), so certified MLIPs (materials-mlip-certified-uq) help but do not gate it.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Gate data -> experiment (skeptic, accepted: the signpost needs a blind check against a 10,000-h, ~14-month test). materials-mlip-certified-uq hard -> soft (skeptic: bulk diffusion is mostly measured; the open problem is mesoscale bridging). Soft edges from cap-autonomous-labs and physclock-ai-run-test-stands (advocate). Years kept (skeptic's S2 2030 / S3 2029 not applied): a blind prediction can be checked against long tests already under way when the model is built, so the 14-month clock overlaps model development rather than following it. Advocate's S3 High not applied: legacy hold-out data validate heritage alloys but not new chemistries, where long-time mechanisms appear; P6 default Low."
+   }
+  },
+  {
+   "id": "materials-closed-loop-discovery",
+   "patch": {
+    "band_2031": {
+     "S2": "Medium"
+    },
+    "why": "Robotic powder synthesis is now cheap and repeatable; with reliable characterization and trustworthy screening, discovery rates can rise roughly tenfold. The node stacks two criteria: independent replication, which needs other groups to synthesize and characterize the material (6-18 months), and a >10x rate for which no agreed baseline exists; High is defensible only for replication alone, so S2 is Medium. For space, the first beneficiaries are materials made by simple routes (PV absorbers, coatings, electrolytes), not superalloys or ceramic composites whose processing autonomous labs cannot yet do.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (band, two lenses): S2 High -> Medium; the node stacks outside replication and an unmeasured >10x rate, the only precedent (A-Lab) failed expert audit, and P7 defaults to Speculative. Skeptic's S2 2029 -> 2030 not applied: the A3 lag (labs 2028 -> outside replication 2029) already sits at the optimistic edge. S3 High kept."
+   }
+  },
+  {
+   "id": "materials-autonomous-characterization",
+   "patch": {
+    "status_oct2026": "The A-Lab's 41 claimed novel compounds (from 58 targets) were disputed by Palgrave, Schoop and colleagues (ChemRxiv Jan 2024; PRX Energy 2024), who judged automated Rietveld analysis unreliable and concluded no new materials had been shown; Jakob, Margraf et al. (Adv. Mater. 2025) estimate that 80-84% of GNoME's predicted stable compounds are likely disordered in practice.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Auditor (fact, contradicted): the A-Lab claimed 41 novel compounds (from 58 targets), not 43; the 80-84% disorder estimate comes from Jakob, Margraf et al. (Adv. Mater. 2025), not 404 Media. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "materials-quantum-chem-advantage",
+   "patch": {
+    "earliest_year": {
+     "S2": "2031",
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S3": "Low"
+    },
+    "status_oct2026": "Quantinuum Helios (2025): 98 physical qubits, demonstrations of up to 50 logical qubits, about 10 logical spin orbitals usable for chemistry. A Quantinuum-SoftBank white paper (Jul 2026) places Apollo (2029) at ~100 logical spin orbitals, a range classical DMRG and AFQMC already reach, and chemically accurate simulation above 100 spin orbitals in its 2030s 'Lumos' generation; FeMoco needs 152. FeMoco estimates: ~2,142 logical qubits, ~4M physical qubits, ~4 days (2021), with 2025 reductions of 4-195x from algorithms and 278x specific to one architecture (PsiQuantum active volume). 275 (T1, conditional) shows continuum Coulomb ground energies are QMA-hard in the worst case, so no quantum algorithm is guaranteed efficient on all instances; it says nothing about typical molecules. 265 (T1, conditional; 2D gapped area law) strengthens classical tensor-network methods for gapped 2D systems.",
+    "why": "AI math acts on the algorithm side: resource estimates fell 4-195x algorithmically in 2025 (278x on one architecture), and S2/S3 assume a further 10-100x (assumption). Qubit fabrication binds (1.05-1.15x in S2, 1.2-1.3x in S3): the vendor roadmap places chemically accurate >100-spin-orbital simulation in Lumos (2030s), while Apollo (2029) reaches ~100 logical spin orbitals, which classical methods already handle, and vendor roadmaps historically slip. A beyond-classical industrial result by 2031 is therefore Low even in S3. For space the payoff is indirect: catalysts for propellant decomposition and in-situ resource processing, and correlated-electron materials, not alloys or PV.",
+    "signpost": "A peer-reviewed beyond-classical chemistry result with error bars on logical qubits by 2030; published FeMoco-class resource estimates below 10^5 physical qubits.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (timing/band, two lenses): S2 2030 -> 2031, S3 2029 -> 2030, S3 Medium -> Low (fabrication gate; vendor roadmap places chemically accurate >100-spin-orbital simulation in the 2030s Lumos generation). S2 kept at Low (skeptic's Speculative not applied: other vendors' 2029 machines make a 2031 result unlikely but not <10%). Grounding/fact fixes (auditor): 275 worded as a worst-case, conditional result; 4-195x algorithmic vs 278x architecture-specific; Apollo/Lumos roadmap corrected."
+   }
+  },
+  {
+   "id": "materials-new-propellant-flight",
+   "patch": {
+    "why": "After design (S2, 2028), scale-up synthesis, hazard classification, long-duration materials-compatibility tests, catalyst development and thruster qualification set a ~3-5-year floor even for a startup, longer for NASA or ESA. Chain (S2): cap-autonomous-labs (2028) -> materials-energetics-design (2028) -> scale-up, hazard classification, compatibility and thruster qualification (>=3 years) -> flight (2031 at the earliest; P1->P7).",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (grounding rule, accepted): tier-5 hardware outcome inside five years now writes out its chain. Years and bands unchanged (customer and hazard-classification qualification genuinely applies here, so the gate stays 'qualification')."
+   }
+  },
+  {
+   "id": "prop-cfd-auto-vv",
+   "patch": {
+    "description": "AI agents run code verification (manufactured solutions), solution verification (grid and time-step refinement; adjoint or a-posteriori error estimates for steady and RANS cases), uncertainty quantification and NASA-STD-7009-style credibility assessment on every propulsion simulation at near-zero marginal labor. Compute for solution verification of unsteady LES stays several times the base run (a 2x refinement of a 3D unsteady case costs ~8-16x, general), adjoint error estimates do not apply to chaotic LES, and credibility (validation) remains capped by test data.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (claim, accepted): labor collapses but compute does not; solution verification of unsteady LES costs several times the base run and adjoint error estimates diverge on chaotic LES. Soft edge from frontier-certified-turbulent-cfd (all three lenses; the merged LES-convergence node said it feeds this one). Advocate's S2 2028 -> 2027 rejected: adoption gate cannot land the same year as its capability prerequisites (lag ladder)."
+   }
+  },
+  {
+   "id": "prop-life-twin",
+   "patch": {
+    "why": "Reuse economics turn on refurbishment intervals. Probabilistic life models with UQ are expert-scarce applied math, the category S2 makes cheap; automated CFD V&V (prop-cfd-auto-vv) improves the heat-flux input but is not required, since thermal loads can come from engine instrumentation. Merlin fleet data are deep, but Raptor 3 (first flight May 2026; full-flow staged combustion with an oxygen-rich preburner, so different failure modes from kerosene gas-generator Merlins) has little, so data still bind for Starship-class engines.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (edge + claim, accepted): prop-cfd-auto-vv hard -> soft (life models are calibrated on instrumented engines, inspection and fleet data; CFD V&V improves the heat-flux input but is not required). The 'data binds less' sentence contradicted the node's own data gate: the reflown fleet is kerosene gas-generator Merlins, whose wear does not transfer to Raptor 3. Years unchanged (cap-applied-math 2027 still precedes 2028)."
+   }
+  },
+  {
+   "id": "prop-reuse-extended",
+   "patch": {
+    "why": "Cheaper refurbishment and faster turnaround feed directly into launch cost. Life models pull fleet-leader life extension forward by roughly 6-12 months (physclock reuse-learning row, 0.8-0.9x in S2); a 2x interval is an illustration that still has to be earned in flight cycles, because each life data point costs a flight. Data arrive on the launch exponential: Mach33's base case has flights per stack rising from 3.3 (2027) to 8.9 (2029) and 18 (2030), which needs overhaul intervals to stretch several-fold, and at near-zero analysis cost an operator doing that will lean on calibrated life models. Chain (S2): cap-applied-math (2027) -> prop-life-twin (2028) -> Raptor 3 fleet cycles after physclock-starship-full-reuse (2027) and ~90 Starship flights in Mach33's 2028 reference case -> overhaul intervals set by calibrated models (2029 at the earliest; P1->P6->P7). The band stays Medium because the model must be validated on fleet leaders and the practice must become visible.",
+    "signpost": "Operator statements tying engine overhaul intervals to analytic life models (for example as Starship flights per stack pass ~9, Mach33's 2029 base case), or NASA reuse certification for crewed flights citing probabilistic life analysis.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (claim, accepted): replaced the 'doubled overhaul interval is plausible' sentence with the physclock quantification (models pull fleet-leader life extension forward 6-12 months; each life data point costs a flight). Chain written out (grounding rule). Soft edge from physclock-heavy-cadence-100 (advocate: data arrive on the launch exponential). Skeptic's S2 2029 -> 2030 and advocate's S2/S3 Medium -> High both rejected (see debates): ~90 Starship flights in Mach33's 2028 reference case make model-set intervals in 2029 a fair optimistic edge, but validation on fleet leaders and visible attribution keep the band at Medium; no regulator cap is involved. Gate convention (advocate, accepted): the first mover is a self-certifying commercial operator; FAA Part 450 regulates public safety, not engine materials or test counts, so the regulator/certification Medium cap does not apply unless the node needs NASA crew, NSSL or other customer certification. The band here rests on physical clocks, not on that cap."
+   }
+  },
+  {
+   "id": "prop-flame-response",
+   "patch": {
+    "earliest_year": {
+     "S2": "2030"
+    },
+    "status_oct2026": "Measured on subscale rigs or extracted from costly LES; wall-modeled LES at engine conditions is described as prohibitively expensive (JAXA 2025). Raptor reached 350 bar chamber pressure in a development test that Musk reported in May 2023 (per newspaceeconomy, Apr 16, 2026), deep in the supercritical regime where injection models lack validation (general).",
+    "why": "With flame response predicted, certified reduced models (prop-certified-stability-rom) predict growth rates, not just frequencies. Flame transfer functions are already computed by LES with existing subgrid models; what is missing is validated real-fluid, transcritical injection physics at 100-350 bar and rig data, so closure theory (prop-closure-theory) accelerates the work but is not required. Validation can start against decades of archived rig data, but it then needs about a year of blind rig tests. That experimental year binds in S2 and S3 alike: chain (S2) cap-physics-theory (2029) -> model -> blind rig year -> 2030; (S3) 2028 -> 2029.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (timing, two lenses): S2 2029 -> 2030; the node's own text says a year of blind rig tests binds, yet S2 equalled its prerequisites' year. prop-closure-theory hard -> soft (skeptic + advocate: flame transfer functions are computed by LES with existing subgrid models; what is missing is transcritical real-fluid injection physics and rig data). Soft edge from physclock-ai-run-test-stands (advocate). Advocate's S3 2029 -> 2028 rejected: theory capability lands in S3 2028 and the blind rig campaign (8-9 months at 1.3-1.5x) cannot finish the same year. Fact fix (auditor, verified): the 350 bar milestone was reported in May 2023, not 2026."
+   }
+  },
+  {
+   "id": "prop-stability-design-tool",
+   "patch": {
+    "earliest_year": {
+     "S2": "2031",
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S2": "Low"
+    },
+    "binding_gate": "experiment",
+    "why": "If even a third of instability redesign loops are avoided, a new engine saves months to a year and tens of hardware sets (judgment, general). The math (stability certificates) is fast under S2; flame-response validation on rigs is not, and the tool must then be used on a real engine program (the F-1 stability campaign took two years of tests). Chain (S2): prop-certified-stability-rom (2028) + prop-flame-response (2030) -> ranking injector designs on an engine program before hardware (2031 at the earliest). The gate is rig and hot-fire validation of the tool's rankings, not customer qualification.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (timing/band, two lenses): S2 2030 -> 2031 and S2 Medium -> Low (needs validated flame response, now S2 2030, then use on a real engine program). S3 2029 -> 2030 (skeptic; same lag after flame response S3 2029). Gate qualification -> experiment (skeptic + advocate: the tests saved are development tests; the real gate is rig and hot-fire validation of the tool's rankings). Gate convention (advocate, accepted): the first mover is a self-certifying commercial operator; FAA Part 450 regulates public safety, not engine materials or test counts, so the regulator/certification Medium cap does not apply unless the node needs NASA crew, NSSL or other customer certification. The band here rests on physical clocks, not on that cap. Soft edge from physclock-optimal-test-campaigns (advocate)."
+   }
+  },
+  {
+   "id": "prop-closure-theory",
+   "patch": {
+    "earliest_year": {
+     "S2": "2030",
+     "S3": "2029"
+    },
+    "band_2031": {
+     "S2": "Low"
+    },
+    "why": "Closure error is the dominant model-form error in propulsion CFD: wall heat flux for cooling, mixing, nozzle separation. Under S2 the cognitive part (deriving constrained closures, proving consistency) is fast. What binds is high-fidelity data at engine conditions. DNS at engine Reynolds numbers is infeasible even at exascale (Pele's largest run: 60 billion cells), and high-pressure reacting validation experiments take years. Success requires validation across separated, swirling and reacting classes without per-case tuning plus a blind workshop result; blind AIAA workshops run on roughly 2-3-year cycles (general), so a closure derived when cap-physics-theory lands cannot be blind-validated the same year. P6 defaults to Low. Flame-response and turbopump tools benefit (soft links) but do not need closure guarantees.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (timing/band, concrete mechanism accepted): S2 2029 -> 2030, S3 2028 -> 2029, S2 Medium -> Low. The success criterion includes a blind workshop win, which cannot happen in the year the theory capability lands (cap-physics-theory S2 2029 / S3 2028); data at engine conditions bind; P6 default Low. Edges to prop-turbopump-tool (skeptic + advocate) and prop-flame-response (skeptic + advocate) made soft. S3 Medium kept."
+   }
+  },
+  {
+   "id": "prop-turbopump-tool",
+   "patch": {
+    "earliest_year": {
+     "S2": "2029",
+     "S3": "2028"
+    },
+    "status_oct2026": "CFD predictions of cavitation instabilities depend strongly on the chosen cavitation and turbulence models, and 3D linear perturbation theories with dynamic transfer matrices are advancing (Pisa thesis, Jun 2025). On Starship Flight 12 (May 22, 2026) the booster lost an engine on ascent and more during boostback, ending in a hard Gulf landing (SpaceNews via 33FG); on Flight 13 (Jul 25, 2026) only 10 of 13 landing engines relit (Spaceflight Now). No official cause has been given.",
+    "why": "Turbopump instabilities are a leading cause of engine failures (general). Stability analysis of transfer-matrix and rotordynamic models is applied math that S2 makes cheap. The uncertain inputs (cavitation compliance, mass-flow gain) are calibrated on water-flow rigs, which are cheap and fast, so closure guarantees help but are not required. Chain (S2): cap-applied-math (2027) -> transfer-matrix models calibrated on archived inducer data (2027-28) -> blind water-rig confirmation on a new inducer (2029 at the earliest).",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Edge: prop-closure-theory hard -> soft (advocate + skeptic). Timing (advocate, concrete mechanism accepted): with closure guarantees no longer gating, the remaining gate is blind water-rig confirmation, which the node itself calls cheap; S2 2030 -> 2029, S3 2029 -> 2028. Advocate's S3 Medium -> High rejected (P1->P6, P6 default Low; blind prediction for a new inducer is still a modeling problem). Soft edge from physclock-ai-run-test-stands. Fact fix (auditor): Nerra Network newsletter replaced by primary reports of Flight 12 (SpaceNews via 33FG news 518, verified) and Flight 13 (Spaceflight Now)."
+   }
+  },
+  {
+   "id": "prop-start-transient",
+   "patch": {
+    "band_2031": {
+     "S1": "Low"
+    },
+    "why": "Relight reliability gates booster catch, ship landing and, most critically, HLS lunar descent after days to weeks in orbit. Relight failures come mainly from propellant conditioning and gas ingestion, two-phase line chilldown, igniter performance and turbopump spin-up; chemistry-integration error is negligible next to rate-constant and two-phase uncertainty, so certified stiff solvers (frontier-stiff-certified) help but do not gate it, while line chilldown (prop-cfm-models) does. Every flight supplies validation data for short coasts; the long-coast regime that matters for HLS gets data only with the depot campaigns, which keeps S2 at Medium.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Auditor (band): S1 Medium -> Low (S1 earliest year is 2031, the window edge). Skeptic (edge, accepted): frontier-stiff-certified hard -> soft; chemistry-integration error is negligible next to rate-constant and two-phase uncertainty (the stiff node admits it); prop-cfm-models stays hard. Soft edge from physclock-ai-run-test-stands (advocate). Advocate's S2 Medium -> High rejected: booster relights after minutes of coast are plentiful, but the HLS case (days to weeks in orbit) has little data before the 2029 campaigns, and prop-cfm-models is now S2 2029."
+   }
+  },
+  {
+   "id": "prop-cfm-models",
+   "patch": {
+    "earliest_year": {
+     "S2": "2029"
+    },
+    "why": "Boil-off and transfer losses drive the tanker count (SpaceX '10-ish' vs NASA 'high teens'). In an illustrative depot model (tables), boil-off of 0.05-0.3%/day costs ~1 extra tanker at one tanker per 6 days, and 0.3-0.5%/day costs 3-5 extra at one per 12 days. These are the physical losses; a validated model recovers only the margin held against their uncertainty (re-running the same model, planning for +50% boil-off instead of a validated +/-10% costs 0-1 tanker at a 6-day cadence, more only at slow cadence and high loss). In S2 the analysis is near-instant once flight data exist, but the data arrive on the launch clock: validation within ~5% on pressure and ~10% on boil-off across fill levels, coasts and attitudes needs several transfer flights and weeks-long storage, which come with the 2028-29 depot campaigns. Conditional on SpaceX or NASA publishing transfer and boil-off data (LOXSAT gives a small-tank public LOX dataset); otherwise the model exists only inside SpaceX and the node is unobservable.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (timing, concrete mechanism accepted): S2 2028 -> 2029. The data gate runs on the launch clock; the first ship-to-ship transfer is S2 2027 and was still unscheduled in Sep 2026, and validation across fill levels, coasts and attitudes needs several transfer flights and weeks-long storage, which arrive with the 2028-29 depot campaigns; prop.json itself rated this 'High by 2028 if flight data are shared'. Added the data-sharing conditional and the 'physical loss vs model margin' correction (skeptic + auditor; depot table reproduced and margin re-simulated). Soft edge from new node prop-loxsat-cfm-flight-data (auditor). S1/S3 and bands unchanged."
+   }
+  },
+  {
+   "id": "prop-mass-gauging",
+   "patch": {
+    "premise_tier": "n/a (capability premise); 365's formalized main result (metric/connection recovery) is T3; the conductivity-nonuniqueness companion used as the ceiling is T1 unless shown formalized - conditional, context only",
+    "pathway": "P1 (+P3 via classical log-stability limits, general)",
+    "status_oct2026": "Gauging is a focus area of NASA's CFM portfolio, alongside boil-off and transfer. Family 365 [L] (joint metric and connection recovery from one boundary patch) has a formalized main result (T3, unaudited); the conductivity-nonuniqueness companion used here as a ceiling is T1 unless shown formalized, so the ceiling is conditional: some interior configurations cannot be told apart from boundary data alone without priors or extra sensing.",
+    "why": "Gauging uncertainty turns into reserve propellant: 1% of a 1,200 t depot load is ~12 t, about 0.1 of a 120 t tanker (illustrative, general), so the economic stake is small. Gauging needs a scalar (total mass), which can be identifiable even when the interior configuration is not; 365 concerns joint metric and connection recovery in (often anisotropic) settings, so it bounds full tomographic imaging, not mass estimation. The practical ceiling for few-electrode capacitance gauging is classical logarithmic instability (general). The ceiling side tells designers not to rely on full tomographic reconstruction and to fuse sensors with thermodynamic models.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Auditor (grounding, accepted): 365's formalized main result is T3 but the nonuniqueness companion used as the ceiling is T1 unless shown formalized, so the ceiling is conditional; premise_tier and pathway relabelled (the practical ceiling for few-electrode capacitance gauging is classical log-instability). Skeptic (claim, accepted): gauging needs a scalar (total mass), which can be identifiable when the configuration is not, so 365 bounds tomographic imaging, not mass estimation; economic stake ~0.1 tanker per 1% error. Soft edge from new node prop-loxsat-cfm-flight-data. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "prop-rde-mode-theory",
+   "patch": {
+    "earliest_year": {
+     "S2": "2029"
+    },
+    "status_oct2026": "Open research: wave-mode bifurcation (APS DFD 2025), dynamic injector-response models (Mar 2025), and model equations that capture qualitative mode-locking (arXiv 2003.06655). Hardware is ahead of theory: NASA's InRoDES 10,000 lbf-class LOX/LCH4 thrust chamber, tested from Sep 2025, fired for just over 340 s in Dec 2025, and an earlier full-scale NASA RDRE combustor ran 251 s at more than 5,800 lbf (NASA).",
+    "why": "Higher specific impulse at equal average chamber pressure is a theoretical potential that NASA is still assessing; the demonstrated RDRE benefit is a much shorter combustor and an engine 10-50% shorter overall (NASA NTRS 20240000933). Either benefit needs stable, predictable modes. This is nonlinear-dynamics mathematics that S2 makes cheap. Hot-fire campaigns take days to weeks, but blind validation needs a new geometry designed, printed and hot-fired after the model exists (months), so S2 lands in 2029.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (claim, verified at NTRS 20240000933): the Isp gain is a 'potential ... currently being assessed', the demonstrated benefit is a 10-50% shorter engine, and the record does not mention a 5x lower feed pressure (removed). Timing (skeptic, accepted): S2 2028 -> 2029; blind validation needs a new geometry designed, printed and hot-fired after the model exists. Fact fix (auditor, re-verified on nasa.gov): only the Dec 2025 InRoDES firing exceeded 340 s; the 251 s figure belongs to an earlier full-scale RDRE combustor test, not Sep 2025. Soft edge from physclock-ai-run-test-stands. Advocate's S3 Medium -> High rejected (P6 default Low; one band above default is already Medium)."
+   }
+  },
+  {
+   "id": "prop-rde-flight-demo",
+   "patch": {
+    "earliest_year": {
+     "S3": "2029"
+    },
+    "pathway": "P1 (marginal)",
+    "status_oct2026": "Venus Aerospace flew a 2,000 lbf RDRE to 4,400 ft (May 2025). Juno Propulsion won a NASA TechLeap prize for a NASA-funded flight test later in 2026 (small thruster). NASA's InRoDES is a 10,000 lbf-class pump-fed LOX/LCH4 engine whose thrust chamber fired for just over 340 s in Dec 2025 (NASA); a vacuum test comes next, then transfer to industry.",
+    "why": "Hardware is limited by testing and funding. Cheaper analysis under S2 (mode theory, thermal design) trims iterations but cannot shorten vacuum testing, flight integration or the wait for a funded flight slot. S3 equals S2 until 2028, and autonomous test stands (S3 2028) cannot pull a funded flight into the same year, so all three scenarios share 2029. Chain: InRoDES vacuum test and industry transfer, or a Venus- or Juno-class program (2026-28) -> funded >=1,000 lbf space or lander demonstration (2029 at the earliest; P1 marginal).",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (timing, accepted): S3 2028 -> 2029; S3 equals S2 until 2028, and autonomous test stands (S3 2028) cannot pull a funded flight into the same year. Auditor: pathway 'P1 (marginal)' and soft edge from physclock-ai-run-test-stands; advocate: soft edge from prop-ai-engine-design-loop (Venus credits AI-enabled design). InRoDES durations corrected (only Dec 2025 exceeded 340 s). Chain written out. Bands unchanged."
+   }
+  },
+  {
+   "id": "prop-rde-operational",
+   "patch": {
+    "earliest_year": {
+     "S3": "2031"
+    },
+    "band_2031": {
+     "S2": "Speculative"
+    },
+    "why": "Operational use requires a qualified engine whose mode behavior is predictable across throttle and mixture ranges. Mode theory buys that predictability faster, but empirical envelope mapping can also supply it, so it accelerates rather than gates. Qualifying a new combustion mode for operational use has historically taken several years after the first flight demo (general), and a customer must commit. Chain (S2): prop-rde-flight-demo (2029, physical) [+ prop-rde-mode-theory 2029, soft] -> envelope qualification -> production contract (2031 at the earliest; P1->P6->P7). P7 defaults to Speculative.",
+    "strongest_case_small": "Even with perfect theory, an Isp gain that is still unproven and a shorter chamber may not justify the qualification cost for most missions. Defense missiles and hypersonics, not space, may be the first operational users.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (band/timing/edge, accepted): S2 Low -> Speculative (P7 default; needs flight demo, then several years of envelope qualification, then a customer); S3 2030 -> 2031 (flight demo now S3 2029); prop-rde-mode-theory hard -> soft (empirical envelope mapping can also deliver predictability). Claim fix: the ~10% Isp gain is unproven (NTRS 20240000933). Chain written out (grounding rule)."
+   }
+  },
+  {
+   "id": "prop-ai-engine-design-loop",
+   "patch": {
+    "pathway": "P1 (marginal; not AI-math-driven)",
+    "status_oct2026": "LEAP 71's Noyron generated a 5 kN LOX/kerosene aerospike that worked on its first firing (Dec 18, 2024). In Dec 2025 two Noyron-designed 20 kN LOX/CH4 engines (a bell and an aerospike) went from specification to first flame in under three weeks; the bell ran above 93% combustion efficiency over a week-long campaign, while the aerospike reached full chamber pressure (50 bar) but fired only once because of start-transient problems (LEAP 71, Dec 11, 2025). The 200 kN LOX/CH4 XRA-2E5, intended for the upper stage of the Oryx reusable launcher being developed with Aspire Space, was printed as one Inconel 718 part in 289 h (Mar 2026); its hot fire, planned before 2027, was not confirmed as of Oct 7, 2026. The Exploration Company licensed Noyron (Mar 24, 2026). Venus Aerospace credits 'AI-enabled design software' for its RDRE (Mercury Fund, Jul 21, 2026).",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Auditor (grounding, accepted): pathway relabelled 'P1 (marginal; not AI-math-driven)' since the node itself says Noyron encodes engineering rules. Advocate (fact, accepted; verified at leap71.com): Dec 2025 20 kN methalox engines added to status; XRA-2E5 hot fire marked unconfirmed; the advocate's TEC '5-year licence' and Nyx-2028 details could not be verified (source returned 403) and were not added. Soft edge to prop-rde-flight-demo added. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "prop-ship-transfer-demo",
+   "patch": {
+    "status_oct2026": "Starship reached orbit for the first time on Flight 14 (Sep 28, 2026) and deployed 26 Starlink V3 satellites (Mach33, Sep 30, 2026). Ship-to-ship transfer has not flown and was not yet scheduled as of Sep 2026 (Wikipedia); Flight 15 (NET Oct 19, 2026) targets the first ship catch and begins testing docking and hatch mechanisms for the transfer demonstration (Basenor). Internal tank-to-tank transfer was done on Mar 14, 2024. NASA OIG (Mar 2026) calls cryogenic transfer 'one of the most significant technical challenges'.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Auditor (fact, contradicted; verified): Flight 15 is a single-vehicle flight and cannot perform ship-to-ship transfer; the transfer demo was not yet scheduled as of Sep 2026 (Wikipedia, updated Oct 4, 2026), and Flight 15 (NET Oct 19, 2026) targets the first ship catch and begins docking and hatch tests (Basenor). Years and bands unchanged."
+   }
+  },
+  {
+   "id": "prop-hls-refuel-campaign",
+   "patch": {
+    "why": "Launch cadence binds. At one tanker every ~6 days a campaign takes about 2 months, and every slip in cadence multiplies boil-off losses (tables). Validated boil-off and transfer models (prop-cfm-models) trim ~0-1 tanker of planning margin per mission at a 6-day cadence, more only at slow cadence and high boil-off, a regime operators avoid by flying faster. Reliable relights (prop-start-transient) protect the landing rather than the tanker count. Schedule gain: weeks to months. Chain (S2): prop-ship-transfer-demo (2027) -> 10-20-tanker depot fill on the launch clock -> transfer to HLS (2029 at the earliest; P1->P7). S1 and S2 share the date and band because launch cadence runs on its own curve (physclock: 0-0.5 year earlier in S2); S3's broader acceleration of hardware iteration and mishap closure (launch 0.5-1 year earlier) lifts it to 2028 and High.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (claim, two lenses): '~1-4 tankers saved' conflated the physical boil-off loss with a model's value; corrected to ~0-1 tanker of planning margin (depot table reproduced; margin re-simulated). Soft edges added (advocate): prop-cfm-models, prop-start-transient, prop-mass-gauging, physclock-ai-mishap-analysis, physclock-heavy-cadence-100, so the tree shows what the text already credits. Bands kept: advocate's S2 High and auditor's S3 2029/Medium both rejected (see debates). Chain written out."
+   }
+  },
+  {
+   "id": "prop-cislunar-propellant-economy",
+   "patch": {
+    "earliest_year": {
+     "S2": "2030",
+     "S3": "2029"
+    },
+    "premise_tier": "n/a",
+    "accelerated_by": [
+     "auton-lunar-oxygen-ops"
+    ],
+    "why": "The economics depend on tankers per delivered tonne. Boil-off costs ~1-5 extra tankers per HLS-class campaign (illustrative table). Validated boil-off and transfer models recover only the planning margin on top of that, ~0-1 tanker at <=6-day cadence; gauging error at 1% of a 1,200 t load is ~12 t, ~0.1 tanker. Together that is a few percent of campaign launches. The rest comes down to cadence and vehicle reuse. Chain (S2): prop-ship-transfer-demo (2027) -> prop-cfm-models (2029) + prop-hls-refuel-campaign (2029) + physclock-heavy-cadence-100 (2029) -> more than 20 transfers in a year (2030 at the earliest, from a second lunar campaign plus fuelling Mars ships for the early-2031 window; P1->P6->P7). Chain (S3): the same prerequisites in 2028 -> early-2029 Mars-window fuelling plus lunar campaigns (2029). The band stays Medium: the earliest years are optimistic and AI mathematics is not on the critical path.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (claim, two lenses): model value restated as margin (~0-1 tanker) and gauging (~0.1 tanker), not the 1-5-tanker physical loss; '10-30% of campaign launches' dropped. Edges (skeptic, accepted): prop-mass-gauging hard -> soft (worth ~0.1 tanker; operators can gauge after a settling burn); physclock-heavy-cadence-100 soft -> hard (dozens of transfers a year need heavy cadence; year-consistent in all scenarios). premise_tier -> n/a (auditor; 365 no longer load-bearing). Timing (advocate, concrete mechanism accepted): S2 2031 -> 2030 and S3 2030 -> 2029 (a second lunar campaign plus Mars-ship fuelling for the early-2031 window, or the early-2029 window in S3, can exceed 20 transfers once all prerequisites land by 2029/2028); this also removes the auditor's 'Medium with earliest year 2031' inconsistency, so the auditor's S2 Low is not applied. Advocate's S3 High rejected (tier-7 P7 outcome; AI math not on the critical path)."
+   }
+  },
+  {
+   "id": "prop-engine-dev-compression",
+   "patch": {
+    "band_2031": {
+     "S3": "Low"
+    },
+    "binding_gate": "experiment",
+    "description": "New liquid engines reach qualification with materially fewer hot-fire tests and redesign loops (for example >=30% fewer than the same organization's previous engine program of similar thrust class), with the saving attributed to predictive tools.",
+    "why": "Design and analysis compress (P1), but reliability demonstration is statistical. Showing 0.99 reliability at 90% confidence with zero failures takes ~230 trials (n = ln 0.1 / ln 0.99) unless customers accept model-based Bayesian credit. For a high-cadence operator, flight starts accumulate fast (a Starship flight logs roughly 65-70 engine starts, general), but starts on one vehicle and build lot are correlated and each failure found resets the clock, so what paces a new engine is finding and fixing failure modes. Models cut redesign loops, not demonstration tests. Combustion instability is the historical driver of those loops, so the stability tool is the hard gate; generative design (prop-ai-engine-design-loop), turbopump prediction and information-optimal test campaigns help but are not individually necessary. New engines take 6-13 years and major versions ~3 years, compressing only 0.8-0.9x (S2) and 0.7-0.8x (S3), so few programs started with S2 or S3 tools qualify by 2031. Chain (S2): cap-applied-math (2027) -> prop-cfd-auto-vv + prop-certified-stability-rom (2028) -> prop-flame-response (2030) -> prop-stability-design-tool (2031) -> program qualification with fewer tests (after 2031). Chain (S3): stability tool (2030) -> an engine program already under way adopts it and attributes fewer tests (2031 at the earliest, Low).",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (band, two lenses): S3 Medium -> Low (new engines take 6-13 years, compressing 0.7-0.8x in S3; hard prerequisites land S3 2027-2030, so only an in-flight program adopting the tools could qualify by 2031, and it must attribute the saving). Edges: prop-ai-engine-design-loop hard -> soft (skeptic) and prop-turbopump-tool hard -> soft (skeptic + advocate); prop-stability-design-tool kept hard (skeptic; advocate's demotion rejected, see debates); prop-cfd-auto-vv kept hard. Soft edges from physclock-optimal-test-campaigns (advocate; advocate's hard edge rejected: test-design savings are not 'predictive tools') and physclock-qual-by-analysis-credit (auditor). Gate qualification -> experiment (advocate convention). Gate convention (advocate, accepted): the first mover is a self-certifying commercial operator; FAA Part 450 regulates public safety, not engine materials or test counts, so the regulator/certification Medium cap does not apply unless the node needs NASA crew, NSSL or other customer certification. The band here rests on physical clocks, not on that cap. Advocate's S2 2031/Medium rejected. Description baseline defined (skeptic). Fleet-start arithmetic folded into why (advocate). Chains written out."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "id": "prop-loxsat-cfm-flight-data",
+   "title": "Public microgravity cryogenic flight data (LOXSAT)",
+   "tier": 5,
+   "kind": "technology",
+   "domain": "prop",
+   "description": "NASA and Eta Space's LOXSAT (Electron launch, nine months in LEO) completes its liquid-oxygen demonstration of zero-loss storage, high-accuracy gauging, automated pressure control and transfer, and NASA publishes comparisons of its predictive models against the flight data.",
+   "status_oct2026": "Integration was finalized in May 2026 for a launch no earlier than Jul 17, 2026 on Electron; the mission is to validate 11 cryogenic fluid management technologies over nine months and inform Eta Space's Cryo-Dock depot (target 2030) (satnews, May 17, 2026). Whether it has launched could not be confirmed (unverified). NASA's CFM portfolio lists maturing predictive models through flight comparisons as an objective.",
+   "catalog_families": [],
+   "prerequisites": [],
+   "accelerated_by": [],
+   "binding_gate": "launch",
+   "pathway": "P1 (marginal)",
+   "earliest_year": {
+    "S1": "2028",
+    "S2": "2028",
+    "S3": "2028"
+   },
+   "band_2031": {
+    "S1": "Medium",
+    "S2": "Medium",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a",
+   "why": "A physical-clock anchor with nil AI-math effect on its date. It supplies public microgravity validation data that does not depend on SpaceX releasing its Starship transfer data, which prop-cfm-models' strongest case says SpaceX will keep. Chain: Electron launch (NET Jul 2026, unverified) -> nine months of LOX storage, gauging and transfer tests (to about mid-2027) -> NASA model-versus-flight comparisons published (2028 at the earliest). The data are small-tank and LOX-only, so they calibrate models (soft links to prop-cfm-models and prop-mass-gauging) rather than validate Starship-scale methane behaviour. Medium, not High, in every scenario: launch, spacecraft performance over nine months and publication must all go right (the 2019 Robotic Refueling Mission 3 lost its methane early when its cryocooler failed, general).",
+   "strongest_case_small": "Small tanks and LOX only: scale-up to depot-class tanks and methane still needs Starship data, so the public dataset may not move operational margins.",
+   "signpost": "Confirmed LOXSAT launch and nine-month operations, then NASA or Eta Space papers comparing model predictions with flight pressure, boil-off and gauging data.",
+   "revision_note": "B-engines-materials resolver (2026-10-07): New node from the auditor, accepted: not a duplicate (no LOXSAT or public-CFM-data node in node-index-v1), mechanism sound, all fields filled; bands set to Medium rather than the auditor's High because launch is unverified and nine-month operations and publication must all succeed. Links are soft, as the auditor specified."
+  }
+ ],
+ "add_edges": [
+  {
+   "from": "cap-applied-math",
+   "to": "materials-ht-alloy-design"
+  },
+  {
+   "from": "physclock-heavy-cadence-100",
+   "to": "prop-cislunar-propellant-economy"
+  }
+ ],
+ "remove_edges": [
+  {
+   "from": "materials-learned-functionals",
+   "to": "materials-ht-alloy-design"
+  },
+  {
+   "from": "cap-design-optimization",
+   "to": "materials-ht-alloy-design"
+  },
+  {
+   "from": "materials-learned-functionals",
+   "to": "materials-energetics-design"
+  },
+  {
+   "from": "prop-closure-theory",
+   "to": "prop-flame-response"
+  },
+  {
+   "from": "prop-closure-theory",
+   "to": "prop-turbopump-tool"
+  },
+  {
+   "from": "prop-ai-engine-design-loop",
+   "to": "prop-engine-dev-compression"
+  },
+  {
+   "from": "prop-turbopump-tool",
+   "to": "prop-engine-dev-compression"
+  },
+  {
+   "from": "prop-mass-gauging",
+   "to": "prop-cislunar-propellant-economy"
+  },
+  {
+   "from": "prop-rde-mode-theory",
+   "to": "prop-rde-operational"
+  },
+  {
+   "from": "materials-mlip-certified-uq",
+   "to": "materials-creep-oxidation-life-models"
+  },
+  {
+   "from": "prop-cfd-auto-vv",
+   "to": "prop-life-twin"
+  },
+  {
+   "from": "frontier-stiff-certified",
+   "to": "prop-start-transient"
+  },
+  {
+   "from": "prop-ns-forced-verified",
+   "to": "frontier-certified-turbulent-cfd"
+  },
+  {
+   "from": "cap-applied-math",
+   "to": "frontier-certified-turbulent-cfd"
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "materials-learned-functionals",
+   "to": "materials-ht-alloy-design"
+  },
+  {
+   "from": "cap-design-optimization",
+   "to": "materials-ht-alloy-design"
+  },
+  {
+   "from": "materials-am-defect-physics",
+   "to": "materials-ht-alloy-design"
+  },
+  {
+   "from": "materials-learned-functionals",
+   "to": "materials-energetics-design"
+  },
+  {
+   "from": "prop-closure-theory",
+   "to": "prop-flame-response"
+  },
+  {
+   "from": "prop-closure-theory",
+   "to": "prop-turbopump-tool"
+  },
+  {
+   "from": "prop-ai-engine-design-loop",
+   "to": "prop-engine-dev-compression"
+  },
+  {
+   "from": "prop-turbopump-tool",
+   "to": "prop-engine-dev-compression"
+  },
+  {
+   "from": "prop-mass-gauging",
+   "to": "prop-cislunar-propellant-economy"
+  },
+  {
+   "from": "prop-rde-mode-theory",
+   "to": "prop-rde-operational"
+  },
+  {
+   "from": "materials-mlip-certified-uq",
+   "to": "materials-creep-oxidation-life-models"
+  },
+  {
+   "from": "prop-cfd-auto-vv",
+   "to": "prop-life-twin"
+  },
+  {
+   "from": "frontier-stiff-certified",
+   "to": "prop-start-transient"
+  },
+  {
+   "from": "frontier-certified-turbulent-cfd",
+   "to": "prop-cfd-auto-vv"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "prop-rde-mode-theory"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "prop-rde-flight-demo"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "prop-flame-response"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "prop-turbopump-tool"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "prop-start-transient"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "materials-creep-oxidation-life-models"
+  },
+  {
+   "from": "physclock-optimal-test-campaigns",
+   "to": "prop-stability-design-tool"
+  },
+  {
+   "from": "physclock-optimal-test-campaigns",
+   "to": "materials-ai-alloy-flight"
+  },
+  {
+   "from": "physclock-optimal-test-campaigns",
+   "to": "prop-engine-dev-compression"
+  },
+  {
+   "from": "physclock-qual-by-analysis-credit",
+   "to": "prop-engine-dev-compression"
+  },
+  {
+   "from": "cap-autonomous-labs",
+   "to": "materials-creep-oxidation-life-models"
+  },
+  {
+   "from": "physclock-heavy-cadence-100",
+   "to": "prop-reuse-extended"
+  },
+  {
+   "from": "physclock-heavy-cadence-100",
+   "to": "materials-hot-section-reuse"
+  },
+  {
+   "from": "prop-ai-engine-design-loop",
+   "to": "prop-rde-flight-demo"
+  },
+  {
+   "from": "prop-cfm-models",
+   "to": "prop-hls-refuel-campaign"
+  },
+  {
+   "from": "prop-start-transient",
+   "to": "prop-hls-refuel-campaign"
+  },
+  {
+   "from": "prop-mass-gauging",
+   "to": "prop-hls-refuel-campaign"
+  },
+  {
+   "from": "physclock-ai-mishap-analysis",
+   "to": "prop-hls-refuel-campaign"
+  },
+  {
+   "from": "physclock-heavy-cadence-100",
+   "to": "prop-hls-refuel-campaign"
+  },
+  {
+   "from": "prop-loxsat-cfm-flight-data",
+   "to": "prop-cfm-models"
+  },
+  {
+   "from": "prop-loxsat-cfm-flight-data",
+   "to": "prop-mass-gauging"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "engines-materials",
+   "nodes": [
+    "prop-loxsat-cfm-flight-data"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "engines-materials",
+   "patch": {
+    "thesis": "If AI can certify combustion and CFD models and put trustworthy error bars on atomistic materials models, then engines could get model-based reuse life from about 2029 and an AI-agent-designed alloy could fly by 2031 (Low in the base case, Medium if AI speeds up its own R&D), but engine development stays test-paced: a fast fleet piles up engine starts, yet every failure mode still costs a redesign and a re-test.",
+    "reader_hook": "In an illustrative depot model, boil-off costs 1-5 extra tanker flights per lunar-lander refueling campaign, but a validated boil-off model recovers only the margin held against uncertainty: about 0-1 tanker at one tanker every 6 days. And 0.99 engine reliability at 90% confidence takes about 230 zero-failure starts; a high-cadence Starship fleet logs that many in a handful of flights, so what paces engines is finding and fixing failure modes, not counting starts.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Hook: skeptic + auditor (two lenses) corrected the boil-off claim (the 1-5 tankers are the physical loss; a validated model is worth ~0-1 tanker of margin at 6-day cadence; table reproduced exactly and margin re-simulated: +50% vs +10% planning gives 12 vs 12 tankers at 6 d/0.3%, 13 vs 12 at 6 d/0.5%, 14 vs 13 at 12 d/0.3%, 23 vs 16 at 12 d/0.5%). Reliability clause: advocate's fleet-start point folded in (~65-70 starts per Starship flight), but kept the skeptic's framing that failure modes, not start counts, pace engines. Thesis: dates follow the resolved nodes (reuse life S2 2029 Medium; alloy flight S2 2030 Low / S3 2030 Medium). Gate convention adopted (advocate): binding_gate 'qualification' is reserved for nodes needing external customer or regulator acceptance; nodes whose first mover self-certifies (alloy flight, hot-section reuse, stability tool, engine-dev compression) now carry their physical gate, and their bands rest on physical clocks rather than the Medium certification cap."
+   }
+  }
+ ],
+ "notes": "B-engines-materials resolver, 2026-10-07. Inputs: physics/engineering skeptic, exponential advocate, grounding/fact auditor. Merged prop-les-convergence-theory into frontier-certified-turbulent-cfd. Added one node (prop-loxsat-cfm-flight-data); rejected prop-fleet-engine-evidence (near-duplicate of physclock-twin-reflight-clearance plus prop-reuse-extended) and prop-ai-engine-flight (not AI-math-driven; key evidence unverifiable). Cross-branch flags (not edited here): materials-uhtc-tps-design (Medium/High/High) now rates above its hard prerequisite materials-learned-functionals (Low/Medium/Medium); skeptic's learned-functionals S2 2028 -> 2029 would cascade into materials-perovskite-degradation-models, materials-uhtc-tps-design and materials-battery-life-qual and was not applied. Research-file corrections for the owners of prop.json/materials.json: prop.json 'RDRE benefit' anchor ('5x lower feed pressure' is not in NTRS 20240000933; Isp gain is potential only); prop.json scenario row 'Predictive combustion-instability design' now S2 2031/Low; materials.json should cite Jakob/Margraf Adv. Mater. 2025 (PMC12822528) for the 80-84% GNoME disorder figure."
+}

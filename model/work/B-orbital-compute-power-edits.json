@@ -1,0 +1,600 @@
+{
+ "update": [
+  {
+   "id": "materials-see-system-models",
+   "patch": {
+    "status_oct2026": "Google tested Trillium TPUs in a 67 MeV proton beam (Nov 2025): HBM irregularities appeared only after 2 krad(Si) versus a 750 rad(Si) shielded five-year dose, with no hard failures up to 15 krad(Si). Starcloud flew an Nvidia H100 in Nov 2025. Google's first Suncatcher prototype (built with Planet; four TPUs per press reports) launched on SpaceX Transporter-18 on Oct 1 2026; first on-orbit error statistics are expected in 2027. Nvidia announced the Space-1 Vera Rubin module at GTC (Mar 2026; up to 25x H100 AI compute; 2027 availability per secondary reports only). ESA's CORHA-2 project (2024-27) is reported to add machine learning to radiation hardness assurance (unverified: the cited abstract is no longer online).",
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "why": "With billions of transistors, device-by-device rate prediction is impossible; operators need workload-level error rates to size mitigation. Commercial orbital-compute operators already fly unmitigated COTS accelerators with ECC and checkpointing (Starcloud H100, Google Suncatcher), not triple modular redundancy, so there is no 2.5x gain to capture. Validated mission-level error rates let them right-size checkpoint intervals, memory scrubbing, spares and derating, worth roughly 5-20% of useful compute per watt (assumption), mostly for training and long jobs rather than inference, which tolerates high raw HBM error rates (arXiv 2507.02654); they also bound silent data corruption for in-orbit training and long-context inference and, beyond 2031, help open higher-radiation orbits, since the dawn-dusk sun-synchronous corridor is only ~1% of usable LEO volume (33FG, Dec 2025). This is a confidence gain (P5-like), not a performance step. The math (composition of Poisson fault processes, fault propagation through architectures, Bayesian fusion of beam and flight data) is bespoke and suited to AI. The data gate is being met by commercial flights regardless of AI math, so the S1-S2 gap reflects analysis speed, not data.",
+    "signpost": "Published on-orbit error statistics from the Suncatcher prototype (in orbit since Oct 1 2026), Starcloud or Space-1 users, compared with pre-flight model predictions, in 2027-28.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic + advocate + auditor: the ~2.5x compute-per-watt lever (TMR replaced by ABFT) removed; no orbital-compute operator flies accelerators in TMR, so the lever is right-sized mitigation (~5-20%, assumption) and confidence. Skeptic: S3 2027 -> 2028 (S3 equals S2 through 2027; the first TPU flight only reached orbit Oct 1 2026). Auditor: CORHA-2 marked unverified; Space-1 2027 date flagged as secondary. Status and signpost updated for the Transporter-18 launch. Advocate's outgoing soft edges to physclock-satellite-gen-cadence and capability-ai-native-spacecraft left to those branches (see notes)."
+   }
+  },
+  {
+   "id": "materials-verified-fault-tolerance",
+   "patch": {
+    "status_oct2026": "Fault tolerance for commercial chips in space is designed with margins and tested empirically. 127 families in the openai/math release carry agent-written Lean proofs, unaudited by outsiders (T3 at most; none T4 as of 2026-10-07), and verified floating-point and numerics toolchains are immature. No catalog family addresses fault-tolerance proofs; families 177 and 178 (bounded-degree coboundary expanders; deterministic nonbipartite Ramanujan graphs; no Lean, T1) touch code construction only via P6, a nil link inside the window.",
+    "earliest_year": {
+     "S2": "2029",
+     "S3": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium"
+    },
+    "why": "Formal verification is the bridge to safety-critical use. Here the property is crisp and the systems are commercial, so no regulator gate binds: for example, a checksum-protected floating-point matrix multiply flags every fault whose induced error exceeds a proven round-off threshold tau, and the undetectable faults (low-order mantissa flips) are bounded in effect by tau, which is exactly where verified numerics come in. Proven bounds let operators trim mitigation overhead with stated confidence (a few percent to ~20% of useful compute per watt, assumption), worth most for in-orbit training and long jobs. Demand is weak: operators already fly unmitigated commercial accelerators and Google judged raw error rates tolerable, so adoption, not proof technology, sets the date. As a P2 node it needs time after its 2028 prerequisites (2-4 years to certified use; compressed here because no certifier is involved).",
+    "signpost": "An orbital-compute operator or Nvidia publishes a verified algorithm-based-fault-tolerance or error-correction library used in flight, by 2029.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic + auditor: S2 2028 -> 2029 and S3 2027 -> 2028 (zero lag behind 2028 prerequisites; P2 lag); S2 High -> Medium (P2 default Medium, adoption gate, weak demand). Auditor: S1 Medium -> Low (P2 lag from 2029 prerequisites); Lean wording made T3/unaudited; families 177/178 noted as nil P6 links. Skeptic: floating-point ABFT claim corrected (detection threshold plus error bound, not 1 - 1e-9 for any single-bit fault). ~2.5x lever removed (all three lenses). Advocate: soft edge to materials-cots-orbital-compute-ops added for spine continuity. S3 High kept."
+   }
+  },
+  {
+   "id": "materials-cots-orbital-compute-ops",
+   "patch": {
+    "description": "Operational orbital AI compute (satellites or clusters of 100 kW class or more with paying customers) on commercial accelerators.",
+    "status_oct2026": "Starcloud ran an H100 in orbit from Nov 2025; Starcloud-2 (first commercial mission) was planned for late 2026 (company plan, Mar 2026). Google's first Suncatcher prototype (four TPUs per press reports) launched on Transporter-18 on Oct 1 2026. Nvidia announced the Space-1 Vera Rubin module (Mar 2026) with six launch partners (Aetherflux, Axiom Space, Kepler, Planet, Sophia Space, Starcloud). SpaceX targets first Starmind launches in Q4 2027 (250 kW peak / 175 kW average) and 'significant scale' in 2028 (Musk, Aug 25 2026, who cautioned listeners to be skeptical); Starcloud-3 (~200 kW) is designed for Starship. The FT reported on Oct 6 2026 that SpaceX is seeking ~$40B of debt to buy Nvidia chips (unconfirmed by SpaceX).",
+    "binding_gate": "launch",
+    "pathway": "P7 (not AI-math-driven; AI math enters via P1 fault models and P2 proven fault tolerance, both soft)",
+    "earliest_year": {
+     "S2": "2029",
+     "S3": "2029"
+    },
+    "why": "Orbital compute happens on SpaceX's and Starcloud's hardware, launch and capital schedules, and operators already fly commercial accelerators without triple redundancy. AI math adds confidence, not the milestone: validated fault models (materials-see-system-models) and proven fault-tolerance layers (materials-verified-fault-tolerance) right-size mitigation, roughly 5-20% more useful compute per watt (assumption), which improves unit economics. Chain (all scenarios): first 100-kW-class Starmind flight 2028 (SpaceX target Q4 2027, slipped per the tree's 1.5-3x calibration) -> commissioning and first paying workloads 2029. Launch, not capital, is the gate for the leader (SpaceX held $100.8B of cash after its 2026 IPO; Mach33 names launch the physical gate). S1 stays Medium because weaker AI demand in a plateau may defer paying service.",
+    "signpost": "Paying-customer service from an orbital compute satellite or cluster of 100 kW or more, with published radiation-error statistics, by 2029.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic: hard edge from materials-see-system-models made soft and the AI-math clause removed from the description, so the node is the commercial milestone and AI math no longer appears to gate 1 GW (this also resolves the auditor's cots-ops -> 1 GW finding, so that hard edge, a true physical precursor, is kept). Skeptic: S2/S3 2028 -> 2029 following the 100-kW radiator first-flight slip to 2028. Advocate: gate capital -> launch (capital does not bind the leader); soft edge from materials-verified-fault-tolerance. Auditor + skeptic: pathway relabelled (not AI-math-driven); ~2.5x lever removed; status updated (Starmind Q4 2027 target, Suncatcher launch, Starcloud-3, FT debt report). Bands unchanged."
+   }
+  },
+  {
+   "id": "materials-wbg-rad-hard-power",
+   "patch": {
+    "title": "Radiation-robust high-voltage SiC power electronics",
+    "description": "SiC power MOSFETs (600-1,200 V class) with a mechanism-level model of heavy-ion single-event burnout and leakage degradation, redesigned to run near rated voltage in space.",
+    "status_oct2026": "Commercial SiC MOSFETs show heavy-ion single-event burnout and leakage degradation near or below half of rated voltage (NASA NEPP), which limits practical space use to roughly 250 V-class buses. CoolCAD reports hardened-by-design-and-process SiC MOSFETs with burnout thresholds above 900 V at LET above 40 MeV-cm2/mg in Texas A&M and Brookhaven beam tests, enabling derated operation above 300 V (vendor-reported, Jul 2026, not yet qualified); lateral RESURF designs reach a burnout-to-breakdown voltage ratio of ~0.67. Lateral GaN HEMTs are essentially immune to single-event burnout, and rad-tolerant GaN parts fly at lower voltages (hundreds of volts), so GaN is voltage-limited rather than burnout-limited (general). The SiC burnout mechanism is still debated.",
+    "pathway": "P7 (empirical hardening under way without AI math; AI physics theory accelerates via P6)",
+    "why": "High-voltage (300-800 V class) buses cut harness mass and losses for 100 kW-class orbital compute and electric propulsion; derating 1,200 V parts to ~50% throws away much of SiC's advantage. LEO plasma arcing on high-voltage arrays also limits bus voltage (NASA-HDBK-4006, general). Explaining the burnout mechanism (impact ionization and thermal runaway along the ion track, defect physics) is a physics-theory problem that AI could speed, but vendors are already hardening parts empirically with TCAD and beam tests, so theory is an accelerator, not a prerequisite; each redesign takes about a year per fab cycle plus beam tests, which bind.",
+    "strongest_case_small": "Vendors are already fixing it empirically (layout and process hardening guided by TCAD), so mechanism theory may arrive after the parts; the rad-hard power market is small, so fab priority is low.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic + auditor: hard edge from materials-see-system-models removed (GPU silent-data-corruption models say nothing about SiC burnout) and made soft; skeptic: materials-learned-functionals hard -> soft; soft edge from cap-physics-theory added (both). Auditor: title and description narrowed to SiC (GaN is voltage-limited, not burnout-limited); status adds the 2026 CoolCAD result (vendor-reported; primary text not re-fetched in this pass). Skeptic: plasma-arcing limit added. Pathway relabelled. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "materials-specific-power-step",
+   "patch": {
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic + advocate: wide-bandgap electronics and battery qualification made soft prerequisites; a 30% power-system specific-power step can come from the array leg alone (solar is 56% of AI1's reconstructed mass; the battery is small in dawn-dusk orbit). materials-perovskite-primary-power stays hard. Years and bands unchanged (>2031, Speculative)."
+   }
+  },
+  {
+   "id": "materials-perovskite-primary-power",
+   "patch": {
+    "why": "Solar is ~56% of AI1's reconstructed mass at ~127 W/kg array level (33FG, Jun 2026). A perovskite tandem at equal areal density and ~30% higher efficiency would cut satellite mass ~13% (0.56 x (1 - 1/1.3)); doubling array W/kg would cut ~28%, i.e. ~1.4x fewer launches. 33FG's often-quoted ~600 versus ~1,200 Starship launches per 100 GW/yr (thin-film ~1.7 kW/kg versus rigid ~0.8 kW/kg) is an asymptotic plateau for idealized high-Earth-orbit designs, not today's compute satellites, and covers thin film generally, not perovskites. One to two years of on-orbit lifetime evidence gate adoption; risk-tolerant constellation operators with five-year design lives adopt first. Compute satellites may be designed for chip-limited lives of ~3-5 years (33FG models 5.6 -> 3.4 years at higher power), so one to two years of orbit data covers a larger share of design life; their operators self-certify, and Chinese orbital-data-center programs (Orbital Chenguang, reported $8.4B credit lines) sit next to the perovskite supply base.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic: launch-saving claim corrected (the 600/1,200 figures are 33FG's idealized high-Earth-orbit plateaus, verified in its Nov 2025 post; AI1-era arrays are ~0.13 kW/kg). Advocate: short chip-limited design lives lower the evidence bar (appended; bands unchanged). Auditor: hard edge from materials-perovskite-tandem-flight (the model-qualified version) made soft, since adoption can rest on any flight heritage. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "materials-perovskite-tandem-flight",
+   "patch": {
+    "band_2031": {
+     "S2": "Low",
+     "S3": "Low"
+    },
+    "why": "Perovskite tandems could beat III-V multijunction cells on cost per watt and specific power, but only on-orbit exposure validates lifetime. Chain (S2): degradation models 2028 -> composition and encapsulation build and flight acceptance -> manifest and launch 2029 -> 12 months of data 2030 -> publication; every step after 2028 is on the physical clock with no slack, and the models themselves need on-orbit data to validate. S3 cannot compress the year in orbit.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Auditor: S2 Medium -> Low and S3 Medium -> Low (P7 default Speculative; a model-qualified cell must fly within ~12 months of the models and match prediction over a year, with no slack); chain written out. Years unchanged."
+   }
+  },
+  {
+   "id": "materials-perovskite-degradation-models",
+   "patch": {
+    "signpost": "At least one year of published on-orbit current-voltage data from the Potsdam/HZB (OOV-Cube) or RIT CubeSat tandems with under 10% relative loss, plus a model that predicted it, by 2027-28.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic: materials-learned-functionals hard -> soft (ion-migration and defect parameters can be fit from experiment). Auditor: cap-autonomous-labs hard -> soft (zero lag behind it was implausible; first models can use published aging and flight data); signpost no longer cites Chinese tandems in orbit (the Tianjin-led 27.49% cell flew on a balloon). Years and bands unchanged."
+   }
+  },
+  {
+   "id": "materials-battery-life-qual",
+   "patch": {
+    "status_oct2026": "ISRO flight-demonstrated 10 Ah silicon-graphite cells (190 vs 157 Wh/kg) for 21 h over 15 orbits on PSLV-C58/POEM-3 (Jan 5 2024) and expects 35-40% battery mass saving; JAXA is testing an all-solid-state battery on the ISS. Low-Earth-orbit cycling at ~15 orbits/day means ~5,500 cycles a year and ~27,000 over five years (general).",
+    "binding_gate": "qualification",
+    "earliest_year": {
+     "S2": "2029",
+     "S3": "2029"
+    },
+    "why": "Life testing at orbital cadence takes years, and accelerated cycling changes degradation mechanisms, so new chemistries (silicon anodes, solid state) wait for real-time data. Validated early-life prediction could cut qualification life testing from ~3-5 years to ~1-2 (assumption), letting electric-vehicle cell gains reach spacecraft sooner. Early-cycle life prediction already works without chemical-accuracy DFT or autonomous labs (Severson et al., Nature Energy 2019, general), so what binds is a customer accepting model-based prediction in place of real-time cycling. Dawn-dusk sun-synchronous compute satellites barely cycle their batteries (the battery covers basic loads through brief eclipses, 33FG), so this node matters for broadband and other LEO buses, not orbital compute.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic + auditor: S2/S3 2028 -> 2029 (a prediction tool needs early-cycle data generated after its 2028 inputs; node signpost already says 2029); dawn-dusk note added. Skeptic: materials-learned-functionals and cap-autonomous-labs hard -> soft; gate data -> qualification. Auditor: ISRO 'qualified' corrected to a 21-hour, 15-orbit flight demonstration. Bands unchanged."
+   }
+  },
+  {
+   "id": "struct-radiator-optimization",
+   "patch": {
+    "description": "Coupled conduction-radiation-two-phase design optimization (panel topology, heat-pipe and loop layout, cold plates and heat spreading, view factors to Earth and arrays, micrometeoroid segmentation, deployment structure) that cuts thermal-subsystem mass and the chip-to-radiator temperature drop at fixed hardware technology.",
+    "status_oct2026": "33FG model: Starlink V3-like thermal ~19.4 kg/kW at 310 K; StarThink V2 ~3.0-3.4 kg/kW at 370 K with 2.5 kg/m2 two-sided panels; proven radiators run 2.5-5 kg/m2, and values below ~5 rest on two-phase hardware not yet flown at this scale. AI1 June 2026 spec: 110 m2 deployable liquid radiator (~3.7 kg/m2 implied by 33FG's ~410 kg radiator allocation); ~1,400 W/m2 (two-sided, per m2 of planform) is Musk's stated figure, not the spec sheet. SpaceX's Sep 16 2026 FCC response caps the 250 kW-peak design below 200 m2 of radiator; 33FG's Oct 6 model needs ~134 C GPU logic and ~132 C HBM at 200 m2, or ~327 m2 to hold 105 / 95 C, unless heat spreading improves.",
+    "binding_gate": "adoption",
+    "why": "The design space is large but well-posed (T^4 nonlinearity, view-factor coupling, MMOD puncture probability): expert-scarce, ideal for on-demand AI. At 765-1,400 W/m2 (from 33FG's Oct 2026 model holding HBM at 95 C up to Musk's June figure), a GW of waste heat needs ~0.7-1.3 km2 of panel, and each 1 kg/m2 of areal density is ~700-1,300 t per GW. If AI design cuts thermal mass 10-25% beyond SpaceX's own conventionally optimized second iteration (assumption; the AI-attributable increment may be nearer 5-15%), the saving is ~350-1,400 t per GW (~4-14 Starship flights at 100 t), ~2-9% of the ~16,000-18,000 t launched per GW. In cost terms, thermal is the largest single $/GW sensitivity in Mach33's orbital-data-center model (+/-30% thermal -> +/-8.9% $/GW), so a 10-25% cut is ~3-7% of $/GW, about 0.3-0.6 year on Mach33's base cost curve, which falls ~12% a year in 2028-31 (a single commercial forecaster's model). The biggest design lever is the chip-to-radiator temperature drop under the HBM limit: at the ~250 kW target, cold-plate and heat-spreading design set chip and HBM temperature and therefore chip life (33FG reference: 5.6 -> 3.4 years), so the gain shows up as service life and sustained draw as much as mass; how hot the chips may run is decided by qualification (struct-hot-chip-hbm-qualification).",
+    "signpost": "A flown compute satellite discloses radiator areal density below 3 kg/m2; Starmind telemetry shows ~1,250-1,400 W/m2 sustained at stated chip and HBM temperatures.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic + auditor: prerequisites cap-applied-math and cap-research-math-public replaced by cap-design-optimization (same years; this is a multiphysics design tool); gate fabrication -> adoption; the 2.5 kg/m2 target moved out of the description (it belongs to struct-radiator-lightweight-production). Skeptic: radiator flux 1,400 -> 765-1,400 W/m2 per the Oct 2026 33FG model and counterfactual set to SpaceX's own second iteration. Auditor: arithmetic fixed (2.5-6% was 2.5-9%; now ~2-9% on the revised mass per GW); 1,400 W/m2 attributed to Musk; chip-life channel added. Advocate: $/GW framing (Mach33 thermal sensitivity, verified) added; soft edges from struct-agentic-analysis-workflows, struct-two-phase-microgravity-models (all three lenses) and the new hot-chip node. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "struct-highflux-radiator-flight",
+   "patch": {
+    "description": "First flights of deployable liquid or two-phase radiators rejecting 100-250 kW per spacecraft (SpaceX Starmind: the June 2026 AI1 spec had 110 m2 at Musk's ~1,400 W/m2 for 150 kW; the Aug-Sep 2026 revision runs 175 kW average / 250 kW peak inside a filed radiator envelope under 200 m2, i.e. at least ~1,250 W/m2 at 250 kW unless the envelope grows; Starcloud-3, ~200 kW), on the physical clock and largely independent of AI mathematics.",
+    "status_oct2026": "June 2026 AI1 spec (150 kW peak, 120 kW average, 110 m2 radiator, 70 kW/t target, 70 m wingspan) superseded. SpaceX product page (Aug 2026): 175 kW average / 250 kW peak on a space-optimized Vera Rubin NVL72, 75 m wingspan. SpaceX FCC response (Sep 16 2026): under 4,000 kg, under 200 m2 radiator, under 1,500 m2 solar. Musk (Oct 1 2026): cautiously optimistic of ~250 kW average via Nvidia co-design. 33FG Oct 6 model: 250 kW in 200 m2 implies ~134 C logic / ~132 C HBM (with a higher-rated GPU package); holding 105 / 95 C needs ~327 m2. SpaceX targets first Starmind launches in Q4 2027 (Musk, Aug 25 2026); the design is not frozen. Starcloud-1 ran an H100 in orbit from Nov 2025; Starcloud-3 (~200 kW) is designed for Starship; Starship reached orbit Sep 28 2026 deploying 26 Starlink V3.",
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2028",
+     "S3": "2028"
+    },
+    "why": "Anchor node for the orbital-compute chain: the hardware arrives regardless, sized with conventional tools. 33FG's June reconstruction puts AI1's thermal system (June spec) at ~532 kg of 2.1 t (25%) and notes that below ~5 kg/m2 it relies on two-phase hardware SpaceX does not yet build in-house; the October reference satellite is ~4.0-4.5 t. Between June and October 2026 the power point moved twice and the radiator envelope grew from 110 to up to 200 m2, with thermal closure (HBM temperature) still open. With design-complete at best ~Q1 2027, a 12-18 month lag from design-complete to flight for a derivative payload (physclock lag ladder) and announced SpaceX schedules running 1.5-3x long, first flight lands in 2028 in every scenario. AI-math effects enter on the second iteration.",
+    "signpost": "First Starmind launch (Q4 2027 target) with published thermal telemetry: sustained ~1,250-1,400 W/m2 of planform, GPU and HBM temperatures.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Auditor + advocate + skeptic: status and description updated from the superseded June AI1 spec to the Aug 2026 product page, Sep 16 2026 FCC envelope and Oct 2026 statements; 'launch date not published' corrected (SpaceX targets Q4 2027). Skeptic: years 2027 -> 2028 in all scenarios (design not frozen, 12-18 month lag ladder, 1.5-3x slip calibration; same practice the trunk resolver applied to launch-clock nodes). Advocate's reliance on a Q4 2027 first flight rejected on that calibration. Bands High unchanged. New soft edges out to two-phase, deployment and sail nodes (fleet data and deployable supply base)."
+   }
+  },
+  {
+   "id": "struct-radiator-lightweight-production",
+   "patch": {
+    "pathway": "P7 (manufacturing; AI design and two-phase models accelerate via P1)",
+    "earliest_year": {
+     "S1": "2031"
+    },
+    "band_2031": {
+     "S3": "Medium"
+    },
+    "why": "Going from ~3.7 kg/m2 (AI1 implied) to 2.5 kg/m2 saves ~850 t of radiator per GW at 1,400 W/m2 (~1,550 t at ~765 W/m2), ~9-16 Starship flights at 100 t. Prototypes already reach ~1.9-3.9 kg/m2 without AI design, so serial production is a manufacturing and insourcing problem; AI design (2028 in S2) and validated two-phase models shorten iteration but are not prerequisites. The manufacturing ramp and qualification bind, so S2 and S3 tie at 2030 (first flight of the new panel in 2029, then the production ramp). Economic pull is modest: 33FG finds the radiator is the subsystem with room to spare (each kg/m2 off the ~600 m2 solar array buys ~6x what the same cut buys on the radiator), and the October design is short of radiator area, not areal density. S3's AI-run factories speed a ramp but do not create demand for it.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic + auditor: hard edge from struct-radiator-optimization made soft (prototypes reach 1.9-3.9 kg/m2 without AI design); S3 High -> Medium (fabrication compresses only 1.2-1.3x in S3; weak economic pull; S2 and S3 tie on year); 'AI-run factories' sentence removed as a justification. Auditor: S1 >2031 -> 2031 (band Low unchanged) now that the S1 2030 AI design is no longer a hard prerequisite. Skeptic: numbers updated (~3.7 -> 2.5 kg/m2; ~850-1,550 t per GW). Soft edges added from struct-two-phase-microgravity-models (all three lenses), physclock-satellite-gen-cadence and physclock-optimal-test-campaigns (advocate). Advocate's S2 Medium -> High rejected (see debates)."
+   }
+  },
+  {
+   "id": "struct-100kw-per-tonne-fleet",
+   "patch": {
+    "status_oct2026": "June AI1 spec target 70 kW/t (mass unpublished; ~2.1 t implied, ~71 kW/t on peak per 33FG). SpaceX's stated long-run goal is ~100 kW of compute per tonne (Feb 2026, press report). The Aug 2026 revision (250 kW peak / 175 kW average) and SpaceX's Sep 16 2026 FCC response (under 4,000 kg, under 200 m2 radiator, under 1,500 m2 solar) bound the next design at about 62 kW/t or more on peak; 33FG's Oct 6 reference case reaches ~4.5 t (~56 kW/t). kW/t fell as power rose. 33FG's StarThink V2 reference reaches ~100 kW/t with 2.5 kg/m2 radiators, improved solar and 370 K chips, and 33FG identifies solar areal density as the primary constraint.",
+    "pathway": "P7 (AI math second-order via P1 thermal and structural design and P5 chip-life evidence)",
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low"
+    },
+    "why": "Solar is ~56% of AI1's reconstructed mass, so 100 kW/t depends first on array specific power (struct-light-solar-array-production, then thinner or higher-efficiency cells), then on how hot chips and HBM may run (struct-hot-chip-hbm-qualification), and only then on radiator areal density. From the ~55-62 kW/t of the Sep 2026 envelope, 100 kW/t in serial production by 2031 needs a ~60-80% gain within ~3 years of first flight, against a design trend that has run the other way; that is Low in S2. The AI-math contribution is design optimization of the thermal and structural share and faster accelerated-life evidence for hotter chips. In S3, yearly satellite generations and AI-run factories (1.2-1.3x) keep it Medium.",
+    "strongest_case_small": "The October design moved away from 100 kW/t; with cheap launch SpaceX may prefer bigger satellites at ~55-65 kW/t, and solar areal density and chip power density move kW/t more than thermal design.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic + auditor: S2 Medium -> Low (filed envelope implies ~55-62 kW/t; trend runs away from 100). Auditor: S1 Low -> Speculative; new hard prerequisite struct-light-solar-array-production (array specific power is the primary constraint, 33FG). All three lenses: hard edge from struct-radiator-lightweight-production made soft. Soft edges added from materials-perovskite-primary-power (skeptic), physclock-satellite-gen-cadence and the hot-chip node (advocate). Auditor's S3 Medium -> Low not taken and advocate's S3 2031 -> 2030 rejected (see debates). Years unchanged."
+   }
+  },
+  {
+   "id": "struct-gw-orbital-compute",
+   "patch": {
+    "description": "Cumulative at least 1 GW of compute power in orbit, counted at nameplate (peak) rating: about 4,000 Starmind-class satellites at 250 kW peak (about 5,700 at the 175 kW average rating). At SpaceX's Sep 2026 filing envelope and 33FG's Oct reference (~4.0-4.5 t each, ~55-62 kW/t on peak) that is ~16,000-18,000 t, ~110-180 Starship flights at 100-150 t per flight (fewer tonnes per flight reach dawn-dusk orbit than the LEO reference; assumption), up to ~6 km2 of solar array, and ~0.7-1.3 km2 of radiator panel to reject ~1 GW of waste heat.",
+    "status_oct2026": "SpaceX filed for up to 1 million orbital data-center satellites (Jan 2026). Musk (Aug 25 2026) targeted first AI satellites in Q4 2027, 'significant scale' in 2028 and 1 GW in orbit by end-2027, then ~10x a year, and cautioned listeners to treat the projections skeptically. SpaceX's Sep 16 2026 FCC response bounds each satellite under 4,000 kg. Starcloud raised $170M (Mar 2026); Google's first Suncatcher prototype launched Oct 1 2026; Starship reached orbit Sep 28 2026. Mach33 places scaled orbital-compute deployment in the early 2030s. Orbital compute in Oct 2026 is at kilowatt scale (general).",
+    "pathway": "P7 (not AI-math-driven; AI math second-order via P1 thermal and reliability design)",
+    "band_2031": {
+     "S2": "Low"
+    },
+    "why": "1 GW at ~16,000-18,000 t is ~110-180 dedicated Starship flights plus up to ~6 km2 of solar array, many times Starlink's yearly array output (assumption). With first 100-kW-class flights in 2028 and paying operations in 2029, 1 GW by end-2031 needs ~1,600-2,300 four-tonne satellites a year for ~2.5 years, a large share of all Starship flights in 2029-31, shared with Starlink V3. Chain (S2): Starmind first flight 2028 (struct-highflux-radiator-flight; SpaceX target Q4 2027, slipped per the tree's 1.5-3x calibration) -> paying 100-kW-class operations 2029 (materials-cots-orbital-compute-ops) -> internal launch cost under ~$300/kg (physclock-cheap-mass-internal) and 100+ heavy flights a year (physclock-heavy-cadence-100) -> about 10 compute flights in one year around 2030 (trunk node capability-compute-launch-demand, Medium) -> ~110-180 flights cumulative by end-2031, which leaves no slack: Low in S2. Musk's own 1 GW-by-end-2027 target, stretched by the tree's 1.5-3x slip ratio, lands in 2029-31, and Mach33 places scaled deployment in the early 2030s. S3 keeps Medium because heavy cadence and compute demand arrive about a year earlier and the physical multiplier is 1.3-1.5x, not because of mathematics; S1 is later because a capability plateau weakens demand. AI math is second-order: AI radiator design saves ~350-1,400 t per GW (~2-9% of launched mass), hotter qualified chips ~1,900 t (struct-hot-chip-hbm-qualification), and right-sized radiation mitigation ~5-20% compute per watt (assumption). Catalog family 107 (matrix multiplication exponent at most 9/4, Lean, T3) is a galactic algorithm and contributes nothing (P4 nil). Launch cadence, satellite and array fabrication, and chip supply bind.",
+    "signpost": "Starmind production rate and dedicated Starship flights per year; FCC authorization of a first Starmind tranche; SpaceX reporting deployed orbital compute in the hundreds of MW by 2030.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic: S2 Medium -> Low (revised mass ~16,000-18,000 t is 1.3-1.8x the old basis; first flight slips to 2028; zero slack), supported by the trunk resolver's note that 1 GW S2 Medium sat above capability-compute-launch-demand (10 compute flights in a year, S2 2030 Medium) and by Mach33's early-2030s scaled-deployment date. Advocate's S1 >2031 -> 2031, S2/S3 2031 -> 2030 and S3 Medium -> High rejected: their chain used heavy-cadence-100 at S2 2029 / S3 2028, which the trunk resolver moved to 2030 / 2029 (see debates). Auditor + advocate: pathway relabelled 'not AI-math-driven'; chain written out; mass basis and peak-versus-average definition fixed; family 107 nil note added. Auditor's cots-ops hard -> soft not applied: cots-ops is now the non-AI commercial milestone (its AI-math edge is soft), so the edge is a true physical precursor. Soft edges added: light solar arrays, hot-chip qualification, formation clusters, capability-ai-rnd-acceleration (trunk resolver proposal). Years unchanged; S1 Low and S3 Medium unchanged."
+   }
+  },
+  {
+   "id": "struct-two-phase-microgravity-models",
+   "patch": {
+    "why": "Two-phase transport cuts heat-transport mass (33FG model: ~2.0 kg/kW for Starlink-like transport to ~0.8 kg/kW loop-based) and lets radiators run nearer chip temperature, which matters through T^4; below ~5 kg/m2, radiators rest on two-phase pumped loops or oscillating heat pipes not yet flown at this flux or quantity (33FG). Designers carry margins for microgravity uncertainty. Flight data bind: an ISS campaign yields hundreds of test points, while compute-satellite fleets will stream telemetry from ~2028-29, which S2 AI can turn into models; whoever owns the fleet owns the model. AI1's published radiator is a deployable liquid radiator, possibly single-phase, so its telemetry may not be two-phase data.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): All three lenses: node was a dead end; soft edges added to struct-radiator-optimization and struct-radiator-lightweight-production. Advocate: soft edges from struct-highflux-radiator-flight (fleet telemetry) and to struct-fsp-radiator-qual (heat-pipe radiators). Skeptic: telemetry date ~2027-28 -> ~2028-29 (first-flight slip) and single-phase caveat. Advocate's S2 2030 -> 2029 rejected (zero lag behind cap-physics-theory S2 2029; first fleet data 2028-29 and possibly single-phase). Years and bands unchanged."
+   }
+  },
+  {
+   "id": "struct-deployment-mechanics",
+   "patch": {
+    "why": "At 100 m and beyond, gravity-offload rigs stop being representative, so qualification must be by analysis plus subscale and flight data, which requires models with understood error. AI supplies the math (nonsmooth dynamics, similitude scaling laws, tension-field wrinkling theory) quickly under S2, but validation needs flight deployments. Compute satellites will add many: each Starmind satellite deploys arrays on a ~75 m wingspan (up to 1,500 m2 of solar under the Sep 2026 filing), by the hundreds a year from ~2029, a far larger large-deployable dataset than today's few flights a year, though it covers the 50-100 m class rather than km scale and belongs to the operator.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Advocate: soft edge from struct-highflux-radiator-flight (compute-satellite array deployments as flight data) and why updated. Advocate's S2 2030 -> 2029 rejected: zero lag behind cap-physics-theory (S2 2029), Starmind deployments at volume only from ~2029, and km-scale extrapolation remains. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "struct-large-sail-flight",
+   "patch": {
+    "earliest_year": {
+     "S3": "2031"
+    },
+    "strongest_case_small": "Sail scale-up is gated by funding and membrane durability, not modeling; meanwhile 70-75 m compute-satellite arrays (AI1's 70 m June wingspan; 75 m in the Aug 2026 revision) are flying anyway on the commercial track.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic: S3 2030 -> 2031 (no funded 1,000 m2 mission; appropriations compress 1.0x; a 2030 flight would need funding by ~2027, before the hard prerequisite exists). Advocate: soft edge from struct-highflux-radiator-flight (deployable supply base). Auditor: wingspan wording updated. Bands unchanged."
+   }
+  },
+  {
+   "id": "struct-fsp-lunar-100kwe",
+   "patch": {
+    "status_oct2026": "Directive (Jul 31 2025): at least 100 kWe, closed Brayton, heavy lander up to 15 t, launch-ready Q1 FY2030, two awards within six months of the RFP. Draft partnership announcements Aug 29 and Dec 5 2025. On Mar 24 2026 NASA said Lunar Reactor-1 (LR-1) will be informed by Space Reactor-1 Freedom (Mars launch Dec 2028); on Mar 26 2026 it made the draft Funded Space Act Agreement posting inactive to reassess the development approach. No FSP/LR-1 provider award found as of Oct 2026. NASA-DOE MOU renewed (Jan 2026); a December 2025 executive order calls for a lunar surface reactor ready for launch by 2030.",
+    "earliest_year": {
+     "S1": ">2031",
+     "S2": ">2031",
+     "S3": ">2031"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative"
+    },
+    "why": "Scenario-invariant on purpose: the binding gates are a heavy cargo lander able to land ~15 t (itself behind schedule), nuclear launch approval, HALEU fuel supply and nuclear ground testing. The Q1 FY2030 launch-ready target predates the Mar 2026 procurement reset; with no provider under contract and LR-1 now sequenced behind SR-1, a space reactor's 4-6 years from a funded start (physclock lag ladder) puts launch after 2031. AI mathematics does not move licensing, appropriations or lander schedules, and the first unit's design freezes before AI design tools mature.",
+    "signpost": "LR-1 procurement restart and provider award; SR-1 launch (Dec 2028 target); a heavy-lander cargo landing demonstration; ground test of the flight-design reactor.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Auditor (verified: SAM.gov notice of Mar 26 2026 via bidpulsar; Wikipedia on LR-1/SR-1): status corrected (procurement reset, no provider); years 2031 -> >2031 and bands Low -> Speculative in all scenarios (no provider five years out; LR-1 behind SR-1)."
+   }
+  },
+  {
+   "id": "struct-fsp-radiator-qual",
+   "patch": {
+    "status_oct2026": "A Cs-Ti heat-pipe panel design reaches 2.98 kg/m2 and rejects >56 kWth at 600 K with launch stresses under 10% of yield (JBIS, Jul 2025; paywalled, unverified in review); ACT's SBIR Phase III work on Ti-H2O/graphite-fiber radiators added freeze-thaw tests and a 10-year lunar MMOD analysis (ICES, Jul 2026); titanium wick treatments studied (AIAA SciTech, Jan 2026). NASA reset the FSP procurement in Mar 2026; no provider is under contract.",
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2030",
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low"
+    },
+    "signpost": "LR-1 provider award and PDR with radiator qualification test results, 2028-29.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Auditor: with the FSP procurement reset (Mar 2026) and no provider, a 2027-28 PDR is off the table; years 2029 -> 2030 and bands Medium -> Low in all scenarios; JBIS figure marked unverified (paywalled). Advocate: soft edge from struct-two-phase-microgravity-models."
+   }
+  },
+  {
+   "id": "struct-fsp-next-gen-design",
+   "patch": {
+    "status_oct2026": "NASA directive (Jul 31 2025): at least 100 kWe, closed Brayton cycle, heavy lander with up to 15 t available, launch-ready by Q1 FY2030, awards to two providers within six months of the RFP; reactor under ~6 t (New Space Economy, Apr 2026). The final RFP was never issued: NASA made the draft Space Act Agreement path inactive on Mar 26 2026 and tied Lunar Reactor-1 to SR-1 experience. NASA spent over $200M since 2000 on 1-200 kWe concepts without flight readiness (directive).",
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low"
+    },
+    "why": "A timing trap: first-of-a-kind systems freeze their designs (PDR not before ~2028, no provider yet) before AI multiphysics design capability matures (S2 ~2029), so AI-math gains land in second units, and a second-generation study presupposes a first unit under contract and frozen. Shield design rests on radiation transport, which the release does not touch; AI applied math helps there only under S2.",
+    "signpost": "NASA restarts the LR-1 procurement, awards providers and announces a follow-on (Mars-class or 200 kWe-plus) design study, ideally naming AI-assisted multidisciplinary optimization.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Auditor: status corrected (final RFP never issued; Mar 26 2026 reset); PDR ~2027 -> not before ~2028; bands S1 Low -> Speculative, S2/S3 Medium -> Low. Years unchanged."
+   }
+  },
+  {
+   "id": "capability-ai-eda-space-processor",
+   "patch": {
+    "description": "Agentic EDA designs and formally verifies a radiation-tolerant processor, SoC or AI accelerator designed for orbit (error correction, upset-aware layout, selective redundancy); it is taped out and heavy-ion tested, with design and verification credited mainly to agentic EDA.",
+    "status_oct2026": "Agentic chip design is moving fast in commercial EDA (Cadence fully autonomous ChipStack design agent, Jun 1 2026; Synopsys autonomous debug and implementation workflows with Microsoft, evaluated by AMD, Jul 27 2026; OpenAI-Synopsys agreement on a chip-design model, Sep 30 2026). Space-targeted accelerators are in co-design (Nvidia Space-1 Vera Rubin module, Mar 2026; a SpaceX version of the VR72 per Musk, Oct 1 2026; Musk has said Tesla's AI7/Dojo3 is aimed at space-based compute, press reports, unverified here). Space processors lag commercial nodes by roughly a decade (general).",
+    "why": "Design and verification (12-24 months for a rad-hard SoC, general) compress several-fold; fabrication (3-4 months per run), scarce heavy-ion beam time and, for traditional space parts, QML-class qualification (1-2 years) do not. Orbital compute adds a funded commercial customer with no certifying regulator, which raises the odds of an AI-designed space accelerator, but credit to agentic EDA for an Nvidia or Tesla part is unlikely to be disclosed. First tape-out in 2029-30 under S2; flight qualification of traditional rad-hard parts after 2031.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Auditor: EDA dates corrected to the auditor's primary sources (Jul 27 and Sep 30 2026; the earlier dates came from a news-search RSS feed). Advocate: description broadened to include accelerators designed for orbit (commercial customer, no regulator). Advocate's S2 2030 -> 2029 and S3 Medium -> High rejected: zero lag behind cap-design-optimization (2028) plus fab and beam time, and attribution 'mainly to agentic EDA' is unlikely to be disclosed. Years and bands unchanged."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "id": "struct-hot-chip-hbm-qualification",
+   "title": "AI chips and HBM qualified to run hot in orbit",
+   "tier": 5,
+   "kind": "technology",
+   "description": "Accelerator logic and HBM stacks are shown, by accelerated life tests, physics-of-failure models (electromigration, gate-oxide breakdown, bias-temperature instability, HBM retention and refresh, solder and through-silicon-via fatigue, combined with dose) and on-orbit telemetry, to survive a 3-5 year orbital mission at elevated temperature (roughly 110-135 C logic and 110-130 C HBM, against the ~105 C / 95 C comparison limits in 33FG's model), so compute-satellite radiators can run hotter and smaller.",
+   "status_oct2026": "33FG's Oct 6 2026 StarMind model fits 250 kW in the filed radiator envelope under 200 m2 only at ~134 C logic / ~132 C HBM (with a higher-rated GPU package); holding 105 / 95 C needs ~327 m2. 33FG found no publicly disclosed flight-qualified part with the required characteristics and estimates chip wear-out life falls from 5.6 to 3.4 years when the stock chip is pushed harder. Musk (Oct 1 2026): the SpaceX version of the VR72 is co-designed with Nvidia for ~250 kW average. Commercial HBM is specified for operation near 85-105 C (general).",
+   "catalog_families": [],
+   "prerequisites": [
+    "struct-highflux-radiator-flight"
+   ],
+   "accelerated_by": [
+    "cap-applied-math",
+    "physclock-optimal-test-campaigns",
+    "materials-see-system-models"
+   ],
+   "binding_gate": "qualification",
+   "pathway": "P7 (vendor qualification; AI applied math accelerates via P1/P5 accelerated-life models)",
+   "earliest_year": {
+    "S1": "2030",
+    "S2": "2029",
+    "S3": "2029"
+   },
+   "band_2031": {
+    "S1": "Medium",
+    "S2": "Medium",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a",
+   "why": "Radiator area scales as 1/T^4 of the radiating temperature, so allowable chip and HBM temperature is the largest thermal lever. Raising the radiating temperature from ~368 K (95 C) to ~407 K (134 C) cuts panel area ~33% at fixed heat (calculation); 33FG's model puts the gap at ~200 versus ~327 m2 for a 250 kW satellite. At ~3.7 kg/m2 that is ~470 kg per satellite (~10% of a ~4.5 t satellite), or ~1,900 t (~19 Starship flights at 100 t) per GW of 4,000 satellites, more than the whole AI radiator-design lever (~350-1,400 t per GW). Physics stays fixed: DRAM retention roughly halves per ~10 C, so hotter HBM needs faster refresh at a bandwidth cost, and Arrhenius wear-out shortens life (general), so the trade is service life (3-5 years, matching chip obsolescence) against radiator mass. The AI-math role is P1/P5: hierarchical Bayesian accelerated-life models, competing-risk wear-out and optimal accelerated-test design let qualification rest on weeks of high-temperature operating life tests (~1,000 h, general) plus first-flight telemetry rather than years of exposure. Chain (S2): first 100-kW-class flights 2028 -> life tests and telemetry 2028-29 -> vendor re-specification of HBM and a published orbital operating envelope 2029. The gate is qualification by the operator and chip vendors, with no regulator, so S2 and S3 tie.",
+   "strongest_case_small": "SpaceX may simply accept a shorter first-generation chip life (33FG notes a first generation could trade life for earlier deployment and data), enlarge the radiator or its filing envelope, or use a cooler-running package; vendors, not AI mathematicians, own HBM reliability data, and the qualifying evidence is life tests and telemetry, not proofs.",
+   "signpost": "A published orbital operating envelope above standard junction limits (HBM at 110 C or more) backed by accelerated-life data, or Starmind telemetry showing sustained chip or HBM temperatures of 110 C or more, by 2029-30.",
+   "domain": "struct",
+   "revision_note": "B-orbital-compute-power resolver (2026-10-07): New node merging the skeptic's materials-hot-hbm-qualification (T5, qualification) and the advocate's materials-hot-chip-wearout-models (T3, P1->P5); renamed to the branch's main domain prefix. Both lenses identify allowable chip/HBM temperature as a bigger thermal lever than radiator design (verified in 33FG's Oct 6 2026 model). One node, not two: physics-of-failure models already exist at vendors, and validation needs life tests and flight telemetry, so the advocate's High-by-2028 model node overstated the AI-math share; the AI role is kept as soft accelerators. Not a duplicate (no chip-temperature node in the graph)."
+  },
+  {
+   "id": "struct-light-solar-array-production",
+   "title": "Lightweight solar arrays at compute-constellation volume",
+   "tier": 5,
+   "kind": "technology",
+   "description": "Flexible or roll-out arrays at array-level specific power of roughly 125-140 W/kg or better (for example silicon at ~250 W/m2 on ~1.8-2 kg/m2 blankets) built at compute-constellation volume, hundreds of thousands of m2 a year. This is the mass lever 33FG identifies as the primary constraint on compute satellites, and the non-AI baseline against which the perovskite and specific-power chain is measured.",
+   "status_oct2026": "33FG's June 2026 AI1 reconstruction: array ~1,178 kg, 56% of the implied 2.1 t, ~127 W/kg over ~600 m2; the 2.1 t budget closes only if the array reaches ROSA-class ~1.8-2 kg/m2. SpaceX's Sep 16 2026 FCC response allows up to 1,500 m2 of solar under 4,000 kg per satellite. Roll-out arrays fly today at kilowatt to tens-of-kilowatt scale per wing (general); none is produced at hundreds of thousands of m2 a year.",
+   "catalog_families": [],
+   "prerequisites": [],
+   "accelerated_by": [
+    "cap-design-optimization",
+    "struct-deployment-mechanics"
+   ],
+   "binding_gate": "fabrication",
+   "pathway": "P7 (not AI-math-driven; AI touches array structural and deployment design only, marginal P1)",
+   "earliest_year": {
+    "S1": "2029",
+    "S2": "2029",
+    "S3": "2029"
+   },
+   "band_2031": {
+    "S1": "Medium",
+    "S2": "Medium",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a",
+   "why": "Solar is the largest mass block on a compute satellite; every kg/m2 off a ~600 m2 array buys ~6x what the same cut buys on a ~110 m2 radiator (33FG). At ~1,000-1,500 m2 per 250 kW satellite, 1 GW needs ~4-6 km2 of array, many times Starlink's yearly array output (assumption), so array production rather than radiator design is the fabrication gate at GW scale. Reaching 100 kW/t needs this and more: the June AI1 design already assumed ROSA-class arrays to reach ~70 kW/t, so 100 kW/t also needs thinner or higher-efficiency cells (materials-perovskite-primary-power) and hotter chips. Chain (all scenarios): first Starmind flights 2028 -> serial satellite production with arrays at constellation volume 2029. Medium rather than High because the filing allows a heavier 1,500 m2 array within 4,000 kg, so SpaceX may not need the light blanket at volume.",
+   "strongest_case_small": "SpaceX already builds Starlink arrays in-house at scale and the filing allows a heavier array within the mass envelope, so volume may come with modest areal density; this node is the counterfactual baseline that happens without AI mathematics.",
+   "signpost": "SpaceX discloses array areal density or W/kg for a Starmind version, or a Starmind production rate implying hundreds of thousands of m2 of array a year.",
+   "domain": "struct",
+   "revision_note": "B-orbital-compute-power resolver (2026-10-07): New node from the auditor (verified against 33FG's AI1 reconstruction: solar 56% of mass, 'primary constraint is solar areal density'); defined by array specific power so the hard edge to struct-100kw-per-tonne-fleet is a necessary condition. Years moved from the proposed 2028 to 2029 to follow the first-flight slip to 2028. Not a duplicate: the perovskite chain is the materials route; this is the architecture and production route."
+  },
+  {
+   "id": "struct-formation-compute-clusters",
+   "title": "Tight-formation compute clusters operate in orbit",
+   "tier": 6,
+   "kind": "mission",
+   "description": "Operational clusters of about 10 or more compute satellites holding station within a few hundred metres (inside ~750 m), linked by terabit-class optical crosslinks (~10 Tbps per cluster per SpaceX), running models too large for one satellite. Formation flying is the route to large coherent compute in place of km-scale monolithic structures.",
+   "status_oct2026": "SpaceX VP Michael Nicolls (Oct 6 2026): Starmind needs clusters of ~10 satellites in tight formation with ~10 Tbps between them (via 33FG). Google Suncatcher's design places 81 satellites within a 1 km radius at ~100-200 m spacing; its first prototype launched on Transporter-18 on Oct 1 2026 and a two-satellite laser-link test is planned for 2027. Close formation at hundreds of metres has flown since TanDEM-X (2010, general).",
+   "catalog_families": [],
+   "prerequisites": [
+    "struct-highflux-radiator-flight"
+   ],
+   "accelerated_by": [
+    "astro-hybrid-rpo-verification",
+    "astro-coordination-protocols",
+    "comms-certified-network-optimization",
+    "astro-nongaussian-uq-certified",
+    "physclock-satellite-gen-cadence"
+   ],
+   "binding_gate": "fabrication",
+   "pathway": "P7 (not AI-math-driven; AI math second-order via P2 collision-safety proofs and certified link scheduling)",
+   "earliest_year": {
+    "S1": "2030",
+    "S2": "2029",
+    "S3": "2029"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a",
+   "why": "Forcing a frontier model into one satellite forgoes up to 44% of achievable serving output (33FG, Jul 2026); tight clusters recover much of it, and microsecond-scale synchronization bounds a coherent domain to under ~750 m (Mach33). Chain (S2): first 100-kW-class Starmind flights 2028 -> a batch of ten or more satellites launched and phased into formation, with Google's two-satellite link test (2027) as a precursor -> operational cluster 2029-30. AI math lowers risk and operations cost (machine-checked collision safety for dense multi-year formations under thruster faults and communication loss; certified gaps for link scheduling) but does not set the date. Physical gates do not move: optical-terminal throughput, differential-drag and J2 station-keeping propellant, and the debris consequence of a dense cluster. S3 equals S2 in band because the gates are physical and no cluster has flown.",
+   "strongest_case_small": "Software (smaller or satellite-sized models, better parallelism) may shrink the single-satellite penalty toward parity (33FG), removing the need for tight formations; dense clusters raise collision and debris risk that licensing may restrict.",
+   "signpost": "Ten or more compute satellites holding sub-km formation with terabit-class crosslinks in operation; Google's 2027 two-satellite link test meeting its bandwidth target.",
+   "domain": "struct",
+   "revision_note": "B-orbital-compute-power resolver (2026-10-07): New node from the advocate (verified: SpaceX 10-satellite cluster statement and Suncatcher Transporter-18 plan via 33FG news). Not a duplicate: struct-km-monolith covers the structure route and only mentions formation flying as its competitor. Advocate's S3 High lowered to Medium (first formation statement Oct 6 2026, no cluster flown, physical gates); S1 2031 -> 2030 since the node is not AI-math-driven."
+  }
+ ],
+ "add_edges": [
+  {
+   "from": "cap-design-optimization",
+   "to": "struct-radiator-optimization"
+  },
+  {
+   "from": "struct-light-solar-array-production",
+   "to": "struct-100kw-per-tonne-fleet"
+  }
+ ],
+ "remove_edges": [
+  {
+   "from": "materials-see-system-models",
+   "to": "materials-cots-orbital-compute-ops"
+  },
+  {
+   "from": "materials-see-system-models",
+   "to": "materials-wbg-rad-hard-power"
+  },
+  {
+   "from": "materials-learned-functionals",
+   "to": "materials-wbg-rad-hard-power"
+  },
+  {
+   "from": "materials-wbg-rad-hard-power",
+   "to": "materials-specific-power-step"
+  },
+  {
+   "from": "materials-battery-life-qual",
+   "to": "materials-specific-power-step"
+  },
+  {
+   "from": "materials-perovskite-tandem-flight",
+   "to": "materials-perovskite-primary-power"
+  },
+  {
+   "from": "materials-learned-functionals",
+   "to": "materials-perovskite-degradation-models"
+  },
+  {
+   "from": "cap-autonomous-labs",
+   "to": "materials-perovskite-degradation-models"
+  },
+  {
+   "from": "materials-learned-functionals",
+   "to": "materials-battery-life-qual"
+  },
+  {
+   "from": "cap-autonomous-labs",
+   "to": "materials-battery-life-qual"
+  },
+  {
+   "from": "cap-applied-math",
+   "to": "struct-radiator-optimization"
+  },
+  {
+   "from": "cap-research-math-public",
+   "to": "struct-radiator-optimization"
+  },
+  {
+   "from": "struct-radiator-optimization",
+   "to": "struct-radiator-lightweight-production"
+  },
+  {
+   "from": "struct-radiator-lightweight-production",
+   "to": "struct-100kw-per-tonne-fleet"
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "materials-see-system-models",
+   "to": "materials-cots-orbital-compute-ops"
+  },
+  {
+   "from": "materials-verified-fault-tolerance",
+   "to": "materials-cots-orbital-compute-ops"
+  },
+  {
+   "from": "materials-see-system-models",
+   "to": "materials-wbg-rad-hard-power"
+  },
+  {
+   "from": "materials-learned-functionals",
+   "to": "materials-wbg-rad-hard-power"
+  },
+  {
+   "from": "cap-physics-theory",
+   "to": "materials-wbg-rad-hard-power"
+  },
+  {
+   "from": "materials-wbg-rad-hard-power",
+   "to": "materials-specific-power-step"
+  },
+  {
+   "from": "materials-battery-life-qual",
+   "to": "materials-specific-power-step"
+  },
+  {
+   "from": "materials-perovskite-tandem-flight",
+   "to": "materials-perovskite-primary-power"
+  },
+  {
+   "from": "materials-learned-functionals",
+   "to": "materials-perovskite-degradation-models"
+  },
+  {
+   "from": "cap-autonomous-labs",
+   "to": "materials-perovskite-degradation-models"
+  },
+  {
+   "from": "materials-learned-functionals",
+   "to": "materials-battery-life-qual"
+  },
+  {
+   "from": "cap-autonomous-labs",
+   "to": "materials-battery-life-qual"
+  },
+  {
+   "from": "struct-highflux-radiator-flight",
+   "to": "materials-see-system-models"
+  },
+  {
+   "from": "struct-agentic-analysis-workflows",
+   "to": "struct-radiator-optimization"
+  },
+  {
+   "from": "struct-two-phase-microgravity-models",
+   "to": "struct-radiator-optimization"
+  },
+  {
+   "from": "struct-hot-chip-hbm-qualification",
+   "to": "struct-radiator-optimization"
+  },
+  {
+   "from": "struct-radiator-optimization",
+   "to": "struct-radiator-lightweight-production"
+  },
+  {
+   "from": "struct-two-phase-microgravity-models",
+   "to": "struct-radiator-lightweight-production"
+  },
+  {
+   "from": "physclock-satellite-gen-cadence",
+   "to": "struct-radiator-lightweight-production"
+  },
+  {
+   "from": "physclock-optimal-test-campaigns",
+   "to": "struct-radiator-lightweight-production"
+  },
+  {
+   "from": "struct-radiator-lightweight-production",
+   "to": "struct-100kw-per-tonne-fleet"
+  },
+  {
+   "from": "materials-perovskite-primary-power",
+   "to": "struct-100kw-per-tonne-fleet"
+  },
+  {
+   "from": "physclock-satellite-gen-cadence",
+   "to": "struct-100kw-per-tonne-fleet"
+  },
+  {
+   "from": "struct-hot-chip-hbm-qualification",
+   "to": "struct-100kw-per-tonne-fleet"
+  },
+  {
+   "from": "struct-light-solar-array-production",
+   "to": "struct-gw-orbital-compute"
+  },
+  {
+   "from": "struct-hot-chip-hbm-qualification",
+   "to": "struct-gw-orbital-compute"
+  },
+  {
+   "from": "struct-formation-compute-clusters",
+   "to": "struct-gw-orbital-compute"
+  },
+  {
+   "from": "capability-ai-rnd-acceleration",
+   "to": "struct-gw-orbital-compute"
+  },
+  {
+   "from": "struct-highflux-radiator-flight",
+   "to": "struct-two-phase-microgravity-models"
+  },
+  {
+   "from": "struct-two-phase-microgravity-models",
+   "to": "struct-fsp-radiator-qual"
+  },
+  {
+   "from": "struct-highflux-radiator-flight",
+   "to": "struct-deployment-mechanics"
+  },
+  {
+   "from": "struct-highflux-radiator-flight",
+   "to": "struct-large-sail-flight"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "orbital-compute-power",
+   "nodes": [
+    "struct-hot-chip-hbm-qualification",
+    "struct-light-solar-array-production",
+    "struct-formation-compute-clusters"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "orbital-compute-power",
+   "patch": {
+    "thesis": "Orbital AI compute runs on SpaceX's hardware, launch and capital clock, not on AI mathematics: 100-kW-class compute satellites first fly about 2028 and carry paying workloads about 2029 in every scenario, and 1 GW in orbit by 2031 is Low in the base case (S2) and Medium in S3. AI math adds confidence and a few percent: validated radiation-error models and proven fault-tolerance layers right-size mitigation (about 5-20% more useful compute per watt, an assumption), and AI thermal design trims about 2-9% of launched mass. The big mass levers are solar-array specific power and how hot chips and HBM may run, which life tests and flight telemetry, helped by AI applied math, decide.",
+    "reader_hook": "A gigawatt of orbital compute is about 4,000 Starmind-class satellites, 16,000-18,000 t and 110-180 Starship flights. Temperature and architecture choices already made cut thermal mass per GW from about 19,400 t (Starlink-like) to roughly 3,500-6,500 t; AI-optimized radiator design might save another 10-25% (an assumption), about 350-1,400 t or 4-14 flights, a few percent of launched mass. Qualifying chips and HBM to run about 30 C hotter would save more (about 1,900 t per GW in 33FG's model), and at SpaceX's ~250 kW target inside a filed radiator under 200 m2, thermal design matters as much for chip life as for mass. Solar arrays, at over half the satellite's mass, matter most.",
+    "roots": [
+     "cap-applied-math",
+     "cap-design-optimization",
+     "cap-autonomous-labs",
+     "cap-physics-theory"
+    ],
+    "spine": [
+     "materials-see-system-models",
+     "materials-verified-fault-tolerance",
+     "struct-radiator-optimization",
+     "struct-highflux-radiator-flight",
+     "struct-light-solar-array-production",
+     "struct-hot-chip-hbm-qualification",
+     "struct-radiator-lightweight-production",
+     "materials-cots-orbital-compute-ops",
+     "struct-100kw-per-tonne-fleet",
+     "struct-gw-orbital-compute"
+    ],
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Thesis rewritten so AI math is no longer stated as the condition for orbital compute (all three lenses); 1 GW band per the resolved node (S2 Low, S3 Medium). Reader hook re-based on the Sep 2026 filing envelope and 33FG's Oct 6 2026 model, flags the 10-25% as an assumption (auditor), and names the solar and chip-temperature levers (skeptic, advocate, auditor). Spine re-cut (skeptic: the old spine jumped between unconnected nodes): it now renders the physical anchor tree (100-kW radiator flight -> commercial operations -> 1 GW, with arrays, hot-chip qualification and 100 kW/t) beside the AI-math side chains (fault models -> proven fault tolerance; AI radiator design). cap-physics-theory added to roots (soft edge to SiC power)."
+   }
+  }
+ ],
+ "notes": "B-orbital-compute-power resolver, 2026-10-07. Three lenses (physics/engineering skeptic, exponential advocate, grounding auditor) resolved. ACCEPTED: removal of the ~2.5x TMR-counterfactual lever in three nodes (all lenses); AI1 June spec replaced by the Aug 2026 product page, Sep 16 2026 FCC envelope and Oct 2026 33FG model; 100-kW radiator first flight 2027 -> 2028 and commercial ops 2028 -> 2029 in all scenarios; spurious hard edges softened (SEE models -> cots-ops and -> SiC power; DFT and autonomous labs -> perovskite, battery, SiC; AI radiator design -> lightweight production; lightweight radiators -> 100 kW/t; WBG and battery -> specific-power step; tandem flight -> perovskite primary power); 1 GW S2 Medium -> Low; 100 kW/t S1 Low -> Speculative, S2 Medium -> Low; verified fault tolerance S2 2029/S3 2028, S1 Low, S2 Medium; lightweight radiators S3 High -> Medium, S1 >2031 -> 2031; perovskite tandem flight S2/S3 Medium -> Low; FSP nodes reset per the verified Mar 26 2026 SAM.gov notice; contradicted facts fixed (ISRO demo, EDA dates, GaN framing, 600/1,200 plateau, Chinese tandems, ABFT detection claim, 2.5-6% arithmetic). NEW NODES: struct-hot-chip-hbm-qualification (skeptic + advocate merged), struct-light-solar-array-production (auditor), struct-formation-compute-clusters (advocate). REJECTED: advocate's struct-fleet-telemetry-lab (overlaps struct-test-data-commons and the 'whoever owns the fleet owns the model' insight; captured instead by soft edges from struct-highflux-radiator-flight to the SEE, two-phase and deployment nodes) and struct-orbital-compute-cost-parity (rests on one commercial forecaster's model, its year depends on which terrestrial benchmark is chosen, and contracted prices are rarely disclosed; its $/GW quantification is kept in struct-radiator-optimization.why); advocate's year pulls on 1 GW, two-phase physics, deployment physics, 100 kW/t and the EDA processor (see debates and revision notes); auditor's S3 Low on 100 kW/t. FOR OTHER BRANCHES / FOLLOW-UP (not edited here): (1) trunk node capability-compute-launch-demand: status still says 100-kW-class radiators first fly in 2027 (now 2028) and uses the June 2.1 t AI1 mass (now ~4.0-4.5 t, so 10 flights carry ~220-250 satellites, ~40-60 MW); suggest a soft edge capability-compute-launch-demand -> struct-gw-orbital-compute (trunk resolver proposal; not added here because that node exists only after B-trunk-edits is applied). (2) Advocate's soft edges materials-see-system-models -> physclock-satellite-gen-cadence and -> capability-ai-native-spacecraft (radiation testing is a named binding item of the cadence node) belong to those branches. (3) research/capability.json: replace the Google News RSS source for the EDA dates with news.synopsys.com (Jul 27 2026), thestar.com.my (Oct 1 2026) and the Cadence press release. (4) research/struct.json key insight on thermal mass per GW (~3,400-3,500 t, 3-9 flights) and fleet telemetry from ~2027-28 should be re-based on the Oct 2026 numbers (~3,500-6,500 t; telemetry ~2028-29)."
+}

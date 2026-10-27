@@ -1,0 +1,370 @@
+astro-formal-astrodynamics-library | T0 | Formal astrodynamics library | S1:2029 S2:2027 S3:2027 | Medium/High/High | formalization | P2 | pre:cap-autoformalization
+astro-catalog-dynamics-results | T1 | Catalog chaos results (weak link) | S1:2027 S2:2027 S3:2027 | Medium/Medium/Medium | formalization | P5 (science only) | pre:cap-research-math-internal,verif-independent-check
+astro-nbody-transport-proofs | T1 | Rigorous n-body transport bounds | S1:2029 S2:2028 S3:2028 | Medium/High/High | cognitive | P1->P5 | pre:cap-research-math-public
+astro-stability-atlas | T2 | Certified cislunar stability atlas | S1:2031 S2:2029 S3:2029 | Low/Medium/High | cognitive | P1->P6 | pre:astro-nbody-transport-proofs,cap-applied-math,infra-verified-numerics
+astro-scp-guarantees | T2 | Guarantees for convex landing guidance | S1:2029 S2:2027 S3:2027 | Medium/High/High | cognitive | P1->P5 | pre:cap-research-math-public
+astro-nongaussian-uq-certified | T2 | Certified collision-probability math | S1:2030 S2:2028 S3:2028 | Medium/High/High | cognitive | P1->P4 | pre:cap-applied-math
+astro-coordination-protocols | T2 | Provably safe maneuver-coordination rules | S1:2029 S2:2028 S3:2028 | Medium/High/High | cognitive | P2 | pre:cap-research-math-public,cap-autoformalization,astro-formal-astrodynamics-library
+astro-cislunar-od-uq | T2 | Cislunar tracking in chaotic dynamics | S1:2030 S2:2028 S3:2028 | Medium/High/High | data | P1->P6 | pre:astro-nongaussian-uq-certified,cap-applied-math
+astro-nav-filter-guarantees | T2 | Navigation filters with proven error bounds | S1:2030 S2:2028 S3:2028 | Medium/High/High | cognitive | P1->P2 | pre:cap-applied-math,astro-formal-astrodynamics-library
+astro-hybrid-rpo-verification | T2 | Verified docking and capture logic | S1:2030 S2:2028 S3:2028 | Medium/High/High | cognitive | P1->P2 | pre:cap-applied-math,astro-formal-astrodynamics-library
+astro-debris-evolution-models | T3 | Kessler-threshold models with error bars | S1:2030 S2:2028 S3:2028 | Medium/High/High | data | P1->P5 | pre:cap-applied-math
+astro-certified-gnc-toolchain | T4 | Proof-carrying GNC software toolchain | S1:2030 S2:2028 S3:2028 | Medium/High/High | adoption | P2 | pre:astro-formal-astrodynamics-library,cap-autoformalization,cap-research-math-public,verif-verified-gnc-numerics,verif-code-proof-agents,verif-closed-loop-guarantees
+astro-trajectory-design-on-demand | T4 | Trajectory design on demand | S1:2028 S2:2027 S3:2027 | High/High/High | adoption | P1 | pre:cap-research-math-public
+astro-catalog-scale-screening | T4 | Certified screening that scales to a million objects | S1:2031 S2:2029 S3:2029 | Low/High/High | formalization | P2+P4 | pre:astro-nongaussian-uq-certified,infra-verified-numerics,cap-autoformalization
+astro-autonomous-nav-demo | T5 | Autonomous cislunar navigation with certified integrity | S1:2031 S2:2029 S3:2029 | Low/Medium/Medium | launch | P2->P7 | pre:astro-nav-filter-guarantees
+astro-ai-designed-trajectory-flown | T6 | Missions fly AI-designed trajectories | S1:2030 S2:2029 S3:2029 | Medium/High/High | launch | P1 (operational adoption; no hardware change) | pre:astro-trajectory-design-on-demand
+astro-proof-backed-flight-software-ops | T6 | Proof-backed GNC in operational spacecraft | S1:2031 S2:2029 S3:2029 | Low/Medium/High | adoption | P2 | pre:astro-certified-gnc-toolchain,verif-independent-check
+astro-autonomous-ca-at-scale | T6 | Autonomous cross-operator collision avoidance | S1:>2031 S2:2031 S3:2030 | Low/Low/Medium | adoption | P2 | pre:astro-catalog-scale-screening,astro-coordination-protocols
+astro-cislunar-traffic-management | T6 | Cislunar traffic management service | S1:>2031 S2:2031 S3:2030 | Low/Medium/Medium | capital | P1->P7 | pre:astro-cislunar-od-uq
+astro-leo-safety-at-scale | T7 | LEO stays safe at 100k satellites | S1:>2031 S2:>2031 S3:2031 | Speculative/Low/Low | data | P1->P2->P7 | pre:astro-autonomous-ca-at-scale,plasma-thermo-density-uq,astro-small-debris-catalog
+astro-capacity-licensing | T7 | Capacity-based orbital licensing | S1:>2031 S2:2031 S3:2031 | Low/Low/Low | regulatory | P5->P7 | pre:astro-debris-evolution-models
+astro-gnc-assurance-cost | T7 | Verified autonomy becomes cheap | S1:>2031 S2:2031 S3:2030 | Low/Medium/Medium | adoption | P2 | pre:astro-proof-backed-flight-software-ops,verif-assurance-cost-collapse
+auton-mass-action-permanence | T1 | Reaction networks that never lose a species | S1:2027 S2:2027 S3:2027 | Low/Medium/Medium | formalization | P5 | pre:verif-independent-check
+auton-contact-wellposedness | T1 | Rigorous theory of frictional contact | S1:>2031 S2:2028 S3:2028 | Low/Medium/High | cognitive | P1->P5 | pre:cap-research-math-public
+auton-granular-wellposedness | T1 | Well-posed equations for flowing regolith | S1:>2031 S2:2029 S3:2028 | Low/Medium/Medium | cognitive | P1->P5 | pre:cap-applied-math
+auton-temporal-logic-synthesis | T2 | Correct-by-construction mission planners | S1:2029 S2:2027 S3:2027 | Medium/High/High | adoption | P1->P2 | pre:cap-research-math-public,cap-autoformalization
+auton-ops-planning-ceilings | T2 | Known limits for robot fleet scheduling | S1:2027 S2:2027 S3:2027 | High/High/High | adoption | P3 (102 hardness; 125 lower bound) + P4 (124, 110, 111 and the 125 algorithm; constants unstated or galactic, not counted as practical) | pre:verif-independent-check,frontier-approx-ceilings
+auton-certified-contact-sim | T2 | Contact simulators with error bars | S1:>2031 S2:2029 S3:2028 | Low/Medium/Medium | experiment | P1->P6 | pre:auton-contact-wellposedness,cap-applied-math,infra-verified-numerics
+auton-ecls-reliability-uq | T2 | Honest reliability numbers for life support | S1:2029 S2:2028 S3:2028 | Medium/Medium/High | data | P1 | pre:cap-research-math-public
+auton-isru-rom-control | T2 | Fast, trustworthy models of oxygen reactors | S1:2030 S2:2028 S3:2028 | Medium/High/High | data | P1 (P6 only for scale-up tools) | pre:cap-applied-math
+auton-granular-regolith-model | T3 | Validated models of digging icy regolith | S1:2030 S2:2029 S3:2029 | Low/Medium/Medium | data | P6 | pre:auton-icy-regolith-ground-truth,cap-applied-math
+auton-mre-anode-materials | T3 | Anodes that survive molten regolith | S1:>2031 S2:2030 S3:2030 | Low/Medium/Medium | experiment | P1->P6 | pre:cap-autonomous-labs,materials-closed-loop-discovery
+auton-blss-stability-theory | T3 | Bioregenerative loops with stability guarantees | S1:>2031 S2:2029 S3:2029 | Low/Medium/Medium | data | P5->P6 | pre:cap-physics-theory
+auton-radiation-risk-uq | T3 | Narrower uncertainty on crew radiation risk | S1:>2031 S2:>2031 S3:2031 | Speculative/Low/Low | data | P1->P6 | pre:cap-physics-theory,cap-autonomous-labs
+auton-verified-surface-autonomy | T4 | Proof-carrying autonomy for lunar robots | S1:2030 S2:2028 S3:2028 | Medium/High/High | adoption | P2 | pre:auton-temporal-logic-synthesis,verif-runtime-assurance,verif-fdir-model-checking
+auton-earth-independent-fdir | T4 | Crew-side fault diagnosis without Mission Control | S1:2030 S2:2028 S3:2028 | Medium/Medium/Medium | qualification | P1->P2 | pre:verif-fdir-model-checking,cap-research-math-public
+auton-excavation-design | T4 | Design excavators from models, not guesses | S1:>2031 S2:2030 S3:2029 | Low/Medium/Medium | data | P6 | pre:auton-granular-regolith-model,cap-design-optimization
+auton-sinter-process-control | T4 | Reliable recipes for sintering regolith | S1:2031 S2:2029 S3:2028 | Low/Medium/High | experiment | P1->P6 | pre:cap-applied-math
+auton-certified-assembly-skills | T4 | Robot assembly skills with proven safety envelopes | S1:>2031 S2:2030 S3:2029 | Low/Medium/Medium | experiment | P2->P6 | pre:auton-certified-contact-sim,verif-runtime-assurance
+auton-icy-regolith-ground-truth | T5 | First measurements of how hard polar ice is to dig | S1:2028 S2:2028 S3:2028 | Medium/Medium/Medium | launch | P7 (physical gate; no math pathway) | pre:
+auton-lunar-o2-flight-demo | T5 | First oxygen made on the Moon | S1:2030 S2:2029 S3:2028 | Medium/Medium/High | launch | P1->P6->P7 | pre:
+auton-verified-autonomy-lunar-flight | T5 | A lunar robot flies proof-carrying autonomy | S1:2031 S2:2029 S3:2029 | Low/Medium/Medium | launch | P2 | pre:auton-verified-surface-autonomy
+auton-blss-closed-test | T5 | Long closed life-support test run by certified control | S1:>2031 S2:2030 S3:2030 | Low/Low/Medium | capital | P5->P6->P7 | pre:auton-blss-stability-theory
+auton-assembly-flight-demo | T5 | Robotic assembly in space with certified skills | S1:>2031 S2:2031 S3:2030 | Speculative/Low/Low | launch | P2->P6->P7 | pre:auton-certified-assembly-skills
+auton-mars-isru-demo | T5 | Kilogram-per-hour propellant production on Mars | S1:>2031 S2:2031 S3:2031 | Speculative/Speculative/Speculative | launch | P1->P6->P7 | pre:hyper-mars-heavy-landing
+auton-ai-planned-ops-routine | T6 | AI plans rover operations, machines check the plans | S1:2029 S2:2028 S3:2028 | High/High/High | adoption | P1->P2 | pre:verif-fdir-model-checking,cap-research-math-public
+auton-crew-optional-lunar-ops | T6 | Lunar base runs itself between crew visits | S1:>2031 S2:2031 S3:2031 | Low/Low/Medium | capital | P1->P2->P7 | pre:auton-ai-planned-ops-routine,prop-hls-refuel-campaign,auton-moon-base-infrastructure
+auton-lunar-oxygen-ops | T6 | Tonne-per-year lunar oxygen plant | S1:>2031 S2:>2031 S3:2031 | Speculative/Low/Low | capital | P1->P6->P7 | pre:auton-lunar-o2-flight-demo,auton-isru-rom-control
+auton-closed-loop-habitat | T6 | Mars-class closed-loop life support, demonstrated | S1:>2031 S2:>2031 S3:2031 | Speculative/Low/Low | qualification | P1->P7 | pre:auton-ecls-reliability-uq
+auton-mars-propellant-plant | T6 | Starship-scale propellant plant on Mars | S1:>2031 S2:>2031 S3:>2031 | Speculative/Speculative/Speculative | launch | P7 | pre:auton-mars-isru-demo,hyper-mars-heavy-landing
+auton-surface-productivity | T7 | Severalfold more robot work per operator | S1:2031 S2:2029 S3:2029 | Medium/Medium/High | adoption | P1->P2 | pre:auton-ai-planned-ops-routine
+auton-mars-architecture-close | T7 | Mars outpost logistics cut by validated ISRU and closure | S1:>2031 S2:>2031 S3:>2031 | Speculative/Speculative/Speculative | launch | P1->P6->P7 | pre:auton-mars-isru-demo,auton-closed-loop-habitat,auton-crew-optional-lunar-ops
+cap-research-math-internal | T0 | Research-grade math inside the labs | S1:2026 S2:2026 S3:2026 | High/High/High | cognitive | P1 | pre:
+cap-research-math-public | T0 | Research-grade math for outside teams | S1:2028 S2:2027 S3:2027 | High/High/High | regulatory | P1 | pre:cap-research-math-internal
+cap-autoformalization | T0 | Agentic Lean formalization at scale | S1:2026 S2:2026 S3:2026 | High/High/High | formalization | P2 | pre:cap-research-math-internal
+cap-applied-math | T0 | AI does research-grade applied math | S1:2029 S2:2027 S3:2027 | Medium/High/High | cognitive | P1 | pre:cap-research-math-public
+cap-physics-theory | T0 | AI builds validated physics theory | S1:>2031 S2:2029 S3:2029 | Low/Medium/Medium | data | P6 | pre:cap-applied-math,capability-horizon-compounding
+cap-design-optimization | T0 | AI multiphysics design with guarantees | S1:2030 S2:2028 S3:2028 | Medium/High/High | data | P1->P6 | pre:cap-applied-math,cap-research-math-public
+cap-autonomous-labs | T0 | AI-run closed-loop labs at scale | S1:2029 S2:2028 S3:2028 | Medium/High/High | capital | P1->P7 | pre:
+infra-mathlib-applied | T0 | Lean libraries for analysis, PDE and numerics | S1:2030 S2:2028 S3:2028 | Medium/High/High | formalization | P2 | pre:cap-autoformalization
+infra-verified-numerics | T0 | Verified floating-point and numerics toolchain | S1:2029 S2:2028 S3:2028 | Medium/High/High | formalization | P2 | pre:cap-autoformalization,cap-applied-math
+infra-tool-qualification | T0 | Regulators accept AI-produced proofs | S1:>2031 S2:2030 S3:2029 | Low/Medium/Medium | regulatory | P2 | pre:cap-autoformalization,verif-independent-check,verif-code-proof-agents
+verif-independent-check | T0 | Independent checks of AI math | S1:2026 S2:2026 S3:2026 | High/High/High | adoption | P2 | pre:cap-autoformalization
+capability-horizon-compounding | T0 | Month-long autonomous research tasks | S1:2029 S2:2028 S3:2028 | High/High/High | cognitive | P1 | pre:cap-research-math-internal
+capability-ai-rnd-acceleration | T0 | AI speeds up its own development 3x | S1:>2031 S2:2030 S3:2028 | Low/Medium/High | capital | P1 | pre:capability-horizon-compounding
+capability-cost-collapse | T0 | A research result costs less than an engineer-day | S1:2028 S2:2027 S3:2027 | High/High/High | capital | P1 | pre:cap-research-math-public
+capability-controlled-data-access | T0 | Frontier math on ITAR and classified networks | S1:2029 S2:2028 S3:2028 | Medium/High/High | adoption | P1 | pre:cap-research-math-public
+capability-open-weights-math | T0 | Open-weight model at research-math level | S1:2029 S2:2028 S3:2028 | Medium/High/High | cognitive | P1 | pre:cap-research-math-public
+capability-cheap-trust | T2 | Trust in days: automated statement audits | S1:2029 S2:2028 S3:2028 | Medium/High/High | adoption | P2 | pre:verif-independent-check,cap-autoformalization
+capability-algorithm-discovery | T2 | AI-discovered algorithms in space codes | S1:2028 S2:2027 S3:2027 | High/High/High | adoption | P1 (public AlphaEvolve-style search on teams' own evaluators; catalog families 102, 117 and 125 act via P3) | pre:cap-research-math-internal
+capability-learned-emulators | T2 | AI emulators of space physics codes with stated error bounds | S1:2029 S2:2028 S3:2028 | Medium/High/High | data | P4 | pre:
+capability-engineering-adoption | T4 | On-demand applied math in space engineering | S1:2029 S2:2028 S3:2028 | Medium/High/High | adoption | P1 | pre:cap-applied-math,capability-cheap-trust
+capability-ai-eda-space-processor | T5 | AI-designed radiation-tolerant space processor | S1:>2031 S2:2030 S3:2029 | Low/Medium/Medium | fabrication | P1->P7 | pre:cap-design-optimization
+capability-ai-native-spacecraft | T6 | Spacecraft engineered mostly by AI flies | S1:2031 S2:2029 S3:2029 | Medium/High/High | fabrication | P1->P7 | pre:capability-engineering-adoption
+capability-program-cycle-compression | T7 | Development cycles shrink by a quarter to a third, not 10x | S1:>2031 S2:2031 S3:2030 | Low/Medium/Medium | experiment | P1->P7 | pre:capability-engineering-adoption,capability-cheap-trust
+comms-ai-cryptanalysis | T0 | AI agents audit cryptography at research grade | S1:2028 S2:2027 S3:2027 | Medium/High/High | adoption | P1->P3 | pre:cap-research-math-public
+comms-expander-constructions | T1 | Explicit optimal expanders (conditional) | S1:2028 S2:2027 S3:2027 | Speculative/Low/Low | formalization | P6 | pre:cap-research-math-internal,verif-independent-check
+comms-certified-interference-bounds | T2 | Provable interference compliance for shared spectrum | S1:2030 S2:2028 S3:2028 | Medium/High/High | adoption | P1->P2 | pre:cap-applied-math
+comms-certified-network-optimization | T2 | Near-optimal mesh routing with a proven gap | S1:2028 S2:2027 S3:2027 | Medium/High/High | cognitive | P1->P4 | pre:cap-research-math-public
+comms-verified-routing-software | T2 | Formally verified constellation control plane | S1:2029 S2:2028 S3:2028 | Medium/High/High | formalization | P2 | pre:cap-autoformalization,cap-research-math-public,verif-code-proof-agents
+comms-pq-verified-implementations | T2 | Proven-correct post-quantum crypto for space processors | S1:2029 S2:2028 S3:2028 | Medium/High/High | qualification | P2 | pre:cap-autoformalization
+comms-code-design-on-demand | T2 | Custom channel codes on request | S1:2029 S2:2028 S3:2028 | Medium/High/High | adoption | P1->P4 | pre:cap-research-math-public
+comms-finite-key-qkd-proofs | T2 | Tight, machine-checked security proofs for satellite QKD | S1:2029 S2:2028 S3:2028 | Medium/High/High | formalization | P1->P2 | pre:cap-applied-math
+comms-optical-availability-models | T3 | Certified availability for optical ground networks | S1:2030 S2:2029 S3:2029 | Medium/High/High | data | P1->P5 | pre:cap-applied-math
+comms-quantum-receiver-theory | T3 | Receivers that beat photon counting | S1:>2031 S2:2029 S3:2028 | Low/Medium/Medium | experiment | P6 | pre:cap-applied-math
+comms-constellation-design-optimizer | T4 | Constellation design with proven compliance | S1:2031 S2:2029 S3:2028 | Low/Medium/High | adoption | P1->P6 | pre:cap-design-optimization,comms-certified-interference-bounds,comms-certified-network-optimization
+comms-hardness-aware-tasking | T4 | Tasking and ground planning built on proven limits | S1:2029 S2:2028 S3:2028 | Medium/High/High | adoption | P3->P1 | pre:frontier-approx-ceilings,cap-research-math-public
+comms-crypto-agile-architecture | T4 | Crypto-agile satellites with proven update paths | S1:2029 S2:2028 S3:2028 | Medium/High/High | adoption | P2 | pre:comms-pq-verified-implementations
+comms-pq-ttc-flight-demo | T5 | Flight demo of verified post-quantum command links | S1:2030 S2:2029 S3:2029 | Medium/Medium/Medium | launch | P2 | pre:comms-crypto-agile-architecture,comms-pq-verified-implementations
+comms-holevo-receiver-demo | T5 | Ground demo: optical receiver beats photon counting | S1:>2031 S2:2031 S3:2030 | Speculative/Low/Low | experiment | P6 | pre:comms-quantum-receiver-theory
+comms-space-qkd-network-demo | T5 | Multi-node satellite QKD demonstrations | S1:2028 S2:2028 S3:2028 | High/High/High | launch | P7 | pre:
+comms-certified-mesh-operations | T6 | Mega-constellation mesh run with certified optimality | S1:2030 S2:2029 S3:2029 | Low/Medium/High | adoption | P1->P4 + P2 | pre:comms-certified-network-optimization,comms-verified-routing-software
+comms-d2d-coexistence-scheduling | T6 | Predictive coexistence scheduling for direct-to-device | S1:2031 S2:2029 S3:2028 | Low/Medium/High | adoption | P1->P4 | pre:comms-certified-interference-bounds
+comms-optical-ground-network-service | T6 | Weather-robust optical ground network service | S1:2031 S2:2030 S3:2030 | Low/Medium/Medium | capital | P1->P6 | pre:comms-optical-availability-models
+comms-space-qkd-backbone | T6 | Certified operational space QKD service | S1:>2031 S2:2031 S3:2031 | Low/Low/Low | capital | P2->P7 | pre:comms-space-qkd-network-demo
+comms-pq-fleet-migration | T6 | Satellite fleets crypto-agile before the 2035 cutoff | S1:>2031 S2:2030 S3:2029 | Speculative/Low/Medium | regulatory | P2 | pre:comms-crypto-agile-architecture
+comms-capacity-per-dollar-share | T7 | Software adds 10%+ capacity on the same hardware | S1:>2031 S2:2030 S3:2030 | Low/Low/Medium | adoption | P1->P4 | pre:comms-certified-mesh-operations,comms-d2d-coexistence-scheduling
+comms-verified-crypto-procurement-norm | T7 | Machine-checked crypto becomes a procurement norm | S1:>2031 S2:2030 S3:2030 | Low/Low/Medium | regulatory | P2 | pre:comms-pq-ttc-flight-demo,comms-crypto-agile-architecture
+comms-performance-based-sharing-regime | T7 | International shift to provable spectrum sharing | S1:2031 S2:2031 S3:2031 | Low/Low/Low | regulatory | P2 | pre:
+comms-crqc-before-2031 | T7 | Code-breaking quantum computer before 2031 | S1:>2031 S2:>2031 S3:2031 | Speculative/Speculative/Low | fabrication | P7 | pre:
+frontier-applied-posing | T0 | Engineering math posed as precise problems | S1:2029 S2:2028 S3:2028 | Medium/High/High | adoption | P1 | pre:cap-autoformalization,cap-research-math-internal
+frontier-euler-blowup-r3 | T1 | Euler blowup in open space, proven | S1:2029 S2:2028 S3:2028 | Medium/High/High | formalization | P5 | pre:cap-research-math-internal,verif-independent-check
+frontier-ns-unforced | T1 | Unforced Navier-Stokes settled (regularity, or blowup with no force) | S1:2030 S2:2029 S3:2028 | Low/Medium/High | cognitive | P5 | pre:verif-independent-check,cap-research-math-internal
+frontier-turbulence-rigorous | T1 | Turbulence laws proven | S1:>2031 S2:2030 S3:2029 | Low/Medium/Medium | cognitive | P5->P6 | pre:cap-research-math-internal
+frontier-kinetic-global-regularity | T1 | Boltzmann and Landau equations proven well-behaved | S1:2029 S2:2028 S3:2028 | Medium/Medium/High | formalization | P5 | pre:cap-research-math-internal,verif-independent-check
+frontier-nonuniqueness-map | T1 | Where fluid and kinetic models are not unique | S1:2029 S2:2028 S3:2028 | Medium/High/High | cognitive | P3->P5 | pre:cap-research-math-internal
+frontier-landau-damping-general | T1 | Landau damping settled for realistic plasmas | S1:2029 S2:2027 S3:2027 | Medium/High/High | cognitive | P5->P6 | pre:cap-research-math-internal
+frontier-mhd-wellposedness | T1 | Which plasma fluid models are well-posed | S1:2029 S2:2028 S3:2028 | Medium/High/High | cognitive | P3->P5 | pre:cap-research-math-internal
+frontier-nbody-arnold-diffusion | T1 | Long-term orbital stability with real constants | S1:>2031 S2:2029 S3:2028 | Low/Medium/Medium | cognitive | P5->P6 | pre:cap-research-math-internal
+frontier-chaos-linear-response | T1 | Derivatives of chaotic averages | S1:>2031 S2:2029 S3:2028 | Low/Medium/Medium | cognitive | P6 | pre:cap-research-math-internal
+frontier-approx-ceilings | T1 | Proven limits for scheduling and network planning | S1:2027 S2:2027 S3:2027 | High/High/High | formalization | P3 | pre:verif-independent-check,cap-research-math-internal
+frontier-nn-verification-complexity | T1 | How hard neural networks are to verify | S1:2028 S2:2027 S3:2027 | High/High/High | cognitive | P3 | pre:cap-research-math-internal
+frontier-optical-quantum-capacity | T1 | Capacity limits of laser and quantum links (conditional) | S1:2028 S2:2027 S3:2027 | Low/Medium/Medium | formalization | P5 | pre:verif-independent-check,cap-research-math-internal
+frontier-p-vs-np | T1 | P vs NP resolved | S1:>2031 S2:>2031 S3:>2031 | Speculative/Speculative/Speculative | cognitive | P3 | pre:cap-research-math-internal
+frontier-lattice-crypto-watch | T1 | AI finds a crack in post-quantum or space-link crypto (watch item) | S1:>2031 S2:2029 S3:2028 | Speculative/Low/Low | cognitive | P3 | pre:cap-research-math-internal,cap-research-math-public,comms-ai-cryptanalysis
+frontier-hjb-guarantees | T2 | Optimal control with proven guarantees | S1:2030 S2:2028 S3:2028 | Medium/High/High | cognitive | P1->P2 | pre:cap-applied-math
+frontier-scalable-global-certificates | T2 | Certified global optima for nonconvex design | S1:2030 S2:2028 S3:2028 | Low/Medium/High | cognitive | P4 | pre:cap-applied-math,cap-research-math-public
+frontier-certified-pde-error | T2 | Guaranteed error bars for smooth-regime simulations | S1:2030 S2:2028 S3:2028 | Medium/High/High | adoption | P1->P6 | pre:cap-applied-math,infra-verified-numerics
+frontier-certified-turbulent-cfd | T2 | Error bars for turbulent and shocked flows | S1:>2031 S2:2031 S3:2030 | Speculative/Speculative/Low | cognitive | P6 | pre:frontier-turbulence-rigorous,frontier-chaos-linear-response,frontier-nonuniqueness-map,frontier-certified-pde-error
+frontier-stiff-certified | T2 | Stiff chemistry with certified error (reduced mechanisms and solvers) | S1:2030 S2:2028 S3:2028 | Medium/High/High | adoption | P1->P4->P6 (+P2 for verified integrators) | pre:cap-applied-math,infra-verified-numerics
+frontier-rare-event-certified | T2 | Certified rare-event probabilities | S1:2030 S2:2028 S3:2028 | Medium/High/High | adoption | P1->P5 | pre:cap-applied-math
+frontier-transport-certified | T2 | Radiation transport with error bounds | S1:2030 S2:2028 S3:2028 | Low/Medium/High | data | P1->P6 | pre:cap-applied-math
+frontier-inverse-stability | T2 | How much sensor data is enough | S1:2030 S2:2028 S3:2028 | Low/Medium/Medium | data | P1->P6 | pre:cap-applied-math
+frontier-xc-certified | T3 | Density functionals with certified error bars | S1:2030 S2:2028 S3:2028 | Low/Medium/High | data | P3->P6 | pre:cap-applied-math
+frontier-chaotic-adjoint-design | T4 | Gradient design of turbulent and chaotic systems | S1:>2031 S2:2030 S3:2029 | Speculative/Low/Low | experiment | P6 | pre:frontier-chaos-linear-response,cap-design-optimization
+frontier-math-unbinds | T7 | Math expertise stops limiting space programs | S1:>2031 S2:2029 S3:2028 | Low/Medium/High | adoption | P1 | pre:cap-research-math-public,frontier-applied-posing,frontier-hjb-guarantees,frontier-certified-pde-error,frontier-rare-event-certified,infra-mathlib-applied,capability-engineering-adoption
+hyper-flight-data-pipeline | T0 | High-cadence instrumented reentry flights | S1:2027 S2:2027 S3:2027 | High/High/High | launch | n/a (physical enabler; feeds P5/P6 calibration) | pre:
+hyper-boltzmann-foundations-check | T1 | Boltzmann foundations checked and scoped | S1:2029 S2:2028 S3:2028 | Medium/Medium/Medium | formalization | P3->P5 | pre:cap-research-math-internal,verif-independent-check
+hyper-stability-analysis-on-demand | T2 | On-demand transition stability analysis for any vehicle | S1:2029 S2:2028 S3:2028 | Medium/High/High | cognitive | P1 | pre:cap-research-math-public,cap-applied-math
+hyper-optimal-test-design | T2 | Information-optimal ground and flight test design | S1:2029 S2:2028 S3:2028 | Medium/High/High | adoption | P1 | pre:cap-research-math-public
+hyper-certified-margin-uq | T2 | Joint probabilistic TPS margin budgets on demand | S1:2029 S2:2028 S3:2028 | Medium/High/High | cognitive | P1->P5 | pre:cap-applied-math
+hyper-verified-aerothermal-numerics | T2 | Certified error bounds for hypersonic CFD kernels | S1:>2031 S2:2030 S3:2029 | Low/Low/Medium | formalization | P2 | pre:infra-verified-numerics,infra-mathlib-applied,cap-applied-math
+hyper-kinetic-solver-certification | T2 | Error-controlled kinetic solvers for the rarefied-to-continuum gap | S1:>2031 S2:2029 S3:2028 | Low/Medium/Medium | cognitive | P5 | pre:cap-applied-math
+hyper-tps-inverse-nde | T2 | Inverse-problem theory and algorithms for heat-shield inspection | S1:2030 S2:2028 S3:2028 | Medium/Medium/Medium | data | P1->P6 (365/372/366: P5, conditional) | pre:cap-applied-math
+hyper-transition-prediction-theory | T3 | Predictive hypersonic transition (receptivity, roughness, ablation) | S1:>2031 S2:2030 S3:2030 | Low/Low/Medium | data | P1->P6 | pre:hyper-stability-analysis-on-demand,cap-physics-theory,hyper-flight-data-pipeline
+hyper-sbli-heating-closure | T3 | Turbulence closures for shock interactions and cold-wall heating | S1:>2031 S2:2030 S3:2029 | Low/Low/Medium | data | P1->P6 | pre:cap-physics-theory,cap-applied-math
+hyper-radiation-kinetics | T3 | Closing the radiative-heating gap (Mars, Venus, 12+ km/s return) | S1:>2031 S2:2030 S3:2029 | Low/Low/Medium | experiment | P1->P6 | pre:cap-physics-theory
+hyper-gas-surface-chemistry | T3 | First-principles gas-surface chemistry for heat-shield materials | S1:>2031 S2:2030 S3:2029 | Low/Medium/Medium | experiment | P1->P6 (278/275: P3 ceilings) | pre:cap-physics-theory
+hyper-ablator-multiscale-response | T3 | Predictive ablator response (pyrolysis, permeability, spallation) | S1:>2031 S2:2030 S3:2029 | Low/Medium/Medium | experiment | P1->P6 | pre:cap-physics-theory,cap-applied-math
+hyper-tile-damage-accumulation | T3 | Damage-accumulation model for reusable ceramic tiles | S1:2030 S2:2029 S3:2029 | Medium/Medium/Medium | data | P1->P6 | pre:cap-applied-math,physclock-starship-full-reuse
+hyper-aerothermal-design-loop | T4 | AI-run aerothermal design loop (shape + trajectory + TPS) | S1:2031 S2:2029 S3:2028 | Low/High/High | adoption | P1->P6 | pre:cap-design-optimization
+hyper-probabilistic-tps-sizing | T4 | Probabilistic heat-shield sizing adopted in practice | S1:2030 S2:2029 S3:2029 | Medium/Medium/Medium | adoption | P1->P5 | pre:hyper-certified-margin-uq
+hyper-srp-aeropropulsive-models | T4 | Validated supersonic-retropropulsion aero-propulsive models | S1:2030 S2:2029 S3:2028 | Low/Medium/Medium | data | P1->P6 | pre:cap-applied-math
+hyper-certified-edl-guidance | T4 | Formally verified entry, aerocapture and powered-descent guidance | S1:>2031 S2:2031 S3:2030 | Low/Low/Medium | qualification | P2 | pre:cap-autoformalization,infra-verified-numerics,infra-tool-qualification,verif-closed-loop-guarantees,verif-verified-gnc-numerics
+hyper-blackout-prediction-tools | T4 | Coupled plasma-sheath and RF-link prediction tools | S1:2029 S2:2028 S3:2028 | Medium/High/High | data | P1 | pre:cap-applied-math
+hyper-rapid-reuse-heatshield | T5 | Rapidly reusable orbital heat shield (ship scale) | S1:2031 S2:2030 S3:2029 | Medium/Medium/Medium | launch | P7 (physical clock; AI effect ~months) | pre:physclock-starship-full-reuse
+hyper-thinner-tps-flown | T5 | Flown heat shield sized with reduced, model-based margins | S1:2031 S2:2030 S3:2030 | Low/Medium/Medium | launch | P5->P7 | pre:hyper-probabilistic-tps-sizing,hyper-flight-data-pipeline
+hyper-aerocapture-demo | T5 | First aerocapture flight demonstration | S1:2030 S2:2030 S3:2030 | Low/Low/Low | capital | P1->P7 | pre:
+hyper-12kms-entry-design-basis | T5 | Ground-validated design basis for 12-14 km/s Earth return | S1:>2031 S2:2031 S3:2030 | Speculative/Low/Low | experiment | P6 | pre:hyper-radiation-kinetics,hyper-ablator-multiscale-response
+hyper-heavy-deployable-decelerator | T5 | Next deployable heat-shield flight (inflatable or mechanical, 10 m class or larger) | S1:2030 S2:2030 S3:2030 | Low/Low/Low | capital | P1->P7 | pre:
+hyper-mars-heavy-landing | T6 | First landing of 20 t or more on Mars | S1:2031 S2:2031 S3:2031 | Low/Low/Low | launch | P1->P7 | pre:prop-ship-transfer-demo
+hyper-p2p-cargo-demo | T6 | Point-to-point rocket cargo, repeated demonstration flights | S1:>2031 S2:2031 S3:2030 | Low/Low/Low | regulatory | P7 | pre:physclock-starship-full-reuse
+hyper-reentry-cadence-economy | T7 | Routine, cheap reentry: 50+ commercial returns a year | S1:>2031 S2:2031 S3:2030 | Low/Low/Low | capital | P7 (market and physical clock; AI-math effect marginal) | pre:hyper-flight-data-pipeline
+hyper-outer-planet-aerocapture-baseline | T7 | Aerocapture baselined for an outer-planet flagship | S1:>2031 S2:>2031 S3:2031 | Speculative/Speculative/Speculative | capital | P1->P7 | pre:hyper-aerocapture-demo
+materials-dft-limits | T1 | Proven limits of density functional theory | S1:2028 S2:2027 S3:2027 | Medium/Medium/Medium | formalization | P3 | pre:cap-research-math-internal,verif-independent-check
+materials-mlip-certified-uq | T2 | Atomistic AI models with trustworthy error bars | S1:2029 S2:2028 S3:2028 | Medium/High/High | data | P1->P6 | pre:cap-applied-math
+materials-multiscale-certified | T2 | Certified bridges from microstructure to part properties | S1:>2031 S2:2029 S3:2028 | Speculative/Medium/Medium | cognitive | P6 | pre:cap-applied-math,infra-mathlib-applied
+materials-allowables-stats-framework | T2 | Design allowables from far fewer test coupons | S1:2031 S2:2029 S3:2028 | Low/Medium/Medium | regulatory | P1->P6 | pre:cap-applied-math,cap-research-math-public
+materials-autonomous-characterization | T2 | Reliable automated structure identification | S1:2029 S2:2027 S3:2027 | Medium/High/High | data | P1 | pre:cap-applied-math
+materials-learned-functionals | T3 | Chemical accuracy at DFT cost | S1:2030 S2:2028 S3:2028 | Low/Medium/Medium | data | P1->P6 | pre:cap-applied-math
+materials-quantum-chem-advantage | T3 | Quantum computers beat classical chemistry | S1:>2031 S2:2031 S3:2030 | Speculative/Low/Low | fabrication | P4->P7 | pre:cap-research-math-public
+materials-am-defect-physics | T3 | Predictive physics of 3D-printed metal parts | S1:2030 S2:2029 S3:2028 | Low/Medium/Medium | data | P1->P6 | pre:cap-applied-math,cap-autonomous-labs
+materials-creep-oxidation-life-models | T3 | Long-life predictions from short tests | S1:2031 S2:2029 S3:2028 | Low/Medium/Medium | experiment | P1->P6 | pre:cap-applied-math
+materials-see-system-models | T3 | Predicting radiation errors in commercial AI chips | S1:2029 S2:2028 S3:2028 | Medium/High/High | experiment | P1 | pre:cap-applied-math
+materials-perovskite-degradation-models | T3 | Knowing how long perovskite cells last in orbit | S1:2030 S2:2028 S3:2028 | Low/Medium/Medium | data | P1->P6 | pre:cap-applied-math
+materials-microgravity-process-models | T3 | Knowing what is worth making in orbit | S1:2030 S2:2028 S3:2028 | Low/Medium/Medium | data | P1->P6 | pre:cap-applied-math
+materials-ht-alloy-design | T4 | AI designs new rocket-engine alloys in weeks | S1:2030 S2:2028 S3:2028 | Medium/High/High | experiment | P1->P6 | pre:materials-mlip-certified-uq,cap-applied-math
+materials-uhtc-tps-design | T4 | AI-designed heat shields and hot structures | S1:2030 S2:2029 S3:2029 | Medium/Medium/High | experiment | P1->P6 | pre:cap-design-optimization,materials-mlip-certified-uq
+materials-energetics-design | T4 | AI-designed green and high-energy propellants | S1:2029 S2:2028 S3:2028 | Medium/High/High | experiment | P1->P6 | pre:cap-autonomous-labs
+materials-am-digital-twin-qual | T4 | Certify each printed part from its build data | S1:2031 S2:2030 S3:2029 | Low/Medium/Medium | regulatory | P1->P6 | pre:materials-am-defect-physics,materials-allowables-stats-framework,physclock-credibility-evidence-standard
+materials-verified-fault-tolerance | T4 | Proven radiation-fault tolerance for orbital AI | S1:2030 S2:2029 S3:2028 | Low/Medium/High | adoption | P2 | pre:materials-see-system-models,cap-autoformalization,infra-verified-numerics
+materials-battery-life-qual | T4 | Battery qualification without years of cycling | S1:2030 S2:2029 S3:2029 | Low/Medium/Medium | qualification | P1->P6 | pre:cap-applied-math
+materials-closed-loop-discovery | T5 | Autonomous labs discover real new materials | S1:2030 S2:2029 S3:2029 | Medium/Medium/High | experiment | P1->P7 | pre:cap-autonomous-labs,materials-autonomous-characterization,materials-mlip-certified-uq
+materials-ai-alloy-flight | T5 | First AI-agent-designed alloy flies in a rocket engine | S1:>2031 S2:2030 S3:2030 | Speculative/Low/Medium | experiment | P1->P7 | pre:materials-ht-alloy-design
+materials-tps-new-material-flight | T5 | AI-designed heat-shield material flies | S1:2031 S2:2030 S3:2030 | Low/Medium/High | experiment | P1->P7 | pre:materials-uhtc-tps-design
+materials-perovskite-tandem-flight | T5 | Model-qualified perovskite tandem proves itself in orbit | S1:>2031 S2:2030 S3:2030 | Speculative/Low/Low | experiment | P1->P7 | pre:materials-perovskite-degradation-models
+materials-wbg-rad-hard-power | T5 | Radiation-robust high-voltage SiC power electronics | S1:2031 S2:2030 S3:2029 | Low/Medium/Medium | fabrication | P7 (empirical hardening under way without AI math; AI physics theory accelerates via P6) | pre:
+materials-new-propellant-flight | T5 | AI-designed propellant flies | S1:>2031 S2:2031 S3:2030 | Speculative/Low/Low | qualification | P1->P7 | pre:materials-energetics-design
+materials-cots-orbital-compute-ops | T6 | Commercial AI chips running in orbit at scale | S1:2029 S2:2029 S3:2029 | Medium/High/High | launch | P7 (not AI-math-driven; AI math enters via P1 fault models and P2 proven fault tolerance, both soft) | pre:struct-highflux-radiator-flight
+materials-perovskite-primary-power | T6 | Perovskite arrays power operational satellites | S1:>2031 S2:2031 S3:2031 | Speculative/Low/Low | qualification | P7 | pre:
+materials-in-space-mfg-product | T6 | Products made in orbit sold at recurring volume | S1:>2031 S2:2031 S3:2030 | Speculative/Low/Low | capital | P1->P7 | pre:
+materials-hot-section-reuse | T6 | Longer-life reusable engines from new alloys | S1:>2031 S2:>2031 S3:2031 | Speculative/Speculative/Low | data | P7 | pre:materials-ai-alloy-flight,materials-creep-oxidation-life-models
+materials-qual-cycle-compression | T7 | Space materials insertion drops below five years | S1:>2031 S2:2031 S3:2031 | Speculative/Low/Low | qualification | P1->P6->P7 | pre:materials-ai-alloy-flight
+materials-specific-power-step | T7 | A step change in spacecraft power per kilogram | S1:>2031 S2:>2031 S3:>2031 | Speculative/Speculative/Speculative | qualification | P7 | pre:materials-perovskite-primary-power
+physclock-flight-test-cadence | T5 | Monthly flight testing of a fully reusable heavy launcher | S1:2028 S2:2028 S3:2028 | High/High/High | fabrication | P7 (exogenous) | pre:
+physclock-regulator-ai-capacity | T0 | Regulators review with AI tools | S1:2029 S2:2028 S3:2028 | Medium/Medium/Medium | adoption | P1 | pre:cap-research-math-public,capability-controlled-data-access
+physclock-optimal-test-campaigns | T2 | Tests chosen for information, not habit | S1:2029 S2:2028 S3:2028 | Medium/High/High | adoption | P1 | pre:cap-applied-math,capability-engineering-adoption
+physclock-range-airspace-scheduling | T2 | Launch range and airspace scheduled by optimizer | S1:2028 S2:2028 S3:2028 | Medium/Medium/Medium | adoption | P1 | pre:cap-research-math-public
+physclock-credibility-evidence-standard | T2 | A rulebook for trusting AI-made analysis | S1:2031 S2:2029 S3:2028 | Low/Medium/Medium | regulatory | P2 | pre:verif-independent-check,capability-cheap-trust
+physclock-ai-mishap-analysis | T4 | Anomaly diagnosis 3-10x faster | S1:2029 S2:2027 S3:2027 | Medium/High/High | experiment | P1 | pre:cap-applied-math
+physclock-ai-flight-safety-analysis | T4 | License analyses drafted and checked by AI | S1:2029 S2:2027 S3:2027 | Medium/High/High | adoption | P1->P2 | pre:cap-applied-math
+physclock-qual-by-analysis-credit | T4 | Analysis credit replaces some environmental qualification tests | S1:>2031 S2:2031 S3:2030 | Low/Low/Medium | qualification | P2->P6 | pre:physclock-credibility-evidence-standard,struct-cert-by-analysis
+physclock-ai-run-test-stands | T4 | Test stands that run themselves | S1:2030 S2:2029 S3:2028 | Medium/Medium/High | capital | P1 | pre:cap-autonomous-labs
+physclock-nuclear-safety-case-ai | T4 | Nuclear launch safety cases in months | S1:2030 S2:2028 S3:2028 | Low/Medium/Medium | regulatory | P1->P2 | pre:cap-applied-math,capability-controlled-data-access
+physclock-starship-full-reuse | T5 | Both Starship stages caught and reflown | S1:2027 S2:2027 S3:2027 | High/High/High | experiment | P7 (exogenous) | pre:
+physclock-twin-reflight-clearance | T5 | Reflight cleared by data, not teardown | S1:2031 S2:2030 S3:2029 | Low/Medium/Medium | data | P1->P6 | pre:physclock-starship-full-reuse,prop-life-twin,hyper-rapid-reuse-heatshield
+physclock-reactor-in-space | T5 | A U.S. fission reactor launched | S1:2031 S2:2030 S3:2030 | Low/Low/Low | capital | P7 | pre:
+physclock-pad-propellant-infra | T6 | Pads and propellant plants for hundreds of heavy flights | S1:2029 S2:2029 S3:2029 | High/High/High | fabrication | P7 (exogenous) | pre:
+physclock-heavy-cadence-100 | T6 | 100+ fully reusable heavy launches a year | S1:2030 S2:2030 S3:2029 | Medium/High/High | fabrication | P7 (mostly exogenous; AI adds 0-0.5 year in S2 through anomaly closure) | pre:physclock-starship-full-reuse,physclock-pad-propellant-infra,physclock-flight-test-cadence
+physclock-reusable-competition | T6 | A second reusable heavy-lift fleet at scale | S1:2030 S2:2030 S3:2029 | Medium/Medium/Medium | fabrication | P7 (exogenous) | pre:
+physclock-licensing-in-weeks | T6 | Launch licensing in weeks | S1:2029 S2:2028 S3:2028 | Medium/Medium/Medium | regulatory | P1 (with policy reform) | pre:physclock-regulator-ai-capacity
+physclock-critical-payload-reuse-acceptance | T6 | Crew and national-security missions on data-cleared reused hardware | S1:>2031 S2:2031 S3:2030 | Low/Medium/Medium | qualification | P2->P7 | pre:physclock-twin-reflight-clearance,physclock-credibility-evidence-standard
+physclock-cheap-mass-internal | T7 | Starship internal cost under $300 per kg | S1:2029 S2:2029 S3:2029 | High/High/High | launch | P7 (exogenous) | pre:physclock-starship-full-reuse
+physclock-cheap-mass-customer | T7 | Customers buy orbit under $1,000 per kg | S1:>2031 S2:2031 S3:2030 | Low/Low/Medium | adoption | P7 (exogenous price; AI enters only through competitors' engineering) | pre:physclock-cheap-mass-internal,physclock-heavy-cadence-100
+physclock-qual-cycle-compressed | T7 | Qualification campaigns 15-30% shorter | S1:>2031 S2:2031 S3:2030 | Low/Low/Medium | qualification | P2->P6 | pre:physclock-optimal-test-campaigns,physclock-qual-by-analysis-credit
+physclock-dev-capital-cut | T7 | AI cuts development cost of new space hardware by about 10-20% | S1:2031 S2:2029 S3:2029 | Low/Medium/High | adoption | P1 | pre:capability-engineering-adoption,physclock-optimal-test-campaigns
+physclock-new-entrant-fast-orbit | T7 | A new reusable launcher from start to orbit in three years | S1:>2031 S2:>2031 S3:2031 | Speculative/Speculative/Low | qualification | P1->P7 | pre:capability-engineering-adoption
+physclock-satellite-gen-cadence | T7 | New satellite generations every year | S1:2030 S2:2030 S3:2029 | Medium/Medium/Medium | fabrication | P1->P7 | pre:capability-engineering-adoption
+plasma-vm-wellposed | T1 | Relativistic Vlasov-Maxwell (one species) proved well-behaved (checked) | S1:2027 S2:2027 S3:2027 | High/High/High | formalization | P5 | pre:verif-independent-check,cap-autoformalization
+plasma-lean-kinetic-library | T2 | A formal library for plasma equations | S1:2030 S2:2028 S3:2028 | Medium/High/High | formalization | P2 | pre:infra-mathlib-applied,cap-autoformalization
+plasma-verified-kinetic-numerics | T2 | Plasma simulations with certified error bars | S1:>2031 S2:2029 S3:2028 | Low/Medium/High | formalization | P2->P6 | pre:plasma-lean-kinetic-library,infra-verified-numerics,cap-applied-math
+plasma-kinetic-solvers-at-scale | T2 | Full-thruster kinetic simulation becomes affordable | S1:2030 S2:2028 S3:2028 | Low/Medium/High | cognitive | P1->P4 | pre:cap-applied-math
+plasma-gk-surrogates | T2 | Millisecond fusion-turbulence models trusted in design | S1:2027 S2:2027 S3:2027 | High/High/High | data | P1->P6 | pre:
+plasma-swx-data-assimilation | T2 | Sun-to-Earth ensemble forecasting with honest uncertainty | S1:2029 S2:2028 S3:2028 | Medium/High/High | data | P1->P6 | pre:cap-applied-math
+plasma-kinetic-closures | T3 | Fluid plasma models derived from kinetic theory, with error bounds | S1:>2031 S2:2029 S3:2029 | Low/Medium/Medium | data | P6 | pre:cap-physics-theory
+plasma-hall-anomalous-closure | T3 | Solving the 60-year Hall-thruster electron transport puzzle | S1:>2031 S2:2030 S3:2029 | Low/Low/Medium | experiment | P1->P6 | pre:plasma-kinetic-solvers-at-scale,cap-physics-theory
+plasma-magnetic-nozzle-theory | T3 | Magnetic nozzle detachment settled | S1:>2031 S2:2030 S3:2029 | Low/Low/Medium | experiment | P6 | pre:plasma-kinetic-solvers-at-scale
+plasma-eruption-onset-theory | T3 | Predicting when the Sun erupts | S1:>2031 S2:2030 S3:2029 | Low/Medium/Medium | data | P1->P6 | pre:plasma-swx-data-assimilation,cap-physics-theory
+plasma-thermo-density-uq | T3 | Upper-atmosphere density and drag with honest error bars | S1:2030 S2:2029 S3:2028 | Medium/High/High | data | P1->P6 | pre:cap-applied-math
+plasma-dhe3-burn-physics | T3 | D-He3 fusion demonstrated at useful rates | S1:>2031 S2:>2031 S3:2031 | Low/Low/Low | experiment | P7 | pre:
+plasma-ep-predictive-design | T4 | Design-before-build electric thrusters | S1:>2031 S2:2030 S3:2029 | Low/Low/Medium | data | P1->P6 | pre:plasma-kinetic-solvers-at-scale,cap-applied-math,plasma-hall-anomalous-closure
+plasma-ep-life-by-analysis | T4 | Thruster life qualified with less than a full-duration wear test | S1:>2031 S2:2031 S3:2031 | Low/Low/Low | qualification | P6 | pre:plasma-hall-anomalous-closure,physclock-credibility-evidence-standard
+plasma-stellarator-design-loop | T4 | AI-closed-loop fusion-machine design | S1:2030 S2:2028 S3:2028 | Medium/High/High | data | P1->P6 | pre:plasma-gk-surrogates,cap-design-optimization
+plasma-fusion-propulsion-design-closure | T4 | A credible paper design of a fusion rocket | S1:>2031 S2:2031 S3:2030 | Speculative/Low/Low | experiment | P6 | pre:plasma-magnetic-nozzle-theory,cap-design-optimization,cap-physics-theory
+plasma-fusion-net-gain | T5 | First magnetic-fusion net energy gain | S1:2028 S2:2028 S3:2028 | Medium/Medium/Medium | fabrication | P7 | pre:
+plasma-ai-designed-thruster-flight | T5 | AI-designed thruster flies and performs as predicted | S1:>2031 S2:2031 S3:2030 | Speculative/Low/Medium | fabrication | P1->P7 | pre:cap-design-optimization
+plasma-high-power-ep-life | T5 | 100 kW-class thruster runs for thousands of hours | S1:>2031 S2:>2031 S3:>2031 | Low/Low/Low | experiment | P7 | pre:
+plasma-abep-demo | T5 | Air-breathing electric propulsion flight test | S1:>2031 S2:2031 S3:2030 | Low/Low/Low | fabrication | P7 | pre:
+plasma-active-shielding | T5 | Magnetic radiation shield for crews | S1:>2031 S2:>2031 S3:>2031 | Speculative/Speculative/Speculative | fabrication | P7 | pre:
+plasma-fusion-propulsion-flight | T5 | Fusion-powered thrust in space | S1:>2031 S2:>2031 S3:>2031 | Speculative/Speculative/Speculative | experiment | P7 | pre:plasma-fusion-net-gain,plasma-dhe3-burn-physics,plasma-fusion-propulsion-design-closure
+plasma-cme-arrival-skill | T6 | CME arrival forecasts within about 8 hours | S1:>2031 S2:2031 S3:2030 | Low/Low/Medium | data | P1->P6 | pre:plasma-swx-data-assimilation
+plasma-bz-forecast | T6 | Knowing a CME's magnetic punch a day ahead | S1:>2031 S2:>2031 S3:>2031 | Speculative/Low/Low | data | P6 | pre:plasma-swx-data-assimilation
+plasma-storm-robust-leo-ops | T6 | Storm-proof low-orbit operations | S1:2031 S2:2030 S3:2029 | Low/Medium/Medium | adoption | P1->P6 | pre:plasma-thermo-density-uq
+plasma-radbelt-charging-forecast | T6 | Probabilistic radiation-belt and charging forecasts days ahead | S1:2030 S2:2029 S3:2028 | Low/Medium/High | adoption | P1->P6 | pre:cap-applied-math
+plasma-vleo-at-scale | T6 | Commercial constellations below 300 km | S1:>2031 S2:2031 S3:2030 | Low/Low/Medium | capital | P1->P7 | pre:
+plasma-nep-mars-cargo | T6 | Megawatt electric cargo ships to Mars | S1:>2031 S2:>2031 S3:>2031 | Speculative/Speculative/Speculative | capital | P7 | pre:plasma-high-power-ep-life
+plasma-outcome-ep-cycle-time | T7 | Faster, cheaper electric-propulsion development | S1:>2031 S2:>2031 S3:>2031 | Speculative/Speculative/Speculative | qualification | P6->P7 | pre:plasma-ep-predictive-design,plasma-ep-life-by-analysis
+prop-ns-forced-verified | T1 | Forced Navier–Stokes blowup independently checked | S1:2027 S2:2027 S3:2027 | High/High/High | formalization | P3+P5 | pre:verif-independent-check
+prop-certified-stability-rom | T2 | Certified combustion-stability models | S1:2029 S2:2028 S3:2028 | Medium/High/High | cognitive | P1 | pre:cap-applied-math
+prop-cfd-auto-vv | T2 | Automated CFD verification and credibility | S1:2029 S2:2028 S3:2028 | Medium/High/High | adoption | P1->P2 | pre:cap-applied-math,cap-research-math-public
+prop-mass-gauging | T2 | Low-gravity propellant gauging limits | S1:2029 S2:2028 S3:2028 | Medium/High/High | data | P1 (+P3 via classical log-stability limits, general) | pre:cap-applied-math
+prop-closure-theory | T3 | Turbulence and combustion closures with guarantees | S1:>2031 S2:2030 S3:2030 | Low/Low/Medium | data | P1->P6 | pre:cap-physics-theory
+prop-flame-response | T3 | Predictive flame response at engine pressures | S1:>2031 S2:2030 S3:2030 | Low/Medium/Medium | experiment | P6 | pre:frontier-stiff-certified,cap-physics-theory
+prop-rde-mode-theory | T3 | Predictive theory of detonation-engine wave modes | S1:2031 S2:2029 S3:2028 | Low/Medium/Medium | experiment | P1->P6 | pre:cap-applied-math
+prop-cfm-models | T3 | Validated microgravity cryogenic fluid models | S1:2030 S2:2029 S3:2028 | Medium/High/High | data | P1->P6 | pre:prop-ship-transfer-demo,cap-applied-math
+prop-psi-models | T3 | Predictive plume–surface interaction for landers | S1:>2031 S2:2029 S3:2029 | Low/Medium/Medium | data | P1->P6 (363/364 P5 link has nil engineering effect) | pre:cap-applied-math
+prop-ntp-fuel-model | T3 | Nuclear thermal fuel behavior model | S1:>2031 S2:2030 S3:2030 | Low/Low/Low | experiment | P1->P6 | pre:cap-physics-theory,cap-autonomous-labs
+prop-stability-design-tool | T4 | Design out combustion instability before hot fire | S1:>2031 S2:2031 S3:2031 | Low/Low/Low | experiment | P1->P6 | pre:prop-certified-stability-rom,prop-flame-response,prop-cfd-auto-vv
+prop-ai-engine-design-loop | T4 | AI-generated engines at scale | S1:2027 S2:2027 S3:2027 | High/High/High | fabrication | P1 (marginal; not AI-math-driven) | pre:
+prop-turbopump-tool | T4 | Predictive turbopump cavitation and stability | S1:>2031 S2:2029 S3:2028 | Low/Medium/Medium | experiment | P1->P6 | pre:cap-applied-math
+prop-life-twin | T4 | Probabilistic engine life prediction for reuse | S1:2030 S2:2028 S3:2028 | Medium/High/High | data | P1->P6 | pre:cap-applied-math
+prop-start-transient | T4 | Predictive engine start and relight transients | S1:2031 S2:2029 S3:2028 | Low/Medium/High | experiment | P1->P6 | pre:cap-applied-math,prop-cfm-models
+prop-verified-engine-software | T4 | Formally verified engine control software | S1:>2031 S2:2031 S3:2030 | Speculative/Low/Low | regulatory | P2 | pre:cap-autoformalization,infra-verified-numerics,infra-tool-qualification,verif-code-proof-agents
+prop-ship-transfer-demo | T5 | Ship-to-ship cryogenic transfer demonstrated | S1:2027 S2:2027 S3:2027 | High/High/High | launch | P1 (marginal) | pre:
+prop-rde-flight-demo | T5 | Detonation engine flies in space | S1:2029 S2:2029 S3:2029 | Medium/Medium/Medium | qualification | P1 (marginal) | pre:
+prop-ntp-ground-test | T5 | Nuclear thermal engine ground hot fire | S1:>2031 S2:>2031 S3:>2031 | Speculative/Speculative/Speculative | capital | P1 (marginal) | pre:
+prop-hls-refuel-campaign | T6 | Full lunar-lander refueling campaign | S1:2029 S2:2029 S3:2028 | Medium/Medium/High | launch | P1->P7 | pre:prop-ship-transfer-demo
+prop-rde-operational | T6 | Detonation engines in operational service | S1:>2031 S2:2031 S3:2031 | Speculative/Speculative/Low | qualification | P1->P6->P7 | pre:prop-rde-flight-demo
+prop-reuse-extended | T6 | Model-based engine reuse life | S1:2031 S2:2029 S3:2029 | Low/Medium/Medium | data | P1->P6->P7 | pre:prop-life-twin
+prop-ntp-crewed-mars | T6 | Nuclear thermal stage for crewed Mars | S1:>2031 S2:>2031 S3:>2031 | Speculative/Speculative/Speculative | capital | P7 | pre:prop-ntp-ground-test,prop-ntp-fuel-model
+prop-engine-dev-compression | T7 | Engine development time and cost cut | S1:>2031 S2:>2031 S3:2031 | Speculative/Low/Low | experiment | P1->P6 | pre:prop-cfd-auto-vv,prop-stability-design-tool
+prop-cislunar-propellant-economy | T7 | Routine orbital refueling economy | S1:>2031 S2:2030 S3:2029 | Low/Medium/Medium | launch | P1->P6->P7 | pre:prop-hls-refuel-campaign,prop-cfm-models,physclock-heavy-cadence-100
+science-gr-foundations | T1 | Black-hole foundations settled and checked | S1:2029 S2:2028 S3:2028 | Speculative/Low/Low | adoption | P5 (+P3 for mass-area bounds) | pre:cap-research-math-internal,verif-independent-check
+science-energy-condition-nogo | T1 | Warp drives: sharp no-go theorems | S1:2028 S2:2027 S3:2027 | High/High/High | cognitive | P3 | pre:cap-research-math-public
+science-qei-curved | T1 | Hard limits on negative energy from quantum fields | S1:>2031 S2:2029 S3:2028 | Speculative/Low/Medium | cognitive | P3 | pre:cap-research-math-public
+science-beyond-gr-wellposed | T1 | Beyond-Einstein gravity made simulable | S1:2030 S2:2028 S3:2028 | Low/Medium/High | cognitive | P5->P6 | pre:cap-applied-math
+science-second-order-self-force | T2 | LISA's hardest waveforms: second-order self-force around spinning black holes | S1:>2031 S2:2030 S3:2029 | Low/Medium/Medium | cognitive | P1->P6 | pre:cap-applied-math,cap-research-math-public
+science-nr-precision | T2 | Merger simulations precise enough for LISA's loudest signals | S1:>2031 S2:2030 S3:2029 | Low/Medium/Medium | capital | P1->P4 | pre:cap-applied-math
+science-lisa-readiness | T5 | LISA analysis stack passes its accuracy tests | S1:>2031 S2:2031 S3:2030 | Speculative/Low/Medium | adoption | P1->P6 | pre:science-second-order-self-force,science-nr-precision,cap-applied-math
+science-lisa-precision-science | T6 | LISA does precision strong-gravity science from day one | S1:>2031 S2:>2031 S3:>2031 | Speculative/Speculative/Speculative | launch | P7 | pre:science-lisa-readiness
+science-retrieval-identifiability | T2 | Exoplanet atmosphere readings with honest error bars | S1:2030 S2:2028 S3:2028 | Medium/High/High | adoption | P1->P5 | pre:cap-applied-math
+science-opacity-line-lists | T3 | Molecular fingerprints good enough for biosignature claims | S1:>2031 S2:2030 S3:2029 | Low/Medium/Medium | experiment | P1->P6 | pre:cap-autonomous-labs,cap-applied-math
+science-biosignature-false-positive-theory | T3 | Knowing when 'signs of life' are not life | S1:>2031 S2:2031 S3:2030 | Speculative/Low/Medium | experiment | P6 | pre:cap-physics-theory,science-opacity-line-lists,science-retrieval-identifiability
+science-coronagraph-limits | T2 | Proven limits for starlight suppression | S1:2028 S2:2027 S3:2027 | Medium/High/High | cognitive | P3->P4 | pre:cap-research-math-public
+science-wfsc-certified | T4 | Picometer-stable telescopes with guaranteed control | S1:>2031 S2:2029 S3:2028 | Low/Medium/Medium | experiment | P1->P6 | pre:cap-applied-math
+science-hwo-design-closure | T4 | HWO's design closed by AI-integrated modeling | S1:>2031 S2:2030 S3:2030 | Low/Low/Low | capital | P1->P6 | pre:cap-design-optimization,science-smd-budget-restored
+science-vlbi-identifiability | T2 | What space interferometry can prove about black holes | S1:2028 S2:2027 S3:2027 | Medium/High/High | cognitive | P3->P5 | pre:cap-research-math-public
+science-bhex-flight | T6 | First submillimeter space-VLBI mission flies | S1:>2031 S2:>2031 S3:>2031 | Speculative/Speculative/Speculative | capital | P7 | pre:science-smd-budget-restored
+science-cosmo-certified-inference | T2 | Cosmology inference that knows its own errors | S1:2030 S2:2028 S3:2028 | Medium/Medium/High | adoption | P1->P4 | pre:cap-applied-math
+science-dark-energy-verdict | T3 | Is dark energy changing? A decisive answer | S1:2030 S2:2029 S3:2029 | Medium/Medium/Medium | data | P1 | pre:science-stage4-survey-data
+science-helio-tomography | T2 | 3D Sun-to-Earth reconstructions with guarantees | S1:2030 S2:2028 S3:2028 | Low/Medium/High | data | P5->P6 | pre:cap-applied-math
+science-helio-constellation-design | T4 | Observing constellations designed by inverse-problem theory | S1:>2031 S2:2029 S3:2029 | Low/Medium/High | adoption | P1->P6 | pre:science-helio-tomography,cap-design-optimization
+science-coronal-heating-theory | T3 | Coronal heating: an AI-built model passes a blind test | S1:>2031 S2:2030 S3:2029 | Speculative/Low/Medium | data | P6 | pre:cap-physics-theory
+science-quantum-sensor-design | T4 | Quantum sensors designed against full error budgets | S1:2030 S2:2028 S3:2028 | Medium/High/High | experiment | P1 | pre:cap-applied-math
+science-quantum-sensor-flight | T5 | AI-co-designed quantum sensor flies | S1:>2031 S2:2031 S3:2031 | Speculative/Low/Low | qualification | P7 | pre:science-quantum-sensor-design
+science-archival-discovery-engine | T4 | AI mines the space-science archive at scale | S1:2027 S2:2027 S3:2027 | High/High/High | adoption | P1 | pre:
+science-claims-audit | T4 | Extraordinary claims audited in weeks | S1:2028 S2:2027 S3:2027 | Medium/High/High | adoption | P1->P3 | pre:cap-research-math-public
+science-lightsail-stability | T4 | Lightsails proven to ride the beam | S1:2030 S2:2028 S3:2028 | Medium/High/High | experiment | P1->P4 | pre:cap-applied-math
+science-lightsail-demo | T5 | Laser-propelled gram-scale sail demonstrated | S1:>2031 S2:>2031 S3:>2031 | Speculative/Speculative/Speculative | capital | P7 | pre:science-lightsail-stability
+science-propulsion-funding-redirect | T7 | No-go theorems redirect breakthrough-propulsion money | S1:2029 S2:2028 S3:2028 | Low/Low/Low | adoption | P3 | pre:science-energy-condition-nogo,science-claims-audit
+science-return-per-dollar | T7 | More science per mission dollar | S1:2030 S2:2028 S3:2028 | Medium/Medium/High | adoption | P1 | pre:science-archival-discovery-engine,science-cosmo-certified-inference,science-retrieval-identifiability,science-claims-audit
+science-portfolio-shift | T7 | Space science shifts money from analysis to photons | S1:>2031 S2:2030 S3:2030 | Low/Low/Low | capital | P1 | pre:science-return-per-dollar
+struct-test-data-commons | T0 | AI-ready structural and thermal test data | S1:2029 S2:2028 S3:2028 | Medium/High/High | adoption | P1 (enabler) | pre:
+struct-elasticity-fracture-foundations | T1 | Firmer math under elasticity, crack and inspection models | S1:2028 S2:2027 S3:2027 | Low/Medium/Medium | formalization | P5 (+P3 for the 365 nonuniqueness half) | pre:cap-research-math-internal,verif-independent-check
+struct-hot-spots-thermal-modes | T1 | Hot spots conjecture (planar case) confirmed | S1:2028 S2:2027 S3:2027 | Low/Medium/Medium | formalization | P5 | pre:cap-research-math-internal,verif-independent-check
+struct-worst-imperfection-theory | T2 | Worst-case imperfection theory for thin shells | S1:2030 S2:2028 S3:2028 | Medium/High/High | cognitive | P1->P6 | pre:cap-applied-math,struct-test-data-commons
+struct-certified-uq-margins | T2 | Structural margins with certified uncertainty bounds | S1:2030 S2:2028 S3:2028 | Medium/High/High | data | P1 (method availability; acceptance as a substitute for factors is P6, modeled in struct-cert-by-analysis) | pre:cap-applied-math
+struct-midfreq-vibroacoustics | T2 | Closing the mid-frequency vibration gap | S1:>2031 S2:2029 S3:2028 | Low/Medium/Medium | data | P1->P6 | pre:cap-applied-math,struct-test-data-commons
+struct-shm-inverse-limits | T2 | Damage detection with proven detection limits | S1:2030 S2:2028 S3:2028 | Medium/High/High | data | P1 (catalog: P5 via 372, conditional) | pre:cap-applied-math,struct-test-data-commons
+struct-verified-fe-solvers | T2 | Finite-element solvers with machine-checked error bounds | S1:>2031 S2:2029 S3:2028 | Low/Medium/Medium | formalization | P2 | pre:infra-verified-numerics,infra-mathlib-applied,cap-applied-math
+struct-damage-tolerance-physics | T3 | Predictive damage and fatigue models for reusable structures | S1:>2031 S2:2030 S3:2029 | Low/Medium/Medium | experiment | P6 | pre:cap-physics-theory,cap-autonomous-labs,struct-test-data-commons
+struct-two-phase-microgravity-models | T3 | Predictive two-phase cooling physics in microgravity | S1:>2031 S2:2030 S3:2029 | Low/Medium/Medium | data | P6 | pre:cap-physics-theory,struct-test-data-commons
+struct-deployment-mechanics | T3 | Predictive simulation of large deployable structures | S1:>2031 S2:2030 S3:2029 | Low/Medium/Medium | experiment | P6 | pre:cap-applied-math,cap-physics-theory,struct-test-data-commons
+struct-agentic-analysis-workflows | T4 | AI agents run and check structural and thermal analysis | S1:2028 S2:2027 S3:2027 | High/High/High | adoption | P1 | pre:cap-research-math-public
+struct-shell-knockdown-rules | T4 | Lighter buckling design rules for tanks and interstages | S1:2031 S2:2029 S3:2029 | Low/Medium/Medium | regulatory | P1->P6 | pre:struct-certified-uq-margins
+struct-launch-env-margins | T4 | Tighter launch vibration and acoustic environments | S1:>2031 S2:2030 S3:2029 | Low/Low/Medium | regulatory | P1->P6 | pre:struct-agentic-analysis-workflows,struct-certified-uq-margins
+struct-radiator-optimization | T4 | AI-optimized radiators and heat transport | S1:2030 S2:2028 S3:2028 | Medium/High/High | adoption | P1 | pre:cap-design-optimization
+struct-cert-by-analysis | T4 | Qualification by analysis replaces some structural tests | S1:>2031 S2:2030 S3:2029 | Low/Low/Medium | regulatory | P2+P6 | pre:struct-certified-uq-margins,struct-agentic-analysis-workflows,physclock-credibility-evidence-standard,struct-test-data-commons
+struct-fsp-next-gen-design | T4 | Second-generation fission power designs | S1:>2031 S2:2030 S3:2029 | Speculative/Low/Low | capital | P1->P6 | pre:cap-design-optimization
+struct-flown-lighter-structure | T5 | First flight structure sized with AI-certified margins | S1:>2031 S2:2031 S3:2031 | Low/Low/Medium | qualification | P6->P7 | pre:struct-worst-imperfection-theory,struct-certified-uq-margins
+struct-shm-inspection-credit | T5 | Sensor-based inspection credit for reusable stages | S1:>2031 S2:2030 S3:2030 | Low/Medium/Medium | qualification | P1->P6 | pre:struct-shm-inverse-limits,struct-certified-uq-margins
+struct-highflux-radiator-flight | T5 | 100-kW-class deployable radiators fly on compute satellites | S1:2028 S2:2028 S3:2028 | High/High/High | fabrication | P7 (not AI-math-driven) | pre:
+struct-radiator-lightweight-production | T5 | Sub-2.5 kg/m2 radiators in serial production | S1:2031 S2:2030 S3:2030 | Low/Medium/Medium | fabrication | P7 (manufacturing; AI design and two-phase models accelerate via P1) | pre:struct-highflux-radiator-flight
+struct-fsp-radiator-qual | T5 | Lightweight 600 K radiators qualified for fission power | S1:2030 S2:2030 S3:2030 | Low/Low/Low | qualification | P7 (not AI-math-driven) | pre:
+struct-large-sail-flight | T5 | A 1,000 m2-class solar sail flies | S1:>2031 S2:2031 S3:2031 | Low/Low/Low | capital | P6->P7 | pre:struct-deployment-mechanics
+struct-reusable-life-management | T6 | Model-and-sensor life management of fully reusable heavy stages | S1:>2031 S2:2031 S3:2031 | Low/Low/Medium | experiment | P6->P7 | pre:struct-shm-inspection-credit,physclock-starship-full-reuse,physclock-twin-reflight-clearance
+struct-100kw-per-tonne-fleet | T6 | 100 kW-per-tonne compute satellites in serial production | S1:>2031 S2:2031 S3:2031 | Speculative/Low/Medium | fabrication | P7 (AI math second-order via P1 thermal and structural design and P5 chip-life evidence) | pre:struct-highflux-radiator-flight,struct-light-solar-array-production
+struct-fsp-lunar-100kwe | T6 | A 100 kWe fission reactor operating on the Moon | S1:>2031 S2:>2031 S3:>2031 | Speculative/Speculative/Speculative | launch | P7 (not AI-math-driven) | pre:struct-fsp-radiator-qual,physclock-reactor-in-space,auton-lunar-heavy-cargo-landing
+struct-km-monolith | T6 | Kilometre-scale monolithic structure in orbit | S1:>2031 S2:>2031 S3:>2031 | Speculative/Speculative/Low | capital | P6->P7 | pre:struct-deployment-mechanics,struct-cert-by-analysis
+struct-design-cycle-compression | T7 | Structures and thermal analysis cycles 2-5x faster | S1:2030 S2:2029 S3:2028 | Medium/High/High | adoption | P1 | pre:struct-agentic-analysis-workflows,capability-engineering-adoption
+struct-structural-mass-step | T7 | 5-15% lighter structures on new vehicles and spacecraft | S1:>2031 S2:>2031 S3:2031 | Speculative/Low/Low | qualification | P6->P7 | pre:struct-flown-lighter-structure,struct-launch-env-margins,struct-design-cycle-compression
+struct-gw-orbital-compute | T7 | 1 GW of compute operating in orbit | S1:>2031 S2:2031 S3:2031 | Low/Low/Medium | launch | P7 (not AI-math-driven; AI math second-order via P1 thermal and reliability design) | pre:struct-highflux-radiator-flight,physclock-heavy-cadence-100,materials-cots-orbital-compute-ops
+verif-code-proof-agents | T0 | Agents that prove real flight code | S1:2028 S2:2027 S3:2027 | High/High/High | formalization | P1->P2 | pre:cap-autoformalization
+verif-skolem-positivity | T1 | Settle the Skolem and Positivity problems | S1:>2031 S2:2029 S3:2028 | Low/Low/Medium | cognitive | P3 | pre:cap-research-math-internal
+verif-game-solving-synthesis | T1 | Faster worst-case game solving for synthesis | S1:2027 S2:2027 S3:2027 | Medium/Medium/Medium | formalization | P4 (theory only; practical effect nil) | pre:verif-independent-check
+verif-spec-engineering | T2 | AI-drafted formal specifications | S1:2028 S2:2027 S3:2027 | High/High/High | adoption | P1->P2 | pre:cap-autoformalization
+verif-verified-gnc-numerics | T2 | Proven floating-point GNC code | S1:2029 S2:2028 S3:2028 | Medium/High/High | formalization | P2 | pre:infra-verified-numerics,verif-code-proof-agents
+verif-closed-loop-guarantees | T2 | Machine-checked GNC stability and safety envelopes | S1:2030 S2:2027 S3:2027 | Medium/High/High | formalization | P1->P2 | pre:cap-applied-math
+verif-onboard-optimizer-certificates | T2 | Certified onboard trajectory optimizers | S1:2030 S2:2028 S3:2028 | Medium/High/High | formalization | P1->P2 | pre:verif-verified-gnc-numerics,astro-scp-guarantees,infra-verified-numerics,cap-autoformalization
+verif-nn-verification-scale | T2 | Verifying neural perception at flight scale | S1:>2031 S2:2030 S3:2029 | Speculative/Low/Low | cognitive | P1->P6 | pre:cap-applied-math
+verif-environment-assumption-models | T3 | Validated sensor and terrain envelopes | S1:2030 S2:2029 S3:2028 | Low/Medium/Medium | experiment | P1->P5 | pre:verif-spec-engineering
+verif-assumption-falsification | T4 | AI red-teaming of flight assumptions | S1:2028 S2:2027 S3:2027 | High/High/High | data | P1->P3 | pre:cap-research-math-public
+verif-fdir-model-checking | T4 | Exhaustive checks of fault logic and configuration | S1:2028 S2:2027 S3:2027 | High/High/High | data | P1->P2 | pre:verif-spec-engineering
+verif-runtime-assurance | T4 | Proven safety wrappers for unverifiable autonomy | S1:2030 S2:2028 S3:2028 | Medium/High/High | qualification | P2 | pre:verif-closed-loop-guarantees,verif-code-proof-agents,verif-spec-engineering
+verif-verified-onboard-stack | T5 | Formally verified onboard software stack | S1:2030 S2:2029 S3:2029 | Low/Medium/High | qualification | P2 | pre:verif-code-proof-agents
+verif-lander-verified-gnc-flight | T5 | A lander flies proof-checked descent guidance and fault logic | S1:2030 S2:2029 S3:2029 | Low/Medium/High | adoption | P2->P7 | pre:verif-verified-gnc-numerics,verif-fdir-model-checking,verif-assumption-falsification,astro-certified-gnc-toolchain
+verif-rpo-assured-autonomy | T5 | Assured autonomous docking, servicing and propellant transfer | S1:2031 S2:2029 S3:2029 | Low/Medium/Medium | launch | P2->P7 | pre:verif-runtime-assurance,verif-fdir-model-checking,verif-closed-loop-guarantees,astro-hybrid-rpo-verification,astro-certified-gnc-toolchain
+verif-constellation-verified-updates | T6 | Proof-checked software updates across constellations | S1:2031 S2:2029 S3:2029 | Low/Medium/High | adoption | P2 | pre:verif-code-proof-agents,verif-fdir-model-checking,verif-spec-engineering
+verif-hls-autonomy-certification | T6 | Crewed GNC autonomy certified with AI proofs | S1:>2031 S2:2031 S3:2030 | Speculative/Low/Low | regulatory | P2 | pre:verif-closed-loop-guarantees,verif-runtime-assurance,verif-fdir-model-checking,infra-tool-qualification,verif-onboard-optimizer-certificates,astro-proof-backed-flight-software-ops,verif-lander-verified-gnc-flight
+verif-afss-part450 | T6 | Proof-backed flight termination under FAA Part 450 | S1:>2031 S2:2030 S3:2029 | Low/Low/Medium | regulatory | P2 | pre:verif-fdir-model-checking,verif-code-proof-agents
+verif-assurance-cost-collapse | T7 | Verified flight code 15-120x cheaper per line | S1:2030 S2:2028 S3:2028 | Medium/High/High | adoption | P2 | pre:verif-code-proof-agents,verif-spec-engineering,verif-fdir-model-checking
+verif-new-entrant-advantage | T7 | Assurance stops being a moat for primes | S1:>2031 S2:2030 S3:2029 | Low/Medium/Medium | adoption | P1->P2 | pre:verif-assurance-cost-collapse
+verif-mission-loss-rate | T7 | Fewer missions lost to software logic (hard to see by 2031) | S1:>2031 S2:>2031 S3:2031 | Speculative/Speculative/Low | launch | P7 | pre:verif-lander-verified-gnc-flight,verif-constellation-verified-updates,verif-environment-assumption-models
+capability-random-sample-audit | T0 | Published error rate for openai/math results | S1:2027 S2:2027 S3:2027 | High/High/High | adoption | P2/P3 (verification of the premise base, not certified use) | pre:cap-research-math-internal
+capability-compute-launch-demand | T7 | AI compute becomes Starship's second anchor customer | S1:2031 S2:2030 S3:2029 | Low/Medium/Medium | capital | P7 (demand coupling from AI capability, not an AI-math effect) | pre:physclock-starship-full-reuse,struct-highflux-radiator-flight
+frontier-ns-clay-cd-ruling | T1 | Clay rules on the forced Navier-Stokes breakdown claim | S1:2029 S2:2029 S3:2029 | Low/Low/Low | adoption | P5 (science only) | pre:prop-ns-forced-verified
+verif-launch-fsw-per-flight | T6 | Reusable launchers re-prove flight software every flight | S1:2031 S2:2029 S3:2029 | Low/Medium/Medium | adoption | P2 | pre:verif-code-proof-agents,verif-fdir-model-checking,verif-spec-engineering
+verif-onboard-ai-guardrails | T6 | Onboard AI agents fly under proof-checked command guards | S1:2031 S2:2029 S3:2029 | Low/Medium/High | adoption | P2 | pre:verif-runtime-assurance,verif-spec-engineering
+comms-ai-crqc-resource-cuts | T2 | AI-found codes and circuits cut code-breaking quantum resource estimates | S1:2029 S2:2028 S3:2028 | Medium/High/High | cognitive | P1->P4 | pre:cap-applied-math
+comms-multi-operator-dynamic-sharing | T6 | Real-time spectrum sharing among rival constellations | S1:>2031 S2:2031 S3:2030 | Speculative/Low/Low | adoption | P1->P2 | pre:comms-certified-interference-bounds
+physclock-commercial-analysis-first-qual | T5 | Operators fly new hardware qualified mainly by AI analysis | S1:2030 S2:2029 S3:2029 | Low/Medium/High | adoption | P1 (process outcome; flight step written out as a chain) | pre:struct-agentic-analysis-workflows,physclock-optimal-test-campaigns
+physclock-reliability-priors-credit | T4 | Fewer certification flights via accepted model-based reliability priors | S1:>2031 S2:2030 S3:2029 | Low/Low/Medium | qualification | P2->P6 | pre:physclock-credibility-evidence-standard,frontier-rare-event-certified
+prop-loxsat-cfm-flight-data | T5 | Public microgravity cryogenic flight data (LOXSAT) | S1:2028 S2:2028 S3:2028 | Medium/Medium/Medium | launch | P1 (marginal) | pre:
+hyper-model-form-error-bounds | T2 | Model-form error bounds for ground-to-flight aerothermal extrapolation | S1:>2031 S2:2030 S3:2029 | Low/Medium/Medium | data | P1->P5 | pre:cap-applied-math,hyper-flight-data-pipeline
+hyper-fleet-aerothermal-twin | T4 | Fleet-trained reentry heating model for one reusable vehicle | S1:2029 S2:2029 S3:2029 | Medium/Medium/Medium | data | P1->P6 (owner data; AI effect ~months) | pre:physclock-flight-test-cadence
+struct-hot-chip-hbm-qualification | T5 | AI chips and HBM qualified to run hot in orbit | S1:2030 S2:2029 S3:2029 | Medium/Medium/Medium | qualification | P7 (vendor qualification; AI applied math accelerates via P1/P5 accelerated-life models) | pre:struct-highflux-radiator-flight
+struct-light-solar-array-production | T5 | Lightweight solar arrays at compute-constellation volume | S1:2029 S2:2029 S3:2029 | Medium/Medium/Medium | fabrication | P7 (not AI-math-driven; AI touches array structural and deployment design only, marginal P1) | pre:
+struct-formation-compute-clusters | T6 | Tight-formation compute clusters operate in orbit | S1:2030 S2:2029 S3:2029 | Low/Medium/Medium | fabrication | P7 (not AI-math-driven; AI math second-order via P2 collision-safety proofs and certified link scheduling) | pre:struct-highflux-radiator-flight
+auton-lunar-heavy-cargo-landing | T6 | Heavy cargo landed on the Moon | S1:2030 S2:2029 S3:2028 | Medium/Medium/Medium | launch | P7 (physical exponential, largely independent of AI math) | pre:prop-hls-refuel-campaign
+auton-moon-base-infrastructure | T6 | Moon Base Phase 2 infrastructure on the surface | S1:2031 S2:2031 S3:2030 | Low/Low/Medium | capital | P7 (physical and appropriations gate) | pre:auton-lunar-heavy-cargo-landing
+auton-robotic-landing-pad | T5 | First robot-built landing pad or blast berm on the Moon | S1:>2031 S2:2031 S3:2030 | Speculative/Low/Low | launch | P1->P6->P7 | pre:auton-sinter-process-control
+science-smd-budget-restored | T0 | NASA science budget held near its FY2026 level | S1:2027 S2:2027 S3:2027 | Medium/Medium/Medium | capital | exogenous (not an AI pathway; politics and appropriations compress 1.0x) | pre:
+science-stage4-survey-data | T6 | Stage-IV survey data in hand | S1:2028 S2:2028 S3:2028 | High/High/High | data | exogenous (P7 physical data supply, independent of AI mathematics) | pre:
+science-private-observatories | T6 | A privately funded space telescope returns data | S1:2029 S2:2029 S3:2029 | Medium/Medium/Medium | fabrication | P7 (P1 assists in integration, test and operations) | pre:
+science-onboard-science-inference | T5 | Science spacecraft downlink answers with certified error bounds | S1:2031 S2:2029 S3:2029 | Low/Medium/High | adoption | P1->P4 | pre:cap-applied-math
+astro-small-debris-catalog | T6 | Screening-grade catalog of small debris | S1:>2031 S2:2031 S3:2030 | Speculative/Low/Medium | data | P1 (track association and orbit determination); sensor build-out and data sharing are not AI-math-driven | pre:
+astro-constellation-hosted-ssa | T6 | Constellation-hosted tracking with validated covariances | S1:2029 S2:2028 S3:2028 | Low/Medium/High | adoption | P1 (association, orbit determination and covariance realism); the sensor network itself is not AI-math-driven | pre:
+plasma-side-view-monitors | T6 | Side-view and upstream solar-wind monitoring | S1:>2031 S2:>2031 S3:>2031 | Speculative/Speculative/Speculative | launch | P7 (not AI-math-driven) | pre:
+plasma-aeps-life-qual | T5 | 12 kW AEPS Hall thruster life-qualified by a three-year wear test | S1:2029 S2:2029 S3:2029 | High/High/High | experiment | P7 (not AI-math-driven) | pre:
+plasma-ai-fusion-operations | T4 | AI runs fusion-device experiment campaigns and control | S1:2028 S2:2028 S3:2028 | High/High/High | experiment | P1 (capability transfer; not AI-math-driven) | pre:

@@ -1,0 +1,1168 @@
+{
+ "notes": "E-entry FINAL (resolver, 2026-10-07). Replaces E-entry-draft.json. 30 existing nodes updated for 2035 and S4; every legacy '>2031' resolved; no year at or before 2031 changed; S4 = S3 in year and band_2031 on every existing node. Seven new nodes: hyper-35-ship-heatshield-72h (spine), hyper-35-ai-tps-primary-zone, hyper-35-planetary-aerocapture, hyper-35-mars-pinpoint-landing, hyper-35-crewed-probabilistic-shield, and from the advocate review hyper-35-arcjet-throughput-2x and hyper-35-crewed-ship-reentry. hyper-35-p2p-cargo-service dropped (tier 7, no AI-math effect, Speculative; the demo marks the lane's horizon). S4 credit: one node only, hyper-35-arcjet-throughput-2x (S4 2033 against S3 2034; Medium against Low by 2035). The 72-hour node's S4 credit was removed (a one-off record can be staffed by people; tile and pin robots are S2/S3 baseline). Resolver changes to the draft: 72-hour node S4 2033, hard edge from physclock-twin-reflight-clearance, band_2035 Spec/Low/Med/Med, gate data; AI TPS primary zone S2 2034 and S3/S4 2033, band_2035 Spec/Low/Med/Med; planetary aerocapture >2035/2035/2034/2034 and Speculative; crewed probabilistic shield >2035/2035/2034/2034, hard edge from physclock-credibility-evidence-standard, Spec/Spec/Low/Low; Mars pinpoint landing redefined around the ejecta keep-out, S1 Speculative; aerocapture demo and p2p demo Low in all scenarios by 2035; outer-planet aerocapture baseline Speculative in all; hyper-tile-damage-accumulation S1 High; hyper-12kms-entry-design-basis gate capital; hyper-thinner-tps-flown, hyper-radiation-kinetics and hyper-ablator-multiscale-response stale cap reasons fixed with bands kept; hyper-rapid-reuse-heatshield High kept with its tile condition stated. Soft edges: robo-lab-bench-useful edges to four nodes that land before lab robots were dropped, as were robo-requal-standard and robo-24x7-integration-test -> 72-hour node and robo-launch-refurb -> hyper-tile-damage-accumulation (the robots branch already links the reverse). CROSS-BRANCH FLAGS: (1) The trunk final's High by 2035 on physclock-twin-reflight-clearance (S2-S4) and capability-35-internal-cost-100 rests on hyper-rapid-reuse-heatshield staying High; it stays High here. The 72-hour node (Medium in S3/S4) is consistent with twin clearance at Medium or High. (2) hyper-mars-heavy-landing is Medium by 2035 in every scenario; auton-mars-isru-demo, auton-mars-propellant-plant and auton-35-mars-robot-site-prep should stay at or below it. (3) For the integrator, after the trunk, engines-materials and moon-mars finals are applied, add soft edges capability-35-heavy-cadence-300 -> hyper-35-ship-heatshield-72h, capability-35-heavy-cadence-300 -> hyper-35-crewed-ship-reentry, prop-35-mars-window-fueling -> hyper-35-mars-pinpoint-landing and auton-35-mars-robot-site-prep -> hyper-35-mars-pinpoint-landing. They are left out here because their ends are not in this test graph. (4) Band values on hyper-radiation-kinetics, hyper-ablator-multiscale-response and the S1 High cognitive nodes sit at or below the trunk final's band_2035 for cap-applied-math, cap-design-optimization and cap-physics-theory. (5) Order: E-certification-final adds a soft edge hyper-35-crewed-probabilistic-shield -> struct-35-crewed-structure-analysis-credit, which is skipped if that file is applied before this one; apply this file first or re-add the edge.",
+ "update": [
+  {
+   "id": "hyper-flight-data-pipeline",
+   "patch": {
+    "earliest_year": {
+     "S1": "2027",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Shared-data flights keep growing about linearly to 2035 (capsules, MACH-TB, Talon-A), while owner data rides the launch curve. S4 equals S3 because flight cadence and data release set the pace.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic+auditor] Definition narrowed to data shared beyond the operator (owner-only Starship data no longer count; the node's own nil_effects say classified data will not reach civil builders). [skeptic+auditor] Status corrected: Varda's monthly target slipped; W-4 burned up 22 May 2026 (Wikipedia); W-6 carried Sandia material samples plus two Ames instrumented eChar tiles (Varda/KXAN release). [advocate] Why rewritten as two data curves; the owner-data curve is now a separate node (hyper-fleet-aerothermal-twin). [auditor] Pathway given a non-P-code 'n/a' label. Year kept at 2027 (auditor proposed 2028): with sponsor-shared data counted (Talon-A ~6/yr, Varda 3 attempts, MACH-TB campaigns), 12+ in 2027 remains the earliest plausible year; High unchanged. Downstream hard edges whose real data source is owner data (tile damage, SRP, Mars landing) or ground/DNS data (SBLI, blackout) or capital (aerocapture) were made soft. | B-fix (integrator, 2026-10-07): Starship cadence in why re-based on B-trunk (12+ a year from 2028). Year unchanged: the definition counts shared-data flights (Varda, Talon-A, MACH-TB), not Starship. | E-entry (2026-10-07): horizon 2035 and S4 review. Years and bands kept; band_2035 High in all scenarios. S4 = S3 in year and both bands."
+   }
+  },
+  {
+   "id": "hyper-optimal-test-design",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 adaptive, model-driven test campaigns are normal practice at arc-jet and shock-tube facilities in every scenario, including S1. S4 adds nothing because the gain is in test planning, a cognitive step.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic] Hard edges to hyper-certified-margin-uq, hyper-probabilistic-tps-sizing, hyper-ablator-multiscale-response and hyper-radiation-kinetics made soft (none needs OED to exist). [skeptic] Years 2028/2027/2027 -> 2029/2028/2028: the signpost is an adoption event and test-article fabrication plus arc-jet scheduling take 6-12 months, so same-year-as-public-access assumed zero lag; S3 equals S2 before 2028. Gate experiment -> adoption. Why: '2-5x (general)' relabelled as judgment with the 20-30% qualification case. [advocate] Kratos Helios arc jet added to status (verified on kratosdefense.com); the advocate's claim that the link to physclock-optimal-test-campaigns was missing is wrong (it already exists as a soft edge). | E-entry (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High (S1 cognition by 2035 is about where S2 was in 2029-30). S4 = S3 in year and both bands."
+   }
+  },
+  {
+   "id": "hyper-stability-analysis-on-demand",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 a 3D stability analysis is a routine step in each design iteration in every scenario; S1 catches up as its cognition reaches the S2 2029-30 level. S4 equals S3 because the work is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic] S2/S3 2027 -> 2028: the signpost (a published, validated, AI-set-up 3D PSE/BiGlobal analysis) needs a high-fidelity base flow, HPC runs and publication (~1 year) after public applied-math access in 2027; S3 equals S2 before 2028. Soft edge from capability-controlled-data-access added (ITAR geometry). Bands unchanged. | E-entry (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3 in year and both bands."
+   }
+  },
+  {
+   "id": "hyper-certified-margin-uq",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Joint probabilistic margin budgets are on demand in every scenario by 2035. What stays open is trust in model-form error (hyper-model-form-error-bounds), and S4 adds nothing to a cognitive node.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [auditor] Split: retitled to the solved-in-principle joint budget; the open model-form part moved to new node hyper-model-form-error-bounds; 'stacked' corrected to three-branch RSS; gate adoption -> cognitive (adoption is hyper-probabilistic-tps-sizing). [skeptic+auditor] SRL anchor number restated with its assumptions (single location, aerothermal error sampled within existing factors, ~1% exceedance accepted, full aeroshell future work) and MSR cancellation added. [skeptic vs advocate] Both wanted S2 = S3 (S3 equals S2 before 2028); resolved at 2028 for both (skeptic's lag argument; the signpost needs publication). [skeptic] Signpost replaced (old one duplicated hyper-probabilistic-tps-sizing and was an agency-acceptance event). Skeptic's S2 High -> Medium and gate -> data were addressed by the split instead: they apply to the model-form node. Hard edge from hyper-optimal-test-design made soft. Bands Medium/High/High unchanged. | E-entry (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3 in year and both bands."
+   }
+  },
+  {
+   "id": "hyper-tps-inverse-nde",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Robot-carried sensors and cheap seeded-defect specimens make inspection data plentiful after 2031, yet the signpost still needs an operator or NASA to publish a probability-of-detection scheme, and the largest operator does not publish. S4 gets no band step: disclosure binds, and robots do not change it.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [auditor, verified] 365 statement gap: only the scalar-conductivity nonuniqueness manuscript appears in lean/formalization.yaml, so the headline result stays T1. [skeptic+auditor] The 'fast-acting P3 design rule' removed (classical results already imply it; tiles are porous, anisotropic and inspected transiently); pathway and premise_tier relabelled. [skeptic] Hard edge from verif-independent-check made soft (families are supportive, not load-bearing). [skeptic] S2/S3 High -> Medium: P6 default Low, POD needs seeded-defect campaigns and operator publication; the A3 parity argument no longer binds because this node's hard dependents (tile damage, rapid reuse) now link to it softly. | E-entry (2026-10-07): horizon 2035 and S4 review. Years and bands kept; band_2035 Medium in all scenarios. S4 = S3 in year and both bands. | E-entry resolver (2026-10-07): [advocate] S4 High rejected: the gate is whether an operator or NASA chooses to publish a POD scheme, not bench labor, so condition 1 of the S4 rule fails. [skeptic] Soft edge from robo-lab-bench-useful not added: lab robots arrive (S4 2030) after this node (2028) and move nothing."
+   }
+  },
+  {
+   "id": "hyper-kinetic-solver-certification",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Cheap cognition makes a kinetic code with proven error estimates, or AI-derived collision models checked against shock-tube data, likely by 2035 in S2-S4; S1 reaches it about 2033. Rarefied heating stays a small share of capsule heat loads, and S4 adds nothing to cognitive work.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic+auditor] Hard edge from hyper-boltzmann-foundations-check (a T1-premise node) made soft, so the node no longer rests on a T1 premise and needs no band drop. [skeptic] Wagner 1992 DSMC convergence noted; pathway P5->P6 -> P5 (confidence, not heating numbers, per the domain nil_effects); aerocapture emphasis removed. Years and bands unchanged. | E-entry (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2033 (S2 lag of 2 years on cap-applied-math, stretched for S1's slower diffusion). band_2035 S1 Medium, S2-S4 Medium -> High. S4 = S3 in year and both bands."
+   }
+  },
+  {
+   "id": "hyper-verified-aerothermal-numerics",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Production adoption follows the verified-numerics toolchain by 2-4 years, so S2 reaches Medium by 2035 and S3, with near-free proofs from 2029, High. Demand pull stays weak because numerical error is a minor TPS uncertainty, and S4 adds nothing.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic] Description corrected (it claimed certified heat-flux error bars, contradicting its own why). [skeptic] S2 Medium -> Low (no demand pull for production adoption; the node's own strongest case). [advocate, partly accepted] Stale '(~2029)' toolchain date corrected to ~2028 in S2; advocate's earlier years (S2 2029, S3 2028) rejected because the signpost is production adoption and P2 runs 2-4 years after the libraries. | E-entry (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2034 (toolchain S1 2029-30 plus 2-4 years of P2 adoption); S1 band_2031 Low -> Speculative to match a 2034 year. band_2035 S2 Low -> Medium, S3 Medium -> High. S4 = S3 in year and both bands."
+   }
+  },
+  {
+   "id": "hyper-tile-damage-accumulation",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "With 100+ heavy flights a year from 2030 in every scenario and hundreds by the mid-2030s, operators of tiled vehicles will have reflight data on thousands of tiles and strong reasons to state life limits. S1 also reaches High, since its 100-flight cadence starts in 2030 as in S2 and its cognition by 2035 matches S2's in 2029-30, when S2 reaches this node. Robots that inspect tiles add data, but S4 equals S3 because reflight count and disclosure set the pace.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic+auditor] Hard edge added from physclock-starship-full-reuse: the model's data clock is reflights of the same tiles, and no ship has been caught or reflown. [skeptic+advocate] Hard edge from hyper-tps-inverse-nde made soft (camera/ML and direct inspection can substitute). Hard edge from hyper-flight-data-pipeline made soft because that node now counts only data shared beyond the operator, while this model runs on the operator's own reflight data (soft edge from new hyper-fleet-aerothermal-twin). [skeptic] S2/S3 2028 -> 2029: zone-level cycles-to-failure needs several reflights per ship after a 2027 first reflight; S3's 1.3-1.5x physical multiplier does not change that. [auditor] S2/S3 High -> Medium (P6 default Low; proprietary data; disclosure needed). [skeptic] Signpost replaced (old one duplicated hyper-rapid-reuse-heatshield). | B-fix (integrator, 2026-10-07): Flight 13 date harmonized to Jul 24, 2026. | E-entry (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S2-S4 Medium -> High (300+ heavy launches a year in S2 2033, S3 2032). S4 = S3 in year and both bands. | E-entry resolver (2026-10-07): [advocate] band_2035 S1 Medium -> High: the trunk dates 100+ heavy flights a year to 2030 in S1 and S2 alike, so 'S1's slower cadence' did not hold. Soft edge from robo-launch-refurb not added: the robots branch already links this node to robo-launch-refurb, and refurbishment robots (S2/S3 2031) arrive after this node."
+   }
+  },
+  {
+   "id": "hyper-ablator-multiscale-response",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Four more years of arc-jet campaigns, aimed by optimal test design, make a confirmed pre-test anomaly prediction likely in S3 by 2035. S2 stays Medium because its test stands are not AI-run at scale (physclock-ai-run-test-stands Medium in S2). Arc-jet time is the gate, and S4 equals S3 because S3 is already High; faster S4 arc jets (hyper-35-arcjet-throughput-2x) arrive after this node.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic] Hard edge from hyper-optimal-test-design made soft (validation needs arc-jet shots, not a particular design of them). [advocate] Soft edge from physclock-ai-run-test-stands (arc-jet utilization). Years and bands unchanged. | E-entry (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2033 (one year after cap-physics-theory S1 2032, as in S2). band_2035 S1 Low -> Medium, S3 Medium -> High. S4 = S3 in year and both bands. | E-entry resolver (2026-10-07): [skeptic] Soft edge from robo-lab-bench-useful not added (robots arrive after this node). Stale reason fixed: the trunk final makes cap-physics-theory High by 2035 in S2, so S2's Medium now rests on S2's test stands (Medium), not on the prerequisite."
+   }
+  },
+  {
+   "id": "hyper-gas-surface-chemistry",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Molecular-beam and plasma-tunnel data still come from a few facilities, and predicting catalytic heating within 20% on a new material is a high bar because real surfaces change in use. Robots help with specimen handling, but S4 equals S3 because facility measurement time and S3's autonomous labs already set the pace.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [auditor] 278/275 restated with 'claims' and 'conditional' (T1 wording rule) and their near-nil relevance noted. [skeptic] Hard edge from cap-autonomous-labs made soft (data come from specialized conventional facilities). [advocate, partly accepted] Autonomous-experiment date aligned to ~2028-29; soft edge from physclock-ai-run-test-stands; S3 Medium -> High rejected (P6 default Low; the signpost needs plasma-tunnel or arc-jet validation on a new material, which compresses only 1.3-1.5x). | E-entry (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2034 (physics theory 2032 plus autonomous-lab validation); S1 band_2031 Low -> Speculative. band_2035 Medium in S2-S4. S4 = S3 in year and both bands. | E-entry resolver (2026-10-07): [skeptic] Soft edge from robo-lab-bench-useful not added: lab robots arrive (S4 2030) after this node (2029) and move nothing."
+   }
+  },
+  {
+   "id": "hyper-radiation-kinetics",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "After 2031 shock tubes keep producing VUV data for Mars, Venus and outer-planet entries, so in S3 AI rate sets that match EAST within 20% are likely by 2035. S2 rises to Medium and stays there because its test stands are not AI-run at scale (physclock-ai-run-test-stands Medium in S2). Shot time follows mission pull, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [auditor] Family 275 removed (worst-case many-electron QMA-hardness; DFT-functional hardness already known; the needed rates are for few-electron species; the T1 claim lacked 'conditional'); pathway and premise relabelled. [skeptic] S2 Medium -> Low (MSR/SRL cancelled, verified via The Register; the gate is shock-tube data; the 20%-without-tuning signpost is below 30% in S2); S3 Medium kept. [auditor] 'large-radius' qualifier added. Hard edge from hyper-optimal-test-design made soft; [advocate] soft edge from physclock-ai-run-test-stands. | E-entry (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2034; S1 band_2031 Low -> Speculative. band_2035 S2 Low -> Medium, S3 Medium -> High. S4 = S3 in year and both bands. | E-entry resolver (2026-10-07): Stale reason fixed: the trunk final makes cap-physics-theory High by 2035 in S2, so S2's Medium now rests on S2's test stands (Medium) and on mission pull for shot time."
+   }
+  },
+  {
+   "id": "hyper-sbli-heating-closure",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Compute growth makes DNS training data plentiful by 2035, but learned closures still have to work on unseen geometries, and wall-modeled LES may make the question moot. S3 stays Medium for that reason, and S4 equals S3 because the gate is data and validation.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic+advocate] Hard edge from hyper-flight-data-pipeline made soft (closures are trained on DNS and validated against DNS and ground facilities; the signpost is a blind ground comparison). [advocate] Soft edge from capability-learned-emulators. [skeptic vs advocate] Skeptic S2 Medium -> Low accepted (P6 default Low; out-of-distribution generalization is where ML RANS closures repeatedly fail; +/-15-20% approaches SBLI peak-heating scatter). Advocate's S3 High and gate data -> cognitive rejected: more DNS compute does not fix out-of-distribution failure, and blind validation still needs ground experiments; S3 stays Medium. | E-entry (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2034 (physics theory S1 2032, turbulence theory S1 2034); S1 band_2031 Low -> Speculative. band_2035 S2 Low -> Medium. S4 = S3 in year and both bands."
+   }
+  },
+  {
+   "id": "hyper-transition-prediction-theory",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2030",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Defense flight tests (MACH-TB, reusable Talon-A) supply dozens of transition datasets a year in the 2030s, which lifts S2 to Medium by 2035, but much of the data stays classified and a blind test needs a new instrumented article. S4 equals S3 because flight data and publication set the pace.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic] S3 2029 -> 2030: a blind prediction on a new flight needs the theory (cap-physics-theory S3 2028) plus a ~14-month instrumented article, and flight count compresses only 1.3-1.5x in S3. [advocate, partly accepted] Soft edge from capability-controlled-data-access and defense-dataset growth added to why; S2 Low -> Medium rejected: classified validation may never be published, the disturbance-environment problem remains, and the domain signpost makes a flight-validated prediction the trigger for that raise. | B-fix (integrator, 2026-10-07): controlled-data-access year in why updated to S2 2028 (B-trunk). | E-entry (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2034; S1 band_2031 Low -> Speculative. band_2035 S2 Low -> Medium. S4 = S3 in year and both bands."
+   }
+  },
+  {
+   "id": "hyper-blackout-prediction-tools",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Coupled blackout prediction is routine by 2035 in every scenario, and relays through constellations make it matter less. S4 adds nothing.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic+auditor vs advocate] S3 2027 -> 2028 rather than S2 2028 -> 2027: all three agree S2 = S3 before 2028; two lenses put it at 2028 (a validated, published tool a year after applied-math access). [skeptic+auditor] Signpost replaced (the old one, active blackout mitigation in flight, 'would be a surprise before 2030' and contradicted a High node dated 2028). [skeptic] Hard edge from hyper-flight-data-pipeline made soft (pipeline capsules carry thermal sensors, not plasma diagnostics). [advocate] Soft edge from capability-controlled-data-access. | E-entry (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3 in year and both bands."
+   }
+  },
+  {
+   "id": "hyper-probabilistic-tps-sizing",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 several capsule makers and agency studies are likely to disclose reliability-based sizing, since the method has been cheap since 2028-29 and commercial adopters need no certifier. S1 stays Medium on slower applied math, and S4 equals S3 because design reviews and disclosure bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic+auditor] S2/S3 High -> Medium: adoption is a cultural/policy clock (~1.0x) that S3 cognition does not compress, the nearest NASA adopter (SRL) was cancelled with MSR, and commercial adoption is mostly unobservable. [skeptic] S2/S3 2028 -> 2029: same-year adoption after the enabling method assumed zero lag. [skeptic] '1-4% (general)' relabelled as a judgment upper bound for Mars-class entries; 0.5-1 t figure scoped to ablator-shielded NASA concepts. [auditor] SRL Monte Carlo caveats and MSR cancellation added. Hard edge from hyper-optimal-test-design made soft; soft edge from new hyper-model-form-error-bounds. | E-entry (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S2-S4 Medium -> High (commercial adopters; a crewed adopter is carried by hyper-35-crewed-probabilistic-shield, capped). S4 = S3 in year and both bands."
+   }
+  },
+  {
+   "id": "materials-uhtc-tps-design",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "New arc-jet capacity after 2031 (Kratos Project Helios and others) makes an AI-designed material that matches its pre-test predictions likely by 2035 in S2-S4. S4 equals S3 because S3 is already High and closed-loop labs are counted there.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic] S2/S3 2028 -> 2029 (same year as cap-design-optimization assumed zero lag; coupon fabrication and an arc-jet slot take 6-18 months) and S2 High -> Medium (high bar; P6 default Low); S3 High kept. [auditor] Family 366 removed (scalar Mumford-Shah, not the Griffith energy of phase-field fracture; the T1 claim lacked 'conditional'); materials-learned-functionals moved from hard to soft (AI-driven UHTC design is already active without chemical accuracy at DFT cost). [advocate] Soft edge from physclock-ai-run-test-stands (arc-jet utilization). | E-entry (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S2 Medium -> High. S4 = S3 in year and both bands. | E-entry resolver (2026-10-07): [skeptic] Soft edge from robo-lab-bench-useful not added: lab robots arrive (S4 2030) after this node (2029) and move nothing."
+   }
+  },
+  {
+   "id": "hyper-aerothermal-design-loop",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 AI-surrogate trade studies are ordinary in entry-vehicle design reviews, and S1 catches up once its applied math matures. S4 adds nothing to a design-method node.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic] Hard edges from hyper-certified-margin-uq and hyper-stability-analysis-on-demand made soft (accelerators, not gates). [advocate] Soft edge from capability-engineering-adoption; S2 Medium -> High for consistency with the capability branch's High ratings for engineering adoption and AI-native spacecraft in S2. [skeptic vs advocate] Skeptic's S3 High -> Medium rejected: the band is judged at 2031, three years after S3 diverges from S2, and S3 must stay >= S2. | F2 audit (2026-10-07): cross-reference updated after capability-ai-native-spacecraft S2 High -> Medium; this node's band is unchanged (its analog is engineering adoption, not a flight). | E-entry (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Low -> High (S1 cognition by 2035 is about S2 2029-30, when this node is High). S4 = S3 in year and both bands."
+   }
+  },
+  {
+   "id": "hyper-srp-aeropropulsive-models",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Mars landing attempts in the 2031 and 2033 windows give SpaceX full-scale data, but published, program-accepted models still need NASA data sharing. Robots do not touch this, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic] Signpost: 'or a NASA Mars architecture selecting a lander concept' deleted (not evidence of validated models); status notes the limited public Falcon 9 dataset. Hard edge from hyper-flight-data-pipeline made soft: that node now counts only data shared beyond the operator, and the skeptic notes capsule and testbed flights carry no SRP data; validation data are SpaceX's own. Years and bands unchanged. | E-entry (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Low -> Medium. S4 = S3 in year and both bands."
+   }
+  },
+  {
+   "id": "hyper-aerocapture-demo",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2030",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "An Earth demo by 2035 needs a NASA flight award or Inversion paying for it after the study ends in Jun 2027. Neither exists, and capital binds equally in every scenario, so all four stay Low until that signpost fires. S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic+auditor] S2/S3 Medium -> Low (P7 default Speculative; only a $350k study is funded; capital gate 1.0x). [skeptic] S2/S3 2029 -> 2030 (FY2028 award plus ~2 years build and manifest). [skeptic+auditor] Hard edges from cap-applied-math and hyper-flight-data-pipeline made soft. [advocate] Soft edges from hyper-aerothermal-design-loop and hyper-certified-edl-guidance (the why names this analysis); kinetic-solver soft edge not added (aerocapture peak heating is continuum, per skeptic). [advocate] Arc first-flight status added. [auditor] 'Require a flight demo' claim marked unverified; chain written out. | E-entry (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S2-S4 Low -> Medium. S4 = S3 in year and both bands. | E-entry resolver (2026-10-07): [skeptic] band_2035 S2-S4 Medium -> Low: the why says funding and a ride bind and analysis cost was never the barrier, so the S1/S2 split by 2035 had no mechanism. Raise to Medium only on a flight award."
+   }
+  },
+  {
+   "id": "hyper-rapid-reuse-heatshield",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "The launch clock to 2035 (hundreds of heavy flights a year, internal cost near $13/kg in Mach33's base case) needs ships that refly often, so five reflights with two-week turnaround are likely in every scenario. High rests on the tile concept working with incremental fixes. If tiles prove a dead end after 2028, a new architecture is unlikely to reach five two-week reflights by 2035. S4 equals S3: the tile risk is a materials risk robots do not touch.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic+advocate+auditor] Hard edges from hyper-tile-damage-accumulation and hyper-tps-inverse-nde made soft (the node's own strongest case: SpaceX gets there with or without AI mathematics). [advocate] Soft edges added from physclock-twin-reflight-clearance and new hyper-fleet-aerothermal-twin. [skeptic] Years 2030/2029/2028 -> 2031/2030/2029: no ship caught as of Oct 2026; S3 2028 predated S3's divergence from S2; the advocate's own Mach33 arithmetic puts the base path at ~2030. [advocate vs skeptic/auditor] Advocate's S2/S3 High rejected: 5 reflights with <2-week turnaround is strictly harder than 100+ reusable launches a year, so High there implies roughly Medium here, consistent with physclock nodes. [skeptic] Booster-reuse sentence replaced with the Super Heavy record. | B-fix (integrator, 2026-10-07): soft edge from physclock-twin-reflight-clearance removed: this node is a hard prerequisite of that one, so it cannot accelerate it (hard/soft 2-cycle). | F2 audit (2026-10-07): classified as an exogenous physical anchor: pathway set to 'P7 (exogenous)', standard premise label, and the why now says plainly that it is not an AI-math implication (previous pathway: 'P7 (physical clock; AI effect ~months)'). | E-entry (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 Medium -> High in all scenarios (trunk capability-35-internal-cost-100 is High in S1-S4 by 2032). S4 = S3 in year and both bands. | E-entry resolver (2026-10-07): [skeptic] High kept with the condition stated: it rests on the tile concept working; the claim that five two-week reflights are likely even if tiles must be replaced was removed. The recommendation that the trunk raise twin clearance was withdrawn; the trunk final set it on its own evidence. Trunk nodes capability-35-internal-cost-100 and physclock-twin-reflight-clearance (S2-S4) are High by 2035 only while this node is High."
+   }
+  },
+  {
+   "id": "hyper-thinner-tps-flown",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2030",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Many more capsule flights by 2035 give operators chances to fly and confirm a thinner shield, but they may spend the margin on reliability and not disclose it. The node needs all three: a thinner shield, attribution to probabilistic sizing and published flight confirmation, so every scenario stays Medium even where sizing is High. S4 equals S3 because adoption and disclosure bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic] Threshold redefined against the operator's own previous design (stacked-factor baseline is unobservable for commercial operators; LEO thinning smaller than Mars). [skeptic] S2/S3 2029 -> 2030, following the sizing shift plus the 12-18 month lag ladder. [skeptic+auditor vs advocate] S3 High -> Medium; advocate's S2 Medium -> High rejected: both S2 and S3 sit at the Medium of the hard prerequisite hyper-probabilistic-tps-sizing, which resolves the advocate's 'no S2/S3 mechanism' point in the other direction. [advocate+auditor] Part 450 licence and W-6 instrumented tiles added to status (licence verified; validity date differs between sources). Full P7 chain written out. | E-entry (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Low -> Medium. S4 = S3 in year and both bands. | E-entry resolver (2026-10-07): [advocate] S3/S4 High rejected: a High prerequisite permits a High child but does not imply it; the gate is the operator's choice to thin and disclose. The why's 'cannot exceed its adoption prerequisite (Medium)' was stale for 2035 and now applies through 2031 only.",
+    "why": "This is the shortest chain in the domain from AI mathematics to flown hardware. Chain (S2): cap-applied-math (2027) -> joint margin budgets on demand (hyper-certified-margin-uq, 2028) -> a capsule maker adopts probabilistic sizing at a design review (2029) -> shield build and arc-jet check (12-18 months on the lag ladder) -> a commercial reentry with an instrumented bondline (2030). The transferable thinning for LEO capsules (~7.5-7.8 km/s, little radiative heating) is smaller than SRL's Mars figure, hence the >=10% threshold. It frees up to ~1-3% of entry mass (judgment) and turns each flight into a calibration point. P7 defaults to Speculative; the band is raised to Medium in S2 and S3 because commercial capsules iterate in months, operator licensing no longer gates each flight, and no certification body must accept margins. Through 2031 it cannot exceed its adoption prerequisite (Medium); by 2035 operator choice and disclosure hold it at Medium even where that prerequisite is High, and S3 adds no physical speed-up to the launch and adoption gates that bind here."
+   }
+  },
+  {
+   "id": "materials-tps-new-material-flight",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2030",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Coupon slots on capsules and Starship are plentiful after 2031, so an announced AI-designed coupon flies by 2035 in S2-S4; S1 is Medium, held by its design prerequisite. S4 gains about a quarter-year within 2030 from robotic coupon work, which changes neither year nor band.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [advocate+skeptic+auditor] Achievement defined at the coupon flight and 'AI-designed' made falsifiable. [skeptic] S2/S3 2029 -> 2030 (the node's own 'about a year after arc-jet screening', with the design node now 2029). [advocate, partly accepted] S3 Medium -> High (cheap coupon slots plus S3 closed-loop labs); S2 High rejected because the prerequisite design capability is Medium in S2 and arrives only in 2029. [auditor] Chain and W-6 coupon-channel status added. | F2 audit (2026-10-07): band reasoning against the P7 default written out; years and bands unchanged. | E-entry (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Low -> Medium, S2 Medium -> High. S4 = S3 in year and both bands."
+   }
+  },
+  {
+   "id": "hyper-heavy-deployable-decelerator",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2030",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "No 10 m-class flight is funded, and Starship's rigid, propulsive approach cuts demand for heavy deployables through 2035. Capital binds, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic+auditor] Hard edge from cap-applied-math made soft (LOFTID flew without AI mathematics; the gate is a budget line). [auditor] S1 >2031 -> 2030 (capital gate is 1.0x, so S1 should not trail S2 on cognition alone); chain written out. [advocate, verified on SatNews] ATMOS Phoenix 1 added. Bands Low x3 unchanged. | E-entry (2026-10-07): horizon 2035 and S4 review. Years and bands kept; band_2035 Low in all scenarios. S4 = S3 in year and both bands."
+   }
+  },
+  {
+   "id": "hyper-12kms-entry-design-basis",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "Robots and new arc jets raise test throughput after 2031 (hyper-35-arcjet-throughput-2x), and the S4 review credits about half a year on validation. No funded large-radius or crewed 12 km/s return needs acceptance before 2035, so mission pull and budgets hold every scenario at Low and S4 gets no band step. If a crewed Mars-return program starts, arc-jet and shock-tube time become the gate and the S4 arc-jet credit applies.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic+auditor] 'No funded mission needs this before 2031' was false for small sample-return capsules (Tianwen-2 landing date verified on Wikipedia; its entry speed is not stated there, so given as ~12 km/s class, general); scope narrowed to large-radius or crewed entries. [auditor] ESA '>3,000 W/cm2, ~250 kPa' figures deleted (the cited ESA page has none); chain written out. Soft edge from new hyper-model-form-error-bounds. Bands unchanged. | E-entry (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> >2035 (radiation kinetics S1 2034 plus 1-2 years of shock-tube and arc-jet validation, with no mission pull). band_2035 kept. The S4 review listed this node for 2032-35 credit; under the four-condition rule the binding gate is mission pull (appropriations), so the credit stays within the validation step and below band resolution. S4 = S3 in year and both bands. | E-entry resolver (2026-10-07): [advocate] binding_gate experiment -> capital, matching the note (mission pull and appropriations bind by 2035). Soft edge from new hyper-35-arcjet-throughput-2x; the robots final already dropped robo-24x7-integration-test -> this node.",
+    "binding_gate": "capital"
+   }
+  },
+  {
+   "id": "hyper-mars-heavy-landing",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2031",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "The 2033 window, arriving late 2033, gives a second chance before 2035; the mid-2035 window arrives mostly in 2036. Windows and SpaceX's Moon-first priority bind, so all scenarios are Medium and S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic+advocate+auditor] Hard edge from hyper-srp-aeropropulsive-models made soft (SpaceX can land on proprietary empirical models and accept risk, per the SRP node's own strongest case). [skeptic] Hard edge from hyper-flight-data-pipeline removed (capsule and testbed data carry no Mars SRP information); owner data enter via soft edge from hyper-fleet-aerothermal-twin (advocate). [advocate] Soft edge from hyper-radiation-kinetics (CO2 radiative heating at large nose radius). [skeptic+auditor] S3 Medium -> Low: the S3 'whole program' argument acts on gates that compress ~1.0x. [skeptic] '0.5-1 t on a 20 t-class lander' removed here (it applies to ablator-shielded NASA concepts, not Starship tiles). [auditor] Chain written out. | E-entry (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 Low -> Medium in all scenarios (two windows, 2031 and 2033, before end-2035). S4 = S3 in year and both bands."
+   }
+  },
+  {
+   "id": "hyper-p2p-cargo-demo",
+   "patch": {
+    "earliest_year": {
+     "S1": "2032",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "Regulation, a new landing site and DoD priority bind equally in every scenario, and the Johnston Atoll assessment stays suspended, so all four are Low by 2035. S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic+advocate+auditor] Hard prerequisite hyper-rapid-reuse-heatshield replaced by physclock-starship-full-reuse; rapid reuse and the fleet-trained heating model kept as soft edges. [auditor, verified on Wikipedia] Status corrected: the source does not support '~30 t in a 2026 test' ($102M contract, ~100 short-ton goal, demo as early as 2026). Chain written out. Years and bands unchanged (regulatory gate). | E-entry (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2032 (one year behind S2 on licensing). band_2035 S2-S4 Low -> Medium. S4 = S3 in year and both bands. | E-entry resolver (2026-10-07): [skeptic] band_2035 S2-S4 Medium -> Low (AI has no effect on the regulatory and range gates, so no S1/S2 split). Remote-site landing and recovery gate added to why.",
+    "why": "Chain: ship catch and reflight (physclock-starship-full-reuse) -> landing at a remote pad under a new environmental assessment -> range, overflight and host-nation approvals -> 3 recovered cargo flights. Three demo flights need a ship that survives entry and lands, not 5 reflights at 2-week turnaround, and suborbital P2P entries are below orbital speed. Of the remaining gates only the aerothermal design is cognitive, and it is already adequate. AI mathematics has essentially no effect on the regulatory and range gates. It also needs a ship that can land at a remote site (legs or a catch tower there) and a way to recover it; current ships are built for tower catch (general)."
+   }
+  },
+  {
+   "id": "hyper-reentry-cadence-economy",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Customer launch under $1,000/kg from about 2031 and four more years of operators reaching monthly cadence make 50+ returns a year plausible by 2035 in S2-S4. Demand and landing sites bind, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic+advocate+auditor] Hard edge from hyper-thinner-tps-flown made soft (the node's own why says TPS is a marginal contributor); soft edges added from physclock-licensing-in-weeks and physclock-heavy-cadence-100. [skeptic+auditor] S2 Medium -> Low. [skeptic vs advocate] S3: skeptic Low, advocate High (operator says automation binds; S3 brings AI-run operations); resolved Low on the 2026 record (3 attempts, 1 loss), the >10x increase needed and the slip ratios, with demand and landing sites binding ahead of labour. [skeptic] Years S2 2030 -> 2031, S3 2029 -> 2030. [auditor] Exclusions added so Starship returns cannot satisfy the node; tier-7 chain written out; pathway given a P-code. | E-entry (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2033 (cheap customer launch S1 2032, slower in-space manufacturing demand). band_2035 S2-S4 Low -> Medium. S4 = S3 in year and both bands."
+   }
+  },
+  {
+   "id": "hyper-outer-planet-aerocapture-baseline",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2032",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "note_2035": "Once the early-2030s Jupiter flyby opportunities pass, a Uranus orbiter gains more from aerocapture (general), so a 2032-35 baseline decision is possible. The demo must fly first and is Low by 2035, and flagship decisions are appropriations-bound, so every scenario stays Speculative. S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: [skeptic+auditor] S2/S3 Low -> Speculative (conjunction of a Low first-ever demo and a flagship decision; P7 default). [skeptic] S2 2031 -> >2031, S3 2030 -> 2031 (a baseline in the demo year assumed zero review lag; demo now 2030). [auditor] Chain written out; cruise-time claim sourced to arXiv 2310.14514; 'requires a flight demo' marked general. | E-entry (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2033, S2 >2031 -> 2032 (demo 2030, then a mission concept review). band_2035 S2-S4 Speculative -> Low, held below the demo's Medium. S4 = S3 in year and both bands. | E-entry resolver (2026-10-07): [skeptic] band_2035 S2-S4 Low -> Speculative, following the demo's band_2035 (now Low in all scenarios). Years kept.",
+    "why": "Aerocapture can cut cruise to Uranus by several years and save insertion propellant (Uranus aerocapture literature). Chain: aerocapture demo succeeds (2030 at the earliest) -> NASA new start for the Uranus Orbiter and Probe, or an ESA study, adopts aerocapture -> aerocapture is baseline at mission concept review (2031 or later). Flagship programs run 8-15 years and appropriations compress 1.0x. AI-cheapened analysis and verifiable guidance lower perceived risk, but a first-ever demo (Low) and a flagship baseline decision must both land, and both stay unlikely through 2035."
+   }
+  },
+  {
+   "id": "hyper-model-form-error-bounds",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Paired ground and flight data accumulate with capsule cadence (instrumented tiles on Varda-class flights, Orion), so a flight-calibrated model-form term in a published sizing is likely by 2035 in S2-S4. S4 equals S3 because flight cadence sets the data clock.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: New node. [auditor] Split from hyper-certified-margin-uq, whose own why called model-form error 'genuinely open'. [skeptic] Signpost and data gate taken from the skeptic's certified-margin finding. Links to hyper-probabilistic-tps-sizing and hyper-12kms-entry-design-basis are soft, as the auditor proposed: LEO capsules can size probabilistically without it. | E-entry (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2033 (S1 applied math 2029 plus paired datasets). band_2035 S1 Low -> Medium, S2-S4 Medium -> High. S4 = S3 in year and both bands."
+   }
+  },
+  {
+   "id": "hyper-fleet-aerothermal-twin",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Hundreds of instrumented reentries of one ship family accumulate by the early 2030s in every scenario, so an operator statement that entries or tile work are set from a fleet model is likely by 2035. Launch cadence sets the data clock, so S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-entry: New node from the advocate, narrowed. Carries the owner-data curve that the skeptic and auditor removed from hyper-flight-data-pipeline. Scoped to heating so it does not duplicate hyper-tile-damage-accumulation (tile fatigue) or physclock-twin-reflight-clearance (reflight clearance); hard prerequisite is the flight-cadence node rather than ship reuse because reentries accrue on expended ships too. Advocate's bands Medium/High/High and years 2029/2028/2028 lowered to Medium x3 and 2029/2029/2028: disclosure risk does not vary by scenario, and the launch curve moves S2 by at most 0-0.5 year. | B-fix (integrator, 2026-10-07): S3 2028 -> 2029 and why/status re-based on B-trunk's launch clock (12+ flights a year from 2028, not 2027; heavy cadence S3 2029): ~50 instrumented reentries accrue around 2029 at the earliest in every scenario. Soft edge from physclock-heavy-cadence-100 removed: it lands after this node in every scenario and closed the only soft loop in the graph (heatshield -> heavy cadence -> this node -> heatshield); the later data growth stays in the why. | E-entry (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 Medium -> High in all scenarios (disclosure risk shrinks with hundreds of flights). S4 = S3 in year and both bands."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "id": "hyper-35-ship-heatshield-72h",
+   "title": "Ship heat shield turned around in three days",
+   "tier": 6,
+   "kind": "mission",
+   "domain": "hyper",
+   "description": "One Starship-class ship reaches 20 orbital flights and, at least once, flies twice within 72 hours, with heat-shield inspection and tile work done at the launch site. Achieved when flight records or the operator show both.",
+   "status_oct2026": "No ship has been caught or reflown: Flight 14 reached orbit on 28 Sep 2026 and splashed down. Musk expects the first ship and booster reflights at the end of 2026 or more likely early 2027. Mach33's base case has 18 flights per stack in 2030 and assumes later-generation stacks average 60 flights; Falcon 9 boosters that entered service in 2020 averaged 24 flights (Mach33, Sep 2026). Starfactory already uses specialized robots to install tiles and heat-shield pins (NASASpaceflight, Jan and Mar 2026).",
+   "prerequisites": [
+    "hyper-rapid-reuse-heatshield",
+    "physclock-twin-reflight-clearance"
+   ],
+   "accelerated_by": [
+    "hyper-tile-damage-accumulation",
+    "hyper-tps-inverse-nde",
+    "hyper-fleet-aerothermal-twin",
+    "physclock-heavy-cadence-100",
+    "struct-reusable-life-management"
+   ],
+   "catalog_families": [],
+   "binding_gate": "data",
+   "pathway": "P7 (exogenous launch clock; AI-math effect through damage and inspection models, P1->P6)",
+   "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+   "earliest_year": {
+    "S1": "2035",
+    "S2": "2034",
+    "S3": "2033",
+    "S4": "2033"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "why": "Reuse at the scale of the launch clock (hundreds of heavy flights a year by the mid-2030s, about $13/kg internal cost in Mach33's base case) rewards ships that turn around in days, and Mars-window and lunar tanker surges add demand. Chain (S2): five reflights with two-week heat-shield turnaround (hyper-rapid-reuse-heatshield, 2030) -> reflight cleared from data (physclock-twin-reflight-clearance, 2030) -> inspect-by-exception from tile damage and fleet heating models (2029-31) -> pad-side refurbishment with under 1% of tiles replaced per flight -> a ship flies twice within 72 hours and reaches 20 flights, about 2034. A 72-hour turnaround leaves no time for teardown, so data-based clearance is a hard prerequisite. Falcon 9 took 8 years from first reflight (Mar 2017) to a 9-day record (Mar 2025), and its 2025 median was still 38 days. If a two-week ship record in 2030 falls 25-30% a year, 72 hours arrives about 2034-36. AI mathematics shortens the inspection list through damage and inspection models. S3 is a year ahead of S2 on the launch clock, so S3 has two years of slack by 2035 and is Medium at the low end; S2 has one year and is Low. S4 equals S3. A single 72-hour turnaround is a record that SpaceX can staff with people, and its tile and pin robots are already in S2 and S3. General-purpose robots matter for sustained fleet turnaround, which the trunk's cadence nodes also leave uncredited.",
+   "strongest_case_small": "The economics may never need a 72-hour ship turnaround, because a larger fleet flying every few weeks gives the same cadence, so SpaceX may not try. If the ceramic tile concept is a dead end for rapid reuse, a new heat-shield architecture resets the clock by years.",
+   "signpost": "Flight records showing one ship launched twice within a week, then within 72 hours; SpaceX statements on tiles replaced per flight and on robotic tile work at the pad.",
+   "note_2035": "This is the 2032-35 step of Starship heat-shield reuse. S3 and S4 are Medium with two years of slack and S2 is Low with one. S4 equals S3 because a one-off record can be staffed by people and the tile robots are already counted in S2 and S3.",
+   "needs_2035_review": false,
+   "revision_note": "E-entry (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon. Spine extension. | E-entry resolver (2026-10-07): [skeptic] S4 2032 -> 2033 (= S3): the branch's only S4 year credit failed conditions 1 and 4 (a single record can be staffed by people; tile and pin robots are S2/S3 baseline; the trunk credits S4 nothing on twin clearance or 300/yr cadence). [skeptic] Hard edge from physclock-twin-reflight-clearance added and its soft edge removed. [skeptic, in part] band_2035 S1 Low -> Speculative and S2 Medium -> Low; S3 and S4 kept Medium because the trunk final raised twin clearance to High in S2-S4 and S3 has two years of slack. [advocate] S4 High rejected (condition 1 fails). binding_gate fabrication -> data. Soft edges from robo-requal-standard and robo-24x7-integration-test dropped (requalification and factory integration and test do not bear on pad turnaround); robo-launch-refurb kept."
+  },
+  {
+   "id": "hyper-35-ai-tps-primary-zone",
+   "title": "AI-designed heat-shield material in regular service",
+   "tier": 6,
+   "kind": "mission",
+   "domain": "hyper",
+   "description": "An AI-designed TPS material, coating or ablator (as defined in materials-tps-new-material-flight) is the baseline material for a primary heat-shield zone (forebody, nose or windward acreage) of an operational reentry vehicle and has flown at least 3 missions in that role. Coupons and test tiles do not count.",
+   "status_oct2026": "No AI-designed TPS material has flown, even as a coupon (general). Varda makes its C-PICA heat shields in-house and lost W-4 on reentry in May 2026; W-6 flew Sandia material samples and NASA Ames instrumented tiles. Starship Flight 10 (Aug 2025) flew metallic and actively cooled test tiles. New U.S. arc-jet capacity is being built (Kratos Project Helios, 20-25 MW, awarded Oct 2025).",
+   "prerequisites": [
+    "materials-tps-new-material-flight"
+   ],
+   "accelerated_by": [
+    "hyper-ablator-multiscale-response",
+    "hyper-gas-surface-chemistry",
+    "hyper-probabilistic-tps-sizing",
+    "hyper-optimal-test-design",
+    "physclock-qual-by-analysis-credit",
+    "physclock-ai-run-test-stands",
+    "hyper-35-arcjet-throughput-2x"
+   ],
+   "catalog_families": [],
+   "binding_gate": "qualification",
+   "pathway": "P1->P7",
+   "premise_tier": "n/a",
+   "earliest_year": {
+    "S1": "2035",
+    "S2": "2034",
+    "S3": "2033",
+    "S4": "2033"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "why": "Chain (S2): the first AI-designed coupon flies (materials-tps-new-material-flight, 2030) -> arc-jet qualification of the full material with its bond and attachment (1-2 years; the arc-jet queue binds) -> production scale-up and lot acceptance (about a year) -> baseline on a commercial capsule or a reusable vehicle's windward zone -> three missions, about 2034. Uncrewed commercial operators need no certifier, which lifts the band above the P7 Speculative default; crewed use would be capped at Medium. S3 is a year earlier because AI-run test stands (physclock-ai-run-test-stands, High in S3) shorten arc-jet qualification and lot acceptance; the coupon year is the same in S2 and S3. S4 equals S3: robots speed specimen preparation, and arc-jet runs double first in S4 (hyper-35-arcjet-throughput-2x, 2033), but that lands as qualification ends, and flight heritage at small operators binds, so the gain stays under half a year.",
+   "strongest_case_small": "Operators rarely change primary heat-shield materials, and after the W-4 loss and Artemis I's char loss they favor flight heritage. Gains from a new material may be small next to manufacturing, bonding and attachment.",
+   "signpost": "A capsule maker or reusable-vehicle operator names an AI-designed material as the baseline for a primary heat-shield zone; arc-jet qualification reports for such a material.",
+   "note_2035": "This extends the AI-material chain from a coupon to regular service in 2033-35. S3 is Medium on AI-run test stands and S2 is Low with one year of slack. S4 equals S3: faster S4 arc jets arrive as qualification ends, and operators want flight heritage.",
+   "needs_2035_review": false,
+   "revision_note": "E-entry (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon. | E-entry resolver (2026-10-07): [skeptic] Years S2 2033 -> 2034, S3/S4 2032 -> 2033 (two years from a first coupon to three primary-zone missions left no time for qualification and lot acceptance). band_2035 S1 Low -> Speculative, S2 Medium -> Low; S3/S4 Medium kept. S3's lead now credited to AI-run test stands during qualification. [advocate] S4 High rejected: arc-jet facilities are government or typical operators, not robot-first firms, and the S4 review gives no queue credit beyond the labor term. Soft edges from physclock-ai-run-test-stands and hyper-35-arcjet-throughput-2x added; robo-aerospace-tolerance-work not linked (suppliers and small operators come after 2031)."
+  },
+  {
+   "id": "hyper-35-planetary-aerocapture",
+   "title": "First aerocapture into orbit around another planet",
+   "tier": 6,
+   "kind": "mission",
+   "domain": "hyper",
+   "description": "A funded spacecraft (science, relay or commercial) enters orbit around Mars, Venus or Titan with a single atmospheric pass as its planned orbit-insertion method. Earth demonstrations do not count.",
+   "status_oct2026": "Aerocapture has never flown. NASA ordered a $350k study of an Arc-based Earth aerocapture demonstration from Inversion (11 Sep 2026, to 30 Jun 2027). Uranus studies find MSL-heritage aeroshells adequate for aerocapture (NTRS 20240014677). Mars launch windows open about Apr 2033 and mid-2035 (arriving 2036). Venus windows come about every 19 months: late 2032 to early 2033 and about mid-2034 (general).",
+   "prerequisites": [
+    "hyper-aerocapture-demo"
+   ],
+   "accelerated_by": [
+    "hyper-certified-edl-guidance",
+    "hyper-aerothermal-design-loop",
+    "hyper-kinetic-solver-certification",
+    "physclock-cheap-mass-customer"
+   ],
+   "catalog_families": [],
+   "binding_gate": "capital",
+   "pathway": "P1->P7",
+   "premise_tier": "n/a",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2035",
+    "S3": "2034",
+    "S4": "2034"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "why": "Chain (S3): an Earth aerocapture demonstration (hyper-aerocapture-demo, 2030 at the earliest, Low by 2035) -> a small Venus or Mars mission adopts aerocapture and is funded (2031) -> a 3-4 year build (NASA small missions take 4-6 years from selection to launch, general) -> launch in the mid-2034 Venus window -> capture in late 2034 or early 2035. The Apr 2033 Mars window works only if the go-ahead comes before the demo flies, and the mid-2035 Mars window arrives in 2036. S2 is a year later. AI makes guidance, dispersion and rarefied-flow analysis cheap, so a small team can carry the analysis load; funding and the demo's success bind. The band is the demo's chance (Low) times the chance a funded adopter launches by mid-2034, under 10% in every scenario. S4 equals S3 because capital and launch windows bind.",
+   "strongest_case_small": "After a demo, a first planetary use still needs a mission whose design closes only with aerocapture, and with cheap launch most small missions can carry extra propellant instead.",
+   "signpost": "A Mars or Venus mission selection, or a commercial Mars relay, that baselines aerocapture for orbit insertion.",
+   "note_2035": "The first planetary use needs the Earth demo, a funded mission, a 3-4 year build and a window, so the mid-2034 Venus window is the only realistic slot inside 2035. Every scenario is Speculative by 2035, and S4 equals S3.",
+   "needs_2035_review": false,
+   "revision_note": "E-entry (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon. | E-entry resolver (2026-10-07): [skeptic] Years S1 2035 -> >2035, S2 2034 -> 2035, S3/S4 2033 -> 2034: an Apr 2033 Mars launch needs a mission in build by 2030-31, the year the first-ever demo can fly. band_2035 S2-S4 Low -> Speculative. Venus windows added to status; why chain rewritten."
+  },
+  {
+   "id": "hyper-35-mars-pinpoint-landing",
+   "title": "Second heavy Mars lander lands near the first without ejecta damage",
+   "tier": 6,
+   "kind": "mission",
+   "domain": "hyper",
+   "description": "A second lander of 20 t or more, from the same launch window or a later one, lands intact on Mars within 1 km of an earlier lander, without disabling damage to it from plume or ejecta. This is the precision and keep-out an outpost cargo build-up needs.",
+   "status_oct2026": "No 20 t-class Mars landing has been attempted. Landing ellipses for Curiosity and Perseverance were about 20 x 7 km and 8 x 7 km (general). Apollo 12 landed about 160 m from Surveyor 3, and its exhaust sandblasted the probe (general). In Feb 2026 SpaceX put Mars about 5-7 years out behind a Moon-first priority.",
+   "prerequisites": [
+    "hyper-mars-heavy-landing"
+   ],
+   "accelerated_by": [
+    "hyper-srp-aeropropulsive-models",
+    "prop-psi-models",
+    "hyper-certified-edl-guidance",
+    "astro-scp-guarantees"
+   ],
+   "catalog_families": [],
+   "binding_gate": "launch",
+   "pathway": "P7 (launch windows; AI-math effect through guidance and plume-surface models)",
+   "premise_tier": "n/a",
+   "earliest_year": {
+    "S1": "2033",
+    "S2": "2033",
+    "S3": "2033",
+    "S4": "2033"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "why": "Chain: first heavy landing (hyper-mars-heavy-landing, 2031 window at the earliest) -> site data and terrain-relative navigation from that flight -> a second ship targets the same site in the Apr 2033 window and arrives late 2033. A same-window pair in 2031 is possible but unlikely: a 2031 landing most likely rests on one ship, and the five-ship fueling campaign (prop-35-mars-window-fueling) is dated to the 2033 window. Landing within 1 km is routine precision for propulsive landers; the hard part is the keep-out. Apollo 12 landed about 160 m from Surveyor 3 and its exhaust sandblasted the probe, and a Starship-class plume on unprepared regolith throws far more. AI mathematics helps through plume-surface models (prop-psi-models) and guidance with proven convergence; windows and SpaceX's priorities set the date. The band is the first landing's chance by 2035 (Medium) times the chance a second lander lands close without damage, so Low in S2-S4. S1 is Speculative because its plume-surface models are Low by 2035, so landers keep farther apart. S4 equals S3 because orbital mechanics binds.",
+   "strongest_case_small": "AI mathematics barely changes the date; windows and SpaceX's priorities decide it. SpaceX may spread early landings across sites to scout, or keep landers several kilometres apart until a pad exists.",
+   "signpost": "A SpaceX statement that a second Mars ship will target the first ship's site; published plume-ejecta keep-out distances for Starship-class landers on Mars.",
+   "note_2035": "This is the 2033-window follow-on to the first heavy landing, and the plume-ejecta keep-out is what it tests. Windows bind, so every scenario shares the year and S4 equals S3.",
+   "needs_2035_review": false,
+   "revision_note": "E-entry (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon. | E-entry resolver (2026-10-07): [skeptic] Definition aligned with the year: same-window or later-window landers both count, the 'several ships in one window' shortcut is answered in the why, and the title now names the ejecta keep-out. S1 band_2035 Low -> Speculative; S2-S4 kept Low (the skeptic's Speculative assumed only a 2031 first landing; a 2033-window first landing with a second ship also counts). [advocate] S3/S4 2033 -> 2031 rejected: the engines-materials final dates the five-ship fueling campaign to the 2033 window in S2-S4, so its premise no longer holds."
+  },
+  {
+   "id": "hyper-35-crewed-probabilistic-shield",
+   "title": "A crewed vehicle flies a heat shield sized by probabilistic margins",
+   "tier": 6,
+   "kind": "mission",
+   "domain": "hyper",
+   "description": "A crewed reentry vehicle certified by NASA or another space agency flies a heat shield whose thickness was set to a reliability target with joint probabilistic margins, including a flight-calibrated model-form term, in place of stacked aerothermal factors.",
+   "status_oct2026": "NASA practice stacks deterministic aerothermal factors and combines branches by root-sum-square (SRL design, IPPW 2026); the SRL alternative-margining study was preliminary, and SRL ended when Mars Sample Return received no FY2026 funding. Artemis I's char loss pushed NASA toward more margin; Artemis II flew a modified entry on the same shield design (10 Apr 2026).",
+   "prerequisites": [
+    "hyper-probabilistic-tps-sizing",
+    "hyper-model-form-error-bounds",
+    "physclock-credibility-evidence-standard"
+   ],
+   "accelerated_by": [
+    "hyper-thinner-tps-flown",
+    "hyper-ablator-multiscale-response",
+    "frontier-rare-event-certified"
+   ],
+   "catalog_families": [],
+   "binding_gate": "regulatory",
+   "pathway": "P1->P5->P7",
+   "premise_tier": "n/a",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2035",
+    "S3": "2034",
+    "S4": "2034"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "why": "Chain (S2): probabilistic sizing adopted on uncrewed vehicles (2029) -> flight-calibrated model-form bounds (2030) -> a credibility standard that covers AI-built analysis (physclock-credibility-evidence-standard, 2029) -> an agency margin policy that allows reliability-based sizing for crew (2031-32) -> a heat-shield block change on a crewed capsule (Orion, Dragon or a national crew vehicle): redesign, arc-jet qualification and crew certification, 3 years or more -> flight, about 2035. Precedent: from Artemis I's char loss (Dec 2022) to a modified shield on Artemis III took about 5 years (general), and the char-loss investigation alone took 121 arc-jet tests over 8 campaigns. The certifier must accept the method, so the band is capped at Medium, and after Artemis I crewed programs favor margin. S3 is a year earlier because its model-form bounds land a year earlier; the institutional steps run at the same pace in S2-S4. S3 and S4 are Low by 2035 and S2 is Speculative. S1 lacks the calibrated bounds in time. S4 equals S3 because institutions bind.",
+   "strongest_case_small": "Crewed programs rarely trade heat-shield margin for mass, and a thinner crewed shield saves little that matters. Agencies may use the method for analysis while keeping stacked factors for sizing.",
+   "signpost": "A NASA EDL or TPS margin-policy revision that allows reliability-based sizing for crewed vehicles; a crewed heat-shield redesign that cites it.",
+   "note_2035": "This is where the margin chain meets crewed risk posture. Certifier acceptance and a crewed qualification of 3 years or more bind, so the first flight falls in 2034-35 at the earliest; S3 and S4 are Low by 2035, S2 is Speculative, and S4 equals S3.",
+   "needs_2035_review": false,
+   "revision_note": "E-entry (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon. Regulatory cap Medium; no named mechanism for crewed TPS margins is in motion, so 2035 stays capped. | E-entry resolver (2026-10-07): [skeptic] Hard edge from physclock-credibility-evidence-standard added (a crewed certifier accepts AI-built margins only through such a standard); soft edge removed. Years S2 2034 -> 2035, S3/S4 2033 -> 2034 (1-2 years from policy to a flown crewed shield was too short against the ~5-year Artemis precedent). band_2035 S2 Low -> Speculative."
+  },
+  {
+   "id": "hyper-35-arcjet-throughput-2x",
+   "title": "Arc-jet test runs per year double",
+   "tier": 4,
+   "kind": "infrastructure",
+   "domain": "hyper",
+   "description": "U.S. arc-jet facilities together complete at least twice as many heat-shield test runs a year as in 2026, from added facilities and from automated model change, instrumentation and turnaround between runs. Achieved when NASA, DoD test-resource reports or facility operators show the doubling.",
+   "status_oct2026": "The Ames Arc Jet Complex is NASA's only ground facility for reentry TPS testing, built in the 1960s-70s, with flat maintenance funding; in 2026 the 30 kW mARC II needed a cooling-sleeve fix to extend run times. Kratos Project Helios (a 20-25 MW arc jet plus a 200 kW fiber laser, $68.3M, awarded 23 Oct 2025 under the Industrial Base Analysis and Sustainment program) adds capacity. Surveyed experts rank more arc jets as the top hypersonic-materials test need (ETI via Air & Space Forces).",
+   "prerequisites": [],
+   "accelerated_by": [
+    "physclock-ai-run-test-stands"
+   ],
+   "catalog_families": [],
+   "binding_gate": "capital",
+   "pathway": "P7 (test infrastructure; S4 lever is robot labor at the facilities)",
+   "premise_tier": "n/a (infrastructure throughput anchor, not an AI-math implication)",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2035",
+    "S3": "2034",
+    "S4": "2033"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "Medium"
+   },
+   "why": "Arc-jet time is the experiment gate for this branch. The S4 review splits arc-jet queue time into about 40% labor (model change, instrumentation, between-run turnaround, maintenance), 25% physics (run time, cooling, pump-down, electrode wear) and 35% capital, power and institution. Capital caps the number of facilities in every scenario; within each facility the labor share is what S4 compresses. Chain (S2): new capacity such as Helios enters service in the late 2020s -> AI scheduling and instant data reduction (physclock-ai-run-test-stands, Medium in S2) -> runs per year about 1.5-1.8x by 2035 (judgment), so doubling is Low and no earlier than 2035. S3 2034: AI-run stands are High, but they leave article setup to people, so S3 stays Low. S4 2033: general-purpose robots do bench and test work from 2030-31 (robo-lab-bench-useful, robo-24x7-integration-test) and help build new stands; automated model insertion and turnaround raise runs per day per facility about 1.3-1.8x (estimate), and leading facilities reach 0.41-0.47 of 2026 queue time by 2035. S4 is Medium by 2035. The S4 credit meets all four conditions: runs per year are throughput-bound, robots are useful there from 2030-31, there is no hard prerequisite, and S3's AI-run stands leave setup to people. Arc-heater power, electrode life and facility capital cap each run in every scenario, and S4 raises test demand too. S1 falls after 2035.",
+   "strongest_case_small": "Arc-jet operations are high-voltage, hazardous work at government facilities that adopt new practice slowly, so robots may reach them late. Run counts are rarely published, so the doubling may be hard to see, and defense hypersonics may take most of the added runs.",
+   "signpost": "Kratos Helios in service; an arc-jet operator reporting automated model insertion or runs per day; NASA or DoD test-capacity reports showing run counts or test hours.",
+   "note_2035": "New in the 2035 extension and the branch's one S4 credit: S4 is a year ahead of S3 and Medium by 2035 because model change, instrumentation and turnaround are labor-bound steps that general robots take over from 2030-31. Arc-heater power, electrode life and facility capital still cap each run.",
+   "needs_2035_review": false,
+   "revision_note": "E-entry resolver (2026-10-07): new node from the advocate review, tempered. The advocate's years (S2 2034, S3 2033, S4 2032) and band_2035 (Low/Medium/Medium/High) were moved one year later and one band lower in S3 and S4: the S4 review's typical-facility figure for 2035 (0.56-0.64 of 2026 queue time) does not reach a doubling without new capital, and arc-jet operators are government or typical firms, not robot-first. Tier 4 infrastructure in place of tier 1 (tier 1 holds mathematics)."
+  },
+  {
+   "id": "hyper-35-crewed-ship-reentry",
+   "title": "People return from orbit on a reusable ship",
+   "tier": 6,
+   "kind": "mission",
+   "domain": "hyper",
+   "description": "A crew of at least two launches to orbit and returns to Earth aboard the ship of a fully reusable heavy launcher (Starship-class), which comes through entry on its reusable heat shield and lands for reuse, on a licensed flight. Capsules, and lunar landers that never reenter Earth's atmosphere, do not count.",
+   "status_oct2026": "No crew has flown on Starship. Flight 14 reached orbit on 28 Sep 2026 and splashed down; no ship has been caught or reflown. Starship has no launch escape system (general). Under NASA's HLS plan, crews transfer between Orion and Starship in lunar orbit, so no crew is planned to reenter Earth's atmosphere in a Starship (general). In Feb 2026 SpaceX shifted focus to a city on the Moon. The last crewed entries on a tiled reusable vehicle were Space Shuttle flights, which ended in 2011 after the 2003 Columbia loss (general).",
+   "prerequisites": [
+    "physclock-heavy-cadence-100"
+   ],
+   "accelerated_by": [
+    "hyper-rapid-reuse-heatshield",
+    "hyper-tile-damage-accumulation",
+    "hyper-fleet-aerothermal-twin",
+    "physclock-reliability-priors-credit",
+    "physclock-critical-payload-reuse-acceptance"
+   ],
+   "catalog_families": [],
+   "binding_gate": "launch",
+   "pathway": "P7 (exogenous launch clock; AI-math effect through tile damage models and reliability priors, P1->P6)",
+   "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+   "earliest_year": {
+    "S1": "2035",
+    "S2": "2034",
+    "S3": "2033",
+    "S4": "2033"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "why": "Without a launch escape system, the safety case is the vehicle's flight record. A zero-failure demonstration of 0.99 reliability at 90% confidence needs about 229 trials: 9.2 years at 25 flights a year, 2.3 years at 100 (S4 review). Chain (S2): 100+ heavy flights a year from 2030 (physclock-heavy-cadence-100) -> a long run of successful ship entries and landings by 2032-33 -> crew cabin, life support and an abort case -> an FAA license for a crewed flight -> first crewed orbital flight and landing, about 2034. Demand would come from SpaceX's Moon-first plan if it moves crews beyond the Orion-HLS handoff (judgment). AI mathematics enters through tile damage and fleet heating models, which make each entry better understood, and through model-based reliability priors (physclock-reliability-priors-credit), which can cut the flights needed. S3 is a year ahead on the launch clock and has two years of slack, so it is Medium by 2035; S2 has one year and is Low; S1 follows its later heat shield and cadence. A licensed crewed flight is capped at Medium. S4 equals S3: flight statistics and the operator's risk decision bind, and robots do not add flights.",
+   "strongest_case_small": "SpaceX may keep crews on Dragon and Orion through 2035 and fly Starship crews only to the Moon, never through Earth entry. One ship loss in the run-up resets the record, and the tile concept carries the Columbia shadow.",
+   "signpost": "A SpaceX crewed Starship flight plan with a date; a run of 100 or more consecutive successful ship entries and landings; an FAA license application for a crewed Starship flight.",
+   "note_2035": "New in the 2035 extension: the first people through entry on a reusable tiled ship since the Shuttle. S3 and S4 are Medium and S2 is Low; S4 equals S3 because flight statistics and risk acceptance bind.",
+   "needs_2035_review": false,
+   "revision_note": "E-entry resolver (2026-10-07): new node from the advocate review. Kept the advocate's years and bands (S1 Speculative, S2 Low, S3/S4 Medium) except S1 >2035 -> 2035, since the trunk dates S1's 100-flight cadence to 2030 as in S2. Capped at Medium as a licensed crewed flight. Soft edge from capability-35-heavy-cadence-300 left to the integrator (trunk node)."
+  }
+ ],
+ "add_edges": [],
+ "add_soft_edges": [
+  {
+   "from": "robo-launch-refurb",
+   "to": "hyper-35-ship-heatshield-72h"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "hyper-35-ai-tps-primary-zone"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "hyper-35-arcjet-throughput-2x"
+  },
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "hyper-35-arcjet-throughput-2x"
+  },
+  {
+   "from": "robo-construction-trades",
+   "to": "hyper-35-arcjet-throughput-2x"
+  },
+  {
+   "from": "hyper-35-arcjet-throughput-2x",
+   "to": "hyper-12kms-entry-design-basis"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "entry",
+   "nodes": [
+    "hyper-35-ship-heatshield-72h",
+    "hyper-35-ai-tps-primary-zone",
+    "hyper-35-planetary-aerocapture",
+    "hyper-35-mars-pinpoint-landing",
+    "hyper-35-crewed-probabilistic-shield",
+    "hyper-35-arcjet-throughput-2x",
+    "hyper-35-crewed-ship-reentry"
+   ],
+   "spine": [
+    "hyper-35-ship-heatshield-72h"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "entry",
+   "patch": {
+    "thesis": "AI uncertainty analysis lets commercial capsules fly thinner heat shields around 2030 (base case, Medium). Ship heat shields reach five reflights by 2030. Three-day turnaround and crews on a reusable ship stay long shots in the base case by 2035. Mars landings, aerocapture and crewed margins wait on windows, budgets and certifiers. Robots (S4) speed only arc-jet testing.",
+    "revision_note": "B-entry: [skeptic+auditor] Thesis and hook rewritten to the source's actual assumptions (single location, aerothermal error capped at existing factors, MSR cancelled) and to the corrected bands. [advocate] Two-curve result (owner data on the launch curve) added via new node hyper-fleet-aerothermal-twin, placed on the spine. [skeptic] Spine order kept; soft links listed in spine_soft_links. | C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Trunk nodes ['cap-applied-math', 'physclock-starship-full-reuse'] are shown as the chain's entry anchors (also listed in roots); they stay members of the trunk branch only. Moved from spine to side_chains (still branch members): ['hyper-optimal-test-design', 'hyper-tps-inverse-nde', 'hyper-fleet-aerothermal-twin', 'hyper-srp-aeropropulsive-models', 'hyper-mars-heavy-landing']. hyper-tile-damage-accumulation joins the applied-math lane to the Starship-reuse lane; the reuse heat shield remains on the launch clock. | E-entry (2026-10-07): horizon 2035 and S4 review. Thesis rewritten for 2026-2035 and S4; reader hook kept. Spine extended by hyper-35-ship-heatshield-72h (hard edge from hyper-rapid-reuse-heatshield). Five more new nodes as side members. | E-entry resolver (2026-10-07): thesis rewritten after review. The 72-hour node loses its S4 year credit; the branch's one S4 credit is now arc-jet test throughput (hyper-35-arcjet-throughput-2x, S4 2033 against S3 2034). New side members hyper-35-arcjet-throughput-2x and hyper-35-crewed-ship-reentry; hyper-35-p2p-cargo-service dropped."
+   }
+  }
+ ]
+}

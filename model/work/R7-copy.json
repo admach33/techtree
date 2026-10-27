@@ -1,0 +1,188 @@
+{
+ "notes": "R7 copy edit (2026-10-08): branch theses <=50 words and reader hooks <=60 words, plain language, numbers preserved or claims cut; stale 2031-only band in certification thesis replaced with the 2035 band; science LISA launch stated as planned (node band Low by 2035); 17 new-node titles shortened or de-jargoned.",
+ "branch_update": [
+  {
+   "branch": "trunk",
+   "patch": {
+    "thesis": "If research-grade AI math reaches outside teams in 2027 (base case), space engineers use it on demand by 2028. Tests, factories and launches run on physical time, so schedules shrink 20-30% by 2031 and about a third by 2035. In S4, leading firms halve cycles about 2034 (Medium by 2035).",
+    "reader_hook": "A research-grade result costs about $200-2,000 in tokens (the low figure counts only published successes), so 1,000 hard problems a year cost one to ten engineers before checking. Checking sets the price. Only about a third of a program's critical path is thinking work, so base-case schedule cuts top out near 38%. Realized gains are likelier 20-30%."
+   }
+  },
+  {
+   "branch": "math-frontier",
+   "patch": {
+    "thesis": "If AI settles famous fluid problems, almost no engine, heat shield or orbit changes. Engineers get proof tools and on-demand error bars from about 2028 (base case). Math stops limiting leading programs about 2029, suppliers about 2032. Certifiers audit AI analysis instead of redoing it about 2033. S4 adds nothing.",
+    "reader_hook": "An AI agent formalized a plasma physics result (Vlasov-Maxwell-Landau) in 10 days for about $200, with no human-written code (one mathematician, 229 prompts). Two of its three failure modes came from stating the problem. Only 16 of the release's 372 families concern partial differential equations and 12 concern dynamics, reflecting which problems the lab chose to pose."
+   }
+  },
+  {
+   "branch": "verified-autonomy",
+   "patch": {
+    "thesis": "Verified flight code gets 15-120x cheaper per line by 2028-29 and flies on landers and constellations about 2029 (base case). By 2035 certifiers accept AI-written proofs (High). Crewed credit stays Medium and a proof-checked Mars landing Low. In S4, robot-run tests halve verification time about 2033, two years early."
+   }
+  },
+  {
+   "branch": "networks",
+   "patch": {
+    "thesis": "Certified routing and interference bounds put meshes and phone-to-satellite service on proven plans by 2029-30 (base case). Then the 2031 defense post-quantum deadline, WRC-31, standards and launches set the pace, so the base and Recursive cases end close together by 2035. Robots (S4) gain one year, on laser-terminal supply.",
+    "reader_hook": "The FCC's 2026 rules judge satellite interference against simulated criteria, such as 3% throughput loss, so spectrum rights become a math problem. The Department of War requires post-quantum crypto on all its systems by the end of 2031, and NIST's draft rules disallow today's public-key encryption in 2035. A GEO satellite launched in 2028 flies to about 2043."
+   }
+  },
+  {
+   "branch": "certification",
+   "patch": {
+    "thesis": "Operators fly hardware qualified mainly by AI analysis about 2029 (base case, High by 2035). Government credit follows in 2030-31. Test standards and new government designs follow about 2033, still Low. Qualification 15% shorter stays capped at Medium by 2035. S4 lifts 30% shorter campaigns at leading firms to High."
+   }
+  },
+  {
+   "branch": "engines-materials",
+   "patch": {
+    "thesis": "Certified flow and materials models give engines reuse life by analysis from about 2029 (base case). Hot fire and flights set the pace. In 2032-35, 50-flight engines and reusable lunar landers are likeliest. An AI-designed alloy may fly, likely in Recursive. Robots (S4) lift one band: a four-year large engine.",
+    "reader_hook": "A reusable rocket engine spends about 3-6 minutes at full temperature per flight, up to about 5 hours over 50 flights, so rigs can life-test its hot parts in weeks. Reliability takes longer: 0.99 at 90% confidence needs about 230 independent zero-failure starts. One Starship flight logs about 65-70 starts, but they share a vehicle and a build lot."
+   }
+  },
+  {
+   "branch": "entry",
+   "patch": {
+    "thesis": "AI uncertainty analysis lets commercial capsules fly thinner heat shields around 2030 (base case, Medium). Ship heat shields reach five reflights by 2030. Three-day turnaround and crewed reusable ships stay Low by 2035. Windows, budgets and certifiers pace Mars landings and crewed margins. Robots (S4) speed only arc-jet testing.",
+    "reader_hook": "For NASA's now-cancelled Mars Sample Retrieval Lander, a random-sampling study at one stressing point found a heat shield at ~75% of baseline thickness kept its glue line below the limit in ~99% of cases. But it sampled heating error only up to existing margins, while at that 8 km/s entry the radiation model under-predicted shock-tube data by up to 2x."
+   }
+  },
+  {
+   "branch": "orbital-compute-power",
+   "patch": {
+    "thesis": "SpaceX's launch, hardware and capital clock paces orbital compute. Base case: 100-kW-class satellites fly about 2028, 1 GW is Low by 2031 and Medium by 2035, and 10 GW comes after 2035. AI math adds a few percent. Arrays and chip temperatures matter more. Robots (S4) change nothing: launch binds.",
+    "reader_hook": "A gigawatt of orbital compute is about 4,000 Starmind-class satellites and 110-180 Starship flights. Ten gigawatts needs about 700-1,800 flights at low-orbit payloads, more to dawn-dusk orbit. That is two to six years of every flight at 300 a year, the model's early-2030s rate. Qualifying chips to run about 30 C hotter saves about 1,900 t per GW (33FG model)."
+   }
+  },
+  {
+   "branch": "moon-mars",
+   "patch": {
+    "thesis": "AI-planned, machine-checked operations give Moon and Mars robots severalfold more work per operator about 2029 (base case). A self-running Moon base and tonne-scale lunar oxygen are Medium by 2035. Landed mass, night power, funding and Mars windows set the pace. Robots (S4) lift one band, on lunar robot fleet size."
+   }
+  },
+  {
+   "branch": "science",
+   "patch": {
+    "thesis": "Base case: AI doubles archival science per dollar from 2028 and readies LISA's analysis around 2031, well before its planned 2035 launch. Satellite methane numbers become compliance evidence around 2030. Photons, budgets, regulators and launch dates set the pace. S4 adds no year, even on a second private telescope.",
+    "reader_hook": "The waveform physics LISA needs to hear small bodies spiral into giant black holes (second-order self-force) exists today only for circular orbits around non-spinning black holes. The base case finishes it around 2030, roughly three to five years ahead of the pre-AI path (analyst judgment). LISA's launch is still planned for 2035."
+   }
+  },
+  {
+   "branch": "safe-orbits",
+   "patch": {
+    "thesis": "AI makes orbit, collision and storm forecasts honest. Certified million-object screening and AI-designed trajectories arrive by 2029 (base case), recurring paid debris removal about 2030. Safe low orbit waits on small-debris sensors, standards and US-China politics through 2035. Storm forecasts reach 8 hours, then need Vigil. S4 adds nothing."
+   }
+  },
+  {
+   "branch": "plasma-nuclear",
+   "patch": {
+    "thesis": "If AI and diagnostics solve Hall-thruster electron transport around 2030 (base case), thrusters are designed before being built. Cheap full-thruster simulations add a second design route by 2033 (S3). Analysis-based life credit and a U.S. reactor launch stay Low by 2035. Fusion propulsion waits past 2035. Robots (S4) move nothing."
+   }
+  },
+  {
+   "branch": "robots",
+   "patch": {
+    "thesis": "S4 premise: S3-grade AI makes dexterity mostly software about 2028. The fleet passes 1 million in late 2029 and 10 million in late 2032. Robots build flight hardware at leading firms about 2030 (Medium by 2031), suppliers about 2033. Elsewhere S4 changes little before 2032: physics, launch and paperwork bind."
+   }
+  }
+ ],
+ "update": [
+  {
+   "id": "science-35-eo-routine-mrv",
+   "patch": {
+    "title": "Satellite methane data routinely correct reported emissions"
+   }
+  },
+  {
+   "id": "plasma-35-fusion-drive-ground-test",
+   "patch": {
+    "title": "Fusion-drive ground prototype makes fusion and thrust"
+   }
+  },
+  {
+   "id": "comms-35-ntn-standard-ai-codes",
+   "patch": {
+    "title": "AI-designed codes ship in a satellite link standard"
+   }
+  },
+  {
+   "id": "science-35-answer-first-missions",
+   "patch": {
+    "title": "Science mission built to downlink onboard answers flies"
+   }
+  },
+  {
+   "id": "astro-35-cross-bloc-coordination",
+   "patch": {
+    "title": "Chinese and Western fleets coordinate maneuvers by machine"
+   }
+  },
+  {
+   "id": "astro-35-lunar-nav-certified-service",
+   "patch": {
+    "title": "Lunar navigation with proven error bounds in routine use"
+   }
+  },
+  {
+   "id": "plasma-35-kinetic-design-loop",
+   "patch": {
+    "title": "Full-thruster plasma simulation fast enough for design work"
+   }
+  },
+  {
+   "id": "comms-35-in-orbit-pq-cutover",
+   "patch": {
+    "title": "Satellites in service switch to post-quantum encryption"
+   }
+  },
+  {
+   "id": "comms-35-joint-detection-ground-station",
+   "patch": {
+    "title": "Deep-space laser ground station gets more bits per photon"
+   }
+  },
+  {
+   "id": "astro-35-l5-storm-arrival-forecast",
+   "patch": {
+    "title": "Solar-storm arrival forecast within 6 hours, using Vigil"
+   }
+  },
+  {
+   "id": "verif-35-proven-timing-isolation",
+   "patch": {
+    "title": "Multicore space chip flies with proven worst-case timing"
+   }
+  },
+  {
+   "id": "comms-35-merchant-laser-terminals",
+   "patch": {
+    "title": "Independent suppliers ship 3,000 laser terminals a year"
+   }
+  },
+  {
+   "id": "comms-35-certified-shell-in-service",
+   "patch": {
+    "title": "Constellation designed with certified tools enters service"
+   }
+  },
+  {
+   "id": "science-35-helio-constellation-flight",
+   "patch": {
+    "title": "Sun-watching fleet built to map the solar wind in 3D flies"
+   }
+  },
+  {
+   "id": "struct-35-beyond-dawn-dusk-compute",
+   "patch": {
+    "title": "100 MW of orbital compute outside dawn-dusk orbits"
+   }
+  },
+  {
+   "id": "robo-capital-goods-loop",
+   "patch": {
+    "title": "Robots work in the plants that make heavy equipment"
+   }
+  }
+ ]
+}

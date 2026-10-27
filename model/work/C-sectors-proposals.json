@@ -1,0 +1,797 @@
+{
+ "add_nodes": [
+  {
+   "id": "science-eo-retrieval-uq",
+   "title": "Earth-observation retrievals with honest error bars",
+   "tier": 2,
+   "kind": "applied-math",
+   "description": "Identifiability limits and validated uncertainty for the inverse problems that turn Earth-observation pixels into numbers people act on: methane and CO2 point-source emission rates from shortwave-infrared and hyperspectral imagers, ground deformation from radar interferometry (InSAR phase unwrapping and atmospheric correction), and material abundances from hyperspectral unmixing. Achieved means at least one operational provider ships per-source or per-pixel uncertainty whose stated coverage holds in blind validation (controlled methane releases, GNSS stations for InSAR), with scenes flagged where the quantity is not identifiable.",
+   "status_oct2026": "Facility-scale methane quantification is operational, but its error is dominated by wind and surface assumptions rather than by the spectra (general). MethaneSAT, launched Mar 4 2024, lost contact on Jun 20 2025 and was declared unrecoverable in Jul 2025 (Wikipedia); Carbon Mapper's Tanager-1 hyperspectral satellite launched in 2024 (Wikipedia). UNEP's International Methane Emissions Observatory publishes satellite detections through its Methane Alert and Response System (MARS) (European Commission). Blind controlled-release tests of satellite methane quantification have been run (general), but providers do not publish coverage statistics for their stated uncertainties (general). The same optimal-estimation machinery underlies exoplanet retrievals (science-retrieval-identifiability). No catalog family is load-bearing: the release's inverse-problem families (365, 372) concern recovering elastic or metric coefficients from boundary data, not atmospheric retrieval (nil).",
+   "catalog_families": [],
+   "prerequisites": [
+    "cap-applied-math"
+   ],
+   "accelerated_by": [
+    "frontier-inverse-stability",
+    "capability-learned-emulators"
+   ],
+   "binding_gate": "data",
+   "pathway": "P1->P5",
+   "earliest_year": {
+    "S1": "2030",
+    "S2": "2028",
+    "S3": "2028"
+   },
+   "band_2031": {
+    "S1": "Medium",
+    "S2": "High",
+    "S3": "High"
+   },
+   "premise_tier": "n/a (capability premise)",
+   "why": "Retrieval error budgets are bespoke, expert-scarce statistics: whether a plume's emission rate is identifiable given wind uncertainty, model-form error in fast radiative-transfer emulators, phase-unwrapping ambiguity in InSAR. On-demand applied math (S2 2027) turns each into a posed problem with a stated answer, and calibration against controlled releases makes the coverage claim checkable, so the P1 default (High) holds in S2 once one provider adopts it (2028). The data gate is validation (controlled releases, wind truth, GNSS stations), which is cheap and repeatable next to space hardware. S1 waits for applied math (2029) plus a year of adoption. Users of radar flood and crop indices in parametric insurance gain the same honest uncertainty (general).",
+   "strongest_case_small": "Honest error bars are mostly wider error bars: wind and surface reflectance limit quantification, and no theorem adds photons. Providers already publish uncertainties and can calibrate them against controlled releases with standard statistics, so the AI-math increment may be small, and buyers may not pay for it.",
+   "signpost": "A methane or InSAR data provider publishing coverage statistics for its stated uncertainties from blind controlled-release or GNSS validation; an identifiability analysis adopted in an operational retrieval pipeline.",
+   "domain": "science",
+   "branch": "science",
+   "unlocks": [
+    "science-retrieval-identifiability"
+   ],
+   "revision_note": "C-sectors (space-sector coverage critic, 2026-10-07): new node; sector was missing or thin in graph-v2."
+  },
+  {
+   "id": "science-eo-ghg-enforcement-grade",
+   "title": "Satellite methane data used as compliance evidence",
+   "tier": 6,
+   "kind": "mission",
+   "description": "A regulator, accredited verifier or treaty body uses satellite point-source methane quantification, with its stated uncertainty, as evidence in a compliance determination, a penalty, a verified correction to reported company or national emissions, or an importer equivalence assessment, rather than only as a tip-off for follow-up inspection.",
+   "status_oct2026": "Satellites already trigger notifications: UNEP IMEO's MARS sends satellite-detected plumes to governments and operators (European Commission). The EU Methane Regulation (EU 2024/1787) entered into force on Aug 4 2024 and phases in requirements for importers (European Commission), with MRV equivalence for new import contracts from 2027 and methane-intensity limits from 2030 (dates general); the Commission issued recommendations on model contract clauses and penalties in Jul 2026 (European Commission). U.S. federal methane rules went under reconsideration in 2025 (general). Measurement capacity is uneven: MethaneSAT was lost in Jun 2025, while Tanager-1 (2024) and GHGSat's satellites operate (Wikipedia; general).",
+   "catalog_families": [],
+   "prerequisites": [
+    "science-eo-retrieval-uq"
+   ],
+   "accelerated_by": [
+    "comms-hardness-aware-tasking"
+   ],
+   "binding_gate": "regulatory",
+   "pathway": "P1->P5 (adoption into regulation; no hardware change)",
+   "earliest_year": {
+    "S1": ">2031",
+    "S2": "2030",
+    "S3": "2029"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a",
+   "why": "Detection is already accepted; the legal barrier to using a satellite number as evidence is a defensible uncertainty, which is the AI-math increment. Chain (S2): applied math public 2027 -> retrieval uncertainty validated in blind releases 2028 -> a verifier or regulator methodology that references satellite quantification 2029 -> first compliance or verified-inventory use 2030, as EU importer and intensity rules take hold. It needs regulator acceptance, so it is capped at Medium; S3 gains a year only on the methodology step, because regulatory clocks compress 1.5-2x at most and politics 1.0x. S1 waits for applied math (2029) and stays Low.",
+   "strongest_case_small": "Regulators may keep satellites as tip-offs and base penalties on ground or aerial measurement, which is easier to defend; U.S. federal methane enforcement is receding; and the EU importer regime rests on exporters' own reporting, so a satellite number may never be decisive.",
+   "signpost": "An EU verifier, member-state authority or national regulator citing satellite quantification with uncertainty in a compliance finding; the EU methane-intensity methodology naming satellite or other top-down measurement; MARS reporting a rising share of notifications that led to verified corrections.",
+   "domain": "science",
+   "branch": "science",
+   "unlocks": [],
+   "revision_note": "C-sectors (space-sector coverage critic, 2026-10-07): new node; sector was missing or thin in graph-v2."
+  },
+  {
+   "id": "astro-pnt-integrity-overbounding",
+   "title": "Integrity and spoofing bounds for GNSS plus low-orbit navigation",
+   "tier": 2,
+   "kind": "applied-math",
+   "description": "Provable integrity for Earth users who combine GNSS with low-orbit navigation signals, inertial sensors and signals of opportunity: error overbounds that hold for heavy-tailed, non-Gaussian and correlated errors, protection levels with stated missed-detection probabilities (aviation targets are of order 1e-7 per approach, general), and jamming and spoofing detectors with stated false-alarm and missed-detection rates under an explicit threat model. Distinct from astro-nav-filter-guarantees, which covers onboard spacecraft navigation in cislunar and deep space.",
+   "status_oct2026": "Civil GNSS interference is now routine: OPSGROUP counted about 1,500 spoofed flights a day in Jul-Aug 2024, up from about 300 in the first half of 2024, across the Mediterranean, Black Sea, Russia and the Baltic, and the India-Pakistan border (OPSGROUP, Sep 6 2024). Iridium launched a PNT ASIC for jam- and spoof-resistant devices (Oct 27 2025; Iridium via 33FG). ESA's Celeste LEO-PNT demonstrator (11 satellites planned) launched its first satellites on Mar 28 2026, broadcast its first navigation signal from LEO on Apr 10 2026 and demonstrated 5G positioning signals on Sep 15 2026 (ESA). Gaussian overbounding of heavy-tailed GNSS errors is an established but expert-scarce craft (ARAIM, general), and new LEO constellations have no fault-rate history to bound. Catalog: nothing direct.",
+   "catalog_families": [],
+   "prerequisites": [
+    "frontier-rare-event-certified",
+    "cap-applied-math"
+   ],
+   "accelerated_by": [
+    "astro-nav-filter-guarantees",
+    "astro-nongaussian-uq-certified"
+   ],
+   "binding_gate": "data",
+   "pathway": "P1->P5",
+   "earliest_year": {
+    "S1": "2030",
+    "S2": "2028",
+    "S3": "2028"
+   },
+   "band_2031": {
+    "S1": "Medium",
+    "S2": "High",
+    "S3": "High"
+   },
+   "premise_tier": "n/a (capability premise)",
+   "why": "Integrity is tail-probability mathematics: proving that a protection level is exceeded less often than about 1e-7 when errors are non-Gaussian and faults are correlated, and that a spoofing detector misses less often than a stated rate against a defined adversary. Both are bespoke, expert-scarce applied math that certified rare-event methods (frontier-rare-event-certified, S2 2028) and on-demand capability make routine, so the P1 default (High) holds in S2. The data gate is fault history: overbounds for a new LEO constellation need its own signal-in-space fault statistics, which accumulate only with operating years; proofs can say how much data is enough, not supply it. S1 follows the later rare-event methods (2030).",
+   "strongest_case_small": "Accuracy and jam resistance come from signal power, bandwidth, antennas and clocks, not proofs; a spoofing guarantee holds only inside its threat model, and adversaries adapt; aviation integrity standards change over a decade, not two years.",
+   "signpost": "A LEO-PNT provider (Xona, Iridium, ESA's Celeste follow-on) publishing an integrity support message or fault-rate overbound; RTCA or EUROCAE working papers using formally derived overbounds; a spoofing-detection standard with stated missed-detection rates.",
+   "domain": "astro",
+   "branch": "networks",
+   "unlocks": [
+    "astro-autonomous-nav-demo"
+   ],
+   "revision_note": "C-sectors (space-sector coverage critic, 2026-10-07): new node; sector was missing or thin in graph-v2."
+  },
+  {
+   "id": "astro-leo-pnt-assured-service",
+   "title": "Low-orbit navigation service with published integrity",
+   "tier": 6,
+   "kind": "mission",
+   "description": "A low-Earth-orbit PNT service (Xona Pulsar, Iridium PNT, a European LEO-PNT follow-on, or a megaconstellation's navigation signal) publishes an integrity specification (alert limit, protection level, time to alert, fault rates) backed by derived overbounds, and paying critical users (telecom and power-grid timing, maritime, automated vehicles, or aviation trials) rely on it as a GNSS backup or complement. Aviation certification is not required and is not expected by 2031.",
+   "status_oct2026": "Xona plans 258 small satellites at 1,080 km, broadcast its first commercial navigation signal in 2025 and announced on Oct 7 2026 that Pulsar is entering scaled production (Xona). Iridium sells timing and location services and launched a jam- and spoof-resistant PNT ASIC in Oct 2025 (Iridium via 33FG). ESA's Celeste demonstrator broadcast its first LEO navigation signal on Apr 10 2026 (ESA). None publishes an integrity specification comparable to aviation GNSS augmentation (general).",
+   "catalog_families": [],
+   "prerequisites": [
+    "astro-pnt-integrity-overbounding"
+   ],
+   "accelerated_by": [],
+   "binding_gate": "launch",
+   "pathway": "P1->P7 (service deployment; the integrity layer is the AI-math share)",
+   "earliest_year": {
+    "S1": "2031",
+    "S2": "2029",
+    "S3": "2029"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a",
+   "why": "Chain (S2): integrity overbounds 2028 -> provider fault-rate monitoring over one to two years of signal history -> a published integrity specification and paying critical-infrastructure users 2029-30. The service itself runs on the launch and capital clock: hundreds of satellites for continuous global coverage, mostly rideshare-launched, with Xona only now in scaled production, so S3 gains nothing over S2 (launch cadence follows its own curve). Demand is real (about 1,500 spoofed flights a day in 2024), but buyers may take an unbounded backup before an integrity-bounded one, which is why S2 is Medium, not High. S1 follows the later overbounds (2030) plus a year.",
+   "strongest_case_small": "Timing and positioning customers buy availability and jam resistance, which come from signal power and constellation size; integrity specifications matter mainly to aviation, which will not certify a LEO service by 2031; and the largest LEO operator may offer navigation without publishing anything.",
+   "signpost": "Xona or Iridium publishing alert limits and time to alert; a telecom, grid or maritime authority approving LEO PNT as a GNSS backup; EU or ESA decisions on a Celeste follow-on constellation.",
+   "domain": "astro",
+   "branch": "networks",
+   "unlocks": [],
+   "revision_note": "C-sectors (space-sector coverage critic, 2026-10-07): new node; sector was missing or thin in graph-v2."
+  },
+  {
+   "id": "astro-multitarget-track-fusion-certified",
+   "title": "Multi-sensor tracking with certified association",
+   "tier": 2,
+   "kind": "applied-math",
+   "description": "Methods that fuse detections from hundreds to thousands of space-based sensors into tracks of many objects at once, with certified optimality gaps on the data-association step (which detection belongs to which object), consistent covariances under sensor bias and dropouts, and stated rates of mis-association and lost custody. Serves space situational awareness (constellation-hosted star-tracker networks) and, at a high level, missile warning and tracking layers, where the same estimation problem appears with faster, maneuvering targets.",
+   "status_oct2026": "Multi-frame data association is NP-hard for three or more scans (classical, general), so operational fusion uses multiple-hypothesis, random-finite-set or Lagrangian-relaxation methods without certified gaps at proliferated scale (general). SpaceX Stargaze turns about 30,000 star trackers into about 30 million transits a day (Jan 2026; see astro-constellation-hosted-ssa). The Space Development Agency adds infrared tracking satellites in tranches: 28 in Tranche 1 from two vendors and 54 in Tranche 2 from three vendors ($2.5B awarded Jan 2024, first launches targeted from Aug 2026), with MDA's HBTSS medium-field sensors cued by SDA's wide-field sensors (Wikipedia; launch status not independently checked). Catalog: nothing direct; the 102 ceilings (T3) concern Max-Cut and vertex cover, not assignment.",
+   "catalog_families": [],
+   "prerequisites": [
+    "cap-applied-math"
+   ],
+   "accelerated_by": [
+    "astro-nongaussian-uq-certified",
+    "frontier-approx-ceilings",
+    "frontier-scalable-global-certificates"
+   ],
+   "binding_gate": "cognitive",
+   "pathway": "P1->P4",
+   "earliest_year": {
+    "S1": "2030",
+    "S2": "2028",
+    "S3": "2028"
+   },
+   "band_2031": {
+    "S1": "Medium",
+    "S2": "High",
+    "S3": "High"
+   },
+   "premise_tier": "n/a (capability premise)",
+   "why": "Association and covariance realism are the inputs that dominate tracking error, and both are estimation problems solved in principle but scarce in expert time, which is what on-demand applied math (S2 2027) makes cheap. Lagrangian duality already yields certificates of the optimality gap for assignment (general), so the work is scaling and checking them on proliferated scenes, not new theory; constants are practical, so the P4 step does not cut the band. One year of adoption after 2027 gives S2 2028 (High); S1 follows applied math (2029) plus a year.",
+   "strongest_case_small": "Sensor geometry, revisit and noise set tracking quality; heuristics already work on structured scenes; and in the defense case the binding gates are classified data access and acquisition, not math.",
+   "signpost": "Published certified-gap association results on proliferated-LEO benchmarks; Stargaze or a commercial SSA network publishing mis-association statistics; Space Force or SDA ground-segment awards naming certified fusion.",
+   "domain": "astro",
+   "branch": "safe-orbits",
+   "unlocks": [
+    "astro-constellation-hosted-ssa",
+    "astro-small-debris-catalog"
+   ],
+   "revision_note": "C-sectors (space-sector coverage critic, 2026-10-07): new node; sector was missing or thin in graph-v2."
+  },
+  {
+   "id": "astro-proliferated-tracking-custody",
+   "title": "Proliferated tracking layers hold custody on certified fused tracks",
+   "tier": 6,
+   "kind": "mission",
+   "description": "At a high level: a government proliferated-LEO missile-warning and tracking architecture delivers continuous custody of maneuvering targets by fusing detections across many satellites, and its operators publicly attribute part of the result to fusion and covariance methods of the certified kind (bounded mis-association, validated covariance), in a publicly reported test.",
+   "status_oct2026": "SDA's Tranche 1 and Tranche 2 tracking satellites are being built and launched on the agency's roughly two-year tranche cadence (Wikipedia; general; launch status not independently checked). Ground fusion software is classified and its methods unpublished (general). OpenAI, Google, xAI and others were cleared for classified networks in May 2026 (see capability-controlled-data-access).",
+   "catalog_families": [],
+   "prerequisites": [
+    "astro-multitarget-track-fusion-certified",
+    "capability-controlled-data-access"
+   ],
+   "accelerated_by": [
+    "comms-constellation-design-optimizer"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P1->P4 (ground software; sensors and launch are not AI-math-driven)",
+   "earliest_year": {
+    "S1": ">2031",
+    "S2": "2030",
+    "S3": "2029"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low"
+   },
+   "premise_tier": "n/a",
+   "why": "Chain (S2): certified fusion methods 2028 -> usable on classified networks 2028 -> integrated into a tracking ground segment through a defense acquisition cycle 2029-30 -> a publicly reported custody test that credits the method 2030. Sensors, launch and appropriations decide whether custody happens at all (politics 1.0x), and classification limits what anyone outside can observe, so even if the math lands, attribution by 2031 is unlikely: Low in S2 and S3. The resilience question (does coverage survive the loss of satellites) is constellation-design math, linked softly from comms-constellation-design-optimizer.",
+   "strongest_case_small": "Tracking quality is set by infrared sensitivity, revisit and transport-layer latency; programs will use whatever fusion works without publishing it; and access to frontier models on classified networks depends on policy decisions that can change.",
+   "signpost": "SDA or MDA test reports of fire-control-quality tracks from fused space sensors; ground-segment contract language on certified association or covariance realism; unclassified government-lab papers on certified fusion at proliferated scale.",
+   "domain": "astro",
+   "branch": "safe-orbits",
+   "unlocks": [],
+   "revision_note": "C-sectors (space-sector coverage critic, 2026-10-07): new node; sector was missing or thin in graph-v2."
+  },
+  {
+   "id": "physclock-space-risk-models",
+   "title": "Underwriting-grade models of launch and in-orbit risk",
+   "tier": 4,
+   "kind": "engineering-tool",
+   "description": "Risk models that insurers, brokers and operators' own risk-retention programs can price on: hierarchical reliability for launchers with few flights (borrowing strength across vehicles and subsystems with honest uncertainty), in-orbit failure rates with heavy tails and early-life effects, correlated fleet losses from space weather, debris and common-mode defects in serially built satellites, and third-party casualty risk from reentry, each with stated, validated uncertainty.",
+   "status_oct2026": "Space underwriting rests on loss history and engineering review in a small market of roughly half a billion dollars of annual premium (general). Single claims can exceed a year's premium: ViaSat-3 F1's antenna failure (May 2023) led to a claim of about $420 million (Wikipedia), in a year that also saw the Inmarsat-6 F2 loss (general). Most LEO constellation satellites fly uninsured in orbit, their operators relying on redundancy (general); the Feb 2022 geomagnetic storm destroyed 38 of 49 newly launched Starlink satellites (general). Reliability demonstration by test needs about 230 zero-failure trials for 0.99 reliability at 90% confidence (physclock gate table).",
+   "catalog_families": [],
+   "prerequisites": [
+    "frontier-rare-event-certified",
+    "cap-applied-math"
+   ],
+   "accelerated_by": [
+    "plasma-radbelt-charging-forecast",
+    "astro-debris-evolution-models",
+    "plasma-thermo-density-uq",
+    "physclock-ai-mishap-analysis"
+   ],
+   "binding_gate": "data",
+   "pathway": "P1->P5",
+   "earliest_year": {
+    "S1": "2031",
+    "S2": "2029",
+    "S3": "2028"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a (capability premise)",
+   "why": "The mathematics of small-sample, correlated, heavy-tailed risk is understood but expert-scarce, and space is an extreme case: few launches per vehicle, few failures, and losses that cluster (one storm, one design flaw, one debris event). Certified rare-event methods (S2 2028) and on-demand applied math let a broker or operator build such a model for each new vehicle or fleet; insurers adopt a year later (S2 2029). Achieved means a disclosed pricing, retention or capital decision based on such a model. The gate is data: failure and anomaly histories are proprietary and sparse, so models can be honest but not precise, and S3 adds a year but not a band.",
+   "strongest_case_small": "Premiums follow market capacity and recent losses, not model refinement; underwriters already combine engineering review with actuarial judgment; and the operators that matter most self-insure.",
+   "signpost": "A Lloyd's syndicate, broker or rating agency publishing a model-based rating method for new launchers or constellations; an operator disclosing a model-based self-insurance or captive decision; parametric space-weather cover offered to constellation operators.",
+   "domain": "physclock",
+   "branch": "certification",
+   "unlocks": [
+    "physclock-reliability-priors-credit"
+   ],
+   "revision_note": "C-sectors (space-sector coverage critic, 2026-10-07): new node; sector was missing or thin in graph-v2."
+  },
+  {
+   "id": "physclock-space-insurance-capacity",
+   "title": "Model-priced cover reaches new launchers and constellations",
+   "tier": 7,
+   "kind": "outcome",
+   "description": "Insurance capacity extends to risks the market now avoids or prices on scant history: launch cover for a new reusable vehicle after only a few flights at rates near those of mature vehicles, or in-orbit and correlated-loss (space-weather or debris) cover for a LEO constellation, written on model-based rating. Achieved when at least one such program is disclosed.",
+   "status_oct2026": "The space insurance market is small (roughly half a billion dollars of annual premium, general) and cyclical: 2023 claims, led by ViaSat-3 F1 (about $420 million, Wikipedia), exceeded the year's premium (general). LEO constellations are largely uninsured in orbit (general).",
+   "catalog_families": [],
+   "prerequisites": [
+    "physclock-space-risk-models"
+   ],
+   "accelerated_by": [
+    "physclock-reliability-priors-credit",
+    "plasma-storm-robust-leo-ops",
+    "astro-debris-evolution-models"
+   ],
+   "binding_gate": "capital",
+   "pathway": "P1->P5 (pricing practice; market capacity is not AI-math-driven)",
+   "earliest_year": {
+    "S1": ">2031",
+    "S2": "2031",
+    "S3": "2030"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low"
+   },
+   "premise_tier": "n/a",
+   "why": "Chain (S2): risk models 2029 -> one or two underwriting cycles before underwriters trust them -> the first model-priced program for a new launcher or constellation 2031. Capacity, recent losses and reinsurance appetite set this market (capital 1.15-1.3x at most), and the largest constellation operator has no need to buy cover, so better models change the price of a small market at the margin. The node is here so the tree shows the limit: AI math changes space insurance little by 2031.",
+   "strongest_case_small": "The market is small and cyclical; one large loss resets rates regardless of models; and as launch gets cheaper, replacing a satellite can cost less than insuring it.",
+   "signpost": "Launch cover for early Starship, New Glenn or Neutron customer flights at mature-vehicle rates; a disclosed constellation or parametric space-weather program; insurers entering rather than leaving the space market.",
+   "domain": "physclock",
+   "branch": "certification",
+   "unlocks": [],
+   "revision_note": "C-sectors (space-sector coverage critic, 2026-10-07): new node; sector was missing or thin in graph-v2."
+  },
+  {
+   "id": "astro-noncooperative-capture-envelopes",
+   "title": "Proven approach-and-capture envelopes for tumbling debris",
+   "tier": 4,
+   "kind": "engineering-tool",
+   "description": "Design and verification tools for capturing objects never meant to be caught: pose and tumble-rate estimation from passive imagery with stated error bounds, approach and synchronization trajectories proven collision-free under that estimation error, detumbling control with guaranteed convergence, and capture windows bounded by validated contact models. Extends astro-hybrid-rpo-verification, which excludes contact, to non-cooperative targets with no markers, no telemetry and unknown mass properties.",
+   "status_oct2026": "Astroscale's ADRAS-J approached an H-IIA upper stage to 15 m and completed a 360-degree fly-around in 2024, the first approach to a debris object in LEO (Wikipedia). ADRAS-J2, to capture and remove an H-IIA second stage, is planned for launch in 2027; ESA's ClearSpace-1 retargeted to PROBA-1 in Apr 2024 after its original target was hit by debris, and is now expected in 2028 on Vega-C (Wikipedia). Contact and capture behaviour is validated on air-bearing and robotic hardware-in-the-loop testbeds (general); no mainstream contact engine carries certified error bounds (see auton-certified-contact-sim).",
+   "catalog_families": [],
+   "prerequisites": [
+    "astro-hybrid-rpo-verification"
+   ],
+   "accelerated_by": [
+    "auton-certified-contact-sim",
+    "verif-runtime-assurance",
+    "astro-nav-filter-guarantees"
+   ],
+   "binding_gate": "experiment",
+   "pathway": "P1->P2",
+   "earliest_year": {
+    "S1": "2031",
+    "S2": "2029",
+    "S3": "2029"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a (capability premise)",
+   "why": "The cognitive part (estimation bounds, reachability under estimation error, detumble-control proofs) moves with applied math and RPO verification (S2 2028), plus a year to adapt it to unknown targets. The contact phase moves on the experiment clock: envelopes are only as good as contact models validated on testbeds, and a real target's tumble is known only in flight. S3 gains nothing over S2 because hardware-in-the-loop campaigns compress 1.1-1.5x. Medium in S2 because a removal operator must choose to put such tools in its safety case.",
+   "strongest_case_small": "Removal missions already fly with conventional guidance and test-based safety cases, and the hard part, grappling an unknown structure, is set by mechanisms and contact behaviour that proofs over unvalidated models cannot certify.",
+   "signpost": "Astroscale, ClearSpace or Starfish citing certified pose-and-tumble estimation bounds or capture reachability in a mission safety review; certified detumble controllers demonstrated on air-bearing tables.",
+   "domain": "astro",
+   "branch": "safe-orbits",
+   "unlocks": [
+    "verif-rpo-assured-autonomy"
+   ],
+   "revision_note": "C-sectors (space-sector coverage critic, 2026-10-07): new node; sector was missing or thin in graph-v2."
+  },
+  {
+   "id": "astro-adr-large-object-removed",
+   "title": "A large piece of debris is captured and deorbited",
+   "tier": 6,
+   "kind": "mission",
+   "description": "A servicing spacecraft captures a large non-cooperative object (a spent upper stage or dead satellite) and lowers it to reentry. Achieved by the first successful removal, whatever methods it used; the AI-math share shows only if the capture safety case uses certified envelopes (astro-noncooperative-capture-envelopes).",
+   "status_oct2026": "ADRAS-J flew around an H-IIA upper stage at 15 m in 2024; ADRAS-J2 is planned to launch in 2027 to remove an H-IIA second stage; ClearSpace-1 (EUR 86 million ESA contract, Nov 2020) is expected in 2028 on Vega-C to remove PROBA-1, after a 2026 date as recently as May 2023 (Wikipedia). Both are government-funded demonstrations; who pays for recurring removal is unresolved (general).",
+   "catalog_families": [],
+   "prerequisites": [],
+   "accelerated_by": [
+    "astro-noncooperative-capture-envelopes",
+    "verif-rpo-assured-autonomy"
+   ],
+   "binding_gate": "launch",
+   "pathway": "P7 (exogenous: government-funded demonstrations on their own schedule; AI math enters only through soft inputs)",
+   "earliest_year": {
+    "S1": "2028",
+    "S2": "2028",
+    "S3": "2028"
+   },
+   "band_2031": {
+    "S1": "Medium",
+    "S2": "Medium",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a (exogenous physical clock: not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Two funded missions are in build: ADRAS-J2 (launch 2027) and ClearSpace-1 (2028). One of them succeeding by 2031 is plausible on its own, but slips are common (ClearSpace-1 moved from 2026 to 2028) and capturing an unprepared object is a hard first, so Medium rather than High in every scenario. AI math changes the date little; where it could show by 2031 is a second, cheaper removal with a shorter test campaign and safety review. Recurring removal depends on who pays (regulation and liability), which AI math does not change.",
+   "strongest_case_small": "The removal happens or slips for hardware and funding reasons, and debris removal stays a handful of government-funded demonstrations through 2031 regardless of better math.",
+   "signpost": "ADRAS-J2 launch and capture (2027-28); ClearSpace-1 launch on Vega-C (2028); a commercially funded removal contract, for example a constellation operator paying to remove its own failed satellite.",
+   "domain": "astro",
+   "branch": "safe-orbits",
+   "unlocks": [
+    "astro-leo-safety-at-scale"
+   ],
+   "revision_note": "C-sectors (space-sector coverage critic, 2026-10-07): new node; sector was missing or thin in graph-v2."
+  },
+  {
+   "id": "physclock-production-acceptance-by-model",
+   "title": "Mass-produced satellites screened by statistics, not unit tests",
+   "tier": 4,
+   "kind": "engineering-tool",
+   "description": "For lines building hundreds to thousands of satellites a year, acceptance screening (unit-level vibration, thermal cycling, burn-in) is set by models that combine process data, sampled testing and early-life fleet telemetry, with a certified bound on the rate of defective units that escape to orbit. Per-unit test time falls while infant mortality stays below a stated rate at stated confidence. Distinct from qualifying new designs (physclock-commercial-analysis-first-qual) and from designing development tests (physclock-optimal-test-campaigns).",
+   "status_oct2026": "Starlink v2 mini production reached six a day by Mar 2023 (Wikipedia, via the physclock gate table), and compute-satellite plans call for hundreds to thousands of units a year (struct-100kw-per-tonne-fleet). The tree compresses the satellite-production ramp only about 0.9x (S2) and environmental screening 0.8-0.9x by 2031, because thermal time constants and workmanship screening are physical (physclock gate table). High-rate producers' acceptance practice is proprietary (general). Statistical process control and acceptance sampling are mature; bounding escape rates with correlated defects and fleet-telemetry feedback is bespoke (general).",
+   "catalog_families": [],
+   "prerequisites": [
+    "physclock-optimal-test-campaigns",
+    "frontier-rare-event-certified"
+   ],
+   "accelerated_by": [
+    "struct-test-data-commons",
+    "materials-allowables-stats-framework"
+   ],
+   "binding_gate": "data",
+   "pathway": "P1",
+   "earliest_year": {
+    "S1": "2030",
+    "S2": "2029",
+    "S3": "2028"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "High"
+   },
+   "premise_tier": "n/a (capability premise)",
+   "why": "Fleet telemetry is what makes this work: thousands of identical units report early-life failures, so escape-rate bounds can be updated with every production batch. The math (sequential testing, hierarchical models of correlated defects, bounds on escapes) exists in pieces and is expert-scarce; on-demand applied math and certified rare-event methods (S2 2028) assemble it per line, and an operator carrying its own risk can adopt without a regulator (S2 2029). S3 is a year earlier because the adopter owns its data, its line and, increasingly, its own model. The gain is test-stand time and line throughput (a few percent to tens of percent of acceptance flow, assumption), not a better satellite. S1 Low: methods arrive 2030 with one year left.",
+   "strongest_case_small": "The largest producer may already do this with standard statistics and not publish it; for everyone else volumes are too low for fleet data to bound anything; and thermal time constants, not test planning, set screening time.",
+   "signpost": "A constellation or bus manufacturer disclosing sampled acceptance with model-based escape-rate bounds; Amazon Leo or a compute-satellite line reporting acceptance throughput; early-life failure rates published per production batch.",
+   "domain": "physclock",
+   "branch": "certification",
+   "unlocks": [
+    "physclock-satellite-gen-cadence",
+    "struct-100kw-per-tonne-fleet"
+   ],
+   "revision_note": "C-sectors (space-sector coverage critic, 2026-10-07): new node; sector was missing or thin in graph-v2."
+  }
+ ],
+ "add_edges": [],
+ "add_soft_edges": [
+  {
+   "from": "science-eo-retrieval-uq",
+   "to": "science-retrieval-identifiability"
+  },
+  {
+   "from": "astro-pnt-integrity-overbounding",
+   "to": "astro-autonomous-nav-demo"
+  },
+  {
+   "from": "astro-multitarget-track-fusion-certified",
+   "to": "astro-constellation-hosted-ssa"
+  },
+  {
+   "from": "astro-multitarget-track-fusion-certified",
+   "to": "astro-small-debris-catalog"
+  },
+  {
+   "from": "physclock-space-risk-models",
+   "to": "physclock-reliability-priors-credit"
+  },
+  {
+   "from": "astro-noncooperative-capture-envelopes",
+   "to": "verif-rpo-assured-autonomy"
+  },
+  {
+   "from": "astro-adr-large-object-removed",
+   "to": "astro-leo-safety-at-scale"
+  },
+  {
+   "from": "physclock-production-acceptance-by-model",
+   "to": "physclock-satellite-gen-cadence"
+  },
+  {
+   "from": "physclock-production-acceptance-by-model",
+   "to": "struct-100kw-per-tonne-fleet"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "science",
+   "nodes": [
+    "science-eo-retrieval-uq",
+    "science-eo-ghg-enforcement-grade"
+   ]
+  },
+  {
+   "branch": "networks",
+   "nodes": [
+    "astro-pnt-integrity-overbounding",
+    "astro-leo-pnt-assured-service"
+   ]
+  },
+  {
+   "branch": "safe-orbits",
+   "nodes": [
+    "astro-multitarget-track-fusion-certified",
+    "astro-proliferated-tracking-custody",
+    "astro-noncooperative-capture-envelopes",
+    "astro-adr-large-object-removed"
+   ]
+  },
+  {
+   "branch": "certification",
+   "nodes": [
+    "physclock-space-risk-models",
+    "physclock-space-insurance-capacity",
+    "physclock-production-acceptance-by-model"
+   ]
+  }
+ ],
+ "notes": "C-sectors proposals (space-sector coverage critic, 2026-10-07), against graph-v2.json (370 nodes, 12 branches). Eleven new nodes cover the sectors that were missing or thin and that AI mathematics plausibly changes by 2031: Earth observation (2 nodes: retrieval uncertainty, compliance-grade methane evidence), PNT (2: integrity and spoofing bounds for Earth users, a LEO PNT service with published integrity), national-security space at a high level (2: certified multi-sensor track fusion, proliferated tracking custody), space insurance and risk (2: underwriting-grade risk models, model-priced capacity), active debris removal (2: capture envelopes for tumbling objects, first large-object removal as an exogenous anchor), and satellite manufacturing at scale (1: production acceptance by statistical model). Every new node has a hard prerequisite chain back to tier 0 (cap-applied-math, via frontier-rare-event-certified, physclock-optimal-test-campaigns or astro-hybrid-rpo-verification where relevant), except astro-adr-large-object-removed, which follows the tree's exogenous-anchor convention (no hard AI-math prerequisite, premise_tier 'n/a (exogenous physical clock...)'). All edges into existing nodes are soft (add_soft_edges), so no existing node's year or band moves; add_edges is deliberately empty. Each node's 'unlocks' field lists the existing nodes it feeds (all soft); apply_edits recomputes 'unlocks' from hard edges, so those lists are documentation only. No catalog family is load-bearing in any new node (catalog_families empty everywhere); families 365, 372 and 102 are named only as nil or context. Bands follow the scorecard: P1 nodes default High in S2 where adoption is by operators carrying their own risk; regulator-dependent nodes capped at Medium (science-eo-ghg-enforcement-grade); tier 6-7 nodes write out the S2 chain in 'why'. A test apply to a scratch copy with --autofix gave 0 dangling, 0 monotonic violations, 0 scenario-order violations, 0 late-but-likely, 0 autofixes.\n\nSectors where the honest answer is 'AI math changes little by 2031' (for the paper; no nodes proposed): (1) Commercial LEO stations: capital and NASA's commercial-destination funding bind, not analysis; Haven-1 slipped to Q1 2027 (Wikipedia), Vast raised $500M (Mar 2026) and Axiom $350M (Feb 2026) (33FG). The math touchpoints already exist (auton-ecls-reliability-uq, auton-earth-independent-fdir, struct-certified-uq-margins). If the reader-facing tree needs a visible station node, add it as an exogenous anchor like astro-adr-large-object-removed. (2) Space-based solar power: economics need roughly $100-200/kg to GEO (Wikipedia); Caltech's 2023 MAPLE beamed only detectable power to Earth, and Aetherflux, the best-funded U.S. startup, pivoted to space data centers in Dec 2025 (Wikipedia). struct-km-monolith and struct-deployment-mechanics are the only touchpoints. (3) Asteroid resources: AstroForge's Brokkr-1 failed (2023), Odin was lost (Mar 2025) and DeepSpace-2 had no launch date as of Sep 2026 (Wikipedia); the gates are spacecraft reliability, prospecting data and a market. The one adjacent lane with real math is planetary defense (non-Gaussian impact probabilities), touched by astro-nongaussian-uq-certified; a future node could cover it. (4) Space medicine: data-bound (no human high-LET cohort; animal studies take years per cohort, per research/auton.json); auton-radiation-risk-uq already carries the math-adjacent part. (5) Ground segment and operations software: ground scheduling and ground-station-as-a-service (comms-hardness-aware-tasking), optical ground networks, verified updates and command guards (verif-constellation-verified-updates, verif-onboard-ai-guardrails) and anomaly diagnosis (physclock-ai-mishap-analysis) are covered; what remains (fleet anomaly triage, operations automation) is general AI and agent work, not mathematics. (6) Earth-observation image quality: set by aperture, revisit and ML; AI math enters through retrieval uncertainty and tasking only. (7) Space insurance: included as nodes precisely to show the limit; the T7 node is Speculative/Low/Low. (8) Debris removal: the first removals happen or slip on their own clock; who pays for recurring removal is a regulatory and liability question.\n\nSectors already covered by complete chains (no action): launch vehicles and reuse (physclock, prop, entry, struct reuse nodes); satcom and direct-to-device (networks branch); space situational awareness and space weather (safe-orbits); orbital compute (orbital-compute-power); in-orbit servicing, assembly and manufacturing (verif-rpo-assured-autonomy, auton-certified-assembly-skills, auton-assembly-flight-demo, materials-in-space-mfg-product); lunar economy and CLPS (verif-lander-verified-gnc-flight, moon-mars branch, astro-autonomous-nav-demo for lunar PNT); Mars (hyper-mars-heavy-landing, auton-mars-*).\n\nPlacement choices for integrators: Earth-observation nodes sit in the 'science' branch because no Earth-observation branch exists; if the paper wants Earth observation and navigation as a reader-facing sector, a small 'Seeing and navigating Earth' branch could hold the EO, PNT and tasking nodes (comms-hardness-aware-tasking). PNT nodes sit in 'networks' (signal-in-space services); defense tracking and debris-removal nodes in 'safe-orbits'; insurance and production-acceptance nodes in 'certification'. astro-pnt-integrity-overbounding overlaps astro-nav-filter-guarantees only in integrity mathematics; the new node is scoped to Earth users and adversarial spoofing, and links to the cislunar node softly. astro-noncooperative-capture-envelopes extends astro-hybrid-rpo-verification (which excludes contact) and feeds verif-rpo-assured-autonomy softly.\n\nResearch limits: WebSearch was exhausted and Firecrawl out of credits, so facts were checked by WebFetch on cited pages (Wikipedia, ESA, Xona, OPSGROUP, European Commission) and 33FG news. Not independently checked: SDA tracking-layer launch status, the EU methane regulation's 2027/2030 dates, space insurance premium totals and the Inmarsat-6 F2 claim (all marked general).",
+ "sector_coverage": [
+  {
+   "sector": "Launch vehicles and reuse",
+   "status": "covered",
+   "existing": [
+    "physclock-starship-full-reuse",
+    "physclock-heavy-cadence-100",
+    "physclock-cheap-mass-internal",
+    "prop-reuse-extended",
+    "hyper-rapid-reuse-heatshield",
+    "struct-reusable-life-management",
+    "verif-launch-fsw-per-flight"
+   ],
+   "new": [],
+   "ai_math_verdict": "Adds months; launch follows its own physical exponential."
+  },
+  {
+   "sector": "Satellite manufacturing at scale",
+   "status": "thin -> patched",
+   "existing": [
+    "physclock-satellite-gen-cadence",
+    "capability-ai-native-spacecraft",
+    "struct-100kw-per-tonne-fleet",
+    "struct-light-solar-array-production"
+   ],
+   "new": [
+    "physclock-production-acceptance-by-model"
+   ],
+   "ai_math_verdict": "Modest: acceptance-test throughput; fabrication clock ~0.9x."
+  },
+  {
+   "sector": "Earth observation and remote sensing",
+   "status": "missing -> patched",
+   "existing": [
+    "comms-hardness-aware-tasking",
+    "frontier-inverse-stability"
+   ],
+   "new": [
+    "science-eo-retrieval-uq",
+    "science-eo-ghg-enforcement-grade"
+   ],
+   "ai_math_verdict": "Real for retrieval uncertainty and tasking; little for image quality."
+  },
+  {
+   "sector": "PNT (LEO PNT, GNSS resilience, timing)",
+   "status": "thin (cislunar only) -> patched",
+   "existing": [
+    "astro-nav-filter-guarantees",
+    "astro-autonomous-nav-demo"
+   ],
+   "new": [
+    "astro-pnt-integrity-overbounding",
+    "astro-leo-pnt-assured-service"
+   ],
+   "ai_math_verdict": "Integrity and spoofing bounds are tail-probability math; service itself is launch-paced."
+  },
+  {
+   "sector": "Satcom and direct-to-device",
+   "status": "covered",
+   "existing": [
+    "comms-certified-mesh-operations",
+    "comms-d2d-coexistence-scheduling",
+    "comms-capacity-per-dollar-share"
+   ],
+   "new": [],
+   "ai_math_verdict": "5-20% capacity at fixed hardware (existing branch judgment)."
+  },
+  {
+   "sector": "Space situational awareness",
+   "status": "covered",
+   "existing": [
+    "astro-catalog-scale-screening",
+    "astro-constellation-hosted-ssa",
+    "astro-autonomous-ca-at-scale",
+    "astro-small-debris-catalog"
+   ],
+   "new": [
+    "astro-multitarget-track-fusion-certified (soft input)"
+   ],
+   "ai_math_verdict": "Honest uncertainty and verified software; sensors bind for 1-10 cm."
+  },
+  {
+   "sector": "Active debris removal",
+   "status": "thin -> patched",
+   "existing": [
+    "astro-hybrid-rpo-verification",
+    "verif-rpo-assured-autonomy"
+   ],
+   "new": [
+    "astro-noncooperative-capture-envelopes",
+    "astro-adr-large-object-removed"
+   ],
+   "ai_math_verdict": "Little by 2031: first removals are on their own clock; who pays is regulatory."
+  },
+  {
+   "sector": "In-orbit servicing, assembly, manufacturing",
+   "status": "covered",
+   "existing": [
+    "verif-rpo-assured-autonomy",
+    "auton-certified-assembly-skills",
+    "auton-assembly-flight-demo",
+    "materials-in-space-mfg-product"
+   ],
+   "new": [],
+   "ai_math_verdict": "Assurance for RPO; in-space manufacturing set by economics."
+  },
+  {
+   "sector": "Commercial LEO stations",
+   "status": "missing (flag only)",
+   "existing": [
+    "auton-ecls-reliability-uq",
+    "auton-earth-independent-fdir",
+    "struct-certified-uq-margins"
+   ],
+   "new": [],
+   "ai_math_verdict": "Changes little: capital and NASA funding bind."
+  },
+  {
+   "sector": "Lunar economy and CLPS",
+   "status": "covered",
+   "existing": [
+    "verif-lander-verified-gnc-flight",
+    "auton-lunar-heavy-cargo-landing",
+    "auton-moon-base-infrastructure",
+    "prop-hls-refuel-campaign",
+    "astro-autonomous-nav-demo"
+   ],
+   "new": [],
+   "ai_math_verdict": "Lander GNC assurance and ops productivity; demand and landers bind."
+  },
+  {
+   "sector": "Mars",
+   "status": "covered",
+   "existing": [
+    "hyper-mars-heavy-landing",
+    "auton-mars-isru-demo",
+    "auton-mars-architecture-close"
+   ],
+   "new": [],
+   "ai_math_verdict": "Launch windows bind."
+  },
+  {
+   "sector": "Asteroid resources",
+   "status": "missing (flag only)",
+   "existing": [],
+   "new": [],
+   "ai_math_verdict": "Changes little; planetary defense is the adjacent lane with real math."
+  },
+  {
+   "sector": "Space-based solar power",
+   "status": "missing (flag only)",
+   "existing": [
+    "struct-km-monolith",
+    "struct-deployment-mechanics"
+   ],
+   "new": [],
+   "ai_math_verdict": "Changes little; needs ~$100-200/kg to GEO."
+  },
+  {
+   "sector": "Orbital compute",
+   "status": "covered",
+   "existing": [
+    "materials-cots-orbital-compute-ops",
+    "struct-100kw-per-tonne-fleet",
+    "struct-gw-orbital-compute"
+   ],
+   "new": [],
+   "ai_math_verdict": "A few percent of mass and compute per watt."
+  },
+  {
+   "sector": "National-security space (high level)",
+   "status": "thin -> patched",
+   "existing": [
+    "capability-controlled-data-access",
+    "comms-crypto-agile-architecture",
+    "physclock-reliability-priors-credit"
+   ],
+   "new": [
+    "astro-multitarget-track-fusion-certified",
+    "astro-proliferated-tracking-custody"
+   ],
+   "ai_math_verdict": "Fusion software helps; sensors, launch, budget and classification bind."
+  },
+  {
+   "sector": "Space medicine",
+   "status": "thin (flag only)",
+   "existing": [
+    "auton-radiation-risk-uq",
+    "auton-earth-independent-fdir"
+   ],
+   "new": [],
+   "ai_math_verdict": "Changes little: data-bound biology."
+  },
+  {
+   "sector": "Space insurance and risk models",
+   "status": "missing -> patched",
+   "existing": [
+    "physclock-reliability-priors-credit"
+   ],
+   "new": [
+    "physclock-space-risk-models",
+    "physclock-space-insurance-capacity"
+   ],
+   "ai_math_verdict": "Better models; market capacity and cycle decide; changes little."
+  },
+  {
+   "sector": "Ground segment and operations software",
+   "status": "partly covered (flag only)",
+   "existing": [
+    "comms-hardness-aware-tasking",
+    "comms-optical-ground-network-service",
+    "verif-constellation-verified-updates",
+    "verif-onboard-ai-guardrails",
+    "physclock-ai-mishap-analysis"
+   ],
+   "new": [],
+   "ai_math_verdict": "Residual is general AI/agents, not mathematics."
+  }
+ ],
+ "sources": [
+  {
+   "title": "ADRAS-J (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/ADRAS-J",
+   "used_for": "2024 15 m fly-around; ADRAS-J2 launch 2027"
+  },
+  {
+   "title": "ClearSpace-1 (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/ClearSpace-1",
+   "used_for": "PROBA-1 retarget Apr 2024; 2028 Vega-C; EUR 86M contract"
+  },
+  {
+   "title": "MethaneSAT (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/MethaneSAT",
+   "used_for": "Launch Mar 4 2024; contact lost Jun 20 2025"
+  },
+  {
+   "title": "Carbon Mapper (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Carbon_Mapper",
+   "used_for": "Tanager-1 launched 2024"
+  },
+  {
+   "title": "Methane emissions (European Commission, Energy)",
+   "url": "https://energy.ec.europa.eu/topics/carbon-management-and-fossil-fuels/methane-emissions_en",
+   "used_for": "EU 2024/1787 in force Aug 4 2024; importer phase-in; Jul 2026 recommendations; IMEO MARS"
+  },
+  {
+   "title": "LEO-PNT / Celeste (ESA)",
+   "url": "https://www.esa.int/Applications/Satellite_navigation/LEO-PNT",
+   "used_for": "Celeste: 11 satellites; launch Mar 28 2026; first signal Apr 10 2026; 5G positioning Sep 15 2026"
+  },
+  {
+   "title": "Xona Space Systems",
+   "url": "https://www.xonaspace.com/",
+   "used_for": "258 satellites at 1,080 km; first commercial signal 2025; scaled production Oct 7 2026"
+  },
+  {
+   "title": "GPS spoofing final report (OPSGROUP, Sep 6 2024)",
+   "url": "https://ops.group/blog/gps-spoofing-final-report/",
+   "used_for": "~1,500 spoofed flights/day vs ~300 in H1 2024"
+  },
+  {
+   "title": "Iridium debuts PNT security ASIC (33FG news, Oct 30 2025)",
+   "url": "https://research.33fg.com/news/iridium-debuts-pnt-security-asic-for-jam-and-spoof-resistant-devices",
+   "used_for": "Iridium PNT ASIC, Oct 27 2025"
+  },
+  {
+   "title": "Proliferated Warfighter Space Architecture (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Proliferated_Warfighter_Space_Architecture",
+   "used_for": "Tracking layer tranche sizes; $2.5B T2 award Jan 2024; T2 tracking from Aug 2026"
+  },
+  {
+   "title": "Space Development Agency (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Space_Development_Agency",
+   "used_for": "HBTSS cueing by SDA wide-field sensors"
+  },
+  {
+   "title": "ViaSat-3 (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/ViaSat-3",
+   "used_for": "F1 antenna failure May 2023; ~$420-421M claim"
+  },
+  {
+   "title": "Space-based solar power (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Space-based_solar_power",
+   "used_for": "MAPLE 2023; $100-200/kg threshold; Aetherflux pivot Dec 2025"
+  },
+  {
+   "title": "AstroForge (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/AstroForge",
+   "used_for": "Brokkr-1 2023 failure; Odin lost Mar 2025; DeepSpace-2 undated Sep 2026"
+  },
+  {
+   "title": "Haven-1 (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/Haven-1",
+   "used_for": "Launch slipped to Q1 2027"
+  },
+  {
+   "title": "Vast secured $500 million (33FG news, Mar 5 2026)",
+   "url": "https://research.33fg.com/news/vast-secured-500-million-to-accelerate-haven-space-stations",
+   "used_for": "Vast funding"
+  },
+  {
+   "title": "Axiom Space raises $350 million (33FG news, Feb 13 2026)",
+   "url": "https://research.33fg.com/news/axiom-space-raises-350-million-for-station-and-spacesuit-development",
+   "used_for": "Axiom funding"
+  }
+ ]
+}

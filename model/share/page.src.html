@@ -1,0 +1,548 @@
+<title>Two Clocks of Space</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="AI labs now produce research-grade mathematics. What that does, and does not do, for space technology through 2035.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Turret+Road:wght@500;700;800&display=swap">
+<style>
+/* Layout: one centred column of five screens, each with a single message; figures sit on flat Mach33 cards.
+   Blue is the thinking clock, near-white is the hardware clock, everywhere on the page. */
+:root {
+  --page: #08090B;
+  --card: #0C0E11;
+  --card-2: #101318;
+  --rule: rgba(255, 255, 255, 0.06);
+  --rule-2: rgba(255, 255, 255, 0.10);
+  --ink: #f1f5f9;
+  --ink-2: #94a3b8;
+  --ink-3: #7A8999;
+  --ink-4: #728091;
+  --think: #22CFFF;
+  --think-soft: rgba(34, 207, 255, 0.12);
+  --think-line: rgba(34, 207, 255, 0.35);
+  --do: #E6EBF3;
+  --do-soft: rgba(230, 235, 243, 0.08);
+  --blue: #2499F7;
+  --f-body: 'Hanken Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-num: 'Turret Road', 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --f-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --col: 1120px;
+  --text: 64ch;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--page); }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+}
+.wrap { max-width: var(--col); margin: 0 auto; }
+section { padding-block: clamp(56px, 9vw, 112px) 0; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+a { color: var(--think); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--think); outline-offset: 3px; border-radius: 6px; }
+.eyebrow {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-3); font-weight: 500;
+}
+.eyebrow b { color: var(--ink-2); font-weight: 600; }
+.think { color: var(--think); }
+.do { color: var(--do); }
+.lede { font-size: clamp(17px, 2.1vw, 20px); line-height: 1.55; color: var(--ink-2); max-width: var(--text); }
+.lede strong { color: var(--ink); font-weight: 600; }
+.body { color: var(--ink-2); max-width: var(--text); }
+.body strong { color: var(--ink); font-weight: 600; }
+h2 { font-size: clamp(26px, 4.2vw, 42px); line-height: 1.12; letter-spacing: -0.02em; font-weight: 700; max-width: 22ch; }
+.head { display: grid; gap: 16px; margin-bottom: 28px; }
+.note { font-size: 12px; color: var(--ink-3); font-style: italic; max-width: var(--text); }
+
+/* Hero */
+.hero { padding-top: clamp(40px, 7vw, 88px); }
+.hero h1 {
+  font-size: clamp(44px, 9.4vw, 112px); line-height: 0.96; letter-spacing: -0.045em; font-weight: 800;
+  margin-block: 18px 26px;
+}
+.hero h1 span { display: block; }
+.clocks {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 12px 28px;
+  margin-block: 36px 34px; max-width: 760px;
+}
+.clock { display: grid; gap: 6px; }
+.clock .num { font-family: var(--f-num); font-weight: 700; font-size: clamp(48px, 9vw, 88px); line-height: 0.9; letter-spacing: -0.02em; }
+.clock .lbl { font-size: 13px; color: var(--ink-2); line-height: 1.4; }
+.clock .lbl b { color: var(--ink); font-weight: 600; }
+@media (max-width: 760px) { .clocks { align-items: start; } }
+.clocks .arrow { font-family: var(--f-num); font-size: clamp(28px, 4vw, 40px); color: var(--ink-4); padding-bottom: 22px; }
+.clock-note { margin: -14px 0 30px; font-size: 13px; color: var(--ink-3); max-width: 64ch; }
+.machine { margin-top: 8px; }
+.machine-frame { border-radius: 14px; overflow: hidden; background: var(--card); border: 1px solid var(--rule); }
+.machine-frame img { display: block; width: 100%; height: auto; }
+/* The live machine brings its own plate and legend; drop our frame and its long caption, which ours restates. */
+.machine-frame.machine-live { border: 0; background: none; border-radius: 0; overflow: visible; }
+.machine-live .iso-caption { display: none; }
+.machine-cap { margin-top: 14px; font-size: 13px; color: var(--ink-3); max-width: var(--text); }
+
+/* Scenario switch */
+.switch { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.switch .k { font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink-4); margin-right: 4px; }
+.switch button {
+  font: 500 13px/1 var(--f-body); color: var(--ink-2); background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08); border-radius: 999px; padding: 9px 14px; cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.switch button:hover { color: var(--ink); border-color: rgba(255,255,255,0.18); }
+.switch button[aria-pressed="true"] { color: #04121a; background: var(--think); border-color: var(--think); font-weight: 600; }
+.scen-desc { font-size: 13px; color: var(--ink-3); min-height: 1.6em; margin-top: 10px; max-width: var(--text); }
+
+/* Card shell (Mach33 chart card) */
+.panel { background: var(--card); border: 1px solid rgba(255,255,255,0.05); border-radius: 14px; padding: clamp(18px, 3.4vw, 40px); }
+
+/* Gap chart */
+.chart-wrap { position: relative; margin-top: 22px; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart text { font-family: var(--f-body); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 16px; font-size: 12px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+.legend i { width: 18px; height: 3px; border-radius: 2px; display: inline-block; }
+.legend i.gap { height: 12px; width: 14px; border-radius: 3px; background: var(--think-soft); border: 1px solid var(--think-line); }
+.chart-title { font-size: 15px; font-weight: 600; color: var(--ink); }
+.readout { font-size: 13px; color: var(--ink-2); margin-top: 6px; min-height: 1.6em; font-variant-numeric: tabular-nums; }
+.readout b { font-weight: 600; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin-top: 22px; }
+.stat { border-top: 1px solid var(--rule-2); padding-top: 14px; display: grid; gap: 6px; align-content: start; }
+.stat .big { font-family: var(--f-body); font-weight: 800; font-size: 34px; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.stat .vs { font-family: var(--f-body); font-size: 14px; font-weight: 500; color: var(--ink-4); margin: 0 10px; vertical-align: middle; }
+.stat .small { font-size: 13px; color: var(--ink-2); line-height: 1.45; }
+details.data { margin-top: 18px; font-size: 13px; color: var(--ink-3); }
+details.data summary { cursor: pointer; color: var(--ink-2); }
+.tbl { overflow-x: auto; margin-top: 10px; }
+.tbl table { border-collapse: collapse; font-variant-numeric: tabular-nums; min-width: 520px; width: 100%; }
+.tbl th, .tbl td { text-align: right; padding: 6px 10px; border-bottom: 1px solid var(--rule); font-weight: 400; }
+.tbl th:first-child, .tbl td:first-child { text-align: left; }
+.tbl thead th { color: var(--ink-4); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+
+/* Unlock cards */
+.cards { display: grid; gap: 18px; margin-top: 26px; }
+.card {
+  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 0;
+  background: var(--card); border: 1px solid rgba(255,255,255,0.05); border-radius: 14px; overflow: hidden;
+}
+.card .fig { position: relative; aspect-ratio: 16 / 11; display: grid; place-items: center; min-width: 0; background: var(--card); }
+.card .fig img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; }
+.card .fig img[src*="orrery"] { transform: scale(1.12); }
+.card .fig img[src*="refuel"] { transform: scale(1.25); }
+.card .fig img[src$=".jpg"] { inset: 5% 0; height: 90%; }
+.card .fig.pending { color: var(--ink-4); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+.card .fig .plinth-year {
+  position: absolute; left: 18px; top: 16px; font-family: var(--f-mono); font-size: 11px; color: var(--ink-4); letter-spacing: .04em;
+}
+.card .txt { padding: clamp(18px, 3vw, 32px); display: grid; gap: 14px; align-content: center; min-width: 0; border-left: 1px solid var(--rule); }
+.card .yr { font-family: var(--f-num); font-weight: 700; font-size: clamp(40px, 5.4vw, 56px); line-height: 0.9; color: var(--do); font-variant-numeric: tabular-nums; }
+.card .yr small { font-family: var(--f-body); font-size: 12px; font-weight: 500; color: var(--ink-3); letter-spacing: 1px; text-transform: uppercase; margin-left: 4px; vertical-align: middle; }
+.card .tag { font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--ink-3); font-weight: 600; margin-bottom: -6px; }
+.card .tag .star { color: var(--think); }
+.card h3 { font-size: clamp(19px, 2.3vw, 23px); line-height: 1.2; letter-spacing: -0.01em; font-weight: 700; }
+.card p { font-size: 15.5px; color: var(--ink-2); line-height: 1.55; }
+.card p strong { color: var(--ink); font-weight: 600; }
+.chips { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 16px; padding-top: 14px; border-top: 1px solid var(--rule); }
+.chip { display: grid; gap: 6px; align-content: start; font-size: 13px; color: var(--ink); }
+.chip .k { font-size: 10.5px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--ink-4); font-weight: 600; }
+.chip .v { display: inline-flex; align-items: center; gap: 8px; }
+.chip b { color: var(--ink); font-weight: 600; }
+.meter { display: inline-flex; gap: 3px; }
+.meter i { width: 6px; height: 6px; border-radius: 2px; background: rgba(255,255,255,0.12); }
+.meter i.on { background: var(--do); }
+.chip.gate b { font-size: 16px; color: var(--do); font-weight: 700; }
+@media (max-width: 380px) { .chip.gate b { font-size: 14px; } }
+@media (min-width: 761px) {
+  .card:nth-child(even) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); }
+  .card:nth-child(even) .fig { order: 2; }
+  .card:nth-child(even) .txt { border-left: 0; border-right: 1px solid var(--rule); }
+}
+.card .credit { font-size: 11px; color: var(--ink-4); }
+.code-fig { display: grid; gap: 10px; text-align: center; padding: 24px; }
+.code-fig .from { font-family: var(--f-num); font-size: clamp(30px, 4.6vw, 46px); color: var(--ink-4); text-decoration: line-through; text-decoration-thickness: 2px; text-decoration-color: rgba(230,235,243,0.35); }
+.code-fig .to { font-family: var(--f-num); font-weight: 800; font-size: clamp(54px, 9vw, 96px); line-height: 0.95; color: var(--think); }
+.code-fig .per { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-3); }
+
+/* Bottleneck dots */
+.gates { display: grid; gap: 12px; margin-top: 8px; }
+.gate-row { display: grid; grid-template-columns: 9.5rem 2.5rem minmax(0, 1fr); gap: 14px; align-items: center; }
+.gate-row .n { order: 1; }
+.gate-row .dots { order: 2; }
+.gate-row .name { font-size: 14px; color: var(--ink-2); }
+.gate-row .n { font-family: var(--f-body); font-weight: 800; font-size: 20px; text-align: right; padding-right: 4px; font-variant-numeric: tabular-nums; }
+.dots { display: flex; flex-wrap: wrap; gap: 6px; }
+.dots i { width: 15px; height: 15px; border-radius: 50%; background: var(--do); opacity: .88; }
+.gate-row.zero .name { color: var(--think); font-weight: 600; }
+.gate-row.zero .n { color: var(--think); }
+.gate-row.zero .dots { height: 17px; align-items: center; border: 1px dashed var(--think-line); border-radius: 7px; max-width: 260px; }
+.gate-row.zero .dots::after { content: "thinking binds none of them"; font-size: 12px; color: var(--think); padding-left: 10px; white-space: nowrap; }
+
+/* Robots and ceilings */
+.duo { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 8px; }
+.bars { display: grid; gap: 16px; margin-top: 18px; }
+.bar { display: grid; gap: 7px; }
+.bar .lab { display: flex; justify-content: space-between; gap: 12px; font-size: 13.5px; color: var(--ink-2); }
+.bar .lab { flex-wrap: wrap; }
+@media (max-width: 400px) { .bar .lab { flex-direction: column; align-items: flex-start; gap: 2px; } }
+.bar .lab b { font-family: var(--f-num); font-weight: 700; color: var(--ink); font-size: 16px; white-space: nowrap; }
+.track { position: relative; height: 12px; border-radius: 6px; background: rgba(255,255,255,0.04); }
+.fill { position: absolute; inset: 0 auto 0 0; border-radius: 6px; background: var(--do); }
+.fill.range { background: linear-gradient(90deg, var(--do) 0 var(--lo), rgba(230,235,243,0.45) var(--lo) 100%); }
+.ten { position: absolute; top: -6px; bottom: -6px; right: 0; width: 2px; background: var(--think); border-radius: 1px; }
+.axis10 { display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-4); margin-top: 6px; }
+.axis10 .t10 { color: var(--think); font-weight: 600; }
+
+/* Kicker and footer */
+.kicker { text-align: left; padding-block: clamp(64px, 10vw, 120px) 0; }
+.kicker p.big { font-size: clamp(28px, 5vw, 52px); line-height: 1.08; letter-spacing: -0.03em; font-weight: 700; max-width: 20ch; text-wrap: balance; }
+.kicker p.sub { margin-top: 18px; }
+.kicker p.big { color: var(--ink-3); }
+.kicker p.big .do { color: var(--do); }
+footer { margin-top: clamp(56px, 8vw, 96px); padding-top: 24px; border-top: 1px solid var(--rule); display: grid; gap: 18px; font-size: 12.5px; color: var(--ink-3); }
+footer .foot-h { max-width: none; line-height: 1.4; margin: 0 0 6px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-2); font-weight: 600; }
+footer .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; }
+footer p { max-width: 70ch; }
+footer .brand { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-4); padding-top: 14px; border-top: 1px solid var(--rule); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+@media (max-width: 760px) {
+  .card { grid-template-columns: minmax(0, 1fr); }
+  .card .txt { border-left: 0; border-top: 1px solid var(--rule); }
+  .clocks { grid-template-columns: 1fr 1fr; }
+  .clocks .arrow { display: none; }
+  .gate-row { grid-template-columns: minmax(0, 1fr) auto; row-gap: 6px; column-gap: 10px; }
+  .gate-row .dots { grid-column: 1 / -1; flex-wrap: nowrap; gap: 2px; }
+  .gate-row.zero .dots { max-width: none; }
+  .gate-row .name { font-size: 13px; }
+  .dots i { width: 5px; height: 5px; flex: none; }
+  .gate-row.zero .dots { height: 15px; }
+  .gate-row.zero .dots::after { content: "none"; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow"><b>Mach33 Research</b> · Two Clocks of Space</div>
+  <h1><span class="think">The proof is ready.</span><span class="do">The rocket isn’t.</span></h1>
+  <p class="lede">AI labs now produce research-grade mathematics on request, for about <strong>$200 to $2,000 of compute a result</strong> before checking. None of the October 2026 results has been independently verified yet, and outside teams get the capability about 2027 in the base case. We traced what that does to space technology through 2035, across <strong data-f="n_nodes">478</strong> milestones in <span data-f="n_branches">13</span> branches. It comes down to two clocks.</p>
+  <div class="clocks" role="group" aria-label="Thinking against programs, Exponential case by 2031">
+    <div class="clock"><div class="num think">5–10×</div><div class="lbl"><b>faster thinking, with AI</b><br>math, design, analysis, software</div></div>
+    <div class="arrow" aria-hidden="true">→</div>
+    <div class="clock"><div class="num do">1.6×</div><div class="lbl"><b>faster new programs by 2031, at most</b><br>build, test, qualify and launch set the pace</div></div>
+  </div>
+  <p class="clock-note">Thinking is about a third of a hardware program's critical path. In the model's Exponential table it runs 5–10× faster while fabrication, test and qualification gain 10–20%, so a new program gets at most about 1.6× faster by 2031: a ceiling, not a forecast.</p>
+  <div class="machine">
+    <!--HERO-->
+    <p class="machine-cap"><!--TREECAP--></p>
+  </div>
+</header>
+
+<main>
+<section id="gap" aria-labelledby="gap-h">
+  <div class="head">
+    <div class="eyebrow">The gap</div>
+    <h2 id="gap-h">What AI can prove runs years ahead of what we can fly.</h2>
+    <p class="body">Each line is the share of milestones unlocked by that year, meaning their earliest year has come and the model rates them at least Medium (over 30%): <span class="think">thinking milestones</span> (math, physics models, design tools; <span data-f="n_cognitive">250</span> of them) and <span class="do">hardware milestones</span> (tested, flown, in service, and the outcomes they lead to; <span data-f="n_physical">228</span>). The space between is work that is ready on paper but not yet built.</p>
+  </div>
+  <div class="panel">
+    <div class="switch" data-switch role="group" aria-label="Scenario"></div>
+    <p class="scen-desc" data-scen-desc></p>
+    <div class="chart-wrap">
+      <p class="chart-title">Share of milestones unlocked by each year</p>
+      <p class="readout" id="gap-readout" aria-live="polite"></p>
+      <div class="chart" id="gap-chart"></div>
+      <div class="legend" aria-hidden="true">
+        <span><i style="background:var(--think)"></i>Thinking milestones unlocked</span>
+        <span><i style="background:var(--do)"></i>Hardware milestones unlocked</span>
+        <span><i class="gap"></i>Ready on paper, not yet built</span>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="big"><span class="think" data-peak-c>83%</span> <span class="vs">vs</span> <span class="do" data-peak-p>29%</span></div><div class="small" data-peak-txt></div></div>
+      <div class="stat"><div class="big"><span class="think" data-end-c>93%</span> <span class="vs">vs</span> <span class="do" data-end-p>57%</span></div><div class="small" data-end-txt></div></div>
+    </div>
+    <details class="data"><summary>See the numbers</summary><div class="tbl" id="gap-table" tabindex="0" role="region" aria-label="Milestones unlocked by year, all four scenarios"></div>
+      <p class="note" style="margin-top:10px">Another cut, Exponential case: by 2029, 122 of 155 math and physics-model milestones have reached their earliest year, against 44 of 167 validated technologies and operational systems.</p></details>
+    <p class="note" style="margin-top:14px">"Unlocked" means the earliest credible year has arrived and the milestone is rated Medium or High (over 30%) at the next checkpoint: end-2031 for years up to 2031, end-2035 after. Most of the step at 2032 comes from that switch, not from new events.</p>
+  </div>
+</section>
+
+<section id="unlocks" aria-labelledby="unl-h">
+  <div class="head">
+    <div class="eyebrow">The decade</div>
+    <h2 id="unl-h">Seven unlocks, and the clock each one waits on.</h2>
+    <p class="body">In the base case, unlocks that are mostly thinking come first and surest. Hardware comes later and less surely, and what holds each one back is almost never the math. Years are the <strong>earliest credible year</strong>, not a forecast.</p>
+    <p class="note">Odds are analyst ratings: High over 70%, Medium 30–70%, Low 10–30%, Speculative under 10%.</p>
+  </div>
+  <div class="switch" data-switch role="group" aria-label="Scenario"></div>
+  <p class="scen-desc" data-scen-desc></p>
+  <div class="cards" id="cards"></div>
+</section>
+
+<section id="bottleneck" aria-labelledby="bn-h">
+  <div class="head">
+    <div class="eyebrow">The bottleneck</div>
+    <h2 id="bn-h"><span data-f="outcome_total">164</span> outcomes. Thinking is the bottleneck for none of them.</h2>
+    <p class="body">For every system in service and strategic outcome, the tree names its binding gate: the slowest thing between it and reality. Money, adoption and launch top the list. A smarter AI still pulls them forward, 1.3 to 1.8 years on average from Plateau to Exponential, but it is never the slowest thing. As thinking gets cheap, the bottleneck moves: first to <strong>specifying, checking, data and institutions</strong>, and by the mid-2030s to <strong>physics and paperwork</strong>.</p>
+  </div>
+  <div class="panel">
+    <div class="gates" id="gates" role="list"></div>
+    <p class="note" style="margin-top:20px">One dot per operational system or strategic outcome (tiers 6 and 7 of the tree), grouped by the gate the model says binds it.</p>
+  </div>
+</section>
+
+<section id="robots" aria-labelledby="rb-h">
+  <div class="head">
+    <div class="eyebrow">The bridge</div>
+    <h2 id="rb-h">Robots are the bridge between the clocks. They arrive late.</h2>
+    <p class="body">Robots are the one thing in the model that acts on the hardware clock directly; without them, AI trims factories, tests and paperwork only 1.1–1.5×. In the Embodied case the fleet grows fast, but it stays a small share of the work for years, and outside the robots branch it moves no launch, landing, regulator or budget date.</p>
+  </div>
+  <div class="duo">
+    <div class="panel">
+      <div class="eyebrow" style="letter-spacing:1.2px">Embodied case</div>
+      <div class="stats" style="margin-top:14px">
+        <div class="stat"><div class="big do">≈6M</div><div class="small">general-purpose robots in service in 2031. The ones in factories do about <strong style="color:var(--ink)">0.7%</strong> of global manufacturing work, counted in productive human-equivalents.</div></div>
+        <div class="stat"><div class="big do">≈60M</div><div class="small">in 2035: about <strong style="color:var(--ink)">9%</strong> on the same basis. By then robots move 29 milestones in the tree, and 21 of those are robot milestones.</div></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="eyebrow" style="letter-spacing:1.2px">How much shorter a new program can get by 2035</div>
+      <div class="bars" id="bars"></div>
+      <div class="axis10"><span>1× (today)</span><span class="t10">10× faster</span></div>
+      <p class="note" style="margin-top:12px">Ceilings from the model's critical-path bound. Realized gains are smaller: about a third shorter by 2035 in the Exponential case, for programs finished by then (analyst judgment).</p>
+    </div>
+  </div>
+</section>
+
+<section class="kicker" aria-label="Closing">
+  <p class="big">Mars windows still open every <span class="do">26 months</span>, <span class="think">whatever the AI</span>.</p>
+  <p class="body sub">Space has its own exponential, and it is physical: reusable heavy lift taking launch cost down for reasons that owe nothing to AI mathematics. That curve, not the math, sets the dates for orbital compute, refueling, lunar cargo and Mars. The biggest lever on the hardware clock is institutional: a rule for what AI-made analysis is worth as evidence, possible from about 2029 in the base case and rated Medium (30–70%) by both 2031 and 2035.</p>
+</section>
+</main>
+
+<footer>
+  <div class="cols">
+    <div>
+      <h2 class="foot-h">How to read this</h2>
+      <p>Each milestone has an <strong>earliest credible year</strong> and two likelihood ratings, by end-2031 and end-2035: High (over 70%), Medium (30–70%), Low (10–30%), Speculative (under 10%). The ratings are analyst judgments, not computed probabilities. Years are not forecasts. Robot milestones are dated on the base robot path, but their odds also weigh a faster path.</p>
+    </div>
+    <div>
+      <h2 class="foot-h">Scenarios</h2>
+      <p><b>Plateau:</b> AI task horizons double every 12–18 months. <b>Exponential</b> (base case): every 6–9 months. <b>Recursive:</b> AI speeds up its own research from 2028. <b>Embodied:</b> Recursive plus general-purpose robots at scale.</p>
+    </div>
+    <div>
+      <h2 class="foot-h">Source</h2>
+      <p>The Space Unlock Tree model, as of October 2026: <span data-f="n_nodes">478</span> milestones in 13 branches, four scenarios, built from the openai/math release and public sources. <a href="https://claude.ai/artifact/1ppfto5R4NFusiEDjWiFvB" target="_blank" rel="noopener">Explore the full tree</a>. Mach33 supplied the model's launch-cost curve, its orbital-compute satellite reconstruction and several launch-cadence figures. Mach33, its affiliates and its employees hold SpaceX equity, including pre-IPO positions, and its work is not independent research.</p>
+    </div>
+  </div>
+  <p>Illustrations drawn with the Anatomy skill for Claude Code. The Raptor engine is one of that skill's own examples, by Ryan (MIT licence); the satellites, plant and machines are illustrative members of their class, not any company's design.</p>
+  <div class="brand"><span>Mach33 Research · Space Unlock Tree</span><span>research.33fg.com</span></div>
+</footer>
+
+</div>
+
+<script>
+const FACTS = /*FACTS*/null;
+const COPY = /*COPY*/null;
+(() => {
+  const F = FACTS;
+  const ORDER = ['S1', 'S2', 'S3', 'S4'];
+  const DESC = {
+    S1: 'Plateau: AI math keeps improving, slowly. Research-grade math reaches outside teams in 2028.',
+    S2: 'Exponential, the base case: AI capability keeps compounding, with task horizons doubling every 6–9 months. Research-grade math reaches outside teams in 2027.',
+    S3: 'Recursive: AI speeds up its own research from 2028. After that, thinking is close to free.',
+    S4: 'Embodied: Recursive thinking plus general-purpose robots at scale, about 6 million by 2031 and 60 million by 2035.'
+  };
+  const RANK = { Speculative: 1, Low: 2, Medium: 3, High: 4 };
+  const GATE = { launch: 'launch', capital: 'capital', adoption: 'adoption', data: 'flight data', qualification: 'qualification',
+    regulatory: 'regulators', fabrication: 'fabrication', experiment: 'experiments' };
+  let scen = 'S2';
+  try { const s = localStorage.getItem('tc-scen'); if (ORDER.includes(s)) scen = s; } catch (e) {}
+
+  document.querySelectorAll('[data-f]').forEach(el => {
+    const k = el.dataset.f;
+    if (k === 'outcome_total') el.textContent = F.outcome_gates.total;
+    else if (F[k] != null) el.textContent = F[k];
+  });
+
+  // Scenario switches (all synced)
+  const switches = [...document.querySelectorAll('[data-switch]')];
+  switches.forEach(sw => {
+    sw.innerHTML = '<span class="k">Scenario</span>' + ORDER.map(s =>
+      `<button type="button" data-s="${s}" aria-pressed="false">${F.scenario_names[s]}</button>`).join('');
+    sw.addEventListener('click', e => { const b = e.target.closest('button[data-s]'); if (b) setScen(b.dataset.s); });
+  });
+  function setScen(s) {
+    scen = s;
+    try { localStorage.setItem('tc-scen', s); } catch (e) {}
+    switches.forEach(sw => sw.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.s === s))));
+    document.querySelectorAll('[data-scen-desc]').forEach(p => p.textContent = DESC[s]);
+    drawGap(); drawCards(); peak();
+    if (tree) tree.setScenario(s);
+  }
+
+  // ---- Gap chart ----
+  const chartEl = document.getElementById('gap-chart');
+  const readout = document.getElementById('gap-readout');
+  let hoverYear = null;
+  let lastReadout = '';
+  function peak() {
+    const p = F.gap_peak[scen];
+    document.querySelector('[data-peak-c]').textContent = p.cognitive + '%';
+    document.querySelector('[data-peak-p]').textContent = p.physical + '%';
+    document.querySelector('[data-peak-txt]').textContent =
+      `${p.year}, the widest gap in the ${F.scenario_names[scen]} case: ${p.cognitive}% of thinking milestones are unlocked, ${p.physical}% of hardware ones.`;
+    const e = F.clock_curve[scen][F.clock_curve[scen].length - 1];
+    document.querySelector('[data-end-c]').textContent = e.cognitive + '%';
+    document.querySelector('[data-end-p]').textContent = e.physical + '%';
+    document.querySelector('[data-end-txt]').textContent =
+      `By 2035 in the ${F.scenario_names[scen]} case: ${e.cognitive}% of thinking milestones are unlocked, ${e.physical}% of hardware ones. Hardware is still behind at the end of the decade.`;
+  }
+  function drawGap() {
+    const rows = F.clock_curve[scen];
+    const W = chartEl.clientWidth || 320;
+    const H = Math.round(Math.min(420, Math.max(250, W * 0.46)));
+    const small = W < 520;
+    const m = { l: small ? 34 : 44, r: small ? 64 : 108, t: 16, b: 30 };
+    const x = i => m.l + (W - m.l - m.r) * i / (rows.length - 1);
+    const y = v => m.t + (H - m.t - m.b) * (1 - v / 100);
+    const fs = 11;
+    const p = F.gap_peak[scen];
+    const last = rows[rows.length - 1];
+    let s = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Line chart, ${F.scenario_names[scen]} case: share of thinking and hardware milestones unlocked each year, 2026 to 2035. By 2035 thinking reaches ${last.cognitive}% and hardware ${last.physical}%; the widest gap is ${p.gap} points in ${p.year}. Full numbers in the table below.">`;
+    [0, 50, 100].forEach(v => {
+      s += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}" stroke="rgba(255,255,255,${v ? 0.04 : 0.08})"/>`;
+      s += `<text x="${m.l - 10}" y="${y(v) + 4}" text-anchor="end" fill="#7A8999" font-size="${fs}">${v}%</text>`;
+    });
+    rows.forEach((r, i) => {
+      if (small && i % 3 !== 0) return;
+      s += `<text x="${x(i)}" y="${H - 8}" text-anchor="middle" fill="#7A8999" font-size="${fs}">${small ? "'" + String(r.year).slice(2) : r.year}</text>`;
+    });
+    // checkpoint switch between 2031 and 2032
+    const ci = rows.findIndex(r => r.year === 2032);
+    const cx = (x(ci) + x(ci - 1)) / 2;
+    s += `<line x1="${cx}" x2="${cx}" y1="${m.t}" y2="${H - m.b}" stroke="rgba(255,255,255,0.10)" stroke-dasharray="3 4"/>`;
+    s += `<text x="${cx + 6}" y="${H - m.b - 8}" fill="#7A8999" font-size="${fs}">${small ? 'odds to 2035' : 'odds rated to end-2035'}</text>`;
+    // gap area
+    const top = rows.map((r, i) => `${x(i)},${y(r.cognitive)}`);
+    const bot = rows.map((r, i) => `${x(i)},${y(r.physical)}`).reverse();
+    s += `<polygon points="${top.concat(bot).join(' ')}" fill="rgba(34,207,255,0.10)"/>`;
+    // peak marker
+    const pi = rows.findIndex(r => r.year === p.year);
+    s += `<line x1="${x(pi)}" x2="${x(pi)}" y1="${y(p.cognitive) + 4}" y2="${y(p.physical) - 4}" stroke="rgba(34,207,255,0.6)" stroke-width="1" stroke-dasharray="2 3"/>`;
+    const midY = (y(p.cognitive) + y(p.physical)) / 2;
+    s += `<text x="${x(pi) + 8}" y="${midY + 4}" fill="#22CFFF" font-size="${fs + 1}" font-weight="600">${p.gap} pts</text>`;
+    // lines
+    const path = k => rows.map((r, i) => `${i ? 'L' : 'M'}${x(i)},${y(r[k])}`).join('');
+    s += `<path d="${path('physical')}" fill="none" stroke="#E6EBF3" stroke-width="2" stroke-linejoin="round"/>`;
+    s += `<path d="${path('cognitive')}" fill="none" stroke="#22CFFF" stroke-width="2" stroke-linejoin="round"/>`;
+    rows.forEach((r, i) => {
+      const on = hoverYear === r.year;
+      s += `<circle cx="${x(i)}" cy="${y(r.physical)}" r="${on ? 4.5 : 3}" fill="#E6EBF3" stroke="#0C0E11" stroke-width="2"/>`;
+      s += `<circle cx="${x(i)}" cy="${y(r.cognitive)}" r="${on ? 4.5 : 3}" fill="#22CFFF" stroke="#0C0E11" stroke-width="2"/>`;
+    });
+    if (hoverYear != null) {
+      const hi = rows.findIndex(r => r.year === hoverYear);
+      s += `<line x1="${x(hi)}" x2="${x(hi)}" y1="${m.t}" y2="${H - m.b}" stroke="rgba(255,255,255,0.14)"/>`;
+    }
+    // end labels
+    const lx = W - m.r + 10;
+    let yc = y(last.cognitive), yp = y(last.physical);
+    if (yp - yc < 30) yp = yc + 30;
+    s += `<text x="${lx}" y="${yc - 2}" fill="#22CFFF" font-size="${fs + 7}" font-weight="700">${last.cognitive}%</text>`;
+    s += `<text x="${lx}" y="${yc + 13}" fill="#7A8999" font-size="${fs}">thinking</text>`;
+    s += `<text x="${lx}" y="${yp - 2}" fill="#E6EBF3" font-size="${fs + 7}" font-weight="700">${last.physical}%</text>`;
+    s += `<text x="${lx}" y="${yp + 13}" fill="#7A8999" font-size="${fs}">hardware</text>`;
+    s += `<rect x="${m.l}" y="${m.t}" width="${W - m.l - m.r}" height="${H - m.t - m.b}" fill="transparent" data-hit/>`;
+    s += '</svg>';
+    chartEl.innerHTML = s;
+    const hit = chartEl.querySelector('[data-hit]');
+    const pick = ev => {
+      const rect = chartEl.getBoundingClientRect();
+      const px = (ev.clientX - rect.left) * (W / rect.width);
+      const i = Math.max(0, Math.min(rows.length - 1, Math.round((px - m.l) / ((W - m.l - m.r) / (rows.length - 1)))));
+      if (hoverYear !== rows[i].year) { hoverYear = rows[i].year; drawGap(); }
+    };
+    hit.addEventListener('pointermove', pick);
+    hit.addEventListener('pointerdown', pick);
+    chartEl.onpointerleave = ev => { if (ev.pointerType === 'touch') return; hoverYear = null; drawGap(); };
+    const r = rows.find(r => r.year === (hoverYear ?? p.year));
+    const html = `<b>${r.year}</b> · <span class="think">thinking ${r.cognitive}%</span> · <span class="do">hardware ${r.physical}%</span> · gap ${r.gap} pts`;
+    if (html !== lastReadout) { readout.innerHTML = html; lastReadout = html; }
+    // table
+    let t = '<table><caption class="sr">Share of milestones unlocked by year, by scenario</caption><thead><tr><th scope="col">Year</th>' + ORDER.map(k => `<th scope="col">${F.scenario_names[k]} thinking</th><th scope="col"><span class="sr">${F.scenario_names[k]} </span>hardware</th>`).join('') + '</tr></thead><tbody>';
+    F.clock_curve.S1.forEach((_, i) => {
+      t += `<tr><th scope="row">${F.clock_curve.S1[i].year}</th>` + ORDER.map(k => `<td>${F.clock_curve[k][i].cognitive}%</td><td>${F.clock_curve[k][i].physical}%</td>`).join('') + '</tr>';
+    });
+    document.getElementById('gap-table').innerHTML = t + '</tbody></table>';
+  }
+
+  // ---- Cards ----
+  function meter(b) { const r = RANK[b] || 0; return '<span class="meter" aria-hidden="true">' + [1, 2, 3, 4].map(i => `<i class="${i <= r ? 'on' : ''}"></i>`).join('') + '</span>'; }
+  function drawCards() {
+    document.getElementById('cards').innerHTML = F.cards.map((c, i) => {
+      const k = COPY[c.id];
+      const year = c.year[scen];
+      const fig = c.figure
+        ? (k.img ? `<img src="${k.img}" alt="${k.alt}" loading="${i < 2 ? 'eager' : 'lazy'}" decoding="async">` : `<span>Illustration in progress</span>`)
+        : `<div class="code-fig"><div class="from"><span class="sr">Today </span>$300–600</div><div class="to"><span class="sr">falls to </span>${k.to[scen]}</div><div class="per">per machine-checked line of flight code</div></div>`;
+      return `<article class="card ${k.kind === 'think' ? 'thinking' : ''}" aria-labelledby="h-${c.id}">
+        <div class="fig ${c.figure && !k.img ? 'pending' : ''}">${fig}</div>
+        <div class="txt">
+          <div class="tag"><span class="star">★</span> Wonder · ${k.lane}</div>
+          <div class="yr">${year} <small>earliest</small></div>
+          <h3 id="h-${c.id}">${(k.title_by && k.title_by[scen]) || k.title || c.title}</h3>
+          <p>${k.line}</p>
+          <div class="chips">
+            <span class="chip gate"><span class="k">Waits on</span><b>${GATE[c.gate] || c.gate}</b></span>
+            <span class="chip"><span class="k">Odds by 2031</span><span class="v">${meter(c.band_2031[scen])}<b>${c.band_2031[scen]}</b></span></span>
+            <span class="chip"><span class="k">Odds by 2035</span><span class="v">${meter(c.band_2035[scen])}<b>${c.band_2035[scen]}</b></span></span>
+          </div>
+          ${k.credit ? `<div class="credit">${k.credit}</div>` : ''}
+        </div>
+      </article>`;
+    }).join('');
+  }
+
+  // ---- Gates ----
+  const gnames = { capital: 'Capital', adoption: 'Adoption', launch: 'Launch', regulatory: 'Regulators', qualification: 'Qualification',
+    fabrication: 'Fabrication', data: 'Data', experiment: 'Experiments' };
+  const G = F.outcome_gates;
+  document.getElementById('gates').innerHTML = Object.entries(G.counts).map(([k, n]) =>
+    `<div class="gate-row" role="listitem" aria-label="${gnames[k] || k}: ${n}"><span class="name">${gnames[k] || k}</span><span class="dots">${'<i></i>'.repeat(n)}</span><span class="n">${n}</span></div>`).join('')
+    + `<div class="gate-row zero" role="listitem" aria-label="Thinking: ${G.cognition}"><span class="name">Thinking</span><span class="dots"></span><span class="n">${G.cognition}</span></div>`;
+
+  // ---- Ceiling bars (2035, model doc sections 3 and 4) ----
+  const bars = [
+    { lab: 'Recursive: near-free thinking', lo: 56, hi: 56 },
+    { lab: 'Embodied: typical program', lo: 58, hi: 58 },
+    { lab: 'Embodied: robot-first firm', lo: 66, hi: 67 },
+    { lab: 'Unlimited thinking and robots', lo: 70, hi: 73 }
+  ];
+  const speed = p => 1 / (1 - p / 100);
+  const pos = v => (v - 1) / 9 * 100;
+  document.getElementById('bars').innerHTML = bars.map(b => {
+    const a = speed(b.lo), z = speed(b.hi);
+    const txt = b.lo === b.hi ? `${b.lo}% shorter · ${a.toFixed(1)}×` : `${b.lo}–${b.hi}% shorter · ${a.toFixed(1)}–${z.toFixed(1)}×`;
+    const lo = pos(a) / pos(z) * 100;
+    return `<div class="bar"><div class="lab"><span>${b.lab}</span><b>${txt}</b></div>
+      <div class="track"><div class="fill ${b.lo !== b.hi ? 'range' : ''}" style="width:${pos(z)}%;--lo:${lo}%"></div><span class="ten" aria-hidden="true"></span></div></div>`;
+  }).join('');
+
+  let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(drawGap, 120); });
+  const tree = (typeof TechTree !== 'undefined' && document.getElementById('tree')) ? TechTree.mount(document.getElementById('tree'), TREE, { scenario: scen }) : null;
+  setScen(scen);
+})();
+</script>

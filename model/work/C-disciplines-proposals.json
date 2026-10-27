@@ -1,0 +1,729 @@
+{
+ "add_nodes": [
+  {
+   "id": "comms-certified-beamforming",
+   "title": "Phased-array beams with certified sidelobe and emission bounds",
+   "tier": 4,
+   "kind": "engineering-tool",
+   "domain": "comms",
+   "branch": "networks",
+   "description": "Beam weights, element-failure compensation and calibration for large satellite phased arrays (direct-to-device arrays, broadband user beams) computed with certified bounds: guaranteed peak-sidelobe and out-of-band power-flux limits over a stated array-error model, and a proven gap to the best achievable pattern from semidefinite or sum-of-squares relaxations. Achieved means an operator uses certified beam patterns in production or in a regulatory or coordination showing.",
+   "status_oct2026": "Arrays are growing fast: AST SpaceMobile's BlueBird 6 (deployed Dec 2025) unfurled the largest commercial communications array in LEO (Space.com via 33FG news, Dec 24 2025), and SpaceX bought AWS-4 and H-block spectrum for about $17B (Sep 2025) for V3 direct-to-cell satellites (33FG analysis, Sep 10 2025). The FCC's 2024 supplemental-coverage-from-space rules cap aggregate out-of-band emissions at -120 dBW/m2/MHz (general). Beam synthesis uses convex optimization and semidefinite relaxation for constant-modulus and quantized-phase constraints (Luo et al., IEEE Signal Processing Magazine 2010, general), but certified optimality gaps and worst-case sidelobe guarantees over element failures and calibration error are rarely computed at thousand-element scale (general). No catalog family addresses beamforming.",
+   "prerequisites": [
+    "cap-applied-math"
+   ],
+   "accelerated_by": [
+    "frontier-scalable-global-certificates",
+    "infra-verified-numerics",
+    "comms-certified-interference-bounds"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P1->P4",
+   "earliest_year": {
+    "S1": "2030",
+    "S2": "2028",
+    "S3": "2028"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "High"
+   },
+   "premise_tier": "n/a (capability premise)",
+   "why": "Large direct-to-device and broadband arrays are limited by sidelobes and out-of-band emissions toward terrestrial networks, other operators and radio astronomy; a certified worst-case pattern lets an operator run closer to the limit instead of keeping a blanket margin. The math is nonconvex quadratic optimization with SDP relaxations and interval bounds over array-error models: bespoke, expert-scarce work that AI does on demand (P1) and that enters beam-design and scheduling software (P4). The relaxations are tight or near-tight for many beamforming problems (general), so what is missing is scale, worst-case error models and adoption, not theory. S2 Medium because the achievement must be visible (a showing, filing or operator paper) and vertically integrated operators may not disclose; S1 Low because public applied math arrives about 2029; S3 High. Signal processing had no node in the graph before this proposal.",
+   "strongest_case_small": "Operators already meet emission masks with conventional synthesis plus measured margins; phase-shifter quantization, calibration drift and thermal distortion dominate real sidelobes, and those are measured, not proven. Capacity gains from tighter patterns may be a few percent.",
+   "signpost": "A direct-to-device operator's FCC or ITU showing, or an operator paper, that uses certified worst-case sidelobe or out-of-band bounds over element failures, by 2029.",
+   "unlocks": [],
+   "unlocks_soft": [
+    "comms-d2d-coexistence-scheduling",
+    "comms-capacity-per-dollar-share",
+    "comms-multi-operator-dynamic-sharing"
+   ],
+   "catalog_families": [],
+   "revision_note": "C-disciplines critic (2026-10-07): proposed new node; downstream-discipline coverage gap. Discipline: signal processing (array signal processing); zero beamforming or phased-array nodes in v2."
+  },
+  {
+   "id": "frontier-sequence-design-limits",
+   "title": "Binary code limits settled: Barker ends at 13, merit factors are unbounded (checked)",
+   "tier": 1,
+   "kind": "math",
+   "domain": "frontier",
+   "branch": "math-frontier",
+   "description": "Two old problems behind radar pulse compression and spreading-code design, as claimed in the release: real circulant Hadamard matrices exist only in orders 1 and 4, so binary sequences whose off-peak aperiodic autocorrelations all have magnitude at most 1 (Barker sequences) exist only at lengths 2, 3, 4, 5, 7, 11 and 13 (family 179); and binary sequences with arbitrarily large merit factor exist at every sufficiently large length, disproving Turyn's bounded-merit-factor conjecture (family 076). Achieved means both formal statements pass an independent Comparator run and statement audit (T4).",
+   "status_oct2026": "179: Lean-formalized (T3, unaudited) for the circulant Hadamard classification and the even-length Barker case; the odd-length Barker classification is in the manuscript only (T1) (repo lean/docs/179.md). 076: Lean-formalized (T3) for asymptotically minimal maximum modulus and finite-exponent flatness; the formal scope states the results are existential, with no effective convergence rate and no signing algorithm (repo lean/docs/076.md). Practice: Barker-13 has been the longest known binary Barker code since the 1950s and longer ones were long believed not to exist (general); the best explicit asymptotic merit factor is about 6.34 (Jedwab, Katz and Schmidt 2013, general); radar uses polyphase codes and mismatched filters, and GNSS uses Gold and Weil codes (general).",
+   "catalog_families": [
+    "179",
+    "076"
+   ],
+   "prerequisites": [
+    "verif-independent-check"
+   ],
+   "binding_gate": "formalization",
+   "pathway": "P3 (nil to small)",
+   "earliest_year": {
+    "S1": "2027",
+    "S2": "2027",
+    "S3": "2027"
+   },
+   "band_2031": {
+    "S1": "High",
+    "S2": "High",
+    "S3": "High"
+   },
+   "premise_tier": "T3 (Lean, unaudited) for 179 circulant Hadamard plus even Barker lengths and for 076 existence; T1 for the odd-length Barker classification",
+   "why": "Both formal statements are short and well scoped, so independent checking is cheap and the checker already exists (verif-independent-check): High by 2027 in every scenario. Downstream is P3 only. The Barker result confirms what waveform designers already assumed. The merit-factor result removes a believed ceiling (about 12.3) on low-autocorrelation binary codes but supplies no code, rate or algorithm, so it can at most motivate AI code search (comms-code-design-on-demand); practical lengths (hundreds to tens of thousands of chips) sit far below where the existence proof says anything. Anything resting on the odd-length Barker classification is conditional (T1). This is the coding-theory and signal-design entry point of the catalog, previously unmapped.",
+   "strongest_case_small": "No radar, GNSS or comms waveform changes: designers already use polyphase codes, mismatched filters and Gold or Weil codes, and the merit-factor theorem is non-constructive with no rate.",
+   "signpost": "A Comparator run and statement audit on the 076 and 179 Lean statements by mid-2027; separately (watch item, not expected from these proofs), an AI search that publishes binary sequences beating the best known merit factors at practical lengths.",
+   "unlocks": [],
+   "unlocks_soft": [
+    "comms-code-design-on-demand"
+   ],
+   "accelerated_by": [],
+   "revision_note": "C-disciplines critic (2026-10-07): proposed new node; downstream-discipline coverage gap. Discipline: coding theory and signal design; catalog families 076 and 179 were unmapped in v2."
+  },
+  {
+   "id": "struct-hv-power-bus-stability",
+   "title": "Proven stability for 100 kW-class spacecraft and lunar power grids",
+   "tier": 4,
+   "kind": "engineering-tool",
+   "domain": "struct",
+   "branch": "orbital-compute-power",
+   "description": "Large-signal stability and fault-protection proofs for high-voltage DC power systems feeding many constant-power loads (compute racks, electric-propulsion power processing units, electrolysis cells): Lyapunov, passivity or sum-of-squares certificates for the bus with its converters, filters and batteries; machine-checked converter control firmware; and certified protection coordination for kilometre-scale lunar surface grids. Replaces small-signal impedance-ratio rules with margin (Middlebrook-type criteria) as the design basis.",
+   "status_oct2026": "Constant-power loads destabilize DC buses through negative incremental impedance; spacecraft studies date to the 1980s, and existence and stability conditions for DC microgrids with constant-power loads are still active research (IEEE Trans. Power Systems 2018; Scientific Reports 2025; via OpenAlex). Practice uses small-signal impedance specifications with margin (general). Orbital compute raises satellite power to the 150-250 kW class (Starmind AI1, see the orbital-compute-power branch), high-voltage buses are limited by SiC single-event burnout (materials-wbg-rad-hard-power) and LEO plasma arcing (general), and lunar plans need distribution from a 100 kWe-class reactor over kilometres (struct-fsp-lunar-100kwe). No catalog family addresses power-system stability.",
+   "prerequisites": [
+    "cap-applied-math"
+   ],
+   "accelerated_by": [
+    "verif-closed-loop-guarantees",
+    "frontier-scalable-global-certificates",
+    "materials-wbg-rad-hard-power",
+    "verif-code-proof-agents"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P1->P2",
+   "earliest_year": {
+    "S1": "2030",
+    "S2": "2028",
+    "S3": "2028"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "High"
+   },
+   "premise_tier": "n/a (capability premise)",
+   "why": "At 100 kW and above, with many switching loads, bus instability and fault propagation become design drivers; certified large-signal stability lets designers shrink input filters and margins and run higher voltage with confidence. The mathematics (Lyapunov or passivity certificates for nonlinear switched systems, SOS programs, verified firmware) is known but expert-scarce, so AI on demand (P1) plus proof agents (P2) can make it routine. S2 Medium because power engineers have working conservative methods and the payoff is mass and risk at the margin; S1 Low (public applied math about 2029); S3 High. Electrical power engineering had one node (SiC parts) in v2 and no system-level node.",
+   "strongest_case_small": "Spacecraft buses are already designed stable with conservative impedance rules; flight failures come from parts, arcing and thermal problems rather than bus dynamics, and the filter mass saved is a few percent of power-system mass.",
+   "signpost": "A 100 kW-class spacecraft or lunar surface power design review that cites machine-checked or certificate-based large-signal stability analysis, by 2029.",
+   "unlocks": [],
+   "unlocks_soft": [
+    "struct-100kw-per-tonne-fleet",
+    "auton-moon-base-infrastructure",
+    "struct-fsp-lunar-100kwe",
+    "plasma-nep-mars-cargo"
+   ],
+   "catalog_families": [],
+   "revision_note": "C-disciplines critic (2026-10-07): proposed new node; downstream-discipline coverage gap. Discipline: electrical and power engineering (system level, PPUs, microgrids); zero microgrid, PPU or bus-stability nodes in v2."
+  },
+  {
+   "id": "comms-photonic-inverse-design",
+   "title": "Inverse-designed photonics with proven performance bounds",
+   "tier": 4,
+   "kind": "engineering-tool",
+   "domain": "comms",
+   "branch": "networks",
+   "description": "AI-run inverse design of nanophotonic and flat-optics components for space (photonic-integrated couplers, filters and wavelength multiplexers for laser terminals; metasurface lenses and gratings for compact imagers and star trackers; lightsail metasurfaces), delivered with dual bounds that certify how close each design is to the best physically possible under Maxwell's equations and fabrication constraints. Achieved means certified-gap designs are used in a space optical-terminal, imager or sail program.",
+   "status_oct2026": "Inverse design uses local adjoint optimization without optimality guarantees (general). Dual bounds via Lagrangian duality and semidefinite relaxation exist for small devices (Angeris, Vuckovic and Boyd, 'Computational bounds for photonic design', ACS Photonics 2019; 'Bounds as blueprints', Optics Express 2026; via OpenAlex), but scaling to multi-wavelength volumes, fabrication tolerance and multi-objective problems remain open (general). Optical crosslinks are in serial production on broadband constellations (general). No verified flight of a metasurface imaging lens was found in this pass. No catalog family addresses photonic design.",
+   "prerequisites": [
+    "cap-design-optimization"
+   ],
+   "accelerated_by": [
+    "frontier-scalable-global-certificates",
+    "capability-learned-emulators"
+   ],
+   "binding_gate": "fabrication",
+   "pathway": "P1->P4",
+   "earliest_year": {
+    "S1": "2031",
+    "S2": "2029",
+    "S3": "2029"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a (capability premise)",
+   "why": "Photonic components for laser terminals, imagers and sails are PDE-constrained nonconvex designs; bounds tell a team when to stop optimizing and when a requirement is physically impossible (a P3-style ceiling), and AI makes both the designs and the bound computations cheap (P1, P4). Foundry turns and environmental qualification (radiation, thermal cycling) bind and compress only 1.1-1.5x, so S2 and S3 Medium, S1 Low. Optics and photonics had only telescope wavefront control (science-wfsc-certified) and sail metasurfaces in v2; no adaptive-optics, photonic-integrated or flat-optics design node.",
+   "strongest_case_small": "Terminal performance is set by lasers, amplifiers, pointing and detectors, not by passive-component efficiency; most space optics stay conventional refractive and reflective designs, and the bounds scale only to small devices.",
+   "signpost": "A space optical-terminal or imager supplier reports an inverse-designed photonic or metasurface component with a computed optimality bound in a flight or qualification unit, by 2030.",
+   "unlocks": [],
+   "unlocks_soft": [
+    "science-lightsail-stability",
+    "comms-quantum-receiver-theory",
+    "science-quantum-sensor-design"
+   ],
+   "catalog_families": [],
+   "revision_note": "C-disciplines critic (2026-10-07): proposed new node; downstream-discipline coverage gap. Discipline: optics and photonics (inverse design, flat optics, photonic integration)."
+  },
+  {
+   "id": "materials-ecls-isru-sorbents-catalysts",
+   "title": "AI-discovered sorbent or catalyst qualifies for life support or Mars ISRU",
+   "tier": 5,
+   "kind": "technology",
+   "domain": "materials",
+   "branch": "moon-mars",
+   "description": "A carbon-dioxide sorbent, a Sabatier or reverse-water-gas-shift catalyst, or a solid-oxide electrolysis electrode found by machine-learned atomistic screening and autonomous labs passes a space-relevant qualification test (thousands of hours of cycling with humidity and trace contaminants, vibration, thermal cycling) for spacecraft air revitalization or Mars propellant production.",
+   "status_oct2026": "ISS carbon-dioxide removal uses zeolite molecular-sieve beds and NASA's Four Bed CO2 Scrubber architecture is the successor; dusting, contaminant poisoning and regeneration energy are long-standing problems (npj Microgravity review, 2026; ICES 2025-26 papers; via OpenAlex). MOXIE made 122 g of oxygen on Mars in 16 runs (2021-23) by solid-oxide electrolysis (NASA 2023, general). Machine-learned screening is at scale but imperfect: Open DAC 2023 holds about 38 million DFT calculations on metal-organic frameworks (ACS Central Science 2024), and a 2025 correspondence in the same journal argued its top recommended sorbents were artifacts of the method. No catalog family addresses sorbents or catalysis.",
+   "prerequisites": [
+    "materials-closed-loop-discovery"
+   ],
+   "accelerated_by": [
+    "materials-mlip-certified-uq",
+    "frontier-xc-certified",
+    "frontier-stiff-certified"
+   ],
+   "binding_gate": "qualification",
+   "pathway": "P1->P7",
+   "earliest_year": {
+    "S1": ">2031",
+    "S2": "2031",
+    "S3": "2030"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low"
+   },
+   "premise_tier": "n/a (capability premise)",
+   "why": "Full chain (P7): (1) certified-uncertainty atomistic models and AI-run labs (materials-mlip-certified-uq, cap-autonomous-labs; S2 2028) -> (2) autonomous labs find a real new material (materials-closed-loop-discovery; S2 2029, Medium) -> (3) a sorbent or catalyst candidate survives humid, contaminated, cycled operation for thousands of hours in a space-representative rig (S2 2030-31) -> (4) an ECLSS or ISRU program qualifies it (S2 2031). Steps 3 and 4 run on the test clock (1.1-1.5x compression) and ECLSS programs fly heritage designs, so S2 Low, S3 Low at 2030, S1 Speculative. The payoff is lower regeneration power and fewer spares for closed-loop habitats and longer-life electrolysis stacks for Mars propellant, mostly after 2031. Chemistry and catalysis for life support and ISRU had no node in v2 (energetics and anodes only).",
+   "strongest_case_small": "Sorbent and catalyst life in space life support is set by contaminants, dust and mechanical attrition that atomistic screening does not model; commercial stations will fly heritage ECLSS through 2031, and ML screening has already produced artifacts.",
+   "signpost": "A NASA, ESA or commercial-station ECLSS test report or ICES paper qualifying an ML-discovered sorbent or catalyst after more than 1,000 hours of representative cycling, by 2030.",
+   "unlocks": [],
+   "unlocks_soft": [
+    "auton-closed-loop-habitat",
+    "auton-mars-propellant-plant"
+   ],
+   "catalog_families": [],
+   "revision_note": "C-disciplines critic (2026-10-07): proposed new node; downstream-discipline coverage gap. Discipline: chemistry and catalysis (ECLSS sorbents, Sabatier/RWGS catalysts, solid-oxide electrolysis)."
+  },
+  {
+   "id": "verif-ml-statistical-guarantees",
+   "title": "Statistical guarantees for onboard learning and fleet anomaly monitors",
+   "tier": 2,
+   "kind": "applied-math",
+   "domain": "verif",
+   "branch": "verified-autonomy",
+   "description": "Distribution-free and finite-sample guarantees for learned components that cannot be formally verified: conformal coverage and calibrated false-alarm and miss rates under stated distribution-shift models, sequential change-detection bounds, and sample-complexity bounds for online system identification. Targets: terrain and pose networks, onboard science classifiers, and fleet telemetry anomaly detectors that clear reusable hardware. Complements formal verification (verif-nn-verification-scale) and runtime assurance (verif-runtime-assurance).",
+   "status_oct2026": "Conformal prediction gives finite-sample coverage under exchangeability, and weighted variants handle known covariate shift (general); flight is the shifted case, so guarantees must be stated under explicit shift models. Aviation guidance asks for generalization evidence for ML: EASA's AI concept paper (Issue 2, 2024, general) and SAE ARP6983 / EUROCAE ED-324 (first issue covers supervised offline learning; ED-324 publication scheduled Q4 2026, per verif-nn-verification-scale). Research GNC stacks pair learned components with verified runtime shields (e.g. arXiv 2606.25366, 2026). Catalog: 140 (Lean, T3): a one-pass learner with o(d^2) bits of memory needs about d log(1/epsilon) noiseless Gaussian samples where unlimited memory needs about d, a small P3 ceiling for memory-limited onboard estimators.",
+   "catalog_families": [
+    "140"
+   ],
+   "prerequisites": [
+    "cap-applied-math"
+   ],
+   "accelerated_by": [
+    "frontier-rare-event-certified",
+    "frontier-nn-verification-complexity"
+   ],
+   "binding_gate": "data",
+   "pathway": "P1 (P3 side link from 140)",
+   "earliest_year": {
+    "S1": "2030",
+    "S2": "2028",
+    "S3": "2028"
+   },
+   "band_2031": {
+    "S1": "Medium",
+    "S2": "High",
+    "S3": "High"
+   },
+   "premise_tier": "n/a (capability premise); 140 is T3 (side link, small effect)",
+   "why": "Most onboard learned components will never be formally verified (verif-nn-verification-scale is Low in S2), so the practical alternative is statistical: calibrated coverage, false-alarm and miss rates with stated assumptions about distribution shift. Deriving bespoke guarantees for a given sensor, shift model and monitoring rule is expert-scarce applied probability that AI does on demand (P1). Representative calibration data and honest shift assumptions bind (data gate). High in S2 and S3 for the math being used in at least one flight evidence package; certification credit is a separate step capped at Medium and not claimed here. Statistics and learning theory for onboard ML had no node in v2 beyond formal NN verification.",
+   "strongest_case_small": "Guarantees under exchangeability break exactly where flight differs from training data; shift-robust bounds may be so loose that programs keep using runtime monitors and test campaigns, and teams already use conformal methods without frontier AI.",
+   "signpost": "A flight program's assurance case (lander, rover, reusable launcher or science spacecraft) that states conformal or finite-sample error guarantees for a learned component or anomaly detector, by 2029.",
+   "unlocks": [
+    "science-onboard-science-inference"
+   ],
+   "unlocks_soft": [
+    "verif-onboard-ai-guardrails",
+    "physclock-twin-reflight-clearance",
+    "astro-autonomous-nav-demo",
+    "auton-earth-independent-fdir"
+   ],
+   "revision_note": "C-disciplines critic (2026-10-07): proposed new node; downstream-discipline coverage gap. Disciplines: statistics/UQ and AI learning theory (onboard ML guarantees, anomaly detection with controlled false-alarm rates)."
+  },
+  {
+   "id": "verif-adaptive-control-proofs",
+   "title": "Adaptive control of flexible, changing spacecraft with proven stability",
+   "tier": 2,
+   "kind": "applied-math",
+   "domain": "verif",
+   "branch": "verified-autonomy",
+   "description": "Stability and performance proofs for adaptive and learning-augmented attitude, pointing and structural control of vehicles whose dynamics are poorly known before flight or change during it: large flexible arrays and radiators, close formation clusters, propellant slosh in large tanks, on-orbit assembly that changes mass properties, and capture of objects with unknown inertia. Proofs must cover unmodeled flexible modes, actuator saturation and sampling, the cases where adaptive control is known to be fragile.",
+   "status_oct2026": "NASA's SLS flew Adaptive Augmenting Control on Artemis I (Nov 16 2022; 'Path to First Flight of Adaptive Augmenting Control on NASA's Space Launch System for Artemis I', ESA GNC-ICATT 2023), cleared by analysis and Monte Carlo rather than proofs of robustness to unmodeled dynamics. Loss of robustness of adaptive control to unmodeled dynamics is a classic result (Rohrs et al. 1985, general); L1 adaptive control has flown on NASA's AirSTAR subscale research aircraft (general). Large flexible spacecraft fly with conservative notch filters and gain stabilization (general). No catalog family addresses adaptive control.",
+   "prerequisites": [
+    "cap-applied-math"
+   ],
+   "accelerated_by": [
+    "verif-closed-loop-guarantees",
+    "frontier-hjb-guarantees",
+    "struct-deployment-mechanics"
+   ],
+   "binding_gate": "cognitive",
+   "pathway": "P1->P5",
+   "earliest_year": {
+    "S1": "2030",
+    "S2": "2028",
+    "S3": "2028"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "High"
+   },
+   "premise_tier": "n/a (capability premise)",
+   "why": "100 kW-class compute satellites with large radiators and arrays, tight formation clusters, kilometre-class structures and in-orbit assembly all fly with dynamics that cannot be pinned down on the ground; today's answer is conservative fixed-gain control plus margin, which costs pointing performance and structural stiffness (mass). Proofs that an adaptive law stays stable with unmodeled modes and saturation would let designers use adaptation, as SLS already does, with evidence beyond Monte Carlo. The general theory is partly open, so bespoke proofs for specific vehicle classes are the realistic product (P1), changing design confidence (P5). S2 Medium; S3 High when cognitive work is near-free; S1 Low. Control theory in v2 covered optimal control, envelopes and runtime assurance but not adaptive or flexible-structure control.",
+   "strongest_case_small": "Robust fixed-gain control with notch filters works and is certifiable; the pointing and mass gains are small, and programs adopt adaptation for operational reasons regardless of proofs.",
+   "signpost": "A spacecraft or launcher program publishes a stability proof (not only Monte Carlo) for an adaptive or learning-augmented controller with unmodeled flexible dynamics, used in its flight clearance, by 2030.",
+   "unlocks": [],
+   "unlocks_soft": [
+    "struct-formation-compute-clusters",
+    "struct-large-sail-flight",
+    "auton-assembly-flight-demo",
+    "struct-km-monolith"
+   ],
+   "catalog_families": [],
+   "revision_note": "C-disciplines critic (2026-10-07): proposed new node; downstream-discipline coverage gap. Discipline: control theory (adaptive, flexible-structure and learning-augmented control)."
+  },
+  {
+   "id": "verif-hardware-proof-agents",
+   "title": "Proof agents verify spacecraft processors and FPGA logic",
+   "tier": 4,
+   "kind": "engineering-tool",
+   "domain": "verif",
+   "branch": "orbital-compute-power",
+   "description": "AI agents write the formal properties and proofs for space avionics hardware: RTL of radiation-tolerant processors and SoCs, FPGA designs re-verified after triple-modular-redundancy insertion, and error-correction and scrubbing logic, so that hardware gets the same machine-checked assurance proof agents bring to flight code.",
+   "status_oct2026": "Commercial hardware formal verification is mature (general), but property writing is the bottleneck. FVEval (DATE 2025) benchmarks LLMs on hardware formal verification and finds them not yet reliable; 2026 work on LLM-generated SystemVerilog assertions still reports wrong signal references and missing timing constraints (arXiv 2604.23100). Agentic chip design is moving fast in commercial EDA (Cadence ChipStack, Jun 2026; Synopsys autonomous workflows, Jul 2026; OpenAI-Synopsys agreement, Sep 30 2026; per capability-ai-eda-space-processor). Space FPGAs rely on TMR and scrubbing whose insertion is checked mostly by simulation and beam test (general). No catalog family addresses hardware verification.",
+   "prerequisites": [
+    "verif-code-proof-agents",
+    "verif-spec-engineering"
+   ],
+   "accelerated_by": [
+    "infra-verified-numerics"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P2",
+   "earliest_year": {
+    "S1": "2029",
+    "S2": "2028",
+    "S3": "2028"
+   },
+   "band_2031": {
+    "S1": "Medium",
+    "S2": "High",
+    "S3": "High"
+   },
+   "premise_tier": "n/a (capability premise)",
+   "why": "Proof agents for software are High by 2027 in S2 (verif-code-proof-agents); hardware is the same problem with better-established tools and a narrower property language, and the space-specific targets (TMR insertion, scrubbing, error-correction logic, post-mitigation equivalence) are well specified. P2, but in-house hardware sign-off needs no regulator step, so the regulatory cap does not bind; adoption does. High in S2 and S3 by 2031 for agent-written properties or proofs in at least one space processor or FPGA program; Medium in S1. Semiconductor and EDA coverage in v2 jumped from radiation physics to an AI-designed processor with no verification layer.",
+   "strongest_case_small": "Space chip and FPGA vendors use the same commercial formal tools as everyone else and will adopt agentic features when EDA vendors ship them; radiation behavior is set by physics and beam testing, which proofs about logic do not replace.",
+   "signpost": "A radiation-tolerant processor or space-FPGA program (vendor or prime) reports agent-generated formal properties or proofs in its verification sign-off, by 2029.",
+   "unlocks": [
+    "capability-ai-eda-space-processor"
+   ],
+   "unlocks_soft": [
+    "materials-verified-fault-tolerance",
+    "verif-verified-onboard-stack",
+    "comms-pq-verified-implementations"
+   ],
+   "catalog_families": [],
+   "revision_note": "C-disciplines critic (2026-10-07): proposed new node; downstream-discipline coverage gap. Discipline: semiconductor/EDA (hardware formal verification for rad-hard processors and FPGAs)."
+  },
+  {
+   "id": "materials-hts-magnet-models",
+   "title": "Validated models of high-temperature-superconductor magnets",
+   "tier": 3,
+   "kind": "physics",
+   "domain": "materials",
+   "branch": "plasma-nuclear",
+   "description": "Predictive, validated models for REBCO high-temperature-superconductor coils: quench onset and propagation, screening-current field errors, mechanical strain and delamination, and radiation damage to the conductor, accurate enough to design magnets with smaller margins and fewer full-coil tests. Space uses: active radiation shielding, magnetic nozzles and high-power plasma thrusters, magnetic spectrometers, and compact fusion devices.",
+   "status_oct2026": "REBCO magnets underpin compact fusion (a 20 T large-bore HTS test coil in 2021, general) and are proposed for space spectrometers and active shielding (ARCOS HTS demonstrator coil, ICRC 2021; via OpenAlex). Quench detection is hard in REBCO because normal zones propagate slowly (general), and radiation-induced defect effects on pinning are under active study (Sci, 2026 review). The release's condensed-matter families (261 Anderson localization, 267 positive-temperature Bose-Einstein condensation, 271 Bloch's law and ferromagnetic order) are rigorous many-body results with no pathway to magnet engineering (nil); no catalog family addresses superconducting magnets.",
+   "prerequisites": [
+    "cap-applied-math"
+   ],
+   "accelerated_by": [
+    "capability-learned-emulators",
+    "cap-physics-theory",
+    "cap-autonomous-labs"
+   ],
+   "binding_gate": "experiment",
+   "pathway": "P1->P6",
+   "earliest_year": {
+    "S1": "2031",
+    "S2": "2029",
+    "S3": "2029"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a (capability premise)",
+   "why": "Magnet makers already run multiphysics codes; what is missing is validated prediction of quench and screening currents across coil designs, which needs coil tests (experiment gate, 1.1-1.5x compression). AI speeds the modeling and inverse fitting to test data (P1) and turns it into design tools (P6, which is why S2 is only Medium). The space consequence by 2031 is small: active shielding stays Speculative (plasma-active-shielding) and magnetic-nozzle and fusion propulsion are post-2031; the main near-term beneficiary is terrestrial fusion magnet design. Condensed matter (superconductors) had no node in v2; this node records that the answer is mostly 'not by 2031'.",
+   "strongest_case_small": "Conductor supply, cost and coil test campaigns, not models, pace HTS magnets; the leading fusion companies already have validated in-house codes, and no space mission by 2031 needs a large HTS magnet.",
+   "signpost": "A public, validated quench and screening-current model that predicts a new coil's test results within stated error, from a fusion company or national lab, by 2029; any funded space HTS-magnet flight experiment.",
+   "unlocks": [],
+   "unlocks_soft": [
+    "plasma-active-shielding",
+    "plasma-stellarator-design-loop",
+    "plasma-fusion-propulsion-design-closure"
+   ],
+   "catalog_families": [],
+   "revision_note": "C-disciplines critic (2026-10-07): proposed new node; downstream-discipline coverage gap. Discipline: condensed matter (superconducting magnets for shielding and propulsion)."
+  },
+  {
+   "id": "science-eo-retrieval-certified",
+   "title": "Earth-observation retrievals with certified error bars",
+   "tier": 2,
+   "kind": "applied-math",
+   "domain": "science",
+   "branch": "science",
+   "description": "Identifiability analysis and certified uncertainty for the inverse problems that turn satellite measurements into products: SAR image formation and interferometric phase unwrapping (ground deformation), trace-gas retrievals and plume inversion (methane and CO2 emission rates), and soil-moisture and biomass retrievals. Achieved means a satellite data provider or science team publishes retrievals whose stated errors come from a proof-backed or certified analysis rather than only empirical validation.",
+   "status_oct2026": "Earth observation had no node in the graph before this proposal. Point-source methane quantification from satellites carries large uncertainties from wind, plume-model and retrieval errors and is validated with controlled releases (general). Minimum-discontinuity (L0) InSAR phase unwrapping is NP-hard and is solved heuristically (Chen and Zebker 2000, general). The math is the same family as exoplanet-retrieval identifiability (science-retrieval-identifiability) and inverse-problem stability (frontier-inverse-stability). No catalog family addresses remote-sensing retrieval; 365 and 372 are PDE boundary-data inverse results with no direct remote-sensing use.",
+   "prerequisites": [
+    "cap-applied-math"
+   ],
+   "accelerated_by": [
+    "science-retrieval-identifiability",
+    "frontier-inverse-stability",
+    "frontier-rare-event-certified"
+   ],
+   "binding_gate": "data",
+   "pathway": "P1->P5",
+   "earliest_year": {
+    "S1": "2030",
+    "S2": "2028",
+    "S3": "2028"
+   },
+   "band_2031": {
+    "S1": "Medium",
+    "S2": "Medium",
+    "S3": "High"
+   },
+   "premise_tier": "n/a (capability premise)",
+   "why": "EO products are sold and used on the strength of their error bars (emission estimates, deformation alerts, carbon and crop accounting). Identifiability and error analysis for each instrument and retrieval is bespoke applied math that AI can do on demand (P1), changing confidence in the products (P5). Validation data (controlled releases, ground networks) bind, so S2 Medium; S3 High; S1 Medium because the bar is a publication, not adoption. Regulatory use is a separate step capped at Medium (science-eo-certified-products).",
+   "strongest_case_small": "Error budgets for EO products are dominated by atmospheric transport, calibration and cloud, which are data problems; customers buy on empirical validation, and providers already publish validation-based uncertainty.",
+   "signpost": "A methane or InSAR data provider (commercial or agency) publishes products with certified or proof-backed uncertainty statements, by 2029.",
+   "unlocks": [
+    "science-eo-certified-products"
+   ],
+   "unlocks_soft": [
+    "science-return-per-dollar"
+   ],
+   "catalog_families": [],
+   "revision_note": "C-disciplines critic (2026-10-07): proposed new node; downstream-discipline coverage gap. Disciplines: signal processing and inverse problems (SAR, InSAR, trace-gas retrieval); Earth observation entirely absent in v2."
+  },
+  {
+   "id": "science-eo-certified-products",
+   "title": "Satellite emission and deformation estimates accepted with certified uncertainty",
+   "tier": 6,
+   "kind": "mission",
+   "domain": "science",
+   "branch": "science",
+   "description": "Commercial or agency Earth-observation services deliver emission-rate estimates (methane super-emitters, CO2 point sources) or ground-deformation alerts with certified uncertainty that a regulator, insurer or infrastructure operator formally accepts as decision evidence.",
+   "status_oct2026": "Satellite methane detection and InSAR deformation monitoring are operational services (general). Where satellite detections enter emissions reporting or infrastructure decisions, acceptance rests on empirical validation and expert review, not certified error analysis (general).",
+   "prerequisites": [
+    "science-eo-retrieval-certified"
+   ],
+   "accelerated_by": [
+    "science-onboard-science-inference"
+   ],
+   "binding_gate": "regulatory",
+   "pathway": "P1->P5 (adoption; no new hardware)",
+   "earliest_year": {
+    "S1": ">2031",
+    "S2": "2030",
+    "S3": "2029"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a (capability premise)",
+   "why": "Full chain: (1) research-grade applied math reaches outside teams (cap-applied-math; S2 2027) -> (2) certified retrievals published for one product class (science-eo-retrieval-certified; S2 2028) -> (3) validated against controlled releases or ground networks over a season (2029) -> (4) a regulator, insurer or operator formally accepts the certified uncertainty as evidence (S2 2030). No hardware step: existing constellations suffice. Step 4 needs regulator or institutional acceptance, so the band is capped at Medium in every scenario; S1 Low.",
+   "strongest_case_small": "Decisions already run on empirical uncertainty; regulators move on politics, not error bars; detection thresholds and revisit rates, set by hardware and orbits, limit what EO can show.",
+   "signpost": "A regulator, insurer or pipeline operator formally accepts satellite emission or deformation estimates citing certified uncertainty, by 2030.",
+   "unlocks": [],
+   "unlocks_soft": [],
+   "catalog_families": [],
+   "revision_note": "C-disciplines critic (2026-10-07): proposed new node; downstream-discipline coverage gap. Earth-observation outcome node so the EO retrieval node has a reader-facing consequence."
+  }
+ ],
+ "add_edges": [
+  {
+   "from": "verif-ml-statistical-guarantees",
+   "to": "science-onboard-science-inference"
+  },
+  {
+   "from": "verif-hardware-proof-agents",
+   "to": "capability-ai-eda-space-processor"
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "comms-certified-beamforming",
+   "to": "comms-d2d-coexistence-scheduling",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "comms-certified-beamforming",
+   "to": "comms-capacity-per-dollar-share",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "comms-certified-beamforming",
+   "to": "comms-multi-operator-dynamic-sharing",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "frontier-sequence-design-limits",
+   "to": "comms-code-design-on-demand",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "struct-hv-power-bus-stability",
+   "to": "struct-100kw-per-tonne-fleet",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "struct-hv-power-bus-stability",
+   "to": "auton-moon-base-infrastructure",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "struct-hv-power-bus-stability",
+   "to": "struct-fsp-lunar-100kwe",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "struct-hv-power-bus-stability",
+   "to": "plasma-nep-mars-cargo",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "comms-photonic-inverse-design",
+   "to": "science-lightsail-stability",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "comms-photonic-inverse-design",
+   "to": "comms-quantum-receiver-theory",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "comms-photonic-inverse-design",
+   "to": "science-quantum-sensor-design",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "materials-ecls-isru-sorbents-catalysts",
+   "to": "auton-closed-loop-habitat",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "materials-ecls-isru-sorbents-catalysts",
+   "to": "auton-mars-propellant-plant",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "verif-ml-statistical-guarantees",
+   "to": "verif-onboard-ai-guardrails",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "verif-ml-statistical-guarantees",
+   "to": "physclock-twin-reflight-clearance",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "verif-ml-statistical-guarantees",
+   "to": "astro-autonomous-nav-demo",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "verif-ml-statistical-guarantees",
+   "to": "auton-earth-independent-fdir",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "verif-adaptive-control-proofs",
+   "to": "struct-formation-compute-clusters",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "verif-adaptive-control-proofs",
+   "to": "struct-large-sail-flight",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "verif-adaptive-control-proofs",
+   "to": "auton-assembly-flight-demo",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "verif-adaptive-control-proofs",
+   "to": "struct-km-monolith",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "verif-hardware-proof-agents",
+   "to": "materials-verified-fault-tolerance",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "verif-hardware-proof-agents",
+   "to": "verif-verified-onboard-stack",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "verif-hardware-proof-agents",
+   "to": "comms-pq-verified-implementations",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "materials-hts-magnet-models",
+   "to": "plasma-active-shielding",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "materials-hts-magnet-models",
+   "to": "plasma-stellarator-design-loop",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "materials-hts-magnet-models",
+   "to": "plasma-fusion-propulsion-design-closure",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "science-eo-retrieval-certified",
+   "to": "science-return-per-dollar",
+   "why": "new-node soft link (see node why)"
+  },
+  {
+   "from": "science-quantum-sensor-design",
+   "to": "astro-autonomous-nav-demo",
+   "why": "Quantum sensing -> navigation: space clocks and atom-interferometer inertial sensors with full error budgets feed one-way ranging and GNSS-denied cislunar navigation."
+  },
+  {
+   "from": "materials-wbg-rad-hard-power",
+   "to": "plasma-high-power-ep-life",
+   "why": "Power electronics -> electric propulsion: 100 kW-class thrusters need high-voltage power processing that radiation-robust SiC enables."
+  },
+  {
+   "from": "materials-wbg-rad-hard-power",
+   "to": "plasma-nep-mars-cargo",
+   "why": "Power electronics -> nuclear electric propulsion: megawatt power conversion and PPUs at high bus voltage."
+  },
+  {
+   "from": "materials-wbg-rad-hard-power",
+   "to": "struct-fsp-next-gen-design",
+   "why": "Power electronics -> fission surface power: reactor power conversion and kilometre transmission favour high-voltage SiC."
+  },
+  {
+   "from": "frontier-inverse-stability",
+   "to": "science-helio-tomography",
+   "why": "Inverse problems -> heliophysics: stability estimates set how many viewpoints a 3D reconstruction needs."
+  },
+  {
+   "from": "auton-certified-contact-sim",
+   "to": "astro-hybrid-rpo-verification",
+   "why": "Robotics contact mechanics -> GNC: capture and docking verification needs contact models with error bars."
+  },
+  {
+   "from": "science-wfsc-certified",
+   "to": "comms-optical-ground-network-service",
+   "why": "Optics -> comms: wavefront sensing and control math transfers to adaptive optics for optical ground-station uplinks and fiber coupling."
+  },
+  {
+   "from": "physclock-optimal-test-campaigns",
+   "to": "plasma-ep-life-by-analysis",
+   "why": "Statistics -> electric propulsion: information-optimal and sequential test design shortens wear-test evidence."
+  },
+  {
+   "from": "struct-two-phase-microgravity-models",
+   "to": "struct-hot-chip-hbm-qualification",
+   "why": "Thermal physics -> semiconductors: pumped two-phase cold plates set chip and HBM junction temperatures in orbit."
+  },
+  {
+   "from": "frontier-stiff-certified",
+   "to": "auton-isru-rom-control",
+   "why": "Numerical analysis -> ISRU chemistry: oxygen-reactor models are stiff reaction-transport systems."
+  },
+  {
+   "from": "frontier-rare-event-certified",
+   "to": "plasma-radbelt-charging-forecast",
+   "why": "Statistics -> space weather: certified tail probabilities for extreme radiation-belt and charging events."
+  },
+  {
+   "from": "plasma-thermo-density-uq",
+   "to": "struct-formation-compute-clusters",
+   "why": "Space weather -> formation flying: differential drag from density uncertainty dominates station-keeping at a few hundred metres in LEO."
+  },
+  {
+   "from": "materials-battery-life-qual",
+   "to": "auton-crew-optional-lunar-ops",
+   "why": "Electrochemistry -> lunar operations: batteries qualified by model carry robots and habitats through lunar night."
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "networks",
+   "nodes": [
+    "comms-certified-beamforming",
+    "comms-photonic-inverse-design"
+   ]
+  },
+  {
+   "branch": "math-frontier",
+   "nodes": [
+    "frontier-sequence-design-limits"
+   ]
+  },
+  {
+   "branch": "orbital-compute-power",
+   "nodes": [
+    "struct-hv-power-bus-stability",
+    "verif-hardware-proof-agents"
+   ]
+  },
+  {
+   "branch": "moon-mars",
+   "nodes": [
+    "materials-ecls-isru-sorbents-catalysts"
+   ]
+  },
+  {
+   "branch": "verified-autonomy",
+   "nodes": [
+    "verif-ml-statistical-guarantees",
+    "verif-adaptive-control-proofs"
+   ]
+  },
+  {
+   "branch": "plasma-nuclear",
+   "nodes": [
+    "materials-hts-magnet-models"
+   ]
+  },
+  {
+   "branch": "science",
+   "nodes": [
+    "science-eo-retrieval-certified",
+    "science-eo-certified-products"
+   ]
+  }
+ ],
+ "notes": "C-disciplines critic, graph-v2, 2026-10-07. Lens: downstream-discipline and math-frontier coverage. 11 new nodes, 2 hard edges into existing nodes (verif-hardware-proof-agents -> capability-ai-eda-space-processor; verif-ml-statistical-guarantees -> science-onboard-science-inference), 13 cross-discipline soft edges between existing nodes, plus soft edges from the new nodes. Node fields 'branch', 'unlocks' (hard) and 'unlocks_soft' are informational for reviewers; the hard and soft links are also given in add_edges and add_soft_edges, and 'unlocks' is recomputed by apply_edits.\n\nCOVERAGE AUDIT (keyword scan of all 370 nodes plus reading of neighbours):\n- Covered adequately, no new node: numerical analysis and scientific computing (infra-verified-numerics, frontier-certified-pde-error, frontier-stiff-certified, struct-verified-fe-solvers, capability-algorithm-discovery, capability-learned-emulators); optimization and OR (frontier-approx-ceilings, frontier-scalable-global-certificates, comms-hardness-aware-tasking, physclock-range-airspace-scheduling, auton-ops-planning-ceilings); information theory and quantum links (frontier-optical-quantum-capacity, comms-code-design-on-demand, comms-quantum-receiver-theory, comms-finite-key-qkd-proofs); fusion and plasma (plasma-* nodes); quantum sensing (science-quantum-sensor-design and -flight); stochastic analysis (frontier-rare-event-certified, astro-nongaussian-uq-certified, astro-nav-filter-guarantees); inverse problems (frontier-inverse-stability, hyper-tps-inverse-nde, struct-shm-inverse-limits, science-helio-tomography, science-vlbi-identifiability); orbital AI chips (materials-see-system-models, materials-verified-fault-tolerance, struct-hot-chip-hbm-qualification).\n- Missing or thin, new node proposed: signal processing (no beamforming, phased-array, SAR or waveform node; added comms-certified-beamforming, frontier-sequence-design-limits, science-eo-retrieval-certified, science-eo-certified-products); electrical and power engineering at system level (added struct-hv-power-bus-stability; SiC parts node existed but linked to nothing in EP or fission power, fixed by soft edges); optics and photonics (added comms-photonic-inverse-design); semiconductor/EDA verification layer (added verif-hardware-proof-agents); chemistry and catalysis for ECLSS and ISRU (added materials-ecls-isru-sorbents-catalysts); statistics and learning theory for onboard ML (added verif-ml-statistical-guarantees); control theory beyond optimal control and envelopes (added verif-adaptive-control-proofs); condensed matter (added materials-hts-magnet-models, deliberately Low to show the 'not by 2031' answer). Earth observation, one of the largest commercial space sectors, was entirely absent; the two science-eo nodes are a minimal entry, and a fuller EO branch is a candidate for a later pass.\n- Thin but no node proposed: robotics (contact, assembly and surface autonomy exist; added the contact-sim -> RPO soft edge instead); biology (radiation biology is data-gated per auton-radiation-risk-uq and the frontier nil effect on dose transport; BLSS is covered; synthetic-biology ISRU is not AI-math-gated by 2031); geometric control on SO(3)/SE(3) is mature practice, not a gap; mixed-precision onboard numerics on AI accelerators is a sub-case of infra-verified-numerics; space-based solar power and power beaming are absent but are capital- and fabrication-gated, not AI-math-gated.\n\nCATALOG FAMILIES NEWLY MAPPED: 076 (ultraflat Littlewood polynomials, unbounded merit factor; Lean scope existential, no rate, no algorithm), 179 (circulant Hadamard and Barker; Lean for circulant Hadamard and even Barker; odd Barker T1), 140 (memory-sample lower bounds; previously only on frontier-rare-event-certified). Considered and left unmapped as nil for space by 2031 (P3 or none): 095 (hyperbolicity cones without semidefinite lifts: a ceiling on SDP reformulations that does not bite on standard beamforming or SOS certificates); 126 (exponential SDP extension complexity of perfect matching); 119 (Courtade-Kumar: the dictator bit is the most informative one-bit summary, confirms practice); 122 (deletion-trace reconstruction; deletion channels already sit in comms-code-design-on-demand); 281 (QAOA optimality on SK: a ceiling on quantum-optimization claims for satellite scheduling, worth a sentence in the networks text); 261, 267, 271 (condensed-matter many-body results, no magnet or thermal-materials pathway); 370 (Lane-Emden), 371 (defocusing NLS blowup in high dimension), 373 (three-marginal Coulomb transport). Galactic speedups 107, 109, 130 were not used.\n\nSCENARIO RULES CHECKED: S3 year <= S2 <= S1 and S3 band >= S2 >= S1 for every new node; each new node's year >= its hard prerequisites' years in every scenario; tier 5-7 nodes (materials-ecls-isru-sorbents-catalysts, science-eo-certified-products) carry their full chain in 'why'; regulatory acceptance capped at Medium (science-eo-certified-products); no T1/T2 premise carries a band without the word conditional (frontier-sequence-design-limits flags its odd-Barker part as conditional T1).\n\nRESEARCH LIMITS: WebSearch budget was exhausted and Firecrawl returned 402 (credits). Facts were checked against the openai/math repo (CONTENTS.md and lean/docs for 076, 095, 119, 140, 179, fetched raw from GitHub), OpenAlex (SLS Adaptive Augmenting Control on Artemis I, photonic design bounds, DC microgrid stability, FVEval and LLM assertion generation, Open DAC 2023 and its 2025 correspondence, ISS CO2 removal reviews, ARCOS HTS coil, REBCO radiation review) and 33FG (BlueBird 6 deployment Dec 2025; SpaceX AWS-4/H-block purchase Sep 2025). Items marked (general) were not re-fetched in this pass: the FCC SCS -120 dBW/m2/MHz out-of-band limit, MOXIE's 122 g total, Chen-Zebker NP-hardness of L0 phase unwrapping, AirSTAR L1 flight tests, Jedwab-Katz-Schmidt 6.34, and the 2021 20 T HTS coil test."
+}

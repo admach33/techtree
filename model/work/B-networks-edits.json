@@ -1,0 +1,577 @@
+{
+ "update": [
+  {
+   "id": "frontier-approx-ceilings",
+   "patch": {
+    "description": "Hardness-of-approximation ceilings for the combinatorial problems behind constellation tasking, ground-station and gateway siting, routing, beam frequency assignment and network partitioning become verified theorems rather than beliefs: beating Goemans-Williamson Max-Cut (beam two-colouring) or factor-2 vertex cover (minimal link/beam sets) is NP-hard given 102 (UGC proved, T3); uniform sparsest cut (mesh partitioning) has no constant-factor algorithm (conditional, T1); metric k-median siting is pinned at 1+2/e. These are worst-case ceilings for general graphs and metrics. Operational instances are geometric (toroidal +Grid/Motif laser meshes, Earth-surface siting, disk-like beam-conflict graphs), and there approximation schemes or O(1) algorithms exist, so the ceilings bound general-purpose solver research and vendor claims about general instances, not constellation planning.",
+    "status_oct2026": "Catalog: 102 Unique Games Conjecture (T3; the Lean covers UGC plus the direct Max-Cut and Vertex Cover reductions), which makes Goemans-Williamson Max-Cut (0.878) and 2-approximate vertex cover optimal; 125 metric k-median threshold 1+2/e, about 1.736 (T3; lean/docs/125.md: the deterministic (1+2/e+eps) algorithm and the threshold under P!=NP are formalized); 117 uniform sparsest cut: SDP integrality gap T3, NP-hardness T1 (statement gap: the Lean result is 'an existential sequence, not a computational hardness theorem'); 104: randomized quasipolynomial mean-payoff algorithm T3, deterministic, stochastic and parity versions T1; 124 polynomial-time scheduling on three identical machines (T1); 110 optimal randomized k-server (T1); 111 matroid prophet inequalities (T1). No outside Comparator run reported as of Oct 7, 2026; repo has a single initial commit.",
+    "premise_tier": "T3 (102: UGC plus direct Max-Cut and Vertex Cover reductions formalized; 125: algorithm and threshold per lean/docs/125.md; 104: randomized mean-payoff only; 117: SDP integrality gap only); T1, conditional (117 NP-hardness headline; 104 deterministic, stochastic and parity versions; 124, 110, 111)",
+    "why": "Ceilings take effect within months (P3), once they are independently checked. Most were already believed, so the change is from belief to theorem: research spending on general-purpose approximation algorithms moves to instance structure, exact MIP on small instances and learned heuristics. On the geometric instances operators actually face the ceilings do not bind: uniform multicommodity flow on graphs that exclude a fixed minor (toroidal laser grids among them) has an O(1) flow-cut gap (Klein-Plotkin-Rao 1993), k-median on Earth-surface (doubling) metrics has a PTAS, vertex cover on disk-like graphs has a PTAS (Hunt et al. 1998), and Max-Cut is exact on planar graphs (Hadlock 1975). This node bounds frontier-scalable-global-certificates. The 117-hardness, 104-extension, 124, 110 and 111 parts are conditional (T1); the band rests on the T3 parts (102, 125) and describes the mathematics, not an engineering effect.",
+    "calibration_note": "A3: Wording rule only: premise mixes T3 (102, 125, 117, 104) and T1 (124, 110, 111); why now says the T1 parts are conditional. Bands unchanged. Lead decision pending (auditor): the openai/math repo has Comparator statements plus solution modules for families the catalog marks without L (273, 124, 177, 110, 111, 279); the catalog L flag may undercount. Catalog tiers kept until the lead rules.",
+    "revision_note": "B-networks resolver: Skeptic + auditor. Description now says the ceilings are worst-case for general graphs and do not bind on geometric constellation instances (KPR, doubling-metric PTAS, unit-disk PTAS, planar Max-Cut). Deleted the 144,000-maneuver sentence (collision avoidance is not an approximation problem). Premise tiers corrected against lean/docs (117: SDP gap only; 104: randomized mean-payoff only; 125: algorithm and threshold formalized, superseding the A1 merge_note's 'companion recovery result'). Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-certified-network-optimization",
+   "patch": {
+    "description": "Joint optimization of laser-terminal pairing, routing and rate allocation over a time-expanded horizon that charges link acquisition and re-pointing time, at 10,000+ satellites, with a certified optimality gap (for example a Lagrangian dual bound) computed at operational cadence; user-beam frequency assignment is handled separately. Achieved means an open or vendor solver delivers such certified gaps at Starlink scale.",
+    "status_oct2026": "The per-snapshot joint problem is NP-hard. A Lagrangian decomposition into matching, shortest paths and an LP gains 35-145% throughput over non-joint baselines in simulation (arXiv 2601.21914), and a graph neural network that predicts the dual prices matches it orders of magnitude faster (arXiv 2601.21921). Topology designs tested on three months of Starlink data report up to 2.3x capacity and 45% lower delay than +Grid (arXiv 2602.07756). The baselines are naive and operator practice is proprietary. Family 120 (almost-linear exact matching and prescribed-degree factors, T1) solves the terminal-pairing subproblem asymptotically fast. The Lagrangian work covers laser-terminal matching and routing only, with no acquisition or switching cost and no beam or frequency assignment; the fast GNN variant carries no certificate.",
+    "binding_gate": "cognitive",
+    "why": "A certificate turns a capacity question into an investment decision. With a 3% dual gap, more capacity has to come from terminals, satellites or spectrum; with a 30% gap it can come from software. The math (decompositions, convergence and gap proofs, problem-specific relaxations) is bespoke and easier than the catalog's problems (tl-position-4), so it becomes a P1 item as soon as research-grade models are public. A dual bound certifies any instance without any hardness theorem; the ceilings (UGC; 117, conditional) only explain why certified gaps are instance-specific, so frontier-approx-ceilings is context (soft), not a prerequisite. Interference-coupled frequency assignment has weak dual bounds, which is why it is left out. Operator adoption is modelled in comms-certified-mesh-operations.",
+    "revision_note": "B-networks resolver: Skeptic: frontier-approx-ceilings hard -> soft (a Lagrangian bound needs no hardness proof); description narrowed to what the cited evidence supports (matching and routing, time-expanded with acquisition time; frequency assignment separate); gate adoption -> cognitive (adoption lives in mesh-operations). Rejected the advocate's cap-research-math-public hard -> soft and S1 2028 -> 2027: S1 is the plateau case and the node's own why ties it to public research-grade models. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "comms-hardness-aware-tasking",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028"
+    },
+    "status_oct2026": "EOS-Bench (arXiv 2604.25782) spans up to 1,000 satellites and 10,000 requests. Exact integer programming for ground-station selection stops scaling before Planet's 96-satellite fleet, while decomposition stays within 95% of optimum on small cases (arXiv 2510.03438). Ground-station-as-a-service revenue scheduling is NP-hard (arXiv 2608.22222). Catalog: 102 [L] T3; 125 [L] T3 (the deterministic (1+2/e+eps) algorithm and the threshold under P!=NP have Comparator statements, MetricKMedian and KMedianThreshold); 124, 110, 111 T1; 104 [L] T3 only for a randomized version (the deterministic headline and the stochastic and parity extensions are T1).",
+    "premise_tier": "T3 (102, 125); T1 for 124, 110, 111 (conditional)",
+    "why": "The ceiling effect is immediate, but most value comes from capability transfer. Each mission has its own constraints (agility, memory, energy, cloud forecasts, contact windows), and a model that formulates and proves a bespoke scheduler in hours replaces months of operations-research work. Operators adopt within the P1 lag of 0-2 years after public access, so reported use trails cap-research-math-public by about a year. 124 (conditional) solves exactly the Garey-Johnson three-machine case (unit jobs with precedence constraints on three identical machines); it has no release times or deadlines, so it does not model contact-window scheduling. 110 and 111 give worst-case guarantees for online request handling. Mesh-routing solvers (comms-certified-network-optimization) help but are not needed: Earth-observation tasking and ground-station scheduling do not use laser-mesh routing.",
+    "strongest_case_small": "Tasking is limited by satellites, agility, cloud cover and downlink, which are physics and capital. The 1+2/e k-median algorithm needs candidate sites and does no better than MIP on siting problems with a few hundred candidates. 111 asserts no polynomial-time implementation, and 124 is a narrow special case. k-median on Earth-surface sites has a PTAS, so the 1+2/e ceiling does not bind siting.",
+    "calibration_note": "A3: Band logic: hard prerequisite comms-certified-network-optimization is Medium in S1, so S1 High -> Medium. Lead decision pending (auditor): the openai/math repo has Comparator statements plus solution modules for families the catalog marks without L (273, 124, 177, 110, 111, 279); the catalog L flag may undercount. Catalog tiers kept until the lead rules.",
+    "revision_note": "B-networks resolver: Skeptic: comms-certified-network-optimization hard -> soft (tasking does not use mesh routing); years 2028/2027/2027 -> 2029/2028/2028 (adoption gate plus P1 lag 0-2 years after public access in 2027 under S2; same-year operator reporting not credible); 124 example corrected; PTAS note added. Auditor: 125 is T3 per lean/docs/125.md. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-code-design-on-demand",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028"
+    },
+    "description": "AI designs codes and decoders for specific links, with machine-checked finite-blocklength performance claims. Targets: short packets for direct-to-device signaling, IoT and telecommand; photon-counting optical links; synchronization and deletion channels. Achieved means an AI-designed short-block code or decoder with machine-checked finite-blocklength claims is submitted to 3GPP or CCSDS or ships in a product.",
+    "status_oct2026": "LLM-guided search found seven record binary linear codes, improving 22 table entries, each verified exhaustively (arXiv 2609.37056, Sep 2026). A search for quantum LDPC bivariate-bicycle codes cost about $400 of inference (arXiv 2606.02418). Sep 2026: a Lean-formalized deletion-channel capacity bound (arXiv 2609.13351; the abstract does not mention AI assistance) and AI-assisted, Lean-formalized proofs of three binary-channel conjectures (arXiv 2609.27991). Catalog family 119 (Courtade-Kumar and Hellinger conjectures, L, T3) shows information-theory conjectures are within the model's reach; capability evidence only. Short-block polar and LDPC designs sit fractions of a dB from finite-blocklength bounds (arXiv 2503.02782, 2512.17834).",
+    "why": "Long-block codes are near capacity, so the remaining gains are in short blocks and unusual channels, where design is expert-scarce rather than open. 0.5 dB is about 12% power, and on a handset uplink at the edge of a beam that can decide whether a link closes. Standards cycles (3GPP NTN, CCSDS, 2-4 years) bind handset D2D and agency links. Proprietary physical layers (Starlink user and gateway links, laser ISLs, third-party mini lasers) can adopt new codes faster, by firmware where the decoder runs on reprogrammable hardware, but fixed-function decoder ASICs still need a hardware cycle. Either way first adoption trails public research-grade models (2027 in S2) by about a year.",
+    "strongest_case_small": "Coding gains are small next to antenna gain, power and spectrum. Standards bodies are conservative, decoder complexity, latency and patents decide adoption, and most space links already use standardized LDPC, turbo or polar codes. Record minimum-distance codes do not by themselves give link margin; decoder complexity and the weight spectrum at practical lengths decide gains, and the headroom left is tenths of a dB.",
+    "revision_note": "B-networks resolver: Skeptic: years 2028/2027/2027 -> 2029/2028/2028 (adoption gate; the node's own why says standards bind; 2026 evidence improves distance tables, not dB); achieved defined. Advocate: proprietary air interfaces can adopt faster - accepted as text, with the caveat that decoder ASICs limit firmware swaps, so not as a reason to keep 2027; advocate's soft edge to comms-crqc-before-2031 rejected (classical link codes are not the qLDPC channel; that route is now comms-ai-crqc-resource-cuts). Auditor: 2609.13351 is not described as AI-assisted. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-pq-verified-implementations",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028"
+    },
+    "description": "Agents produce implementations of ML-KEM, ML-DSA, HQC and hash-based signatures for space targets that have no verified library today (SPARC LEON, rad-hard RISC-V such as PIC64-HPSC and NOEL-V, FPGA fabric), with machine-checked functional correctness, constant-time and masking (side-channel) proofs, plus certified failure-probability bounds. Achieved means such a library exists for at least one of these targets and a flight program adopts it.",
+    "status_oct2026": "Exists for mainstream CPUs, not yet for most space processors. mlkem-native (AWS-LC, PQ Code Package): all AArch64 and x86-64 assembly is proved functionally correct, memory-safe and constant-time in HOL Light, and the C code memory- and type-safe with CBMC (human-led proofs; no AI assistance stated). Radiation-tolerant AArch64 parts exist (for example AMD XQR Versal, Cortex-A72; general), so part of the space need is already covered without AI. The Jasmin compiler is proven to preserve the IND-CCA security of an ML-KEM implementation used in Signal (Rocq, arXiv 2511.11292). Lean 4 proofs of arithmetic masking for NTT hardware found that one open accelerator masks only one round (arXiv 2604.20793). A certified ML-KEM-768 decryption-failure bound of 2^-164.81 holds in a stated abstraction (arXiv 2609.09983). NIST picked HQC as its backup KEM on Mar 11 2025; final standard expected 2027.",
+    "why": "Most real cryptographic failures are implementation bugs and side channels, not broken mathematics (general). Space adds unusual targets (LEON or radiation-hardened RISC-V cores, FPGAs) and tight memory, so verified libraries must be re-targeted and re-proven. That is proof labor, which agents now supply. The AI-attributable part is this re-targeting and masking work; AArch64 and x86-64 are already done. Flight-software and crypto baselines freeze long before launch and qualification compresses only 1.2-1.5x after 2029-30 (physclock), so adoption by a flight program trails the proofs by about a year. Certification credit is a separate node.",
+    "revision_note": "B-networks resolver: Skeptic: narrowed to targets without verified libraries (mlkem-native already covers AArch64/x86-64, verified against its README); S2/S3 2027 -> 2028 (flight-program adoption within a year is inconsistent with the qualification gate). Resolver: S1 2028 -> 2029 for the same lag and to keep S1 behind S2. Advocate's S1 2027/High rejected: the AArch64 result is human-made and not attributable to the AI-math channel, and the advocate's 'AI-assisted proofs' claim is not supported by the AWS post or the README. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-crypto-agile-architecture",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "band_2031": {
+     "S2": "High",
+     "S3": "High"
+    },
+    "binding_gate": "adoption",
+    "description": "Spacecraft security designs that can change algorithms in orbit: hybrid classical plus post-quantum key exchange, hash-based signatures for commands and software, and a code-based fallback such as HQC. Key-management, rekey and update protocols are proven secure by machine and sized for constrained links. Achieved means at least one operator flies or contracts a crypto-agile design whose rekey and update protocols carry machine-checked proofs; no certifier needs to accept the proofs.",
+    "status_oct2026": "NIST IR 8547 (draft, Nov 2024): RSA, ECDSA and ECDH at 112-bit security deprecated by 2030; all quantum-vulnerable public-key algorithms disallowed by 2035. NSA CNSA 2.0 sets national-security-system milestones running to 2035 (general). Post-quantum certificate-based authentication is costly on satellite links, which motivates pre-shared-key designs (arXiv 2607.23007) and quantum-safe IKE variants (arXiv 2605.28660). Gidney (arXiv 2505.15917, May 2025) cut the estimate for factoring RSA-2048 to under a million noisy qubits in under a week, from 20 million in 2019. 2026 estimates fell further: under 100,000 superconducting physical qubits for RSA-2048 (Pinnacle, arXiv 2602.11457, Feb 2026) and about 10,000-26,000 reconfigurable neutral atoms (Cain et al., arXiv 2603.28627, Mar 2026). Google set a 2029 deadline to move its authentication services to post-quantum cryptography (Mar 2026). NIST IR 8547 was still an initial public draft as of mid-2026. CNSA 2.0: all new National Security System acquisitions must be CNSA 2.0 compliant from Jan 1 2027.",
+    "why": "A GEO satellite launched in 2028 operates to about 2043: eight years past NIST's 2035 cutoff and possibly past the first code-breaking quantum computer. An in-orbit swap path is the main hedge for public-key key management (telecommand on pre-shared AES-256 keys is already quantum-safe), and it must work the first time. Proving the update and rekey protocols is proof labor that agents remove; protocol provers (Tamarin, ProVerif) and verified ML-KEM code already exist, so agents mainly remove the cost. AI cryptanalysis (comms-ai-cryptanalysis) and falling quantum resource estimates make the threat model concrete but are motive, not prerequisites. Commercial operators need no certifier for this, and CNSA 2.0 pulls government designs the same way, so the certification cap applies to comms-verified-crypto-procurement-norm, not here.",
+    "revision_note": "B-networks resolver: Skeptic: comms-ai-cryptanalysis hard -> soft (agility is mandated regardless; cryptanalysis is motive); 'only hedge' corrected; S3 2027 -> 2028 (S3 follows S2 through 2027). Advocate: the Medium cap was misapplied because the achievement needs no certification; with achieved defined as one operator flying or contracting such a design, S2/S3 Medium -> High (P2 tier-4 nodes are High in S2 elsewhere in the graph when no certifier is involved); gate qualification -> adoption to match. Auditor: 2026 resource estimates and IR 8547 status added. Advocate's claim that AWS proofs were AI-assisted not used (unsupported)."
+   }
+  },
+  {
+   "id": "comms-pq-ttc-flight-demo",
+   "patch": {
+    "earliest_year": {
+     "S3": "2029"
+    },
+    "status_oct2026": "We found no flight with machine-checked implementations. SEALSQ/WISeSat markets post-quantum-secured IoT smallsats launched on SpaceX rideshares (Dec 2025); algorithms and verification are not specified in the cited report. Verified ML-KEM already exists for AArch64 and x86-64 (mlkem-native, HOL Light), so the AI-dependent part is mainly the machine-proven update protocol and the in-orbit swap.",
+    "why": "Once the architecture and verified code exist, a demo needs only a rideshare slot and a cooperative bus. Launch cadence does not bind for a cubesat-class demo, but integration lead times of 12-18 months do (general), plus commissioning before an in-orbit swap. The in-orbit swap is the new part: it shows the 15-year-asset problem can be managed. The band stays at the P2 default (Medium): someone has to fund, manifest and disclose a specific mission, and none is known.",
+    "revision_note": "B-networks resolver: Skeptic: S3 2028 -> 2029 (architecture now S3 2028, plus 12-18 months integration and commissioning). Advocate's S2/S3 Medium -> High rejected: lifting the architecture's cap removes the inherited ceiling (A3 reason now obsolete) but does not make a specific funded, disclosed demo more likely than not; the P2 default is Medium and no mission is announced. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-holevo-receiver-demo",
+   "patch": {
+    "earliest_year": {
+     "S2": "2031",
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S3": "Low"
+    },
+    "pathway": "P6",
+    "why": "Full chain: cap-applied-math -> comms-quantum-receiver-theory (designs, S2 2029 / S3 2028) -> low-loss photonic circuits (multi-project-wafer runs take roughly 6-9 months each, and 2-3 iterations are typical, general) -> superconducting nanowire detector integration -> tests against realistic background. The experiment gate compresses only 1.1-1.3x (S2) and 1.3-1.5x (S3) (physclock), so a demo lands about two years after the designs. S3's autonomous labs shorten the iteration loop but not fabrication. The 25% target is hard physics: background light and optical loss erase superadditive gains, and the Green Machine beat symbol-by-symbol BPSK, not optimized PPM. A ground demo is new theory into tools (P6, default Low), not a flown system.",
+    "revision_note": "B-networks resolver: Skeptic + auditor: S3 Medium -> Low (two bands above the pathway default with no stated basis). Skeptic: S2 2030 -> 2031, S3 2029 -> 2030 (fabrication iterations and an experiment gate that compresses 1.1-1.5x); pathway P6->P7 -> P6 (a lab demo is not a flown system)."
+   }
+  },
+  {
+   "id": "comms-certified-mesh-operations",
+   "patch": {
+    "earliest_year": {
+     "S2": "2029",
+     "S3": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium"
+    },
+    "status_oct2026": "No operator has disclosed this. Starlink, Amazon Leo and SDA's transport layer (Tranche 1 transport launches began Sep 10 2025 with 21 satellites, per 33FG; further 2026 launches, count not verified) run proprietary or government software stacks.",
+    "why": "Value: judgment of 5-20% more delivered capacity at fixed hardware, plus fewer control-plane outages. Mega-constellation revenues are tens of billions of dollars a year (general), so even 5% is a lot of money. But the node needs one operator to adopt two independent things (certified gaps and a verified control plane), validate them in emulation and roll them out in stages on a live network of more than 10,000 satellites, so it trails its 2028 (S2) prerequisites by about a year. It is observable only if a proprietary operator (SpaceX, Amazon, SDA) discloses it. A vertically integrated operator that owns its own frontier model could move faster; that is the upside behind the S3 High.",
+    "revision_note": "B-networks resolver: Skeptic + auditor: S2 High -> Medium (conjunction of two High prerequisites is about 55-65% before adoption and disclosure; P2/P4 defaults are Medium). Auditor: S1 Medium -> Low (both S1 prerequisites Medium). Skeptic: S2 2028 -> 2029 and S3 2028 -> 2029 (same-year as verified routing leaves no time for emulation and staged rollout; integration compresses ~1.2x). S3 stays High. SDA status de-staled; the Jul 2026 third-mission claim is not verified so it is not asserted."
+   }
+  },
+  {
+   "id": "comms-d2d-coexistence-scheduling",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium"
+    },
+    "description": "Direct-to-device and broadband constellations schedule beams, power and emissions against certified interference budgets for adjacent bands, other operators and radio astronomy, instead of using blunt avoidance zones. Achieved means an operator runs EPFD-budgeted predictive scheduling in production, disclosed or confirmed by an observatory agreement; an FCC order is not required.",
+    "status_oct2026": "SkyShare (arXiv 2609.00821) schedules spot beams within EPFD-budgeted regions and cuts unserved cells by up to 90.68% versus boresight avoidance at 25 radio-astronomy sites, using Starlink geometry and no laser-mesh routing. The 2620 MHz D2D downlink's second harmonic already causes at least 59% geodetic-VLBI data loss (arXiv 2608.11659). D2D spectrum is consolidating: on May 12 2026 the FCC approved EchoStar's spectrum sales, including 65 MHz (AWS-4, H-block, unpaired AWS-3) to SpaceX for $17B, with a $2.4B escrow condition imposed on EchoStar (AT&T bought about 50 MHz) (33FG). Starlink's D2C service got a +10 dB power waiver in Mar 2025 (33FG). WRC-27 agenda item 1.13 (Shanghai, Oct-Nov 2027) considers MSS allocations for direct connectivity to IMT user equipment between 694/698 MHz and 2.7 GHz, with protection of terrestrial mobile service.",
+    "why": "Coexistence is moving from static masks to dynamic, budgeted scheduling, and doing it precisely gains operators served cells, so incentives line up. Certified budgets let science users and regulators trust a schedule without seeing proprietary traffic. Scheduling beams against EPFD budgets is its own problem (SkyShare needs no mesh routing), so comms-certified-network-optimization is an accelerator, not a prerequisite. One vertically integrated operator controls D2C satellites, spectrum and its own frontier model, which supports the S3 date; in S2 a year of adoption lag after the bounds (2028) is assumed. The harmonic problem is set by filters, and the incentive to protect science bands is weak without regulation, which holds S2 at Medium.",
+    "signpost": "An operator agreement with a radio observatory or NSF that uses predictive, budgeted scheduling; an FCC order referencing certified coexistence budgets. WRC-27 agenda item 1.13 outcome and any pfd limits it sets to protect neighbouring terrestrial networks.",
+    "revision_note": "B-networks resolver: Skeptic + auditor: S2 High -> Medium (P4 default; weak incentives for science bands; disclosure needed). Skeptic: comms-certified-network-optimization hard -> soft (SkyShare solves it without mesh routing); S1 2030 -> 2031 and S1 Medium -> Low (needs a lag after the S1 2030 bounds). S3 kept High with the auditor's definition (no FCC order, so no regulator cap); skeptic's S3 Medium and S3 2029 rejected - the advocate's vertically integrated path is the optimistic case. Advocate's S2 2029 -> 2028 rejected (it assumed bounds in 2027, which was not accepted). Auditor: EchoStar detail corrected. Advocate: WRC-27 AI 1.13 added (verified via Transfinite)."
+   }
+  },
+  {
+   "id": "comms-capacity-per-dollar-share",
+   "patch": {
+    "title": "Software adds 10%+ capacity on the same hardware",
+    "earliest_year": {
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S2": "Low"
+    },
+    "description": "AI-produced mathematics and software (certified optimization, coexistence scheduling, custom codes) raise a major constellation's usable capacity by at least 10% at fixed hardware and spectrum, compared with the same hardware run with 2026-era software, disclosed by the operator or measured independently, by 2031.",
+    "status_oct2026": "Capacity gains for 2026-2031 are dominated by hardware (V3 satellites: a 10x per-satellite step, ~50x fleet lift with full Gen2 deployment) and regulation (Ku co-frequency beams per location from 1 to 8 by the Jan 2026 waiver, then uncapped by FCC 26-26) (33FG). 33FG finds urban and dense-urban cells still supply-bound at V3 scale.",
+    "why": "The old 'share of the gain' metric was undefined: against a 10x hardware step, a 10% share needs about a 10% software gain under additive attribution but about 29% under log attribution. The node now asks the direct question: does software add 10% at fixed hardware? The branch judgment is 5-20%, centred near the threshold, and gains must be attributable to AI-produced work (not operators' own non-AI software) and disclosed, so S2 is Low. The mechanism for the upside: cheap mass (V3 on Starship) moves the binding constraint in dense cells from hardware to spectral reuse under the 3%/0.1% coordination criteria, where beam scheduling across overlapping satellites sets capacity. Design tools and handset codes act through new satellites and 3GPP chipset cycles that do not reach measured 2026-2031 capacity, so they are accelerators only.",
+    "revision_note": "B-networks resolver: Skeptic + auditor: S2 Medium -> Low (on the node's own 5-20% judgment, attribution and disclosure, the 10% threshold is about 20-30% likely). All three lenses: metric undefined; adopted the auditor/advocate fixed-hardware definition and retitled. Skeptic: comms-constellation-design-optimizer and comms-code-design-on-demand hard -> soft (they act through satellites and chipsets that do not fly at scale by 2031); S3 2029 -> 2030 (mesh operations now S3 2029). Advocate's S3 Medium -> High rejected (attribution and disclosure do not compress under S3); its two-curve mechanism added to why. '10-30%' corrected to the branch's 5-20%."
+   }
+  },
+  {
+   "id": "comms-constellation-design-optimizer",
+   "patch": {
+    "description": "Design tools that co-optimize orbital shells, beam plans, spectrum use and laser topology, and output both a filing-ready design and certified interference and capacity bounds. Achieved means an operator or tool vendor uses such a tool to produce the technical annex of at least one FCC or ITU filing; regulator acceptance of the certified bounds as a compliance method is not required.",
+    "status_oct2026": "More than 10,000 commercial communications satellites operate in LEO and 50,000+ more are planned; Amazon filed for a 5,105-satellite direct-to-cell constellation in Jul 2026 (Roberts). On Sep 30 2026 the FCC opened more than 1,000 MHz for satellite services in the 12.7-13.25 GHz and 42-42.5 GHz bands (33FG). Design tools are in-house and uncertified. FCC Part 100 (Jul 22 2026) moves licensing to yes/no certifications with standardized schedules (Schedule F for frequency data), so compliance artifacts become machine-readable inputs. ITU EPFD validation still uses prescribed software (ITU-R S.1503 methodology).",
+    "why": "As filings multiply and sharing becomes performance-based, value moves to designs that are provably compliant and dense. That needs multiphysics design optimization with guarantees (cap-design-optimization, S2 2028) plus the two certified-bound nodes, so it trails them by about a year. Filers must still run the methodology the FCC and ITU prescribe; certified bounds are added evidence, which is why the achievement is defined as use in an annex rather than regulator acceptance.",
+    "revision_note": "B-networks resolver: Debate: skeptic S3 High -> Medium (regulator cap) vs advocate S2 Medium -> High (three High prerequisites, Part 100, demand). Resolved by defining achievement as use in a filing annex without regulator acceptance, so no cap applies and S3 stays High; S2 stays Medium because three High prerequisites in conjunction, the P6 default (Low) and incumbents' in-house tools do not support >70%. Bands and years unchanged."
+   }
+  },
+  {
+   "id": "comms-pq-fleet-migration",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2031"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low"
+    },
+    "why": "Mandates (NIST IR 8547, CNSA 2.0 for new national-security acquisitions from Jan 2027) will put post-quantum crypto on new satellites; AI mathematics makes the machine-checked version affordable. The machine-checked part is what mandates do not drive: it needs buyers to ask for it (comms-verified-crypto-procurement-norm, itself Low in S2) or the dominant operators to choose it. Counted by number, new satellites are dominated by proliferated LEO lines (Starlink, Starshield, SDA) that turn over in 12-24 months and can take crypto changes over the air, so the 2-4 year GEO contract lag applies mainly to GEO and flagship buses; that sets the earliest year one to two years after the architecture. Whether those lines carry machine-checked update paths, and disclose it, sets the band.",
+    "revision_note": "B-networks resolver: Debate: skeptic later and lower (S1 >2031 Speculative, S2 2031 Low, S3 2030) vs advocate earlier (S2 2029, S3 2028; count-weighted proliferated LEO turns over fast). Resolved: advocate's count-weighting accepted for the lag, so S2 2030 and S3 2029 stay; skeptic accepted on the band - 'with machine-checked update paths' is the procurement-norm content, which mandates do not drive, so S2 Medium -> Low; S1 -> >2031 and Speculative (S1 architecture 2029 plus the lag). Why rewritten: the old 'S3 does not beat S2' contradicted the years."
+   }
+  },
+  {
+   "id": "comms-verified-crypto-procurement-norm",
+   "patch": {
+    "earliest_year": {
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S2": "Low"
+    },
+    "why": "Once proofs are cheap and have been shown in flight, buyers can demand them at little cost; this is the strategic payoff of the verification channel. A buyer does not need regulators to qualify the AI that wrote the proofs: the trusted base is the proof checker (Lean, HOL Light, Rocq), so infra-tool-qualification accelerates this node rather than gating it. It still takes an institutional decision after the flight demo, and SDA solicits a new tranche about every two years; politics and appropriations do not compress in any scenario (physclock 1.0x), so S3 does not beat S2. Capped at Medium for buyer acceptance; Low in S2 because the demo must come first and only one or two solicitation windows remain before 2031.",
+    "signpost": "An SDA, ESA or NSA solicitation listing machine-checked proofs as a requirement (evaluation credit alone does not count).",
+    "revision_note": "B-networks resolver: Advocate: infra-tool-qualification hard -> soft (the trusted base is the proof kernel; a buyer can require checked proofs without qualifying the generator) - accepted. Advocate's S2 2029 / S3 2028 rejected: the flight demo (S2 2029, S3 2029) must come first and the one-year lag is kept, so S3 2029 -> 2030 (politics 1.0x). Skeptic: S2 Medium -> Low (institutional step after the demo with ~2-year solicitation cadence) and signpost aligned with 'require'. S3 stays Medium."
+   }
+  },
+  {
+   "id": "comms-optical-ground-network-service",
+   "patch": {
+    "earliest_year": {
+     "S2": "2030",
+     "S3": "2030"
+    },
+    "status_oct2026": "Operational optical relay exists: EDRS at 1.8 Gbps, with 80,000+ links at 99.53% reliability (arXiv 2606.23711). EDRS's optical link is LEO-to-GEO and its ground leg is Ka-band RF, so 99.53% is space-to-space link reliability over 8 years, not weather-inclusive optical ground availability. DLR reports an 8-node Australasian optical network design at 99.98% availability (design study, via Turyshev). Direct-to-ground optical service at high availability does not yet exist at scale.",
+    "why": "Better models and schedulers say where to put telescopes and how to use them. About 99% availability needs about 10 sites at least 500 km apart, each taking roughly 18-36 months to build (general), and capital compresses only 1.15-1.3x (S2) (physclock). With validated availability models arriving in 2029 (S2), sites committed afterwards cannot sell an SLA before 2030. Scheduling tools for ground stations already exist and accelerate this node rather than gate it.",
+    "revision_note": "B-networks resolver: Skeptic + auditor: EDRS figure clarified (LEO-GEO link reliability, Ka-band ground leg), DLR 8-node design added. Skeptic: S2/S3 2029 -> 2030 (site builds after the models; capital 1.15-1.3x); comms-hardness-aware-tasking hard -> soft (ground-station schedulers exist). Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-optical-availability-models",
+   "patch": {
+    "earliest_year": {
+     "S2": "2029",
+     "S3": "2029"
+    },
+    "pathway": "P1->P5",
+    "why": "Availability is a correlated-weather problem. Long cloud climatologies exist, so the modeling is cognitive work that compresses under S2. Validation needs multi-year availability records from operating multi-site optical networks, which only accumulate in real time: the only multi-year multi-site record is LCRD's two sites (83.8-88.5%), and a 10-site network will not exist before about 2029-30. That data gate holds S3 to the S2 year. Validated models good enough to sign SLAs against are model confidence (P5).",
+    "revision_note": "B-networks resolver: Skeptic: S2/S3 2028 -> 2029 (data gate does not compress; the node's own why requires multi-site records that do not exist before ~2029). Auditor: pathway P1->P6 -> P1->P5 (validated models for SLAs are model confidence). Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-space-qkd-backbone",
+   "patch": {
+    "earliest_year": {
+     "S2": "2031",
+     "S3": "2031"
+    },
+    "band_2031": {
+     "S2": "Low",
+     "S3": "Low"
+    },
+    "description": "An accredited European or allied satellite QKD service (for example the EuroQCI space segment) routinely delivers keys to government users across 10 or more ground nodes, with a security evaluation that accepts its finite-key proof.",
+    "status_oct2026": "Demonstrations only (see comms-space-qkd-network-demo). ESA lists Eagle-1's launch for late 2026/early 2027, followed by three years of in-orbit validation; no operational date for the EuroQCI space segment is published. China is reported to plan an operational satellite QKD service around 2027 (unverified), on its own timeline and independent of AI proofs; it does not count here.",
+    "why": "Physical chain: Eagle-1 launch (late 2026/early 2027) -> three years of in-orbit validation (to about 2030) -> operational procurement -> satellites built and launched -> accreditation. That points to 2031 or later in every scenario. The service needs satellites, ground terminals and a security evaluation; AI mathematics shortens only the evaluation, and accreditation can use human-written finite-key proofs, so comms-finite-key-qkd-proofs accelerates rather than gates it. The physical clock (procurement, launch) sets the year, which is why S3 equals S2.",
+    "revision_note": "B-networks resolver: Skeptic: comms-finite-key-qkd-proofs hard -> soft (accreditation can use human proofs); scope restricted to an accredited European or allied service (China's service would fire ~2027 regardless of AI and says nothing about this channel); S2/S3 2030 -> 2031 and Medium -> Low on the Eagle-1 chain (ESA dates verified). China 2027 claim marked unverified (the cited Laser Focus World article does not state it; SCMP not retrievable)."
+   }
+  },
+  {
+   "id": "comms-performance-based-sharing-regime",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031"
+    },
+    "status_oct2026": "The FCC moved domestically on Apr 30 2026 (FCC 26-26), without certified bounds (33FG). ITU Radio Regulations Article 22 EPFD limits remain. EPFD revision is not a regulatory agenda item at WRC-27 (Shanghai, Oct 11-Nov 12 2027): WRC-23 invited ITU-R studies of the Article 22 limits to inform WRC-27 'without any regulatory consequences' (quoted in FCC 26-26), so WRC-27 can at most adopt an agenda item for WRC-31, the earliest point of regulatory action.",
+    "why": "Certified showings remove one technical objection to performance-based rules (that compliance cannot be checked) and can inform the ITU-R studies for 2028-31, but the decision is political consensus among administrations, many of them protective of GSO incumbents, and it runs on the conference calendar. Because the FCC moved without certified bounds, they accelerate this node rather than gate it. No scenario moves the calendar, so the year is 2031 (WRC-31) in all three; the host administration's own large NGSO filings may help an agenda item pass at WRC-27 but do not move the date.",
+    "signpost": "WRC-27 adopting a WRC-31 agenda item on Article 22 EPFD limits; the positions of China (about 200,000 NGSO filings) and the main GSO administrations; ITU-R study groups adopting performance-based methods.",
+    "revision_note": "B-networks resolver: All three lenses: status corrected - EPFD is not a WRC-27 regulatory item, only a possible WRC-31 agenda item (verified via Runway Girl Network; auditor's FCC 26-26 quote). Skeptic: comms-certified-interference-bounds hard -> soft (the FCC moved without them). Auditor: S1 >2031 -> 2031 (calendar is scenario-independent). Advocate's signpost added. Bands unchanged (Low)."
+   }
+  },
+  {
+   "id": "comms-crqc-before-2031",
+   "patch": {
+    "status_oct2026": "Resource estimates fell fast through human work: Gidney (May 2025) put RSA-2048 at under a million noisy physical qubits for under a week; Pinnacle (arXiv 2602.11457, Feb 2026) at fewer than 100,000 physical qubits with qLDPC codes at 1e-3 error, 1 us cycles and 10 us reaction time (runtime about a month, unverified; preprint); Cain et al. (arXiv 2603.28627, Mar 2026) at as few as 10,000 reconfigurable atomic qubits, with P-256 discrete logs in a few days on about 26,000. Google set a 2029 deadline for moving its authentication services to post-quantum cryptography (Mar 2026). IBM's roadmap: Starling 2029 (~200 logical qubits, 1e8 operations), Blue Jay 2033 (~2,000 logical, 1e9 operations). Family 279 (exact quantum factoring over a fixed gate set, T1) does not reduce qubit or error-correction budgets (tl-position-5). The largest machines remain far below the needed scale with logical gates (general).",
+    "why": "This is a hardware race; it does not need AI-run labs, so cap-autonomous-labs is an accelerator, not a prerequisite. AI mathematics reaches it mainly by cutting resource estimates (comms-ai-crqc-resource-cuts), which lowers the bar but builds no hardware; under S3, AI could also compress quantum-hardware design loops. Fabrication, yield, error rates and control still bind. Vendor roadmaps reach the needed logical scale around 2033, and expert surveys give low odds within five years, so S2 stays Speculative, at its upper edge after the 2026 estimates. It matters here because any satellite whose key exchange is RSA or ECC, and whose traffic was recorded, is exposed when this node fires, which is why the crypto-agility nodes matter now.",
+    "strongest_case_small": "Scaling from today's machines to about 10^4-10^6 physical qubits (roughly 1,000-1,500 logical) running for days to weeks within five years is far beyond historical trends, the 2026 estimates assume error rates, cycle times and connectivity not yet shown at scale, and most expert surveys put a CRQC later (general).",
+    "signpost": "Fault-tolerant logical-qubit operation at the 100+ logical-qubit scale below threshold; neutral-atom arrays above 10,000 atoms with logical gates; any AI-credited cut in Shor resource estimates (comms-ai-crqc-resource-cuts). If logical-qubit-at-scale milestones land in 2027, revisit S2 Speculative -> Low.",
+    "calibration_note": "A3: Premise label only: hardware race; 279 is not load-bearing. Lead decision pending (auditor): the openai/math repo has Comparator statements plus solution modules for families the catalog marks without L (273, 124, 177, 110, 111, 279); the catalog L flag may undercount. Catalog tiers kept until the lead rules.",
+    "revision_note": "B-networks resolver: All three lenses: cap-autonomous-labs hard -> soft (a CRQC does not require AI-run labs). Auditor + advocate: 2026 estimates added (Pinnacle and Cain et al. verified on arXiv); the old signpost (<100,000 qubits) was already met, so replaced; 'million error-corrected qubits' corrected. Skeptic: IBM roadmap added. Debate on S2 band: auditor Speculative -> Low vs skeptic and advocate keep Speculative; kept Speculative (fabrication gate unchanged; roadmaps ~2033), with the advocate's revisit trigger in the signpost. Soft edge from new node comms-ai-crqc-resource-cuts; advocate's soft edges from code-design and expander-constructions rejected (qLDPC codes used in estimates do not depend on 177 or on classical link-code design)."
+   }
+  },
+  {
+   "id": "comms-expander-constructions",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low"
+    },
+    "description": "178 builds nonbipartite Ramanujan graphs, the best possible spectral expanders, deterministically for every degree d>=3 and all large even sizes. 177 constructs bounded-degree coboundary expanders in every dimension, a building block studied for locally testable codes and quantum LDPC codes.",
+    "why": "Conditional. A laser mesh in which each satellite has 3-4 terminals is a bounded-degree graph, and Ramanujan graphs give the largest spectral gap at that degree: short paths, high bisection bandwidth and graceful degradation when links fail. But a Ramanujan topology needs links between arbitrary satellites, which line-of-sight, range and slew limits forbid, and asymptotically good qLDPC and locally testable codes were built in 2021-22 without 177 (Panteleev-Kalachev), so the engineering effect through 2031 is nil. The band covers use in network or code design (P6: Low in S1, Medium in S2 by graph convention), dropped one band because both premises are T1.",
+    "calibration_note": "A3: T1 premise rule: families 178 and 177 have no Lean main result (T1) and the band is for the mathematics being established. One band down: Medium/High/High -> Low/Medium/Medium. Lead decision pending (auditor): the openai/math repo has Comparator statements plus solution modules for families the catalog marks without L (273, 124, 177, 110, 111, 279); the catalog L flag may undercount. Catalog tiers kept until the lead rules. If the lead accepts the repo-Lean finding (177 T3, 178 T1), restore Low/Medium/Medium and rest the band on 177.",
+    "revision_note": "B-networks resolver: Auditor: the A3 drop was measured against 'mathematics established' while the bands equal the P6 no-drop convention; chose one metric (use in design, P6) and applied the T1 drop: Low/Medium/Medium -> Speculative/Low/Low. Skeptic: added why qLDPC/LTC do not depend on 177 and why Ramanujan topologies are geometrically infeasible; description softened from 'the expansion behind' to 'a building block studied for'."
+   }
+  },
+  {
+   "id": "frontier-optical-quantum-capacity",
+   "patch": {
+    "title": "Capacity limits of laser and quantum links (conditional)",
+    "status_oct2026": "Catalog: 273 entropy photon-number inequality (T1), which would make capacity formulas for bosonic broadcast and thermal-noise wiretap channels unconditional (single-user thermal-channel classical capacity was already proved in 2014, and pure-loss in 2004, general); the repo's Lean for 273 covers the inequality only, and the broadcast and minimum-output-entropy consequences are outside it; 276 classical capacity of generalized amplitude damping (T3); 272 entanglement without secret key (T1); 266 exactly three MUBs in dimension six (T1). Quantum capacities with superadditivity remain open (general).",
+    "why": "Point-to-point pure-loss (2004) and thermal-noise (2014) optical capacities were already proven; 273 settles, conditionally (T1), only multi-user cases (broadcast, wiretap), so deep-space and inter-satellite link budgets do not change, and wiretap secret-key bounds relevant to QKD gain exact limits (P5 confidence). Bands are one step down from the P5 default because the key premise (273) is T1. No outside Comparator run exists, so no T4 date is forecast.",
+    "calibration_note": "Lead decision pending (auditor): the openai/math repo has Comparator statements plus solution modules for families the catalog marks without L (273, 124, 177, 110, 111, 279); the catalog L flag may undercount. Catalog tiers kept until the lead rules.",
+    "revision_note": "B-networks resolver: Skeptic + auditor: single-link optical capacities were never conditional (Giovannetti et al. 2004, 2014); 273 only settles multi-user regions; title marked conditional; unsupported 'T4 by 2027' forecast deleted; Lean scope of 273 noted. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-lattice-crypto-watch",
+   "patch": {
+    "description": "Watch item, not a forecast: an AI-produced, independently verified cryptanalytic result that materially lowers the security of a standardized primitive used on satellite command and data links, above all ML-KEM/ML-DSA or the Module-LWE problems beneath them (for example dropping a standardized parameter set below its NIST security category, or a subexponential module-lattice algorithm), but also elliptic-curve schemes or AES modes, forcing parameter or algorithm changes and in-orbit re-keying on long-lived spacecraft.",
+    "status_oct2026": "NIST standardized FIPS 203/204/205 in Aug 2024 (general); a 2024 claimed quantum lattice algorithm was withdrawn after a bug was found (general). Aug 2026: an autonomous agent workflow broke eight published academic constructions at their stated parameters (Ring-LWR commitment, middle-product encryption, a lattice e-voting protocol, and others), none of them standardized (Olejnik-Naskrecki). Catalog: 279 exact quantum factoring over a fixed gate set (theory only) and 138 Subset Sum in 2^0.49n (T1) do not touch deployed cryptography. May 2026: a single-author claim of a probabilistic polynomial-time quantum attack on Module-LWE over power-of-two cyclotomics, the ML-KEM ring (arXiv 2605.17412), was rebutted by outside cryptographers (the target is key-independent; a dimensional error in the reduction) (postquantum.com analysis).",
+    "calibration_note": "A4: Premise label ported from A3's patch on the merged capability-crypto-watch (lost in the merge) and limited to the kept families 138 and 279, both T1 with no Lean in the catalog. Lead decision pending (auditor): the openai/math repo has Comparator statements plus solution modules for families the catalog marks without L (273, 124, 177, 110, 111, 279); the catalog L flag may undercount. Catalog tiers kept until the lead rules.",
+    "revision_note": "B-networks resolver: Skeptic: trigger reworded - a 10-bit loss leaves ML-KEM-768/1024 inside their categories and would not force changes. Auditor: Luo claim and its rebuttal added (verified via the postquantum.com analysis). Years and bands unchanged."
+   }
+  },
+  {
+   "id": "comms-ai-cryptanalysis",
+   "patch": {
+    "band_2031": {
+     "S1": "Medium"
+    },
+    "description": "Frontier models run closed-loop cryptanalysis: they propose attacks on published schemes, protocols and parameter sets, test them, and return exact witnesses for a human to judge. Achieved here means major vendors and standards submitters routinely run such audits, and a standards body cites one in a review.",
+    "why": "The failures found so far sit one level above the hardness assumption: encodings, simulators, parameter certification, protocol composition. That is where space security is weakest. Bespoke key-management and command-authentication protocols on constrained links are written by small teams and rarely reviewed by cryptographers. Once research-grade models are public (cap-research-math-public), an audit that took a specialist weeks costs hours of compute, so every new satellite security protocol can be attacked before launch. Under S2 agent task horizons double every 6-9 months, so by 2028 agents audit whole protocol suites, not single constructions. The node depends on the internal model's capability becoming public (S1: 2028), so it is capped at Medium in S1 (fw-horizon-scorecard); S2 and S3 assume public release in 2027 as a scenario premise.",
+    "revision_note": "B-networks resolver: Auditor: S1 High -> Medium (public-release dependency cap). Skeptic: achieved narrowed - NIST and CCSDS rely on community analysis rather than running audits themselves. Years unchanged."
+   }
+  },
+  {
+   "id": "comms-certified-interference-bounds",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "status_oct2026": "FCC 26-26 (Report and Order, adopted Apr 30, released May 1 2026, SB Docket 25-157) replaced NGSO-GSO EPFD limits with private good-faith coordination, backed by adopted criteria when coordination fails: 3% time-weighted throughput degradation, 0.1% absolute unavailability increase, a supplemental -10.5 dB I/N for 80% of time, and a 3-degree GSO-arc avoidance angle. The Jan 9 2026 waiver (DA 26-36) had allowed 8 co-frequency beams per location with a 4-degree angle; the April order removed the beam cap, reduced the angle to 3 degrees (a relaxation for NGSO) and declined aggregate limits. GSO operators could seek to reintroduce aggregate limits through reconsideration, the D.C. Circuit or the WRC-27 cycle (33FG). FCC Part 100 (Jul 22 2026) moves licensing to yes/no certifications. FCC NGSO-NGSO rules (FCC 24-117) use 3% throughput degradation and 0.4% added unavailability over an orbital simulation (Roberts, arXiv 2609.36122). ITU Article 22 EPFD limits still govern internationally. Measured low-frequency EPFD from constellations exceeds radio-astronomy thresholds in 50-70% of samples (arXiv 2609.01995). No catalog family applies.",
+    "why": "The regulatory shift turned compliance from checking a power mask into a statistical claim about simulating tens of thousands of satellites. Disputes are now about simulation assumptions and tail events. Aggregates are where Monte Carlo is least trustworthy: keeping one interferer under threshold needs 8.1 degrees of separation, five need 15.5 and twenty need 27.0 (Roberts). A certified bound with a written specification can be re-checked by a rival operator or the FCC in hours. The math (geometry, order statistics, interval arithmetic) is expert-scarce rather than open, and existing interval and validated-numerics tools (Arb, INTLAB, VNODE-LP) suffice, so the Lean-verified floating-point toolchain (infra-verified-numerics) accelerates but does not gate it. In S2, research-grade applied math is public in 2027, and preparing a filing or coordination agreement with a new method takes months, so the first certified showings appear in 2028; S3 follows S2 through 2027. In S1 they wait for public models and some years of diffusion.",
+    "strongest_case_small": "Spectrum disputes are commercial and political, not mathematical, and regulators accept Monte Carlo. Certified worst-case bounds are conservative and could cost capacity against statistical showings. The contested inputs (antenna patterns, traffic models, deployment plans) stay contested. Under FCC 26-26 compliance is negotiated privately first, so formal showings are needed mainly when coordination fails or at the ITU, and with aggregate limits declined, certified aggregate bounds matter mainly for ITU Article 22 and radio astronomy.",
+    "revision_note": "B-networks resolver: Auditor: FCC 26-26 facts corrected from the primary source (criteria adopted as backstops; 4->3 degrees came in the April order and is a relaxation; aggregate limits declined) - cross-checked against 33FG's table. Advocate: infra-verified-numerics hard -> soft (interval tools exist) accepted; Part 100 added; advocate's S2 2028 -> 2027 rejected (skeptic: months of filing preparation; auditor: private coordination first and no aggregate limits weaken the 2027 forcing event). Skeptic: S3 2027 -> 2028 (S3 follows S2 through 2027). Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-finite-key-qkd-proofs",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "catalog_families": [
+     "272"
+    ],
+    "premise_tier": "n/a (capability transfer); 272 T1 is context only (conditional)",
+    "status_oct2026": "Human progress in 2026: an analytic finite-key proof with source and detector imperfections (arXiv 2606.29943); a numerical framework valid against coherent attacks with non-IID signals (arXiv 2605.12984); a GEO-QKD finite-key feasibility study (arXiv 2605.29706). Entanglement-based passes are finite-key limited (arXiv 2602.11833). Lean-QIT (arXiv 2607.09632) is the first reusable Lean layer for quantum Shannon theory. Catalog: 272 T1 (context only).",
+    "calibration_note": "A3: Wording rule only: the 272 part is conditional (T1). B-networks: 276 dropped as not load-bearing; bands rest on P1->P2 capability transfer.",
+    "revision_note": "B-networks resolver: Auditor: 276 (classical capacity of generalized amplitude damping) is not an input to composable finite-key proofs, so it was removed and the premise relabelled. Skeptic: S3 2027 -> 2028 (S3 follows S2 through 2027; Lean quantum-information coverage began only Jul 2026). Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-verified-routing-software",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "premise_tier": "n/a (capability; no catalog family is load-bearing)",
+    "revision_note": "B-networks resolver: Skeptic: S3 2027 -> 2028 (S3 follows S2 through 2027; timed models of link acquisition must be specified first). Auditor: trust tiers apply to results, not the pipeline. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-quantum-receiver-theory",
+   "patch": {
+    "why": "In the photon-starved regime, each extra bit per received photon is worth as much as a larger ground aperture, and aperture is the dominant cost of a deep-space optical ground terminal. Designing structured quantum measurements with provable gains uses established quantum detection theory (Helstrom, Holevo), so it needs research-grade applied math, not new validated physics; cap-physics-theory accelerates it. Proving that the gain survives background light, loss and timing jitter needs laboratory experiments, which set the year.",
+    "revision_note": "B-networks resolver: Skeptic: hard prerequisite cap-physics-theory replaced by cap-applied-math, with cap-physics-theory kept as a soft edge (joint-detection design uses established theory). Years unchanged (experiment gate binds)."
+   }
+  },
+  {
+   "id": "comms-space-qkd-network-demo",
+   "patch": {
+    "pathway": "P7",
+    "status_oct2026": "Jinan-1 (Nature, Mar 19 2025): 23 kg payload, ~100 kg portable ground station, up to 1.07 Mbit of secure key per pass, and a key between China and South Africa over 12,900 km (trusted-node satellite). ESA lists Eagle-1's launch for late 2026/early 2027, followed by three years of in-orbit validation. The SpeQtre ground campaign produced 7.56 kbps at 4.78% QBER over 1.8 km (arXiv 2605.19689). QEYSSat has a digital twin (arXiv 2608.21968). SPOQC (12U, discrete- and continuous-variable payloads) launched Mar 30 2026 on Transporter-16, with full quantum experiments expected in the second half of 2026 (The Quantum Insider).",
+    "why": "These missions are funded and largely built, so they run on the physical clock regardless of AI mathematics. They are the platform where AI-tightened proofs (comms-finite-key-qkd-proofs) would be applied. Physical anchor, independent of AI mathematics; the P7 default (Speculative) is not applied because the missions are funded and built.",
+    "revision_note": "B-networks resolver: Auditor: pathway 'physical enabler (feeds P2)' -> P7 (grounding rule: valid tag required); SPOQC status de-staled (launch verified via The Quantum Insider). Years and bands unchanged."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "id": "comms-ai-crqc-resource-cuts",
+   "title": "AI-found codes and circuits cut code-breaking quantum resource estimates",
+   "tier": 2,
+   "kind": "applied-math",
+   "description": "AI-designed quantum error-correcting codes (qLDPC and bivariate-bicycle families), logical instruction sets and arithmetic circuits lower the published spacetime cost (physical qubits x runtime) of Shor's algorithm for RSA-2048 or P-256 by at least 2x below the Oct-2026 best estimates for the same hardware assumptions: under 100,000 superconducting qubits (Pinnacle) or 10,000-26,000 neutral atoms (Cain et al.). Achieved means a published resource estimate that credits an AI-found code or circuit. This lowers the bar hardware must clear; it does not build the hardware.",
+   "status_oct2026": "Human work cut RSA-2048 estimates from about 20 million noisy qubits (2019) to under one million (Gidney, arXiv 2505.15917, May 2025), to under 100,000 physical qubits with qLDPC codes at 1e-3 error and 1 us cycles (Pinnacle, arXiv 2602.11457, Feb 2026), and to as few as 10,000 reconfigurable atoms (Cain et al., arXiv 2603.28627, Mar 2026). LLM-guided search found new bivariate-bicycle qLDPC codes for about $400 of inference (arXiv 2606.02418). We know of no published Shor estimate that credits an AI-found code or circuit (not searched exhaustively).",
+   "catalog_families": [],
+   "prerequisites": [
+    "cap-applied-math"
+   ],
+   "accelerated_by": [],
+   "binding_gate": "cognitive",
+   "pathway": "P1->P4",
+   "earliest_year": {
+    "S1": "2029",
+    "S2": "2028",
+    "S3": "2028"
+   },
+   "band_2031": {
+    "S1": "Medium",
+    "S2": "High",
+    "S3": "High"
+   },
+   "premise_tier": "n/a (capability; no catalog family is load-bearing)",
+   "why": "The 2019-2026 gains came from code choice, arithmetic tricks, magic-state factories and layout: expert-scarce search of exactly the kind AI already does (the $400 qLDPC search). This is the main route by which AI mathematics moves the code-breaking threat to satellite links, and it runs against defenders: it raises the urgency of crypto-agility without changing the fabrication gate on comms-crqc-before-2031. In S2, research-grade applied math is public in 2027 and a resource-estimate paper takes about a research cycle, so 2028; S3 follows S2 through 2027. Bands are judgments on the P1->P4 convention for a negative (for defenders) result.",
+   "strongest_case_small": "Estimates were already falling fast through human work, so AI credit may be marginal. The dominant costs (physical error rates, cycle times, connectivity, decoding latency) are hardware, a lower estimate does not change when a machine exists, and the 2026 estimates already assume hardware no one has at scale.",
+   "signpost": "A resource-estimate paper for RSA-2048 or P-256 crediting an AI-found code, magic-state factory or arithmetic circuit; a quantum-hardware vendor roadmap citing AI-designed codes.",
+   "domain": "comms",
+   "revision_note": "B-networks resolver: New node (auditor proposal; advocate's crqc finding names the same error-correction channel). No duplicate in node-index-v1. Resolver changed years from 2029/2027/2027 to 2029/2028/2028 (a published estimate trails public applied math by a research cycle). Soft edges into comms-crqc-before-2031 and comms-crypto-agile-architecture."
+  },
+  {
+   "id": "comms-multi-operator-dynamic-sharing",
+   "title": "Real-time spectrum sharing among rival constellations",
+   "tier": 6,
+   "kind": "mission",
+   "description": "Three or more NGSO operators in a shared band exchange ephemerides and beam plans and coordinate beams and power dynamically, under a protocol that carries machine-checked bounds on each party's throughput degradation (the FCC's 3% / 0.4% criteria) and proven convergence and fairness, replacing static band-splitting and exclusion angles. Achieved means such an arrangement operates in at least one band in at least one jurisdiction.",
+   "status_oct2026": "NGSO-NGSO sharing under FCC 24-117 uses 3% time-weighted throughput degradation and 0.4% added unavailability judged by orbital simulation (Roberts, arXiv 2609.36122); FCC 26-26 (Apr 2026) extended performance-based criteria to NGSO-GSO sharing. Game-theoretic power control for equal-priority NGSO coexistence has convergence and Nash-uniqueness conditions (arXiv 2609.38935); tight guarantees for three or more equal-priority operators remain open (comms research). Amazon filed for a 5,105-satellite direct-to-cell constellation in Jul 2026 (Roberts). No dynamic multi-operator arrangement is known.",
+   "catalog_families": [],
+   "prerequisites": [
+    "comms-certified-interference-bounds"
+   ],
+   "accelerated_by": [
+    "comms-certified-network-optimization",
+    "astro-coordination-protocols",
+    "physclock-regulator-ai-capacity"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P1->P2",
+   "earliest_year": {
+    "S1": ">2031",
+    "S2": "2031",
+    "S3": "2030"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low"
+   },
+   "premise_tier": "n/a",
+   "why": "Multi-operator coexistence guarantees are genuinely open math, a cognitive bottleneck that S2 attacks (P1), and certified bounds that every party can re-check remove the trust barrier to sharing proprietary beam plans (P2). As filings multiply (Starlink, Amazon Leo, AST, Chinese filings), pairwise static coordination wastes spectrum. But the arrangement needs rival operators and a regulator to accept it, which caps the band at Medium, and commercial and political acceptance runs at 1.0x in every scenario: math solved around 2028 (S2), protocols and trials 2029-30, operation 2031 at the earliest. Low in S2 and S3.",
+   "strongest_case_small": "Operators prefer bilateral agreements and band segmentation that protect proprietary beam plans; the largest incumbent gains little from sharing; real-time exchange raises antitrust and security concerns; and static rules may be good enough at 2031 densities.",
+   "signpost": "Three or more NGSO operators announcing a dynamic coordination or data-exchange protocol; an FCC or ITU-R WP4A contribution proposing dynamic multi-operator sharing with verifiable bounds.",
+   "domain": "comms",
+   "revision_note": "B-networks resolver: New node (advocate proposal, resolver-modified). Mechanism grounded in research/comms.json ('genuinely open: tight guarantees for coexistence among three or more equal-priority operators'); distinct from comms-d2d-coexistence-scheduling (one operator scheduling against budgets) and the ITU regime node. comms-certified-network-optimization moved from hard to soft (sharing does not need mesh routing). Years and bands lowered from >2031/2030/2029 and Low/Medium/Medium to >2031/2031/2030 and Speculative/Low/Low: rival and regulator acceptance does not compress."
+  }
+ ],
+ "add_edges": [
+  {
+   "from": "cap-applied-math",
+   "to": "comms-quantum-receiver-theory"
+  }
+ ],
+ "remove_edges": [
+  {
+   "from": "frontier-approx-ceilings",
+   "to": "comms-certified-network-optimization"
+  },
+  {
+   "from": "comms-certified-network-optimization",
+   "to": "comms-hardness-aware-tasking"
+  },
+  {
+   "from": "comms-ai-cryptanalysis",
+   "to": "comms-crypto-agile-architecture"
+  },
+  {
+   "from": "infra-verified-numerics",
+   "to": "comms-certified-interference-bounds"
+  },
+  {
+   "from": "comms-certified-network-optimization",
+   "to": "comms-d2d-coexistence-scheduling"
+  },
+  {
+   "from": "comms-constellation-design-optimizer",
+   "to": "comms-capacity-per-dollar-share"
+  },
+  {
+   "from": "comms-code-design-on-demand",
+   "to": "comms-capacity-per-dollar-share"
+  },
+  {
+   "from": "infra-tool-qualification",
+   "to": "comms-verified-crypto-procurement-norm"
+  },
+  {
+   "from": "comms-hardness-aware-tasking",
+   "to": "comms-optical-ground-network-service"
+  },
+  {
+   "from": "comms-finite-key-qkd-proofs",
+   "to": "comms-space-qkd-backbone"
+  },
+  {
+   "from": "comms-certified-interference-bounds",
+   "to": "comms-performance-based-sharing-regime"
+  },
+  {
+   "from": "cap-autonomous-labs",
+   "to": "comms-crqc-before-2031"
+  },
+  {
+   "from": "cap-physics-theory",
+   "to": "comms-quantum-receiver-theory"
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "frontier-approx-ceilings",
+   "to": "comms-certified-network-optimization"
+  },
+  {
+   "from": "comms-certified-network-optimization",
+   "to": "comms-hardness-aware-tasking"
+  },
+  {
+   "from": "comms-ai-cryptanalysis",
+   "to": "comms-crypto-agile-architecture"
+  },
+  {
+   "from": "infra-verified-numerics",
+   "to": "comms-certified-interference-bounds"
+  },
+  {
+   "from": "comms-certified-network-optimization",
+   "to": "comms-d2d-coexistence-scheduling"
+  },
+  {
+   "from": "comms-constellation-design-optimizer",
+   "to": "comms-capacity-per-dollar-share"
+  },
+  {
+   "from": "comms-code-design-on-demand",
+   "to": "comms-capacity-per-dollar-share"
+  },
+  {
+   "from": "infra-tool-qualification",
+   "to": "comms-verified-crypto-procurement-norm"
+  },
+  {
+   "from": "comms-hardness-aware-tasking",
+   "to": "comms-optical-ground-network-service"
+  },
+  {
+   "from": "comms-finite-key-qkd-proofs",
+   "to": "comms-space-qkd-backbone"
+  },
+  {
+   "from": "comms-certified-interference-bounds",
+   "to": "comms-performance-based-sharing-regime"
+  },
+  {
+   "from": "cap-autonomous-labs",
+   "to": "comms-crqc-before-2031"
+  },
+  {
+   "from": "cap-physics-theory",
+   "to": "comms-quantum-receiver-theory"
+  },
+  {
+   "from": "comms-ai-crqc-resource-cuts",
+   "to": "comms-crqc-before-2031"
+  },
+  {
+   "from": "comms-ai-crqc-resource-cuts",
+   "to": "comms-crypto-agile-architecture"
+  },
+  {
+   "from": "comms-multi-operator-dynamic-sharing",
+   "to": "comms-capacity-per-dollar-share"
+  },
+  {
+   "from": "comms-multi-operator-dynamic-sharing",
+   "to": "comms-performance-based-sharing-regime"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "networks",
+   "nodes": [
+    "comms-ai-crqc-resource-cuts",
+    "comms-multi-operator-dynamic-sharing"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "networks",
+   "patch": {
+    "thesis": "If AI can prove optimality gaps for constellation routing and certified interference bounds for shared spectrum, then mega-constellation meshes and direct-to-device service run on certified plans by 2029-30 in the base case (Medium; about a year earlier is possible at a vertically integrated operator that owns its own frontier model, the optimistic case), while the international spectrum regime (no ITU action before WRC-31), quantum links and crypto migration move at regulatory and hardware speed. On security, AI's sharpest effect runs against defenders: cheaper code-breaking resource estimates make crypto-agility urgent.",
+    "reader_hook": "The FCC's 2026 rules (FCC 24-117 for sharing among non-geostationary systems, FCC 26-26 for sharing with geostationary ones) replace fixed power masks with private coordination backed by simulated performance criteria: 3% throughput loss and 0.1% (GSO) or 0.4% (NGSO) added unavailability. FCC 26-26 also removed the cap on co-frequency beams per location and declined aggregate limits, turning spectrum rights into a math problem. Realistic software gains are perhaps 5-20% of capacity at fixed hardware (judgment), small next to the 10x V3 per-satellite step, but the two multiply: in the urban cells that stay supply-bound even at V3 scale, beam scheduling against proven interference limits sets capacity."
+   }
+  }
+ ],
+ "notes": "B-networks resolver edits (skeptic, advocate, auditor). Systemic issue for the lead: S3 2027 < S2 2028 on ~56 nodes graph-wide traces to infra-verified-numerics and infra-mathlib-applied S3 2027 (capability.json: S3 follows S2 to end-2027); fixed only inside this branch (4 nodes). Catalog L-flag undercount escalated, not re-tiered. Rejected advocate new nodes comms-orbital-compute-mesh (AI share is the scheduler only; capital/launch outcome overlapping materials-cots-orbital-compute-ops) and comms-close-formation-optical-cluster (machine-checked part optional; belongs to astro/verif if anywhere)."
+}

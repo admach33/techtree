@@ -1,0 +1,1407 @@
+{
+ "notes": "E-robots draft (2026-10-07). New branch 'robots' with 21 nodes. No hard edges into existing nodes: every existing node the branch relieves (factories, I&T, labs, pads, lunar and in-space work) can happen without general-purpose robots, so links are soft. Hard prerequisites from existing nodes into robo-* nodes: cap-applied-math, physclock-starship-full-reuse, auton-lunar-heavy-cargo-landing, auton-assembly-flight-demo.",
+ "add_nodes": [
+  {
+   "id": "robo-foundation-models-field",
+   "title": "Robot AI models that work on sites they have never seen",
+   "tier": 0,
+   "kind": "capability",
+   "domain": "robots",
+   "description": "A robot foundation model completes a multi-step task class with at least 90% full-task success on held-out sites it never trained on (factories, warehouses or labs), with results published or audited by a customer. This is the capability that turns robots from single-task cells into general-purpose labor.",
+   "status_oct2026": "Figure's Helix 2.5 raised full-task success across 30 unseen homes from 9% to 56% with human-video pretraining (Figure, Sep 17 2026). Gemini Robotics 2 on Apptronik's Apollo 2 scores 68% on table picks and 32-92% on dexterous tool tasks (DeepMind, Jul 2026). Generalist's GEN-0 trained on 270,000 h of real manipulation data, growing 10,000 h a week, with up to 99% task success after 550+ h of post-training (Nov 2025). Physical Intelligence's partner Ultra ran a full packaging shift at 96.4% autonomy (Nov 2025). Epoch finds household robots 2-10x slower than people (Feb 2026). Training data grows 10-100x a year; Figure's Index collects about 4.9 years of human work on video per day (Aug 2026).",
+   "catalog_families": [],
+   "prerequisites": [],
+   "accelerated_by": [
+    "capability-horizon-compounding",
+    "capability-ai-rnd-acceleration",
+    "robo-contact-sim-to-real"
+   ],
+   "binding_gate": "data",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": "2031",
+    "S2": "2030",
+    "S3": "2029",
+    "S4": "2028"
+   },
+   "band_2031": {
+    "S1": "Medium",
+    "S2": "High",
+    "S3": "High",
+    "S4": "High"
+   },
+   "band_2035": {
+    "S1": "High",
+    "S2": "High",
+    "S3": "High",
+    "S4": "High"
+   },
+   "premise_tier": "n/a (exogenous robotics premise: the robot path defines S4; not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Generalization follows a power law in environment and object diversity (Hu et al., ICLR 2025), and diverse data grows 10-100x a year. Chain (S4): S3-grade cognition plus twice the slow path's field data (0.46M robots in 2028 against 0.24M) lifts held-out success from 56% to 90% or more on structured industrial tasks by 2028. This is the S4 premise that dexterity becomes mainly a software problem. S3: the same cognition with half the field data, 2029. S2: 2030. S1 (task horizon doubling every 12-18 months): 2031 (Medium). AI mathematics is a second-order input here, worth about 1.1-1.5x on the robotics timeline through contact simulation and safety proofs.",
+   "strongest_case_small": "Benchmark success may not carry into paid work. Turning 50-95% task success into 99.x% deployment reliability takes real operating hours, and the driverless-car analog took about 13 years from the 2007 DARPA Urban Challenge to commercial service.",
+   "signpost": "A maker reports at least 90% full-task success on held-out factory or home sites (Figure, Physical Intelligence, DeepMind, Generalist) with the evaluation protocol published.",
+   "note_2035": "Reached in every scenario by 2035 (High). S4 differs only in timing, because its larger fleet supplies the field data that calibrates the models about a year sooner than in S3.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-safety-standard",
+   "title": "Humanoid safety standard ISO 25785-1 published",
+   "tier": 0,
+   "kind": "exogenous-gate",
+   "domain": "robots",
+   "description": "ISO publishes 25785-1, the safety standard for dynamically stable industrial mobile robots (humanoids and other legged or balancing machines). It gives makers and notified bodies an accepted basis for uncaged work next to people.",
+   "status_oct2026": "Committee Draft stage in Oct 2026. Work started about Jul 2025 on a roughly 3-year track, so publication is likely about 2028 (inference from the ISO project stage). The EU Machinery Regulation 2023/1230 applies from 20 Jan 2027 and requires third-party assessment of safety functions that rely on machine learning (European Commission). Some deployments still run in cages: Digit at Schaeffler reportedly works inside a Plexiglas enclosure. IFR names safety standards as a barrier to humanoid use (Sep 30 2026).",
+   "catalog_families": [],
+   "prerequisites": [],
+   "accelerated_by": [
+    "robo-proven-safety-envelopes"
+   ],
+   "binding_gate": "regulatory",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": "2028",
+    "S2": "2028",
+    "S3": "2028",
+    "S4": "2028"
+   },
+   "band_2031": {
+    "S1": "High",
+    "S2": "High",
+    "S3": "High",
+    "S4": "High"
+   },
+   "band_2035": {
+    "S1": "High",
+    "S2": "High",
+    "S3": "High",
+    "S4": "High"
+   },
+   "premise_tier": "n/a (exogenous standards clock: not an AI-math implication)",
+   "why": "Uncaged work beside people needs an accepted safety basis. Without it robots stay fenced and lose most of their multi-task value. Chain: CD 2026 -> DIS 2027 -> publication 2028 on the normal ISO track; a year of slip is common, and even two years lands it by 2030. The committee clock barely responds to robot demand, so the year is the same in every scenario. High by 2031 because the project is already at CD. The node is a standards-body publication. The regulator cap applies to conformity assessments, which sit in robo-proven-safety-envelopes and the deployment nodes.",
+   "strongest_case_small": "Standards trail practice. Firms can certify uncaged cells under existing machinery and collaborative-robot standards, and insurers or unions may set the real pace whatever ISO publishes.",
+   "signpost": "ISO 25785-1 reaches DIS or FDIS; the first notified-body assessment of a humanoid under the EU Machinery Regulation; the first uncaged humanoid deployments next to workers.",
+   "note_2035": "Published well before 2035 in every scenario. S4 gains nothing on the date. It gains wider use of the standard, because far more robots seek conformity assessment.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-proven-safety-envelopes",
+   "title": "Proven safety envelopes for robots working beside people",
+   "tier": 2,
+   "kind": "applied-math",
+   "domain": "robots",
+   "description": "Machine-checked bounds (control barrier functions, reachability sets, runtime monitors) on the behavior of learned whole-body controllers for humanoids or mobile manipulators. A maker uses them in a published safety case for uncaged work near people.",
+   "status_oct2026": "Learned policies now run robot bodies: Figure replaced 109,504 lines of hand-written C++ with a 10M-parameter network trained in over 200,000 simulated environments (Figure, Jan 2026). Runtime assurance and barrier-function methods exist for simpler systems, and no humanoid maker has published a formal safety case. The EU Machinery Regulation requires third-party assessment of machine-learning safety functions from 20 Jan 2027. The capability research names formal safety certificates as one of the two places AI mathematics matters most for robots.",
+   "catalog_families": [],
+   "prerequisites": [
+    "cap-applied-math"
+   ],
+   "accelerated_by": [
+    "verif-runtime-assurance",
+    "auton-certified-contact-sim",
+    "cap-autoformalization"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P2",
+   "earliest_year": {
+    "S1": "2030",
+    "S2": "2029",
+    "S3": "2028",
+    "S4": "2028"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "band_2035": {
+    "S1": "Medium",
+    "S2": "High",
+    "S3": "High",
+    "S4": "High"
+   },
+   "premise_tier": "n/a (capability premise; no catalog family)",
+   "why": "Code inspection cannot certify a learned controller, so a proof-backed envelope plus a runtime monitor is the shortest route to an assessable safety case. Chain (S2): research-grade applied math public 2027 -> barrier and reachability bounds for whole-body controllers 2029 -> first published safety case (Medium by 2031). S3 and S4: 2028. S4 equals S3 because cognition is the same and the maker incentive exists in both. S1: 2030 (Low). The effect on robot timelines is modest, about 1.1-1.3x, because data, hands and field hours bind harder.",
+   "strongest_case_small": "Makers may satisfy assessors with testing, speed and force limits and conventional safety-rated monitoring. Proofs would then stay a research product.",
+   "signpost": "A humanoid maker publishes a safety case that cites machine-checked bounds, or a notified body accepts one in an EU Machinery Regulation assessment.",
+   "note_2035": "Routine in S2-S4 by 2035 (High). S4 creates more demand for the method, yet the year stays at the S3 value because the method rides the cognitive clock.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-contact-sim-to-real",
+   "title": "Contact simulation good enough to train robot hands",
+   "tier": 3,
+   "kind": "physics",
+   "domain": "robots",
+   "description": "Policies for contact-rich, multi-finger tasks (fastening, connector mating, cable routing) trained mostly in simulation reach at least 95% success on real hands in production, with under 10% of the training data from the target site.",
+   "status_oct2026": "Simulation is fast: NVIDIA's Newton 1.0 reached general availability in Mar 2026, MuJoCo Warp runs up to 475x faster than MJX on manipulation (vendor), and GR00T generated the equivalent of 6,500 h of demonstrations in 11 h (Mar 2025). Locomotion already transfers from simulation. Contact-rich and tactile transfer is the open gap: DeepMind says multi-finger dexterity remains challenging, and Gemini Robotics 2 screws in a light bulb 36% of the time (Jul 2026). Part of the gap is parameter identification, which needs measurement.",
+   "catalog_families": [],
+   "prerequisites": [
+    "cap-applied-math"
+   ],
+   "accelerated_by": [
+    "auton-certified-contact-sim",
+    "cap-physics-theory",
+    "capability-learned-emulators"
+   ],
+   "binding_gate": "data",
+   "pathway": "P1->P6",
+   "earliest_year": {
+    "S1": "2033",
+    "S2": "2031",
+    "S3": "2030",
+    "S4": "2028"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "High"
+   },
+   "band_2035": {
+    "S1": "Medium",
+    "S2": "High",
+    "S3": "High",
+    "S4": "High"
+   },
+   "premise_tier": "n/a (capability premise; no catalog family)",
+   "why": "Synthetic data runs about 600x faster than real time, so a simulator that transfers for contact would lift the data limit on dexterity. Chain (S4): S3-grade applied math for complementarity and hydroelastic contact, plus friction and compliance data from a fleet twice the slow path's size (0.46M robots in 2028), gives transfer on structured assembly tasks by 2028 (High within S4). S3: the same math with half the field data, 2030 (Medium). S2: 2031 (Medium). S1: 2033 (Low by 2031). Robots and AI mathematics meet here: the math sets the contact models, and the fleet supplies the measurements that pin their parameters.",
+   "strongest_case_small": "Real-data scaling from human video and fleets may solve dexterity first and leave contact simulation a minor aid. Video carries no tactile signal, but robot fleets can record it directly.",
+   "signpost": "A maker reports production-grade multi-finger assembly trained mostly in simulation; published sim-to-real gaps under 5 points on contact-rich benchmarks.",
+   "note_2035": "Reached in S2-S4 by 2035 (High). S4 is earliest because its fleet supplies the contact data; the math alone brings S3 to 2030.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-requal-standard",
+   "title": "An accepted route to requalify robot-made flight hardware",
+   "tier": 4,
+   "kind": "engineering-tool",
+   "domain": "robots",
+   "description": "A prime contractor, NASA, a NADCAP task group or an AS9100 supplement accepts a documented route for requalifying a special process when general-purpose robots replace human workmanship on flight hardware. At least one process at one supplier is requalified under it.",
+   "status_oct2026": "Replacing human workmanship on flight hardware is a process change under AS9100 and NADCAP special-process rules, and NASA-STD-6030 already requires per-machine qualification for additive parts. Requalification takes 6-24 months per process per supplier (S4 analysis). Specialized robots already pass this route: SpaceX's robotic welders and tile installers, Rocket Lab's fiber-placement machine. No general-purpose robot has requalified a flight-hardware process as of Oct 2026. Tesla's Model 3 missed its 2017 goal partly through over-automation (Automotive Fleet, Jan 2018).",
+   "catalog_families": [],
+   "prerequisites": [],
+   "accelerated_by": [
+    "robo-structured-factory-useful",
+    "physclock-credibility-evidence-standard",
+    "materials-am-digital-twin-qual"
+   ],
+   "binding_gate": "qualification",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": "2034",
+    "S2": "2032",
+    "S3": "2032",
+    "S4": "2030"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "Medium"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "High"
+   },
+   "premise_tier": "n/a (exogenous robotics premise: the robot path defines S4; not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Robots shipping does not put robots on flight hardware. Every replaced manual process must be requalified, so adopters dip before they gain (3-12 months per process for 2028-30 adopters). Chain (S4): robots useful in multi-task factory work 2029 -> leading firms requalify their first processes and a prime publishes acceptance criteria 2030 (Medium by 2031, the regulator cap). S2 and S3 (slow path): few robots are worth requalifying before 2031-32, so 2032 (Low). S1: 2034. S4 is High by 2035 because the route runs through mechanisms already in use: AS9100 change control, NADCAP audits and NASA-STD-6030 machine qualification.",
+   "strongest_case_small": "Vertically integrated firms that self-certify their own vehicles (SpaceX) need no external route, so the node may matter only for suppliers and government programs.",
+   "signpost": "First published requalification of a flight-hardware process performed by a general-purpose robot; a NADCAP checklist or prime specification that names robot workmanship.",
+   "note_2035": "S4 reaches High by 2035 because thousands of robots in aerospace push the route through existing mechanisms. In S1-S3 few general-purpose robots reach flight hardware, so the route stays Medium or Low.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-mtbi-1000h",
+   "title": "Robot fleets run 1,000 hours between interventions",
+   "tier": 5,
+   "kind": "technology",
+   "domain": "robots",
+   "description": "A maker or operator publishes fleet mean time between interventions (teleoperation, resets or repairs) of at least 1,000 h for a task class, backed by at least 2,300 failure-free robot-hours, the zero-failure demonstration at 90% confidence.",
+   "status_oct2026": "No humanoid maker publishes mean time between interventions. Agility tracks it but reports only over 65,000 customer-site hours and about 98% on-task accuracy over 100,000 totes at GXO (SEC Form 425, Sep 15 2026). Physical Intelligence's partner Ultra ran a shift at 96.4% autonomy, about 17 minutes of help per 8 h (Nov 2025). Figure 02 at BMW logged 1,250+ h over 11 months, with the forearm as the top failure point (Figure, Nov 2025). IFR says most humanoid applications often need human teleoperation (Sep 30 2026).",
+   "catalog_families": [],
+   "prerequisites": [
+    "robo-foundation-models-field"
+   ],
+   "accelerated_by": [
+    "robo-contact-sim-to-real"
+   ],
+   "binding_gate": "data",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": "2032",
+    "S2": "2031",
+    "S3": "2031",
+    "S4": "2029"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "High"
+   },
+   "band_2035": {
+    "S1": "Medium",
+    "S2": "High",
+    "S3": "High",
+    "S4": "High"
+   },
+   "premise_tier": "n/a (exogenous robotics premise: the robot path defines S4; not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Unattended 24/7 work needs interventions rare enough that one technician covers many robots. The best disclosed figures imply an intervention every few hours, so 1,000 h needs a 100-1,000x gain. Hardware generations take 12-30 months to fix wear-out modes, and field hours accrue on the physical clock, though fleets run them in parallel. Chain (S4): 2028 models plus one or two hardware generations -> 2029 (High by 2031). S2 and S3 (slow path, half the fleet hours): 2031 (Medium). S1: 2032 (Low).",
+   "strongest_case_small": "Interventions can be cheap. A remote operator who covers 20-50 robots makes a 50-100 h MTBI good enough for most factory work, so this milestone may not gate usefulness.",
+   "signpost": "A fleet MTBI figure in a merger filing, shareholder letter or customer case study (Agility, Figure, Tesla, UBTech).",
+   "note_2035": "Reached in S2-S4 by 2035 (High). S4 is about two years ahead of S3 because its fleet logs field hours several times faster.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-actuator-magnet-supply",
+   "title": "Actuators and magnets for 1 million robots a year",
+   "tier": 5,
+   "kind": "infrastructure",
+   "domain": "robots",
+   "description": "World output of precision actuators (planetary roller screws, harmonic or equivalent reducers) and rare-earth magnets is enough to build at least 1 million humanoid-class robots in a year: roughly 14-34 roller screws, about 14 reducers and 2-4.5 kg of NdFeB magnet per robot.",
+   "status_oct2026": "Actuators are 40-60% of a humanoid's bill of materials. Leaderdrive made 433,655 harmonic reducers in 2025 and plans over 1M of capacity in 2026 and over 2M in 2027, about an 11-month doubling (Humanoid Guide); Harmonic Drive Systems makes about 2.2M a year. Epoch puts the reducer cap near 500,000 humanoids a year today (Apr 2026). Roller-screw grinding capacity is tight through 2027-28 (vendor claims). China makes about 94% of sintered magnets (IEA, 2024). Heavy-rare-earth export licensing has applied since Apr 2025, and the Nov 2025 pause of the Oct 2025 measures lapses about Nov 10 2026.",
+   "catalog_families": [],
+   "prerequisites": [],
+   "accelerated_by": [
+    "robo-structured-factory-useful"
+   ],
+   "binding_gate": "fabrication",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": "2034",
+    "S2": "2033",
+    "S3": "2033",
+    "S4": "2029"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "High"
+   },
+   "band_2035": {
+    "S1": "Medium",
+    "S2": "High",
+    "S3": "High",
+    "S4": "High"
+   },
+   "premise_tier": "n/a (exogenous robotics premise: the robot path defines S4; not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Actuators bind the ramp through 2028 on every path. Magnets bind politically now and physically only later: 1M robots need about 14M reducers and 2-4.5 kt of NdFeB, about 1% of the ~330 kt made in 2025. Chain (S4): base shipments reach 0.76M in 2029 and 1.7M in 2030, and the base path is sized to an 11-16 month capacity doubling, so capacity for 1M a year exists in 2029 (High by 2031). S2 and S3 (slow path): suppliers build to demand, and shipments pass 1M a year only in 2034, so capacity lands about 2033 (Low by 2031). S1: 2034.",
+   "strongest_case_small": "Design substitution (planetary or quasi-direct drives, ferrite or low-dysprosium magnets) could remove precision actuators as a gate.",
+   "signpost": "Leaderdrive above 2M reducers annualized in 2027; roller-screw lead times under 6 months; China's rare-earth decision about Nov 10 2026; magnet kg per robot in new designs.",
+   "note_2035": "By 2035 base demand is 26M robots a year, which needs 26-118 kt of magnet (8-36% of 2025 output), so magnet capacity must roughly double. S1-S3 need only 1-2M robots a year, so the build-out is an S4 story.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-structured-factory-useful",
+   "title": "General-purpose robots do multi-task factory work at scale",
+   "tier": 5,
+   "kind": "technology",
+   "domain": "robots",
+   "description": "At least 100,000 general-purpose robots (humanoids and mobile manipulators) do paid, multi-task work in structured factories and warehouses, including robot makers' own lines, at 80% or more of human output and without routine teleoperation.",
+   "status_oct2026": "Paid work today is single-task and small: only a few thousand humanoids do paid non-research work (S4 analysis). UBTech's Walker S2 reaches 30-50% of human output on simple tasks in Chinese auto plants and targets 80% by 2027 (Merics, Jan 2026). Figure's F.03 has done sequencing at BMW since Jun 2026. Foxconn runs fewer than 10 humanoids on a GB300 server line (Apr 2026). Musk said in Jan 2026 that no Optimus did useful work at Tesla (Electrek). Humanoid factories (BotQ, Fremont, Liuzhou) are built and staffed by people.",
+   "catalog_families": [],
+   "prerequisites": [
+    "robo-foundation-models-field"
+   ],
+   "accelerated_by": [
+    "robo-mtbi-1000h",
+    "robo-safety-standard",
+    "robo-contact-sim-to-real"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": "2032",
+    "S2": "2031",
+    "S3": "2031",
+    "S4": "2029"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "High"
+   },
+   "band_2035": {
+    "S1": "Medium",
+    "S2": "High",
+    "S3": "High",
+    "S4": "High"
+   },
+   "premise_tier": "n/a (exogenous robotics premise: the robot path defines S4; not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "The capability-to-deployment gap for structured industrial work is about 2-4 years, and usefulness is dated by 12-30 month hardware generations. Chain (S4): models that work on unseen sites 2028 -> one hardware generation -> multi-task work by 100,000+ robots in 2029, when the base fleet is 1.2M (High by 2031). S2 and S3 (slow path, where robots stay narrow and half-productive): 2031 (Medium). S1: 2032 (Low). Robot makers' own lines adopt first, because they own the robots and the data.",
+   "strongest_case_small": "The business case can stay weak. IFR reports a weak case in industry today, and at 30-50% of human output a $35k robot pays back in 3-7 years at Chinese wages.",
+   "signpost": "UBTech or a peer reports 80% of human output on paid tasks; a factory reports 1,000+ humanoids doing multi-task work; humanoids do final assembly of humanoids.",
+   "note_2035": "By 2035 S4's base path has about 25M robots in manufacturing and the slow path about 2M. S4 differs because usefulness lands two years earlier and the base fleet grows 10x over 2031-35, against 3.4x on the slow path.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-fleet-1m",
+   "title": "One million general-purpose robots in service",
+   "tier": 6,
+   "kind": "infrastructure",
+   "domain": "robots",
+   "description": "The active fleet of general-purpose robots (humanoids and mobile manipulators run by foundation models), counted at year end with a 5-year service life, passes 1 million units.",
+   "status_oct2026": "Humanoid shipments were 13,318 in 2025 (Omdia) and about 19,000-25,000 in H1 2026 (Smart Analytics Global, Counterpoint, IDC), over 97% from Chinese makers. Leaders grow linearly within 2026: AgiBot reached 20,000 cumulative units on Sep 24 at about 5,000 a quarter (Humanoids Daily). The active fleet is about 70,000-100,000 at end-2026, against 5.0M industrial robots (IFR, end-2025). Bank forecasts for 2030 shipments run 0.45-1.2M (Goldman 0.89M, BofA 1.2M).",
+   "catalog_families": [],
+   "prerequisites": [],
+   "accelerated_by": [
+    "robo-structured-factory-useful",
+    "robo-actuator-magnet-supply",
+    "robo-foundation-models-field"
+   ],
+   "binding_gate": "fabrication",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": "2032",
+    "S2": "2031",
+    "S3": "2031",
+    "S4": "2029"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "High"
+   },
+   "band_2035": {
+    "S1": "High",
+    "S2": "High",
+    "S3": "High",
+    "S4": "High"
+   },
+   "premise_tier": "n/a (exogenous robotics premise: the robot path defines S4; not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Fleet paths from the S4 analysis, 5-year life. Base (S4): shipments of 0.06M in 2026 grow 2.3x a year in 2027-28, then 2.4x and 2.2x as usefulness lands; the fleet is 0.46M in 2028 and 1.22M at end-2029 (High by 2031). Fast (S4 upside): 1M in early 2029. Slow (S1-S3): growth of 1.8x a year easing to 1.4x; the fleet is 0.86M in 2030 and 1.37M at end-2031, so 2031 (Medium). S1 runs a little slower because cognition lags: 2032 (Low by 2031). Base output doubles about every 10 months in 2026-31, the pace of US aircraft production in 1940-44.",
+   "strongest_case_small": "A unit count overstates useful work. In 2026 most humanoids serve research, education, exhibitions and data collection, so a 1M fleet could hold far fewer productive robots.",
+   "signpost": "Full-year 2026 shipments: under 50,000 points to the slow path, 60,000-100,000 to base, over 150,000 to fast; quarterly output at AgiBot and UBTech breaking from linear.",
+   "note_2035": "By 2035 the fleet is 4.6M on the slow path, 62M on the base path and 158M on the fast path. Every scenario passes 1M well before 2035; S4 passes it two years sooner.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-fleet-10m",
+   "title": "Ten million general-purpose robots in service",
+   "tier": 7,
+   "kind": "outcome",
+   "domain": "robots",
+   "description": "The active general-purpose robot fleet passes 10 million units, about twice today's stock of industrial robots.",
+   "status_oct2026": "About 70,000-100,000 general-purpose robots are in service at end-2026, against 5.0M industrial robots built up over decades (IFR). Goldman forecasts 6.5M humanoid shipments in 2035 (Aug 2026). Epoch calls 1.5-3M robots a year by end-2030 clearly achievable after a demand shock and 5-10M a year plausible (Apr 2026).",
+   "catalog_families": [],
+   "prerequisites": [
+    "robo-fleet-1m",
+    "robo-actuator-magnet-supply"
+   ],
+   "accelerated_by": [
+    "robo-supply-chain-loop",
+    "robo-structured-factory-useful"
+   ],
+   "binding_gate": "capital",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": ">2035",
+    "S3": ">2035",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Low"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "High"
+   },
+   "premise_tier": "n/a (exogenous robotics premise: the robot path defines S4; not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Base (S4): 3.35M shipped in 2031; growth eases to 1.8x and then 1.6x a year as robots start working in their own supply chain; the fleet is 6.2M in 2031 and 12.1M at end-2032 (High by 2035). Fast: mid-2031, which gives the Low band by 2031. Slow (S1-S3): growth eases to 1.3x a year and the fleet is 4.65M in 2035, so after 2035 (Low by 2035 in S2-S3, Speculative in S1). After 2031 the caps are capital ($50-100B a year in 2031, $0.4-0.8T in 2035), magnets and the loop's own lead times (machine tools 6-14 months; factories 6-12 months in China, 2+ years in the West).",
+   "strongest_case_small": "Every complex-machine ramp has slowed once a downstream gate bound. A base path that saturates at 1.3x a year after 2031 still passes 10M in late 2032, but a slower 2027-31 would push the date past 2035.",
+   "signpost": "Bank forecasts for 2030 rising above 1.5M shipments; robot makers reporting multi-million annual capacity; China's 15th Five-Year Plan targets for embodied AI.",
+   "note_2035": "S4 passes 10M in late 2032 and reaches about 62M by 2035 (30-104M across the loop sensitivities). S1-S3 stay near 4-5M, so the S3-S4 gap is mostly a 2032-35 story.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-mfg-10pct",
+   "title": "Robots supply 10% of global manufacturing labor",
+   "tier": 7,
+   "kind": "outcome",
+   "domain": "robots",
+   "description": "General-purpose robots supply productive labor equal to 10% of the ~460 million-person global manufacturing workforce of 2026, counted as human-equivalents (robot hours x productivity x productive share of the fleet).",
+   "status_oct2026": "General-purpose robots supply almost no manufacturing labor: a few thousand humanoids do paid work. Industrial robots number 5.0M, with 603,307 installed in 2025 (IFR), or 132 per 10,000 manufacturing employees worldwide.",
+   "catalog_families": [],
+   "prerequisites": [
+    "robo-fleet-10m",
+    "robo-structured-factory-useful"
+   ],
+   "accelerated_by": [
+    "robo-supply-chain-loop"
+   ],
+   "binding_gate": "capital",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": ">2035",
+    "S3": ">2035",
+    "S4": ">2035"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Low"
+   },
+   "premise_tier": "n/a (exogenous robotics premise: the robot path defines S4; not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Labor share = fleet x manufacturing allocation (40-45%) x human-equivalents per robot (0.5-2.0). Base (S4): 0.67% in 2031 and 8.7% in 2035, so 10% arrives about 2036 (Low by 2035). Fast: 1.9% in 2031 and 28% in 2035, crossing about 2034. Slow (S1-S3): 0.07% in 2031 and 0.32% in 2035 (Speculative). Supplying 10% of manufacturing and construction labor by 2031 would take about 35-70M robots, a sustained 3.2-3.7x a year.",
+   "strongest_case_small": "Robots concentrate where wages are high and tasks are structured. A US or Korean factory sector could pass 10% while the global share stays small, and the global figure may hide that.",
+   "signpost": "National statistics that show robot-hours replacing manufacturing hours; IFR reporting humanoid density per 10,000 workers.",
+   "note_2035": "S4's base path reaches about 8.7% in 2035, close to the line; if the US hosts 10-15% of the fleet, its share is 30-46%. S1-S3 stay under 0.5%.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-lab-bench-useful",
+   "title": "Robots do general lab bench work at scale",
+   "tier": 6,
+   "kind": "infrastructure",
+   "domain": "robots",
+   "description": "At least 50,000 general-purpose robots do the bench work people still do in automated labs (reagent prep, plate loading, instrument tending, moving samples between workcells), so leading autonomous labs run without human hands in the loop.",
+   "status_oct2026": "Specialized workcells already scale: A-Lab ran 100-200 samples a day, 50-100x a person (LBNL); Ginkgo runs over 50 automated carts and plans 50 more by end-2026; PNNL is buying 97 robots and over 100 instruments for $47M by 2030. People still do reagent prep and plate loading: in OpenAI's GPT-5 run on Ginkgo's cloud lab (36,000 compositions over about 6 months), humans prepared reagents and loaded plates (Feb 2026). Medra leased 38,000 sq ft for hundreds of arm-based robots (Feb 2026).",
+   "catalog_families": [],
+   "prerequisites": [
+    "robo-foundation-models-field"
+   ],
+   "accelerated_by": [
+    "cap-autonomous-labs",
+    "robo-contact-sim-to-real",
+    "robo-structured-factory-useful"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2035",
+    "S3": "2035",
+    "S4": "2030"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Medium"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "High"
+   },
+   "premise_tier": "n/a (exogenous robotics premise: the robot path defines S4; not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Workcells are S2/S3 baseline. General robots add the long tail of non-standard steps that keeps people in the loop. Chain (S4): robots useful in multi-task factory work 2029 -> lab variants with finer manipulation 2030; the base fleet in labs is about 58,000 in 2030 and 0.12M in 2031 (Medium by 2031, since bench dexterity is harder than factory handling). S2 and S3 (slow path): about 46,000 lab robots by 2035, so 2035 (Medium by 2035). S1: after 2035. Characterization and interpretation then bind: A-Lab's corrected paper confirmed 36 of 40 reported syntheses.",
+   "strongest_case_small": "Lab capacity already grows 16-100x by 2031 through capex and specialized automation. General robots add breadth and better odds, and a drug program gains only about 0.9 year over S3.",
+   "signpost": "An autonomous lab reports no human reagent prep or plate loading over a multi-month campaign; Medra or Lila report hundreds of robots in service.",
+   "note_2035": "S4's base path has about 0.6M lab robots and 20% of lab technician labor by 2035; S1-S3 stay under 1%. Materials and biology nodes gain throughput and replicate counts in S4, while characterization, creep hours and trial clocks still set their dates.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-launch-refurb",
+   "title": "Robots inspect and refurbish rockets between flights",
+   "tier": 6,
+   "kind": "infrastructure",
+   "domain": "robots",
+   "description": "General-purpose robots do routine post-flight inspection, heat-shield tile handling and replacement, and refurbishment tasks on a reusable heavy launcher at a leading firm, beyond the single-purpose tile and pin machines already in use.",
+   "status_oct2026": "SpaceX's Starfactory uses robotic cutters, welders and tile installers, and robotic heat-shield pin installation began in early 2026 (NASASpaceflight). These specialized machines are S2/S3 baseline. No Starship ship had been caught or reflown as of Oct 2026; Starship flew 5 times in 2025 and 3 times in 2026 to Oct 7. Musk said in Jan 2026 that no Optimus did useful work at Tesla.",
+   "catalog_families": [],
+   "prerequisites": [
+    "robo-structured-factory-useful",
+    "physclock-starship-full-reuse"
+   ],
+   "accelerated_by": [
+    "hyper-tps-inverse-nde",
+    "hyper-tile-damage-accumulation",
+    "robo-mtbi-1000h"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": "2033",
+    "S2": "2031",
+    "S3": "2031",
+    "S4": "2029"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "Medium"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "High"
+   },
+   "premise_tier": "n/a (exogenous robotics premise: the robot path defines S4; not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Handling, inspection and refurbishment are the first aerospace tasks general robots can take: they need looser tolerances than assembly and little requalification on a firm's own vehicle. Chain (S4): multi-task factory robots 2029 -> deployed on ship and booster turnaround at a leading firm 2029 (Medium by 2031). S2 and S3 (slow path): 2031 (Low). S1: 2033. Cadence credit is conditional: refurbishment robots matter for dates only once ship turnaround falls under about a week, when labor and shifts become the binding step.",
+   "strongest_case_small": "Vehicles are already ahead of flights. Starship hulls were built through at least Ship 48 by Apr 2026, so faster refurbishment may not raise cadence while failures, pads and propellant bind.",
+   "signpost": "SpaceX discloses robot counts at Starbase, or a ship turnaround under 1 week; humanoids doing tile inspection or replacement.",
+   "note_2035": "With hundreds of heavy flights a year by the mid-2030s, turnaround labor scales with flights, and S4 robots carry that load at leading firms. S1-S3 keep using specialized machines and people.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-aerospace-tolerance-work",
+   "title": "Robots assemble flight hardware at leading space firms",
+   "tier": 6,
+   "kind": "infrastructure",
+   "domain": "robots",
+   "description": "General-purpose robots do paid assembly, integration or test work on flight hardware at aerospace tolerances (torque records, traceability, sub-millimeter fits) at one or more leading space firms, under a requalified process.",
+   "status_oct2026": "Figure 02 at BMW loaded parts at a 5 mm tolerance for 11 months (Figure, Nov 2025); aerospace assembly needs tighter fits, torque and traceability records and per-process qualification. UBTech robots are in concept testing at Airbus. SpaceX builds about 70 Starlink satellites and about 200,000 terminals a week (S-1/A) with specialized automation. The S4 analysis puts about 1% of the base fleet in aerospace in 2031, about 0.06M robots, against a need of 0.05-0.17M for space.",
+   "catalog_families": [],
+   "prerequisites": [
+    "robo-requal-standard",
+    "robo-structured-factory-useful"
+   ],
+   "accelerated_by": [
+    "robo-mtbi-1000h",
+    "robo-contact-sim-to-real",
+    "robo-launch-refurb"
+   ],
+   "binding_gate": "qualification",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": "2034",
+    "S2": "2032",
+    "S3": "2032",
+    "S4": "2030"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "Medium"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "High"
+   },
+   "premise_tier": "n/a (exogenous robotics premise: the robot path defines S4; not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Chain (S4): multi-task factory robots 2029 -> first processes requalified 2030 -> paid tolerance work at a robot-first firm 2030-31 (Medium by 2031, after 3-12 months of requalification drag per process). Suppliers follow after 2031. S2 and S3 (slow path): 2032 (Low by 2031). S1: 2034. The labor gain over S3 at robot-first firms is about 1.4x in 2031 (0.9-2.0x) and 2.3x in 2035 (1.6-3.1x), from 24/7 hours, productivity and parallel crews.",
+   "strongest_case_small": "Where automation already works, launch binds. Rocket Lab's Rosie cut composite work 33x, yet Electron's cadence rose 3.5x in six years; robots may raise output without moving any date in the tree.",
+   "signpost": "Humanoids in paid aerospace assembly or test work (Airbus, SpaceX, Tesla-adjacent firms); a prime's supplier bulletin that allows robot workmanship.",
+   "note_2035": "By 2035 robots supply about a quarter of aerospace production labor on the base path. Robot-first firms then run fabrication about 1.9x and integration and test about 2.2x faster than today; typical programs gain less.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-24x7-integration-test",
+   "title": "Robots run integration and test around the clock",
+   "tier": 6,
+   "kind": "infrastructure",
+   "domain": "robots",
+   "description": "At a leading space firm, robots run a spacecraft or stage integration-and-test line 24/7 (handling, harnessing, mating, test setup and environmental-test loading) with people supervising, cutting integration and test calendar time about 1.75x against one- or two-shift crews.",
+   "status_oct2026": "Integration and test is about a quarter of a new space program's critical path in the model. SpaceX runs 15 specialized engine test stands at McGregor (S-1/A), and the model's S3 already includes AI-run test stands (2028). Firefly traced a 2025 ground-test explosion to a contamination process error during stage integration, a reminder that workmanship risk sits in this step. GEVS thermal-vacuum minimums (4 cycles, 12 h plateaus) do not compress.",
+   "catalog_families": [],
+   "prerequisites": [
+    "robo-aerospace-tolerance-work",
+    "robo-mtbi-1000h"
+   ],
+   "accelerated_by": [
+    "physclock-ai-run-test-stands",
+    "physclock-optimal-test-campaigns",
+    "physclock-production-acceptance-by-model"
+   ],
+   "binding_gate": "qualification",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": "2035",
+    "S2": "2033",
+    "S3": "2033",
+    "S4": "2031"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "High"
+   },
+   "premise_tier": "n/a (exogenous robotics premise: the robot path defines S4; not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Robots compress the labor and shift share of integration and test: about 45% of an environmental qualification campaign and 35% of a satellite generation. Chain (S4): tolerance work 2030 plus fleets at 1,000 h between interventions -> a robot-first firm runs integration and test around the clock in 2031 (Low by 2031; the S4 Amdahl table counts it only for robot-first firms). S2 and S3 (slow path): 2033. S1: 2035. Thermal-vacuum dwells, hot-fire findings and reliability statistics stay fixed, so a program's compression ceiling rises from 51% (S3) to 56-60% at a robot-first firm in 2031.",
+   "strongest_case_small": "Test-facility queues and dwell times may dominate. If chambers and stands are the bottleneck, extra shifts of handling add little, and S4 output raises demand for test slots too.",
+   "signpost": "A satellite or stage maker reports robot-run 24/7 integration; integration and test durations below 0.6x of 2026 values at a robot-first firm.",
+   "note_2035": "By 2035 robot-first firms run integration and test about 2.2x faster than today and typical programs less; the S4 ceiling reaches 66-67% at robot-first firms. S1-S3 keep human crews with specialized automation.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-supply-chain-loop",
+   "title": "Robots work in the plants that make robot parts",
+   "tier": 6,
+   "kind": "infrastructure",
+   "domain": "robots",
+   "description": "General-purpose robots do at least 10% of labor hours in reducer, roller-screw, motor or magnet plants of a leading robot supply chain. With robots making robot parts, the robots-build-robots loop extends past final assembly.",
+   "status_oct2026": "The loop is open. Humanoid factories are built and staffed by people and conventional automation; Figure ramped BotQ 24x in under 120 days with human labor (Apr 2026). FANUC has built robots with robots since 2001, yet its output doubled only about every 7 years because demand set the rate. Forethought estimates about a 1-year doubling for self-replicating robots with abundant AI and a few years with real frictions (May 2025).",
+   "catalog_families": [],
+   "prerequisites": [
+    "robo-structured-factory-useful"
+   ],
+   "accelerated_by": [
+    "robo-fleet-1m",
+    "robo-contact-sim-to-real",
+    "robo-mtbi-1000h",
+    "robo-actuator-magnet-supply"
+   ],
+   "binding_gate": "fabrication",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2035",
+    "S3": "2035",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Low"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "High"
+   },
+   "premise_tier": "n/a (exogenous robotics premise: the robot path defines S4; not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Robot-production labor is small: 3.4M robots a year at 100-300 labor hours each is 0.2-0.5M worker-equivalents, 3-8% of the 2031 fleet's labor. So the loop adds little by 2031, about 1.0-1.2x on the fleet. Chain (S4): robot makers' own lines 2029-30 -> robots enter reducer, screw and motor plants about 2032 (High by 2035), so base growth eases only to 1.8x and then 1.6x a year. S2 and S3 (slow path): 2035 (Low). S1: after 2035. Holding a 12-month doubling to 2035 would give about 104M robots against the base 62M.",
+   "strongest_case_small": "Robot output is bound by grinding machines, magnets, chips, capital and certification. Robots in parts plants leave machine-tool lead times of 6-14 months unchanged.",
+   "signpost": "Humanoids doing final assembly of humanoids (Figure BotQ, Tesla, UBTech), then working in reducer, screw or magnet plants.",
+   "note_2035": "The loop is why S4's base path keeps growing 1.6-1.8x a year after 2031, against the 1.2-1.3x of past ramps. It does not make growth super-exponential before 2035.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-construction-trades",
+   "title": "General-purpose robots do construction trade work at scale",
+   "tier": 6,
+   "kind": "infrastructure",
+   "domain": "robots",
+   "description": "At least 100,000 general-purpose robots do paid construction trade work (electrical, mechanical, framing, finishing) on live sites, beyond material handling and single-task machines.",
+   "status_oct2026": "Construction robots are single-task. Bedrock's excavators went operator-free on three live U.S. sites on Aug 17 2026; Komatsu commissioned its 1,000th autonomous haul truck 18 years after launch (Apr 2026); TyBot ties 800-1,000 rebar ties an hour against 150-200 per worker; 79% of surveyed contractors used some jobsite robotics in 2026 (BuiltWorlds). Epoch rates general assembly and construction tasks early research. U.S. construction productivity fell for decades (Goolsbee and Syverson).",
+   "catalog_families": [],
+   "prerequisites": [
+    "robo-structured-factory-useful"
+   ],
+   "accelerated_by": [
+    "robo-safety-standard",
+    "robo-proven-safety-envelopes",
+    "robo-fleet-1m",
+    "robo-mtbi-1000h"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2035",
+    "S3": "2035",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Low"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "High"
+   },
+   "premise_tier": "n/a (exogenous robotics premise: the robot path defines S4; not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Sites are unstructured, outdoor and safety-critical, so the capability-to-deployment gap is 5-9 years from 2026. Chain (S4): factory usefulness 2029 -> site variants and safety cases -> trade work by 100,000+ robots about 2032 (Low by 2031; High by 2035, with about 3.7M robots in construction on the base path). S2 and S3 (slow path): about 2035 (Low by 2035). S1: after 2035. On the base path robots supply about 1% of U.S. construction labor in 2031 and about 13% in 2035.",
+   "strongest_case_small": "Best practice is already 3-12x faster than typical without robots: xAI built Colossus 1 in 122 days with human crews. Permits, interconnection and equipment queues set most schedules.",
+   "signpost": "Over 500 operator-free heavy machines on U.S. sites by end-2027; a data center or fab with 100+ general-purpose robots doing trade work on one site (2028-29).",
+   "note_2035": "By 2035 in S4, field labor stops binding on leading projects; permits, interconnection, transformers and concrete cure set the path. S1-S3 rely on specialized machines and people.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-earth-pads-plants",
+   "title": "Robot crews build a launch pad or propellant plant",
+   "tier": 6,
+   "kind": "infrastructure",
+   "domain": "robots",
+   "description": "A heavy-launch pad or on-site propellant plant (air separation, methane liquefaction, storage) is built with general-purpose robots doing most field trade labor around the clock, in about half the 2026 calendar time.",
+   "status_oct2026": "Starbase Pad 2 took about 16 months from flame-trench start to first launch on May 22 2026. SpaceX plans four operational Starship pads by end-2027 (S-1/A). On-site propellant production cuts variable propellant cost per flight about 90% and replaces roughly 389 tanker deliveries per flight (33FG estimate, Aug 2026). Large transformers take 128-144 weeks, and generator step-up units over 160 weeks.",
+   "catalog_families": [],
+   "prerequisites": [
+    "robo-construction-trades"
+   ],
+   "accelerated_by": [
+    "physclock-pad-propellant-infra",
+    "robo-mtbi-1000h"
+   ],
+   "binding_gate": "capital",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": ">2035",
+    "S3": ">2035",
+    "S4": "2033"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Medium"
+   },
+   "premise_tier": "n/a (exogenous robotics premise: the robot path defines S4; not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Pads and propellant plants split about 35% labor, 15% physics, 35% materials and capital and 15% institutions (S4 analysis). Robots compress the labor share and allow 24/7 work; equipment lead times and permits stay. Chain (S4): construction trade robots 2032 -> a robot-built pad or plant 2033 at 0.50-0.57x of a 2-4 year build at a leading firm (Medium by 2035). S1-S3: after 2035 (Speculative). The pads for 100+ flights a year come first, built by people and specialized machines by 2029.",
+   "strongest_case_small": "Transformers, compressors, cryogenic plant, concrete cure and NEPA review set most of a pad's calendar. A robot crew may shave only months off a 2-4 year build.",
+   "signpost": "A launch provider reports a pad or propellant plant built mostly by robots; transformer lead times under 100 weeks while demand still rises.",
+   "note_2035": "This is S4's lever on the mid-2030s launch clock, when hundreds of heavy flights a year are bounded by pads, propellant and airspace. Robots add at most about 1.4x to launch campaigns by 2035.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-lunar-construction",
+   "title": "Robots build lunar pads, berms and roads at outpost scale",
+   "tier": 6,
+   "kind": "mission",
+   "domain": "robots",
+   "description": "Multi-task robots build and maintain lunar surface infrastructure at outpost scale over several lunar days: at least one landing pad plus blast berms and roads, 1,000 m2 or more of prepared surface.",
+   "status_oct2026": "No construction payload is manifested. NASA's Project Olympus with ICON ($57.2M, through 2028) develops lunar construction methods. Northrop Grumman's robotic servicing vehicle launched Jul 21 2026. SpaceX paused Mars plans to prioritize the Moon, with an uncrewed lunar landing target of Mar 2027 (AIAA, Feb 2026). The lunar fission reactor target is 100 kWe, launch-ready in late 2029. Microwave-sintered regolith cracks when cooled faster than about 16 C/min (Coatings, Feb 2026).",
+   "catalog_families": [],
+   "prerequisites": [
+    "auton-lunar-heavy-cargo-landing"
+   ],
+   "accelerated_by": [
+    "auton-robotic-landing-pad",
+    "auton-excavation-design",
+    "auton-sinter-process-control",
+    "auton-verified-surface-autonomy",
+    "auton-surface-productivity",
+    "robo-construction-trades",
+    "robo-foundation-models-field"
+   ],
+   "binding_gate": "launch",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": ">2035",
+    "S3": "2035",
+    "S4": "2033"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Medium"
+   },
+   "premise_tier": "n/a (exogenous robotics premise: the robot path defines S4; not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Off Earth, robots are the product, so S4 changes capability most here; landed mass, power, lunar-night survival and flight demos still set dates. Chain (S4): heavy cargo landings from 2028 -> pilots in 2029-31 on hardware frozen in 2027-28 -> outpost-scale construction in 2033 with 10+ cargo landings a year (Medium by 2035). S3: dedicated machines without the terrestrial robot base, 2035 (Low). S1 and S2: after 2035. Lunar loops (launch opportunities every few days, 3-5 day transits) let robots mature far faster than on Mars.",
+   "strongest_case_small": "Landers can avoid pads with standoff distance and mid-body thrusters, and power limits sintering at kW to hundreds of kW. Robot count may not be the binding variable.",
+   "signpost": "A CLPS or Moon Base manifest with a construction payload; a sintered pad that survives a plume test; 10+ cargo landings a year planned.",
+   "note_2035": "S4 credit appears only after 2031, when Earth-built robot designs reach lunar hardware. By 2035 the S3-S4 gap is about two years, bounded by cargo landings.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-in-space-assembly",
+   "title": "Robots assemble large structures in orbit at scale",
+   "tier": 6,
+   "kind": "mission",
+   "domain": "robots",
+   "description": "Robots assemble structures larger than any fairing in orbit (100 m class, or radiators and arrays for 100 kW-class and larger platforms) as a repeated commercial operation, beyond one-off demonstrations.",
+   "status_oct2026": "NASA's OSAM-1 grew from $626-753M to over $2B and was cancelled in Mar 2024. Northrop Grumman's MRV launched Jul 21 2026 with two robotic arms and three Mission Extension Pods. Orbital compute needs large radiators: 100-kW-class deployable radiators fly about 2028 in the model.",
+   "catalog_families": [],
+   "prerequisites": [
+    "auton-assembly-flight-demo"
+   ],
+   "accelerated_by": [
+    "verif-rpo-assured-autonomy",
+    "struct-deployment-mechanics",
+    "auton-certified-assembly-skills",
+    "robo-foundation-models-field",
+    "robo-contact-sim-to-real"
+   ],
+   "binding_gate": "launch",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": ">2035",
+    "S3": "2035",
+    "S4": "2033"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "premise_tier": "n/a (exogenous robotics premise: the robot path defines S4; not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Robotic assembly decouples structure size from fairing size, which matters for orbital-compute radiators and large apertures. Chain (S4): flight demo of certified assembly skills 2030 -> space-qualified robots built on terrestrial robot hardware and models -> repeated commercial assembly 2033 (Low by 2035, since demand and space qualification bind). S3: 2035 (Low). S1 and S2: after 2035. Launch abundance is common to all scenarios; S4 adds cheaper, more capable robot hardware and software.",
+   "strongest_case_small": "Deployables and Starship's 9 m fairing may cover most needs through 2035, and OSAM-1 shows the cost risk of in-space assembly.",
+   "signpost": "A commercial assembly mission contracted after a successful demo; an orbital-compute operator specifying assembled radiators.",
+   "note_2035": "S4 brings the first repeated assembly about two years ahead of S3, through robot hardware and software from the terrestrial fleet. Both stay Low by 2035.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  },
+  {
+   "id": "robo-aerospace-labor-quarter",
+   "title": "Robots supply a quarter of aerospace production labor",
+   "tier": 7,
+   "kind": "outcome",
+   "domain": "robots",
+   "description": "General-purpose robots supply productive labor equal to 25% of the ~2 million-person global aerospace production workforce of 2026.",
+   "status_oct2026": "Near zero for general-purpose robots. Space production relies on people plus specialized automation: SpaceX had over 22,000 employees on Mar 31 2026 (S-1/A).",
+   "catalog_families": [],
+   "prerequisites": [
+    "robo-aerospace-tolerance-work",
+    "robo-fleet-10m"
+   ],
+   "accelerated_by": [
+    "robo-24x7-integration-test",
+    "robo-requal-standard",
+    "robo-supply-chain-loop"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P7 (exogenous)",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": ">2035",
+    "S3": ">2035",
+    "S4": "2035"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Medium"
+   },
+   "premise_tier": "n/a (exogenous robotics premise: the robot path defines S4; not an AI-math implication, so the P7 Speculative default does not apply)",
+   "why": "Share = fleet x aerospace allocation (1% in 2031, 0.5% in 2035) x human-equivalents per robot. Base (S4): 3.4% in 2031 and 25% in 2035, right at the line (Medium by 2035). Fast: 9.6% in 2031 and 79% in 2035. Slow (S1-S3): 0.3% in 2031 and 0.9% in 2035 (Speculative). Process requalification and supplier adoption after 2031 set the pace more than robot supply does: space needs only about 0.05-0.17M robots.",
+   "strongest_case_small": "Aerospace is low-volume and tightly regulated. Firms may automate a few high-rate lines (satellites, terminals) and leave most of the workforce untouched.",
+   "signpost": "Aerospace firms reporting robot-hours in production; supplier requalifications passing 100 processes.",
+   "note_2035": "This is where S4 departs most from S3 in space production: about a quarter of the labor in 2035 against under 1%. Physics, launch and paperwork then set more of each program's critical path.",
+   "needs_2035_review": false,
+   "revision_note": "E-robots (2026-10-07): new node in the robots branch (S4 Embodied, horizon 2035). S1-S3 follow the slow robot path, S4 the base path; the fast path is S4 upside.",
+   "revisions": [
+    {
+     "by": "E-robots",
+     "date": "2026-10-07",
+     "fields": [
+      "created"
+     ],
+     "reason": "2035 extension: new robots branch node",
+     "from": {}
+    }
+   ]
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "robo-aerospace-tolerance-work",
+   "to": "struct-radiator-lightweight-production"
+  },
+  {
+   "from": "robo-aerospace-tolerance-work",
+   "to": "struct-light-solar-array-production"
+  },
+  {
+   "from": "robo-aerospace-tolerance-work",
+   "to": "struct-100kw-per-tonne-fleet"
+  },
+  {
+   "from": "robo-aerospace-tolerance-work",
+   "to": "physclock-new-entrant-fast-orbit"
+  },
+  {
+   "from": "robo-aerospace-tolerance-work",
+   "to": "physclock-dev-capital-cut"
+  },
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "physclock-satellite-gen-cadence"
+  },
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "capability-ai-native-spacecraft"
+  },
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "capability-program-cycle-compression"
+  },
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "physclock-qual-cycle-compressed"
+  },
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "prop-engine-dev-compression"
+  },
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "hyper-12kms-entry-design-basis"
+  },
+  {
+   "from": "robo-launch-refurb",
+   "to": "hyper-rapid-reuse-heatshield"
+  },
+  {
+   "from": "robo-launch-refurb",
+   "to": "physclock-twin-reflight-clearance"
+  },
+  {
+   "from": "robo-launch-refurb",
+   "to": "struct-reusable-life-management"
+  },
+  {
+   "from": "robo-launch-refurb",
+   "to": "physclock-heavy-cadence-100"
+  },
+  {
+   "from": "robo-construction-trades",
+   "to": "physclock-pad-propellant-infra"
+  },
+  {
+   "from": "robo-earth-pads-plants",
+   "to": "physclock-heavy-cadence-100"
+  },
+  {
+   "from": "robo-earth-pads-plants",
+   "to": "prop-cislunar-propellant-economy"
+  },
+  {
+   "from": "robo-lunar-construction",
+   "to": "auton-moon-base-infrastructure"
+  },
+  {
+   "from": "robo-lunar-construction",
+   "to": "auton-crew-optional-lunar-ops"
+  },
+  {
+   "from": "robo-lunar-construction",
+   "to": "auton-lunar-oxygen-ops"
+  },
+  {
+   "from": "robo-lunar-construction",
+   "to": "struct-fsp-lunar-100kwe"
+  },
+  {
+   "from": "robo-lunar-construction",
+   "to": "auton-mars-propellant-plant"
+  },
+  {
+   "from": "robo-in-space-assembly",
+   "to": "struct-km-monolith"
+  },
+  {
+   "from": "robo-in-space-assembly",
+   "to": "struct-gw-orbital-compute"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "materials-closed-loop-discovery"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "materials-tps-new-material-flight"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "materials-ai-alloy-flight"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "materials-qual-cycle-compression"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "materials-ecls-isru-sorbents-catalysts"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "auton-mre-anode-materials"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "struct-damage-tolerance-physics"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "science-opacity-line-lists"
+  },
+  {
+   "from": "robo-foundation-models-field",
+   "to": "auton-surface-productivity"
+  },
+  {
+   "from": "robo-foundation-models-field",
+   "to": "auton-assembly-flight-demo"
+  },
+  {
+   "from": "robo-contact-sim-to-real",
+   "to": "auton-certified-assembly-skills"
+  }
+ ],
+ "branch_new": [
+  {
+   "id": "robots",
+   "order": 1,
+   "title": "Robots: the exponential gets hands",
+   "thesis": "If S3-grade AI makes dexterity mostly software by 2028 (the S4 premise), the fleet passes 1 million robots in 2029 and 10 million in 2032. Robots reach flight hardware at leading firms about 2030 (Medium by 2031). Space dates move mainly after 2032, as physics, launch and paperwork set schedules.",
+   "reader_hook": "Rocket Lab's Rosie robot cut the composite work on one Electron rocket from more than 400 hours to 12 in 2019, a 33x gain on one step. Electron's launch rate rose about 3.5x over the next six years, held back by demand, failures and launch sites.",
+   "roots": [
+    "robo-foundation-models-field",
+    "robo-safety-standard",
+    "robo-requal-standard",
+    "robo-actuator-magnet-supply",
+    "robo-fleet-1m",
+    "cap-applied-math"
+   ],
+   "spine": [
+    "robo-foundation-models-field",
+    "robo-mtbi-1000h",
+    "robo-structured-factory-useful",
+    "robo-requal-standard",
+    "robo-aerospace-tolerance-work",
+    "robo-24x7-integration-test",
+    "robo-fleet-1m",
+    "robo-fleet-10m",
+    "robo-aerospace-labor-quarter"
+   ],
+   "side_chains": [
+    [
+     "robo-contact-sim-to-real"
+    ],
+    [
+     "robo-proven-safety-envelopes",
+     "robo-safety-standard"
+    ],
+    [
+     "robo-actuator-magnet-supply"
+    ],
+    [
+     "robo-lab-bench-useful"
+    ],
+    [
+     "robo-launch-refurb"
+    ],
+    [
+     "robo-supply-chain-loop",
+     "robo-mfg-10pct"
+    ],
+    [
+     "robo-construction-trades",
+     "robo-earth-pads-plants"
+    ],
+    [
+     "robo-lunar-construction"
+    ],
+    [
+     "robo-in-space-assembly"
+    ]
+   ],
+   "nodes": [
+    "robo-foundation-models-field",
+    "robo-safety-standard",
+    "robo-proven-safety-envelopes",
+    "robo-contact-sim-to-real",
+    "robo-requal-standard",
+    "robo-mtbi-1000h",
+    "robo-actuator-magnet-supply",
+    "robo-structured-factory-useful",
+    "robo-fleet-1m",
+    "robo-fleet-10m",
+    "robo-mfg-10pct",
+    "robo-lab-bench-useful",
+    "robo-launch-refurb",
+    "robo-aerospace-tolerance-work",
+    "robo-24x7-integration-test",
+    "robo-supply-chain-loop",
+    "robo-construction-trades",
+    "robo-earth-pads-plants",
+    "robo-lunar-construction",
+    "robo-in-space-assembly",
+    "robo-aerospace-labor-quarter"
+   ],
+   "binding_gate": "data (field reliability hours) through 2030; qualification (robot-made flight hardware) for space work",
+   "scenario_note": "S1-S3 follow the slow robot path (fleet 1.4M in 2031, 4.6M in 2035; S1 a little slower). S4 follows the base path (0.46M in 2028, 6.2M in 2031, 62M in 2035); the fast path (14M, 158M) is S4 upside. Robot nodes may differ between S3 and S4 before 2032 because they are the S4 premise; existing nodes keep S4 = S3 through 2031.",
+   "revision_note": "E-robots (2026-10-07): new branch for S4 Embodied and the 2035 horizon. Spine is a connected set of hard edges from robot foundation models to tier 7. The chain starts from frontier AI generally; AI mathematics enters through contact simulation and safety proofs (side chains)."
+  }
+ ]
+}

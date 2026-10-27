@@ -1,0 +1,29 @@
+<div class="tt" id="tree">
+  <div class="tt-bar"><span><b>Space Unlock Tree</b> · research screen</span><span data-tt="live">__N__ techs · 13 branches · __E__ links</span></div>
+  <div class="tt-hud">
+    <div class="tt-turn">
+      <div><span class="tt-k">Turn</span><div class="tt-year" data-tt="year">2030</div></div>
+      <button class="tt-btn" data-tt="prev" type="button" aria-label="Previous turn">‹</button>
+      <button class="tt-btn end" data-tt="next" type="button">End turn ›</button>
+      <button class="tt-btn" data-tt="play" type="button">▶ Play</button>
+    </div>
+    <div class="tt-meter s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3M7.2 15h9.6"/></svg>
+      <span class="tt-k">Science · thinking</span><div class="v" data-tt="s-val"></div><div class="track"><div class="fill" data-tt="s-fill"></div></div></div>
+    <div class="tt-meter p"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 1 0 7a3.5 3.5 0 1 1 0-7zM12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/></svg>
+      <span class="tt-k">Production · hardware</span><div class="v" data-tt="p-val"></div><div class="track"><div class="fill" data-tt="p-fill"></div></div></div>
+    <div class="tt-mode"><span class="tt-k">AI path</span><div class="switch" data-switch role="group" aria-label="Scenario"></div></div>
+  </div>
+  <div class="tt-stage"></div>
+  <div class="tt-card" role="dialog" aria-label="Tech card"></div>
+  <div class="tt-toast" aria-live="polite"></div>
+  <div class="tt-foot">
+    <div class="tt-legend" aria-hidden="true">
+      <span><svg viewBox="-7 -7 14 14"><polygon points="4.9,0 2.45,4.24 -2.45,4.24 -4.9,0 -2.45,-4.24 2.45,-4.24" fill="#22CFFF" stroke="#22CFFF"/></svg>Research (thinking): math, models, design tools</span>
+      <span><svg viewBox="-7 -7 14 14"><rect x="-4.2" y="-4.2" width="8.4" height="8.4" rx="1.4" fill="#E6EBF3"/></svg>Build (hardware): hardware, missions, outcomes</span>
+      <span><svg viewBox="-7 -7 14 14"><rect x="-4.2" y="-4.2" width="8.4" height="8.4" rx="1.4" fill="none" stroke="#E6EBF3"/></svg>Year reached, odds under 30%</span>
+      <span><svg viewBox="-7 -7 14 14"><rect x="-4.2" y="-4.2" width="8.4" height="8.4" rx="1.4" fill="none" stroke="#E6EBF3" opacity=".25"/></svg>Not yet</span>
+      <span><svg viewBox="-9 -9 18 18"><polygon points="0,-7.5 7.5,0 0,7.5 -7.5,0" fill="#E6EBF3"/></svg>Wonder: one of the 7 unlock cards below</span>
+    </div>
+    <span class="tt-hint">Hover or tap a tech to light its research path</span>
+  </div>
+</div>

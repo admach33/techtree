@@ -1,0 +1,1214 @@
+{
+ "update": [
+  {
+   "id": "astro-nbody-transport-proofs",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 drift and escape bounds for operational lunar orbit families are routine in every scenario, S1 included. S4 adds nothing because the work is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High (S1 cognition reaches the S2 2029-30 level by 2035). S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-nbody-arnold-diffusion",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches this about 2033, when its cognition matches S2 around 2030. By 2035 stability theorems with realistic constants are likely in S2-S4; they matter to astronomy more than to flown systems. S4 adds nothing because the work is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. S1 '>2031' -> 2033. band_2035 S1 Low -> Medium, S2 and S3 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "astro-cislunar-od-uq",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "The methods exist in every scenario by 2035. Custody quality stays capped by faint targets and few cislunar sensors. S4 adds nothing because the gates are data and cognition.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "astro-coordination-protocols",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "The proofs exist in every scenario by 2035. Adoption is scored downstream. S4 adds nothing because the work is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "astro-nav-filter-guarantees",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Proven filter bounds are routine by 2035 in every scenario. S4 adds nothing because the work is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "astro-nongaussian-uq-certified",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 bounded-error collision-probability methods sit in operational tools in every scenario. Input covariance realism still limits true risk. S4 adds nothing because the work is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "plasma-swx-data-assimilation",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 an assimilative ensemble system exists in every scenario, and Vigil adds a side view from about 2033. Skill stays capped by sparse observations. S4 adds nothing because the gate is data.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "astro-stability-atlas",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 the atlas exists in S2-S4 and probably in S1. Its use depends on lunar relay operators, whose number grows with the lunar base. S4 adds nothing because the work is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Low -> Medium, S2 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "astro-debris-evolution-models",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 models with proven thresholds exist in every scenario. The uncertainty band stays wide because future launch rates and fragmentation inputs are unknown. S4 adds nothing because the work is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "plasma-thermo-density-uq",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 an assimilative density product with calibrated uncertainty is likely in every scenario. Operator data access stays the gate. S4 adds nothing because the gate is data.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "plasma-eruption-onset-theory",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 gets this about 2033, a year after its validated physics theory. From about 2033 Vigil's magnetograph sees active regions days before they face Earth. Small-scale flux emergence may still cap predictability, so bands stay Medium. S4 adds nothing because the gate is data.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. S1 '>2031' -> 2033 (cap-physics-theory S1 2032 in the trunk draft). band_2035 = band_2031: the skill ceiling is set by nature. S4 = S3."
+   }
+  },
+  {
+   "id": "astro-trajectory-design-on-demand",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Trajectory agents are standard tools in every scenario well before 2035. S4 adds nothing because the work is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years and bands kept. note_2035 added. S4 = S3."
+   }
+  },
+  {
+   "id": "astro-catalog-scale-screening",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 probably has a verified screening tool by 2035. The tool certifies screening of the tracked catalog, so untracked debris remains the residual risk. S4 adds nothing because the gate is formalization.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Low -> Medium. S4 = S3."
+   }
+  },
+  {
+   "id": "astro-autonomous-nav-demo",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Moonlight reaches full operations about 2030 and lunar base traffic grows, so a flown monitor with checked integrity is likely by 2035 in S2-S4. S4 adds nothing because flights set the date.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Low -> Medium, S2-S4 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "astro-ai-designed-trajectory-flown",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 AI-designed baselines are common on small lunar and deep-space missions in every scenario. S4 adds nothing because design freezes and launches set the date.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "plasma-radbelt-charging-forecast",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 a probabilistic MeV electron product is likely in agency use and cited by operators in S2-S4. S1 lags by the agency transition time. S4 adds nothing because adoption sets the pace.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Low -> Medium, S2 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "astro-autonomous-ca-at-scale",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 arrives about 2033, two years after its screening tool. By 2035 two Western operators probably coordinate machine to machine, but free hosted screening may make formal guarantees optional, so bands stay Medium. S4 adds nothing because standards and adoption set the pace.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. S1 '>2031' -> 2033 (S1 screening 2031, then standards work and rollout). band_2035 S2 Low -> Medium. S4 = S3."
+   }
+  },
+  {
+   "id": "plasma-cme-arrival-skill",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 reaches 8 h about 2034. Its methods arrive about 2031, at solar minimum, when 40 impacting CMEs take about three years. STEREO-A drifts toward the far side of the Sun by about 2031, so side views thin out until Vigil's data start about 2033. S2's 2031 date accrues its events in the 2028-30 decline toward minimum; recheck it at the next 2031 review. S4 adds nothing because the event-count clock binds.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. S1 '>2031' -> 2033 (S1 assimilation 2029, two years of events, then transition). band_2035 S2 Low -> Medium. S4 = S3. | E-safe-orbits resolver (2026-10-07): S1 2033 -> 2034 (skeptic): two years of events at solar minimum fall short of 40. S2 2031 is flagged for recheck and left unchanged."
+   }
+  },
+  {
+   "id": "plasma-storm-robust-leo-ops",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Solar Cycle 26 rises toward a maximum in the mid-2030s, so a G4+ test storm by 2035 is likely. Fast-revisit tracking also cuts custody loss, so the outcome is likely in S2-S4. S4 adds nothing because adoption binds.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Low -> Medium, S2-S4 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "astro-cislunar-traffic-management",
+   "patch": {
+    "earliest_year": {
+     "S1": "2032",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 has the algorithms in 2030, so a basic service could follow in 2032. MADCAP already screens cooperative lunar orbiters, so the remaining gate is a catalog that includes non-cooperative objects and covers transfers, which needs space-based sensors and a funded operator. Lunar base traffic raises demand. S3 stays Medium for that reason. S4 adds nothing because capital binds.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. S1 '>2031' -> 2032. band_2035 S1 and S2 Low -> Medium. S4 = S3. | E-safe-orbits resolver (2026-10-07): Status corrected: MADCAP exists (advocate). Advocate's S3/S4 High by 2035 rejected: the definition needs a catalog that includes non-cooperative objects, and MADCAP supplies only cooperative screening.",
+    "status_oct2026": "JPL's MADCAP screens NASA spacecraft at the Moon and Mars against other spacecraft's predicted ephemerides (first described in 2012) and accepts ephemerides from non-NASA operators (NASA CARA). No catalog of non-cooperative cislunar objects and no service covering transfers and Earth-Moon L1/L2 exist. NASA paused Gateway in its current form on Mar 24, 2026, redirecting resources to a roughly $20B, seven-year lunar surface base (NASA via 33FG); Moonlight relay and navigation services 2028-2030; AFRL's Oracle-Prime cislunar demonstrator is past PDR (Dec 2025) with no launch date announced."
+   }
+  },
+  {
+   "id": "plasma-vleo-at-scale",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 follows about 2033, after launch gets cheaper for customers. Fleets fielded near the 2030-31 minimum must be sized for Cycle 26 drag, which rises several-fold at 250-300 km toward its mid-2030s maximum, and few operators plan sub-300 km fleets. S2 stays Low. S3 and S4 keep their 2031 Medium. S4 adds nothing because capital and launch bind.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. S1 '>2031' -> 2033 (physclock-cheap-mass-customer S1 2032). band_2035 S2 Low -> Medium. S4 = S3. | E-safe-orbits resolver (2026-10-07): band_2035 S2 Medium -> Low (skeptic): 2032-35 is the Cycle 26 rise, and the plasma-nuclear branch judges the sub-300 km business case weak."
+   }
+  },
+  {
+   "id": "plasma-bz-forecast",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": "2034",
+     "S3": "2033",
+     "S4": "2033"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "Vigil's magnetograph and heliospheric imager help from about 2033, but no sub-L1 monitor or routine coronal field measurement is planned, so day-ahead Bz stays Low by 2035. The event count near the 2030-31 minimum sets the year. S4 adds nothing because observations bind.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. '>2031' resolved: S1 '>2035', S2 2033, S3 2032, S4 2032 (earliest partial skill from source-region methods). band_2035 = band_2031. S4 = S3. | E-safe-orbits resolver (2026-10-07): S2 2033 -> 2034, S3 and S4 2032 -> 2033. The skeptic's event-count clock is accepted; its 2035/2034 is not, because every impacting CME counts toward the 50 and rates rise from 2032. Bands unchanged.",
+    "why": "Requires either routine coronal magnetic-field measurement or in-situ monitors well upstream of L1, neither of which will exist by 2031. AI theory can extract partial skill from source-region magnetograms (flux-rope chirality and orientation rules), which is why S2/S3 are Low rather than Speculative. Real-time skill must be shown on events. Near the 2030-31 minimum only about 5-15 CMEs a year reach Earth (judgment), and the signpost asks for 50+ events. Counting every impacting CME and rising rates from 2032, 50 events take about three years from a working method: S3 methods about 2030 and 50 events about 2033, S2 a year later. Hindcasts on Cycle 24-25 events speed method development but do not replace the real-time count."
+   }
+  },
+  {
+   "id": "astro-capacity-licensing",
+   "patch": {
+    "earliest_year": {
+     "S1": "2032",
+     "S2": "2031",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Medium needs an aggregate-risk NPRM, or a license condition on the 1-million-satellite application, by about 2032. The 2026 FCC moved toward faster licensing instead. Another national regulator acting first is the main upside. S1 stays Low because its debris models arrive later and rulemaking takes 2-4 years. S4 adds nothing because rulemaking binds.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. S1 '>2031' -> 2032 (S1 debris models 2030; politics runs at 1.0x). band_2035 all Low -> Medium (four more years of filings pressure; regulatory cap Medium). S4 = S3. | E-safe-orbits resolver (2026-10-07): band_2035 S1 Medium -> Low and note rewritten (skeptic): the regulatory cap is a ceiling and does not license the top value. S2-S4 stay Medium on filing pressure."
+   }
+  },
+  {
+   "id": "astro-leo-safety-at-scale",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2032",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "By 2035 the tracked population can be screened and coordinated in S3 and S4, and Cycle 26 drag clears lower shells faster. In S2 the fleet grows fastest in 2032-35, close approaches per satellite rise with shell density, and the three hard prerequisites land only in 2031, so S2 stays Low. Untracked 1-10 cm debris and non-cooperating operators remain. The cm-custody, removal and cross-bloc soft edges bear on staying safe after the first evidence. They do not move the year. S4 adds nothing because sensors and politics bind.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. S1 '>2031' -> 2034 (a year after S1 cross-operator avoidance, 2033). S2 '>2031' -> 2032 (a year after its 2031 prerequisites). band_2035 S1 Speculative -> Low, S2-S4 Low -> Medium. S4 = S3. | E-safe-orbits resolver (2026-10-07): band_2035 S2 Medium -> Low (skeptic): 2032-35 is the launch clock's peak growth, the metric scales with shell density, and a child of three prerequisites that are each Medium by 2035 in S2 should not match them. S3 and S4 stay Medium."
+   }
+  },
+  {
+   "id": "astro-small-debris-catalog",
+   "patch": {
+    "earliest_year": {
+     "S1": "2032",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 follows in 2032, once AI association is cheap there. LeoLabs' Kiwi radar was designed in 2019 to track objects down to 2 cm, yet seven years on no catalog of 100,000 objects exists, so revisit, sensitivity at range, funding and data sharing bind through 2035. S3 stays Medium. S4 adds nothing because capital and data sharing bind the sensor build-out.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. S1 '>2031' -> 2032 (sensors are exogenous; S1 lags only on association, 2030). band_2035 S1 Speculative -> Low, S2 Low -> Medium. S4 = S3. | E-safe-orbits resolver (2026-10-07): Advocate's S3/S4 High by 2035 rejected: single-site 2 cm detection has existed since 2019 without producing the catalog."
+   }
+  },
+  {
+   "id": "astro-constellation-hosted-ssa",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 published realism statistics and third-party ingest are likely in S2-S4, from SpaceX or a second constellation. Star trackers still miss cm-class debris. S4 adds nothing because adoption binds.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Low -> Medium, S2 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "plasma-side-view-monitors",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2033",
+     "S3": "2033",
+     "S4": "2033"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Speculative",
+     "S4": "Speculative"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Vigil is planned to launch in Q3 2031 as a secondary passenger on an Ariane 6 dual launch, start quasi-nominal operations about 30 degrees from Earth about 2033 and reach L5 about 2034 (Wikipedia). A slip of up to two years still lands inside 2035. Its critical design review is not until Q1 2028, and slips of more than two years are common at that stage (general), so the band stays Medium. If the CDR holds and full implementation is funded, High becomes defensible. S4 adds nothing because launch dates bind.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. '>2031' -> 2033 in every scenario (Vigil launch Q3 2031 on Ariane 6, about 3-year cruise, quasi-nominal operations from mid-course; Wikipedia). band_2035 Speculative -> Medium. S4 = S3. | E-safe-orbits resolver (2026-10-07): Description now counts Vigil's quasi-nominal service from mid-course, so the 2033 date and the definition agree (skeptic). Advocate's High by 2035 rejected: a secondary-passenger launch with CDR in 2028 carries more than two years of slip risk.",
+    "description": "Operational, guaranteed real-time off-Sun-Earth-line coronagraph and heliospheric imaging (ESA Vigil at L5 with NOAA's CCOR coronagraph) and/or an in-situ monitor well upstream of L1 (sub-L1), giving CME speed, direction and early magnetic-structure data well before arrival, rather than opportunistic views from aging research spacecraft. Vigil's quasi-nominal real-time service from the 30-degree mid-course point counts."
+   }
+  },
+  {
+   "id": "astro-multitarget-track-fusion-certified",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Certified association at proliferated scale is routine by 2035 in every scenario. S4 adds nothing because the work is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "astro-proliferated-tracking-custody",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "S1 follows about 2033, after a defense acquisition cycle. Classification limits public attribution through 2035, so bands stay Low. S4 adds nothing because acquisition and secrecy bind.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. S1 '>2031' -> 2033 (S1 fusion 2030 plus an acquisition cycle). band_2035 S1 Speculative -> Low. S4 = S3."
+   }
+  },
+  {
+   "id": "astro-noncooperative-capture-envelopes",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Several removal and servicing missions fly in 2027-35, so by 2035 one is likely to cite certified capture envelopes in S2-S4. S4 adds nothing because flight tests and contact physics bind.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Low -> Medium, S2-S4 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "astro-adr-large-object-removed",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Four first tries from three companies fly 2027-29, so one success is likely by 2031 and very likely by 2035 in every scenario. S4 adds nothing because launches and first flights set the date.",
+    "needs_2035_review": false,
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 all Medium -> High. S4 = S3. | E-safe-orbits resolver (2026-10-07): band_2031 Medium -> High in every scenario (advocate). The Jan 2026 Starfish disposal contract for the Space Development Agency and ELSA-M make four first tries from three companies. The change is the same in S1-S4, so S4 = S3 through 2031 holds. Status, why and signpost updated.",
+    "status_oct2026": "ADRAS-J flew around an H-IIA upper stage at 15 m in 2024; ADRAS-J2 is planned to launch in 2027 to remove an H-IIA second stage. Starfish Space holds a $52.5M Space Force contract, awarded through the Space Development Agency in Jan 2026, for an end-of-life disposal mission for Proliferated Warfighter Space Architecture satellites, launch targeted 2027, with options for more (Wikipedia). ClearSpace-1 (EUR 86 million ESA contract, Nov 2020) is expected in 2028 on Vega-C to remove PROBA-1, after a 2026 date as recently as May 2023, and Astroscale's ELSA-M for Eutelsat, ESA and UKSA is expected no earlier than 2028 (Wikipedia).",
+    "why": "Not an AI-math implication. Demonstrations and service contracts fly on their own schedules and AI math enters only through soft inputs, so this is an exogenous anchor and the P7 Speculative default does not apply. Four first tries from three companies are funded: ADRAS-J2 (2027), Starfish Space's paid disposal mission for the Space Development Agency (2027), ClearSpace-1 (2028) and ELSA-M (no earlier than 2028). Slips are common (ClearSpace-1 moved from 2026 to 2028) and capturing an unprepared object is a hard first. If each try has roughly a 40-60% chance of success by end-2031 (judgment, illustrative), at least one succeeds with roughly 80-90% odds, so High in every scenario. AI math changes the date little. Where it could show by 2031 is a second, cheaper removal with a shorter test campaign and safety review. Recurring removal depends on payers, which AI math does not change.",
+    "signpost": "ADRAS-J2 launch and capture (2027-28); the Starfish disposal mission for the Space Development Agency (launch targeted 2027); ClearSpace-1 launch on Vega-C (2028); ELSA-M results."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "id": "astro-35-cm-debris-custody",
+   "title": "Debris tracked down to about 2 cm in the busiest shells",
+   "tier": 6,
+   "kind": "mission",
+   "domain": "astro",
+   "description": "A shared, screening-grade catalog keeps custody of most objects larger than about 2 cm that cross the main constellation shells (450-600 km), roughly 50,000-100,000 objects (illustrative: a breakup-model size slope near d^-1.7, and small debris peaks at 750-1,000 km), with covariances good enough for conjunction screening. Operators can then screen against much of the 1-10 cm population that no catalog covers today.",
+   "status_oct2026": "ESA's 2026 Space Environment Report counts about 1.2 million objects of 1-10 cm, nearly all untracked, against more than 40,000 catalogued objects. LeoLabs' sub-10 cm RANGER radar is in development. Space Fence (operational 2020, general) has not visibly grown the public catalog several-fold. Star trackers on constellations see roughly 10 cm and larger at useful ranges (general estimate). LeoLabs said in Oct 2019 that its Kiwi Space Radar was designed to track about 250,000 additional objects down to 2 cm (LeoLabs press release), and by late 2025 it ran 11 radars at seven sites (Wikipedia). Seven years on, no 2 cm catalog exists. The gate is revisit, sensitivity at slant range and sharing; single-site detection already exists.",
+   "catalog_families": [],
+   "prerequisites": [
+    "astro-small-debris-catalog"
+   ],
+   "accelerated_by": [
+    "astro-multitarget-track-fusion-certified",
+    "astro-constellation-hosted-ssa",
+    "astro-35-hosted-cm-debris-sensing"
+   ],
+   "binding_gate": "data",
+   "pathway": "P1 (association and orbit determination at 10^5-10^6 scale); sensor build-out and data sharing are not AI-math-driven",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2035",
+    "S3": "2034",
+    "S4": "2034"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "premise_tier": "n/a",
+   "why": "This is the second step on the sensor gate that limits LEO safety. Detection down to 2 cm exists at single sites. Custody needs enough 2 cm-capable sites for daily revisit and enough sensitivity at slant range. Below about 3 cm, S-band radar returns fall roughly with the sixth power of object size (Rayleigh scattering, general), so each step down in size costs much more power-aperture. AI applied math supplies the cognitive share: associating faint, sparse tracks and fitting orbits with honest covariances for tens of thousands of objects. Chain (S3): 5 cm catalog 2030 -> money for more 2 cm-capable sites through a commercial raise or a defense contract 2030-31 -> sites built in about 1-2 years each, 2031-33 -> association and covariance validation 2033 -> screening use 2034. S2 is a year later. Government radars take longer (Space Fence took about six years from contract to operation, and its second site was never built, general), so the commercial route sets the earliest year. S1 starts from its 2032 catalog and lands after 2035. Sensors compress about 1.0-1.3x and data sharing 1.0x, so S3 stays Low by 2035.",
+   "strongest_case_small": "Radar power-aperture, money and willingness to share bind, and mathematics moves none of them. Operators can cut exposure to small debris by flying lower, where it decays within a few years, without tracking it at all.",
+   "signpost": "A radar demonstrating custody of 2-3 cm objects in LEO (for example LeoLabs RANGER at full capability); a catalog with screening-grade covariances covering most 2-10 cm objects that cross 450-600 km.",
+   "note_2035": "Inside the horizon only in S2-S4, and only at the end of the window. Hosted cameras on constellations are a second route (astro-35-hosted-cm-debris-sensing). S4 adds nothing: radar arrays are factory electronics with months of site work, and capital and data sharing bind.",
+   "needs_2035_review": false,
+   "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon. | E-safe-orbits resolver (2026-10-07): years and bands kept. The skeptic's later dates rest on government radar precedent, and the commercial route with existing 2 cm detection is faster. The advocate's earlier dates ignore that no 2 cm catalog appeared in the seven years after Kiwi. Population cut to roughly 50,000-100,000 (both reviewers). Status adds Kiwi and the LeoLabs network; chain rewritten. Soft edge from robo-construction-trades dropped (both reviewers)."
+  },
+  {
+   "id": "astro-35-adr-recurring-service",
+   "title": "Debris removal becomes a recurring paid service",
+   "tier": 7,
+   "kind": "outcome",
+   "domain": "astro",
+   "description": "At least three defunct satellites or spent stages are removed in one calendar year, at least one of them paid under a commercial contract or a regulatory obligation. The servicers are built in series. Technology demonstrations do not count toward the three.",
+   "status_oct2026": "No recurring removal service exists. Starfish Space holds a $52.5M Space Force contract, awarded through the Space Development Agency in Jan 2026, for an end-of-life disposal mission for Proliferated Warfighter Space Architecture satellites, launch targeted 2027, with options for more (Wikipedia). It raised more than $100M in Apr 2026 to scale Otter production and has more than $90M of government backlog (SpaceNews via 33FG). Airbus ordered more than 100 Astroscale docking plates in Mar 2025 (Wikipedia). ADRAS-J2 is planned for 2027, ClearSpace-1 for 2028 on Vega-C, and ELSA-M for Eutelsat, ESA and UKSA no earlier than 2028 (Wikipedia).",
+   "catalog_families": [],
+   "prerequisites": [
+    "astro-adr-large-object-removed"
+   ],
+   "accelerated_by": [
+    "astro-noncooperative-capture-envelopes",
+    "verif-rpo-assured-autonomy",
+    "astro-capacity-licensing"
+   ],
+   "binding_gate": "capital",
+   "pathway": "P7 (exogenous; AI math enters through safety-case and autonomy tools)",
+   "earliest_year": {
+    "S1": "2030",
+    "S2": "2030",
+    "S3": "2030",
+    "S4": "2030"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "band_2035": {
+    "S1": "Medium",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "premise_tier": "n/a (exogenous anchor)",
+   "why": "The first removal (2028 in every scenario) shows capture works. A recurring service also needs servicers built in series and a payer, and both exist in early form: Starfish builds Otters as a product line, and the Space Development Agency pays to dispose of its own satellites. Chain: paid SDA disposal and ADRAS-J2 2027-28 -> SDA options and other contracts exercised 2028 -> servicers from series production fly 2029-30 -> three removals in one year about 2030 at the earliest. Removal missions slip (ClearSpace-1 by two years so far), so the bands carry that risk. AI math trims each mission's test campaign and safety review through certified capture envelopes and assured autonomy. It creates no demand. Demand comes from owners removing their own failed satellites, disposal rules, liability or a capacity regime. Years and bands are the same in every scenario because payers and first flights set the pace.",
+   "strongest_case_small": "Removal may stay a few contracts a year from a handful of government payers, because no rule obliges commercial operators to pay. Below about 600 km, drag clears failed satellites within years, and Cycle 26 drag peaks in the mid-2030s, so paid removal there has little case. Demand sits at 1,000-1,200 km (SDA, OneWeb), where failed satellites stay up for centuries (general).",
+   "signpost": "The Starfish SDA disposal flown and an option exercised; ELSA-M results; a constellation operator or insurer paying to remove its own failed satellite; a government contract for several removals with one servicer design.",
+   "note_2035": "Paid disposal exists from 2026 and servicers are built as a product line, so three removals in one year by 2035 is about even odds in every scenario. Slips of two years or more are common, which holds it at Medium. S4 adds nothing because payers and first flights set the date before robots reach servicer makers.",
+   "needs_2035_review": false,
+   "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon. | E-safe-orbits resolver (2026-10-07): earliest year 2033 -> 2030 in every scenario and band_2031 Speculative -> Low (advocate): a payer (the SDA disposal contract, Jan 2026) and series production (Starfish Series B, Apr 2026) already exist. band_2035 kept at Medium: the skeptic's 2034 and Low rest on 'no payer', which the SDA contract refutes, and the advocate's High ignores two-year slips. Robot soft edges moved to astro-35-adr-at-scale."
+  },
+  {
+   "id": "astro-35-cross-bloc-coordination",
+   "title": "Chinese and Western constellations coordinate maneuvers automatically",
+   "tier": 7,
+   "kind": "outcome",
+   "domain": "astro",
+   "description": "At least one Western megaconstellation (for example Starlink) and at least one Chinese megaconstellation (Guowang or Qianfan) exchange ephemerides and maneuver intent machine to machine under an agreed protocol, and resolve close approaches without ad hoc human contact.",
+   "status_oct2026": "No US-China ephemeris or maneuver-intent exchange exists. On Dec 9, 2025 a payload from a Chinese Kinetica-1 launch passed close to Starlink-6079 (reported about 200 m, unverified) with no coordination. Guowang and Qianfan are each planned above 10,000 satellites, and China filed for about 200,000 satellites at the ITU in Dec 2025.",
+   "catalog_families": [],
+   "prerequisites": [
+    "astro-autonomous-ca-at-scale"
+   ],
+   "accelerated_by": [
+    "astro-constellation-hosted-ssa",
+    "astro-catalog-scale-screening"
+   ],
+   "binding_gate": "regulatory",
+   "pathway": "P2 (verified protocol); the agreement itself is political",
+   "earliest_year": {
+    "S1": "2035",
+    "S2": "2033",
+    "S3": "2033",
+    "S4": "2033"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "premise_tier": "n/a",
+   "why": "Chinese megaconstellations are the largest group of satellites outside Western coordination. Verified protocols (astro-coordination-protocols) and Western machine-to-machine coordination (astro-autonomous-ca-at-scale) make the technical bridge cheap. The gate is a government decision on both sides. Chain (S2): Western protocol operational 2031 -> technical talks and a pilot exchange 2032 -> agreed machine-readable exchange 2033 at the earliest. Politics runs at 1.0x in every scenario, so S3 and S4 match S2. S1 trails its 2033 Western rollout.",
+   "strongest_case_small": "US-China relations, export rules and military sensitivities may block any exchange whatever the math shows. Conjunction warnings already reach Chinese operators through existing channels (general), and both sides may judge that enough. The Wolf Amendment in each appropriations act bars NASA and OSTP from bilateral work with China, so a government route runs through Commerce or DoD. The FY2027 request cuts the Office of Space Commerce, which runs TraCSS, from $52.5M to $11M.",
+   "signpost": "A published agreement between SpaceX and a Chinese operator, or between the US and Chinese governments, on ephemeris and maneuver-intent exchange; Chinese operators joining TraCSS or another shared screening service.",
+   "note_2035": "A new 2035-horizon node. S4 adds nothing because a political agreement sets the date.",
+   "needs_2035_review": false,
+   "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon. | E-safe-orbits resolver (2026-10-07): Wolf Amendment and TraCSS budget cut added to strongest_case_small (skeptic). Years and bands kept."
+  },
+  {
+   "id": "astro-35-l5-storm-arrival-forecast",
+   "title": "Storm arrival forecasts within about 6 hours using Vigil's side views",
+   "tier": 6,
+   "kind": "mission",
+   "domain": "plasma",
+   "description": "The best routinely run CME arrival-time forecast reaches a mean absolute error of 6 h or less over at least 40 impacting CMEs, using real-time side-view coronagraph and heliospheric-imager data from ESA's Vigil, with calibrated probability windows.",
+   "status_oct2026": "The best routinely run ensemble (Ensemble WSA-Enlil+Cone) has a mean absolute error of 10.3 h, and all CCMC scoreboard submissions together 13.2 h (Kay et al. 2024). Vigil carries NOAA's CCOR coronagraph, a heliospheric imager and a photospheric magnetic imager; it is planned to launch in Q3 2031 on Ariane 6, start quasi-nominal operations about 30 degrees from Earth and reach L5 after a cruise of about 3 years (Wikipedia).",
+   "catalog_families": [],
+   "prerequisites": [
+    "plasma-cme-arrival-skill",
+    "plasma-side-view-monitors"
+   ],
+   "accelerated_by": [
+    "science-helio-tomography",
+    "plasma-swx-data-assimilation"
+   ],
+   "binding_gate": "data",
+   "pathway": "P1->P6",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2035",
+    "S3": "2035",
+    "S4": "2035"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "premise_tier": "n/a",
+   "why": "Side views constrain CME speed and direction, which with the background solar wind dominate arrival error (Kay et al. 2024). With Vigil data from about 2033, assimilative ensembles built on the 8 h systems can run in real time. Validation runs on an event-count clock: with an error standard deviation near 15-17 h, about 40 impacting CMEs are needed, roughly two years as Cycle 26 rises. Chain (S2-S4): Vigil quasi-nominal data 2033 -> real-time ensembles with side-view imaging 2033 -> 40 events by 2035. The 6 h target is a judgment (illustrative). S1 reaches the 8 h step only in 2033 and lands after 2035. Events count from Vigil's quasi-nominal start at 30 degrees, about early 2033. Vigil flies as a secondary passenger on an Ariane 6 dual launch (Wikipedia), and a launch slip of about a year moves the node beyond 2035. S3 cannot beat the event count: at about 20-25 impacting CMEs a year early in the rise, 40 events arrive about early 2035, and S2 has cheap cognition by 2033 as well.",
+   "strongest_case_small": "Earlier side views from STEREO barely moved the error, and background solar-wind modeling may limit skill more than viewing angle. A one-year Vigil slip pushes the test beyond 2035.",
+   "signpost": "Vigil launch on schedule (Q3 2031) and its first real-time heliospheric-imager products; a scoreboard model posting a mean absolute error below 7 h over 40 impacting CMEs.",
+   "note_2035": "A new 2035-horizon node that lands only at the end of the window, in S2-S4. S4 adds nothing because launch and event-count clocks bind.",
+   "needs_2035_review": false,
+   "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon. | E-safe-orbits resolver (2026-10-07): retitled to Vigil's side views and slip sentence added (skeptic). Advocate's S3/S4 2034 rejected: the event count binds, and the same argument would move S2."
+  },
+  {
+   "id": "astro-35-lunar-nav-certified-service",
+   "title": "Lunar navigation service with proven integrity in routine use",
+   "tier": 6,
+   "kind": "mission",
+   "domain": "astro",
+   "description": "A lunar navigation service (ESA Moonlight, a LunaNet provider or a commercial relay) broadcasts with integrity monitoring whose protection levels carry machine-checked bounds, and at least three missions, including surface-base operations, use it as a primary navigation source.",
+   "status_oct2026": "ESA Moonlight plans initial navigation services at end-2028, interoperability tests in 2029 and full operations in 2030; the Lunar Pathfinder relay is planned to begin operations in 2026 (ESA, Oct 2024). LuGRE obtained a GNSS fix on the lunar surface on Mar 3, 2025. NASA paused Gateway in its current form in Mar 2026 and redirected resources to a lunar surface base (NASA via 33FG). No lunar navigation service publishes integrity bounds yet.",
+   "catalog_families": [],
+   "prerequisites": [
+    "astro-autonomous-nav-demo",
+    "auton-moon-base-infrastructure"
+   ],
+   "accelerated_by": [
+    "astro-pnt-integrity-overbounding",
+    "astro-stability-atlas"
+   ],
+   "binding_gate": "launch",
+   "pathway": "P2->P7",
+   "earliest_year": {
+    "S1": "2034",
+    "S2": "2032",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Low",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "premise_tier": "n/a",
+   "why": "Surface-base operations need navigation integrity like aviation GNSS has. Moonlight reaches full operations about 2030, and certified filters (2028 in S2) plus a flown monitor (2029) make an integrity-bounded service a software step. Chain (S2): flight demo 2029 -> integrity monitor in a provider's ground and user segments 2030-31 -> three missions using it as a primary source, one at the surface base, 2032. S3 cannot beat the lunar manifest, so it matches S2. S1 follows its 2031 demo by three years. Moonlight full operations in 2030 is an ESA plan; a slip moves this node year for year. The 2035 band is the joint odds of three things: the surface base (a hard prerequisite), Moonlight on schedule, and a provider adopting machine-checked bounds.",
+   "strongest_case_small": "Accuracy is set by signals, clocks and geometry. Providers can publish integrity from conventional overbounding without machine-checked proofs, and missions may keep their own optical navigation as the primary source.",
+   "signpost": "Moonlight or LunaNet service documents specifying formally verified protection levels; a lunar lander or surface-base operation naming the service as its primary navigation source.",
+   "note_2035": "By 2035 the node rides on the surface base: Medium in S3 and S4, where the base is likely, and Low in S2 and S1, where it is less so. Uncrewed users need no certifier, so the regulatory cap does not set the band. S4 adds users. Launches set the date, so it adds no years.",
+   "needs_2035_review": false,
+   "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon. | E-safe-orbits resolver (2026-10-07): hard edge from auton-moon-base-infrastructure (skeptic): the definition requires surface-base operations; it moves no year. band_2031 S2-S4 Low -> Speculative (skeptic; the year is 2032). band_2035 S2 Medium -> Low (resolver: the node's odds follow the base, which is less likely in S2). Advocate's High by 2035 and robo-lunar-construction soft edge rejected."
+  },
+  {
+   "id": "astro-35-adr-at-scale",
+   "title": "Ten or more dead satellites removed in one year",
+   "tier": 7,
+   "kind": "outcome",
+   "domain": "astro",
+   "description": "Servicers remove at least 10 defunct satellites or spent stages from orbit in one calendar year, under paid contracts or regulatory obligations. Technology demonstrations do not count.",
+   "status_oct2026": "No servicer has yet removed a satellite. Starfish Space raised more than $100M in Apr 2026 to scale Otter production and has more than $90M of government backlog (SpaceNews via 33FG). Airbus ordered more than 100 Astroscale docking plates in Mar 2025 (Wikipedia), so future clients can be prepared for capture.",
+   "catalog_families": [],
+   "prerequisites": [
+    "astro-35-adr-recurring-service"
+   ],
+   "accelerated_by": [
+    "verif-rpo-assured-autonomy",
+    "astro-noncooperative-capture-envelopes",
+    "physclock-cheap-mass-customer",
+    "robo-aerospace-tolerance-work",
+    "robo-in-space-assembly"
+   ],
+   "binding_gate": "capital",
+   "pathway": "P7 (exogenous; AI math enters through safety-case and autonomy tools)",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2035",
+    "S3": "2034",
+    "S4": "2034"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "premise_tier": "n/a (exogenous anchor)",
+   "why": "Removal at this rate is what would start to bend the debris curve at 1,000-1,200 km. Failed satellites there (SDA, OneWeb, later Guowang) stay up for centuries, so owners must pay to clear them. Chain (S2): three removals in one year 2030 -> owners and regulators turn single contracts into fleet disposal programs 2031-32 -> multi-client servicers built in series 2032-34 -> ten removals in one year about 2035. S3 is a year earlier because its servicer design, test and safety-case cycles run faster. The count is set by payers and their budgets. Cheaper servicers buy a few more removals at the margin.",
+   "strongest_case_small": "Payers may stay a few governments with small budgets. Many of the most dangerous derelicts are Soviet and Russian upper stages near 800-1,000 km, and removing them needs Russian consent (general). Operators may meet disposal rules through better reliability and their own deorbit systems, which leaves few clients.",
+   "signpost": "A fleet disposal program (for example SDA options covering a whole tranche, or Eutelsat paying to clear failed OneWeb satellites); a servicer that removes more than one client per mission; insurers pricing removal into constellation cover.",
+   "note_2035": "S4 equals S3. Labor is about 20% of servicer build (S4 space research), and build is only part of a removal's cost with launch, operations and insurance, so robot-built servicers cut cost per removal by well under 10% (illustrative). Servicer makers are small firms that get robots after 2031 and must requalify each process (6-24 months). Capture arms are specialized machines already counted in S2 and S3. Payers set the count.",
+   "needs_2035_review": false,
+   "revision_note": "E-safe-orbits resolver (2026-10-07): new node from the acceleration advocate. Its S4 credit (S4 2033, Medium by 2035) is rejected: the four-condition rule fails on condition 1, because payers set the count and labor is a small share of cost per removal. S4 = S3."
+  },
+  {
+   "id": "astro-35-hosted-cm-debris-sensing",
+   "title": "Constellation cameras detect debris down to about 2 cm",
+   "tier": 6,
+   "kind": "mission",
+   "domain": "astro",
+   "description": "Dedicated small cameras hosted on at least one megaconstellation detect debris down to about 2 cm at ranges up to a few tens of km, and the detections feed a shared screening catalog. Star trackers flown for attitude control do not count.",
+   "status_oct2026": "SpaceX Stargaze (Jan 2026) uses about 30,000 star trackers to track the trackable population with minutes of latency, but star trackers see roughly 10 cm and larger at useful ranges (general estimate). No operator has announced a dedicated debris camera payload.",
+   "catalog_families": [],
+   "prerequisites": [
+    "astro-constellation-hosted-ssa"
+   ],
+   "accelerated_by": [
+    "astro-multitarget-track-fusion-certified",
+    "physclock-satellite-gen-cadence"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P1 (too-short-arc orbit determination and association at millions of detections a day)",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2033",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "premise_tier": "n/a",
+   "why": "Short range removes the radar's power-aperture problem. A 10 cm object is about magnitude 7-8 at 100 km (astro-constellation-hosted-ssa). A 2 cm object has 1/25 the area, so it is about magnitude 8-9 at 25 km (illustrative), within reach of a 5-10 cm camera with fast readout. The hard part is mathematics. Each detection is a streak lasting a fraction of a second at degrees per second, so orbits come from associating millions of too-short arcs a day across thousands of hosts. That work is near-free in S3 from 2029. Chain (S3): hosted tracking with honest error bars 2028 -> camera added to a satellite generation 2030-31 (generations refresh about yearly) -> association pipeline validated and feeding a catalog 2032. S2 is a year later. S1 trails on the association work and lands after 2035.",
+   "strongest_case_small": "Targets must be sunlit against a dark background, and relative speeds up to about 15 km/s smear the signal, which cuts the duty cycle. No operator has announced such a payload, and an operator flying at 480 km, where cm-class debris decays within a few years, may see little reason to fly one.",
+   "signpost": "A megaconstellation operator announcing a dedicated debris camera payload; published detections of sub-5 cm objects from a hosted camera; a shared catalog citing hosted-camera tracks.",
+   "note_2035": "The bands stay Low because no operator has announced such a payload and streak detection at these rates is unproven in orbit. S4 adds nothing because host satellites come from specialized constellation lines already counted in S2 and S3.",
+   "needs_2035_review": false,
+   "revision_note": "E-safe-orbits resolver (2026-10-07): new node from the acceleration advocate, a non-radar route to cm-class custody. Years kept (S2 2033, S3 2032). band_2035 S3 and S4 cut from Medium to Low: no announced payload, and the physics is unproven in orbit."
+  }
+ ],
+ "add_edges": [
+  {
+   "from": "astro-small-debris-catalog",
+   "to": "astro-35-cm-debris-custody"
+  },
+  {
+   "from": "astro-adr-large-object-removed",
+   "to": "astro-35-adr-recurring-service"
+  },
+  {
+   "from": "astro-autonomous-ca-at-scale",
+   "to": "astro-35-cross-bloc-coordination"
+  },
+  {
+   "from": "plasma-cme-arrival-skill",
+   "to": "astro-35-l5-storm-arrival-forecast"
+  },
+  {
+   "from": "plasma-side-view-monitors",
+   "to": "astro-35-l5-storm-arrival-forecast"
+  },
+  {
+   "from": "astro-autonomous-nav-demo",
+   "to": "astro-35-lunar-nav-certified-service"
+  },
+  {
+   "from": "auton-moon-base-infrastructure",
+   "to": "astro-35-lunar-nav-certified-service"
+  },
+  {
+   "from": "astro-35-adr-recurring-service",
+   "to": "astro-35-adr-at-scale"
+  },
+  {
+   "from": "astro-constellation-hosted-ssa",
+   "to": "astro-35-hosted-cm-debris-sensing"
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "astro-35-cm-debris-custody",
+   "to": "astro-leo-safety-at-scale"
+  },
+  {
+   "from": "astro-35-adr-recurring-service",
+   "to": "astro-leo-safety-at-scale"
+  },
+  {
+   "from": "astro-35-cross-bloc-coordination",
+   "to": "astro-leo-safety-at-scale"
+  },
+  {
+   "from": "astro-35-adr-at-scale",
+   "to": "astro-leo-safety-at-scale"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "safe-orbits",
+   "nodes": [
+    "astro-35-cm-debris-custody",
+    "astro-35-adr-recurring-service",
+    "astro-35-cross-bloc-coordination",
+    "astro-35-l5-storm-arrival-forecast",
+    "astro-35-lunar-nav-certified-service",
+    "astro-35-adr-at-scale",
+    "astro-35-hosted-cm-debris-sensing"
+   ],
+   "spine": [
+    "astro-35-cross-bloc-coordination",
+    "astro-35-cm-debris-custody"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "safe-orbits",
+   "patch": {
+    "thesis": "AI makes orbit, collision and space-weather forecasts honest. Certified million-object screening exists and AI-designed trajectories fly by 2029 (base case), and paid debris removal can recur from about 2030. Through 2035, safe low orbit waits on small-debris sensors, standards and US-China politics. Storm forecasts reach 8 hours first, then need Vigil. S4 adds nothing because no gate here is labor-bound, removal at scale included.",
+    "revision_note": "B-safe-orbits: Thesis merges the advocate's two-curves framing (Stargaze) with the skeptic's increment point (HASDM, Stargaze shrink the AI-math share); trajectory flight year 2028 -> 2029 and screening dated 2029 (skeptic). Reader hook: auditor's corrections (about 330x, rounded to 'about 300 times'; 13.2 h is the all-submission average, best ensemble 10.3 h). Spine: astro-small-debris-catalog inserted before LEO safety as its binding gate. | C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Trunk nodes ['cap-research-math-public', 'cap-applied-math'] are shown as the chain's entry anchors (also listed in roots); they stay members of the trunk branch only. No spine nodes dropped. | E-safe-orbits (2026-10-07): horizon 2035 and S4 review. Thesis rewritten for 2026-2035 and S4; reader hook kept. Spine extended by astro-35-cross-bloc-coordination (hard edge from astro-autonomous-ca-at-scale) and astro-35-cm-debris-custody (hard edge from astro-small-debris-catalog). | E-safe-orbits resolver (2026-10-07): thesis: storm forecasts reach 8 h before Vigil (skeptic); paid removal about 2030 (advocate). The advocate's 'robots matter for removal at scale' is rejected, so 'S4 adds nothing' stays. Two nodes added: astro-35-adr-at-scale and astro-35-hosted-cm-debris-sensing."
+   }
+  }
+ ],
+ "notes": "E-safe-orbits: all 31 branch nodes reviewed for 2035 and S4; every legacy '>2031' resolved (19 scenario-years). S4 equals S3 in every node, by year and by band, because the branch's gates are cognitive, data, adoption, formalization, regulatory, capital and launch gates; the S4 analysis puts every one of its tier 5-7 nodes in no_move, and none passes the four-condition rule after 2032. band_2035 rises where four more years remove timing doubt (S1 cognition reaches the S2 2029-30 level by 2035) and stays put where nature, sensors, classification or politics bind (eruption onset, Bz, missile-tracking attribution). Vigil (launch Q3 2031, quasi-nominal operations about 2033, L5 about 2034) resolves the side-view monitor to 2033 in every scenario. Five new nodes extend chains into 2032-35: cm-class debris custody and cross-bloc maneuver coordination (spine), a recurring paid removal service, L5-based storm arrival forecasts and a lunar navigation service with proven integrity. All new ids use the astro-35- prefix; the storm forecast node keeps domain 'plasma'. Robot soft edges (in-space assembly and aerospace tolerance work to the removal service, construction trades to cm-class custody) are accelerators only and earn no S4 credit. | RESOLVER (2026-10-07): of 26 reviewer findings, accepted 20 in full or in part and rejected 6. Removal moves earlier: the first removal is High by 2031 and three paid removals a year can happen from 2030, because the SDA disposal contract (Jan 2026) and Starfish series production exist. Event-count clocks now apply evenly (Bz S2 2034, S3/S4 2033; CME arrival S1 2034). 2035 bands come down where payers, launch growth or drag bind (LEO safety S2, VLEO S2, capacity licensing S1, lunar navigation S2). Two advocate nodes added without S4 credit (ten removals a year; hosted cm-class debris cameras). S4 = S3 in every node of the branch. Robot soft edges that were anachronistic were removed or moved to the at-scale removal node."
+}

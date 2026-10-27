@@ -1,0 +1,4009 @@
+{
+ "title": "S4 Embodied scenario for the Space Unlock Tree",
+ "as_of": "2026-10-07",
+ "status": "final (resolved after skeptic and advocate review)",
+ "definition": "S4 Embodied = S3 Recursive cognition (cognitive work 20-50x faster from ~2029) plus general-purpose robots (humanoids and mobile manipulators run by foundation models) deployed at scale in factories, labs, test facilities, construction and off Earth, including robots helping build robots. ASSUMPTION (not inference): S3 cognition makes dexterity mainly a software problem by ~2028; field reliability still accrues on the physical clock, so usefulness is dated by hardware generation (structured multi-task ~2029; aerospace tolerances 2030-31 at leading firms).",
+ "what_S3_already_assumes": "AI-run test stands and factories, physical multipliers ~1.3-1.5x; the model's S3 production-ramp factor 0.7-0.8x already cites 'AI-run factories, robotics' (model.md section 3). Specialized automation (Starfactory tile and pin robots, Rosie, AFP, autonomous-lab workcells) is S2/S3 baseline.",
+ "what_S4_adds": "Only what general-purpose robots add beyond that specialized automation: labor that runs 24/7 and in parallel. Labor-bound steps compress; throughput-bound gates (capacity, replicates, facility queues, crews) become capital-bound. Physics time constants, statistics, launch windows, biology's clocks and institutions are held at S3 values for the same year in every S4 case.",
+ "inputs": [
+  "model/embodied/research-capability.json",
+  "model/embodied/research-ramp.json",
+  "model/embodied/research-space.json",
+  "model/embodied/research-infrastructure.json",
+  "model/embodied/research-biology.json",
+  "model/embodied/research-theory.json",
+  "model/graph-v5.json",
+  "model/Space Unlock Tree - model.md",
+  "scratchpad/s4_model_v2.py (resolved model)",
+  "skeptic review (recheck.py)",
+  "advocate review (adv_amdahl.py, adv_fleet.py)"
+ ],
+ "fleet_trajectory": {
+  "definition": "Active general-purpose robots (humanoids plus mobile manipulators), end of year, M units; 5-year service life after 2026 (2 years for earlier vintages). Rebased on 2026 sequential data: AgiBot linear at ~5k/quarter (10k Mar 30, 20k Sep 24 2026); UBTech 921 full-size in H1 2026 vs 1,079 in 2025; H1 2026 global 19-25k. The 4-5 month 'doubling' is a YoY artifact of back-loaded 2025 output. Crossing years are calendar year + fraction elapsed.",
+  "multipliers": {
+   "slow": [
+    1.8,
+    1.7,
+    1.6,
+    1.5,
+    1.4,
+    1.3,
+    1.3,
+    1.3,
+    1.3
+   ],
+   "base": [
+    2.3,
+    2.3,
+    2.4,
+    2.2,
+    2.0,
+    1.8,
+    1.7,
+    1.6,
+    1.6
+   ],
+   "fast": [
+    3.0,
+    2.8,
+    2.5,
+    2.2,
+    2.0,
+    1.9,
+    1.8,
+    1.7,
+    1.6
+   ],
+   "years": "2027-2035"
+  },
+  "weights_within_S4": {
+   "slow": "25%",
+   "base": "55%",
+   "fast": "20%"
+  },
+  "weights_unconditional": {
+   "slow": "~50%",
+   "base": "~35%",
+   "fast": "~15%"
+  },
+  "paths": {
+   "slow": {
+    "shipments_M": {
+     "2026": 0.05,
+     "2027": 0.09,
+     "2028": 0.153,
+     "2029": 0.245,
+     "2030": 0.367,
+     "2031": 0.514,
+     "2032": 0.668,
+     "2033": 0.869,
+     "2034": 1.129,
+     "2035": 1.468
+    },
+    "active_fleet_M": {
+     "2026": 0.07,
+     "2027": 0.14,
+     "2028": 0.24,
+     "2029": 0.49,
+     "2030": 0.86,
+     "2031": 1.37,
+     "2032": 1.95,
+     "2033": 2.66,
+     "2034": 3.55,
+     "2035": 4.65
+    },
+    "shipment_doubling_months_2026_2031": 17.8,
+    "shipment_doubling_months_2031_2035": 31.7,
+    "fleet_crosses_calendar_year": {
+     "1M": 2031.3,
+     "10M": ">2035",
+     "100M": ">2035"
+    }
+   },
+   "base": {
+    "shipments_M": {
+     "2026": 0.06,
+     "2027": 0.138,
+     "2028": 0.317,
+     "2029": 0.762,
+     "2030": 1.676,
+     "2031": 3.352,
+     "2032": 6.033,
+     "2033": 10.256,
+     "2034": 16.41,
+     "2035": 26.256
+    },
+    "active_fleet_M": {
+     "2026": 0.07,
+     "2027": 0.2,
+     "2028": 0.46,
+     "2029": 1.22,
+     "2030": 2.89,
+     "2031": 6.24,
+     "2032": 12.14,
+     "2033": 22.08,
+     "2034": 37.73,
+     "2035": 62.31
+    },
+    "shipment_doubling_months_2026_2031": 10.3,
+    "shipment_doubling_months_2031_2035": 16.2,
+    "fleet_crosses_calendar_year": {
+     "1M": 2029.8,
+     "10M": 2032.7,
+     "100M": ">2035"
+    }
+   },
+   "fast": {
+    "shipments_M": {
+     "2026": 0.08,
+     "2027": 0.24,
+     "2028": 0.672,
+     "2029": 1.68,
+     "2030": 3.696,
+     "2031": 7.392,
+     "2032": 14.045,
+     "2033": 25.281,
+     "2034": 42.977,
+     "2035": 68.763
+    },
+    "active_fleet_M": {
+     "2026": 0.1,
+     "2027": 0.32,
+     "2028": 0.91,
+     "2029": 2.59,
+     "2030": 6.29,
+     "2031": 13.68,
+     "2032": 27.48,
+     "2033": 52.09,
+     "2034": 93.39,
+     "2035": 158.46
+    },
+    "shipment_doubling_months_2026_2031": 9.2,
+    "shipment_doubling_months_2031_2035": 14.9,
+    "fleet_crosses_calendar_year": {
+     "1M": 2029.1,
+     "10M": 2031.6,
+     "100M": 2035.1
+    }
+   }
+  },
+  "path_labels": {
+   "slow": "Robots stay narrow and half-productive; bank consensus with typical slip",
+   "base": "2026 = 60k; 2.3x/yr 2027-28 before broad usefulness (actuator-capacity-consistent); 2.4x, 2.2x, 2.0x as usefulness lands; 1.8x then 1.6x after 2031 with loop credit in the robot supply chain from ~2032",
+   "fast": "2026 = 80k; working loop and wartime-style capital; post-2031 no slower than base (fixes draft inconsistency); capital passes $1T/yr ~2035"
+  },
+  "sensitivities": {
+   "base_loop_held_2x_after_2031": {
+    "shipments_M": {
+     "2026": 0.06,
+     "2027": 0.138,
+     "2028": 0.317,
+     "2029": 0.762,
+     "2030": 1.676,
+     "2031": 3.352,
+     "2032": 6.703,
+     "2033": 13.407,
+     "2034": 26.814,
+     "2035": 53.628
+    },
+    "active_fleet_M": {
+     "2026": 0.07,
+     "2027": 0.2,
+     "2028": 0.46,
+     "2029": 1.22,
+     "2030": 2.89,
+     "2031": 6.24,
+     "2032": 12.81,
+     "2033": 25.9,
+     "2034": 51.95,
+     "2035": 103.9
+    },
+    "shipment_doubling_months_2026_2031": 10.3,
+    "shipment_doubling_months_2031_2035": 12.0,
+    "fleet_crosses_calendar_year": {
+     "1M": 2029.8,
+     "10M": 2032.7,
+     "100M": 2035.9
+    }
+   },
+   "base_saturating_1.3x_after_2031": {
+    "shipments_M": {
+     "2026": 0.06,
+     "2027": 0.138,
+     "2028": 0.317,
+     "2029": 0.762,
+     "2030": 1.676,
+     "2031": 3.352,
+     "2032": 4.357,
+     "2033": 5.664,
+     "2034": 7.364,
+     "2035": 9.573
+    },
+    "active_fleet_M": {
+     "2026": 0.07,
+     "2027": 0.2,
+     "2028": 0.46,
+     "2029": 1.22,
+     "2030": 2.89,
+     "2031": 6.24,
+     "2032": 10.46,
+     "2033": 15.81,
+     "2034": 22.41,
+     "2035": 30.31
+    },
+    "shipment_doubling_months_2026_2031": 10.3,
+    "shipment_doubling_months_2031_2035": 31.7,
+    "fleet_crosses_calendar_year": {
+     "1M": 2029.8,
+     "10M": 2032.9,
+     "100M": ">2035"
+    }
+   },
+   "early_onset_2027_(draft_base)": {
+    "shipments_M": {
+     "2026": 0.07,
+     "2027": 0.21,
+     "2028": 0.546,
+     "2029": 1.256,
+     "2030": 2.512,
+     "2031": 4.521,
+     "2032": 7.233,
+     "2033": 11.573,
+     "2034": 18.518,
+     "2035": 29.628
+    },
+    "active_fleet_M": {
+     "2026": 0.09,
+     "2027": 0.28,
+     "2028": 0.76,
+     "2029": 2.01,
+     "2030": 4.52,
+     "2031": 9.04,
+     "2032": 16.07,
+     "2033": 27.1,
+     "2034": 44.36,
+     "2035": 71.47
+    },
+    "shipment_doubling_months_2026_2031": 10.0,
+    "shipment_doubling_months_2031_2035": 17.7,
+    "fleet_crosses_calendar_year": {
+     "1M": 2029.3,
+     "10M": 2032.2,
+     "100M": ">2035"
+    }
+   }
+  },
+  "cross_checks": "Base 2031 shipments 3.35M vs infrastructure research's Epoch-anchored central 3.5M/yr; capability research central fleet 2-6M; theory 3.2M; Epoch: 1.5-3M/yr by end-2030 'clearly achievable' after a demand shock, 5-10M 'plausible'. Bank 2030 forecasts 0.45-1.2M sit between slow (0.37M) and base (1.68M). Goldman 6.5M shipments in 2035 is ~1/4 of base (26M); base 2035 output ~1/4 of world light-vehicle output by count, ~1% by mass (general). Base 2026-31 (10-month doubling) equals US aircraft 1940-44 under total mobilization, which then went flat; S4's named demand mechanism is a $20-30k robot worth ~1.5 workers with <1 yr US payback.",
+  "draft_values_superseded": "Draft base: 2026 70k, 2027 3.0x, 2028 2.6x; fleet 9.0M (2031) and 71M (2035). Now the early-onset sensitivity."
+ },
+ "deployment_onset": [
+  {
+   "environment": "Structured factory and warehouse, single task",
+   "useful_at_scale": "Now (2025-26), low thousands of units on paid work",
+   "base_fleet_2031": "~2.8M in manufacturing (45% of 6.2M)",
+   "base_fleet_2035": "~25M",
+   "evidence": "Digit >65,000 customer-site hours; F.02 at BMW 1,250 h (forearm top failure); Walker S2 at 30-50% of human output"
+  },
+  {
+   "environment": "Structured factory, multi-task; robot makers' own lines",
+   "useful_at_scale": "~2029 (one or two 12-30 month hardware generations after 2026)",
+   "base_fleet_2031": "included above",
+   "base_fleet_2035": "included above",
+   "evidence": "Capability-to-deployment gap ~2-4 yr; ISO 25785-1 likely ~2028; EU Machinery Regulation 2023/1230 applies from 20 Jan 2027"
+  },
+  {
+   "environment": "Labs (general bench work beyond workcells)",
+   "useful_at_scale": "2029-2031",
+   "base_fleet_2031": "~0.12M (2%)",
+   "base_fleet_2035": "~0.6M",
+   "evidence": "Specialized autonomous labs already scaling; they are S3 baseline"
+  },
+  {
+   "environment": "Aerospace production and I&T at flight tolerances",
+   "useful_at_scale": "2030-31 at leading firms (2029 for structured handling, inspection, refurbishment); suppliers after 2031",
+   "base_fleet_2031": "~0.06M (1%); space needs ~0.05-0.17M",
+   "base_fleet_2035": "~0.3M",
+   "evidence": "Specialized SpaceX automation (welders, cutters, tile and pin installers) is S2/S3 baseline; robotic-process requalification 6-24 months per process per supplier"
+  },
+  {
+   "environment": "Construction sites",
+   "useful_at_scale": "Specialized single-task now; general-purpose trade work 2031-2035",
+   "base_fleet_2031": "~0.25M global (4%)",
+   "base_fleet_2035": "~3.7M global",
+   "evidence": "Bedrock operator-free on 3 sites (Aug 2026); Komatsu 1,000 autonomous haul trucks after 18 yr"
+  },
+  {
+   "environment": "Off Earth (lunar surface, in-space servicing)",
+   "useful_at_scale": "Pilot demos 2029-31 on hardware frozen ~2027-28; outpost-scale 2032-35",
+   "base_fleet_2031": "Tens of units",
+   "base_fleet_2035": "Hundreds if 10+ cargo landings/yr",
+   "evidence": "MRV launched Jul 2026; OSAM-1 >$2B and cancelled 2024"
+  }
+ ],
+ "labor_share_pct_of_2026_workforce": {
+  "slow": {
+   "2031": {
+    "manufacturing": 0.07,
+    "construction": 0.01,
+    "lab_technicians": 0.27,
+    "aerospace_production": 0.34,
+    "US_manufacturing_at_10_15pct_fleet_share": [
+     0.2,
+     0.4
+    ]
+   },
+   "2035": {
+    "manufacturing": 0.32,
+    "construction": 0.09,
+    "lab_technicians": 0.74,
+    "aerospace_production": 0.93,
+    "US_manufacturing_at_10_15pct_fleet_share": [
+     1.1,
+     1.7
+    ]
+   }
+  },
+  "base": {
+   "2031": {
+    "manufacturing": 0.67,
+    "construction": 0.11,
+    "lab_technicians": 2.75,
+    "aerospace_production": 3.43,
+    "US_manufacturing_at_10_15pct_fleet_share": [
+     2.4,
+     3.6
+    ]
+   },
+   "2035": {
+    "manufacturing": 8.67,
+    "construction": 2.39,
+    "lab_technicians": 19.94,
+    "aerospace_production": 24.92,
+    "US_manufacturing_at_10_15pct_fleet_share": [
+     30.7,
+     46.0
+    ]
+   }
+  },
+  "fast": {
+   "2031": {
+    "manufacturing": 1.87,
+    "construction": 0.31,
+    "lab_technicians": 7.66,
+    "aerospace_production": 9.58,
+    "US_manufacturing_at_10_15pct_fleet_share": [
+     6.6,
+     9.9
+    ]
+   },
+   "2035": {
+    "manufacturing": 27.56,
+    "construction": 7.61,
+    "lab_technicians": 63.38,
+    "aerospace_production": 79.23,
+    "US_manufacturing_at_10_15pct_fleet_share": [
+     97.5,
+     146.3
+    ]
+   }
+  }
+ },
+ "labor_share_notes": "Productive human-equivalents = fleet x sector allocation x FTE per robot, where FTE per robot = (robot hours / 1,900) x productivity x productive share of fleet. Allocation 2031: manufacturing 45%, construction 4%, labs 2%, aerospace 1%; 2035: 40%, 6%, 1%, 0.5%. FTE per robot: slow 0.5/0.8, base 1.1/1.6, fast 1.4/2.0 (2031/2035), lower than the draft (0.8/1.0, 1.5/1.8, 2.0/2.4) because only productive units count. US share of fleet 10-15% (production >97% Chinese in 2026; US-China frictions), not the draft's 25%; ~13M US manufacturing workers (general). Robots reach 10% of global manufacturing labor ~2036 (base), ~2034 (fast). Values above ~50% mean the sector saturates.",
+ "class_multipliers": {
+  "columns": [
+   "Gate class",
+   "S3 by 2031",
+   "S4 by 2031 typical",
+   "S4 by 2031 robot-first",
+   "S4 by 2035 robot-first"
+  ],
+  "rows": [
+   [
+    "Cognitive (design, analysis, software, verification)",
+    "20-50x from 2029",
+    "20-50x",
+    "20-50x",
+    "50-100x"
+   ],
+   [
+    "Integration and test (incl. experiment, flight test)",
+    "1.5x",
+    "1.5x",
+    "1.75x (1.7-1.9)",
+    "2.2x (2.2-2.3)"
+   ],
+   [
+    "Fabrication and supply chain",
+    "1.3x",
+    "1.3x",
+    "1.5x in-house (1.5-1.6); suppliers after 2031",
+    "1.9x (1.9-2.0)"
+   ],
+   [
+    "Qualification (customer acceptance)",
+    "1.5x",
+    "1.5x",
+    "1.6x (1.5-1.7, incl. requalification drag)",
+    "1.95x"
+   ],
+   [
+    "Launch campaign",
+    "1.0x",
+    "1.0x",
+    "1.1x",
+    "1.4x"
+   ],
+   [
+    "Construction (pads, plants, test facilities)",
+    "1.1-1.25x",
+    "1.1-1.25x",
+    "1.2-1.35x (specialized machines)",
+    "1.4-1.8x"
+   ],
+   [
+    "Regulatory (licensing, NEPA)",
+    "1.5-2x",
+    "1.5-2x",
+    "1.5-2x",
+    "1.5-2x; institutional-mobilization overlay 2.5-3.5x in leading jurisdiction (non-robotic, applies to S3 too); backlash ~1.0x"
+   ],
+   [
+    "Launch cadence and cost",
+    "Own curve, 0.5-1 yr earlier than S2",
+    "Same",
+    "Same (+<=0.25 yr if ship turnaround <1 week)",
+    "Bounded by pads, propellant, airspace"
+   ],
+   [
+    "Politics and appropriations; orbital mechanics; biology's clocks",
+    "1.0x",
+    "1.0x",
+    "1.0x",
+    "1.0x"
+   ]
+  ],
+  "basis": "Slice speedups from s4_model_v2.py (physics and institutions at S3 same-year; labor = S3 x k; k = hours ratio x productivity x parallel-crew factor = 1.43 central (0.94-2.03) in 2031, 2.31 (1.58-3.06) in 2035)."
+ },
+ "gate_table_space": [
+  {
+   "gate": "Clean-sheet orbital launcher (start to first orbit)",
+   "typical_duration_2026": "5-13 yr",
+   "S2_2031": "0.8-0.9x",
+   "S3_2031": "0.7-0.8x",
+   "split_pct": {
+    "labor": 35,
+    "physics": 40,
+    "materials_energy_capital": 15,
+    "institution": 10
+   },
+   "robotics_mechanism": "Cheap parallel test articles; stand turnaround; robotic pad construction",
+   "cannot_compress": "Failures found only in hot fire and flight; pad and range access",
+   "basis": "research-space; Neutron NET Q4 2026 despite 90-t AFP robot",
+   "draft_S4_2031": "0.65-0.75x (programs started 2028+)",
+   "draft_S4_2035": "0.5-0.65x",
+   "S4_2031_typical": "0.70-0.80x (= S3)",
+   "S4_2031_leading_firm": "0.60-0.69x",
+   "S4_2035_typical": "0.59-0.67x",
+   "S4_2035_leading_firm": "0.45-0.51x"
+  },
+  {
+   "gate": "New engine to flight; major engine version",
+   "typical_duration_2026": "6-13 yr new; ~3 yr per version",
+   "S2_2031": "0.8-0.9x",
+   "S3_2031": "0.7-0.8x",
+   "split_pct": {
+    "labor": 35,
+    "physics": 40,
+    "materials_energy_capital": 15,
+    "institution": 10
+   },
+   "robotics_mechanism": "Parallel development engines; 24/7 machine tending; robotic stand install, purge and inspection",
+   "cannot_compress": "Turbopump and combustion failures appear only in hot fire; test-stand losses",
+   "basis": "research-space; McGregor 15 stands (SpaceX S-1/A)",
+   "draft_S4_2031": "0.65-0.75x",
+   "draft_S4_2035": "0.5-0.65x",
+   "S4_2031_typical": "0.70-0.80x (= S3)",
+   "S4_2031_leading_firm": "0.60-0.69x",
+   "S4_2035_typical": "0.59-0.67x",
+   "S4_2035_leading_firm": "0.45-0.51x"
+  },
+  {
+   "gate": "Engine and vehicle production rate (time to rate)",
+   "typical_duration_2026": "Raptor ~1/day by late 2022; Starship hulls ahead of flights (2026)",
+   "S2_2031": "0.9x",
+   "S3_2031": "0.7-0.8x",
+   "split_pct": {
+    "labor": 45,
+    "physics": 20,
+    "materials_energy_capital": 30,
+    "institution": 5
+   },
+   "robotics_mechanism": "Machine tending, welding, stacking, harnessing, TPS pin and tile install; no hiring lag; 24/7 lines",
+   "cannot_compress": "Acceptance hot fire per engine; cryogenic proof tests; buildings, cranes, special-alloy castings; process requalification",
+   "basis": "research-space, research-ramp, research-capability",
+   "draft_S4_2031": "0.5-0.7x (robot-first 0.5x)",
+   "draft_S4_2035": "0.35-0.55x",
+   "S4_2031_typical": "0.70-0.79x (= S3)",
+   "S4_2031_leading_firm": "0.58-0.66x",
+   "S4_2035_typical": "0.57-0.65x",
+   "S4_2035_leading_firm": "0.41-0.47x"
+  },
+  {
+   "gate": "Integrated flight-test interval (new heavy vehicle)",
+   "typical_duration_2026": "48-91 days (2025); 63-66 days (V3 2026)",
+   "S2_2031": "0.6-0.8x",
+   "S3_2031": "0.5-0.7x",
+   "split_pct": {
+    "labor": 35,
+    "physics": 35,
+    "materials_energy_capital": 0,
+    "institution": 30
+   },
+   "robotics_mechanism": "Faster modification of pre-built vehicles; robotic pad repair",
+   "cannot_compress": "Serial build-fly-learn loop; mishap closure",
+   "basis": "research-space",
+   "draft_S4_2031": "0.45-0.65x",
+   "draft_S4_2035": "0.35-0.55x",
+   "S4_2031_typical": "0.50-0.70x (= S3)",
+   "S4_2031_leading_firm": "0.44-0.61x",
+   "S4_2035_typical": "0.43-0.60x",
+   "S4_2035_leading_firm": "0.34-0.48x"
+  },
+  {
+   "gate": "Mishap investigation to return to flight",
+   "typical_duration_2026": "5 days to 2-4 months; ~1 yr if pad destroyed",
+   "S2_2031": "0.5-0.8x (diagnosis 3-10x)",
+   "S3_2031": "0.5-0.8x",
+   "split_pct": {
+    "labor": 35,
+    "physics": 30,
+    "materials_energy_capital": 10,
+    "institution": 25
+   },
+   "robotics_mechanism": "Rebuild of hardware and pads where labor-limited",
+   "cannot_compress": "Redesign-retest physics; FAA acceptance",
+   "basis": "research-theory; model gate table",
+   "draft_S4_2031": "0.45-0.7x",
+   "draft_S4_2035": "0.4-0.65x",
+   "S4_2031_typical": "0.50-0.80x (= S3)",
+   "S4_2031_leading_firm": "0.44-0.70x",
+   "S4_2035_typical": "0.42-0.68x",
+   "S4_2035_leading_firm": "0.33-0.53x"
+  },
+  {
+   "gate": "Reuse learning (first landing to mature fleet life)",
+   "typical_duration_2026": "15 months to first reflight; 3-5 yr to 10+ flights",
+   "S2_2031": "0.8-0.9x",
+   "S3_2031": "0.7-0.8x",
+   "split_pct": {
+    "labor": 25,
+    "physics": 65,
+    "materials_energy_capital": 0,
+    "institution": 10
+   },
+   "robotics_mechanism": "Robotic inspection and refurbishment shorten turnaround, so more cycles per year",
+   "cannot_compress": "Each life data point costs a flight",
+   "basis": "research-space",
+   "draft_S4_2031": "0.65-0.75x",
+   "draft_S4_2035": "0.55-0.7x",
+   "S4_2031_typical": "0.70-0.80x (= S3)",
+   "S4_2031_leading_firm": "0.63-0.71x",
+   "S4_2035_typical": "0.61-0.69x",
+   "S4_2035_leading_firm": "0.49-0.56x"
+  },
+  {
+   "gate": "Launch cadence (heavy reusable)",
+   "typical_duration_2026": "Starship 5 flights 2025, 3 in 2026 to Oct 7; Falcon 165 in 2025",
+   "S2_2031": "Own curve, 0-0.5 yr earlier",
+   "S3_2031": "Own curve, 0.5-1 yr earlier",
+   "split_pct": {
+    "labor": 35,
+    "physics": 40,
+    "materials_energy_capital": 0,
+    "institution": 25
+   },
+   "robotics_mechanism": "Robotic TPS inspection and tile replacement; pad refurbishment",
+   "cannot_compress": "Flight failures (1-12 months each); pad count; propellant plants; airspace and environmental caps",
+   "basis": "research-space; model cadence table",
+   "draft_S4_2031": "Milestones 1-1.5 yr earlier than S2 (100+/yr in 2028-29)",
+   "draft_S4_2035": "Bounded by pads, propellant, airspace",
+   "S4_2031_typical": "Same as S3",
+   "S4_2031_leading_firm": "Same as S3; at most +0.25 yr within band if a published ship turnaround falls under 1 week",
+   "S4_2035_leading_firm": "Bounded by pads, propellant, airspace (Starbase 25/yr, LC-39A 44, SLC-37 76)",
+   "revision": "Draft '1-1.5 yr earlier than S2' withdrawn: Mach33 attributes 12% of cost decline to production learning; Starship has met no yearly flight plan; tile and pin robots are S2/S3 baseline."
+  },
+  {
+   "gate": "Satellite platform generation",
+   "typical_duration_2026": "18-36 months commercial; 8-15 yr flagship",
+   "S2_2031": "0.6-0.8x commercial; 0.85-0.9x flagship",
+   "S3_2031": "0.5-0.7x; 0.8x",
+   "split_pct": {
+    "labor": 35,
+    "physics": 20,
+    "materials_energy_capital": 30,
+    "institution": 15
+   },
+   "robotics_mechanism": "Retooling of each new generation 0.7-0.8x on top of S3",
+   "cannot_compress": "Launch capacity (V3 needs Starship); payload qualification; rad-tolerant parts; ITU",
+   "basis": "research-space; Redmond ~70 sats/week (S-1/A)",
+   "draft_S4_2031": "0.45-0.6x commercial; 0.8x flagship",
+   "draft_S4_2035": "0.35-0.5x; 0.7-0.75x",
+   "S4_2031_typical": "0.50-0.70x (= S3)",
+   "S4_2031_leading_firm": "0.43-0.60x",
+   "S4_2035_typical": "0.42-0.58x",
+   "S4_2035_leading_firm": "0.32-0.44x"
+  },
+  {
+   "gate": "Spacecraft environmental qualification campaign",
+   "typical_duration_2026": "6-18 months",
+   "S2_2031": "0.8-0.9x",
+   "S3_2031": "0.7-0.8x",
+   "split_pct": {
+    "labor": 45,
+    "physics": 25,
+    "materials_energy_capital": 10,
+    "institution": 20
+   },
+   "robotics_mechanism": "24/7 chamber operations; robotic instrumentation and axis changes; more chambers",
+   "cannot_compress": "Dwell x cycles (GEVS: >=4 cycles, >=12 h plateaus); thermal time constant; workmanship screening",
+   "basis": "research-space; NASA TFAWS 2026",
+   "draft_S4_2031": "0.6-0.7x",
+   "draft_S4_2035": "0.45-0.6x",
+   "S4_2031_typical": "0.70-0.79x (= S3)",
+   "S4_2031_leading_firm": "0.59-0.67x",
+   "S4_2035_typical": "0.58-0.67x",
+   "S4_2035_leading_firm": "0.43-0.50x",
+   "revision": "Split 35/40/10/15 -> 45/25/10/20 (advocate, partial): GEVS plateaus (>=4 cycles x >=12 h) are ~5-20% of a 6-18 month campaign; stabilization, anomaly re-tests and life tests keep physics at ~25%."
+  },
+  {
+   "gate": "Test stands and arc jets (facility queues)",
+   "typical_duration_2026": "Ames Arc Jet Complex is NASA's sole reentry TPS ground facility",
+   "S2_2031": "Within experiment 1.1-1.3x",
+   "S3_2031": "~0.67-0.77x (1.3-1.5x speed)",
+   "split_pct": {
+    "labor": 40,
+    "physics": 25,
+    "materials_energy_capital": 25,
+    "institution": 10
+   },
+   "robotics_mechanism": "Automated model insertion and turnaround (~1.3-1.8x runs/day); robots help build new stands",
+   "cannot_compress": "Arc-heater power and electrode life; facility capex; flight is the final test",
+   "basis": "research-space; NTRS 2024",
+   "draft_S4_2031": "0.6-0.75x (queue-limited programs)",
+   "draft_S4_2035": "0.4-0.6x",
+   "S4_2031_typical": "0.67-0.77x (= S3)",
+   "S4_2031_leading_firm": "0.57-0.65x",
+   "S4_2035_typical": "0.56-0.64x",
+   "S4_2035_leading_firm": "0.41-0.47x",
+   "revision": "Queue nonlinearity (Kingman) accepted as mechanism, but S4 raises test demand too (same logic as the GE Vernova backlog), so no extra credit beyond the labor term."
+  },
+  {
+   "gate": "Material or process qualification",
+   "typical_duration_2026": "10-20+ yr new material; 1-3 yr per AM machine and process",
+   "S2_2031": "0.7-0.8x",
+   "S3_2031": "0.5-0.7x",
+   "split_pct": {
+    "labor": 25,
+    "physics": 35,
+    "materials_energy_capital": 10,
+    "institution": 30
+   },
+   "robotics_mechanism": "10-100x more specimens in parallel; replicate statistics finish within the longest single test",
+   "cannot_compress": "10^4-10^5 h creep; fatigue scatter; multi-lot allowables; handbook and customer acceptance",
+   "basis": "research-space, research-biology",
+   "draft_S4_2031": "0.5-0.6x",
+   "draft_S4_2035": "0.4-0.55x (0.35x with model-based allowables)",
+   "S4_2031_typical": "0.50-0.70x (= S3)",
+   "S4_2031_leading_firm": "0.45-0.63x",
+   "S4_2035_typical": "0.43-0.60x",
+   "S4_2035_leading_firm": "0.36-0.50x",
+   "revision": "Split 20/50/0/30 -> 25/35/10/30 (advocate, partial): 10^4 h creep ~14 months, 10^5 h allowable ~3.8 yr with ~3x extrapolation credit; multi-lot, multi-heat lots must come from separate production runs over time (skeptic, general)."
+  },
+  {
+   "gate": "Reliability demonstration by test",
+   "typical_duration_2026": "~229 zero-failure trials for 0.99 at 90% confidence",
+   "S2_2031": "Unchanged unless priors accepted (0.3-0.6x)",
+   "S3_2031": "Same",
+   "split_pct": {
+    "labor": 10,
+    "physics": 90,
+    "materials_energy_capital": 0,
+    "institution": 0
+   },
+   "robotics_mechanism": "Parallel ground rigs; indirectly, higher launch cadence",
+   "cannot_compress": "The trial count itself",
+   "basis": "binomial n = ln(1-C)/ln(R) (general)",
+   "draft_S4_2031": "Component level 0.3-0.5x (parallel rigs); system level = trials / cadence",
+   "draft_S4_2035": "Same logic; 229 flights take 9.2 yr at 25/yr, 2.3 yr at 100/yr, 0.6 yr at 400/yr",
+   "S4_2031_typical": "Same",
+   "S4_2031_leading_firm": "Component level 0.3-0.5x (parallel rigs); system level = trials / cadence",
+   "S4_2035_leading_firm": "Same logic; 229 flights take 9.2 yr at 25/yr, 2.3 yr at 100/yr, 0.6 yr at 400/yr"
+  },
+  {
+   "gate": "Human rating",
+   "typical_duration_2026": "~6 yr (Crew Dragon 2014-2020)",
+   "S2_2031": "0.9x",
+   "S3_2031": "0.8-0.9x",
+   "split_pct": {
+    "labor": 10,
+    "physics": 40,
+    "materials_energy_capital": 0,
+    "institution": 50
+   },
+   "robotics_mechanism": "Little; robots substitute for crews in construction and maintenance",
+   "cannot_compress": "Crewed flight tests; independent review; risk posture",
+   "basis": "research-space",
+   "draft_S4_2031": "0.8-0.9x",
+   "draft_S4_2035": "0.75-0.85x",
+   "S4_2031_typical": "0.80-0.90x (= S3)",
+   "S4_2031_leading_firm": "0.76-0.86x",
+   "S4_2035_typical": "0.71-0.80x",
+   "S4_2035_leading_firm": "0.64-0.72x"
+  },
+  {
+   "gate": "FAA launch or reentry license (Part 450)",
+   "typical_duration_2026": "180-day statutory review plus pre-application",
+   "S2_2031": "0.5-0.7x",
+   "S3_2031": "0.5x",
+   "split_pct": {
+    "labor": 0,
+    "physics": 0,
+    "materials_energy_capital": 0,
+    "institution": 100
+   },
+   "robotics_mechanism": "None",
+   "cannot_compress": "Statutory clocks; interagency consultation",
+   "basis": "model gate table",
+   "draft_S4_2031": "0.5x",
+   "draft_S4_2035": "0.5x",
+   "S4_2031_typical": "0.5x",
+   "S4_2031_leading_firm": "0.5x",
+   "S4_2035_leading_firm": "0.5x"
+  },
+  {
+   "gate": "Environmental review (NEPA)",
+   "typical_duration_2026": "EA 1-2 yr; EIS 2-4 yr (median EIS 2.2 yr, 2024)",
+   "S2_2031": "0.7-0.8x",
+   "S3_2031": "0.7x",
+   "split_pct": {
+    "labor": 0,
+    "physics": 0,
+    "materials_energy_capital": 0,
+    "institution": 100
+   },
+   "robotics_mechanism": "None",
+   "cannot_compress": "Comment periods; species consultation; litigation",
+   "basis": "CEQ Jan 2025",
+   "draft_S4_2031": "0.7x",
+   "draft_S4_2035": "0.6-0.7x (institutional adaptation)",
+   "S4_2031_typical": "0.7x",
+   "S4_2031_leading_firm": "0.7x",
+   "S4_2035_leading_firm": "0.6-0.7x (institutional adaptation)"
+  },
+  {
+   "gate": "Spectrum licensing (FCC, ITU)",
+   "typical_duration_2026": "Months (FCC target); ITU milestones 7+ yr",
+   "S2_2031": "0.5x US; 0.9x ITU",
+   "S3_2031": "Same",
+   "split_pct": {
+    "labor": 0,
+    "physics": 0,
+    "materials_energy_capital": 0,
+    "institution": 100
+   },
+   "robotics_mechanism": "None",
+   "cannot_compress": "International coordination",
+   "basis": "model gate table",
+   "draft_S4_2031": "Same",
+   "draft_S4_2035": "Same",
+   "S4_2031_typical": "Same",
+   "S4_2031_leading_firm": "Same",
+   "S4_2035_leading_firm": "Same"
+  },
+  {
+   "gate": "Heavy launch pad and propellant plant",
+   "typical_duration_2026": "2-4 yr per pad; Starbase Pad 2 ~16 months trench to launch",
+   "S2_2031": "0.9-1.0x",
+   "S3_2031": "0.8-0.9x",
+   "split_pct": {
+    "labor": 35,
+    "physics": 15,
+    "materials_energy_capital": 35,
+    "institution": 15
+   },
+   "robotics_mechanism": "Autonomous earthmoving; rebar tying (800-1,000 ties/h vs 150-200); robotic welding; prefabrication",
+   "cannot_compress": "Transformers 128-160+ wk; cold boxes, compressors; concrete cure; NEPA; utility interconnects",
+   "basis": "research-space, research-infrastructure",
+   "draft_S4_2031": "0.75-0.85x",
+   "draft_S4_2035": "0.55-0.7x (only if equipment makers robotize)",
+   "S4_2031_typical": "0.80-0.90x (= S3)",
+   "S4_2031_leading_firm": "0.75-0.85x (specialized construction machines; general-purpose construction robots 2031+)",
+   "S4_2035_typical": "0.66-0.74x",
+   "S4_2035_leading_firm": "0.50-0.57x"
+  },
+  {
+   "gate": "Long-lead parts and supply chain",
+   "typical_duration_2026": "12-24+ months (rad-hard parts, forgings, castings, solid motors)",
+   "S2_2031": "0.9-1.0x",
+   "S3_2031": "0.8-0.9x",
+   "split_pct": {
+    "labor": 30,
+    "physics": 20,
+    "materials_energy_capital": 30,
+    "institution": 20
+   },
+   "robotics_mechanism": "Supplier robotization (mostly after 2031); more shifts at forges and machine shops",
+   "cannot_compress": "Fab capacity; single sources; export controls; requalification 6-24 months per process per supplier",
+   "basis": "research-space, research-ramp",
+   "draft_S4_2031": "0.75-0.9x",
+   "draft_S4_2035": "0.55-0.75x",
+   "S4_2031_typical": "0.80-0.90x (= S3)",
+   "S4_2031_leading_firm": "0.8-0.9x (suppliers robotize after 2031)",
+   "S4_2035_typical": "0.67-0.75x",
+   "S4_2035_leading_firm": "0.53-0.59x"
+  },
+  {
+   "gate": "In-space assembly and servicing",
+   "typical_duration_2026": "MRV launched Jul 21 2026; OSAM-1 cancelled Mar 2024 at >$2B",
+   "S2_2031": "n/a",
+   "S3_2031": "n/a",
+   "split_pct": {
+    "labor": 20,
+    "physics": 45,
+    "materials_energy_capital": 10,
+    "institution": 25
+   },
+   "robotics_mechanism": "Robotics is the product: manipulation autonomy becomes software; cheaper actuators",
+   "cannot_compress": "Flight demos (2-4 yr each); space qualification of mechanisms; RPO licensing",
+   "basis": "research-space",
+   "draft_S4_2031": "0.6-0.75x to operational service",
+   "draft_S4_2035": "0.45-0.6x",
+   "S4_2031_typical": "No date change by 2031 (hardware frozen ~2027-28; landed mass, power, 2-4 yr flight demos)",
+   "S4_2031_leading_firm": "Capability per landing rises; dates unchanged by 2031",
+   "S4_2035_leading_firm": "0.45-0.6x"
+  },
+  {
+   "gate": "Lunar surface construction and ISRU",
+   "typical_duration_2026": "No construction demo flown; reactor launch-ready late CY2029 target",
+   "S2_2031": "n/a",
+   "S3_2031": "n/a",
+   "split_pct": {
+    "labor": 0,
+    "physics": 30,
+    "materials_energy_capital": 50,
+    "institution": 20
+   },
+   "robotics_mechanism": "Robots are the workforce: excavation, sintering, berms, maintenance",
+   "cannot_compress": "Landed mass per year; power through the ~14.75-day night; dust and thermal survival",
+   "basis": "research-space",
+   "draft_S4_2031": "0.6-0.8x vs S3 (pilot demos)",
+   "draft_S4_2035": "0.4-0.6x (if 10+ cargo landings/yr)",
+   "S4_2031_typical": "No date change by 2031 (hardware frozen ~2027-28; landed mass, power, 2-4 yr flight demos)",
+   "S4_2031_leading_firm": "Capability per landing rises; dates unchanged by 2031",
+   "S4_2035_leading_firm": "0.4-0.6x (if 10+ cargo landings/yr)"
+  },
+  {
+   "gate": "Mars surface operations (learning loop)",
+   "typical_duration_2026": "Windows every ~26 months; late-2026 window skipped",
+   "S2_2031": "n/a",
+   "S3_2031": "n/a",
+   "split_pct": {
+    "labor": 0,
+    "physics": 100,
+    "materials_energy_capital": 0,
+    "institution": 0
+   },
+   "robotics_mechanism": "Each window's payload more capable",
+   "cannot_compress": "Synodic period and 6-9 month transits",
+   "basis": "research-space",
+   "draft_S4_2031": "1.0x (1-2 iterations by 2031)",
+   "draft_S4_2035": "1.0x (3-4 by 2035)",
+   "S4_2031_typical": "n/a",
+   "S4_2031_leading_firm": "1.0x (1-2 iterations by 2031)",
+   "S4_2035_leading_firm": "1.0x (3-4 by 2035)",
+   "note": "Advocate's 'parallel missions per window' variable accepted conceptually (learning per window, not window count); no node moves by 2031 (late-2026 window skipped; no 5+ lander campaign manifested)."
+  },
+  {
+   "gate": "Space nuclear system",
+   "typical_duration_2026": "5+ yr; no U.S. reactor launched since 1965",
+   "S2_2031": "0.9x",
+   "S3_2031": "0.8-0.9x",
+   "split_pct": {
+    "labor": 10,
+    "physics": 20,
+    "materials_energy_capital": 30,
+    "institution": 40
+   },
+   "robotics_mechanism": "Robotic fuel handling and fabrication",
+   "cannot_compress": "HALEU; criticality testing; NSPM-20; appropriations",
+   "basis": "model gate table",
+   "draft_S4_2031": "0.8-0.9x",
+   "draft_S4_2035": "0.7-0.85x",
+   "S4_2031_typical": "0.8-0.9x",
+   "S4_2031_leading_firm": "0.8-0.9x",
+   "S4_2035_leading_firm": "0.7-0.85x"
+  },
+  {
+   "gate": "Government flagship program",
+   "typical_duration_2026": "8-15 yr with 2-7 yr slips",
+   "S2_2031": "0.9x",
+   "S3_2031": "0.85x",
+   "split_pct": {
+    "labor": 15,
+    "physics": 20,
+    "materials_energy_capital": 15,
+    "institution": 50
+   },
+   "robotics_mechanism": "Small",
+   "cannot_compress": "Appropriations, politics, requirements churn",
+   "basis": "model gate table",
+   "draft_S4_2031": "0.85x",
+   "draft_S4_2035": "0.8x",
+   "S4_2031_typical": "0.85x",
+   "S4_2031_leading_firm": "0.85x",
+   "S4_2035_leading_firm": "0.8x"
+  },
+  {
+   "gate": "Capital (hardware cost)",
+   "typical_duration_2026": "SpaceX ~$100.8B cash (Jun 2026)",
+   "S2_2031": "Dev labor cost -15-30%",
+   "S3_2031": "-25-40%",
+   "split_pct": {
+    "labor": 60,
+    "physics": 0,
+    "materials_energy_capital": 40,
+    "institution": 0
+   },
+   "robotics_mechanism": "Labor share of hardware and refurbishment cost",
+   "cannot_compress": "Flights to prove reuse; propellant; market structure",
+   "basis": "research-space",
+   "draft_S4_2031": "Plus unit hardware cost -10-25% at robot-adopting lines",
+   "draft_S4_2035": "-25-45%",
+   "S4_2031_typical": "S3 (-25-40% development labor)",
+   "S4_2031_leading_firm": "Plus unit hardware cost -5-15% at robot-adopting lines from 2030",
+   "S4_2035_leading_firm": "-25-45%"
+  },
+  {
+   "gate": "Launch cost per kg (SpaceX internal)",
+   "typical_duration_2026": "~$1,500/kg Falcon 9; ~$4,915/kg Starship Flight 14 expended",
+   "S2_2031": "0-0.5 yr earlier",
+   "S3_2031": "0.5-1 yr earlier",
+   "split_pct": {
+    "labor": 15,
+    "physics": 60,
+    "materials_energy_capital": 25,
+    "institution": 0
+   },
+   "robotics_mechanism": "Refurbishment and production labor (Mach33: ~12% of expected Starship cost fall is production learning)",
+   "cannot_compress": "Reuse proof by flight; propellant $0.2-2.7M per flight",
+   "basis": "model; Mach33",
+   "draft_S4_2031": "0.5-1.5 yr earlier than S2",
+   "draft_S4_2035": "Bounded by flights to prove reuse",
+   "S4_2031_typical": "Same as S3 (0.5-1 yr earlier than S2)",
+   "S4_2031_leading_firm": "Same as S3; production learning is ~12% of the decline (Mach33)",
+   "S4_2035_leading_firm": "Bounded by flights to prove reuse"
+  },
+  {
+   "gate": "Launch price per kg (customers)",
+   "typical_duration_2026": "~$5,300/kg Falcon dedicated median",
+   "S2_2031": "Set by competition",
+   "S3_2031": "Same",
+   "split_pct": {
+    "labor": 0,
+    "physics": 0,
+    "materials_energy_capital": 0,
+    "institution": 100
+   },
+   "robotics_mechanism": "None",
+   "cannot_compress": "Market structure (SpaceX 83% of 2025 mass)",
+   "basis": "model",
+   "draft_S4_2031": "Same",
+   "draft_S4_2035": "Same",
+   "S4_2031_typical": "Same",
+   "S4_2031_leading_firm": "Same",
+   "S4_2035_leading_firm": "Same"
+  }
+ ],
+ "gate_table_cross_domain": [
+  {
+   "gate": "AI data hall shell and MEP fit-out",
+   "typical_duration_2026": "4-6 months best; 24-36 months stick-built",
+   "S3_2031": "0.8-0.9x",
+   "S4_2031": "typical 0.8-0.9x; leading sites 0.65-0.8x",
+   "S4_2035": "0.4-0.6x",
+   "labor_share": "50-60%",
+   "cannot_compress": "Equipment arrival, integrated testing, inspections",
+   "draft_S4_2031": "0.65-0.8x",
+   "S4_2031_typical": "0.8-0.9x (robots ~1% of U.S. construction labor)",
+   "S4_2031_leading": "0.65-0.8x"
+  },
+  {
+   "gate": "1 GW AI campus, start to 1 GW",
+   "typical_duration_2026": "1-4 yr (Colossus 2 ~12-15 months)",
+   "S3_2031": "0.8-0.85x",
+   "S4_2031": "typical 0.8-0.85x; leading sites 0.7-0.8x",
+   "S4_2035": "0.5-0.65x",
+   "labor_share": "25-40%",
+   "cannot_compress": "Power, air permits, turbine and transformer slots",
+   "draft_S4_2031": "0.7-0.8x",
+   "S4_2031_typical": "0.8-0.85x (robots ~1% of U.S. construction labor)",
+   "S4_2031_leading": "0.7-0.8x"
+  },
+  {
+   "gate": "Earthwork, piling",
+   "typical_duration_2026": "Weeks to months",
+   "S3_2031": "0.9x",
+   "S4_2031": "typical 0.8-0.9x; leading sites with autonomous equipment 0.5-0.7x",
+   "S4_2035": "0.3-0.5x",
+   "labor_share": "70-80%",
+   "cannot_compress": "Soil consolidation, weather, hours ordinances",
+   "draft_S4_2031": "0.5-0.7x",
+   "S4_2031_typical": "0.8-0.9x",
+   "S4_2031_leading": "0.5-0.7x"
+  },
+  {
+   "gate": "Large power transformer delivery",
+   "typical_duration_2026": "128 wk; 144 wk GSU; up to 4 yr",
+   "S3_2031": "0.9-1.0x",
+   "S4_2031": "typical 0.9-1.0x (queue: backlog / throughput; S4 raises demand)",
+   "S4_2035": "0.6-0.8x only if robot-staffed capacity outruns demand (draft 0.5-0.7x)",
+   "labor_share": "30-40% (factory)",
+   "cannot_compress": "Factory build 2-3 yr; GOES steel; demand growth",
+   "draft_S4_2031": "0.8-1.0x",
+   "S4_2031_typical": "0.9-1.0x (robots ~1% of U.S. construction labor)",
+   "S4_2031_leading": "0.8-1.0x"
+  },
+  {
+   "gate": "Heavy gas turbine delivery",
+   "typical_duration_2026": "~3 yr; 116 GW GE Vernova backlog vs ~20 GW/yr",
+   "S3_2031": "0.9-1.0x",
+   "S4_2031": "typical 0.9-1.0x (queue: backlog / throughput; S4 raises demand)",
+   "S4_2035": "0.6-0.8x only if robot-staffed capacity outruns demand",
+   "labor_share": "20-30% (factory)",
+   "cannot_compress": "Single-crystal castings; full-load tests; demand",
+   "draft_S4_2031": "0.85-1.0x",
+   "S4_2031_typical": "0.9-1.0x (robots ~1% of U.S. construction labor)",
+   "S4_2031_leading": "0.85-1.0x"
+  },
+  {
+   "gate": "Generator interconnection",
+   "typical_duration_2026": "61 months median (2025 builds)",
+   "S3_2031": "0.75-0.85x",
+   "S4_2031": "0.75-0.85x",
+   "S4_2035": "0.55-0.75x",
+   "labor_share": "10-15%",
+   "cannot_compress": "Study cycles, upgrade approvals",
+   "draft_S4_2031": "0.75-0.85x"
+  },
+  {
+   "gate": "Large-load grid connection",
+   "typical_duration_2026": "~4 yr U.S.; ~7 yr N. Virginia",
+   "S3_2031": "0.8-0.9x",
+   "S4_2031": "0.8-1.1x (backlash risk)",
+   "S4_2035": "0.6-0.9x",
+   "labor_share": "15-25%",
+   "cannot_compress": "Utility planning, state moratoria",
+   "draft_S4_2031": "0.8-1.1x (backlash risk)"
+  },
+  {
+   "gate": "Semiconductor fab, permit to production",
+   "typical_duration_2026": "~19 months Taiwan; ~38 U.S.",
+   "S3_2031": "0.8-0.9x",
+   "S4_2031": "typical 0.8-0.9x; leading sites U.S. 0.65-0.8x",
+   "S4_2035": "U.S. 0.5-0.6x",
+   "labor_share": "~40%",
+   "cannot_compress": "Tool lead times; yield ramp ~1 yr",
+   "draft_S4_2031": "U.S. 0.65-0.8x",
+   "S4_2031_typical": "0.8-0.9x (robots ~1% of U.S. construction labor)",
+   "S4_2031_leading": "U.S. 0.65-0.8x"
+  },
+  {
+   "gate": "Generic factory, groundbreaking to output",
+   "typical_duration_2026": "6-12 months China; 2+ yr West",
+   "S3_2031": "0.8-0.85x",
+   "S4_2031": "typical 0.8-0.85x; leading sites West 0.6-0.75x",
+   "S4_2035": "West 0.4-0.55x",
+   "labor_share": "50-60%",
+   "cannot_compress": "Permits; process equipment",
+   "draft_S4_2031": "West 0.6-0.75x",
+   "S4_2031_typical": "0.8-0.85x (robots ~1% of U.S. construction labor)",
+   "S4_2031_leading": "West 0.6-0.75x"
+  },
+  {
+   "gate": "Large nuclear unit, first concrete to fuel",
+   "typical_duration_2026": "~37 (ABWR) to ~124 months (Vogtle 3/4)",
+   "S3_2031": "0.85-0.9x",
+   "S4_2031": "typical 0.85-0.9x; leading sites 0.8-0.9x",
+   "S4_2035": "0.6-0.75x",
+   "labor_share": "50-60%",
+   "cannot_compress": "NRC licensing; nuclear QA; hot functional tests",
+   "draft_S4_2031": "0.8-0.9x",
+   "S4_2031_typical": "0.85-0.9x (robots ~1% of U.S. construction labor)",
+   "S4_2031_leading": "0.8-0.9x"
+  },
+  {
+   "gate": "Housing (U.S. single-family build)",
+   "typical_duration_2026": "7.6 months build + 1.4 authorization",
+   "S3_2031": "0.9x",
+   "S4_2031": "typical 0.9x; leading sites 0.75-0.9x",
+   "S4_2035": "0.5-0.7x",
+   "labor_share": "60-70%",
+   "cannot_compress": "Zoning, inspections, hookups",
+   "draft_S4_2031": "0.75-0.9x",
+   "S4_2031_typical": "0.9x (robots ~1% of U.S. construction labor)",
+   "S4_2031_leading": "0.75-0.9x"
+  },
+  {
+   "gate": "Cast-in-place concrete",
+   "typical_duration_2026": "28-day design strength",
+   "S3_2031": "1.0x",
+   "S4_2031": "1.0x",
+   "S4_2035": "1.0x",
+   "labor_share": "0%",
+   "cannot_compress": "Hydration chemistry",
+   "draft_S4_2031": "1.0x"
+  },
+  {
+   "gate": "Target to preclinical candidate",
+   "typical_duration_2026": "2.5-4 yr; ~13 months AI-native",
+   "S3_2031": "0.3-0.4x",
+   "S4_2031": "0.15-0.25x",
+   "S4_2035": "0.1-0.2x",
+   "labor_share": "lab",
+   "cannot_compress": "In-vivo models; target validation",
+   "draft_S4_2031": "0.15-0.25x",
+   "S4_2031_note": "Leading labs; general bench robots useful 2029-31; workcells are S3 baseline"
+  },
+  {
+   "gate": "IND-enabling package",
+   "typical_duration_2026": "~9-12 months",
+   "S3_2031": "0.75-0.85x",
+   "S4_2031": "0.65-0.75x",
+   "S4_2035": "0.45-0.6x",
+   "labor_share": "partly",
+   "cannot_compress": "In-life duration matched to clinical regimen",
+   "draft_S4_2031": "0.65-0.75x",
+   "S4_2031_note": "Leading labs; general bench robots useful 2029-31; workcells are S3 baseline"
+  },
+  {
+   "gate": "CHO cell line, DNA to cell bank",
+   "typical_duration_2026": "19-27 wk; ~3 months floor",
+   "S3_2031": "0.8-0.9x",
+   "S4_2031": "0.6-0.75x",
+   "S4_2035": "0.5-0.6x",
+   "labor_share": "hands-on only",
+   "cannot_compress": "CHO doubling ~1 day",
+   "draft_S4_2031": "0.6-0.75x",
+   "S4_2031_note": "Leading labs; general bench robots useful 2029-31; workcells are S3 baseline"
+  },
+  {
+   "gate": "Chronic tox and 2-yr carcinogenicity",
+   "typical_duration_2026": "6-24 months",
+   "S3_2031": "1.0x",
+   "S4_2031": "1.0x",
+   "S4_2035": "0.7-1.0x (waivers)",
+   "labor_share": "0%",
+   "cannot_compress": "Exposure time; tumor latency",
+   "draft_S4_2031": "1.0x",
+   "S4_robot_attributable": "~1.0x (robots irrelevant to endpoint, enrollment and statute); differences from S3 in S4 columns are institutional or cognitive"
+  },
+  {
+   "gate": "Phase II",
+   "typical_duration_2026": "3.6 yr",
+   "S3_2031": "0.85-0.9x",
+   "S4_2031": "0.8-0.85x",
+   "S4_2035": "0.7-0.75x",
+   "labor_share": "small",
+   "cannot_compress": "Treatment duration; enrollment; translation",
+   "draft_S4_2031": "0.8-0.85x",
+   "S4_robot_attributable": "~1.0x (robots irrelevant to endpoint, enrollment and statute); differences from S3 in S4 columns are institutional or cognitive"
+  },
+  {
+   "gate": "Phase III",
+   "typical_duration_2026": "3.3 yr",
+   "S3_2031": "0.9-0.95x",
+   "S4_2031": "0.9x",
+   "S4_2035": "0.75-0.85x",
+   "labor_share": "small",
+   "cannot_compress": "Endpoint duration; sample size",
+   "draft_S4_2031": "0.9x",
+   "S4_robot_attributable": "~1.0x (robots irrelevant to endpoint, enrollment and statute); differences from S3 in S4 columns are institutional or cognitive"
+  },
+  {
+   "gate": "Regulatory review (drug)",
+   "typical_duration_2026": "~8-12 months; CNPV 44-55 days",
+   "S3_2031": "0.6-0.7x",
+   "S4_2031": "0.6-0.7x",
+   "S4_2035": "0.4-0.6x",
+   "labor_share": "0%",
+   "cannot_compress": "Statute, inspections",
+   "draft_S4_2031": "0.6-0.7x",
+   "S4_robot_attributable": "~1.0x (robots irrelevant to endpoint, enrollment and statute); differences from S3 in S4 columns are institutional or cognitive"
+  },
+  {
+   "gate": "Biologics GMP plant to validated output",
+   "typical_duration_2026": "2-4 yr",
+   "S3_2031": "0.85-0.9x",
+   "S4_2031": "typical 0.85-0.9x; leading sites 0.8-0.9x",
+   "S4_2035": "0.6-0.75x",
+   "labor_share": "partly",
+   "cannot_compress": "Equipment lead times; validation runs",
+   "draft_S4_2031": "0.8-0.9x",
+   "S4_2031_typical": "0.85-0.9x (robots ~1% of U.S. construction labor)",
+   "S4_2031_leading": "0.8-0.9x"
+  },
+  {
+   "gate": "Inorganic materials synthesis (powder)",
+   "typical_duration_2026": "A few samples/day per human",
+   "S3_2031": "0.5x",
+   "S4_2031": "0.1-0.2x",
+   "S4_2035": "0.05-0.15x",
+   "labor_share": "high",
+   "cannot_compress": "Furnace dwell; reliable phase ID",
+   "draft_S4_2031": "0.1-0.2x",
+   "S4_2031_note": "Leading labs; general bench robots useful 2029-31; workcells are S3 baseline"
+  }
+ ],
+ "amdahl": {
+  "space_program": {
+   "shares": {
+    "requirements": 10,
+    "design": 15,
+    "software": 10,
+    "fabrication": 25,
+    "integration_test": 25,
+    "qualification": 10,
+    "launch": 5
+   },
+   "sub_shares_labor_physics_materials_institution": {
+    "fab": [
+     40,
+     20,
+     30,
+     10
+    ],
+    "it": [
+     40,
+     35,
+     10,
+     15
+    ],
+    "qual": [
+     20,
+     40,
+     5,
+     35
+    ],
+    "launch": [
+     35,
+     40,
+     0,
+     25
+    ]
+   },
+   "iteration_share_of_physics": {
+    "fab": 0,
+    "it": 0.5,
+    "qual": 0.25,
+    "launch": 0
+   },
+   "rules": [
+    "Physics time constants and institutions at S3 same-year values in every S4 case",
+    "Labor = S3 labor x k (k = 1.43 central 2031, 2.31 central 2035; derived)",
+    "Typical and leading programs blend labor by robot share of labor-bound steps (5-15%, 50% in 2031; 25%, 60% in 2035)",
+    "Parallel test-article credit only on the iteration share of physics, robot-first only (1.25x 2031, 1.5x 2035; 2x in floors), booked as a capital lever",
+    "Materials-capital x1.1 (2031) and x1.3 (2035) at robot-first firms only"
+   ],
+   "results": {
+    "S3_2031": {
+     "shorter_pct": 51.3,
+     "speedup_x": 2.05,
+     "slice_speedups": {
+      "fab": 1.31,
+      "it": 1.5,
+      "qual": 1.5,
+      "launch": 1.0
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 2.7,
+      "labor": 28.5,
+      "physics_statistics": 35.0,
+      "materials_energy_capital": 18.0,
+      "institution": 16.0
+     }
+    },
+    "S3_2035": {
+     "shorter_pct": 55.6,
+     "speedup_x": 2.25,
+     "slice_speedups": {
+      "fab": 1.41,
+      "it": 1.6,
+      "qual": 1.65,
+      "launch": 1.14
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 1.2,
+      "labor": 27.8,
+      "physics_statistics": 37.2,
+      "materials_energy_capital": 18.2,
+      "institution": 15.5
+     }
+    },
+    "S3_infinite_cognition_2031": {
+     "shorter_pct": 52.6,
+     "speedup_x": 2.11,
+     "slice_speedups": {
+      "fab": 1.31,
+      "it": 1.5,
+      "qual": 1.5,
+      "launch": 1.0
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 0.0,
+      "labor": 29.2,
+      "physics_statistics": 35.9,
+      "materials_energy_capital": 18.4,
+      "institution": 16.4
+     }
+    },
+    "S4_2031_typical_(robot_share_5pct)": {
+     "shorter_pct": 51.5,
+     "speedup_x": 2.06,
+     "slice_speedups": {
+      "fab": 1.31,
+      "it": 1.51,
+      "qual": 1.5,
+      "launch": 1.01
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 2.7,
+      "labor": 28.2,
+      "physics_statistics": 35.1,
+      "materials_energy_capital": 18.0,
+      "institution": 16.0
+     }
+    },
+    "S4_2031_typical_(robot_share_15pct)": {
+     "shorter_pct": 51.9,
+     "speedup_x": 2.08,
+     "slice_speedups": {
+      "fab": 1.33,
+      "it": 1.52,
+      "qual": 1.51,
+      "launch": 1.02
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 2.7,
+      "labor": 27.5,
+      "physics_statistics": 35.4,
+      "materials_energy_capital": 18.2,
+      "institution": 16.2
+     }
+    },
+    "S4_2031_leading_(share_50pct)": {
+     "shorter_pct": 54.2,
+     "speedup_x": 2.18,
+     "slice_speedups": {
+      "fab": 1.4,
+      "it": 1.61,
+      "qual": 1.56,
+      "launch": 1.06
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 2.8,
+      "labor": 25.7,
+      "physics_statistics": 36.3,
+      "materials_energy_capital": 18.2,
+      "institution": 17.0
+     }
+    },
+    "S4_2031_robot_first_central": {
+     "shorter_pct": 57.1,
+     "speedup_x": 2.33,
+     "slice_speedups": {
+      "fab": 1.5,
+      "it": 1.75,
+      "qual": 1.63,
+      "launch": 1.12
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 3.0,
+      "labor": 22.6,
+      "physics_statistics": 37.7,
+      "materials_energy_capital": 18.6,
+      "institution": 18.2
+     }
+    },
+    "S4_2031_robot_first_high": {
+     "shorter_pct": 60.0,
+     "speedup_x": 2.5,
+     "slice_speedups": {
+      "fab": 1.62,
+      "it": 1.88,
+      "qual": 1.69,
+      "launch": 1.22
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 3.2,
+      "labor": 17.1,
+      "physics_statistics": 40.3,
+      "materials_energy_capital": 19.9,
+      "institution": 19.4
+     }
+    },
+    "S4_2031_robot_first_with_requal_drag": {
+     "shorter_pct": 55.8,
+     "speedup_x": 2.26,
+     "slice_speedups": {
+      "fab": 1.47,
+      "it": 1.7,
+      "qual": 1.54,
+      "launch": 1.07
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 2.9,
+      "labor": 21.9,
+      "physics_statistics": 36.5,
+      "materials_energy_capital": 18.0,
+      "institution": 20.7
+     }
+    },
+    "S4_2035_typical_(share_25pct)": {
+     "shorter_pct": 58.1,
+     "speedup_x": 2.39,
+     "slice_speedups": {
+      "fab": 1.52,
+      "it": 1.69,
+      "qual": 1.7,
+      "launch": 1.19
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 1.3,
+      "labor": 25.3,
+      "physics_statistics": 39.4,
+      "materials_energy_capital": 17.5,
+      "institution": 16.5
+     }
+    },
+    "S4_2035_leading_(share_60pct)": {
+     "shorter_pct": 62.1,
+     "speedup_x": 2.64,
+     "slice_speedups": {
+      "fab": 1.67,
+      "it": 1.92,
+      "qual": 1.83,
+      "launch": 1.28
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 1.5,
+      "labor": 21.5,
+      "physics_statistics": 41.0,
+      "materials_energy_capital": 17.8,
+      "institution": 18.2
+     }
+    },
+    "S4_2035_robot_first_central": {
+     "shorter_pct": 65.9,
+     "speedup_x": 2.93,
+     "slice_speedups": {
+      "fab": 1.88,
+      "it": 2.17,
+      "qual": 1.95,
+      "launch": 1.4
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 1.6,
+      "labor": 15.7,
+      "physics_statistics": 44.3,
+      "materials_energy_capital": 18.2,
+      "institution": 20.2
+     }
+    },
+    "S4_2035_robot_first_high": {
+     "shorter_pct": 67.2,
+     "speedup_x": 3.05,
+     "slice_speedups": {
+      "fab": 1.97,
+      "it": 2.26,
+      "qual": 1.99,
+      "launch": 1.46
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 1.7,
+      "labor": 12.3,
+      "physics_statistics": 46.0,
+      "materials_energy_capital": 18.9,
+      "institution": 21.0
+     }
+    },
+    "floor_infinite_cog_and_labor_2031_iter2x": {
+     "shorter_pct": 69.5,
+     "speedup_x": 3.27,
+     "slice_speedups": {
+      "fab": 2.03,
+      "it": 2.53,
+      "qual": 1.95,
+      "launch": 1.54
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 0.0,
+      "labor": 0.0,
+      "physics_statistics": 48.5,
+      "materials_energy_capital": 26.0,
+      "institution": 25.5
+     }
+    },
+    "floor_infinite_cog_and_labor_2031_no_iter_credit": {
+     "shorter_pct": 67.2,
+     "speedup_x": 3.05,
+     "slice_speedups": {
+      "fab": 2.03,
+      "it": 2.14,
+      "qual": 1.81,
+      "launch": 1.54
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 0.0,
+      "labor": 0.0,
+      "physics_statistics": 52.0,
+      "materials_energy_capital": 24.3,
+      "institution": 23.7
+     }
+    },
+    "floor_infinite_cog_and_labor_2035_iter2x": {
+     "shorter_pct": 72.5,
+     "speedup_x": 3.64,
+     "slice_speedups": {
+      "fab": 2.29,
+      "it": 2.76,
+      "qual": 2.18,
+      "launch": 1.7
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 0.0,
+      "labor": 0.0,
+      "physics_statistics": 52.3,
+      "materials_energy_capital": 22.6,
+      "institution": 25.1
+     }
+    },
+    "floor_infinite_cog_and_labor_2035_no_iter_credit": {
+     "shorter_pct": 70.4,
+     "speedup_x": 3.37,
+     "slice_speedups": {
+      "fab": 2.29,
+      "it": 2.31,
+      "qual": 2.01,
+      "launch": 1.7
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 0.0,
+      "labor": 0.0,
+      "physics_statistics": 55.8,
+      "materials_energy_capital": 21.0,
+      "institution": 23.3
+     }
+    },
+    "overlay_S3_2035_institutional_mobilization": {
+     "shorter_pct": 57.9,
+     "speedup_x": 2.37,
+     "slice_speedups": {
+      "fab": 1.46,
+      "it": 1.69,
+      "qual": 1.81,
+      "launch": 1.23
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 1.3,
+      "labor": 29.4,
+      "physics_statistics": 39.2,
+      "materials_energy_capital": 19.2,
+      "institution": 10.9
+     }
+    },
+    "overlay_S4_2035_robot_first_institutional_mobilization": {
+     "shorter_pct": 68.2,
+     "speedup_x": 3.14,
+     "slice_speedups": {
+      "fab": 1.97,
+      "it": 2.32,
+      "qual": 2.17,
+      "launch": 1.55
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 1.7,
+      "labor": 16.8,
+      "physics_statistics": 47.5,
+      "materials_energy_capital": 19.5,
+      "institution": 14.5
+     }
+    },
+    "overlay_floor_2035_institutional_mobilization": {
+     "shorter_pct": 74.8,
+     "speedup_x": 3.97,
+     "slice_speedups": {
+      "fab": 2.44,
+      "it": 3.02,
+      "qual": 2.47,
+      "launch": 1.92
+     },
+     "remaining_critical_path_pct": {
+      "cognitive": 0.0,
+      "labor": 0.0,
+      "physics_statistics": 57.1,
+      "materials_energy_capital": 24.6,
+      "institution": 18.2
+     }
+    }
+   },
+   "sensitivities": {
+    "S4_2031_typical_early_onset_share_10_30pct": [
+     51.7,
+     52.5
+    ],
+    "advocate_resplit_IT_50_25_10_15_qual_40_20_5_35": {
+     "S3_labor_scale_it_qual": 0.863,
+     "S3_2031": 51.4,
+     "S4_2031_robot_first": 58.0
+    }
+   },
+   "realized": {
+    "S2_2031": "20-30%",
+    "S3_2031": "35-45%",
+    "S4_2031_typical": "35-45%",
+    "S4_2031_leading": "38-46%",
+    "S4_2031_robot_first": "40-50%",
+    "S3_2035": "40-48%",
+    "S4_2035_typical_leading": "42-54%",
+    "S4_2035_robot_first": "50-58%"
+   },
+   "headline": "Ceiling: S3 51%; S4 2031 typical 52%, leading 54%, robot-first 56-60%; S4 2035 typical 58%, leading 62%, robot-first 66-67%; floor 67-70% (2031) and 70-73% (2035); 75% with a non-robotic institutional overlay.",
+   "remaining_critical_path_reading": "S3 2031: labor 28.5%, physics 35%, materials 18%, institutions 16%. S4 2035 robot-first: labor 15.7%, physics 44.3%, materials 18.2%, institutions 20.2% (physics not pre-compressed). Schedules end up set by physics and paperwork.",
+   "draft_values_superseded": "Draft: typical 56%, leading 60%, robot-first 64%, 2035 68-73%, floor 69-77%. About half of the draft's S4-over-S3 gain came from raising physics, materials and institution sub-multipliers."
+  },
+  "infrastructure": {
+   "us_grid_connected": {
+    "S3_2031": 18.9,
+    "S4_2031_typical_(share_1pct)": 19.0,
+    "S4_2031_leading_site_(share_30pct_x1.6)": 21.1,
+    "S3_2035": 25.1,
+    "S4_2035_typical_(share_12pct_x3)": 26.5,
+    "S4_2035_leading_(share_50pct_x3,_equip_1.4)": 32.6,
+    "ceiling_labor_and_equipment_free_2035": 58.3
+   },
+   "permissive_btm": {
+    "S3_2031": 17.7,
+    "S4_2031_typical_(share_1pct)": 17.8,
+    "S4_2031_leading_site_(share_30pct_x1.6)": 21.2,
+    "S3_2035": 24.6,
+    "S4_2035_typical_(share_12pct_x3)": 26.8,
+    "S4_2035_leading_(share_50pct_x3,_equip_1.4)": 36.8,
+    "ceiling_labor_and_equipment_free_2035": 80.2
+   }
+  },
+  "drug_program": {
+   "rows": [
+    {
+     "stage": "Target ID and validation",
+     "baseline": 1.5,
+     "S3_2031": 0.6,
+     "S4_2031": 0.4,
+     "S3_2035": 0.4,
+     "S4_2035": 0.3
+    },
+    {
+     "stage": "Hit to preclinical candidate",
+     "baseline": 3.0,
+     "S3_2031": 0.9,
+     "S4_2031": 0.6,
+     "S3_2035": 0.6,
+     "S4_2035": 0.4
+    },
+    {
+     "stage": "IND-enabling (GLP tox, CMC)",
+     "baseline": 1.0,
+     "S3_2031": 0.75,
+     "S4_2031": 0.65,
+     "S3_2035": 0.6,
+     "S4_2035": 0.45
+    },
+    {
+     "stage": "Phase I",
+     "baseline": 2.3,
+     "S3_2031": 1.9,
+     "S4_2031": 1.8,
+     "S3_2035": 1.6,
+     "S4_2035": 1.4
+    },
+    {
+     "stage": "Phase II",
+     "baseline": 3.6,
+     "S3_2031": 3.1,
+     "S4_2031": 3.0,
+     "S3_2035": 2.8,
+     "S4_2035": 2.6
+    },
+    {
+     "stage": "Phase III",
+     "baseline": 3.3,
+     "S3_2031": 3.1,
+     "S4_2031": 3.0,
+     "S3_2035": 2.8,
+     "S4_2035": 2.6
+    },
+    {
+     "stage": "Regulatory review",
+     "baseline": 1.3,
+     "S3_2031": 0.9,
+     "S4_2031": 0.9,
+     "S3_2035": 0.6,
+     "S4_2035": 0.5
+    }
+   ],
+   "total_years": {
+    "baseline": 16.0,
+    "S3_2031": 11.25,
+    "S4_2031": 10.35,
+    "S3_2035": 9.4,
+    "S4_2035": 8.25
+   },
+   "shorter_pct": {
+    "S3_2031": 29.7,
+    "S4_2031": 35.3,
+    "S3_2035": 41.2,
+    "S4_2035": 48.4
+   },
+   "lab_only_ceiling_pct": 34.4,
+   "robot_only_split": {
+    "years": {
+     "base": 16.0,
+     "S3_2031": 11.25,
+     "S4_2031": 10.35,
+     "S3_2035": 9.4,
+     "S4_2035": 8.25,
+     "S4_2031_robot_only": 10.65,
+     "S4_2035_robot_only": 8.95
+    },
+    "shorter_pct": {
+     "S3_2031": 29.7,
+     "S4_2031": 35.3,
+     "S3_2035": 41.2,
+     "S4_2035": 48.4,
+     "S4_2031_robot_only": 33.4,
+     "S4_2035_robot_only": 44.1
+    },
+    "reading": "Robots (preclinical rows) add +3.7 points by 2031 and +2.9 by 2035 over S3; the rest of the S4 increment (+1.9 in 2031, +4.3 in 2035) is clinical operations, phase overlap and review speed, which are institutional or cognitive."
+   }
+  },
+  "material_to_flight": {
+   "rows": [
+    {
+     "stage": "Discovery / computational design",
+     "baseline": 2.0,
+     "S3_2031": 0.3,
+     "S4_2031": 0.25,
+     "S3_2035": 0.25,
+     "S4_2035": 0.2
+    },
+    {
+     "stage": "Synthesis and lab-scale demonstration",
+     "baseline": 2.0,
+     "S3_2031": 1.0,
+     "S4_2031": 0.4,
+     "S3_2035": 0.6,
+     "S4_2035": 0.25
+    },
+    {
+     "stage": "Process development and scale-up",
+     "baseline": 3.0,
+     "S3_2031": 2.4,
+     "S4_2031": 2.3,
+     "S3_2035": 2.1,
+     "S4_2035": 1.6
+    },
+    {
+     "stage": "Characterization and design allowables",
+     "baseline": 3.0,
+     "S3_2031": 2.4,
+     "S4_2031": 2.3,
+     "S3_2035": 2.0,
+     "S4_2035": 1.6
+    },
+    {
+     "stage": "Component qualification and environmental test",
+     "baseline": 2.0,
+     "S3_2031": 1.5,
+     "S4_2031": 1.5,
+     "S3_2035": 1.3,
+     "S4_2035": 1.1
+    },
+    {
+     "stage": "Insertion: certification, handbook, supply chain, first flight",
+     "baseline": 3.0,
+     "S3_2031": 2.6,
+     "S4_2031": 2.5,
+     "S3_2035": 2.3,
+     "S4_2035": 2.0
+    }
+   ],
+   "total_years": {
+    "baseline": 15.0,
+    "S3_2031": 10.2,
+    "S4_2031": 9.25,
+    "S3_2035": 8.55,
+    "S4_2035": 6.75
+   },
+   "shorter_pct": {
+    "S3_2031": 32.0,
+    "S4_2031": 38.3,
+    "S3_2035": 43.0,
+    "S4_2035": 55.0
+   },
+   "robot_only_split": {
+    "years": {
+     "S3_2031": 10.2,
+     "S4_2031_full": 9.25,
+     "S3_2035": 8.55,
+     "S4_2035_full": 6.75,
+     "S4_2031_robot_only": 9.5,
+     "S4_2035_robot_only": 7.83
+    },
+    "shorter_pct": {
+     "S3_2031": 32.0,
+     "S4_2031_full": 38.3,
+     "S3_2035": 43.0,
+     "S4_2035_full": 55.0,
+     "S4_2031_robot_only": 36.7,
+     "S4_2035_robot_only": 47.8
+    },
+    "reading": "Robots add ~+4.7 points (2031) and ~+4.8 (2035), mostly synthesis and replicate testing. Model-based allowables (institutional, equally available to S3) add ~+7 more by 2035. Multi-lot, multi-heat lots cannot be parallelized in time."
+   }
+  },
+  "material_note": "S4 2035 55% assumes NASA, FAA and primes accept model-based allowables; without that ~40-45%.",
+  "summary_points_over_S3": {
+   "space_2031": "+0.2-0.6 typical; +2.9 leading; +4.5-8.7 robot-first",
+   "space_2035": "+2.5 typical; +6.5 leading; +10.3-11.6 robot-first",
+   "infrastructure_2031": "+0.1 typical; +2-3.5 leading site",
+   "infrastructure_2035": "+1.4-2.2 typical; +7.5-12 leading",
+   "drug_2031": "+3.7 robots only (+5.6 incl. non-robotic)",
+   "drug_2035": "+2.9 robots only (+7.2 incl. non-robotic)",
+   "material_2031": "+4.7 robots only",
+   "material_2035": "+4.8 robots only (+12 with model-based allowables)"
+  },
+  "infrastructure_rules": "Field-labor multiplier blended by robot share (1% typical and 30% leading in 2031 at 1.6x; 12% typical and 50% leading in 2035 at 3x). Equipment queue at S3 unless capacity outruns demand (leading 2035: 1.4x)."
+ },
+ "feedback_loop": {
+  "loop_fleet_multiplier": {
+   "by_2031": "~1.0-1.2x (labor is not binding; actuators, magnets, chips, capital, certification bind)",
+   "2032_2035": "Base carries loop credit (1.8x then 1.6x instead of analogue 1.2-1.3x). Loop held at 12-month doubling: 104M fleet in 2035 vs 62M base; saturating: 30M.",
+   "draft_arithmetic_superseded": "Draft 2.1x by 2031 double-counted the base path's exogenous growth."
+  },
+  "inputs_by_path": {
+   "slow": {
+    "2031": {
+     "fleet_TWh_per_yr": 2.0,
+     "NdFeB_kt_at_4.5_2_1_kg": [
+      2,
+      1,
+      1
+     ],
+     "NdFeB_pct_of_2025_output_330kt": [
+      1,
+      0,
+      0
+     ],
+     "capex_B_per_yr_at_15_30k": [
+      8,
+      15
+     ]
+    },
+    "2035": {
+     "fleet_TWh_per_yr": 7.0,
+     "NdFeB_kt_at_4.5_2_1_kg": [
+      7,
+      3,
+      1
+     ],
+     "NdFeB_pct_of_2025_output_330kt": [
+      2,
+      1,
+      0
+     ],
+     "capex_B_per_yr_at_15_30k": [
+      22,
+      44
+     ]
+    }
+   },
+   "base": {
+    "2031": {
+     "fleet_TWh_per_yr": 9.0,
+     "NdFeB_kt_at_4.5_2_1_kg": [
+      15,
+      7,
+      3
+     ],
+     "NdFeB_pct_of_2025_output_330kt": [
+      5,
+      2,
+      1
+     ],
+     "capex_B_per_yr_at_15_30k": [
+      50,
+      101
+     ]
+    },
+    "2035": {
+     "fleet_TWh_per_yr": 93.0,
+     "NdFeB_kt_at_4.5_2_1_kg": [
+      118,
+      53,
+      26
+     ],
+     "NdFeB_pct_of_2025_output_330kt": [
+      36,
+      16,
+      8
+     ],
+     "capex_B_per_yr_at_15_30k": [
+      394,
+      788
+     ]
+    }
+   },
+   "fast": {
+    "2031": {
+     "fleet_TWh_per_yr": 21.0,
+     "NdFeB_kt_at_4.5_2_1_kg": [
+      33,
+      15,
+      7
+     ],
+     "NdFeB_pct_of_2025_output_330kt": [
+      10,
+      4,
+      2
+     ],
+     "capex_B_per_yr_at_15_30k": [
+      111,
+      222
+     ]
+    },
+    "2035": {
+     "fleet_TWh_per_yr": 238.0,
+     "NdFeB_kt_at_4.5_2_1_kg": [
+      309,
+      138,
+      69
+     ],
+     "NdFeB_pct_of_2025_output_330kt": [
+      94,
+      42,
+      21
+     ],
+     "capex_B_per_yr_at_15_30k": [
+      1031,
+      2063
+     ]
+    }
+   },
+   "base_loop_held_2x_after_2031": {
+    "2031": {
+     "fleet_TWh_per_yr": 9.0,
+     "NdFeB_kt_at_4.5_2_1_kg": [
+      15,
+      7,
+      3
+     ],
+     "NdFeB_pct_of_2025_output_330kt": [
+      5,
+      2,
+      1
+     ],
+     "capex_B_per_yr_at_15_30k": [
+      50,
+      101
+     ]
+    },
+    "2035": {
+     "fleet_TWh_per_yr": 156.0,
+     "NdFeB_kt_at_4.5_2_1_kg": [
+      241,
+      107,
+      54
+     ],
+     "NdFeB_pct_of_2025_output_330kt": [
+      73,
+      33,
+      16
+     ],
+     "capex_B_per_yr_at_15_30k": [
+      804,
+      1609
+     ]
+    }
+   }
+  },
+  "verdict_2031": "No material self-reinforcing loop. Fleet growth through 2031 comes from human-built, retooled factories; bound by actuators, reliability generations, magnets, chips, capital and certification.",
+  "verdict_2035": "The loop matters from ~2032 as robots enter reducer, screw and motor plants; capital goods (machine tools, furnaces, fabs, construction) in the mid-2030s. Not super-exponential before 2035.",
+  "when_it_bites": {
+   "inside_robot_makers": "2029-30",
+   "robot_supply_chain": "2031-33",
+   "capital_goods_chain": "mid-2030s"
+  },
+  "caps": [
+   {
+    "cap": "Precision actuators",
+    "binds": "Western chains 2026-28; Chinese supply elastic (Leaderdrive 0.43M 2025 -> >1M capacity 2026 -> >2M 2027, ~11-month doubling); rebased base path stays within it; draft's 3.0x/2.6x in 2027-28 would not"
+   },
+   {
+    "cap": "Reliability long tail",
+    "binds": "2026-30; field hours per task class; hardware generations 12-30 months"
+   },
+   {
+    "cap": "Safety certification and politics",
+    "binds": "EU Machinery Regulation applies 20 Jan 2027 (third-party assessment of ML safety functions, general); ISO 25785-1 ~2028; union contracts (general); state backlash (Texas data-center permit freeze Sep 21 2026); US fleet share 10-15% given >97% Chinese production"
+   },
+   {
+    "cap": "NdFeB magnets",
+    "binds": "Politically now; physically base 2035 26-118 kt (1-4.5 kg/robot), fast 69-309 kt, vs ~330 kt 2025 output; explicit variable"
+   },
+   {
+    "cap": "Capital",
+    "binds": "Base $50-100B/yr 2031, $0.4-0.8T/yr 2035; fast passes $1T/yr ~2035"
+   },
+   {
+    "cap": "Compute and power coupling",
+    "binds": "Robot training/inference and robot, actuator and magnet factories share chips, turbines and interconnection with S3 compute (Figure reserving up to 100k Vera Rubin GPUs; Tesla 'Terafab'); S3 and S4 together double-book unless coupled"
+   },
+   {
+    "cap": "Factory shells",
+    "binds": "West 2+ yr per expansion; China slack (48.7M light-vehicle capacity at 59% utilization in 2023, advocate); brownfield conversion is a named route, but usefulness binds first"
+   },
+   {
+    "cap": "Energy",
+    "binds": "Not for robots' operating power (base ~9 TWh 2031, ~93 TWh 2035); yes for compute, fabs, smelting and any economy-wide doubling; ~0.45-0.5 TW/yr of idle module capacity is slack for behind-the-meter builds"
+   },
+   {
+    "cap": "Baumol / weak links",
+    "binds": "Each domain accelerates only as fast as its slowest essential input (permits, clinical time, transformers, launches); Jones-Tonetti sigma ~0.2; Aghion-Jones-Jones"
+   }
+  ],
+  "sector_doubling_under_2_years": [
+   {
+    "sector": "General-purpose robots (units)",
+    "earliest_year": "Already YoY; base holds ~10-month doubling through 2031, ~16 months 2031-35",
+    "band": "High",
+    "driver": "Small base, capital",
+    "weak_link": "Actuators, reliability"
+   },
+   {
+    "sector": "Robot actuators (units)",
+    "earliest_year": "Already (Leaderdrive ~11-month capacity doubling)",
+    "band": "High",
+    "driver": "Humanoid demand",
+    "weak_link": "Grinding machines (West)"
+   },
+   {
+    "sector": "Lab experiments per year",
+    "earliest_year": "Already (workcells)",
+    "band": "High",
+    "driver": "Capex, not humanoids",
+    "weak_link": "Characterization"
+   },
+   {
+    "sector": "Mass to orbit (t/yr)",
+    "earliest_year": "2027-28",
+    "band": "Medium (High by 2029-30)",
+    "driver": "Starship reuse, not robots",
+    "weak_link": "Pads, flight failures"
+   },
+   {
+    "sector": "Satellites (mass per year)",
+    "earliest_year": "2027-29",
+    "band": "Medium",
+    "driver": "Starship V3, orbital compute",
+    "weak_link": "Launch"
+   },
+   {
+    "sector": "Lunar landed mass and robot-hours",
+    "earliest_year": "2028-30",
+    "band": "Medium",
+    "driver": "Tiny base, Starship cargo",
+    "weak_link": "Landers, power"
+   },
+   {
+    "sector": "Manufacturing output (physical units), leading economy",
+    "earliest_year": "2034-35 (fast)",
+    "band": "Low by 2035; Speculative by 2031",
+    "driver": "Robots at ~10% of labor",
+    "weak_link": "Energy, equipment"
+   },
+   {
+    "sector": "Leading-edge wafers",
+    "earliest_year": "2031-33",
+    "band": "Low",
+    "driver": "Fabs 2-4 yr; EUV tools",
+    "weak_link": "Tools"
+   },
+   {
+    "sector": "Construction output; grid electricity; drug approvals; NdFeB",
+    "earliest_year": ">2035",
+    "band": "Speculative",
+    "driver": "n/a",
+    "weak_link": "Permits; turbines and interconnection; trial clocks; mines 7-15 yr"
+   }
+  ],
+  "bands": "High >~70%, Medium 30-70%, Low 10-30%, Speculative <10%; judgments, not probabilities.",
+  "economy_scale_threshold": "Robots supply 10% of global manufacturing labor ~2036 (base), ~2034 (fast); construction 2.4% in base 2035.",
+  "magnet_variable": {
+   "kg_per_robot_settings": [
+    4.5,
+    2.0,
+    1.0
+   ],
+   "world_output_2025_kt": 330,
+   "world_output_2035_kt_at_8_15pct_growth": [
+    712,
+    1335
+   ],
+   "reading": "Magnet intensity is a design choice and the single lever that most decides 2035 fleets; base 2035 needs 8-36% of 2025 output, fast 21-94%, loop-held 16-73%. China's licensing pause lapses ~Nov 10 2026; a licensing shock would mostly hit non-Chinese makers (<3% of 2026 units) and Western deployment."
+  },
+  "loop_labor_check": {
+   "base_2031_robot_production_FTE_M": [
+    0.18,
+    0.53
+   ],
+   "pct_of_2031_base_fleet_human_equivalents": [
+    2.6,
+    7.7
+   ],
+   "note": "Draft said 1-3% of the 2031 fleet; skeptic's correction to 1.5-5.2% (draft fleet) accepted; with the rebased fleet it is ~3-8%."
+  },
+  "throughput_vs_latency": "Domain progress ~ (programs, builds, experiments in parallel) / (latency per program). Robots raise the numerator roughly with the fleet where labor binds; they cut latency only where latency is labor or queue, up to the Amdahl floor. Measured in physical units, robot- and launch-adjacent domains double in under 2 years from 2027-30; large mature sectors do not before 2035."
+ },
+ "rumor": {
+  "claim": "The Oct 6 2026 openai/math release is 1 of 3 solved-math dumps",
+  "finding": "Unsubstantiated as of Oct 7 2026: no OpenAI statement or named reporting; repository has one commit and no batch language; OpenAI says only 'for future releases'.",
+  "likely_origin": "Three OpenAI math releases in ~9.5 weeks (Aug 1 Astra ten results; Sep 8 Navier-Stokes claim; Oct 6 openai/math); SciAm report that staff remarks suggested unpublished results; Fortune report of progress on three other Millennium problems.",
+  "if_true_implies": [
+   "A large backlog and fast posing and filtering (~4,000 problems posed, ~9% kept). Release dates measure disclosure policy, not throughput or capability; no doubling time is computed from them (draft's 12.6-day figure withdrawn).",
+   "Moderate evidence for upper S2 or earlier S3: shift ~10-15 points toward S3; sensitivity with recursion onset 2027. The S2-vs-S3 test is whether each release comes from a newer, stronger model weeks apart."
+  ],
+  "if_true_does_not_imply": [
+   "Faster robots: AI math is a second-order input (~1.1-1.3x on the robotics timeline in S2, 1.2-1.5x in S3)",
+   "Shorter space programs: infinite cognition moves the Amdahl ceiling only 51.3% to 52.6%",
+   "Much earlier S4: an early-onset (2027) case lifts the 2031 base fleet from 6.2M to 9.0M but adds <1 point to a typical 2031 program (51.7-52.5%)"
+  ]
+ },
+ "node_moves": {
+  "method": "Rule after review: a node gets S4 credit only if (1) its binding gate at the firm that will achieve it is labor- or throughput-bound, (2) general-purpose robots are useful there before the node's year (structured aerospace tasks 2029, tolerance-critical 2030-31, suppliers after 2031, labs 2029-31, construction trades 2031-35), (3) no hard prerequisite lands later, and (4) the credit is not specialized automation already in S2/S3. Years are earliest credible years; bands are the chance by end-2031.",
+  "no_move": {
+   "regulatory": {
+    "reason": "Statutory clocks, comment periods, litigation and international coordination; robots do nothing here.",
+    "nodes": [
+     {
+      "id": "astro-capacity-licensing",
+      "title": "Licensing satellites against an orbital capacity budget",
+      "tier": 7,
+      "binding_gate": "regulatory",
+      "S3_year": "2031",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "comms-pq-fleet-migration",
+      "title": "Satellite fleets can swap encryption before the 2035 cutoff",
+      "tier": 6,
+      "binding_gate": "regulatory",
+      "S3_year": "2029",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "comms-verified-crypto-procurement-norm",
+      "title": "Machine-checked crypto becomes a procurement norm",
+      "tier": 7,
+      "binding_gate": "regulatory",
+      "S3_year": "2030",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "comms-performance-based-sharing-regime",
+      "title": "International shift to provable spectrum sharing",
+      "tier": 7,
+      "binding_gate": "regulatory",
+      "S3_year": "2031",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "hyper-p2p-cargo-demo",
+      "title": "Point-to-point rocket cargo, repeated demonstration flights",
+      "tier": 6,
+      "binding_gate": "regulatory",
+      "S3_year": "2030",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "physclock-licensing-in-weeks",
+      "title": "Launch licensing in weeks",
+      "tier": 6,
+      "binding_gate": "regulatory",
+      "S3_year": "2028",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "verif-hls-autonomy-certification",
+      "title": "Crewed lander autonomy certified with AI proofs",
+      "tier": 6,
+      "binding_gate": "regulatory",
+      "S3_year": "2030",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "verif-afss-part450",
+      "title": "Proof-backed autonomous flight termination under FAA rules",
+      "tier": 6,
+      "binding_gate": "regulatory",
+      "S3_year": "2029",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "science-eo-ghg-enforcement-grade",
+      "title": "Satellite methane data used as compliance evidence",
+      "tier": 6,
+      "binding_gate": "regulatory",
+      "S3_year": "2029",
+      "S3_band_2031": "Medium"
+     }
+    ]
+   },
+   "orbital_mechanics": {
+    "reason": "Mars windows every ~26 months; at most 1-2 learning cycles by 2031 and 3-4 by 2035 whatever the robots.",
+    "nodes": [
+     {
+      "id": "hyper-mars-heavy-landing",
+      "title": "First landing of 20 t or more on Mars",
+      "tier": 6,
+      "binding_gate": "launch",
+      "S3_year": "2031",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "auton-mars-propellant-plant",
+      "title": "Starship-scale propellant plant on Mars",
+      "tier": 6,
+      "binding_gate": "launch",
+      "S3_year": ">2031",
+      "S3_band_2031": "Speculative"
+     },
+     {
+      "id": "auton-mars-isru-demo",
+      "title": "Kilogram-per-hour propellant production on Mars",
+      "tier": 5,
+      "binding_gate": "launch",
+      "S3_year": "2031",
+      "S3_band_2031": "Speculative"
+     },
+     {
+      "id": "auton-mars-architecture-close",
+      "title": "Mars outpost logistics cut by local resources and recycling",
+      "tier": 7,
+      "binding_gate": "launch",
+      "S3_year": ">2031",
+      "S3_band_2031": "Speculative"
+     },
+     {
+      "id": "plasma-nep-mars-cargo",
+      "title": "Megawatt electric cargo ships to Mars",
+      "tier": 6,
+      "binding_gate": "capital",
+      "S3_year": ">2031",
+      "S3_band_2031": "Speculative"
+     },
+     {
+      "id": "prop-ntp-crewed-mars",
+      "title": "Nuclear thermal stage for crewed Mars",
+      "tier": 6,
+      "binding_gate": "capital",
+      "S3_year": ">2031",
+      "S3_band_2031": "Speculative"
+     }
+    ]
+   },
+   "nuclear": {
+    "reason": "HALEU fuel, criticality testing, NSPM-20 launch authorization and appropriations.",
+    "nodes": [
+     {
+      "id": "physclock-reactor-in-space",
+      "title": "A U.S. fission reactor launched",
+      "tier": 5,
+      "binding_gate": "capital",
+      "S3_year": "2030",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "prop-ntp-ground-test",
+      "title": "Nuclear thermal engine ground hot fire",
+      "tier": 5,
+      "binding_gate": "capital",
+      "S3_year": ">2031",
+      "S3_band_2031": "Speculative"
+     },
+     {
+      "id": "struct-fsp-lunar-100kwe",
+      "title": "A 100 kW-electric fission reactor operating on the Moon",
+      "tier": 6,
+      "binding_gate": "launch",
+      "S3_year": ">2031",
+      "S3_band_2031": "Speculative"
+     },
+     {
+      "id": "struct-fsp-radiator-qual",
+      "title": "Lightweight 600 K radiators qualified for fission power",
+      "tier": 5,
+      "binding_gate": "qualification",
+      "S3_year": "2030",
+      "S3_band_2031": "Low"
+     }
+    ]
+   },
+   "physics_life_tests": {
+    "reason": "Wear, burn, fusion and photonics physics run in real time; frontier technology, not labor, is the gate.",
+    "nodes": [
+     {
+      "id": "plasma-aeps-life-qual",
+      "title": "12 kW Gateway thruster passes a three-year wear test",
+      "tier": 5,
+      "binding_gate": "experiment",
+      "S3_year": "2029",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "plasma-high-power-ep-life",
+      "title": "100 kW-class thruster runs for thousands of hours",
+      "tier": 5,
+      "binding_gate": "experiment",
+      "S3_year": ">2031",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "plasma-fusion-net-gain",
+      "title": "First magnetic-fusion net energy gain",
+      "tier": 5,
+      "binding_gate": "fabrication",
+      "S3_year": "2028",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "plasma-fusion-propulsion-flight",
+      "title": "Fusion-powered thrust in space",
+      "tier": 5,
+      "binding_gate": "experiment",
+      "S3_year": ">2031",
+      "S3_band_2031": "Speculative"
+     },
+     {
+      "id": "plasma-active-shielding",
+      "title": "Magnetic radiation shield for crews",
+      "tier": 5,
+      "binding_gate": "fabrication",
+      "S3_year": ">2031",
+      "S3_band_2031": "Speculative"
+     },
+     {
+      "id": "comms-holevo-receiver-demo",
+      "title": "Ground demo: optical receiver beats photon counting",
+      "tier": 5,
+      "binding_gate": "experiment",
+      "S3_year": "2030",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "science-lightsail-demo",
+      "title": "Laser-propelled gram-scale sail demonstrated",
+      "tier": 5,
+      "binding_gate": "capital",
+      "S3_year": ">2031",
+      "S3_band_2031": "Speculative"
+     }
+    ]
+   },
+   "data_and_nature": {
+    "reason": "Bound by the Sun, the sky, survey cadence and mission funding.",
+    "nodes": [
+     {
+      "id": "plasma-cme-arrival-skill",
+      "title": "Solar-storm arrival forecast within about 8 hours",
+      "tier": 6,
+      "binding_gate": "data",
+      "S3_year": "2030",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "plasma-bz-forecast",
+      "title": "Knowing a solar storm's magnetic punch a day ahead",
+      "tier": 6,
+      "binding_gate": "data",
+      "S3_year": ">2031",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "astro-small-debris-catalog",
+      "title": "Screening-grade catalog of small debris",
+      "tier": 6,
+      "binding_gate": "data",
+      "S3_year": "2030",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "science-stage4-survey-data",
+      "title": "Next-generation dark-energy survey data in hand",
+      "tier": 6,
+      "binding_gate": "data",
+      "S3_year": "2028",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "science-lisa-readiness",
+      "title": "LISA analysis stack passes its accuracy tests",
+      "tier": 5,
+      "binding_gate": "adoption",
+      "S3_year": "2030",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "science-lisa-precision-science",
+      "title": "LISA does precision strong-gravity science from day one",
+      "tier": 6,
+      "binding_gate": "launch",
+      "S3_year": ">2031",
+      "S3_band_2031": "Speculative"
+     },
+     {
+      "id": "science-bhex-flight",
+      "title": "First space mission to sharpen black-hole images flies",
+      "tier": 6,
+      "binding_gate": "capital",
+      "S3_year": ">2031",
+      "S3_band_2031": "Speculative"
+     },
+     {
+      "id": "plasma-side-view-monitors",
+      "title": "Side-view and upstream solar-wind monitoring",
+      "tier": 6,
+      "binding_gate": "launch",
+      "S3_year": ">2031",
+      "S3_band_2031": "Speculative"
+     }
+    ]
+   },
+   "chip_fab": {
+    "reason": "Fab tool lead times and wafer capacity (EUV: ASML shipped 48 tools in 2025).",
+    "nodes": [
+     {
+      "id": "capability-ai-eda-space-processor",
+      "title": "AI-designed radiation-tolerant space processor",
+      "tier": 5,
+      "binding_gate": "fabrication",
+      "S3_year": "2029",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "materials-wbg-rad-hard-power",
+      "title": "Radiation-robust high-voltage power electronics",
+      "tier": 5,
+      "binding_gate": "fabrication",
+      "S3_year": "2029",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "comms-crqc-before-2031",
+      "title": "Code-breaking quantum computer before 2031",
+      "tier": 7,
+      "binding_gate": "fabrication",
+      "S3_year": "2031",
+      "S3_band_2031": "Low"
+     }
+    ]
+   },
+   "institutional_acceptance": {
+    "reason": "Customer, insurer or regulator acceptance of evidence, not labor.",
+    "nodes": [
+     {
+      "id": "physclock-critical-payload-reuse-acceptance",
+      "title": "Crew and defense payloads fly on data-cleared reused rockets",
+      "tier": 6,
+      "binding_gate": "qualification",
+      "S3_year": "2030",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "struct-shm-inspection-credit",
+      "title": "Sensor-based inspection credit for reusable stages",
+      "tier": 5,
+      "binding_gate": "qualification",
+      "S3_year": "2030",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "physclock-space-insurance-capacity",
+      "title": "Model-priced insurance for new rockets and constellations",
+      "tier": 7,
+      "binding_gate": "capital",
+      "S3_year": "2030",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "struct-structural-mass-step",
+      "title": "5-15% lighter structures on new vehicles and spacecraft",
+      "tier": 7,
+      "binding_gate": "qualification",
+      "S3_year": "2031",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "struct-flown-lighter-structure",
+      "title": "First flight structure sized with AI-certified margins",
+      "tier": 5,
+      "binding_gate": "qualification",
+      "S3_year": "2031",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "hyper-thinner-tps-flown",
+      "title": "Flown heat shield sized with reduced, model-based margins",
+      "tier": 5,
+      "binding_gate": "launch",
+      "S3_year": "2030",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "prop-reuse-extended",
+      "title": "Model-based engine reuse life",
+      "tier": 6,
+      "binding_gate": "data",
+      "S3_year": "2029",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "physclock-commercial-analysis-first-qual",
+      "title": "Operators fly new hardware qualified mainly by AI analysis",
+      "tier": 5,
+      "binding_gate": "adoption",
+      "S3_year": "2029",
+      "S3_band_2031": "High"
+     }
+    ]
+   },
+   "cognitive_adoption": {
+    "reason": "Set by the cognitive clock, operational data or adoption; robots add little or nothing.",
+    "nodes": [
+     {
+      "id": "astro-proof-backed-flight-software-ops",
+      "title": "Proof-backed guidance software in operational spacecraft",
+      "tier": 6,
+      "binding_gate": "adoption",
+      "S3_year": "2029",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "astro-autonomous-ca-at-scale",
+      "title": "Autonomous cross-operator collision avoidance",
+      "tier": 6,
+      "binding_gate": "adoption",
+      "S3_year": "2030",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "astro-leo-safety-at-scale",
+      "title": "Low Earth orbit stays safe at 100,000 satellites",
+      "tier": 7,
+      "binding_gate": "data",
+      "S3_year": "2031",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "astro-gnc-assurance-cost",
+      "title": "Verified autonomy becomes cheap",
+      "tier": 7,
+      "binding_gate": "adoption",
+      "S3_year": "2030",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "auton-ai-planned-ops-routine",
+      "title": "AI plans rover operations, machines check the plans",
+      "tier": 6,
+      "binding_gate": "adoption",
+      "S3_year": "2028",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "comms-certified-mesh-operations",
+      "title": "Mega-constellation mesh run with certified optimality",
+      "tier": 6,
+      "binding_gate": "adoption",
+      "S3_year": "2029",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "comms-d2d-coexistence-scheduling",
+      "title": "Phone-to-satellite service scheduled around interference",
+      "tier": 6,
+      "binding_gate": "adoption",
+      "S3_year": "2028",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "comms-capacity-per-dollar-share",
+      "title": "Software adds 10%+ capacity on the same hardware",
+      "tier": 7,
+      "binding_gate": "adoption",
+      "S3_year": "2030",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "frontier-math-unbinds",
+      "title": "Math expertise stops limiting space programs",
+      "tier": 7,
+      "binding_gate": "adoption",
+      "S3_year": "2028",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "materials-hot-section-reuse",
+      "title": "Longer-life reusable engines from new alloys",
+      "tier": 6,
+      "binding_gate": "data",
+      "S3_year": "2031",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "plasma-storm-robust-leo-ops",
+      "title": "Storm-proof low-orbit operations",
+      "tier": 6,
+      "binding_gate": "adoption",
+      "S3_year": "2029",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "plasma-radbelt-charging-forecast",
+      "title": "Radiation-belt and charging risk forecasts days ahead",
+      "tier": 6,
+      "binding_gate": "adoption",
+      "S3_year": "2028",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "science-propulsion-funding-redirect",
+      "title": "No-go theorems redirect breakthrough-propulsion money",
+      "tier": 7,
+      "binding_gate": "adoption",
+      "S3_year": "2028",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "science-return-per-dollar",
+      "title": "More science per mission dollar",
+      "tier": 7,
+      "binding_gate": "adoption",
+      "S3_year": "2028",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "struct-design-cycle-compression",
+      "title": "Structures and thermal analysis cycles 2-5x faster",
+      "tier": 7,
+      "binding_gate": "adoption",
+      "S3_year": "2028",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "verif-lander-verified-gnc-flight",
+      "title": "Lander flies proof-checked descent guidance and fault logic",
+      "tier": 5,
+      "binding_gate": "adoption",
+      "S3_year": "2029",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "verif-constellation-verified-updates",
+      "title": "Proof-checked software updates across constellations",
+      "tier": 6,
+      "binding_gate": "adoption",
+      "S3_year": "2029",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "verif-assurance-cost-collapse",
+      "title": "Verified flight code 15-120x cheaper per line",
+      "tier": 7,
+      "binding_gate": "adoption",
+      "S3_year": "2028",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "verif-new-entrant-advantage",
+      "title": "Assurance stops being a moat for primes",
+      "tier": 7,
+      "binding_gate": "adoption",
+      "S3_year": "2029",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "verif-launch-fsw-per-flight",
+      "title": "Reusable launchers re-prove flight software every flight",
+      "tier": 6,
+      "binding_gate": "adoption",
+      "S3_year": "2029",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "verif-onboard-ai-guardrails",
+      "title": "Onboard AI agents fly under proof-checked command guards",
+      "tier": 6,
+      "binding_gate": "adoption",
+      "S3_year": "2029",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "comms-multi-operator-dynamic-sharing",
+      "title": "Real-time spectrum sharing among rival constellations",
+      "tier": 6,
+      "binding_gate": "adoption",
+      "S3_year": "2030",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "science-onboard-science-inference",
+      "title": "Spacecraft send answers, not raw data, with error bounds",
+      "tier": 5,
+      "binding_gate": "adoption",
+      "S3_year": "2029",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "astro-constellation-hosted-ssa",
+      "title": "Constellations track debris with honest error bars",
+      "tier": 6,
+      "binding_gate": "adoption",
+      "S3_year": "2028",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "astro-proliferated-tracking-custody",
+      "title": "Missile-tracking satellites cite certified track merging",
+      "tier": 6,
+      "binding_gate": "adoption",
+      "S3_year": "2029",
+      "S3_band_2031": "Low"
+     }
+    ]
+   },
+   "launch_bound_missions": {
+    "reason": "Set by launch dates, flight demonstrations, mission funding or cognitive work already counted in S3.",
+    "nodes": [
+     {
+      "id": "astro-autonomous-nav-demo",
+      "title": "Autonomous Earth-Moon navigation with proven error bounds",
+      "tier": 5,
+      "binding_gate": "launch",
+      "S3_year": "2029",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "astro-ai-designed-trajectory-flown",
+      "title": "Missions fly AI-designed trajectories",
+      "tier": 6,
+      "binding_gate": "launch",
+      "S3_year": "2029",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "astro-cislunar-traffic-management",
+      "title": "Traffic management service for Earth-Moon space",
+      "tier": 6,
+      "binding_gate": "capital",
+      "S3_year": "2030",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "auton-icy-regolith-ground-truth",
+      "title": "First measurements of how hard polar ice is to dig",
+      "tier": 5,
+      "binding_gate": "launch",
+      "S3_year": "2028",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "auton-lunar-o2-flight-demo",
+      "title": "First oxygen made on the Moon",
+      "tier": 5,
+      "binding_gate": "launch",
+      "S3_year": "2028",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "auton-verified-autonomy-lunar-flight",
+      "title": "A lunar robot operates with proof-checked autonomy",
+      "tier": 5,
+      "binding_gate": "launch",
+      "S3_year": "2029",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "auton-blss-closed-test",
+      "title": "Long closed life-support test run by certified control",
+      "tier": 5,
+      "binding_gate": "capital",
+      "S3_year": "2030",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "auton-closed-loop-habitat",
+      "title": "Mars-class closed-loop life support, demonstrated",
+      "tier": 6,
+      "binding_gate": "qualification",
+      "S3_year": "2031",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "comms-pq-ttc-flight-demo",
+      "title": "Flight demo of verified post-quantum command links",
+      "tier": 5,
+      "binding_gate": "launch",
+      "S3_year": "2029",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "comms-space-qkd-network-demo",
+      "title": "Multi-node satellite quantum-key demonstrations",
+      "tier": 5,
+      "binding_gate": "launch",
+      "S3_year": "2028",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "comms-optical-ground-network-service",
+      "title": "Weather-robust optical ground network service",
+      "tier": 6,
+      "binding_gate": "capital",
+      "S3_year": "2030",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "comms-space-qkd-backbone",
+      "title": "Certified quantum-key service from space",
+      "tier": 6,
+      "binding_gate": "capital",
+      "S3_year": "2031",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "hyper-aerocapture-demo",
+      "title": "First aerocapture flight demonstration",
+      "tier": 5,
+      "binding_gate": "capital",
+      "S3_year": "2030",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "hyper-heavy-deployable-decelerator",
+      "title": "Next large inflatable or folding heat shield flies",
+      "tier": 5,
+      "binding_gate": "capital",
+      "S3_year": "2030",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "hyper-outer-planet-aerocapture-baseline",
+      "title": "Aerocapture baselined for an outer-planet flagship",
+      "tier": 7,
+      "binding_gate": "capital",
+      "S3_year": "2031",
+      "S3_band_2031": "Speculative"
+     },
+     {
+      "id": "materials-perovskite-tandem-flight",
+      "title": "Model-qualified perovskite tandem proves itself in orbit",
+      "tier": 5,
+      "binding_gate": "experiment",
+      "S3_year": "2030",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "materials-new-propellant-flight",
+      "title": "AI-designed propellant flies",
+      "tier": 5,
+      "binding_gate": "qualification",
+      "S3_year": "2030",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "materials-cots-orbital-compute-ops",
+      "title": "Commercial AI chips running in orbit at scale",
+      "tier": 6,
+      "binding_gate": "launch",
+      "S3_year": "2029",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "materials-perovskite-primary-power",
+      "title": "Perovskite arrays power operational satellites",
+      "tier": 6,
+      "binding_gate": "qualification",
+      "S3_year": "2031",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "materials-specific-power-step",
+      "title": "A step change in spacecraft power per kilogram",
+      "tier": 7,
+      "binding_gate": "qualification",
+      "S3_year": ">2031",
+      "S3_band_2031": "Speculative"
+     },
+     {
+      "id": "physclock-starship-full-reuse",
+      "title": "Both Starship stages caught and reflown",
+      "tier": 5,
+      "binding_gate": "experiment",
+      "S3_year": "2027",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "plasma-abep-demo",
+      "title": "Air-breathing electric propulsion flight test",
+      "tier": 5,
+      "binding_gate": "fabrication",
+      "S3_year": "2030",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "plasma-vleo-at-scale",
+      "title": "Commercial constellations below 300 km",
+      "tier": 6,
+      "binding_gate": "capital",
+      "S3_year": "2030",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "plasma-outcome-ep-cycle-time",
+      "title": "Faster, cheaper electric-propulsion development",
+      "tier": 7,
+      "binding_gate": "qualification",
+      "S3_year": ">2031",
+      "S3_band_2031": "Speculative"
+     },
+     {
+      "id": "prop-ship-transfer-demo",
+      "title": "Ship-to-ship cryogenic transfer demonstrated",
+      "tier": 5,
+      "binding_gate": "launch",
+      "S3_year": "2027",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "prop-rde-flight-demo",
+      "title": "Detonation engine flies in space",
+      "tier": 5,
+      "binding_gate": "qualification",
+      "S3_year": "2029",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "prop-hls-refuel-campaign",
+      "title": "Full lunar-lander refueling campaign",
+      "tier": 6,
+      "binding_gate": "launch",
+      "S3_year": "2028",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "prop-rde-operational",
+      "title": "Detonation engines in operational service",
+      "tier": 6,
+      "binding_gate": "qualification",
+      "S3_year": "2031",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "science-quantum-sensor-flight",
+      "title": "AI-co-designed quantum sensor flies",
+      "tier": 5,
+      "binding_gate": "qualification",
+      "S3_year": "2031",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "science-portfolio-shift",
+      "title": "Space science shifts money from analysis to photons",
+      "tier": 7,
+      "binding_gate": "capital",
+      "S3_year": "2030",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "struct-highflux-radiator-flight",
+      "title": "100-kW-class deployable radiators fly on compute satellites",
+      "tier": 5,
+      "binding_gate": "fabrication",
+      "S3_year": "2028",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "struct-large-sail-flight",
+      "title": "A 1,000 m2-class solar sail flies",
+      "tier": 5,
+      "binding_gate": "capital",
+      "S3_year": "2031",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "verif-verified-onboard-stack",
+      "title": "Formally verified onboard software stack",
+      "tier": 5,
+      "binding_gate": "qualification",
+      "S3_year": "2029",
+      "S3_band_2031": "High"
+     },
+     {
+      "id": "verif-rpo-assured-autonomy",
+      "title": "Proof-checked autonomous docking, servicing and refueling",
+      "tier": 5,
+      "binding_gate": "launch",
+      "S3_year": "2029",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "verif-mission-loss-rate",
+      "title": "Fewer missions lost to software logic (hard to see by 2031)",
+      "tier": 7,
+      "binding_gate": "launch",
+      "S3_year": "2031",
+      "S3_band_2031": "Low"
+     },
+     {
+      "id": "capability-compute-launch-demand",
+      "title": "AI compute becomes Starship's second anchor customer",
+      "tier": 7,
+      "binding_gate": "capital",
+      "S3_year": "2029",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "prop-loxsat-cfm-flight-data",
+      "title": "Public flight data on storing cryogenic propellant in orbit",
+      "tier": 5,
+      "binding_gate": "launch",
+      "S3_year": "2028",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "struct-hot-chip-hbm-qualification",
+      "title": "AI chips and memory qualified to run hot in orbit",
+      "tier": 5,
+      "binding_gate": "qualification",
+      "S3_year": "2029",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "auton-lunar-heavy-cargo-landing",
+      "title": "Heavy cargo landed on the Moon",
+      "tier": 6,
+      "binding_gate": "launch",
+      "S3_year": "2028",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "science-private-observatories",
+      "title": "A privately funded space telescope returns data",
+      "tier": 6,
+      "binding_gate": "fabrication",
+      "S3_year": "2029",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "astro-leo-pnt-assured-service",
+      "title": "Low-orbit navigation service with published error bounds",
+      "tier": 6,
+      "binding_gate": "launch",
+      "S3_year": "2029",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "astro-adr-large-object-removed",
+      "title": "First large debris object removed from orbit",
+      "tier": 6,
+      "binding_gate": "launch",
+      "S3_year": "2028",
+      "S3_band_2031": "Medium"
+     },
+     {
+      "id": "materials-ecls-isru-sorbents-catalysts",
+      "title": "AI-found air-scrubber or fuel-plant material qualified",
+      "tier": 5,
+      "binding_gate": "qualification",
+      "S3_year": "2030",
+      "S3_band_2031": "Low"
+     }
+    ]
+   }
+  },
+  "summary": {
+   "tier5_7_nodes": 150,
+   "moves_earlier_by_2031": 0,
+   "within_year_credit_count": 6,
+   "conditional_within_year_count": 2,
+   "credit_only_2032_2035_count": 9,
+   "no_credit_or_no_move_count": 133,
+   "mean_move_years_all_tier5_7": 0.01,
+   "mean_move_years_with_conditional": 0.013,
+   "high_or_medium_by_2031_S3": 92,
+   "high_or_medium_by_2031_S4": 92,
+   "high_by_2031_S3": 35,
+   "high_by_2031_S4": 35,
+   "band_upgrades": 0,
+   "S2_to_S3_mean_move_years_tier5_7": 0.39,
+   "draft_summary_superseded": {
+    "moves_earlier_count": 19,
+    "mean_move_years_all_tier5_7": 0.13,
+    "high_by_2031_S4": 41
+   }
+  },
+  "moves_earlier_by_2031": [],
+  "draft_moves_reverted": [
+   {
+    "id": "physclock-heavy-cadence-100",
+    "title": "100+ fully reusable heavy launches a year",
+    "tier": 6,
+    "S3_year": "2029",
+    "S3_band_2031": "High",
+    "draft_S4_year": "2028",
+    "draft_S4_band_2031": "High",
+    "S4_year": "2029",
+    "S4_band_2031": "High",
+    "within_year_credit_years": 0.0,
+    "reason_reverted": "Prerequisite physclock-pad-propellant-infra is 2029; launch-bound (Starbase 25/yr, LC-39A 44, SLC-37 76 caps); Starship never met a yearly flight plan; tile/pin robots are S2/S3 baseline",
+    "later_or_conditional_credit": "Conditional +0.25 yr within band if a published ship turnaround falls under 1 week"
+   },
+   {
+    "id": "hyper-rapid-reuse-heatshield",
+    "title": "Rapidly reusable orbital heat shield (ship scale)",
+    "tier": 5,
+    "S3_year": "2029",
+    "S3_band_2031": "Medium",
+    "draft_S4_year": "2028",
+    "draft_S4_band_2031": "High",
+    "S4_year": "2029",
+    "S4_band_2031": "Medium",
+    "within_year_credit_years": 0.0,
+    "reason_reverted": "No ship caught or reflown as of Oct 2026; tile TPS called a 'dead end for rapid reuse' (Rasky): a materials risk robots do not touch; model keeps Medium in every scenario",
+    "later_or_conditional_credit": "Conditional +0.25 yr within band if ship turnaround under 1 week"
+   },
+   {
+    "id": "physclock-cheap-mass-internal",
+    "title": "Starship internal cost under $300 per kg",
+    "tier": 7,
+    "S3_year": "2029",
+    "S3_band_2031": "High",
+    "draft_S4_year": "2028",
+    "draft_S4_band_2031": "High",
+    "S4_year": "2029",
+    "S4_band_2031": "High",
+    "within_year_credit_years": 0.0,
+    "reason_reverted": "Mach33 splits the decline 56% reuse, 32% payload, 12% production learning; follows cadence",
+    "later_or_conditional_credit": ""
+   },
+   {
+    "id": "physclock-satellite-gen-cadence",
+    "title": "New satellite generations every year",
+    "tier": 7,
+    "S3_year": "2029",
+    "S3_band_2031": "Medium",
+    "draft_S4_year": "2028",
+    "draft_S4_band_2031": "High",
+    "S4_year": "2029",
+    "S4_band_2031": "Medium",
+    "within_year_credit_years": 0.0,
+    "reason_reverted": "V3 timing gated by Starship, not the satellite; 2028 precedes aerospace robot onset",
+    "later_or_conditional_credit": "Credit after 2031 once launch is abundant"
+   },
+   {
+    "id": "struct-light-solar-array-production",
+    "title": "Lightweight solar arrays at compute-constellation volume",
+    "tier": 5,
+    "S3_year": "2029",
+    "S3_band_2031": "Medium",
+    "draft_S4_year": "2028",
+    "draft_S4_band_2031": "High",
+    "S4_year": "2029",
+    "S4_band_2031": "Medium",
+    "within_year_credit_years": 0.0,
+    "reason_reverted": "2029 node precedes tolerance-critical robot onset; compute-constellation demand is launch-bound",
+    "later_or_conditional_credit": ""
+   },
+   {
+    "id": "struct-radiator-lightweight-production",
+    "title": "Ultralight radiators in serial production",
+    "tier": 5,
+    "S3_year": "2030",
+    "S3_band_2031": "Medium",
+    "draft_S4_year": "2029",
+    "draft_S4_band_2031": "High",
+    "S4_year": "2030",
+    "S4_band_2031": "Medium",
+    "within_year_credit_years": 0.25,
+    "reason_reverted": "Assembly-heavy and insourced, but robots useful at leading firms only from ~2030; launch binds demand",
+    "later_or_conditional_credit": ""
+   },
+   {
+    "id": "struct-100kw-per-tonne-fleet",
+    "title": "100 kW-per-tonne compute satellites in serial production",
+    "tier": 6,
+    "S3_year": "2031",
+    "S3_band_2031": "Medium",
+    "draft_S4_year": "2030",
+    "draft_S4_band_2031": "Medium",
+    "S4_year": "2031",
+    "S4_band_2031": "Medium",
+    "within_year_credit_years": 0.0,
+    "reason_reverted": "Launch and rad-tolerant chips bind (draft's own reason); array specific power is the gate",
+    "later_or_conditional_credit": ""
+   },
+   {
+    "id": "materials-closed-loop-discovery",
+    "title": "Autonomous labs discover real new materials",
+    "tier": 5,
+    "S3_year": "2029",
+    "S3_band_2031": "High",
+    "draft_S4_year": "2028",
+    "draft_S4_band_2031": "High",
+    "S4_year": "2029",
+    "S4_band_2031": "High",
+    "within_year_credit_years": 0.0,
+    "reason_reverted": "Autonomous-lab workcells are S3 baseline; characterization and independent replication (6-18 months) bind; general bench robots 2029-31",
+    "later_or_conditional_credit": ""
+   },
+   {
+    "id": "materials-tps-new-material-flight",
+    "title": "AI-designed heat-shield material flies",
+    "tier": 5,
+    "S3_year": "2030",
+    "S3_band_2031": "High",
+    "draft_S4_year": "2029",
+    "draft_S4_band_2031": "High",
+    "S4_year": "2030",
+    "S4_band_2031": "High",
+    "within_year_credit_years": 0.25,
+    "reason_reverted": "Chain: design (S3 2029) -> coupons -> arc-jet screening (NASA Ames) -> capsule flight; Varda cadence is a launch effect already in S2/S3",
+    "later_or_conditional_credit": ""
+   },
+   {
+    "id": "materials-ai-alloy-flight",
+    "title": "First AI-agent-designed alloy flies in a rocket engine",
+    "tier": 5,
+    "S3_year": "2030",
+    "S3_band_2031": "Medium",
+    "draft_S4_year": "2029",
+    "draft_S4_band_2031": "Medium",
+    "S4_year": "2030",
+    "S4_band_2031": "Medium",
+    "within_year_credit_years": 0.25,
+    "reason_reverted": "Powder lots, AM parameter development (machine-bound), 10^3-10^4 h property tests and hot fire bind; parallel frames cannot parallelize multi-heat lots",
+    "later_or_conditional_credit": ""
+   },
+   {
+    "id": "prop-engine-dev-compression",
+    "title": "Engine development time and cost cut",
+    "tier": 7,
+    "S3_year": "2031",
+    "S3_band_2031": "Low",
+    "draft_S4_year": "2030",
+    "draft_S4_band_2031": "Medium",
+    "S4_year": "2031",
+    "S4_band_2031": "Low",
+    "within_year_credit_years": 0.25,
+    "reason_reverted": "Hard prerequisite prop-stability-design-tool is S3 2031 Low",
+    "later_or_conditional_credit": "Year-scale credit 2032-34 (parallel development engines, stand turnaround)"
+   },
+   {
+    "id": "capability-program-cycle-compression",
+    "title": "Development cycles 20-30% shorter, not 10x",
+    "tier": 7,
+    "S3_year": "2030",
+    "S3_band_2031": "Medium",
+    "draft_S4_year": "2029",
+    "draft_S4_band_2031": "High",
+    "S4_year": "2030",
+    "S4_band_2031": "Medium",
+    "within_year_credit_years": 0.0,
+    "reason_reverted": "Typical program gains ~0.2-0.6 points over S3 by 2031 (robots ~3% of aerospace labor); realized typical 35-45%, same as S3",
+    "later_or_conditional_credit": ""
+   },
+   {
+    "id": "physclock-qual-cycle-compressed",
+    "title": "Qualification campaigns at least 15% shorter",
+    "tier": 7,
+    "S3_year": "2030",
+    "S3_band_2031": "Medium",
+    "draft_S4_year": "2029",
+    "draft_S4_band_2031": "High",
+    "S4_year": "2030",
+    "S4_band_2031": "Medium",
+    "within_year_credit_years": 0.25,
+    "reason_reverted": "Hard prerequisite physclock-qual-by-analysis-credit is S3 2030 Medium",
+    "later_or_conditional_credit": ""
+   },
+   {
+    "id": "physclock-dev-capital-cut",
+    "title": "AI cuts new space hardware development cost by about 10-20%",
+    "tier": 7,
+    "S3_year": "2029",
+    "S3_band_2031": "High",
+    "draft_S4_year": "2028",
+    "draft_S4_band_2031": "High",
+    "S4_year": "2029",
+    "S4_band_2031": "High",
+    "within_year_credit_years": 0.0,
+    "reason_reverted": "2028 hardware-labor savings precede aerospace robot onset; already High",
+    "later_or_conditional_credit": ""
+   },
+   {
+    "id": "struct-reusable-life-management",
+    "title": "Sensors and models track wear on reusable stages",
+    "tier": 6,
+    "S3_year": "2031",
+    "S3_band_2031": "Medium",
+    "draft_S4_year": "2030",
+    "draft_S4_band_2031": "Medium",
+    "S4_year": "2031",
+    "S4_band_2031": "Medium",
+    "within_year_credit_years": 0.25,
+    "reason_reverted": "Each life data point costs a flight; prerequisite inspection credit 2030 Medium",
+    "later_or_conditional_credit": ""
+   },
+   {
+    "id": "auton-surface-productivity",
+    "title": "Severalfold more robot work per operator",
+    "tier": 7,
+    "S3_year": "2029",
+    "S3_band_2031": "High",
+    "draft_S4_year": "2028",
+    "draft_S4_band_2031": "High",
+    "S4_year": "2029",
+    "S4_band_2031": "High",
+    "within_year_credit_years": 0.0,
+    "reason_reverted": "Metric is operator-hours per task on lunar/Mars robots via AI planning: cognitive (S3), not terrestrial robot fleets",
+    "later_or_conditional_credit": ""
+   },
+   {
+    "id": "auton-robotic-landing-pad",
+    "title": "First robot-built landing pad or blast berm on the Moon",
+    "tier": 5,
+    "S3_year": "2030",
+    "S3_band_2031": "Low",
+    "draft_S4_year": "2029",
+    "draft_S4_band_2031": "Medium",
+    "S4_year": "2030",
+    "S4_band_2031": "Low",
+    "within_year_credit_years": 0.0,
+    "reason_reverted": "Landing odds (~50%), no manifested sintering flight, sintering power, cracking above ~16 C/min; hardware frozen ~2027-28",
+    "later_or_conditional_credit": "Credit 2032-35"
+   },
+   {
+    "id": "auton-assembly-flight-demo",
+    "title": "Robotic assembly in space with certified skills",
+    "tier": 5,
+    "S3_year": "2030",
+    "S3_band_2031": "Low",
+    "draft_S4_year": "2029",
+    "draft_S4_band_2031": "Medium",
+    "S4_year": "2030",
+    "S4_band_2031": "Low",
+    "within_year_credit_years": 0.0,
+    "reason_reverted": "Three chained uncertain steps plus a willing host; flight demos 2-4 yr; OSAM-1 >$2B and cancelled",
+    "later_or_conditional_credit": "Credit 2032-35"
+   },
+   {
+    "id": "auton-crew-optional-lunar-ops",
+    "title": "Lunar base runs itself between crew visits",
+    "tier": 6,
+    "S3_year": "2031",
+    "S3_band_2031": "Medium",
+    "draft_S4_year": "2030",
+    "draft_S4_band_2031": "Medium",
+    "S4_year": "2031",
+    "S4_band_2031": "Medium",
+    "within_year_credit_years": 0.0,
+    "reason_reverted": "Prerequisite auton-moon-base-infrastructure is 2030 Medium; landed mass, surface power and lunar night bind",
+    "later_or_conditional_credit": "Credit 2032-35"
+   }
+  ],
+  "within_year_credit": [
+   {
+    "id": "struct-radiator-lightweight-production",
+    "title": "Ultralight radiators in serial production",
+    "tier": 5,
+    "S3_year": "2030",
+    "S3_band_2031": "Medium",
+    "draft_S4_year": "2029",
+    "draft_S4_band_2031": "High",
+    "S4_year": "2030",
+    "S4_band_2031": "Medium",
+    "within_year_credit_years": 0.25,
+    "reason_reverted": "Assembly-heavy and insourced, but robots useful at leading firms only from ~2030; launch binds demand",
+    "later_or_conditional_credit": ""
+   },
+   {
+    "id": "materials-tps-new-material-flight",
+    "title": "AI-designed heat-shield material flies",
+    "tier": 5,
+    "S3_year": "2030",
+    "S3_band_2031": "High",
+    "draft_S4_year": "2029",
+    "draft_S4_band_2031": "High",
+    "S4_year": "2030",
+    "S4_band_2031": "High",
+    "within_year_credit_years": 0.25,
+    "reason_reverted": "Chain: design (S3 2029) -> coupons -> arc-jet screening (NASA Ames) -> capsule flight; Varda cadence is a launch effect already in S2/S3",
+    "later_or_conditional_credit": ""
+   },
+   {
+    "id": "materials-ai-alloy-flight",
+    "title": "First AI-agent-designed alloy flies in a rocket engine",
+    "tier": 5,
+    "S3_year": "2030",
+    "S3_band_2031": "Medium",
+    "draft_S4_year": "2029",
+    "draft_S4_band_2031": "Medium",
+    "S4_year": "2030",
+    "S4_band_2031": "Medium",
+    "within_year_credit_years": 0.25,
+    "reason_reverted": "Powder lots, AM parameter development (machine-bound), 10^3-10^4 h property tests and hot fire bind; parallel frames cannot parallelize multi-heat lots",
+    "later_or_conditional_credit": ""
+   },
+   {
+    "id": "prop-engine-dev-compression",
+    "title": "Engine development time and cost cut",
+    "tier": 7,
+    "S3_year": "2031",
+    "S3_band_2031": "Low",
+    "draft_S4_year": "2030",
+    "draft_S4_band_2031": "Medium",
+    "S4_year": "2031",
+    "S4_band_2031": "Low",
+    "within_year_credit_years": 0.25,
+    "reason_reverted": "Hard prerequisite prop-stability-design-tool is S3 2031 Low",
+    "later_or_conditional_credit": "Year-scale credit 2032-34 (parallel development engines, stand turnaround)"
+   },
+   {
+    "id": "physclock-qual-cycle-compressed",
+    "title": "Qualification campaigns at least 15% shorter",
+    "tier": 7,
+    "S3_year": "2030",
+    "S3_band_2031": "Medium",
+    "draft_S4_year": "2029",
+    "draft_S4_band_2031": "High",
+    "S4_year": "2030",
+    "S4_band_2031": "Medium",
+    "within_year_credit_years": 0.25,
+    "reason_reverted": "Hard prerequisite physclock-qual-by-analysis-credit is S3 2030 Medium",
+    "later_or_conditional_credit": ""
+   },
+   {
+    "id": "struct-reusable-life-management",
+    "title": "Sensors and models track wear on reusable stages",
+    "tier": 6,
+    "S3_year": "2031",
+    "S3_band_2031": "Medium",
+    "draft_S4_year": "2030",
+    "draft_S4_band_2031": "Medium",
+    "S4_year": "2031",
+    "S4_band_2031": "Medium",
+    "within_year_credit_years": 0.25,
+    "reason_reverted": "Each life data point costs a flight; prerequisite inspection credit 2030 Medium",
+    "later_or_conditional_credit": ""
+   }
+  ],
+  "conditional_within_year_credit": [
+   "physclock-heavy-cadence-100",
+   "hyper-rapid-reuse-heatshield"
+  ],
+  "no_credit_after_review": [
+   {
+    "id": "physclock-flight-test-cadence",
+    "title": "Monthly flight testing of a fully reusable heavy launcher",
+    "S3_year": "2028",
+    "S3_band_2031": "High",
+    "reason": "Already High in 2028; vehicles are ahead of flights, so factory robots do not set the interval. Draft gave +0.25 yr; review gives 0 because the stated binding gate is not labor at the achieving firm, or the node precedes robot onset."
+   },
+   {
+    "id": "physclock-reusable-competition",
+    "title": "A second reusable heavy-lift fleet at scale",
+    "S3_year": "2029",
+    "S3_band_2031": "Medium",
+    "reason": "Bound by development failures and pads, not labor. Draft gave +0.25 yr; review gives 0 because the stated binding gate is not labor at the achieving firm, or the node precedes robot onset."
+   },
+   {
+    "id": "capability-ai-native-spacecraft",
+    "title": "Spacecraft engineered mostly by AI flies",
+    "S3_year": "2029",
+    "S3_band_2031": "High",
+    "reason": "Cognitive core already compressed; I&T robots add months. Draft gave +0.25 yr; review gives 0 because the stated binding gate is not labor at the achieving firm, or the node precedes robot onset."
+   },
+   {
+    "id": "struct-formation-compute-clusters",
+    "title": "Tight-formation compute clusters operate in orbit",
+    "S3_year": "2029",
+    "S3_band_2031": "Medium",
+    "reason": "Launch- and flight-demo-bound. Draft gave +0.25 yr; review gives 0 because the stated binding gate is not labor at the achieving firm, or the node precedes robot onset."
+   },
+   {
+    "id": "plasma-ai-designed-thruster-flight",
+    "title": "AI-designed thruster flies and performs as predicted",
+    "S3_year": "2030",
+    "S3_band_2031": "Medium",
+    "reason": "Life testing is physics time. Draft gave +0.25 yr; review gives 0 because the stated binding gate is not labor at the achieving firm, or the node precedes robot onset."
+   },
+   {
+    "id": "physclock-cheap-mass-customer",
+    "title": "Customers buy orbit under $1,000 per kg",
+    "S3_year": "2030",
+    "S3_band_2031": "Medium",
+    "reason": "Customer price set by market structure (SpaceX 83% of 2025 mass), not cost. Draft gave +0.25 yr; review gives 0 because the stated binding gate is not labor at the achieving firm, or the node precedes robot onset."
+   },
+   {
+    "id": "prop-cislunar-propellant-economy",
+    "title": "Routine orbital refueling economy",
+    "S3_year": "2029",
+    "S3_band_2031": "Medium",
+    "reason": "Cadence-bound; follows the 100+ flights node by months. Draft gave +0.25 yr; review gives 0 because the stated binding gate is not labor at the achieving firm, or the node precedes robot onset."
+   },
+   {
+    "id": "struct-gw-orbital-compute",
+    "title": "1 GW of compute operating in orbit",
+    "S3_year": "2031",
+    "S3_band_2031": "Medium",
+    "reason": "Launch-bound; satellites already ahead of launch. Draft gave +0.25 yr; review gives 0 because the stated binding gate is not labor at the achieving firm, or the node precedes robot onset."
+   },
+   {
+    "id": "hyper-reentry-cadence-economy",
+    "title": "Routine, cheap reentry: 50+ commercial returns a year",
+    "S3_year": "2030",
+    "S3_band_2031": "Low",
+    "reason": "Demand- and capital-bound. Draft gave +0.25 yr; review gives 0 because the stated binding gate is not labor at the achieving firm, or the node precedes robot onset."
+   },
+   {
+    "id": "auton-moon-base-infrastructure",
+    "title": "Moon Base Phase 2 infrastructure on the surface",
+    "S3_year": "2030",
+    "S3_band_2031": "Medium",
+    "reason": "Landed mass and power bind; robots raise what each landing achieves. Draft gave +0.25 yr; review gives 0 because the stated binding gate is not labor at the achieving firm, or the node precedes robot onset."
+   },
+   {
+    "id": "materials-in-space-mfg-product",
+    "title": "Products made in orbit sold at recurring volume",
+    "S3_year": "2030",
+    "S3_band_2031": "Low",
+    "reason": "Demand and return cadence bind. Draft gave +0.25 yr; review gives 0 because the stated binding gate is not labor at the achieving firm, or the node precedes robot onset."
+   },
+   {
+    "id": "physclock-twin-reflight-clearance",
+    "title": "Reflight cleared by data, not teardown",
+    "S3_year": "2029",
+    "S3_band_2031": "Medium",
+    "reason": "Robotic inspection supplies data; acceptance is institutional. Draft gave +0.25 yr; review gives 0 because the stated binding gate is not labor at the achieving firm, or the node precedes robot onset."
+   }
+  ],
+  "credit_only_2032_2035": [
+   {
+    "id": "physclock-pad-propellant-infra",
+    "title": "Pads and propellant plants for hundreds of heavy flights",
+    "S3_year": "2029",
+    "S3_band_2031": "High",
+    "reason": "2029; built 2027-29 before general construction robots; specialized machines are S3; Credit by 2035 (leading 0.50-0.57x)"
+   },
+   {
+    "id": "auton-lunar-oxygen-ops",
+    "title": "Tonne-per-year lunar oxygen plant",
+    "S3_year": "2031",
+    "S3_band_2031": "Low",
+    "reason": "Pilot scale by 2031; Credit 2032-35 with 10+ cargo landings/yr"
+   },
+   {
+    "id": "hyper-12kms-entry-design-basis",
+    "title": "Ground-validated design basis for 12-14 km/s Earth return",
+    "S3_year": "2030",
+    "S3_band_2031": "Low",
+    "reason": "Arc-jet capacity grows after 2031; LEO capsules do not reach 12-14 km/s; Credit 2032-35"
+   },
+   {
+    "id": "struct-km-monolith",
+    "title": "Kilometre-scale monolithic structure in orbit",
+    "S3_year": ">2031",
+    "S3_band_2031": "Low",
+    "reason": "Robotic in-orbit assembly decouples structure size from fairing size; 100-m-class assembly plausible by 2035."
+   },
+   {
+    "id": "materials-qual-cycle-compression",
+    "title": "New space materials reach flight in five years or less",
+    "S3_year": "2031",
+    "S3_band_2031": "Low",
+    "reason": "Robots alone give ~7.8 yr by 2035 (48%); five years needs model-based allowables or commercial self-certification, which are institutional. S3 band by 2031 is already Low."
+   },
+   {
+    "id": "physclock-new-entrant-fast-orbit",
+    "title": "A new reusable launcher from start to orbit in three years",
+    "S3_year": "2031",
+    "S3_band_2031": "Low",
+    "reason": "Clean-sheet launcher 0.45-0.51x at a leading firm by 2035 (2.3-6.6 yr on a 5-13 yr base): a fast new entrant can reach three years by 2035; not by 2031."
+   },
+   {
+    "id": "auton-robotic-landing-pad",
+    "title": "First robot-built landing pad or blast berm on the Moon",
+    "S3_year": "2030",
+    "S3_band_2031": "Low",
+    "reason": "Robots raise what each landing or demo achieves; dates move only after 2031"
+   },
+   {
+    "id": "auton-assembly-flight-demo",
+    "title": "Robotic assembly in space with certified skills",
+    "S3_year": "2030",
+    "S3_band_2031": "Low",
+    "reason": "Robots raise what each landing or demo achieves; dates move only after 2031"
+   },
+   {
+    "id": "auton-crew-optional-lunar-ops",
+    "title": "Lunar base runs itself between crew visits",
+    "S3_year": "2031",
+    "S3_band_2031": "Medium",
+    "reason": "Robots raise what each landing or demo achieves; dates move only after 2031"
+   }
+  ],
+  "new_node_proposed": {
+   "title": "Robotic-process requalification standard for flight hardware",
+   "earliest_year": "2029-30",
+   "band_2031": "Medium",
+   "why": "AS9100, NADCAP and customer acceptance of robot-made flight hardware; gates S4 adoption in aerospace; on the critical path for any S4 qualification or fabrication credit."
+  }
+ },
+ "signposts": [
+  "Full-year 2026 humanoid shipments: <50k slow; 60-100k base; >150k fast (H1 2026 points to the slow-base boundary); quarterly output at AgiBot and UBTech breaking from linear",
+  "A humanoid maker publishes fleet mean time between interventions; Tesla reports Optimus units in productive use",
+  "ISO 25785-1 reaches DIS/FDIS; first uncaged deployments; EU Machinery Regulation conformity assessments from Jan 2027",
+  "Humanoids do final assembly of humanoids, then work in reducer, screw and magnet plants (loop onset)",
+  "Humanoids in paid aerospace assembly or test-stand work; first robotic-process requalification; SpaceX discloses robot counts",
+  "Starship ship turnaround under 1 week (unlocks conditional cadence and heat-shield credit)",
+  "Transformer lead times below ~100 weeks while demand still rises",
+  "China rare-earth decision ~Nov 10 2026; magnet kg per robot in new designs; non-China magnet capacity",
+  "Regulator acceptance of model-based allowables or reliability priors (institutional overlay, not robotic)",
+  "A newer OpenAI model releasing a further batch within weeks (S3 signal)"
+ ],
+ "sources_key": [
+  {
+   "title": "IFR World Robotics 2026 press release",
+   "url": "https://ifr.org/ifr-press-releases/five-million-robots-now-operate-in-factories-globally",
+   "date": "2026-09-24"
+  },
+  {
+   "title": "IFR professional service robots and humanoids",
+   "url": "https://www.zawya.com/en/press-release/asia-press-releases/global-sales-of-professional-service-robots-surge-24-1458551",
+   "date": "2026-09-30"
+  },
+  {
+   "title": "Omdia 2025 humanoid shipments (TechNode)",
+   "url": "https://technode.com/2026/01/09/chinas-agibot-leads-global-humanoid-robot-shipments-in-2025-omdia-says/",
+   "date": "2026-01-09"
+  },
+  {
+   "title": "IDC H1 2026 humanoid shipments",
+   "url": "https://roboticsandautomationnews.com/2026/10/02/idc-data-shows-agibot-led-global-humanoid-robot-shipments-in-h1-2026/105463/",
+   "date": "2026-10-02"
+  },
+  {
+   "title": "Goldman Sachs humanoid forecast revision",
+   "url": "https://247wallst.com/investing/2026/09/14/goldman-sachs-just-supercharged-its-humanoid-robot-prediction-5x-to-6-5-million-by-2035/",
+   "date": "2026-09-14"
+  },
+  {
+   "title": "Epoch AI: How fast could robot production scale up",
+   "url": "https://epoch.ai/blog/how-fast-could-robot-production-scale-up",
+   "date": "2026-04-22"
+  },
+  {
+   "title": "Epoch AI: Where autonomy works",
+   "url": "https://epoch.ai/publications/where-autonomy-works-evaluating-robot-capabilities-in-2026",
+   "date": "2026-02-10"
+  },
+  {
+   "title": "Forethought: The Industrial Explosion",
+   "url": "https://forethought.org/research/the-industrial-explosion",
+   "date": "2025-05-21"
+  },
+  {
+   "title": "Figure: Ramping Figure 03 production",
+   "url": "https://www.figure.ai/news/ramping-figure-03-production",
+   "date": "2026-04-29"
+  },
+  {
+   "title": "Figure: Production at BMW",
+   "url": "https://www.figure.ai/news/production-at-bmw",
+   "date": "2025-11-19"
+  },
+  {
+   "title": "Agility Form 425 (Churchill Capital XI)",
+   "url": "https://www.sec.gov/Archives/edgar/data/0002074973/000121390026100159/ea0305579-425_churchill.htm",
+   "date": "2026-09-15"
+  },
+  {
+   "title": "Musk Q4 2025 call on Optimus (Electrek)",
+   "url": "https://electrek.co/2026/01/28/musk-admits-no-optimus-robots-are-doing-useful-work-at-tesla-after-claiming-otherwise/",
+   "date": "2026-01-28"
+  },
+  {
+   "title": "SpaceX S-1/A",
+   "url": "https://www.sec.gov/Archives/edgar/data/0001181412/000162828026040364/spaceexplorationtechnologib.htm",
+   "date": "2026"
+  },
+  {
+   "title": "Rocket Lab Rosie robot (TechCrunch)",
+   "url": "https://techcrunch.com/2019/11/13/rocket-labs-new-rosie-the-robot-speeds-up-launch-vehicle-production-by-a-lot",
+   "date": "2019-11-13"
+  },
+  {
+   "title": "SemiAnalysis: Colossus 2",
+   "url": "https://newsletter.semianalysis.com/p/xais-colossus-2-first-gigawatt-datacenter",
+   "date": "2025-09-16"
+  },
+  {
+   "title": "LBNL Queued Up 2026",
+   "url": "https://eta-publications.lbl.gov/sites/default/files/2026-06/queued_up_2026_edition.pdf",
+   "date": "2026-06"
+  },
+  {
+   "title": "pv magazine: transformer lead times to four years",
+   "url": "https://pv-magazine-usa.com/2026/05/11/u-s-transformer-market-faces-severe-supply-constraints-as-lead-times-extend-to-four-years/",
+   "date": "2026-05-11"
+  },
+  {
+   "title": "GE Vernova 116 GW backlog (Turbomachinery)",
+   "url": "https://www.turbomachinerymag.com/view/ge-vernova-gas-turbine-backlog-hits-116-gw-as-power-orders-more-than-double",
+   "date": "2026-07-22"
+  },
+  {
+   "title": "Texas TCEQ data-center permit pause (Bracewell)",
+   "url": "https://www.bracewell.com/resources/governor-abbott-orders-tceq-to-pause-all-permit-issuance-for-data-center-projects/",
+   "date": "2026-09-23"
+  },
+  {
+   "title": "BIO clinical development success rates 2011-2020",
+   "url": "https://www.bio.org/clinical-development-success-rates-and-contributing-factors-2011-2020",
+   "date": "2021-02"
+  },
+  {
+   "title": "OpenAI/Ginkgo autonomous CFPS lab (R&D World)",
+   "url": "https://www.rdworldonline.com/openais-gpt-5-autonomously-ran-36000-protein-synthesis-experiments-in-ginkgo-bioworks-cloud-lab/",
+   "date": "2026-02-05"
+  },
+  {
+   "title": "A-Lab author correction",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12872444/",
+   "date": "2026-01"
+  },
+  {
+   "title": "Rentosertib",
+   "url": "https://en.wikipedia.org/wiki/Rentosertib",
+   "date": "2026-07-07"
+  },
+  {
+   "title": "openai/math repository",
+   "url": "https://github.com/openai/math",
+   "date": "2026-10-06"
+  },
+  {
+   "title": "Scientific American on openai/math",
+   "url": "https://www.scientificamerican.com/article/openai-unleashes-hundreds-more-math-results-upon-a-field-already-in-shock/",
+   "date": "2026-10-06"
+  },
+  {
+   "title": "Fortune on openai/math",
+   "url": "https://fortune.com/2026/10/07/openai-math-controversy-solutions-370-outstanding-challenges-published-criticisms-celebration/",
+   "date": "2026-10-07"
+  },
+  {
+   "title": "Engadget on openai/math",
+   "url": "https://www.engadget.com/2279815/openai-just-posted-hundreds-more-results-on-major-math-problems/",
+   "date": "2026-10-07"
+  },
+  {
+   "title": "SolarPower Europe global market outlook",
+   "url": "https://www.solarpowereurope.org/press-releases/new-report-global-solar-market-hits-new-record-of-664-gw-installation-in-2025-as-global-solar-fleet-passes-3-tw",
+   "date": "2026-06"
+  },
+  {
+   "title": "33FG/Mach33: Pricing Terafab",
+   "url": "https://research.33fg.com/analysis/pricing-terafab-a-bottom-up-the-s-1-won-t-give-you",
+   "date": "2026-05-27"
+  },
+  {
+   "title": "FAI: The robot boom has a magnet problem",
+   "url": "https://policygradients.thefai.org/p/the-robot-boom-has-a-magnet-problem",
+   "date": "2026"
+  },
+  {
+   "title": "European Commission: Machinery (Regulation (EU) 2023/1230 applies from 20 January 2027)",
+   "url": "https://single-market-economy.ec.europa.eu/sectors/mechanical-engineering/machinery_en",
+   "date": "fetched 2026-10-07"
+  },
+  {
+   "title": "Humanoids Daily: AgiBot 20,000 robots",
+   "url": "https://www.humanoidsdaily.com/news/agibot-20000-robots-production-milestone",
+   "date": "2026-09-24"
+  },
+  {
+   "title": "KrASIA: UBTech full-size humanoid revenue +1,445% in H1 2026",
+   "url": "https://kr-asia.com/ubtechs-full-size-humanoid-robot-revenue-jumps-1445-in-h1-2026",
+   "date": "2026-08"
+  },
+  {
+   "title": "Automotive Fleet: Tesla Model 3 failed to hit 2017 production goal",
+   "url": "https://www.automotive-fleet.com/143715/tesla-model-3-failed-to-hit-2017-production-goal",
+   "date": "2018-01"
+  },
+  {
+   "title": "Humanoid Guide: Leaderdrive harmonic reducers",
+   "url": "https://humanoid.guide/leaderdrive-harmonic-reducers-surge-as-humanoid-demand-lifts-shares/",
+   "date": "2026"
+  },
+  {
+   "title": "Aghion, Jones and Jones: Artificial Intelligence and Economic Growth (NBER w23928)",
+   "url": "https://www.nber.org/papers/w23928",
+   "date": "2017-10"
+  },
+  {
+   "title": "Jones and Tonetti: weak links tame the growth explosion (via Marginal Revolution)",
+   "url": "https://marginalrevolution.com/marginalrevolution/2026/02/past-automation-and-future-a-i-how-weak-links-tame-the-growth-explosion.html",
+   "date": "2026-02-12"
+  },
+  {
+   "title": "Goolsbee and Syverson: construction productivity (NBER w30845)",
+   "url": "https://www.nber.org/papers/w30845",
+   "date": "2023-01"
+  },
+  {
+   "title": "JAMA: AI-assisted trial screening RCT",
+   "url": "https://jamanetwork.com/journals/jama/fullarticle/2830514",
+   "date": "2025"
+  },
+  {
+   "title": "White House: EO 14300, Ordering the Reform of the NRC (advocate-fetched)",
+   "url": "https://www.whitehouse.gov/presidential-actions/2025/05/ordering-the-reform-of-the-nuclear-regulatory-commission/",
+   "date": "2025-05-23"
+  },
+  {
+   "title": "Wikipedia: Starship SN8 (SN8-SN15 flights Dec 2020-May 2021; advocate-fetched)",
+   "url": "https://en.wikipedia.org/wiki/Starship_SN8",
+   "date": "fetched 2026-10-07"
+  },
+  {
+   "title": "Wikipedia: Varda Space Industries (W-1 to W-6; advocate-fetched)",
+   "url": "https://en.wikipedia.org/wiki/Varda_Space_Industries",
+   "date": "fetched 2026-10-07"
+  },
+  {
+   "title": "Wikipedia: Automotive industry in China (48.7M capacity, 59% utilization 2023; advocate-fetched)",
+   "url": "https://en.wikipedia.org/wiki/Automotive_industry_in_China",
+   "date": "fetched 2026-10-07"
+  },
+  {
+   "title": "Wikipedia: US aircraft production during WWII",
+   "url": "https://en.wikipedia.org/wiki/United_States_aircraft_production_during_World_War_II",
+   "date": "accessed 2026-10-07"
+  }
+ ],
+ "method_notes": "Resolved version. Synthesis of six research files compiled 2026-10-07, graph-v5.json, and the skeptic and advocate reviews. WebSearch quota exhausted; one European Commission page fetched directly; advocate-fetched URLs are marked. Fleet, labor-share, Amdahl, gate and node values are estimates computed by scratchpad/s4_model_v2.py (output s4_calc_v2.json) and this update script; sub-share splits are judgments calibrated to the model's S3 51%. Draft values are retained under draft_* keys for audit; the draft markdown is s4-embodied-draft.md.",
+ "companion_markdown": "model/embodied/s4-embodied.md",
+ "reliability_demonstration_gate": "Demonstrating mean time between interventions (MTBI) of 1,000 h at 90% confidence with zero failures needs T = MTBI x ln(10) ~ 2,300 failure-free hours per task class and environment (general). No maker publishes fleet MTBI as of Oct 2026. Analogue: driverless cars took ~13 years from the 2007 DARPA Urban Challenge to commercial service.",
+ "gate_table_space_note": "Calendar time as a fraction of 2026 duration. S4 2031 typical equals S3 because robots supply ~3% of aerospace production labor (base). Leading-firm values use labor x1.43, physics x1.05 (iteration share only), materials x1.1, institutions x1.0 relative to S3; 2035 leading uses x2.31, x1.15, x1.3, x1.0; S3 2035 assumed 10% below S3 2031. Draft values are kept as draft_S4_2031 and draft_S4_2035 for audit.",
+ "requalification_gate": {
+  "description": "Replacing human workmanship with robots on flight hardware is a process change under AS9100/NADCAP special-process rules and NASA-STD-6030 per-machine qualification; 6-24 months per process per supplier.",
+  "effect": "Transient penalty +3-12 months per requalified process for 2028-30 adopters (J-curve); applied as a ~1.3-point drag on the 2031 robot-first Amdahl case (57.1% -> 55.8%).",
+  "evidence": "Tesla Model 3 missed 2017 goal partly through over-automation (Automotive Fleet, Jan 2018); Relativity reverted to welded aluminum; Neutron slipped despite a 90-t AFP robot; Firefly 2025 ground-test explosion traced to an integration process error."
+ },
+ "review_resolution": {
+  "reviewers": [
+   "physical-constraints skeptic (19 points)",
+   "acceleration advocate (16 points)"
+  ],
+  "debates": [
+   {
+    "topic": "Physics sub-multipliers and the floor",
+    "skeptic": "Draft raised physics, materials and institutions; 40-50% of S4 gain non-robotic; floor 65-69% not 77%",
+    "advocate": "Physics bins include serial iteration; parallel articles compress it; floor ~85%",
+    "resolution": "Time constants and institutions at S3 same-year; iteration credit 1.25-1.5x robot-first only, booked as capital; floor 67-73%, 75% with a non-robotic institutional overlay. Hardware-rich iteration (SN8-SN15 in 147 days, 2020-21) is already in the 2026 baseline."
+   },
+   {
+    "topic": "Typical-program value",
+    "skeptic": "56% uses deployed multipliers; robots ~7% of aerospace labor gives ~52%",
+    "advocate": "Not contested",
+    "resolution": "Skeptic accepted: typical 52%, leading 54%, robot-first 56-60%."
+   },
+   {
+    "topic": "Labor multipliers",
+    "skeptic": "4-8x exceeds 24/7 over multi-shift crews; cap 1.5-2x over S3",
+    "advocate": "Not contested",
+    "resolution": "Derived k = hours x productivity x parallel-crew: 1.43 (0.94-2.03) in 2031, 2.31 (1.58-3.06) in 2035."
+   },
+   {
+    "topic": "Node moves",
+    "skeptic": "3 prerequisite violations; 8 moves in 2028 precede onset; Starship, satellite and lunar moves not labor-bound",
+    "advocate": "Pass the cadence move through to cadence-bound dependents",
+    "resolution": "All 19 reverted; cadence move withdrawn so no pass-through; 6 within-year credits, 2 conditional."
+   },
+   {
+    "topic": "Fleet 2026-2031",
+    "skeptic": "Leaders linear in 2026; base at top of range; caps unapplied",
+    "advocate": "Brownfield auto conversion removes factory-shell cap in China; fast underweighted",
+    "resolution": "Rebased base: 6.2M fleet 2031 (was 9.0M); draft base kept as early-onset sensitivity; weights unchanged; brownfield route noted but usefulness and actuators bind."
+   },
+   {
+    "topic": "Fleet after 2031 and the loop",
+    "skeptic": "Analogues saturate (1.2-1.3x/yr); loop multiplier 1.0-1.2x by 2031",
+    "advocate": "Draft base was a no-loop path; fast decelerated more than base; loop-held gives ~156M",
+    "resolution": "Both partly: loop ~1.0-1.2x by 2031; base 1.8x then 1.6x after 2031 with loop credit from ~2032 (62M in 2035); loop-held 104M and saturating 30M shown; fast no slower than base."
+   },
+   {
+    "topic": "Institutions",
+    "skeptic": "Hold at S3; add politics/labor/safety cap",
+    "advocate": "2025-26 shows 2-8x on specific clocks (EO 14300, Seven County, CNPV)",
+    "resolution": "Institutional overlay applied to S3 and S4 alike (+2-3 points; not robotic); politics/labor/safety cap row added."
+   },
+   {
+    "topic": "Qualification and queues",
+    "skeptic": "Requalification J-curve; not applied as a gate",
+    "advocate": "GEVS dwell is 5-20% of a campaign; Kingman queue nonlinearity",
+    "resolution": "Environmental qualification re-split 45/25/10/20; requalification gate and node added (1.3-point drag in 2031); queue credit offset by rising test demand."
+   },
+   {
+    "topic": "Material qualification",
+    "skeptic": "Lot/heat constraint; robot gain +0-2 by 2035",
+    "advocate": "Creep floor ~4 of 15 years; commercial internal insertion variant",
+    "resolution": "Re-split 25/35/10/30; robot-only +4.7-4.8 points; allowables institutional; commercial-insertion node already Low by 2031 in S3."
+   },
+   {
+    "topic": "Throughput versus latency",
+    "skeptic": "Baumol/weak links; measure in physical units",
+    "advocate": "Domain progress is throughput; lead with it",
+    "resolution": "Both: sector table in physical units with named weak link; throughput statement added to bottom line."
+   },
+   {
+    "topic": "Actuators and magnets",
+    "skeptic": "Caps named but never applied; licensing shock unmodeled",
+    "advocate": "Chinese supply elastic (~11-month doubling); magnet kg/robot a design variable",
+    "resolution": "Rebased path fits reducer growth; actuator cap binds Western chains 2026-28; magnets explicit at 1/2/4.5 kg; licensing shock mainly hits non-Chinese makers."
+   },
+   {
+    "topic": "Drugs",
+    "skeptic": "61% of 2035 increment is clinical/review, not robotic",
+    "advocate": "Clinical calendar is mostly operations (enrollment, gaps); add portfolio metric",
+    "resolution": "Split: robots +3.7 (2031), +2.9 (2035); clinical-ops point valid but cognitive (S3 rows may be conservative); portfolio metric kept (Phase II 29% -> 40-50% cuts programs per approval 28-42%)."
+   },
+   {
+    "topic": "Infrastructure",
+    "skeptic": "Scale by robot share; equipment queue at S3; +2 not +13 points",
+    "advocate": "Energy slack: ~0.45-0.5 TW/yr idle module capacity",
+    "resolution": "Skeptic on Amdahl (US 2035 typical 27%, leading 33%); advocate's energy slack added as per-domain energy statement."
+   },
+   {
+    "topic": "Flight as test bed, Mars, rumor sensitivity",
+    "skeptic": "Drop rumor doubling time",
+    "advocate": "Varda as TPS test bed; parallel landers per Mars window; S4 2027-onset sensitivity",
+    "resolution": "Doubling time dropped; flight-test cadence is a launch effect already in S2/S3; LEO returns do not validate 12-14 km/s; Mars variable noted, no move; early-onset sensitivity adds <1 point to typical 2031."
+   }
+  ],
+  "points_accepted": {
+   "skeptic": "16 of 19 fully, 3 partly (fleet saturation, materials size, US share size)",
+   "advocate": "4 fully (loop inconsistency, throughput framing, magnet variable, actuator elasticity), 8 partly, 4 rejected (cadence pass-through, fast reweighting, 12-14 km/s move, Mars node move)"
+  }
+ }
+}

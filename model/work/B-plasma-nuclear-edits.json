@@ -1,0 +1,522 @@
+{
+ "update": [
+  {
+   "id": "frontier-landau-damping-general",
+   "patch": {
+    "title": "Landau damping settled for realistic plasmas",
+    "description": "Long-time behavior of collisionless and weakly collisional plasmas settled beyond the idealized setting, either by proving nonlinear Landau damping or by proving that it fails. The settings are: Sobolev (finite-regularity) data in unconfined or screened settings where echo counterexamples do not apply; whole space; bounded domains with absorbing or emitting walls; magnetized plasmas (phase mixing along the field, with or without weak collisions; collisionless modes transverse to the field are undamped Bernstein waves and do not Landau-damp); and full electromagnetic (Vlasov-Maxwell) fields near stable equilibria, with explicit rates. The node is reached when at least one of these variants is settled. The results say when and how fast kinetic fluctuations damp, which is what Landau-fluid closures imitate.",
+    "status_oct2026": "Mouhot-Villani (2011, torus, Gevrey) is now Lean-formalized (Bedrossian, Sep 2026). Results since then: unconfined 3D near Poisson equilibrium (Ionescu-Pausader-Wang-Widmayer 2022; new proof by Nguyen-Wei-Zhang, arXiv 2411.18408); unconfined 2D (Ionescu-Nguyen, Sep 2026); screened two-species with large data (Wang-Xiao-Xiong, arXiv 2603.16767, Mar 2026); weak-collision Vlasov-Poisson-Fokker-Planck (Y. Luo, arXiv, Jan 2024). Known limits: on the torus, finite-regularity damping can fail through plasma echoes (Bedrossian 2016, general). In a uniform magnetic field, modes transverse to B are undamped Bernstein standing waves while other modes Landau-damp, and weak collisions add relaxation on an O(nu^-1/3) time scale (Bedrossian-Wang, arXiv 1805.10756, linearized). Nonlinear magnetized and full Vlasov-Maxwell long-time behavior are open. Catalog 362 (T3) supplies global smoothness for one-species relativistic Vlasov-Maxwell, a prerequisite for long-time questions.",
+    "premise_tier": "T3 (362, analog evidence). The band does not depend on the internal model becoming public. The node needs only one variant settled; human programs (Ionescu, Pausader, Bedrossian, Nguyen and coauthors) have produced new settings at about one a year since 2022; and labs can pose the problem internally (cap-research-math-internal, 2026).",
+    "why": "An active human program is closing in, and the difficulty is catalog-level. Formalization has started (Bedrossian), so kinetic theory is now formalizable despite the 3-of-16 PDE formalization rate. Downstream, quantitative damping rates and echo thresholds justify the linear dispersion relations used in electric-propulsion and space-weather wave models. For kinetic closures (plasma-kinetic-closures) they are a confidence input (P5), not a prerequisite. Landau-fluid closures (Hammett-Perkins 1990, general) were derived from linear theory, and engineering closures are calibrated. Hall-thruster electron-cyclotron drift turbulence grows from Bernstein-type modes that do not Landau-damp, so a correct magnetized result may be negative. The plasma domain's long-time Landau damping node is merged here.",
+    "signpost": "A theorem settling the nonlinear long-time behavior of magnetized Vlasov-Poisson (phase mixing along B, uniform in a weak collision frequency; persistence or stability of Bernstein modes across B), or nonlinear Landau damping for an unconfined or screened Vlasov-Maxwell system near a stable homogeneous equilibrium at Sobolev regularity. A proven failure counts.",
+    "calibration_note": "A3: Internal-model dependency noted (scorecard); bands unchanged because public access arrives inside every scenario. A4: Why text no longer names the id that was merged into this node. B: High kept for 'at least one variant settled'; the scorecard's public-release cap does not bind because the band rests on human programs and internal lab use, not on public access.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + advocate + auditor: hard edge to plasma-kinetic-closures -> soft (P5 confidence input, not a gate). Skeptic + auditor: target restated so a true negative result counts (collisionless transverse Bernstein modes do not damp; echo counterexamples on the torus); node reached when at least one variant is settled. Auditor: attribution fixed (Ionescu-Pausader-Wang-Widmayer 2022 first; Nguyen-Wei-Zhang a new proof) and two uncited results given citations. Auditor's Medium cap considered and not applied: premise_tier now states why the band does not depend on public release (see debates). Years and bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-vm-wellposed",
+   "patch": {
+    "title": "Relativistic Vlasov-Maxwell (one species) proved well-behaved (checked)",
+    "description": "The claimed proof that the 3D relativistic Vlasov-Maxwell system has global smooth solutions for smooth finite-energy data passes an outside Comparator run and a statement audit, moving from T3 to T4. The system is the kinetic equation for collisionless plasma coupled to Maxwell's equations; family 362 covers one species in 3D, per the release overview. This is the Glassey-Strauss global-regularity problem, open since the 1980s.",
+    "why": "The Lean proof exists, so a Comparator run is cheap; the slow part is the statement audit (does the Lean definition of the system, its function spaces and 'finite energy' match what physicists mean?). The March 2026 AI-assisted formalization of the Vlasov-Maxwell-Landau equilibrium reported exactly these definition-alignment bugs and hypothesis creep, which is why the gate is formalization rather than cognition. Hexagon (launched Oct 6, 2026) exists to do this. Once T4, kinetic codes for the one-species relativistic system are known to approximate a solution that exists and stays smooth for all time: a confidence gain, per analyst position (d). Real plasmas have at least two species, so the multi-species case stays open.",
+    "signpost": "An outside Comparator report and statement audit for family 362 posted on Hexagon or by a kinetic-theory group within 12 months. The audit must state whether the Lean statement covers one species only and which data class it assumes (e.g. compact momentum support versus finite energy). A definition mismatch found in the audit would break this node.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Auditor (statement-gap rule, tr-position-2): title and description scoped to one species, 3D, per the release overview; signpost asks the audit to state species and data class. Why no longer says every collisionless code is covered. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-gk-surrogates",
+   "patch": {
+    "status_oct2026": "Already arriving through ML, not frontier math: surrogates of the GX code trained on >200,000 nonlinear simulations over ~23,000 stellarator configurations run in ~ms and are used directly in equilibrium optimization (Churchill, Landreman et al., arXiv 2609.28730, Sep 23 2026); GyroSwin cuts fully resolved nonlinear gyrokinetics cost ~1,000x (arXiv 2510.07314); PQLS calibrates a quasilinear saturation rule by Bayesian inference, separating parameter and model-form uncertainty (arXiv 2609.29336, Sep 24 2026). Multiscale nonlinear runs can cost ~640,000 node-hours (general; reported for GKV on Fugaku, primary source not checked).",
+    "why": "The training data and ML methods exist; DOE's Genesis Mission/STELLAR-AI (PPPL, Jan 2026) includes StellFoundry, an AI stellarator-design project. AI applied math adds out-of-distribution error bounds and principled UQ on top, raising trust from 'useful screening tool' to 'design-of-record input'.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Auditor: GKV node-hour figure marked (general) because the source was a search summary; STELLAR-AI wording matched to its source (StellFoundry). Years and bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-kinetic-solvers-at-scale",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium"
+    },
+    "pathway": "P1->P4",
+    "why": "Algorithm invention for multiscale kinetic problems is expert-scarce work that S2 makes on-demand by 2027-28 (P1), and its product is practical algorithms (P4). Order-of-magnitude cost today (general arithmetic, judgment): at real density, cells that resolve electron-cyclotron drift waves (~50-100 micrometres) give ~1e9-1e10 cells over a 5 kW thruster and its near plume. With ~100 particles per cell and ~1e7 cyclotron-resolving implicit steps for ~1 ms of simulated time, that is ~1e18-1e19 particle pushes, weeks to months on a full exascale machine. Implicit energy-conserving PIC already exists, so reaching 'days' needs another ~10-100x from algorithms (sparse-grid, low-rank, asymptotic-preserving, subcycling) plus 2028-31 hardware. That makes hero runs feasible, which is all this node claims. Design loops that need hundreds of evaluations stay out of reach, so design runs through the closure (plasma-hall-anomalous-closure). Band: S2 Medium, the P4 default, given the node's own strongest case (gains may stall near 10x); S3 High because recursive AI compounds algorithm gains after 2028.",
+    "signpost": "A published full-device 3D PIC of a >=5 kW Hall thruster at real mass ratio and real geometry, with neutrals and wall emission, covering >=0.5 ms of simulated time and completed in under a week.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + auditor: S3 2027 -> 2028 (S3 equals S2 through 2027; cap-applied-math is 2027 in both). Skeptic: signpost now measures affordability only; the no-tuning accuracy test moves to plasma-hall-anomalous-closure; unsupported 10-100x stacking sentence replaced by cost arithmetic. Auditor: pathway P1->P6 -> P1->P4; S1 Medium -> Low, S2 High -> Medium (P4 default; resolver arithmetic puts today's cost at ~1e18-1e19 particle pushes, weeks to months on a full exascale machine, so 'days' needs another 10-100x). S3 High kept."
+   }
+  },
+  {
+   "id": "plasma-lean-kinetic-library",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "why": "A single statement audit can use bespoke definitions reviewed by experts, as in the 10-day, ~$200 VML case (arXiv 2603.15929). The shared library matters for reuse across 363, 364 and any future plasma theorem, and for machine-checked numerics (plasma-verified-kinetic-numerics). The limit is agreeing on definitions, not writing proofs. Under S2, Mathlib analysis/PDE coverage catches up 2027-29 and a plasma layer follows within a year; S3 follows S2 through 2027.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic: why no longer claims audits need a shared library (contradicted plasma-vm-wellposed, S1 2027, which uses bespoke definitions). Resolver consistency: S3 2027 -> 2028 (S3 equals S2 through 2027; the trunk resolver moved infra-mathlib-applied S3 to 2028). Bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-verified-kinetic-numerics",
+   "patch": {
+    "band_2031": {
+     "S3": "High"
+    },
+    "premise_tier": "T3 (362), context only",
+    "status_oct2026": "Structure-preserving (geometric) PIC and finite-element schemes exist with proved conservation properties (general). Convergence theorems assume a smooth solution on the time interval; local theory and continuation criteria already supply that on finite intervals, and family 362 [L, T3] would add global smoothness for one-species relativistic Vlasov-Maxwell. Engineering PIC (Hall thrusters, nozzles, magnetospheres) mostly solves electrostatic, non-relativistic Vlasov-Poisson, globally regular in 3D since 1991-92 (Pfaffelmoser; Lions-Perthame, general). PIC statistical noise and the electron-to-xenon mass ratio of about 1:239,000 (stiffness) lack rigorous error control (general).",
+    "why": "Under S2, AI does numerics with certified error bounds by 2027-28 and the verified floating-point toolchain matures 2027-29, so the first certified kinetic-solver modules appear ~2029. Practical value: replacing grid- and particle-count convergence studies (often several times the cost of the production run, general) with proof-backed estimators, and giving ML surrogates a certified reference to be checked against. S3 High: formalization-gated work runs on the cognitive clock, which S3 compresses 20-50x from 2029; all S3 hard prerequisites are High by 2028; and the node needs only one code team to ship one machine-checked module (a Vlasov-Maxwell-Landau theorem took 10 days and ~$200 in Mar 2026, arXiv 2603.15929).",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + auditor: hard edge from plasma-vm-wellposed -> soft; premise_tier -> context only (finite-interval convergence needs local smoothness only; engineering PIC is electrostatic and non-relativistic). Advocate: S3 Medium -> High (cognitive-clock node; all S3 hard prerequisites High by 2028; one module from one code team suffices). S1/S2 unchanged."
+   }
+  },
+  {
+   "id": "plasma-kinetic-closures",
+   "patch": {
+    "catalog_families": [],
+    "earliest_year": {
+     "S3": "2029"
+    },
+    "premise_tier": "n/a (364 is T1 methodological context only, not a node family)",
+    "why": "S2 assumes AI builds and validates physics theory and reduced models from 2028-29; closures are the canonical such task. Validation needs kinetic simulation data (plasma-kinetic-solvers-at-scale) and diagnostics such as incoherent Thomson scattering, which already exist at university labs. Landau-damping theorems (frontier-landau-damping-general) add confidence but are not needed: Landau-fluid closures were built from linear theory (Hammett-Perkins 1990, general). Data-driven closures with UQ count. This general theory accelerates, but does not gate, the Hall-thruster closure and magnetic-nozzle theory.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + advocate + auditor: hard edge from frontier-landau-damping-general -> soft. Skeptic + advocate: soft edge from plasma-kinetic-solvers-at-scale (why names its data as the validation source). Auditor: family 364 removed from catalog_families (it maps to rarefied flow/DSMC, not plasma closures); kept as text. Resolver consistency: S3 2028 -> 2029 because the trunk resolver moved hard prerequisite cap-physics-theory S3 to 2029 (autofix would do the same). Bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-hall-anomalous-closure",
+   "patch": {
+    "band_2031": {
+     "S2": "Low"
+    },
+    "description": "A validated model of anomalous cross-field electron transport in Hall thrusters, first-principles or data-driven (trained on whole-device kinetic simulations and non-invasive measurements), that predicts transport from the local plasma state across thrusters and operating points without per-condition calibration.",
+    "status_oct2026": "Open research problem since the 1960s. Codes calibrate an anomalous collision frequency to each operating point. A self-consistent closure using plasma density, neutral density and electron temperature captures peak electron temperature and performance on a 9 kW magnetically shielded thruster but cannot place electron temperature and ion velocity profiles correctly at the same time (Brick, Roberts, Jorns, IEPC-2025-361). NASA's Joint Advanced Propulsion Institute (JANUS) Predictive Engineering Model, with one pressure-parameterized transport model, fits SPT-140 calibration data within 7% (thrust) and 15% (discharge current), with 8%/17% when extrapolated to orbit; the authors note discharge current is not reliably predicted at higher power (Whittaker et al., AIAA 2026). Thomson scattering finds electron temperatures ~2x higher than probes.",
+    "why": "The candidate mechanisms (electron-cyclotron drift, gradient-drift and ionization instabilities, near-wall conductivity) are known. What is missing is affordable whole-device kinetic simulation plus a reduction to a closure, first-principles or data-driven. Data-driven model discovery on thruster data already exists in published form (Jorns, PSST 27:104007, 2018; Jorns, Marks, Dale, AIAA 2020-3622). A general kinetic-closure theory (plasma-kinetic-closures) helps but is not required. S2 delivers the cognitive steps by ~2029. The binding gate is a validation campaign across several thrusters with non-invasive electron diagnostics at low background pressure, which takes about a year, so 2030. Band S2 Low: P6 default, two Medium hard prerequisites (kinetic solvers, cap-physics-theory) and a strict criterion; S3 Medium.",
+    "signpost": "A closure that predicts discharge current within 5% across at least three different thrusters (e.g. H9, SPT-140, AEPS) without refitting, published by end-2030.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + advocate: hard edge from plasma-kinetic-closures -> soft; description admits data-driven closures. Skeptic: S2 Medium -> Low (P6 default; two Medium hard prerequisites; strict criterion); signpost date aligned to the S2 year. Advocate's S2 2030 -> 2029 rejected (validation across three thrusters takes about a year after the 2028 solvers and 2029 theory). Auditor: Whittaker figures restated as fits to calibration data, with discharge current not reliably predicted."
+   }
+  },
+  {
+   "id": "plasma-magnetic-nozzle-theory",
+   "patch": {
+    "band_2031": {
+     "S2": "Low"
+    },
+    "why": "Once kinetic solvers are cheap (S2 2028), fully kinetic simulation can settle detachment without a general closure theory, which accelerates but does not gate it (plasma-kinetic-closures, soft). The gate is validation: detachment happens far downstream, where vacuum chambers have walls and background gas, so an in-space measurement would settle it. The only named candidate (Pulsar Fusion's Sunbird in-orbit demonstration, 2027) has no committed far-field diagnostic. Band S2 Low (P6 default); S3 Medium.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Advocate: hard edge from plasma-kinetic-closures -> soft (the fully kinetic route needs only the solvers). Skeptic: S2 Medium -> Low (P6 default; no committed far-field in-space diagnostic; Medium solver prerequisite). Advocate's S2 2030 -> 2029 rejected (no in-space validation measurement is planned before 2029). S3 Medium kept."
+   }
+  },
+  {
+   "id": "prop-ntp-fuel-model",
+   "patch": {
+    "earliest_year": {
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S3": "Low"
+    },
+    "premise_tier": "n/a (capability premise); 278 and 275 are T1 ceilings, conditional, context only",
+    "status_oct2026": "GA-EMS fuel survived six thermal cycles to 2,600 K in flowing hydrogen at MSFC (Jan 2025), without irradiation. Core materials that endure 2,500-3,000 K hydrogen at >3 MPa remain the critical obstacle (general literature). Neutron transport (Monte Carlo) is mature (general). Families 278 (Kohn-Sham ensemble representability fails) and 275 (QMA-hardness of continuum Coulomb energy) are T1 ceilings on DFT-based materials modeling (P3, conditional). They are context only: fuel-performance codes use fitted potentials and empirical correlations, so neither bears on how NTP fuel models are built.",
+    "why": "Fuel life and temperature set NTP's ~900 s Isp, against ~450 s for LOX/LH2 (general). A predictive model narrows the irradiation test matrix. But 'validated under irradiation' needs test-reactor fluence plus post-irradiation examination (1-3 years combined, general), and no combined irradiation-plus-hot-hydrogen test facility exists (general). Autonomous labs speed up non-nuclear hot-hydrogen tests, not neutron dose, so S3 lands 2030 at Low.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + auditor: S3 Medium -> Low; skeptic: S3 2029 -> 2030 (irradiation fluence plus post-irradiation examination take 1-3 years that no cognitive multiplier shortens). Skeptic: families 278 and 275 relabelled context only."
+   }
+  },
+  {
+   "id": "plasma-dhe3-burn-physics",
+   "patch": {
+    "status_oct2026": "Helion's Polaris reported the first private D-T fusion and 150 million deg C plasma (Feb 2026) and says it is working toward D-He3 temperatures; Helion's 50 MW Microsoft target is 2028. No D-He3 burn at meaningful power anywhere. Fuel arithmetic (18.3 MeV per reaction): a 1 GW(fusion) D-He3 engine burns ~54 kg of He-3 per year of operation, against a terrestrial supply from tritium decay of a few kilograms per year (supply figure general), while a 1 MW demonstrator running 1,000 h needs ~6 g. Helion plans to make He-3 itself via D-D fusion (TechCrunch, Feb 2026). About 0.37 GW-yr of D-D fusion breeds 50 kg directly (about 0.18 GW-yr if bred tritium is also left to decay), so at scale the fuel gate becomes D-D fusion capacity, coupled to plasma-fusion-net-gain, not natural supply.",
+    "why": "This is a physical-clock node: it needs hotter, better-confined plasma and He-3 fuel. AI theory and AI-run campaigns (plasma-ai-fusion-operations) help optimize pulsed FRC operation and interpret diagnostics, but they do not heat plasma; under S3 autonomous experimental campaigns could compress the program by a year or so. Chain (S3): Polaris D-T at ~13 keV (150 million deg C, Feb 2026) -> D-He3 needs several-times-higher ion temperature plus a He-3 supply -> Orion-class device (2028 target) -> peer-reviewed D-He3 rates in 2031 at the earliest.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Auditor (grounding rule) + skeptic + advocate: dated physical chain added; He-3 supply framing qualified (bred He-3 via D-D fusion; demonstrators need grams). Soft edge from new plasma-ai-fusion-operations. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "physclock-nuclear-safety-case-ai",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "description": "AI produces the reactor design analyses (neutronics, thermal-hydraulics, accident criticality) and the launch-accident nuclear safety analysis needed for NSPM-20 launch authorization of a space fission reactor, cutting a multi-year analysis cycle to months. LEU/HALEU fuel below 20% U-235 puts a launch in Tier II: the sponsoring agency head authorizes it after an Interagency Nuclear Safety Review Board (INSRB) review. Presidential authorization applies only to Tier III (non-LEU fuel).",
+    "status_oct2026": "DRACO (nuclear thermal demo, Lockheed-BWXT contract Jul 2023 for a 2027 flight) was put on hold in Jan 2025 and cancelled in 2025, with DARPA citing falling launch costs. NASA unveiled Space Reactor-1 Freedom (over 20 kWe, nuclear-electric, two Mars flybys) in Mar 2026 for a Dec 2028 launch. Its estimate reached $2.1B by Sep 2026, while the House Appropriations Committee recommended $10M for it, within $50M for nuclear-electric propulsion, in May 2026 (Wikipedia). SR-1 uses HALEU uranium dioxide fuel, so its launch falls in NSPM-20 Tier II (NSPM-20, 2019).",
+    "why": "Nuclear safety analysis is labor-dominated and export-controlled; on-demand applied math inside controlled networks compresses it from years to months. A fresh-fuel HALEU reactor has a low radiological inventory at launch, so its safety case centers on accidental criticality and the cycle is shorter than for Pu-238 RTG missions (general). The INSRB review, agency-head authorization and appropriations remain, so the node is capped at Medium. An AI-made safety case accelerates a reactor launch but is not a precondition for it (physclock-reactor-in-space).",
+    "signpost": "NASA or DOE states that AI-generated neutronics and accident-criticality analyses were accepted in the SR-1 (Tier II) launch safety review, with review time under 6 months.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + advocate + auditor (verified against NSPM-20 text): HALEU/LEU fission launches are Tier II, authorized by the sponsoring agency head after INSRB review, not presidential. Auditor (verified): the $10M was a House Appropriations Committee recommendation, not a congressional direction. Skeptic + auditor: S3 2027 -> 2028 (S3 equals S2 through 2027; trunk moved capability-controlled-data-access to 2028). Skeptic: signpost now measures the AI contribution. Medium cap kept."
+   }
+  },
+  {
+   "id": "plasma-stellarator-design-loop",
+   "patch": {
+    "earliest_year": {
+     "S2": "2028"
+    },
+    "binding_gate": "data",
+    "status_oct2026": "Surrogates in the optimization loop already enable objectives such as full radial heat-flux profiles (arXiv 2609.28730); open optimizers exist (general) and Proxima's ConStellaration benchmark dataset is public (arXiv 2506.19583). Proxima Fusion raised EUR 130M (Jun 2025): Stellarator Model Coil 2027, Alpha demonstration 2031. Type One Energy plans Infinity Two (350 MWe) for the mid-2030s (general; the cited WNN article covers Infinity One only). Family 146 (Sinai's positive-entropy conjecture for the standard map, T1, conditional) concerns the textbook model of magnetic-island overlap and field-line chaos: confidence in theory only.",
+    "why": "S2's multiphysics design optimization (2028) plus trusted surrogates closes the loop, and the pieces already exist (surrogates inside optimization loops, open benchmarks, DOE STELLAR-AI). The node is the tool, so its gate is data (validated surrogates and benchmarks). Fabrication gates the machines it designs: coil tolerances of millimetres over metre-scale coils decide whether designs perform as optimized. It has no space-technology unlock except as a soft accelerator of compact fusion-drive design (plasma-fusion-propulsion-design-closure), because the same loop applies to FRC-plus-nozzle configurations.",
+    "signpost": "A stellarator company or national lab adopts as its design of record an end-to-end optimized configuration (surrogate turbulence, fast-ion losses, coil buildability and tolerances) produced in weeks. Predicted-versus-measured field errors on a built coil set (Proxima's 2027 model coil is the first chance) are the follow-on check.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + advocate: binding_gate fabrication -> data (the node is a design tool; fabrication gates the machines it designs). Advocate (evidence checked by auditor): S2 2029 -> 2028 (surrogates already inside optimization loops, open benchmarks, STELLAR-AI; only hard prerequisite cap-design-optimization is S2 2028). Signpost changed so the tool can be observed without a built coil. Auditor: Type One Infinity Two marked (general), source mismatch. Advocate: soft edge to plasma-fusion-propulsion-design-closure. Bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-ep-predictive-design",
+   "patch": {
+    "band_2031": {
+     "S2": "Low"
+    },
+    "pathway": "P1->P6",
+    "status_oct2026": "The JANUS Predictive Engineering Model, with one pressure-parameterized transport model, fits SPT-140 calibration data within 7% (thrust) and 15% (discharge current) and extrapolates ground data to orbit within 8%/17% for the SPT-140 flown on Psyche; discharge current is not reliably predicted when extrapolating at higher power (Whittaker et al., AIAA 2026). Higher-fidelity Hall2De must be recalibrated per operating condition. NASA states its VF-5 facility reproduces known ground-to-flight differences for AEPS (Williams et al., Space Propulsion 2026).",
+    "why": "Predictive design runs through a validated transport closure (plasma-hall-anomalous-closure), first-principles or data-driven, inside cheap fluid or hybrid codes, or through surrogates trained on many kinetic runs, which amounts to the same thing. Whole-device kinetic simulation alone supplies training and validation data: at days per run on a leadership-class machine it cannot serve the hundreds of evaluations a design loop needs (arithmetic in plasma-kinetic-solvers-at-scale). A new Hall thruster typically takes several build-test iterations at roughly a year each (general); a predictive code could cut iterations from ~3-4 to ~1-2 (general, judgment). Validation needs test data across designs, which binds the year. The band follows the closure: S2 Low, S3 Medium.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic: hard edge from plasma-hall-anomalous-closure added (a days-per-run kinetic simulation cannot serve a design loop; 'either sufficient' removed); S2 Medium -> Low following the closure. Advocate's soft-edge version, S2 2029 / S3 2028 and S3 High rejected (see debates); its pathway label P1->P6 accepted. Auditor: Whittaker figures restated. Iteration figures marked judgment. Years unchanged."
+   }
+  },
+  {
+   "id": "plasma-ep-life-by-analysis",
+   "patch": {
+    "earliest_year": {
+     "S3": "2031"
+    },
+    "band_2031": {
+     "S3": "Low"
+    },
+    "title": "Thruster life qualified with less than a full-duration wear test",
+    "description": "Erosion and wear models (low-energy sputter yields, pole-cover and cathode-keeper erosion, near-wall plasma) validated well enough that NASA or ESA credits model-based extrapolation for part of the 100% demonstrated-life (wear-test) requirement, not just the margin. Today's practice is 100% test plus 50% margin by analysis. The credit shortens multi-year wear tests.",
+    "status_oct2026": "NASA already qualifies EP thruster life by 100% test with 50% margin by analysis (Anderson 2009 standard, cited in Williams et al. 2026). AEPS (12 kW; the PPE bus is now repurposed for SR-1 Freedom): three flight thrusters delivered 2025, environmental qualification complete, contract closeout mid-to-late 2027. The QM-2 wear test runs fall 2026 to Sep 2029 to at least 100% of per-thruster throughput (1,770 kg xenon requirement, 50% margin by analysis), and the SEP project closes out in 2029. SEP tracked insufficient validation of the margin-setting erosion model as a boarded red risk. JPL near-field plume data and JANUS modeling have since reduced plasma-interaction uncertainty (Williams et al., Space Propulsion 2026). Pole erosion is now the life limiter in magnetically shielded thrusters, and erosion models have underpredicted measured rates (U. Washington thesis 2025).",
+    "why": "A 23,000-hour wear test is 2.6 years of continuous firing. Running ~10,000 hours and extrapolating with an accepted model would save ~1.5 years and tens of millions in facility time (general). The step beyond today's practice is predicting how erosion evolves as surfaces wear, beyond the tested duration. That needs a near-wall transport model that stays valid as geometry changes (plasma-hall-anomalous-closure, hard) and a rule for crediting model evidence (physclock-credibility-evidence-standard, hard). Design-before-build (plasma-ep-predictive-design) and certification of AI-written proofs (infra-tool-qualification, which covers software proof credit, not physics wear models) help but are not required. Chain (S3): closure validated 2029 -> a wear test planned for partial credit accumulates ~10,000 h (~14 months), checked against long-duration data (AEPS QM-2 completes Sep 2029) -> qualification review -> 2031 at the earliest. S2 lands at the horizon, one step later. The regulator rule caps the band at Medium; after compounding it is Low in all scenarios.",
+    "strongest_case_small": "Agencies are conservative and the decisive inputs are materials data (sputter yields at tens of eV), not plasma mathematics; the worst life limiters (e.g. pole erosion) were discovered in test, not predicted. AEPS lessons learned center on risk management, contract oversight and requirements, not physics. Commercial and NASA programs have long used erosion models to project life beyond a test's duration for mission studies (general), so the new step is institutional.",
+    "signpost": "NASA or ESA revises its EP life-qualification standard, or a NASA or ESA program accepts a life qualification in which less than 100% of the throughput requirement is demonstrated by test and the rest by a validated model, by 2031.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): All three lenses (verified in Williams et al. 2026): NASA already qualifies EP life by 100% test with 50% margin by analysis, and the AEPS QM-2 wear test runs fall 2026 to Sep 2029, so the node is redefined to the real increment (credit for part of the 100% test) and the AEPS-by-2029 signpost dropped. Advocate + auditor: infra-tool-qualification hard -> soft (DO-178C/DO-330 proof credit is not the path for physics wear models). Resolver: plasma-ep-predictive-design hard -> soft (qualifying an existing thruster does not need design-before-build); plasma-hall-anomalous-closure kept hard against the advocate. Skeptic: S3 2030 -> 2031 and S3 Medium -> Low; advocate's S2 2030 Medium / S3 2029 rejected (see debates). Soft edge from new plasma-aeps-life-qual."
+   }
+  },
+  {
+   "id": "plasma-fusion-propulsion-design-closure",
+   "patch": {
+    "band_2031": {
+     "S3": "Low"
+    },
+    "description": "An integrated design of a fusion propulsion system (e.g. Direct Fusion Drive: small field-reversed configuration plus magnetic nozzle, D-He3) whose confinement and nozzle sub-models are validated against experiment, with the D-He3 burn sub-model taken from theory because no device has reached those regimes. The design shows specific power >= 1 kW/kg and multi-year life and closes gaps that today's concept studies wave away.",
+    "status_oct2026": "Direct Fusion Drive is a concept modeled by Princeton Satellite Systems and tested at small scale at PPPL (PFRC); reports that PSS and Pulsar Fusion apply ML to the PFRC experiment are unverified. Pulsar's Sunbird exhaust reportedly achieved first plasma with krypton in March 2026 with no fusion (unverified: the source could not be retrieved); its in-orbit demonstration is targeted for 2027 (pulsarfusion.com).",
+    "why": "Paper closure is cognitive and compresses under S2/S3, but every sub-model (confinement scaling of small FRCs, D-He3 burn, detachment, radiation and thermal loads) needs data from regimes no device has reached, so the design stays conditional on plasma-dhe3-burn-physics (Low in all scenarios). Band S3 Low: P6 default, and a conditional design cannot sit above its burn-physics premise.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + auditor: S3 Medium -> Low. Auditor wording adopted (the skeptic's stated alternative): D-He3 burn sub-model taken from theory, so no hard edge from plasma-dhe3-burn-physics and years unchanged. Auditor: PSS/Pulsar ML claim and Sunbird first-plasma detail marked unverified. Advocate: soft edge from plasma-stellarator-design-loop."
+   }
+  },
+  {
+   "id": "plasma-fusion-net-gain",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "status_oct2026": "CFS SPARC: the first of 18 toroidal-field magnets was placed on its assembly jig in Jan 2026; first plasma is targeted for 2027 (slipped from 2025 and 2026), with Q > 1 targeted shortly after (Wikipedia). Helion Polaris: first private D-T fusion, 150 million deg C (Feb 2026); Microsoft PPA target 2028 for Orion. TAE announced a merger with Trump Media (Dec 2025, close expected mid-2026; completion not confirmed as of Oct 2026). Its Copernicus device was cancelled in Nov 2025 because the Norm device made it unnecessary, and its Da Vinci device aims at net fusion energy in the late 2020s (Wikipedia).",
+    "why": "Physical-clock anchor: magnets, vacuum vessel, assembly, commissioning and tritium operations set the date. Chain: SPARC TF magnets installed 2026-27 -> first plasma 2027 -> D-D then D-T campaign -> Q>1 in 2028 at the earliest; Helion Orion (50 MW, Microsoft PPA) targeted 2028. AI contributes through plasma control and scenario design (plasma-ai-fusion-operations, soft) and faster commissioning in S3, not through mathematics. S3's 1.3-1.5x experiment multiplier applies only after 2028 and cannot pull Q>1 into SPARC's first-plasma year.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + auditor: S3 2027 -> 2028 (physical-clock node; S3 equals S2 through 2027-28; SPARC first plasma is itself 2027). Auditor (verified): TAE's Copernicus was cancelled Nov 2025; unsourced SPARC vacuum-vessel date replaced by the verified TF-magnet milestone; dated chain added. Advocate's S3 Medium -> High rejected (hardware binds; one of its three attempts is cancelled); its plasma-ai-fusion-operations added as a soft accelerator."
+   }
+  },
+  {
+   "id": "physclock-reactor-in-space",
+   "patch": {
+    "band_2031": {
+     "S2": "Low",
+     "S3": "Low"
+    },
+    "status_oct2026": "SR-1 Freedom targets Dec 2028 at a $2.1B estimate (Sep 2026), with $10M recommended by the House Appropriations Committee (May 2026). NASA centralized space nuclear work under a Space Reactor Office (May 2026) and announced a streamlined management approach (Jun 2, 2026). SR-1 uses HALEU UO2 fuel and reuses the Gateway Power and Propulsion Element bus (three 12 kW AEPS and four 6 kW Hall thrusters); NASA paused Gateway in its current form on Mar 24, 2026. Fission Surface Power had three Phase 1 teams from 2022 (Lockheed Martin, Westinghouse, IX), a 2025 executive order prioritizing a lunar reactor, and a directive targeting launch readiness around 2030. NASA said in Mar 2026 that SR-1 data will inform Lunar Reactor-1 (Wikipedia).",
+    "why": "HALEU fuel supply, reactor fabrication, zero-power criticality testing and integration take roughly 4-6 years from a funded start (general). The physclock lag ladder applies 0.9x in S2 and 0.8-0.9x in S3, while appropriations and politics compress 1.0x in every scenario. SR-1 is underfunded for Dec 2028; a 2030-31 launch needs FY2027-28 appropriations of several hundred million dollars a year. A conventionally prepared Tier II safety analysis is sufficient, so the AI safety case (physclock-nuclear-safety-case-ai) is an accelerator worth perhaps 6-12 months. That shows up in the earlier S2/S3 years, not in the band. Chain (S2): funded start FY2027 -> fuel, fabrication, criticality tests, safety analysis and INSRB review -> launch 2030 at the earliest. Band Low in all scenarios because the binding gates do not depend on the scenario and every U.S. space-reactor program since SNAP-10A has been cancelled.",
+    "strongest_case_small": "Every U.S. space reactor program since 1965 has been cancelled; cheap launch removed DRACO's rationale; the 2026 pause of Gateway in its current form and cancellation of Mars Sample Return show how fast NASA priorities shift.",
+    "calibration_note": "A3: Lag ladder: a space reactor takes 4-6 years from a funded start (0.9x in S2, 0.8-0.9x in S3; appropriations 1.0x). SR-1 has $10M recommended by the House Appropriations Committee against a $2.1B estimate and Fission Surface Power had no confirmed Phase 2 award, so the earliest funded start is 2026-27. Chain (S2): funded start 2026-27 -> fuel, fabrication, criticality tests and AI-shortened safety case -> launch 2030 at the earliest. S1 2030 -> 2031 (Low kept), S2 2029 -> 2030, S3 2029 -> 2030; S2/S3 bands unchanged. B: S2/S3 bands Medium -> Low (gates scenario-invariant).",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + advocate + auditor: hard edge from physclock-nuclear-safety-case-ai -> soft (a conventionally prepared Tier II safety analysis suffices; SR-1's target predates AI safety cases). Skeptic: S2/S3 Medium -> Low (capital, politics and HALEU bind at 1.0x in every scenario; the S1-to-S2 band jump rested only on AI analysis that is off the critical path; aligns with struct-fsp-lunar-100kwe). Auditor (verified): $10M was a House committee recommendation; Gateway paused, not cancelled; PPE reuse added. Advocate: Space Reactor Office and streamlined-management facts added. Years unchanged."
+   }
+  },
+  {
+   "id": "plasma-abep-demo",
+   "patch": {
+    "why": "AI design optimization of intakes and discharge chambers is cognitive and fast under S2, but a flight demo needs funding, an atomic-oxygen-tolerant discharge and a ride, which binds. Conventional design can also produce the demo, so AI design (cap-design-optimization) accelerates it but is not a prerequisite. Chain (S2): AI-optimized intake and discharge design 2028 -> atomic-oxygen-tolerant discharge endurance test 2029 -> funded demo plus rideshare (18-24 months) -> flight 2031. S3 runs one year earlier.",
+    "strongest_case_small": "Atomic-oxygen erosion of discharge parts, low intake efficiency and power-per-drag are physics and materials limits. Conventional EP at 350-380 km already works, as Clarity-1 showed (275 km was its design altitude, not demonstrated), which weakens the business case.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic: hard edge from cap-design-optimization -> soft (a physical demo that conventional design can achieve; funding, atomic oxygen and a ride bind). Auditor (grounding rule): dated chain added; Clarity-1 altitude corrected (275 km was the design altitude, not demonstrated). Years and bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-active-shielding",
+   "patch": {
+    "status_oct2026": "EU SR2S reached TRL 3 overall (some components TRL 4). A 2022 NASA NIAC Phase I studied CREW HaT, an open Halbach-torus HTS configuration (final report Feb 21, 2024; NTRS 20250002403).",
+    "why": "AI design optimization can trim coil mass and stress, but deflecting GeV-scale cosmic rays requires a large field-times-length product over a crew-sized volume (general), which sets a mass floor; space qualification of large HTS coils and cryogenics is a multi-year hardware program. Conventional design can produce a demo, so AI design accelerates it but is not a prerequisite.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic: hard edge from cap-design-optimization -> soft (field-length mass floor and HTS qualification bind). Auditor: NIAC study dated correctly. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-ai-designed-thruster-flight",
+   "patch": {
+    "earliest_year": {
+     "S2": "2031",
+     "S3": "2030"
+    },
+    "pathway": "P1->P7",
+    "description": "First in-space operation of an electric thruster whose magnetic circuit, channel and cathode were designed mainly by an AI optimization loop over physics-based (calibrated or kinetic) models, with on-orbit performance inside the pre-flight predicted band and the design attribution published.",
+    "status_oct2026": "No such thruster exists. Small-satellite Hall and ion thrusters go from design to flight in roughly 18-36 months (general); Starlink flies thousands of Hall thrusters (krypton, then argon) designed by conventional iteration (general). Today's calibrated engineering models carry 8% (thrust) and 17% (discharge current) ground-to-orbit errors on the SPT-140 (Whittaker et al., AIAA 2026). LEAP 71's computational loop already designs rocket engines (prop-ai-engine-design-loop).",
+    "why": "Two routes. (1) Generic AI design (P1): an optimization loop over Bayesian-calibrated engineering models designs the magnetic circuit, channel and cathode, as LEAP 71's loop does for rocket engines. Without a predictive transport closure the first article will likely miss its targets, so one extra build-test iteration is expected. (2) With predictive design (plasma-ep-predictive-design, soft), the first article is right first time and a year is saved. Chain (S2): cap-design-optimization 2028 -> first article and ground test 2029 -> second iteration and acceptance 2030 -> rideshare or the operator's own constellation (smallsat lag 12-18 months, physclock) -> first flight 2031. Commercial operators carry their own EP risk with no certifying authority above them (general), so qualification is not the gate. S3: AI-run test stands (2028) shorten the iteration -> 2030. Band: S2 Low because the chain lands at the horizon with no slack and the node needs published flight data with the design attributed mainly to AI; S3 Medium with one year of slack. A spacecraft majority AI-engineered (capability-ai-native-spacecraft, S2 2029) is a different claim: it concerns engineering labor on known designs, not a new plasma device performing as predicted.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Advocate (structure): plasma-ep-predictive-design hard -> soft, cap-design-optimization added as hard, pathway P7 -> P1->P7: as worded, the node needs an AI-designed thruster whose flight performance falls in its pre-flight band, which a generic AI design loop over calibrated models plus ground test can deliver without the closure. Timing between the lenses: S2 >2031 -> 2031 (advocate's 2030 rejected: without a closure the first article needs an extra build-test iteration), S3 2031 -> 2030. Skeptic + auditor's S3 Medium -> Low not applied because their zero-slack chain ran through predictive design, no longer the gate; advocate's S2 Medium / S3 High rejected. Soft edge from physclock-ai-run-test-stands."
+   }
+  },
+  {
+   "id": "plasma-fusion-propulsion-flight",
+   "patch": {
+    "description": "A spacecraft producing mission-useful (newton-class) thrust in orbit from a fusion device operating at or above scientific breakeven, using a low-neutron fuel (in practice D-He3). A sub-breakeven device emitting measurable fusion products does not count.",
+    "status_oct2026": "No fusion device has net gain at propulsion scale. Pulsar Fusion's Sunbird exhaust (no fusion) is targeted for an in-orbit demonstration in 2027 (pulsarfusion.com).",
+    "why": "Requires net-gain fusion in a compact, flight-mass device, a suitable low-neutron fuel, and a launch-approved system. With the node defined as useful thrust at or above breakeven, the hard edges to plasma-fusion-net-gain and plasma-dhe3-burn-physics are ordering constraints. Even S3's near-free cognition leaves every one of these gated by experiments, fabrication and regulation.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic: description strengthened to mission-useful thrust from an at-or-above-breakeven device on low-neutron fuel, so the hard edges to net gain and D-He3 burn are valid ordering constraints; advocate's softening of those edges rejected (it fit only the weaker wording). Auditor: unsupported PSS 'as early as 2028' clause removed; Sunbird status sourced. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "prop-ntp-ground-test",
+   "patch": {
+    "earliest_year": {
+     "S3": ">2031"
+    },
+    "band_2031": {
+     "S2": "Speculative",
+     "S3": "Speculative"
+    },
+    "why": "As of Oct 2026 there is no funded NTP engine program of record. A reactor ground test needs a program start, a fueled reactor, an exhaust-capture facility and nuclear safety approval, which on historical precedent takes 5+ years from start (general). AI compresses design and safety-analysis documentation (S2/S3) but not facility construction, fuel fabrication or approvals. Chain: no program of record -> earliest program start FY2027-28 -> fueled reactor and a new exhaust-capture facility (a design only today), likely with an EIS (2-4 years) -> 2032 at the earliest even at S3's 0.8-0.9x. Appropriations compress 1.0x, so the node is Speculative by 2031 in every scenario.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic (mechanism checked against the physclock gate table): S3 2031 -> >2031; S2 and S3 Low -> Speculative. No program of record; a 5+ year precedent at 0.8-0.9x plus an EIS of 2-4 years gives 2032 at the earliest; appropriations compress 1.0x."
+   }
+  },
+  {
+   "id": "plasma-nep-mars-cargo",
+   "patch": {
+    "status_oct2026": "NASA estimates 2-4 MW and >23,000 h thruster life for crewed nuclear-electric missions. Earlier NASA Glenn COMPASS work sized a ~1.9 MWe system for a 2-year crewed round trip and ~200 t cargo stages (general). Highest demonstrated single-thruster power: 120 kW lithium MPD (Feb 2026). NASA says NEP architectures needing up to 300 kW of EP can be built by clustering 12 kW AEPS thrusters, with Xe and Kr cluster tests under way (Williams et al. 2026). SR-1 Freedom (>20 kWe, Dec 2028 target, Gateway PPE bus with three 12 kW AEPS and four 6 kW Hall thrusters) would be the first NEP flight, at about 1% of MW class.",
+    "why": "Needs a flight reactor or MW-class arrays, launch approval for a space reactor, and life-tested MW-scale EP; each is a multi-year hardware and regulatory program. Clusters of qualified 12 kW thrusters cover the few-hundred-kW range, so MW class still needs higher-power thrusters (plasma-high-power-ep-life) or impractically large clusters (~80-330 units). The solar route rides on compute-satellite power buses (AI1: ~150 kW array at ~127 W/kg on a ~2.1 t satellite, 33FG reconstruction, Jun 2026; struct-100kw-per-tonne-fleet, soft). That route could enable 100 kW-class solar-electric tugs, but not MW cargo before 2031.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Auditor: COMPASS figure marked (general); SR-1 calibration point added. Advocate: NASA's clustering path (up to 300 kW from 12 kW thrusters) added; its proposal to soften plasma-high-power-ep-life and add a compute-bus tug as a hard prerequisite rejected (MW class lies beyond NASA's stated cluster range; the tug is not a causal precondition). Compute-satellite power route recorded as a soft edge from struct-100kw-per-tonne-fleet. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-outcome-ep-cycle-time",
+   "patch": {
+    "earliest_year": {
+     "S3": ">2031"
+    },
+    "band_2031": {
+     "S2": "Speculative",
+     "S3": "Speculative"
+    },
+    "description": "Development-to-qualification time for new EP thrusters falls ~15-30% (S2), up to ~40% (S3), and build-test iterations roughly halve because physics-based models replace parts of empirical iteration and wear testing. The ceiling is the Amdahl bound on whole-program compression (~38% S2, ~51% S3; capability.json); EP schedules are dominated by wear-test hours and by program, supplier and requirements problems.",
+    "status_oct2026": "AEPS: contract awarded 2016 (general); AEPS contract closeout mid-to-late 2027, but the QM-2 life wear test runs fall 2026 to Sep 2029 and the SEP project closes out in 2029, about 13 years (Williams et al., Space Propulsion 2026).",
+    "why": "Combines predictive design (fewer iterations) with model-based life credit (shorter wear tests). Life credit lands in 2031 at the earliest even in S3, and the outcome needs at least one full development-to-qualification cycle started after both tools exist, so it cannot be observed by 2031 in any scenario. Chain (S3): predictive design 2029 + life credit 2031 -> a new program started 2030-31 -> qualification 2033 or later even at a 3-year pace.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Skeptic + auditor: S3 2031 -> >2031 (a full program cycle must start after life credit, which now lands 2031 at the earliest); S2 Low -> Speculative. Auditor: S3 Low -> Speculative (skeptic kept Low; resolver sided with the auditor because the hard prerequisite lands at the horizon). Skeptic: magnitude 30-50% -> ~15-30% (S2), up to ~40% (S3), within the Amdahl bounds. Skeptic + auditor (verified): AEPS took ~13 years including the life test, not 11. Advocate's S2 2031 / S3 2030 Medium rejected (its comparison nodes have since moved to S2 2031 / S3 2030)."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "id": "plasma-aeps-life-qual",
+   "title": "12 kW AEPS Hall thruster life-qualified by a three-year wear test",
+   "tier": 5,
+   "kind": "technology",
+   "description": "The AEPS QM-2 thruster completes its long-duration wear test to at least 100% of the PPE mission-based per-thruster xenon throughput requirement (1,770 kg, with the 50% margin shown by analysis under NASA's existing practice). That qualifies the first U.S. 12 kW-class Hall thruster. The node is the physical-clock anchor for EP life qualification and the dataset that model-based life credit will be judged against.",
+   "status_oct2026": "Three flight thrusters were delivered (2025) for the PPE bus, now repurposed for SR-1 Freedom; QM-1 completed environmental qualification (TVAC early 2026). QM-2 enters wear testing in GRC's VF-5 in fall 2026 after a xenon feed-system upgrade. Testing is planned through Sep 2029, and the SEP project closes out in 2029. NASA expects QM-2 to meet the throughput requirement given very limited erosion over thousands of hours of development testing (Williams et al., Space Propulsion 2026).",
+   "catalog_families": [],
+   "prerequisites": [],
+   "accelerated_by": [],
+   "binding_gate": "experiment",
+   "pathway": "P7 (not AI-math-driven)",
+   "earliest_year": {
+    "S1": "2029",
+    "S2": "2029",
+    "S3": "2029"
+   },
+   "band_2031": {
+    "S1": "High",
+    "S2": "High",
+    "S3": "High"
+   },
+   "premise_tier": "n/a",
+   "why": "Physical-clock anchor: a multi-year wear test cannot run faster than real time in any scenario. AI's levers are the margin already credited by analysis and the speed of data reduction. A 1-2 year slip still lands by 2031, hence High in all scenarios. If SR-1 launches on its Dec 2028 target, AEPS flies before its life test ends; flying while a ground life test continues is normal practice (general) and is not model-based life credit. Feeds plasma-ep-life-by-analysis as validation data (soft).",
+   "strongest_case_small": "It is a scheduled test with no AI-math content. It is in the tree only as the clock and the dataset that model-based life credit must beat. Budget or mission changes (Gateway paused, PPE repurposed) could still stretch or descope it.",
+   "signpost": "NASA reports AEPS QM-2 reaching 100% of the per-thruster throughput requirement and closes out the SEP project (planned Sep 2029).",
+   "domain": "plasma",
+   "revision_note": "B-plasma-nuclear resolver (2026-10-07): New node from the auditor. Facts verified in Williams et al. 2026 (wear test fall 2026 to Sep 2029; 100% test plus 50% margin by analysis; SEP closeout 2029). Not a duplicate (no AEPS or EP life-test node in the graph). Linked softly to plasma-ep-life-by-analysis."
+  },
+  {
+   "id": "plasma-ai-fusion-operations",
+   "title": "AI runs fusion-device experiment campaigns and control",
+   "tier": 4,
+   "kind": "engineering-tool",
+   "description": "At least one major fusion device (SPARC, Helion Polaris or Orion, W7-X, JT-60SA, DIII-D or KSTAR) runs its main experimental campaign with shots designed in differentiable integrated-modeling codes (e.g. TORAX) and executed under learned controllers (shape, density, heating, disruption avoidance). The team reports a shorter time from first plasma, or from campaign start, to target performance.",
+   "status_oct2026": "Deep reinforcement-learning magnetic control was demonstrated on TCV (Degrave et al., Nature 602:414, 2022). Google DeepMind and Commonwealth Fusion Systems announced a research partnership on Oct 16, 2025 with three parts: the open-source, differentiable (JAX) simulator TORAX for virtual experiments before SPARC operates; reinforcement learning and evolutionary search for operating configurations that maximize fusion output within safety margins; and RL agents for real-time control. No deployment dates were given. SPARC first plasma is targeted for 2027.",
+   "catalog_families": [],
+   "prerequisites": [],
+   "accelerated_by": [],
+   "binding_gate": "experiment",
+   "pathway": "P1 (capability transfer; not AI-math-driven)",
+   "earliest_year": {
+    "S1": "2028",
+    "S2": "2028",
+    "S3": "2028"
+   },
+   "band_2031": {
+    "S1": "High",
+    "S2": "High",
+    "S3": "High"
+   },
+   "premise_tier": "n/a",
+   "why": "Capability transfer (P1), like plasma-gk-surrogates, not new mathematics. Scenario development from first plasma to target performance is a shot-by-shot optimization loop. Differentiable modeling plus learned controllers cut the shots wasted on disruptions and mis-set scenarios. This is the concrete mechanism behind the 1.3-1.5x experiment multiplier S3 applies to fusion campaigns after 2028. Device availability binds: the year follows SPARC's 2027 first-plasma target and its history of slips (2025 -> 2026 -> 2027). The tooling already exists in every scenario, so years and bands do not differ by scenario. It speeds net gain (plasma-fusion-net-gain) and D-He3 campaigns (plasma-dhe3-burn-physics) only as soft edges: magnets, vessels, heating power and tritium handling still set those dates.",
+   "strongest_case_small": "Fusion programs fail on hardware (magnet quenches, vessel and tritium-system problems) more than on scenario design. RL control has been shown on existing devices but not yet as the backbone of a first campaign, and operators may keep it advisory.",
+   "signpost": "CFS (or another device team) reports that its first-campaign shots were designed with TORAX or a similar differentiable code and run under learned controllers, with a stated reduction in shots or time to target performance.",
+   "domain": "plasma",
+   "revision_note": "B-plasma-nuclear resolver (2026-10-07): New node from the advocate (partnership facts verified on the DeepMind blog, Oct 16 2025). Not a duplicate (plasma-gk-surrogates and plasma-stellarator-design-loop cover design, not operations). Advocate's S1 2028 / S2 2027 and Medium/High/High replaced by 2028 and High in all scenarios, because the tooling exists today and the device schedule binds. Soft edges only; the advocate's S3 High for net gain was not accepted."
+  }
+ ],
+ "remove_edges": [
+  {
+   "from": "frontier-landau-damping-general",
+   "to": "plasma-kinetic-closures"
+  },
+  {
+   "from": "plasma-vm-wellposed",
+   "to": "plasma-verified-kinetic-numerics"
+  },
+  {
+   "from": "plasma-kinetic-closures",
+   "to": "plasma-hall-anomalous-closure"
+  },
+  {
+   "from": "plasma-kinetic-closures",
+   "to": "plasma-magnetic-nozzle-theory"
+  },
+  {
+   "from": "infra-tool-qualification",
+   "to": "plasma-ep-life-by-analysis"
+  },
+  {
+   "from": "plasma-ep-predictive-design",
+   "to": "plasma-ep-life-by-analysis"
+  },
+  {
+   "from": "plasma-ep-predictive-design",
+   "to": "plasma-ai-designed-thruster-flight"
+  },
+  {
+   "from": "physclock-nuclear-safety-case-ai",
+   "to": "physclock-reactor-in-space"
+  },
+  {
+   "from": "cap-design-optimization",
+   "to": "plasma-abep-demo"
+  },
+  {
+   "from": "cap-design-optimization",
+   "to": "plasma-active-shielding"
+  }
+ ],
+ "add_edges": [
+  {
+   "from": "plasma-hall-anomalous-closure",
+   "to": "plasma-ep-predictive-design"
+  },
+  {
+   "from": "cap-design-optimization",
+   "to": "plasma-ai-designed-thruster-flight"
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "frontier-landau-damping-general",
+   "to": "plasma-kinetic-closures"
+  },
+  {
+   "from": "plasma-kinetic-solvers-at-scale",
+   "to": "plasma-kinetic-closures"
+  },
+  {
+   "from": "plasma-vm-wellposed",
+   "to": "plasma-verified-kinetic-numerics"
+  },
+  {
+   "from": "plasma-kinetic-closures",
+   "to": "plasma-hall-anomalous-closure"
+  },
+  {
+   "from": "plasma-kinetic-closures",
+   "to": "plasma-magnetic-nozzle-theory"
+  },
+  {
+   "from": "infra-tool-qualification",
+   "to": "plasma-ep-life-by-analysis"
+  },
+  {
+   "from": "plasma-ep-predictive-design",
+   "to": "plasma-ep-life-by-analysis"
+  },
+  {
+   "from": "plasma-aeps-life-qual",
+   "to": "plasma-ep-life-by-analysis"
+  },
+  {
+   "from": "plasma-ep-predictive-design",
+   "to": "plasma-ai-designed-thruster-flight"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "plasma-ai-designed-thruster-flight"
+  },
+  {
+   "from": "physclock-nuclear-safety-case-ai",
+   "to": "physclock-reactor-in-space"
+  },
+  {
+   "from": "cap-design-optimization",
+   "to": "plasma-abep-demo"
+  },
+  {
+   "from": "cap-design-optimization",
+   "to": "plasma-active-shielding"
+  },
+  {
+   "from": "plasma-stellarator-design-loop",
+   "to": "plasma-fusion-propulsion-design-closure"
+  },
+  {
+   "from": "plasma-ai-fusion-operations",
+   "to": "plasma-fusion-net-gain"
+  },
+  {
+   "from": "plasma-ai-fusion-operations",
+   "to": "plasma-dhe3-burn-physics"
+  },
+  {
+   "from": "struct-100kw-per-tonne-fleet",
+   "to": "plasma-nep-mars-cargo"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "plasma-nuclear",
+   "nodes": [
+    "plasma-aeps-life-qual",
+    "plasma-ai-fusion-operations"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "plasma-nuclear",
+   "patch": {
+    "thesis": "If AI makes whole-device kinetic simulation affordable and turns it, with new diagnostics, into a validated electron-transport closure, electric thrusters can be designed before they are built around 2030 (S2 Low; S3 2029, Medium). AI-optimized thrusters can fly by 2030-31 on generic AI design loops even without that closure. Wear-test clocks, NASA's life-qualification practice, launch politics and fusion hardware keep the rest back: model-based life credit and faster EP programs stay at Low or below, a U.S. space reactor by 2031 is a Low-probability, politically clocked event, and fusion propulsion and megawatt nuclear-electric cargo stay beyond 2031. The kinetic-theory theorems (Landau damping, family 362) add confidence, not performance.",
+    "reader_hook": "A 23,000-hour thruster life requirement is 2.6 years of continuous firing that no proof shortens; NASA already credits the 50% life margin by analysis, and the open question is whether analysis can replace part of the test itself. D-He3 fusion has never been burned at meaningful power: a gigawatt-class fleet would need ~50 kg of helium-3 a year against a terrestrial supply of a few kilograms, but a megawatt-class demonstrator needs only grams, so fuel is not what keeps fusion rockets out of flight before 2031.",
+    "spine": [
+     "plasma-kinetic-solvers-at-scale",
+     "plasma-hall-anomalous-closure",
+     "plasma-ep-predictive-design",
+     "plasma-ep-life-by-analysis",
+     "plasma-outcome-ep-cycle-time",
+     "plasma-magnetic-nozzle-theory",
+     "plasma-fusion-propulsion-design-closure",
+     "plasma-fusion-propulsion-flight",
+     "physclock-nuclear-safety-case-ai",
+     "physclock-reactor-in-space"
+    ],
+    "roots": [
+     "plasma-kinetic-solvers-at-scale",
+     "cap-applied-math",
+     "cap-physics-theory",
+     "cap-design-optimization",
+     "frontier-landau-damping-general"
+    ],
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Thesis rewritten (skeptic + advocate): the critical path is algorithms, compute and validation data, not proofs; the generic-AI route to a flown thruster added; reactor band now Low. Hook (skeptic + advocate + auditor): life-margin practice added; He-3 framed per GW-year versus grams for demonstrators. Spine: frontier-landau-damping-general and plasma-kinetic-closures removed (now soft, confidence-only links); roots add cap-design-optimization."
+   }
+  }
+ ],
+ "notes": "B-plasma-nuclear resolver, 2026-10-07. Three lenses (physics/engineering skeptic, exponential advocate, grounding auditor) resolved; 25 nodes updated, 2 nodes added (plasma-aeps-life-qual from the auditor, plasma-ai-fusion-operations from the advocate), 2 advocate nodes rejected (plasma-sep-100kw-compute-bus: a reactor-free 100 kW tug is a sound idea but has no customer, almost no AI-math content and is not a causal precondition of MW cargo, so it is recorded as a soft edge struct-100kw-per-tonne-fleet -> plasma-nep-mars-cargo plus text; plasma-fleet-ep-life-data: unobservable proprietary practice that SpaceX may already follow, mirroring the fleet-reliability node the trunk resolver rejected; the commercial-operator point is recorded in plasma-ep-life-by-analysis and plasma-ai-designed-thruster-flight). Main structural changes: frontier-math links (Landau damping -> closures, family 362 -> verified numerics) and the general kinetic-closure theory are now soft (P5 confidence or alternative routes, not gates); the EP spine is kinetic solvers -> Hall closure -> predictive design -> life credit -> cycle-time outcome; the AI-designed thruster now flies on the generic AI design route (cap-design-optimization hard, predictive design soft); the AI nuclear safety case is an accelerator, not a precondition, of a reactor launch. Facts verified by the resolver: Williams et al. 2026 (NTRS 20260002899) text: 100% test with 50% margin by analysis (Anderson 2009), QM-2 wear test fall 2026 to Sep 2029, SEP closeout 2029, NEP up to 300 kW by clustering 12 kW thrusters, data shared with JANUS; NSPM-20 Tier II for LEU (<20%) fission, agency-head authorization after INSRB review; TAE Copernicus cancelled Nov 17 2025; SR-1 HALEU, $10M House committee recommendation within $50M NEP, PPE bus with 3x12 kW AEPS + 4x6 kW Hall; Gateway 'paused in its current form' (NASA via 33FG news 445); SPARC first of 18 TF magnets Jan 2026; Whittaker et al. 7%/15% are fits to calibration data and discharge current is not reliably predicted; Bedrossian-Wang arXiv 1805.10756; DeepMind-CFS partnership Oct 16 2025; AI1 150 kW / 2.1 t / 127 W/kg (33FG post 96); He-3 arithmetic. FOLLOW-UP OUTSIDE THIS FILE (not edited): (1) research/physclock.json still says 'presidential nuclear launch approval' (nil_effects; gate table row 'Space nuclear system'), 'Gateway (cancelled Mar 2026)' (key insight; flagship table row) and 'SR-1 ... $10M directed' (key insight; table): should read NSPM-20 Tier II agency-head authorization, Gateway paused in its current form, and $10M recommended by the House Appropriations Committee. (2) research/plasma.json chains table and key insights: EP cycle-time '30-50%' -> '~15-30% (S2)'; AI-designed thruster now S2 2031 Low via the generic design route; He-3 hook should note grams for demonstrators and bred He-3. (3) plasma-kinetic-closures S3 set to 2029 to match the trunk resolver's cap-physics-theory S3 2029; tested against graph-v1 alone and against graph-v1 plus all six other B-*-edits files: 0 cycles, dangling edges, order or scenario violations, and no autofix touches this branch."
+}

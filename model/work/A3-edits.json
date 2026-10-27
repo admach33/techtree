@@ -1,0 +1,662 @@
+{
+ "update": [
+  {
+   "id": "capability-ai-native-spacecraft",
+   "patch": {
+    "earliest_year": {
+     "S3": "2029"
+    },
+    "calibration_note": "A3: Lag ladder. S3 2028 put first flight in the same year as its hard prerequisite cap-design-optimization (S3 2028). Chain (S3): design optimization 2028 -> smallsat design-complete -> build and integration 8-14 months (12-18 months at the S3 physical multiplier 1.3-1.5x) -> rideshare -> first operations 2029. S3 2028 -> 2029; S1/S2 unchanged (one year after prerequisites)."
+   }
+  },
+  {
+   "id": "auton-verified-autonomy-lunar-flight",
+   "patch": {
+    "earliest_year": {
+     "S3": "2029"
+    },
+    "calibration_note": "A3: Lag ladder. S3 2028 equalled its prerequisite auton-verified-surface-autonomy (S3 2028); flight software freezes 12-18 months before a CLPS landing. Chain (S3): proof-carrying autonomy 2028 -> integration and software freeze -> lunar landing 2029. S3 2028 -> 2029."
+   }
+  },
+  {
+   "id": "hyper-thinner-tps-flown",
+   "patch": {
+    "earliest_year": {
+     "S3": "2029"
+    },
+    "calibration_note": "A3: Lag ladder. S3 2028 equalled its prerequisite hyper-probabilistic-tps-sizing (S3 2028). A capsule heat shield sized by the new method is a derivative payload: 12-18 months design-complete to flight (8-14 months at S3 physical speed). Chain (S3): probabilistic sizing 2028 -> shield build and arc-jet check -> commercial capsule reentry 2029. S3 2028 -> 2029; band unchanged."
+   }
+  },
+  {
+   "id": "verif-verified-onboard-stack",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2028"
+    },
+    "calibration_note": "A3: Lag ladder and cross-domain parity. Read as flown on ordinary missions (tier 5); its only prerequisite verif-code-proof-agents is 2027 in S2/S3, so a smallsat-class flight is 2028-29 at the earliest, and every comparable \"proof-carrying flight software flies\" node (verif-lander-verified-gnc-flight, astro-landing-guidance-proven-flight, comms-pq-ttc-flight-demo, auton-verified-autonomy-lunar-flight) is S2 2029. Chain (S2): proof agents 2027 -> verified kernel and command stack 2028 -> integration 12-18 months -> flight 2029. S1 2029 -> 2030, S2 2028 -> 2029, S3 2027 -> 2028."
+   }
+  },
+  {
+   "id": "materials-closed-loop-discovery",
+   "patch": {
+    "earliest_year": {
+     "S2": "2029",
+     "S3": "2029"
+    },
+    "calibration_note": "A3: Lag ladder (experiment gate). S2 and S3 2028 equalled cap-autonomous-labs (2028); the node requires independently replicated discoveries, and replication adds months to a year that experiment gates compress only 1.1-1.5x. Chain (S2): labs at scale 2028 -> candidate discoveries -> outside replication 2029. S2/S3 2028 -> 2029; bands unchanged."
+   }
+  },
+  {
+   "id": "materials-perovskite-tandem-flight",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2031"
+    },
+    "band_2031": {
+     "S1": "Speculative"
+    },
+    "calibration_note": "A3: Lag ladder. The node needs one year of on-orbit data after flight. S1 degradation models land 2030, so cells fly mid-2031 at the earliest (12-18 months) and the year of data ends in 2032. S1 2031 -> >2031 and Low -> Speculative; S2/S3 unchanged (models 2028, fly 2029, data 2030)."
+   }
+  },
+  {
+   "id": "auton-lunar-o2-flight-demo",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031"
+    },
+    "band_2031": {
+     "S1": "Low"
+    },
+    "calibration_note": "A3: Lag ladder. S1 2030 equalled its prerequisite auton-isru-rom-control (S1 2030); a lunar surface payload needs at least 12-18 months from design-complete plus a CLPS slot. Chain (S1): reactor models 2030 -> flight-unit update and integration -> landing 2031 at the earliest. S1 2030 -> 2031 and S1 Medium -> Low; S2/S3 unchanged."
+   }
+  },
+  {
+   "id": "auton-mars-isru-demo",
+   "patch": {
+    "earliest_year": {
+     "S2": "2031",
+     "S3": "2031"
+    },
+    "band_2031": {
+     "S2": "Speculative"
+    },
+    "calibration_note": "A3: Cross-domain consistency and launch windows. Operating a MOMS-class unit on Mars needs a heavy Mars landing, which hyper-mars-heavy-landing puts at 2031 at the earliest in every scenario (Moon priority, propellant transfer first). The late-2028 window is therefore not available in S2/S3; the early-2031 window arrives late 2031. Chain (S2): isru-rom-control 2028 -> unit built for the 2031 window -> landing late 2031 -> operation at the very end of the horizon. S2 2029 -> 2031 (Low -> Speculative), S3 2029 -> 2031 (Low kept); S1 unchanged."
+   }
+  },
+  {
+   "id": "struct-flown-lighter-structure",
+   "patch": {
+    "earliest_year": {
+     "S2": "2031",
+     "S3": "2031"
+    },
+    "band_2031": {
+     "S2": "Low"
+    },
+    "calibration_note": "A3: Lag ladder: primary structure. A launch-vehicle barrel, interstage or primary structure designed on 2028-29 AI capability flies 2031+ in S2 (new LV subsystem 2-3 years). Chain (S2): imperfection theory 2028 -> knockdown rules 2029 -> flight-article build and validation test 2-3 years -> flight 2031. S2 2030 -> 2031 (Medium -> Low); S3 2030 -> 2031 (1.3-1.5x physical speed still lands 2030-31; Medium kept); S1 unchanged."
+   }
+  },
+  {
+   "id": "struct-structural-mass-step",
+   "patch": {
+    "earliest_year": {
+     "S3": "2031"
+    },
+    "calibration_note": "A3: Follows its prerequisite struct-flown-lighter-structure, now 2031 in S3. S3 2030 -> 2031; bands unchanged."
+   }
+  },
+  {
+   "id": "struct-shm-inspection-credit",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2031",
+     "S2": "2030",
+     "S3": "2030"
+    },
+    "calibration_note": "A3: Lag ladder. Built-in SHM on a reusable stage is a new launch-vehicle subsystem (2-3 years from design-complete to flight, 1.5-2 years at S3 speed) and its own why says sensor qualification under thermal-cryogenic aging binds. Chain (S2): detection limits and certified margins 2028 -> sensor network design and qualification -> inspection credit on flying stages 2030. S1 2031 -> >2031, S2 2029 -> 2030, S3 2029 -> 2030; bands unchanged."
+   }
+  },
+  {
+   "id": "struct-reusable-life-management",
+   "patch": {
+    "earliest_year": {
+     "S3": "2031"
+    },
+    "calibration_note": "A3: Follows struct-shm-inspection-credit (now S3 2030) plus flight hours to build confidence. S3 2030 -> 2031; bands unchanged."
+   }
+  },
+  {
+   "id": "struct-radiator-lightweight-production",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2031",
+     "S2": "2030",
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S1": "Low"
+    },
+    "calibration_note": "A3: Lag ladder. Serial production at thousands of m2 per month comes after first flight of the new panel, which itself takes 12-18 months from the 2028 design (production ramp compresses only 0.9x in S2, 0.7-0.8x in S3). Chain (S2): AI-optimized radiator design 2028 -> first flight mid-2029 to 2030 -> serial production 2030. S1 2031 -> >2031 (Medium -> Low; S1 design lands 2030), S2 2029 -> 2030, S3 2029 -> 2030; S2/S3 bands unchanged."
+   }
+  },
+  {
+   "id": "struct-100kw-per-tonne-fleet",
+   "patch": {
+    "earliest_year": {
+     "S2": "2031",
+     "S3": "2031"
+    },
+    "calibration_note": "A3: Follows struct-radiator-lightweight-production (now 2030 in S2/S3); serial production of 100 kW/t satellites needs those radiators plus lighter arrays in a production line. S2 2030 -> 2031, S3 2030 -> 2031; bands unchanged."
+   }
+  },
+  {
+   "id": "struct-gw-orbital-compute",
+   "patch": {
+    "earliest_year": {
+     "S3": "2031"
+    },
+    "calibration_note": "A3: Follows struct-radiator-lightweight-production (now S3 2030). S3 2030 -> 2031; bands unchanged. (Note: 1 GW does not strictly need sub-2.5 kg/m2 radiators; the hard edge could be soft.)"
+   }
+  },
+  {
+   "id": "physclock-twin-reflight-clearance",
+   "patch": {
+    "earliest_year": {
+     "S2": "2029"
+    },
+    "band_2031": {
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "calibration_note": "A3: Cross-domain consistency. Ship turnaround under two weeks requires a rapidly reusable heat shield, so this node cannot come earlier or be more likely than hyper-rapid-reuse-heatshield (S2 2029, Medium in all scenarios). It also sat in the same year as its prerequisite prop-life-twin (S2 2028). Chain (S2): first Starship reflights 2027 -> life twin 2028 -> data-cleared turnaround on both stages 2029. S2 2028 -> 2029; S2/S3 High -> Medium."
+   }
+  },
+  {
+   "id": "physclock-reactor-in-space",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2030",
+     "S3": "2030"
+    },
+    "calibration_note": "A3: Lag ladder: a space reactor takes 4-6 years from a funded start (0.9x in S2, 0.8-0.9x in S3; appropriations 1.0x). SR-1 has $10M directed against a $2.1B estimate and Fission Surface Power had no confirmed Phase 2 award, so the earliest funded start is 2026-27. Chain (S2): funded start 2026-27 -> fuel, fabrication, criticality tests and AI-shortened safety case -> launch 2030 at the earliest. S1 2030 -> 2031 (Low kept), S2 2029 -> 2030, S3 2029 -> 2030; S2/S3 bands unchanged."
+   }
+  },
+  {
+   "id": "comms-pq-fleet-migration",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2030"
+    },
+    "band_2031": {
+     "S1": "Low"
+    },
+    "calibration_note": "A3: Lag ladder using the node's own reasoning: contracts are signed 2-4 years before launch, so \"most new satellites\" carrying the 2028 (S2) architecture cannot launch before 2030. S1 2030 -> 2031 (Medium -> Low; S1 architecture 2029), S2 2029 -> 2030; S3 unchanged (architecture 2027)."
+   }
+  },
+  {
+   "id": "verif-checker-not-generator",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2030",
+     "S3": "2029"
+    },
+    "band_2031": {
+     "S1": "Low"
+    },
+    "calibration_note": "A3: Shared timing: capability.json fixes first regulator credit for AI proofs (infra-tool-qualification) at >2031/2030/2029, and this node is that credit by the checker route. P2 lag is 2-4 years from public capability (2027 in S2), so 2028 was too early. The checker route needs no new standard, so S1 is put one step ahead of infra-tool-qualification. S1 2029 -> 2031 (Medium -> Low), S2 2028 -> 2030, S3 2028 -> 2029. Capped at Medium."
+   }
+  },
+  {
+   "id": "verif-afss-part450",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2031",
+     "S2": "2030"
+    },
+    "calibration_note": "A3: Follows verif-checker-not-generator (now 2031/2030/2029): FAA acceptance of proofs is itself a first certification credit, which the shared parametrization puts at 2030 in S2. S1 2031 -> >2031, S2 2029 -> 2030; S3 unchanged; bands unchanged (regulatory, capped Medium)."
+   }
+  },
+  {
+   "id": "verif-new-entrant-advantage",
+   "patch": {
+    "earliest_year": {
+     "S2": "2030",
+     "S3": "2029"
+    },
+    "calibration_note": "A3: Follows its hard prerequisite verif-checker-not-generator (now S2 2030, S3 2029). S2 2029 -> 2030, S3 2028 -> 2029; bands unchanged."
+   }
+  },
+  {
+   "id": "verif-hls-autonomy-certification",
+   "patch": {
+    "earliest_year": {
+     "S2": "2031",
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low"
+    },
+    "calibration_note": "A3: Cross-domain consistency: this is the HLS instance of astro-human-rated-proof-credit (AI proofs accepted for crewed GNC), so it cannot be earlier or likelier than that general node, and crewed acceptance should lag the first uncrewed certification credit (S2 2030, S3 2029). Chain (S2): checker-route credit 2030 -> NASA technical authority accepts proofs for an HLS block upgrade 2031 at the earliest. S2 2030 -> 2031, S3 2029 -> 2030; bands Low/Medium/Medium -> Speculative/Low/Low (regulatory, crewed)."
+   }
+  },
+  {
+   "id": "astro-human-rated-proof-credit",
+   "patch": {
+    "earliest_year": {
+     "S2": "2031",
+     "S3": "2030"
+    },
+    "calibration_note": "A3: Cross-domain consistency with verif-hls-autonomy-certification (same event, HLS instance): aligned at one year after first certification credit (infra-tool-qualification S2 2030, S3 2029). S2 >2031 -> 2031, S3 2031 -> 2030; bands unchanged (Speculative/Low/Low)."
+   }
+  },
+  {
+   "id": "materials-allowables-stats-framework",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029"
+    },
+    "calibration_note": "A3: Cross-domain consistency: handbook acceptance (MMPDS, CMH-17, NASA-STD-6030) of AI-derived allowables methods is a standards revision, which physclock-credibility-evidence-standard puts at S2 2029 (standards revise on 3-6 year cycles). S1 2030 -> 2031, S2 2028 -> 2029; S3 unchanged; bands unchanged (capped Medium)."
+   }
+  },
+  {
+   "id": "comms-ai-cryptanalysis",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028"
+    },
+    "calibration_note": "A3: Internal consistency: the node's why ties routine audits to public research-grade models (cap-research-math-public), which arrive 2028 in S1. S1 2027 -> 2028; band unchanged. (The hard prerequisite should arguably be cap-research-math-public, not the internal model.)"
+   }
+  },
+  {
+   "id": "comms-pq-ttc-flight-demo",
+   "patch": {
+    "band_2031": {
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "calibration_note": "A3: Band logic: its hard prerequisite comms-crypto-agile-architecture is Medium in every scenario, so the demo cannot be High. S2/S3 High -> Medium."
+   }
+  },
+  {
+   "id": "capability-engineering-adoption",
+   "patch": {
+    "band_2031": {
+     "S1": "Medium"
+    },
+    "calibration_note": "A3: Band logic: hard prerequisites cap-applied-math and capability-cheap-trust are Medium in S1, so S1 High -> Medium."
+   }
+  },
+  {
+   "id": "comms-hardness-aware-tasking",
+   "patch": {
+    "band_2031": {
+     "S1": "Medium"
+    },
+    "calibration_note": "A3: Band logic: hard prerequisite comms-certified-network-optimization is Medium in S1, so S1 High -> Medium."
+   }
+  },
+  {
+   "id": "hyper-tps-inverse-nde",
+   "patch": {
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High"
+    },
+    "premise_tier": "n/a (capability premise); 365 is T3; 372 and 366 are T1, conditional and supportive only",
+    "calibration_note": "A3: Cross-domain parity and band logic. Its why says the capability channel drives the band, and the comparable struct-shm-inverse-limits (inverse-problem detection limits for structural inspection, same years, same data gate) is Medium/High/High. At Low/Medium/Medium it also sat below its own hard dependents hyper-tile-damage-accumulation (Medium/High/High) and hyper-rapid-reuse-heatshield (S1 Medium). Bands Low/Medium/Medium -> Medium/High/High; premise relabelled n/a because the T1 families are supportive, not load-bearing."
+   }
+  },
+  {
+   "id": "physclock-regulator-ai-capacity",
+   "patch": {
+    "band_2031": {
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "calibration_note": "A3: Regulator cap: regulators changing how they review is regulator behaviour, which the same domain caps at Medium for physclock-licensing-in-weeks. S2/S3 High -> Medium."
+   }
+  },
+  {
+   "id": "physclock-ai-flight-safety-analysis",
+   "patch": {
+    "binding_gate": "adoption",
+    "calibration_note": "A3: Gate relabel, no band change: the why states the FAA evaluates outputs of already-accepted methods and no new acceptance is needed, so the binding gate is operator adoption, not regulation. With a regulatory gate the High band would breach the Medium cap."
+   }
+  },
+  {
+   "id": "auton-surface-productivity",
+   "patch": {
+    "band_2031": {
+     "S2": "Medium"
+    },
+    "calibration_note": "A3: Tier-7 rule (strategic outcomes rarely High): a tenfold rise in surface work per operator also needs a lunar robot fleet on the surface (Moon Base Phase 1 landing cadence and success), which AI does not control. S2 High -> Medium; S3 High kept."
+   }
+  },
+  {
+   "id": "physclock-test-loop-monthly",
+   "patch": {
+    "band_2031": {
+     "S2": "Medium"
+    },
+    "calibration_note": "A3: Tier-7 rule and the physical gate table: six consecutive loops of 30 days or less require no long hardware-fix interruptions; physclock compresses integrated flight-test intervals only 0.6-0.8x in S2 (about 40-50 days from 63-66). S2 High -> Medium; S3 High kept."
+   }
+  },
+  {
+   "id": "science-return-per-dollar",
+   "patch": {
+    "band_2031": {
+     "S2": "Medium"
+    },
+    "calibration_note": "A3: Tier-7 rule: \"science per mission dollar rises sharply\" is a field-wide strategic outcome and comparable to frontier-math-unbinds (S2 Medium). S2 High -> Medium; S3 High kept."
+   }
+  },
+  {
+   "id": "verif-assurance-cost-collapse",
+   "patch": {
+    "band_2031": {
+     "S2": "Medium"
+    },
+    "calibration_note": "A3: Tier-7 rule: the 30-100x cost of a verified line follows directly from S2, but the programme-level \"about 2.4x cheaper\" claim needs programmes to adopt and finish, and any certified programme waits for first certification credit (S2 2030). S2 High -> Medium; S3 High kept."
+   }
+  },
+  {
+   "id": "auton-mass-action-permanence",
+   "patch": {
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "premise_tier": "T1 (149 has no Lean main result in the catalog)",
+    "why": "Persistence and permanence of weakly reversible networks sit at the core of chemical reaction network theory (the global attractor conjecture family, open for decades, general). 'Achieved' here means independently checked (Comparator run plus statement audit) or reconstructed by CRN theorists. Because a formal statement already exists, verification is a checking task, not a research task; under S2/S3 checking bandwidth is abundant. Under S1 the field is niche and may not be prioritized by volunteer checkers, hence Medium. Conditional: the catalog lists no Lean main result for 149, so the premise is T1 and the band is one step below a checking-only judgment.",
+    "calibration_note": "A3: T1 premise rule: the catalog lists no Lean main result for family 149, so the premise is T1 (not T3) and confirmation rests on an unverified manuscript. One band down in every scenario: Medium/High/High -> Low/Medium/Medium; why now says conditional."
+   }
+  },
+  {
+   "id": "comms-optical-capacity-theory",
+   "patch": {
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "calibration_note": "A3: T1 premise rule and cross-domain parity: the node rests on family 273 (T1) and its twin frontier-optical-quantum-capacity already applies the one-band drop (Low/Medium/Medium). Medium/High/High -> Low/Medium/Medium."
+   }
+  },
+  {
+   "id": "comms-expander-constructions",
+   "patch": {
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "calibration_note": "A3: T1 premise rule: families 178 and 177 have no Lean main result (T1) and the band is for the mathematics being established. One band down: Medium/High/High -> Low/Medium/Medium."
+   }
+  },
+  {
+   "id": "struct-hot-spots-thermal-modes",
+   "patch": {
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "why": "A dead-end leaf for engineering, included to show the mapping honestly. Real radiators and panels are 3D, multi-material, with radiative (not insulated) boundaries, and thermal engineers compute their modes numerically for every geometry. The theorem confirms an intuition (slowest insulated thermal mode peaks at edges) and could inform sensor-placement heuristics for thin insulated plates; it changes no design. Effect on space thermal engineering: nil to negligible. Conditional: 369 is T1 (no Lean main result), so the band is one step below a checked result.",
+    "calibration_note": "A3: T1 premise rule: family 369 is T1 (no Lean). One band down: Medium/High/High -> Low/Medium/Medium; why now says conditional."
+   }
+  },
+  {
+   "id": "science-gr-foundations",
+   "patch": {
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "why": "Ringdown spectroscopy (LIGO-Virgo-KAGRA now, LISA after 2035) and EHT/BHEX photon-ring tests all assume a perturbed black hole relaxes to Kerr. Kerr stability proves it from outside; strong cosmic censorship near Kerr (264) says the interior generically cannot be continued past the Cauchy horizon with square-integrable connection; Penrose inequalities (260) bound mass below by horizon area for moving, charged and rotating data. Review bandwidth is the gate: a few dozen people can referee these, and 722 manuscripts arrived at once (tr-position-5). Formal checking is further off because Lean lacks Lorentzian geometry, so S1 is Medium; S2/S3 add AI-assisted refereeing and formalization. Conditional: 260 and 264 are T1 and the Kerr preprints are unrefereed, so bands are one step down.",
+    "calibration_note": "A3: T1 premise rule: families 260 and 264 are T1 and the human Kerr-stability preprints are unrefereed. One band down: Medium/High/High -> Low/Medium/Medium; why now says conditional."
+   }
+  },
+  {
+   "id": "struct-elasticity-fracture-foundations",
+   "patch": {
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "why": "These four families are the release's only direct contact with structural mechanics. 372 tells inspection engineers that full boundary data determine elastic stiffness in principle; it says nothing about how stably, and Calderon-type problems are typically only logarithmically stable (general), so it raises confidence without changing tools. 366 underpins the Griffith/Francfort-Marigo variational fracture energies behind phase-field fracture codes: minimizing crack sets are well-behaved in 2D. 368 is a technical tool for nonlinear-elasticity existence and approximation theory (invertible deformations), relevant to large-deformation finite elements. The conductivity-nonuniqueness half of 365 is a negative result: some conductivities cannot be recovered from one boundary patch, a potential ceiling for electrical-resistance damage sensing in carbon-fiber structures (conditional on the T3 premise and on the counterexample class being physically relevant). Under S2, AI-assisted formalization of PDE catches up (2028), so confirmation by 2031 is likely. The 372, 366 and 368 parts are conditional (T1, no Lean main results), so bands are one step down.",
+    "calibration_note": "A3: T1 premise rule: three of the four families (372, 366, 368) are T1; only 365 is T3. One band down: Medium/High/High -> Low/Medium/Medium; why now marks the T1 parts conditional. This leaves its hard dependent struct-shm-inverse-limits (capability-driven, Medium/High/High) above it; that edge should become a soft edge (see notes)."
+   }
+  },
+  {
+   "id": "hyper-boltzmann-foundations-check",
+   "patch": {
+    "band_2031": {
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "why": "If 363 holds, the kinetic equation alone does not fix the physical solution in some regime, so DSMC and deterministic Boltzmann solvers need an explicit selection principle there (entropy, molecular chaos). If 364 holds, the particle-noise statistics of DSMC have a rigorous basis rather than being numerical artifacts. Both change confidence in the models, not the heating numbers. Band: P3 defaults to High, down one in every scenario because the implications are conditional on T1 premises (363, 364). In S2 and S3 cheap verification makes an expert check within 1-2 years likely, but checking does not raise the chance that the results are correct.",
+    "calibration_note": "A3: T1 premise rule: the drop for 363 and 364 (T1) was applied only in S1; cheap verification speeds checking but does not make an unverified result true, so the drop applies in every scenario. Medium/High/High -> Medium/Medium/Medium; why reworded to say conditional."
+   }
+  },
+  {
+   "id": "materials-dft-limits",
+   "patch": {
+    "band_2031": {
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "why": "DFT is the workhorse for screening alloys, ceramics, semiconductors, battery electrolytes and propellant chemistry. If 278 holds, some ensemble densities (fractional occupations, open-shell and excited-state ensembles: the regime of transition-metal oxides, defect levels and radiation-damage centres) cannot be reproduced by any Kohn-Sham reference even with the exact functional. If 275 holds, no efficient algorithm computes ground-state energies of all molecules and solids (classically, and on quantum computers unless BQP = QMA). Ceiling results act within months (P3): they tell method developers to stop seeking one universal functional and to invest in domain-specific, data-driven corrections and targeted high-level methods. Band: P3 defaults to High; one band down in every scenario because the ceilings are conditional on 278 and 275 (T1). Formalization of continuum quantum mechanics catching up by ~2028 (S2/S3) speeds checking but does not raise the chance that an unverified result is correct.",
+    "calibration_note": "A3: T1 premise rule: the drop for 278 and 275 (T1) was applied only in S1; future formalization speeds checking but does not raise the chance an unverified result is correct. Medium/High/High -> Medium/Medium/Medium; why reworded to say conditional."
+   }
+  },
+  {
+   "id": "comms-finite-key-qkd-proofs",
+   "patch": {
+    "why": "A LEO pass gives a few minutes of link; Jinan-1 shared up to 1.07 Mbit of secure key per pass (Nature, Mar 2025). At such block sizes finite-key penalties are large, and evaluators do not accept proofs that ignore device flaws. Tighter proofs that include imperfections raise certified key per pass (judgment: 10-40% at short passes). More important, they are what a security evaluation needs. The math is hard but within research-grade applied math. Formalization waits on quantum-information coverage in Lean, which S2 assumes catches up during 2027-29. The part resting on 272 is conditional (T1).",
+    "calibration_note": "A3: Wording rule only: premise mixes T3 (276) and T1 (272); why now says the 272 part is conditional. Bands unchanged (main premise T3)."
+   }
+  },
+  {
+   "id": "frontier-approx-ceilings",
+   "patch": {
+    "why": "Ceilings take effect within months (P3), once they are independently checked. Most were already believed, so the change is from belief to theorem: research spending moves from better general approximation algorithms to instance structure, exact MIP on small instances and learned heuristics. Volumes are large (Starlink performed 144,000+ collision-avoidance maneuvers in six months, per 33FG), but these are operational problems where structure dominates. This node bounds frontier-scalable-global-certificates. The 124, 110 and 111 parts are conditional (T1); the band rests on the T3 families.",
+    "calibration_note": "A3: Wording rule only: premise mixes T3 (102, 125, 117, 104) and T1 (124, 110, 111); why now says the T1 parts are conditional. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-inverse-stability",
+   "patch": {
+    "why": "Uniqueness says the data suffice in principle; stability constants for a given sensor layout say how many sensors and what noise level are needed. That is bespoke, expert-scarce work AI does on demand. Bands are one step down because most premises are T1. Downstream: hyper-tps-inverse-nde, materials-am-digital-twin-qual. The results resting on 372, 366, 368 and 369 are conditional.",
+    "calibration_note": "A3: Wording rule only: bands already one step down for T1 premises; why now uses the word conditional."
+   }
+  },
+  {
+   "id": "cap-physics-theory",
+   "patch": {
+    "premise_tier": "n/a (capability premise); 364 and 278 are T1 (conditional) and 263 is T3, supporting evidence only",
+    "calibration_note": "A3: Premise label only: band is set by the shared capability parametrization (Low/Medium/High), not by families 364, 278 and 263; relabelled so the T1 rule does not misfire. Year and band unchanged (capability.json anchor)."
+   }
+  },
+  {
+   "id": "capability-crypto-watch",
+   "patch": {
+    "premise_tier": "n/a (watch item on future capability); 279, 272 and 266 are T1, conditional and not load-bearing",
+    "calibration_note": "A3: Premise label only: a watch item on future cryptanalysis does not rest on families 279, 272 or 266."
+   }
+  },
+  {
+   "id": "comms-crqc-before-2031",
+   "patch": {
+    "premise_tier": "n/a (hardware race); 279 is T1, conditional and not load-bearing",
+    "calibration_note": "A3: Premise label only: hardware race; 279 is not load-bearing."
+   }
+  },
+  {
+   "id": "frontier-ns-unforced",
+   "patch": {
+    "premise_tier": "n/a (target unproven; forced precursor T3); 376 is T1, conditional and not load-bearing. Depends on a lab posing it to the unreleased internal model until research-grade access is public (2027 S2, 2028 S1)",
+    "calibration_note": "A3: Premise label and internal-model dependency noted (scorecard). Bands unchanged; matches prop-ns-clay-unforced."
+   }
+  },
+  {
+   "id": "frontier-nonuniqueness-map",
+   "patch": {
+    "premise_tier": "n/a (future results; forced-NS precursor T3); 363 and 376 are T1, conditional examples. Depends on the unreleased internal model until public research-grade access (2027 S2, 2028 S1)",
+    "calibration_note": "A3: Premise label and internal-model dependency noted (scorecard): the map is future work; 363 and 376 are conditional examples."
+   }
+  },
+  {
+   "id": "frontier-nbody-arnold-diffusion",
+   "patch": {
+    "premise_tier": "n/a (n-body target unproven); 146 and 343 are T1 (conditional) and 347 is T3, model maps only. Depends on the unreleased internal model until public research-grade access (2027 S2, 2028 S1)",
+    "calibration_note": "A3: Premise label and internal-model dependency noted (scorecard)."
+   }
+  },
+  {
+   "id": "frontier-chaos-linear-response",
+   "patch": {
+    "premise_tier": "n/a (target unproven); 146 is T1, conditional, context only. Depends on the unreleased internal model until public research-grade access (2027 S2, 2028 S1)",
+    "calibration_note": "A3: Premise label and internal-model dependency noted (scorecard)."
+   }
+  },
+  {
+   "id": "frontier-certified-turbulent-cfd",
+   "patch": {
+    "premise_tier": "n/a (rests on open problems: frontier-turbulence-rigorous, frontier-chaos-linear-response); 363 and 376 are T1, conditional",
+    "calibration_note": "A3: Premise label only: the node rests on open problems, not on 363 and 376; bands already Speculative/Low/Low."
+   }
+  },
+  {
+   "id": "frontier-stiff-certified",
+   "patch": {
+    "premise_tier": "n/a (capability premise); 149 is T1, conditional, weak link",
+    "calibration_note": "A3: Premise label only: capability-driven; 149 is a weak, conditional link."
+   }
+  },
+  {
+   "id": "frontier-rare-event-certified",
+   "patch": {
+    "premise_tier": "n/a (capability premise); 139, 140 and 360 are T3; 374 is T1, conditional",
+    "calibration_note": "A3: Premise label only: capability-driven (expert-scarce estimators); 374 is a conditional side link."
+   }
+  },
+  {
+   "id": "frontier-xc-certified",
+   "patch": {
+    "premise_tier": "n/a (capability premise via cap-physics-theory); 275 and 278 are T1 ceilings (conditional), 263 is T3",
+    "calibration_note": "A3: Premise label only: the node rests on cap-physics-theory; the T1 families are conditional ceilings."
+   }
+  },
+  {
+   "id": "materials-learned-functionals",
+   "patch": {
+    "premise_tier": "n/a (capability premise); 278 is T1, conditional, bounds the scope only",
+    "calibration_note": "A3: Premise label only: 278 bounds scope; the band rests on capability."
+   }
+  },
+  {
+   "id": "materials-quantum-chem-advantage",
+   "patch": {
+    "premise_tier": "n/a (hardware and algorithm race); 275 and 265 are T1, conditional context only",
+    "calibration_note": "A3: Premise label only: 275 and 265 are context, not load-bearing."
+   }
+  },
+  {
+   "id": "materials-am-digital-twin-qual",
+   "patch": {
+    "premise_tier": "n/a (capability and acceptance chain); 372 is T1 (conditional) and 365 is T3, both peripheral",
+    "calibration_note": "A3: Premise label only: the why calls both families peripheral."
+   }
+  },
+  {
+   "id": "plasma-abep-demo",
+   "patch": {
+    "premise_tier": "n/a (funding and hardware gate); 363 and 364 are T1, conditional and not load-bearing",
+    "calibration_note": "A3: Premise label only."
+   }
+  },
+  {
+   "id": "prop-psi-models",
+   "patch": {
+    "premise_tier": "n/a (capability premise via cap-physics-theory); 363 and 364 are T1, conditional and supportive",
+    "calibration_note": "A3: Premise label only: bands match capability-driven T3 physics nodes (no T1 drop was applied or needed)."
+   }
+  },
+  {
+   "id": "prop-ntp-fuel-model",
+   "patch": {
+    "premise_tier": "n/a (capability premise); 278 and 275 are T1 ceilings, conditional",
+    "calibration_note": "A3: Premise label only."
+   }
+  },
+  {
+   "id": "struct-shm-inverse-limits",
+   "patch": {
+    "premise_tier": "n/a (capability premise); 365 is T3 (ceiling); 372 and 366 are T1, conditional",
+    "calibration_note": "A3: Premise label only: the why says the main pathway is capability and the catalog adds confidence and one ceiling."
+   }
+  },
+  {
+   "id": "auton-blss-closed-test",
+   "patch": {
+    "premise_tier": "n/a (capability premise); the 149-dependent part is T1, conditional",
+    "calibration_note": "A3: Premise label only: inherits a minor, conditional 149 link through auton-blss-stability-theory."
+   }
+  },
+  {
+   "id": "cap-autoformalization",
+   "patch": {
+    "premise_tier": "T3 for the openai/math evidence (agent-written Lean for 127 families, unchecked by outsiders; 362); T4 only for evidence outside openai/math (FLT in Lean, Comparator-checked, Sep 2026)",
+    "calibration_note": "A3: Premise label only: nothing in openai/math is above T3 as of 2026-10-07; the T4 label applies only to non-openai/math evidence. Year and band unchanged (capability.json anchor)."
+   }
+  },
+  {
+   "id": "frontier-landau-damping-general",
+   "patch": {
+    "premise_tier": "T3 (362, analog evidence); the target results are future work that depends on the unreleased internal model until public research-grade access (2027 S2, 2028 S1)",
+    "calibration_note": "A3: Internal-model dependency noted (scorecard); bands unchanged because public access arrives inside every scenario."
+   }
+  },
+  {
+   "id": "frontier-mhd-wellposedness",
+   "patch": {
+    "premise_tier": "n/a (future results); depends on the unreleased internal model until public research-grade access (2027 S2, 2028 S1)",
+    "calibration_note": "A3: Internal-model dependency noted (scorecard); bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-nn-verification-complexity",
+   "patch": {
+    "premise_tier": "n/a (human results); T3 (102). Further results depend on the unreleased internal model until public research-grade access (2027 S2, 2028 S1)",
+    "calibration_note": "A3: Internal-model dependency noted (scorecard); bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-turbulence-rigorous",
+   "patch": {
+    "premise_tier": "n/a (future results; statements must be posed); depends on the unreleased internal model until public research-grade access (2027 S2, 2028 S1)",
+    "calibration_note": "A3: Internal-model dependency noted (scorecard); bands unchanged."
+   }
+  },
+  {
+   "id": "prop-ns-clay-unforced",
+   "patch": {
+    "premise_tier": "T3 (forced precursor); target unproven and dependent on the unreleased internal model until public research-grade access (2027 S2, 2028 S1)",
+    "calibration_note": "A3: Internal-model dependency noted (scorecard); bands unchanged; matches frontier-ns-unforced."
+   }
+  }
+ ],
+ "notes": "A3 calibration and rule-compliance pass on graph-v0 (2026-10-07). Only update edits; every patch carries a calibration_note starting \"A3:\". Fields touched: earliest_year, band_2031, premise_tier, binding_gate, and why for 9 nodes (see WHY PATCHES). Edges, titles and branches untouched.\n\nCHECKS RUN (scripted over all 360 nodes): shared tier-0 timings vs capability.json (all 11 matched, no change); scenario invariants (none broken before or after); hard-prerequisite year order (none broken before or after); hard-prerequisite band order, i.e. a node cannot be likelier by 2031 than something it hard-requires (12 scenario-level breaches in v0: 9 resolved by these updates; the 3 on auton-certified-assembly-skills, plus 3 created on struct-shm-inverse-limits by the T1 drop on its prerequisite, need edge changes, see EDGE RECOMMENDATIONS); tier 5-6 lag after prerequisites against the physclock lag ladder; T1/T2 premises without \"conditional\" in why (about 40 flagged by regex; most were non-load-bearing links, handled by relabelling premise_tier to \"n/a (...)\" with the conditional note); premise tiers above T3 for openai/math (cap-autoformalization relabelled); catalog families (all valid, none of 107/109/130 used, galactic speedups only mentioned as non-practical); regulatory or qualification gate with a High band; tier-7 High bands.\n\n1 LAG LADDER (tier 5-6). Rule applied: a node whose hardware or flight software design depends on a capability arriving in year Y flies no earlier than Y+1 for a smallsat or derivative payload (12-18 months, about 8-14 months at the S3 physical multiplier), Y+2-3 for a new launch-vehicle subsystem or primary structure, 4-6 years for a reactor from a funded start. Fixed: capability-ai-native-spacecraft (S3), auton-verified-autonomy-lunar-flight (S3), hyper-thinner-tps-flown (S3), verif-verified-onboard-stack (all), materials-closed-loop-discovery (S2/S3, replication), materials-perovskite-tandem-flight (S1), auton-lunar-o2-flight-demo (S1), auton-mars-isru-demo (S2/S3), struct-flown-lighter-structure (S2/S3 to 2031, primary structure), struct-shm-inspection-credit, struct-radiator-lightweight-production, physclock-reactor-in-space, comms-pq-fleet-migration, plus followers struct-structural-mass-step, struct-reusable-life-management, struct-100kw-per-tonne-fleet, struct-gw-orbital-compute. Left alone on purpose where the AI input is process or software that can be loaded on hardware already flying, not a new design: materials-cots-orbital-compute-ops, hyper-rapid-reuse-heatshield, comms-certified-mesh-operations, comms-d2d-coexistence-scheduling, verif-constellation-verified-updates, auton-ai-planned-ops-routine, physclock-licensing-in-weeks, science-lisa-readiness, astro-ai-designed-trajectory-flown (a trajectory is not hardware). Physical anchors without AI prerequisites (Starship reuse, pads, cadence, ship transfer, fusion gain, QKD demos, highflux radiators, FSP radiators) were not touched.\n\n2 SCORECARD BANDS. Regulator cap: physclock-regulator-ai-capacity capped at Medium (regulator behaviour, same logic as physclock-licensing-in-weeks); physclock-ai-flight-safety-analysis relabelled gate regulatory -> adoption because its why says no new acceptance is needed (band kept High). Other High nodes with a qualification gate were checked and need no regulator (uncrewed, self-certified): auton-verified-surface-autonomy, verif-runtime-assurance, verif-verified-onboard-stack, comms-pq-verified-implementations, astro-landing-guidance-proven-flight (S3). capability-controlled-data-access stays High: accreditation already has precedents (ChatGPT and Gemini on classified networks, 2026). T1 premise drop applied where the node's achievement rests on unverified manuscripts: auton-mass-action-permanence (149 has no Lean in the catalog, so T1 not T3), comms-optical-capacity-theory (now matches its twin frontier-optical-quantum-capacity), comms-expander-constructions, struct-hot-spots-thermal-modes, science-gr-foundations, struct-elasticity-fracture-foundations -> Low/Medium/Medium; hyper-boltzmann-foundations-check and materials-dft-limits had the drop only in S1 -> Medium in all scenarios. T3-premised confirmation nodes (prop-ns-forced-verified, plasma-vm-wellposed, comms-hardness-ceilings-settled, frontier-approx-ceilings, verif-game-solving-synthesis, astro-catalog-dynamics-results) keep High. Two-premise chain rule: no load-bearing chain of two unformalized premises found; frontier-certified-turbulent-cfd and hyper-kinetic-solver-certification are already low or capability-driven. Internal-model dependency now noted in premise_tier for forward-looking frontier nodes (frontier-ns-unforced, prop-ns-clay-unforced, frontier-nonuniqueness-map, frontier-landau-damping-general, frontier-mhd-wellposedness, frontier-nn-verification-complexity, frontier-turbulence-rigorous, frontier-nbody-arnold-diffusion, frontier-chaos-linear-response); the Medium cap does not bind because public research-grade access arrives inside every scenario (2027 S2/S3, 2028 S1). Tier 7: S2 High kept only for physclock-cheap-mass-internal (physical, AI-independent) and struct-design-cycle-compression (direct consequence of the S2 cognitive clock, no physical gate); auton-surface-productivity, physclock-test-loop-monthly, science-return-per-dollar and verif-assurance-cost-collapse go S2 High -> Medium (S3 High kept).\n\n3 CROSS-DOMAIN CONSISTENCY. First certification credit for AI proofs = infra-tool-qualification (>2031/2030/2029): verif-checker-not-generator moved from 2029/2028/2028 to 2031/2030/2029, with verif-afss-part450 and verif-new-entrant-advantage following. Crewed acceptance of AI proofs: verif-hls-autonomy-certification (was >2031/2030/2029, Low/Medium/Medium) and astro-human-rated-proof-credit (was >2031/>2031/2031, Speculative/Low/Low) describe the same event, so both are now >2031/2031/2030, Speculative/Low/Low, one year after first uncrewed credit. Standards accepting AI-made analysis: materials-allowables-stats-framework S2 2028 -> 2029 to match physclock-credibility-evidence-standard. Proof-carrying flight software first flies in S2 2029 across verif, astro, auton and comms (verif-verified-onboard-stack was the 2028 outlier). Rapid ship reuse: physclock-twin-reflight-clearance (ship under two weeks) aligned to hyper-rapid-reuse-heatshield (S2 2029, Medium). Heavy Mars landing: auton-mars-isru-demo aligned to hyper-mars-heavy-landing (2031 at the earliest). Inverse-problem inspection: hyper-tps-inverse-nde raised to Medium/High/High to match struct-shm-inverse-limits (same work, years and gate), which also resolves 4 band-order breaches in the hyper chain. Routine AI analysis nodes (struct-agentic-analysis-workflows, astro-trajectory-design-on-demand, science-archival-discovery-engine at S2 2027 vs capability-engineering-adoption at S2 2028) left as is: the general node adds ITAR access and trust, which explains its extra year. comms-ai-cryptanalysis S1 2027 -> 2028 because its why ties it to public models.\n\nEDGE RECOMMENDATIONS (not applied; outside the update-only remit; both are hard-edge band breaches that a reviewer should resolve): (a) struct-elasticity-fracture-foundations -> struct-shm-inverse-limits should become a soft edge (accelerated_by): the dependent is capability-driven (Medium/High/High) and now sits above its T1-premised prerequisite (Low/Medium/Medium). (b) verif-nn-verification-scale -> auton-certified-assembly-skills should become soft: the assembly skills are qualified by certified simulation plus runtime assurance, the documented workaround for unverifiable networks, yet the hard edge forces assembly (Medium) below NN verification (Low). Optional: comms-ai-cryptanalysis should hard-depend on cap-research-math-public, not cap-research-math-internal; struct-radiator-lightweight-production -> struct-gw-orbital-compute could be soft (1 GW does not need sub-2.5 kg/m2 radiators).\n\nWHY PATCHES: the why field is replaced by the v0 text with one sentence appended (auton-mass-action-permanence, struct-hot-spots-thermal-modes, science-gr-foundations, struct-elasticity-fracture-foundations, comms-finite-key-qkd-proofs, frontier-approx-ceilings, frontier-inverse-stability) or with one band sentence reworded (hyper-boltzmann-foundations-check, materials-dft-limits). If another edit file rewrites any of these whys, re-append the conditional sentence.\n\nPOLICY NOTE: when a fix pushes a year past 2031 I lowered the band only where physics makes completion by end-2031 essentially impossible (perovskite S1 -> Speculative) or the new earliest year sits at the horizon edge; elsewhere the graph's existing \">2031 with Low\" convention was kept. Applying this file alone to graph-v0 with --autofix: 0 autofixes, 0 monotonic or scenario-order violations; unlocked by 2031 moves S1 217 -> 213, S2 334 -> 335, S3 348 unchanged."
+}

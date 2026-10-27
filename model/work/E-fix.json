@@ -1,0 +1,205 @@
+{
+ "notes": "E-fix (integrator, 2026-10-07). Applied last, after the 13 branch finals and E-robots-integration.json. (1) Adds the four soft edges the entry final asked the integrator to add once trunk, engines-materials and moon-mars were in: capability-35-heavy-cadence-300 -> hyper-35-ship-heatshield-72h and -> hyper-35-crewed-ship-reentry, prop-35-mars-window-fueling -> hyper-35-mars-pinpoint-landing, auton-35-mars-robot-site-prep -> hyper-35-mars-pinpoint-landing. Each source lands no later than its target. (2) Removes four new soft edges that cannot act in any scenario: the source lands after the target wherever it lands by 2035, and the target is already High by 2035 there. robo-lab-bench-useful -> cap-physics-theory; robo-lab-bench-useful -> cap-autonomous-labs (this also ends the soft 2-cycle with cap-autonomous-labs -> robo-lab-bench-useful); robo-contact-sim-to-real -> robo-foundation-models-field; capability-35-heavy-cadence-300 -> capability-35-internal-cost-100. (3) Shortens 12 new-node titles that ran past the longest existing title (63 characters). (4) Branch order: robots had order 1, the same as math-frontier; robots now follows the trunk and the other branches move down one. No year or band changes.",
+ "update": [
+  {
+   "id": "comms-35-in-orbit-pq-cutover",
+   "patch": {
+    "title": "In-orbit post-quantum switch over proven update paths",
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon. | E-networks resolver (2026-10-07): Years S1 2034 -> 2033, S2 2033 -> 2032, S3/S4 stay 2032, so S3 now equals S2 (skeptic: the gate is institutional and the overlay applies equally to S2-S4). Advocate's S3 2031 rejected. band_2035 S1 Speculative -> Low, S2 Low -> Medium (advocate: the DoW strategy's Dec 2031 use deadline, verified at postquantum.com, creates a real population of in-orbit switches, which answers the skeptic's thin-population point). Description now excludes demonstration spacecraft (skeptic). | E-fix (integrator, 2026-10-07): title shortened from 'Satellites in orbit switch to post-quantum keys with proven update paths'."
+   }
+  },
+  {
+   "id": "comms-35-certified-shell-in-service",
+   "patch": {
+    "title": "Constellation shell designed with certified tools in service",
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon. | E-networks resolver (2026-10-07): band_2035 S2 Medium -> High (advocate: the disclosure risk that held S2 down is the same in S3, which is High). Robot soft edge from robo-aerospace-tolerance-work removed (skeptic: launch-bound). | E-fix (integrator, 2026-10-07): title shortened from 'A constellation shell designed with certified tools enters service'."
+   }
+  },
+  {
+   "id": "comms-35-joint-detection-ground-station",
+   "patch": {
+    "title": "Deep-space ground station receiver beats photon counting",
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon. | E-networks resolver (2026-10-07): band_2035 S3/S4 Low -> Speculative (follows the demo, now Low; skeptic's missing-mission gate). Years kept: MTN (verified, Wikipedia) may supply a target from 2030, so the skeptic's S2 >2035 is rejected. MTN status, signpost and calibration note added (advocate). Robot soft edge from robo-lab-bench-useful removed. | E-fix (integrator, 2026-10-07): title shortened from 'A deep-space ground station uses a receiver that beats photon counting'."
+   }
+  },
+  {
+   "id": "hyper-35-mars-pinpoint-landing",
+   "patch": {
+    "title": "Second heavy Mars lander lands within 1 km of the first",
+    "revision_note": "E-entry (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon. | E-entry resolver (2026-10-07): [skeptic] Definition aligned with the year: same-window or later-window landers both count, the 'several ships in one window' shortcut is answered in the why, and the title now names the ejecta keep-out. S1 band_2035 Low -> Speculative; S2-S4 kept Low (the skeptic's Speculative assumed only a 2031 first landing; a 2033-window first landing with a second ship also counts). [advocate] S3/S4 2033 -> 2031 rejected: the engines-materials final dates the five-ship fueling campaign to the 2033 window in S2-S4, so its premise no longer holds. | E-fix (integrator, 2026-10-07): title shortened from 'Second heavy Mars lander lands near the first without ejecta damage'."
+   }
+  },
+  {
+   "id": "hyper-35-crewed-probabilistic-shield",
+   "patch": {
+    "title": "Crewed heat shield sized by probabilistic margins flies",
+    "revision_note": "E-entry (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon. Regulatory cap Medium; no named mechanism for crewed TPS margins is in motion, so 2035 stays capped. | E-entry resolver (2026-10-07): [skeptic] Hard edge from physclock-credibility-evidence-standard added (a crewed certifier accepts AI-built margins only through such a standard); soft edge removed. Years S2 2034 -> 2035, S3/S4 2033 -> 2034 (1-2 years from policy to a flown crewed shield was too short against the ~5-year Artemis precedent). band_2035 S2 Low -> Speculative. | E-fix (integrator, 2026-10-07): title shortened from 'A crewed vehicle flies a heat shield sized by probabilistic margins'."
+   }
+  },
+  {
+   "id": "struct-35-gov-new-design-analysis-qual",
+   "patch": {
+    "title": "New government designs fly qualified mostly by analysis",
+    "revision_note": "E-certification (2026-10-07): new node for the 2035 horizon, extending the certification chain. | E-certification resolver (2026-10-07): Years S2 2034 -> 2033, S3/S4 2033 -> 2032 (advocate: earliest year uses the short end of the 12-18 month lag ladder). physclock-commercial-analysis-first-qual soft -> hard and calendar sentence added (skeptic). Advocate's S2 Medium rejected: it chains on a Medium derivative credit with about two years of window. | E-fix (integrator, 2026-10-07): title shortened from 'Government missions fly new designs qualified mainly by analysis'."
+   }
+  },
+  {
+   "id": "science-35-ariel-census",
+   "patch": {
+    "title": "Exoplanet atmosphere census with honest error bars",
+    "revision_note": "E-science (2026-10-07): new node extending the exoplanet retrieval chain past science-retrieval-identifiability. | E-science resolver (2026-10-07): ARIEL launch moved to 2031 (ESA Ariel page; SpaceNews via Wikipedia, Jan 2026), per both reviewers. Title no longer promises 1,000 planets. Years S1 2033->2034, S2-S4 kept at 2033 as the earliest credible date from a 2031 launch; skeptic's 2034 everywhere and advocate's S2 2034 / S3 2033 split not adopted (photons bind and S2 cognition is cheap by 2033). band_2035 S1 Medium->Low; S2-S4 stay Medium because a 1-year slip still lands inside 2035 (skeptic's Low rejected). Optional ARIEL launch anchor not added, because the description also admits another survey. | E-fix (integrator, 2026-10-07): title shortened from 'An atmosphere census of hundreds of exoplanets with honest error bars'."
+   }
+  },
+  {
+   "id": "science-35-answer-first-missions",
+   "patch": {
+    "title": "Science mission flies with downlink sized for onboard answers",
+    "revision_note": "E-science (2026-10-07): new node extending the onboard-inference chain past science-onboard-science-inference. | E-science resolver (2026-10-07): Skeptic mostly accepted: S3/S4 2032->2033 (the onboard-inference input is 2029 in S2 and S3, and selection binds), S1 2035->>2035, band_2031 S3/S4 Low->Speculative, band_2035 S2 Medium->Low and S1 Low->Speculative, title rewritten. S3/S4 kept at Medium by 2035 (skeptic Low, advocate High): S3's input is High by 2031, and non-NASA agencies add chances. Advocate's commercial-constellation route rejected and excluded in the description, because commercial onboard analytics is a business choice already under way and would redate the node. | E-fix (integrator, 2026-10-07): title shortened from 'A science mission flies with its downlink sized for onboard answers'."
+   }
+  },
+  {
+   "id": "science-35-helio-constellation-flight",
+   "patch": {
+    "title": "Sun-watching constellation built for 3D reconstruction flies",
+    "revision_note": "E-science (2026-10-07): new node extending the heliophysics chain past science-helio-constellation-design. | E-science resolver (2026-10-07): Skeptic accepted: S2 2035->>2035, S3/S4 2034->>2035, band_2035 S2-S4 Low->Speculative. Selection-to-launch runs 6-7 years for multi-spacecraft heliophysics missions, off-line viewpoints add 1-3 years of cruise, and the S3 lead had no source because the design input is 2029 in S2 and S3. Advocate's soft edge from robo-24x7-integration-test not added (no year credit; cost is already carried by physclock-satellite-gen-cadence). | E-fix (integrator, 2026-10-07): title shortened from 'A Sun-watching constellation designed for 3D reconstruction flies'."
+   }
+  },
+  {
+   "id": "science-35-earth-twin-rv",
+   "patch": {
+    "title": "Earth-mass planet found in a Sun-like star's habitable zone",
+    "revision_note": "E-science resolver (2026-10-07): new node from the advocate, facts verified (ING instrument page; DLR on PLATO). Advocate's S3/S4 Medium lowered to Low: stellar noise floors, observing seasons and the record of withdrawn Earth-mass claims bind alongside modelling. Tier set to 3 (physics result from data), as for science-dark-energy-verdict. | E-fix (integrator, 2026-10-07): title shortened from 'An Earth-mass planet found in the habitable zone of a Sun-like star'."
+   }
+  },
+  {
+   "id": "astro-35-cross-bloc-coordination",
+   "patch": {
+    "title": "Chinese and Western fleets coordinate maneuvers automatically",
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon. | E-safe-orbits resolver (2026-10-07): Wolf Amendment and TraCSS budget cut added to strongest_case_small (skeptic). Years and bands kept. | E-fix (integrator, 2026-10-07): title shortened from 'Chinese and Western constellations coordinate maneuvers automatically'."
+   }
+  },
+  {
+   "id": "astro-35-l5-storm-arrival-forecast",
+   "patch": {
+    "title": "Vigil side views time storm arrivals to within 6 hours",
+    "revision_note": "E-safe-orbits (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon. | E-safe-orbits resolver (2026-10-07): retitled to Vigil's side views and slip sentence added (skeptic). Advocate's S3/S4 2034 rejected: the event count binds, and the same argument would move S2. | E-fix (integrator, 2026-10-07): title shortened from 'Storm arrival forecasts within about 6 hours using Vigil's side views'."
+   }
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "capability-35-heavy-cadence-300",
+   "to": "hyper-35-ship-heatshield-72h"
+  },
+  {
+   "from": "capability-35-heavy-cadence-300",
+   "to": "hyper-35-crewed-ship-reentry"
+  },
+  {
+   "from": "prop-35-mars-window-fueling",
+   "to": "hyper-35-mars-pinpoint-landing"
+  },
+  {
+   "from": "auton-35-mars-robot-site-prep",
+   "to": "hyper-35-mars-pinpoint-landing"
+  }
+ ],
+ "remove_soft_edges": [
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "cap-physics-theory"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "cap-autonomous-labs"
+  },
+  {
+   "from": "robo-contact-sim-to-real",
+   "to": "robo-foundation-models-field"
+  },
+  {
+   "from": "capability-35-heavy-cadence-300",
+   "to": "capability-35-internal-cost-100"
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "trunk",
+   "patch": {
+    "order": 0
+   }
+  },
+  {
+   "branch": "robots",
+   "patch": {
+    "order": 1
+   }
+  },
+  {
+   "branch": "math-frontier",
+   "patch": {
+    "order": 2
+   }
+  },
+  {
+   "branch": "verified-autonomy",
+   "patch": {
+    "order": 3
+   }
+  },
+  {
+   "branch": "networks",
+   "patch": {
+    "order": 4
+   }
+  },
+  {
+   "branch": "certification",
+   "patch": {
+    "order": 5
+   }
+  },
+  {
+   "branch": "engines-materials",
+   "patch": {
+    "order": 6
+   }
+  },
+  {
+   "branch": "entry",
+   "patch": {
+    "order": 7
+   }
+  },
+  {
+   "branch": "orbital-compute-power",
+   "patch": {
+    "order": 8
+   }
+  },
+  {
+   "branch": "moon-mars",
+   "patch": {
+    "order": 9
+   }
+  },
+  {
+   "branch": "science",
+   "patch": {
+    "order": 10
+   }
+  },
+  {
+   "branch": "safe-orbits",
+   "patch": {
+    "order": 11
+   }
+  },
+  {
+   "branch": "plasma-nuclear",
+   "patch": {
+    "order": 12
+   }
+  }
+ ]
+}

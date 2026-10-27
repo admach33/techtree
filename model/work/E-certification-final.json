@@ -1,0 +1,1216 @@
+{
+ "update": [
+  {
+   "id": "physclock-regulator-ai-capacity",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "AI review tools are likely in use at agencies by 2035, but no FAA or FCC mechanism commits to them yet. Throughput of 2-5x also exceeds the 1.6-2.2x regulatory clock gain in the gate table, so the cap holds at Medium in S1-S4. S4 equals S3 because reviewer capacity is institutional.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [auditor] S3 2027 -> 2028 (S3 equals S2 through 2028; agency procurement runs at ~1.0x); status wording fixed to 'requirements under 13 laws' (FR 2026-15415). [advocate] FDA Elsa precedent added to status; advocate's S2 2027 and S2/S3 High rejected: the node's event includes 2-5x reviewer throughput and published review times, which is regulator behavior under the A3 cap (see debates). | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 Medium/High/High/High. S4 equals S3 (no S4 credit). | E-certification resolver (2026-10-07): band_2035 S2-S4 High -> Medium (skeptic). The cited tools belong to the FDA and to an FAA e-filing proposal, so no FAA or FCC mechanism for AI review is in motion; 2-5x throughput exceeds the gate table's 1.6-2.2x clock gain by S3 2035."
+   }
+  },
+  {
+   "id": "struct-test-data-commons",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Organized, AI-queryable test archives are standard practice by 2035 in every scenario, so all bands are High. S4 equals S3 because the work is data curation, which robots do not speed.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [auditor] Fact fix: the Zenodo knockdown record (Jul 27 2026) lists Wagner only, not 'Wagner and Huehne'. Now also a hard prerequisite of struct-cert-by-analysis [skeptic]. Years and bands unchanged. | B-fix (integrator, 2026-10-07): lettered citation 'Analyst position (g):' replaced with the KB position id fc-position-2. | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 High/High/High/High. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "physclock-range-airspace-scheduling",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Cadence rises to hundreds of heavy flights a year by the mid-2030s, so optimizer scheduling becomes necessary, but no named FAA or Space Force mechanism commits to it yet, so the regulator cap holds at Medium. S4 equals S3 because the gate is agency adoption.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [skeptic+auditor] S2/S3 High -> Medium (agency adoption; same A3 regulator cap as physclock-regulator-ai-capacity). [skeptic] S2/S3 2027 -> 2028 (FAA acquisition cycles; S3 equals S2 through 2028). [auditor] premise_tier notes the uncatalogued Lean result for 124 (lean/docs/124.md checked by resolver). No dependents. | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 Medium/Medium/Medium/Medium. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "physclock-optimal-test-campaigns",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Information-optimal test design is routine by 2035 in all scenarios, S1 included. S4 equals S3: robots run tests faster but do not choose them.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [skeptic+auditor] Re-scoped to development tests operators control (qualification matrices are standards- and customer-set, capped at Medium, and modeled in physclock-qual-by-analysis-credit); signpost changed to match; S2 High kept only with this narrowing. [skeptic] matrix shrink 20-40% -> 10-30% (assumption); DOE precedents (NASA Langley MDOE, DOT&E 2010) added. Advocate's S2 2028 -> 2027 and capability-engineering-adoption hard -> soft rejected: 'typical' matrices are an industry outcome (see debates). | B-fix (integrator, 2026-10-07): soft edge from frontier-rare-event-certified (B-math-frontier request 4). S3 2027 -> 2028 by autofix accepted (capability-engineering-adoption S3 2028). | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 High/High/High/High. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "struct-certified-uq-margins",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 S1 cognition matches S2 in 2029-30, so certified margins are routine practice in all scenarios. S4 equals S3 because the gate is validation data and method, which robots do not supply.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [auditor] Signpost re-scoped from a standards revision (regulator acceptance, capped Medium) to method use on a flight structure, so the High band grades capability; description and pathway say acceptance is modeled in struct-cert-by-analysis; FSR 17 added to status. [skeptic] binding_gate cognitive -> data (the node's own strongest case names test data as the bottleneck); mass claim limited to strength-critical members. Skeptic's S2 High -> Medium rejected once the signpost no longer needs acceptance (see debates). | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 High/High/High/High. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "struct-shm-inverse-limits",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S2-S4 stay High. S1 stays Medium because seeded-defect specimen campaigns on cryogenic composite tanks remain slow and underfunded there. S4 equals S3 because specimen labor is a small share of the work.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [auditor+skeptic] Grounding fixes: 372 worded as a conditional T1 claim limited to smooth isotropic moduli; 365's ceiling claim replaced (formal part is rough 3D scalar conductivity only, verified in lean/docs/365.md; sensing skins are 2D and anisotropic); 366 (Mumford-Shah regularity) dropped as irrelevant to detection limits; pathway P3+P5->P6 -> P1 (catalog P5, conditional). [skeptic] acceptance signpost moved to struct-shm-inspection-credit; signpost is now validated POD curves. Skeptic's S2 High -> Medium rejected once the signpost grades method output (see debates). | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 Medium/High/High/High. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "struct-worst-imperfection-theory",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "A cognitive result that S1 also reaches by 2035, so all bands are High. S4 equals S3.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [skeptic, applied for consistency] status fact fix: SP-8007-2020/REV 2 is the current reference, not the 1960s bounds alone. Edges: now a hard prerequisite of struct-flown-lighter-structure [advocate+auditor] and a soft one of struct-shell-knockdown-rules [skeptic]. Years and bands unchanged. | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 High/High/High/High. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "materials-allowables-stats-framework",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Handbook committees (MMPDS, CMH-17) revise on multi-year cycles, and CM4QC pushes model-based qualification, but lot-to-lot variability still takes production time, so S2-S4 stay Medium and S1 Low. S4 equals S3 because parallel robot labs cannot produce lots from separate heats any faster.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [auditor] Signpost date 2028 -> 2029 to match the S2 year. Note: the A3 calibration cited '3-6 year' standards cycles from physclock-credibility-evidence-standard, now corrected to 8-10 years for base standards; this node's years stand because MMPDS and CMH-17 coordination groups can approve methods between base revisions (general). | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 Low/Medium/Medium/Medium. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "materials-multiscale-certified",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches the needed research-grade PDE work about 2034. In S2-S4 a usable certified bound for one engineering class is likely by 2035 as cognitive work becomes cheap. S4 equals S3 because the problem is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "E-certification (2026-10-07): 2035 horizon and S4 review. Years: S1 >2031 -> 2034. band_2035 S1-S4 Low/High/High/High. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "physclock-credibility-evidence-standard",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "A document naming AI-made analysis may well appear by 2035, but no space revision is open yet: CM4QC covers aviation metals, and NASA-STD-7009's next base revision is only due about 2032. So the regulator cap holds at Medium in S1-S4. S4 equals S3 because rulebooks are institutional.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [skeptic] why: revision cycles corrected from '3-6 years (general)' to the named standards' 8-10 years (7009 2008/2016/2024; GSFC-STD-7000 2013/2021; ECSS-E-ST-10-03 2012/2022); the 2029 date now rests explicitly on the directive/handbook route. [skeptic] description no longer maps credibility levels to allowed test reductions (programs set acceptance). [advocate] infra-verified-numerics hard -> soft (a risk-based credibility rule does not need the toolchain to exist); description names directive and handbook routes; FDA precedents added to status. [auditor] status: the 2021 CbA guide is a contractor report with a 2040 vision, 2040-2050 is from the 2024 UQ paper, CM4QC is aviation-focused. Years kept: skeptic's S2 2030/S3 2029/S1 >2031 and advocate's S2 2028 both rejected (see debates). Bands unchanged. | B-fix (integrator, 2026-10-07): cheap-trust year in why updated to 2028 (B-trunk moved it from 2027); the S2 2029 date still holds (trunk follow-up 5). | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 Medium/High/High/High. S4 equals S3 (no S4 credit). | E-certification resolver (2026-10-07): band_2035 S2-S4 High -> Medium (skeptic). Neither named mechanism is in motion for space: CM4QC is aviation and additive metals, and no NASA-STD-7009 revision is open. Why notes the scope boundary with struct-35-test-standards-codify-ai-credit. Every hard successor is Medium or lower by 2035.",
+    "why": "Every test-substitution chain needs a rule saying what analysis evidence is worth. The named base standards revise every 8-10 years (NASA-STD-7009 2008, 2016 and 2024; GSFC-STD-7000 2013 and 2021; ECSS-E-ST-10-03 2012 and 2022, about 19 months from draft to publication), so the next base revision of 7009 falls around 2030-32. The faster route is a NASA handbook, interim or engineering directive, or an ECSS handbook. S2's independent checks (2026-27) and automated statement audits (capability-cheap-trust, 2028 after B-trunk) supply the evidence, so a first directive or handbook naming AI-generated analysis lands around 2029. Verified numerics (2028) strengthen the case but do not gate it: NASA-STD-7009B is already risk-based, and FDA wrote AI-credibility rules without machine-checked numerics. Capped at Medium because it is regulator acceptance. Test-reduction credit written into test standards is modeled in struct-35-test-standards-codify-ai-credit."
+   }
+  },
+  {
+   "id": "struct-midfreq-vibroacoustics",
+   "patch": {
+    "earliest_year": {
+     "S1": "2032",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 gets there about 2032. Validated hybrid methods are likely by 2035 in S3-S4; S2 stays Medium because chamber and flight data with stated uncertainty remain scarce. S4 equals S3 because acoustic tests are bound by facilities and physics.",
+    "needs_2035_review": false,
+    "revision_note": "E-certification (2026-10-07): 2035 horizon and S4 review. Years: S1 >2031 -> 2032. band_2035 S1-S4 Medium/Medium/High/High. S4 equals S3 (no S4 credit). | E-certification resolver (2026-10-07): S1 band_2031 Low -> Speculative (skeptic): the S1 year falls after 2031, and earliest year marks the first credible year."
+   }
+  },
+  {
+   "id": "struct-verified-fe-solvers",
+   "patch": {
+    "earliest_year": {
+     "S1": "2032",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Formal toolchains mature in 2032-35, so proof-carrying bounds for linear statics ship in S2-S4 (High) and in S1 about 2032 (Medium by 2035). S4 equals S3 because this is software.",
+    "needs_2035_review": false,
+    "revision_note": "B-fix (integrator, 2026-10-07): lettered citation 'Analyst position (b):' replaced with the KB position id tl-position-6. | E-certification (2026-10-07): 2035 horizon and S4 review. Years: S1 >2031 -> 2032. band_2035 S1-S4 Medium/High/High/High. S4 equals S3 (no S4 credit). | E-certification resolver (2026-10-07): S1 band_2031 Low -> Speculative (skeptic): the S1 year falls after 2031, and earliest year marks the first credible year."
+   }
+  },
+  {
+   "id": "materials-am-defect-physics",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Blind AM-Bench-style challenges recur every few years, so S3-S4 likely succeed by 2035; S2 stays Medium because melt-pool scatter is stochastic and machine-specific. S4 equals S3: autonomous labs are already in S3, and builds, CT scans and fatigue rigs are machine-bound.",
+    "needs_2035_review": false,
+    "revision_note": "E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 Medium/Medium/High/High. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "struct-damage-tolerance-physics",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 needs AI physics theory, which arrives there about 2034, so its 2031 band drops to Speculative. Material variability limits blind predictions, so S2-S4 stay Medium even with physics theory High in S3-S4. S4 equals S3: coupon-test speedups are already counted through autonomous labs, and scarce cryogenic fatigue rigs, fatigue hours and subcomponent tests bind.",
+    "needs_2035_review": false,
+    "revision_note": "E-certification (2026-10-07): 2035 horizon and S4 review. Years: S1 >2031 -> 2034. band_2031 S1 Low -> Speculative. band_2035 S1-S4 Low/Medium/Medium/Medium. S4 equals S3 (no S4 credit). | E-certification resolver (2026-10-07): Soft edge robo-lab-bench-useful -> node removed (skeptic): bench robots duplicate the coupon speedup already carried by the cap-autonomous-labs prerequisite, and rigs and fatigue hours bind. Advocate's S4 High rejected: the residual 2035 gate is material variability and rig hours, so S4 condition 1 fails."
+   }
+  },
+  {
+   "id": "struct-agentic-analysis-workflows",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Routine before 2031 in every scenario; nothing changes in 2032-35. S4 equals S3 because the work is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "B-fix (integrator, 2026-10-07): lettered citation 'Analyst position (a):' replaced with the KB position id tl-position-4. | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 High/High/High/High. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "physclock-ai-flight-safety-analysis",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Routine by 2035 in every scenario, S1 included. S4 equals S3 because the work is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [auditor] Fact fix: AC 413.13-1A is a comment-stage draft (FR 2026-14576, Jul 20 2026), not an issued revision. [advocate] capability-engineering-adoption hard -> soft and S2 2028 -> 2027: the event needs one adopter using established methods, and S3 (2027) equals S2 through 2028. Bands unchanged. | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 High/High/High/High. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "physclock-ai-mishap-analysis",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Routine by 2035 in every scenario. S4 equals S3: diagnosis is cognitive, and robots help only with the rebuild that follows.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [skeptic] Title 'Root cause in days, not months' -> 'Anomaly diagnosis 3-10x faster'; description notes hardware reproduction tests. [auditor] facts: FAA authorized return to flight 5 days after the anomaly; Starship 2025 gaps 82-91 days. [advocate] capability-engineering-adoption hard -> soft, cap-applied-math added as hard prerequisite, S2 2028 -> 2027 (single-operator event; S3 2027 equals S2 through 2028). Its former dependent physclock-test-loop-monthly was removed as a duplicate. Bands unchanged. | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 High/High/High/High. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "physclock-ai-run-test-stands",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Autonomous around-the-clock stands are common by 2035 in S2-S4; S1 stays Medium on slower capital spending. S4 equals S3 for this node; robot setup and article handling raise stand throughput, and that gain is carried by struct-35-qual-campaigns-30pct-shorter.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [skeptic] why: calendar compression 20-40% -> 10-25% (20-40% exceeds the S2 experiment multiplier 1.1-1.3x in research/physclock.json); S2 High -> Medium (S3 High kept); physclock-optimal-test-campaigns hard -> soft (around-the-clock autonomy does not need Bayesian experimental design). [skeptic+auditor] utilization figure marked (assumption). [auditor] pathway P1->P7 -> P1 (an operations change, not a flown-system outcome). | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 Medium/High/High/High. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "struct-shell-knockdown-rules",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "By 2035 a launch program or an SP-8007 or ECSS revision likely cites probabilistic or mechanistic knockdowns, but standards bodies set the pace, so all scenarios sit at Medium (S1 up from Low). S4 equals S3 because the gate is institutional.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [skeptic] Fact fix: SP-8007-2020/REV 2 already replaced the 1960s-only approach and analysis-based loads were used on SRB, ET and SLS core stage (text checked by resolver in the NTRS full text); description re-scoped to probabilistic knockdowns beyond it; scaling example corrected (0.65 is the stiffened-cylinder factor; unstiffened 0.22-0.47; 0.32 -> 0.60 cuts ~27%). [skeptic] struct-worst-imperfection-theory hard -> soft. Years and bands unchanged. | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 Medium/Medium/Medium/Medium. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "materials-am-digital-twin-qual",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "CM4QC pushes computational qualification of printed metals, but first credit stays partial and rests on accepted allowables (Medium), so S2-S4 stay Medium and S1 Low. S4 equals S3 because acceptance is institutional.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [skeptic+auditor] Grounding fixes: 372 worded as a conditional T1 claim limited to smooth isotropic media; 365 split into T1 headline and T3 formal part, and its eddy-current ceiling claim replaced. [auditor] signpost date 2029 -> 2030 to match the S2 year. Skeptic's forced S1 2031 -> >2031 not needed because physclock-credibility-evidence-standard keeps S1 2031. Years and bands unchanged. | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 Low/Medium/Medium/Medium. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "physclock-qual-by-analysis-credit",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 follows its slower rulebook and structural precedent to about 2034. S2 rises to Medium as derivative precedents accumulate; no named mechanism commits agencies to this credit, so the cap holds at Medium. S4 equals S3 because the gate is mission-assurance acceptance.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [skeptic] Scope narrowed to structures and thermal environmental qualification; 'protoflight instead of dedicated qualification units' removed (already standard per GEVS and 5001B); saving '6-12 months' -> '1-6 months beyond today's practice (assumption)'; physclock-optimal-test-campaigns hard -> soft; S2 2030 -> 2031, S3 2029 -> 2030 (one year after the structural precedent), S2 Medium -> Low. [advocate] signpost adds risk-tolerant government buys first (SDA, Class C/D); advocate's S2 2029/S3 2028 rejected (depended on a 2028 rulebook). Title changed to match the narrowed scope. | E-certification (2026-10-07): 2035 horizon and S4 review. Years: S1 >2031 -> 2034. band_2031 S1 Low -> Speculative. band_2035 S1-S4 Low/Medium/Medium/Medium. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "struct-cert-by-analysis",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 lands about 2033, two years after its rulebook. S2 rises to Medium as more programs reach test-plan milestones; the regulatory cap holds. S4 equals S3 because the gate is agency acceptance.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [skeptic+auditor] Fact fix: the status said tests are mandatory for primary-structure qualification; NASA-STD-5001B Change 3 Sec. 4.1.2.3 (FSR 15-16) already allows metallic no-test verification and FSR 17 allows probabilistic criteria (text checked by resolver). Description and signpost re-scoped to credit beyond those allowances (otherwise the node is met today with no AI attribution). [skeptic+advocate] struct-verified-fe-solvers hard -> soft. [skeptic] struct-test-data-commons added as hard prerequisite (5001B no-test criteria require similarity and correlation evidence). [skeptic] S2 band Medium -> Low because the re-scoped event is strictly harder; skeptic's year slip (S2 2031, S3 2030) not taken because the credibility standard stays at S2 2029; advocate's S2 2029/S3 2028 rejected (depended on a 2028 rulebook). | E-certification (2026-10-07): 2035 horizon and S4 review. Years: S1 >2031 -> 2033. band_2035 S1-S4 Low/Medium/Medium/Medium. S4 equals S3 (no S4 credit). | E-certification resolver (2026-10-07): S1 band_2031 Low -> Speculative (skeptic): the S1 year falls after 2031, and earliest year marks the first credible year."
+   }
+  },
+  {
+   "id": "struct-launch-env-margins",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 about 2033. More new vehicles and more flight data give S2 a Medium chance by 2035; providers' weak incentive to publish keeps every scenario at Medium or below. S4 equals S3 because forcing data and disclosure bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [skeptic] Fact: MPEs are already P95/50 statistical; description narrowed to reduced margins over model-predicted MPEs for new vehicles; struct-midfreq-vibroacoustics hard -> soft; S2 Medium -> Low (S3 Medium kept). [advocate] description and signpost add the vertically integrated provider-customer route; advocate's S2 2029/S3 2028 rejected because abundant flight data make predictive models unnecessary for the high-cadence provider the argument relies on (see debates). | E-certification (2026-10-07): 2035 horizon and S4 review. Years: S1 >2031 -> 2033. band_2035 S1-S4 Low/Medium/Medium/Medium. S4 equals S3 (no S4 credit). | E-certification resolver (2026-10-07): S1 band_2031 Low -> Speculative (skeptic): the S1 year falls after 2031, and earliest year marks the first credible year."
+   }
+  },
+  {
+   "id": "struct-shm-inspection-credit",
+   "patch": {
+    "earliest_year": {
+     "S1": "2032",
+     "S2": "2030",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 reaches it about 2032. Operators may find inspection cheap enough, robotic inspection makes that likelier, and disclosure is rare, so all scenarios stay Medium. S4 equals S3: robots compete with sensor-based credit and do not speed its acceptance.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [auditor] Signpost date 2029 -> 2030 to match the S2 year; [skeptic] acceptance signpost moved here from struct-shm-inverse-limits. Advocate's S2/S3 2030 -> 2029 rejected: the A3 lag ladder (new launch-vehicle subsystem 2-3 years; sensor aging qualification binds) still holds for commercial operators (see debates). | E-certification (2026-10-07): 2035 horizon and S4 review. Years: S1 >2031 -> 2032. band_2035 S1-S4 Medium/Medium/Medium/Medium. S4 equals S3 (no S4 credit). | E-certification resolver (2026-10-07): S1 band_2031 Low -> Speculative (skeptic): the S1 year falls after 2031, and earliest year marks the first credible year."
+   }
+  },
+  {
+   "id": "struct-flown-lighter-structure",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2031",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 about 2033. By 2035 lighter AI-sized structure probably flies in S3-S4, but the event needs a public attribution, which keeps S2-S4 at Medium. S4 equals S3 because the design and qualification route sets the year before robots reach aerospace work.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [advocate+auditor] struct-shell-knockdown-rules hard -> soft; struct-worst-imperfection-theory and struct-certified-uq-margins added as hard prerequisites (a flown commercial structure needs no standards revision). [skeptic] description re-scoped beyond SP-8007-2020; status records the human analysis-based SRB/ET/SLS precedent. [auditor] signpost date 2030 -> 2031 to match the S2 year. Advocate's S2 2030/Medium and skeptic's S3 Medium -> Low both rejected; years and bands unchanged (see debates). | E-certification (2026-10-07): 2035 horizon and S4 review. Years: S1 >2031 -> 2033. band_2035 S1-S4 Low/Medium/High/High. S4 equals S3 (no S4 credit). | E-certification resolver (2026-10-07): band_2035 S3/S4 High -> Medium (skeptic): the event needs a public statement of AI-derived knockdowns, and the branch holds disclosure-bound nodes at Medium. S1 band_2031 Low -> Speculative because S1's year is 2033."
+   }
+  },
+  {
+   "id": "physclock-licensing-in-weeks",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "EO 14335, the FAA's 2026 Part 450 proposals and FCC Part 100 are in motion, so routine modifications under 30 days are likely by 2035. New vehicle licenses under 90 days sit at the fast end of the gate table's 81-113 day range for the 180-day clock, so S2-S4 stay Medium. S4 equals S3 because licensing is statutory and institutional.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [skeptic+auditor] Criterion 'under six months from a complete application' (the 180-day statutory maximum, i.e. the status quo) -> 'under 90 days'. [auditor] pathway P1->P2 -> 'P1 (with policy reform)' (P2 is not on the hard path); chain written out. [skeptic] physclock-ai-flight-safety-analysis hard -> soft; skeptic's proposal to also soften physclock-regulator-ai-capacity rejected (the physical-gate table credits reform alone with only 1.2x). [advocate] envelope-licensing idea folded into the why instead of a new node. Years and bands unchanged. [auditor] status wording: the Jul 30 proposal waives requirements under 13 laws. | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 Medium/High/High/High. S4 equals S3 (no S4 credit). | E-certification resolver (2026-10-07): band_2035 S2-S4 High -> Medium (skeptic). The event includes new licenses under 90 days, which the gate table puts at the fast end of 0.45-0.63x of 180 days by S3 2035; the hard prerequisite physclock-regulator-ai-capacity is Medium."
+   }
+  },
+  {
+   "id": "struct-reusable-life-management",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2031",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 about 2033, after its inspection credit. Flight counts grow fast in every scenario, but disclosure and a Medium inspection-credit prerequisite keep S2-S4 at Medium. S4 equals S3 because each life data point costs a flight.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [advocate] struct-damage-tolerance-physics hard -> soft; physclock-twin-reflight-clearance added as a hard prerequisite (operators manage life with data-driven twins and fleet leaders before physics closure). Advocate's S2 Low -> Medium rejected: the node still chains two Medium prerequisites and a public-disclosure signpost (see debates). Years unchanged. | B-fix (integrator, 2026-10-07): twin-reflight-clearance year in why updated to S2 2030 (B-trunk); node S2 2031 still follows it. | E-certification (2026-10-07): 2035 horizon and S4 review. Years: S1 >2031 -> 2033. band_2035 S1-S4 Low/Medium/Medium/Medium. S4 equals S3 (no S4 credit). | E-certification resolver (2026-10-07): S1 band_2031 Low -> Speculative (skeptic): the S1 year falls after 2031, and earliest year marks the first credible year."
+   }
+  },
+  {
+   "id": "struct-design-cycle-compression",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Routine by 2035 in every scenario. S4 equals S3 because analysis is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [skeptic+auditor] Title now says analysis turnaround, not design cycles; capability-engineering-adoption moved from accelerated_by to a hard prerequisite ('across the industry'); S2 2028 -> 2029 (primes follow 6-12 months after vertically integrated firms). [auditor] 3-10x -> 2-5x to match the node's own 50-80% labor cut; tier-7 chain written out. Bands unchanged. | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 High/High/High/High. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "physclock-qual-cycle-compressed",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "In S1 the 15% threshold needs analysis credit (about 2034), reporting lag and more than S1's 1.1-1.2x physical gates, so it falls beyond 2035 (Speculative). S2 rises to Medium as programs started 2028 or later report. The gate table puts typical campaigns past 15% by 2035 in S2-S4, but the signpost measures government programs, which need analysis credit (Medium), so the hard edge and the cap stay. S4 equals S3 here; the gain at leading commercial firms is carried by struct-35-qual-campaigns-30pct-shorter.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [skeptic+auditor] Title and description changed from 30-50% (contradicted by research/physclock.json: qualification campaign 0.8-0.9x S2, 0.7-0.8x S3; capability Amdahl 1.2x) to 15-30% with a 15% threshold. [auditor] tier-7 chain written out. [skeptic] S2 2030 -> 2031, S3 2029 -> 2030, S2 Medium -> Low (signpost cannot report before ~2031; also forced by physclock-qual-by-analysis-credit S2 2031/S3 2030). [skeptic+advocate] materials-am-digital-twin-qual hard -> soft; [skeptic] physclock-ai-run-test-stands hard -> soft. Advocate's S2 2029/S3 2028/S3 High and making qual-by-analysis-credit soft rejected (see debates); advocate's commercial node added as a soft accelerator instead. | R review (2026-10-07): title states the threshold; S2 estimate 10-20% | E-certification (2026-10-07): 2035 horizon and S4 review. Years: S1 >2031 -> >2035. band_2031 S1 Low -> Speculative. band_2035 S1-S4 Low/Medium/Medium/Medium. S4 equals S3 (no S4 credit). | E-certification resolver (2026-10-07): S1 band_2035 Low -> Speculative (skeptic; S1 year after 2035). Advocate's S2-S4 High and hard -> soft edge from physclock-qual-by-analysis-credit rejected: the B-round kept the edge because the signpost (GAO and ESA data) measures government programs, and that reason holds in 2035; the leading-firm route is modeled in struct-35-qual-campaigns-30pct-shorter."
+   }
+  },
+  {
+   "id": "materials-qual-cycle-compression",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": "2031",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "By 2035 three tail programs flying within five years are a coin flip in S3-S4 (Medium), mostly commercial in-house alloys and TPS. S2 stays Low because its physical gates move only 1.2-1.4x. S4 equals S3: robots speed specimen work, but creep hours and lots from separate heats bind fast programs, and the S4 table gains only about 5 points over S3 for a new material.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [auditor] Description restricted to programs started 2027 or later (pre-AI fast programs like Ferrium M54 would otherwise satisfy it); S3 2030 -> 2031 and S3 Medium -> Low (physical-gate table S3 0.5-0.7x of 10-20+ years); chain written out. [advocate] materials-am-digital-twin-qual and materials-allowables-stats-framework hard -> soft (commercial in-house insertion needs no handbook acceptance); binding_gate regulatory -> qualification. Advocate's S2 Low -> Medium rejected (S2 material qualification 0.7-0.8x). | E-certification (2026-10-07): 2035 horizon and S4 review. Years: S1 >2031 -> >2035. band_2035 S1-S4 Speculative/Low/Medium/Medium. S4 equals S3 (no S4 credit). | E-certification resolver (2026-10-07): Description re-scoped so both checkpoints grade one event: 'fly by 2031' -> 'fly within five years of start', 'industry pattern' dropped, typical programs stated (skeptic and advocate). Advocate's S4 High and S2 Medium rejected: creep hours and separate heats bind fast programs more than lab labor does (S4 2035 robots only 48% vs S3 43%), and S2 gates move 1.2-1.4x. materials-ai-alloy-flight is High in S3/S4 by 2035 in the engines-materials draft.",
+    "description": "Concept-to-flight insertion of new space materials (alloys, TPS, PV) takes five years or less, shown by at least three material programs started in 2027 or later that each fly within five years of start. The first cases are most likely commercial in-house materials that skip handbook allowables; typical programs stay near 8-9 years in S3 by 2035."
+   }
+  },
+  {
+   "id": "struct-structural-mass-step",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2035",
+     "S2": "2033",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S2 about 2033, two years after its first flown structure, when several post-2028 designs fly, so its 2031 band is Speculative. S3-S4 reach Medium by 2035; attribution and disclosure keep it from High, and its flown-structure prerequisite is Medium. Tighter launch environments help but do not gate. S4 equals S3 because the gate is qualification and disclosure.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: [skeptic] S2 2031 -> >2031 (its hard prerequisite is the first flown article in S2 2031; a trend needs several programs); description notes the gains apply to disjoint parts of dry mass. [advocate] description puts spacecraft first; cap-design-optimization and capability-ai-native-spacecraft added as soft accelerators. Advocate's edge removal (flown-lighter-structure hard -> soft), S2/S3 Medium and S3 2030 rejected (see debates). Bands unchanged. | E-certification (2026-10-07): 2035 horizon and S4 review. Years: S1 >2031 -> >2035; S2 >2031 -> 2033. band_2035 S1-S4 Speculative/Low/Medium/Medium. S4 equals S3 (no S4 credit). | E-certification resolver (2026-10-07): S2 band_2031 Low -> Speculative (skeptic; base-case value, flagged for the integrator): the S2 year is 2033 and earliest year marks the first credible year. struct-launch-env-margins hard -> soft (advocate): the description says the four contributors apply to different parts of dry mass. Advocate's S2 Medium and S3/S4 High rejected: struct-flown-lighter-structure is Medium and disclosure binds."
+   }
+  },
+  {
+   "id": "physclock-commercial-analysis-first-qual",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 analysis-led qualification is common practice at AI-native builders in S2-S4 and plausible in S1. S4 equals S3: robots speed integration and test, and the step here is the decision to skip tests.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: New node from the advocate (commercial self-risk track). Resolver re-scoped it beyond today's protoflight practice (otherwise met today), set S2 High -> Medium, and S3 2028 -> 2029 (S3 equals S2 through 2028; a 2028 flight needs 2027 design). Soft edges into external nodes (capability-program-cycle-compression, physclock-satellite-gen-cadence, physclock-dev-capital-cut) left as cross-branch requests. | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 Medium/High/High/High. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "physclock-reliability-priors-credit",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 about 2033. EO 14335 opens a review of reentry reliability conditions, but it covers public safety and commits no certifier to model priors, and the credibility rulebook is Medium, so S2-S4 stay Medium. At 100+ heavy flights a year a launcher family logs the ~229 flights for 0.99 at 90% in about two years, so priors matter most for new versions, low-cadence vehicles and components. S4 equals S3 because statistics and certifier acceptance bind.",
+    "needs_2035_review": false,
+    "revision_note": "B-certification: New node from the auditor (uses the physical-gate table's reliability-demonstration row). Resolver set S2 Medium -> Low (chains on a Medium rulebook with little window). Soft edge into external physclock-critical-payload-reuse-acceptance left as a cross-branch request. | E-certification (2026-10-07): 2035 horizon and S4 review. Years: S1 >2031 -> 2033. band_2035 S1-S4 Low/Medium/Medium/Medium. S4 equals S3 (no S4 credit). | E-certification resolver (2026-10-07): S1 band_2031 Low -> Speculative (skeptic; S1 year 2033). Advocate's S3/S4 High rejected: EO 14335 Sec. 3(b)(iii) (text checked) asks whether to expand reentry reliability conditions for public safety, commits no certifier to model priors, and the hard prerequisite physclock-credibility-evidence-standard is Medium. EO added to status; soft edge from physclock-heavy-cadence-100 added; carrying a flight record across vehicle versions is read as a use of model priors here.",
+    "status_oct2026": "Reliability demonstration by test needs about 230 zero-failure trials for 0.99 reliability at 90% confidence (n = ln(1-C)/ln R); the physical-gate table marks this unchanged unless model-based priors are accepted (then 0.3-0.6x), and no node used that row. Certifiers already trade flights for insight: Space Force certified Vulcan for NSSL in Mar 2025 after two certification flights, and the New Entrant Certification Guide pairs flight-count options with design review (general). NASA-STD-5001B FSR 17 allows probabilistic structural criteria case by case. EO 14335 (Aug 2025) Sec. 3(b)(iii) directs the FAA to review whether to expand the conditions that demonstrate reliability for a reentry vehicle under Part 450 (whitehouse.gov). It concerns public safety on reentry, and mission-assurance certifiers fall outside it."
+   }
+  },
+  {
+   "id": "physclock-space-risk-models",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 model-based ratings for new launchers or constellations are likely in S2-S4; S1 reaches Medium. S4 equals S3 because sparse, proprietary failure data is the gate.",
+    "needs_2035_review": false,
+    "revision_note": "C-final integrator (2026-10-07): new node from C-sectors (space-sector coverage), accepted; title shortened from 'Underwriting-grade models of launch and in-orbit risk'. | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 Medium/High/High/High. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "physclock-space-insurance-capacity",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 about 2034. By 2035 one disclosed model-priced program is a coin flip in S2-S4; capacity and recent losses still set the market. S4 equals S3 because the gate is capital.",
+    "needs_2035_review": false,
+    "revision_note": "C-final integrator (2026-10-07): new node from C-sectors (space-sector coverage), accepted; title shortened from 'Model-priced cover reaches new launchers and constellations'. | E-certification (2026-10-07): 2035 horizon and S4 review. Years: S1 >2031 -> 2034. band_2035 S1-S4 Low/Medium/Medium/Medium. S4 equals S3 (no S4 credit)."
+   }
+  },
+  {
+   "id": "physclock-production-acceptance-by-model",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "With several lines building thousands of satellites a year by the mid-2030s, sampled acceptance with escape-rate bounds is likely disclosed in S2-S4; S1 reaches Medium. S4 equals S3: robots make unit tests cheaper, which if anything weakens the case for sampling.",
+    "needs_2035_review": false,
+    "revision_note": "C-final integrator (2026-10-07): new node from C-sectors (space-sector coverage), accepted; title shortened from 'Mass-produced satellites screened by statistics, not unit tests'. | E-certification (2026-10-07): 2035 horizon and S4 review. Years kept. band_2035 S1-S4 Medium/High/High/High. S4 equals S3 (no S4 credit)."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "catalog_families": [],
+   "premise_tier": "n/a (capability premise)",
+   "domain": "struct",
+   "needs_2035_review": false,
+   "revision_note": "E-certification (2026-10-07): new node for the 2035 horizon, extending the certification chain. | E-certification resolver (2026-10-07): SMC-S-016 added to the standards list and the drafting calendar written into why (skeptic). Skeptic's one-year slip rejected: earliest year marks the first credible year, and an ECSS-E-ST-10-03 revision due about 2032 fits S3. Advocate's S2 Medium rejected: the scheduled base revisions fall before or at the start of S2's precedents.",
+   "id": "struct-35-test-standards-codify-ai-credit",
+   "title": "Test standards write in credit for AI analysis",
+   "tier": 5,
+   "kind": "infrastructure",
+   "description": "A base revision of a structural or environmental test standard (NASA-STD-5001, GSFC-STD-7000 GEVS, SMC-S-016, ECSS-E-ST-10-03 or ECSS-E-ST-32-10) states when credibility-graded, AI-produced analysis may reduce or replace a qualification test, and with what factors and evidence. Credit then no longer needs a program-by-program waiver or tailoring.",
+   "status_oct2026": "No structural or environmental test standard mentions AI-produced analysis. NASA-STD-5001B (2014) allows no-test options for some metallic structures at higher factors, and GEVS (GSFC-STD-7000B, 2021) allows protoflight and qualification by similarity. Base revisions come every 8-10 years: GEVS 2013 and 2021, ECSS-E-ST-10-03 2012 and 2022, NASA-STD-7009 2008, 2016 and 2024 (physclock-credibility-evidence-standard).",
+   "prerequisites": [
+    "physclock-qual-by-analysis-credit"
+   ],
+   "accelerated_by": [
+    "struct-verified-fe-solvers",
+    "struct-launch-env-margins"
+   ],
+   "binding_gate": "regulatory",
+   "pathway": "P2->P6",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2033",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "why": "Standards codify practice after precedents. Chain (S2): rulebook 2029 -> first structural credit 2030 -> environmental credit on derivatives 2031 -> a base revision that cites those cases 2033. The revision calendar fits only at the optimistic end: ECSS-E-ST-10-03 is due about 2032 and takes about 19 months from draft to publication, so drafting starts while the first precedents land; GEVS is next due about 2029, before them; NASA-STD-5001B will be about 20 years old by 2034. S3 is a year earlier because its precedents are. Codification turns one-off credit into default practice for government buys, where most of the remaining savings sit, since commercial operators already set their own tests. Capped at Medium because a standards body must accept it and no revision is committed to address AI analysis. S2 is Low because about one base revision falls inside its window after its precedents.",
+   "strongest_case_small": "Standards follow accidents and experience, and one analysis miss on a flight program would push any revision back a cycle. Tailoring and waivers already deliver most of the credit on risk-tolerant buys, so codification may add little.",
+   "signpost": "A draft or released NASA-STD-5001, GEVS or ECSS testing or structural-factors standard with a clause on AI-produced or model-based analysis as qualification evidence.",
+   "note_2035": "New for the 2035 horizon: codification follows the first credits by two to three years and lands in 2032-33 at the earliest. S2 is Low and S3-S4 Medium. S4 equals S3 because standards revision is institutional."
+  },
+  {
+   "catalog_families": [],
+   "premise_tier": "n/a (capability premise)",
+   "domain": "struct",
+   "needs_2035_review": false,
+   "revision_note": "E-certification (2026-10-07): new node for the 2035 horizon, extending the certification chain. | E-certification resolver (2026-10-07): Years S2 2034 -> 2033, S3/S4 2033 -> 2032 (advocate: earliest year uses the short end of the 12-18 month lag ladder). physclock-commercial-analysis-first-qual soft -> hard and calendar sentence added (skeptic). Advocate's S2 Medium rejected: it chains on a Medium derivative credit with about two years of window.",
+   "id": "struct-35-gov-new-design-analysis-qual",
+   "title": "Government missions fly new designs qualified mainly by analysis",
+   "tier": 6,
+   "kind": "technology",
+   "description": "A NASA Class C or D mission, a Space Development Agency tranche or an ESA mission flies a new-design spacecraft structure or subsystem with no flight heritage whose qualification rests mainly on AI-produced, credibility-graded analysis plus development tests and acceptance-level workmanship screening. The mission-assurance authority formally approves skipping qualification-level environmental tests. This is the government counterpart of physclock-commercial-analysis-first-qual.",
+   "status_oct2026": "Government missions use protoflight and qualification by similarity for derivative hardware (GEVS). No government mission has skipped qualification-level tests on a new design on the strength of AI analysis (general). SDA buys satellites from commercial vendors in tranches about two years apart (general).",
+   "prerequisites": [
+    "physclock-qual-by-analysis-credit",
+    "physclock-commercial-analysis-first-qual"
+   ],
+   "accelerated_by": [
+    "struct-35-test-standards-codify-ai-credit"
+   ],
+   "binding_gate": "regulatory",
+   "pathway": "P2->P7",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2033",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "why": "Chain (S2): environmental-test credit on derivatives 2031 -> a risk-tolerant buy extends it to a new design at its test-plan milestone 2032 -> 12-18 month smallsat or derivative build -> flight 2033 at the earliest. SDA tranches and Class D missions move first, because they accept risk and buy from vendors that already qualify this way for commercial customers, hence the hard edge from physclock-commercial-analysis-first-qual. Flight dates follow tranche and mission calendars, which are appropriations-bound and equal across S2-S4; S3's lead holds only if a buy reaches its test-plan milestone in 2031. The saving per mission is months and the cost of a qualification campaign, repeated across proliferated buys. Capped at Medium because a government mission-assurance authority must sign. S2 is Low because it chains on a Medium derivative credit with about two years left.",
+   "strongest_case_small": "Government programs return to test-heavy practice after any loss, and Class A and B missions will not take this step by 2035. Vendors may simply deliver commercially qualified buses, so the government never formally grants credit and the step is hard to observe.",
+   "signpost": "An SDA, NASA Class C/D or ESA test plan, approved by the mission-assurance authority, that deletes qualification-level environmental tests on a new-design subsystem and cites AI-produced analysis.",
+   "note_2035": "New for the 2035 horizon. Dated at the short end of the build lag, about two years after derivative credit. S4 equals S3 because the gate is a mission-assurance signature, which robots do not change."
+  },
+  {
+   "catalog_families": [],
+   "premise_tier": "n/a (capability premise)",
+   "domain": "struct",
+   "needs_2035_review": false,
+   "revision_note": "E-certification (2026-10-07): new node for the 2035 horizon, extending the certification chain. | E-certification resolver (2026-10-07): struct-35-test-standards-codify-ai-credit hard -> soft (advocate: 5001B lets a Technical Authority approve case by case). The event is read at approval of the certification plan, as the signpost already says, so the skeptic's build-to-certification lag does not apply. Years S2 >2035 -> 2035, S3/S4 2035 -> 2034; bands kept (S3/S4 Low, S2 Speculative, against the advocate's S2 Low). Soft edges added from frontier-35-certification-unbinds and hyper-35-crewed-probabilistic-shield (both lenses). Skeptic's >2035 rejected.",
+   "id": "struct-35-crewed-structure-analysis-credit",
+   "title": "Crewed vehicle structure certified with fewer strength tests",
+   "tier": 6,
+   "kind": "technology",
+   "description": "A NASA human-rating or crewed-program certification (crew vehicle, lander, pressurized rover or station module) accepts AI-produced, credibility-graded analysis in place of at least one planned static-strength or ultimate-load qualification test of primary structure, at standard factors of safety. It counts when the approved certification plan or baseline deletes the test.",
+   "status_oct2026": "Crewed primary structure is qualified by test, or without test only at higher factors, under NASA-STD-5001B; NASA human-rating requirements (NPR 8705.2) add independent review (general). Crew Dragon took about six years from its 2014 CCtCap award to certification in 2020 (general).",
+   "prerequisites": [
+    "struct-cert-by-analysis"
+   ],
+   "accelerated_by": [
+    "struct-35-test-standards-codify-ai-credit",
+    "physclock-reliability-priors-credit",
+    "struct-35-gov-new-design-analysis-qual"
+   ],
+   "binding_gate": "regulatory",
+   "pathway": "P2->P7",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2035",
+    "S3": "2034",
+    "S4": "2034"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "why": "NASA-STD-5001B already lets a Technical Authority approve no-test or probabilistic criteria case by case (FSR 15-17), so a codified standard speeds crewed credit but does not gate it. Human-rating boards add independent review and keep deterministic factors, so the likely first case is small: one strength test replaced on a derivative structure of a station module, lander or crew vehicle. Chain (S3): uncrewed structural credit 2029 -> codified standard and certifiers auditing AI analysis on uncrewed vehicles 2032 (frontier-35-certification-unbinds) -> a crewed program's certification plan, set at critical design review, deletes one strength test 2034. S2 follows its later precedents to 2035. Several crewed structure certifications fall in 2032-35 (commercial station modules, lander cabins), which gives several chances. Low by 2035 in S3-S4 because the most conservative certifier must sign; S2 is Speculative with one year of window.",
+   "strongest_case_small": "Crew-safety organizations keep tests by culture and for liability, and one uncrewed failure traced to analysis would end the case. Crewed programs are few and already test flight articles, so the savings are small.",
+   "signpost": "A NASA crewed-program certification baseline, or a commercial station or lander certification plan, that replaces a structural qualification test with AI-produced analysis at standard factors.",
+   "note_2035": "New for the 2035 horizon. It marks the limit of the branch: crewed structural test credit is at most Low by 2035, in S3-S4. S4 equals S3 because human rating is institutional."
+  },
+  {
+   "catalog_families": [],
+   "premise_tier": "n/a (capability and robot premises)",
+   "domain": "struct",
+   "needs_2035_review": false,
+   "revision_note": "E-certification (2026-10-07): new node for the 2035 horizon, extending the certification chain. | E-certification resolver (2026-10-07): Hard edge physclock-qual-cycle-compressed -> soft and physclock-commercial-analysis-first-qual soft -> hard (advocate: leading commercial firms set their own tests; the 15% node is measured on government programs). Years S2 >2035 -> 2035, S3 2034 -> 2033 (advocate), S4 2033 kept equal to S3 (skeptic: requalification and cleanroom gates; no year credit). Bands S3 Low -> Medium, S4 Medium -> High (advocate: gate table typical S3 2035 28-37%, typical S4 33-42%). Baseline corrected to 6-18 months; cleanroom and ESD gate added (skeptic). Advocate's physclock-ai-run-test-stands hard edge and S4 2032 rejected. Soft edge to capability-35-cycle-halved added.",
+   "id": "struct-35-qual-campaigns-30pct-shorter",
+   "title": "Qualification campaigns 30% shorter at leading firms",
+   "tier": 7,
+   "kind": "outcome",
+   "description": "At leading space firms, qualification campaigns for spacecraft and launch-vehicle subsystems on programs started in 2031 or later run at least 30% shorter than the pre-2027 environmental qualification baseline of roughly 6-18 months. The cut comes from analysis credit, fewer re-tests, autonomous stands and round-the-clock integration and test. Leading firms set their own test programs, so industry-wide shortening and government credit speed it up but do not gate it. It is the second step after physclock-qual-cycle-compressed (15%, typical programs).",
+   "status_oct2026": "Environmental test campaigns take 6-18 months. GEVS sets at least 4 thermal-vacuum cycles at spacecraft level and 8 at component level, with plateaus of at least 12 hours (NASA TFAWS 2026, via embodied/research-space.json). Labor (fixtures, instrumentation, axis changes, teardown, troubleshooting) is about 35-45% of campaign time (embodied/s4-embodied.md gate table).",
+   "prerequisites": [
+    "physclock-commercial-analysis-first-qual"
+   ],
+   "accelerated_by": [
+    "physclock-qual-cycle-compressed",
+    "physclock-ai-run-test-stands",
+    "struct-35-test-standards-codify-ai-credit"
+   ],
+   "binding_gate": "qualification",
+   "pathway": "P6->P7",
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2035",
+    "S3": "2033",
+    "S4": "2033"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Medium",
+    "S4": "High"
+   },
+   "why": "The gate table puts environmental qualification at 0.7-0.8x of today in S3 2031, about 0.63-0.72x in S3 2035 and 0.71-0.83x in S2 2035, and at 0.58-0.67x for typical and 0.43-0.50x for leading S4 firms in 2035. Labor is about 45% of a campaign (labor, physics, materials and institutions 45/25/10/20), so robot-run setup, instrumentation and teardown cut it, while thermal-vacuum plateaus and cycles stay fixed. Parallel robot-tended rigs also shorten component reliability trials (0.3-0.5x), which counts here when it shortens a campaign. Robot labor gains alone give about 25% (45% at 2.3x), so the cut also needs a firm that accepts analysis in place of tests; that is the hard edge from physclock-commercial-analysis-first-qual. Programs must start in 2031 or later and report, so the earliest evidence is 2033 in S3 and S4; S2 reaches 30% only at leading firms at the top of its range, about 2035. S4 gets a band and no year. Robots in cleanrooms and test chambers need contamination and ESD qualification on top of process requalification (6-24 months per process), and the first programs on a new robot line absorb that dip. S4 credit meets all four conditions: the gate at the achieving firm is labor and queue, robots do tolerance work at leading firms from 2030-31, no hard prerequisite lands later, and general-purpose robots add to S3's specialized stands.",
+   "strongest_case_small": "Firms spend saved time on more testing, and workmanship screening and thermal time constants set a floor. Robots on flight hardware need process requalification at each supplier, so early adopters slow down first. Leading firms rarely publish campaign durations.",
+   "signpost": "A leading firm or GAO reports qualification phases at least 30% shorter than the firm's pre-2027 programs on programs started in 2031 or later, citing robot-run integration and test or analysis credit.",
+   "note_2035": "New for the 2035 horizon and the branch's clearest S4 effect. A 30% cut sits below even typical S4 programs (33-42% shorter by 2035), so it is High in S4 against Medium in S3, where leading firms sit at the top of a 28-37% typical range and disclosure is the risk. The year stays 2033 in both because the first programs on new robot lines absorb requalification. Thermal-vacuum dwells and cycles are unchanged in every scenario."
+  }
+ ],
+ "add_edges": [],
+ "add_soft_edges": [
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "physclock-qual-cycle-compressed"
+  },
+  {
+   "from": "robo-24x7-integration-test",
+   "to": "struct-35-qual-campaigns-30pct-shorter"
+  },
+  {
+   "from": "robo-aerospace-tolerance-work",
+   "to": "struct-35-qual-campaigns-30pct-shorter"
+  },
+  {
+   "from": "robo-requal-standard",
+   "to": "struct-35-qual-campaigns-30pct-shorter"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "materials-qual-cycle-compression"
+  },
+  {
+   "from": "struct-launch-env-margins",
+   "to": "struct-structural-mass-step"
+  },
+  {
+   "from": "physclock-heavy-cadence-100",
+   "to": "physclock-reliability-priors-credit"
+  },
+  {
+   "from": "physclock-heavy-cadence-100",
+   "to": "struct-reusable-life-management"
+  },
+  {
+   "from": "frontier-35-certification-unbinds",
+   "to": "struct-35-crewed-structure-analysis-credit"
+  },
+  {
+   "from": "hyper-35-crewed-probabilistic-shield",
+   "to": "struct-35-crewed-structure-analysis-credit"
+  },
+  {
+   "from": "struct-35-qual-campaigns-30pct-shorter",
+   "to": "capability-35-cycle-halved"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "certification",
+   "nodes": [
+    "struct-35-test-standards-codify-ai-credit",
+    "struct-35-gov-new-design-analysis-qual",
+    "struct-35-crewed-structure-analysis-credit",
+    "struct-35-qual-campaigns-30pct-shorter"
+   ],
+   "spine": [
+    "struct-35-test-standards-codify-ai-credit",
+    "struct-35-gov-new-design-analysis-qual",
+    "struct-35-qual-campaigns-30pct-shorter"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "certification",
+   "patch": {
+    "thesis": "Operators fly hardware qualified mainly by AI analysis about 2029 (base case, Medium). Government credit follows in 2030-31. Test standards and new government designs follow about 2033 but stay Low in the base case. A regulator cap holds 15% shorter qualification at Medium by 2035. S4 robots add a band at leading firms: 30% shorter campaigns, High by 2035 against Medium in S3.",
+    "side_chains": [
+     [
+      "physclock-ai-run-test-stands"
+     ],
+     [
+      "struct-35-crewed-structure-analysis-credit"
+     ]
+    ],
+    "revision_note": "C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Trunk nodes ['cap-research-math-public'] are shown as the chain's entry anchors (also listed in roots); they stay members of the trunk branch only. Moved from spine to side_chains (still branch members): ['physclock-ai-run-test-stands']. | E-certification (2026-10-07): thesis extended to 2035 and S4; four struct-35 nodes added (three on the spine, the crewed node as a side chain). | E-certification resolver (2026-10-07): thesis rewritten after review: regulator nodes stay Medium by 2035, standards and new government designs about 2033 (Low in S2), S4 credit is a band step on the 30% node."
+   }
+  }
+ ],
+ "notes": "Certification branch extended to end-2035 and S4, after skeptic and advocate review. 16 legacy '>2031' scenario-years resolved. S4 equals S3 on every existing node in year, band_2031 and band_2035. The S4 effect is one band step on struct-35-qual-campaigns-30pct-shorter (S3 Medium, S4 High by 2035, both 2033). Regulator- and certifier-gated nodes stay capped at Medium by 2035: no named mechanism in motion covers AI review, space analysis credibility, or sub-90-day new licenses. Bands now sit at Speculative wherever a node's year falls after the checkpoint (8 values changed, one in S2: struct-structural-mass-step band_2031). Edges: 15% node to 30% node and launch environments to mass step made soft; operator analysis-first qualification made hard into the 30% node and the government new-design node; codified standards made soft into the crewed node; cadence soft edges added; robo-lab-bench-useful -> struct-damage-tolerance-physics removed. Rejected: the advocate's flight-record certification and robot reliability rig nodes (folded into notes of physclock-reliability-priors-credit and the 30% node). Soft edges to robo-*, frontier-35, hyper-35 and capability-35 nodes are skipped until those drafts land.",
+ "remove_edges": [
+  {
+   "from": "struct-launch-env-margins",
+   "to": "struct-structural-mass-step"
+  }
+ ],
+ "remove_soft_edges": [
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "struct-damage-tolerance-physics"
+  }
+ ]
+}

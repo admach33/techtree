@@ -1,0 +1,1076 @@
+{
+ "merge": [
+  {
+   "keep": "frontier-ns-unforced",
+   "drop": [
+    "prop-ns-clay-unforced"
+   ],
+   "patch": {
+    "merge_note": "A1: merged prop-ns-clay-unforced (same Clay A/B statement; both domains had identical years >2031/2029/2028 and bands Low/Medium/Medium, family 376). Kept the frontier id (frontier owns frontier-math problems). Added prop's hard precursor prop-ns-forced-verified (forced blowup independently checked). Engineering effect stays nil: P5 only, no engineering unlocks."
+   }
+  },
+  {
+   "keep": "frontier-landau-damping-general",
+   "drop": [
+    "plasma-landau-longtime"
+   ],
+   "patch": {
+    "description": "Nonlinear Landau damping (collisionless relaxation of plasma waves) and long-time kinetic stability proven beyond the idealized setting: Sobolev (finite-regularity) data, whole space, bounded domains with absorbing or emitting walls, magnetized plasmas, weak collisions and full electromagnetic (Vlasov-Maxwell) fields, with explicit rates. These say when and how fast kinetic fluctuations damp, which is what fluid closures try to imitate.",
+    "merge_note": "A1: merged plasma-landau-longtime (same problem; identical years 2029/2027/2027 and bands Medium/High/High). Kept the frontier id and its sourcing (Mouhot-Villani Lean-formalized by Bedrossian Sep 2026; Ionescu-Nguyen unconfined 2D Sep 2026; family 362 at T3 as a prerequisite for long-time questions, not a decay result). Added plasma's bounded-domain/wall variants and its downstream role: the hard edge to plasma-kinetic-closures (which Landau-fluid terms are legitimate) now originates here. Public access (cap-research-math-public) is kept as a soft accelerator, since labs can pose the problem internally."
+   }
+  },
+  {
+   "keep": "frontier-approx-ceilings",
+   "drop": [
+    "comms-hardness-ceilings-settled"
+   ],
+   "patch": {
+    "description": "Hardness-of-approximation ceilings for the combinatorial problems behind constellation tasking, ground-station and gateway siting, routing, beam frequency assignment and network partitioning become verified theorems rather than beliefs: beating Goemans-Williamson Max-Cut (beam two-colouring) or factor-2 vertex cover (minimal link/beam sets) is NP-hard under UGC; uniform sparsest cut (mesh partitioning) has no constant-factor algorithm; metric k-median siting is pinned at 1+2/e. Planning tools and vendor claims are judged against known limits.",
+    "merge_note": "A1: merged comms-hardness-ceilings-settled (same families 102/117/125/124/110/111, same years 2027 and bands High in all scenarios). Kept the frontier id. Took comms' finer premise audit: 102 Lean covers the UGC theorem and vertex cover below 2 (T3); 117's Lean main result is the SDP integrality gap, so the NP-hardness headline is T1 (statement gap); 125's Lean covers a companion recovery result, so the (1+2/e+eps) algorithm headline is T1 pending audit; 124, 110, 111 are T1 (conditional parts). High band rests on the T3 core (102) and the fact that most ceilings were already believed; P3 acts within months of an independent check."
+   }
+  },
+  {
+   "keep": "frontier-optical-quantum-capacity",
+   "drop": [
+    "comms-optical-capacity-theory",
+    "comms-quantum-channel-limits"
+   ],
+   "patch": {
+    "description": "Proofs of the ultimate rates of the optical and quantum channels used for deep-space laser links, optical relays serving several receivers and satellite QKD: 273 (entropy photon-number inequality) makes the optical broadcast-channel capacity region and the thermal-noise optical wiretap secret-key capacity unconditional; 276 gives the exact classical capacity of every qubit generalized amplitude-damping channel; 272 (entangled states with zero distillable key; PPT-squared disproof) says link entanglement does not certify key; 266 (exactly three MUBs in dimension six) confirms prime-power dimensions for high-dimensional QKD.",
+    "merge_note": "A1: merged comms-optical-capacity-theory (273) and comms-quantum-channel-limits (276, 266, 272); the frontier node already covered exactly this union. Years agree (2028/2027/2027, S1 2027 for the 276 part). Bands kept at frontier's Low/Medium/Medium because the headline premise 273 is T1 and the framework requires 'conditional' plus a one-band drop; the 276 component alone (Lean OAI.GAD.main, T3, unchecked by outsiders) would rate Medium/High/High, and comms' Medium/High/High for 273 did not apply the drop. Comms sourcing retained: Lean-QIT (arXiv 2607.09632) formalizes HSW, so an S2 agent can formalize 273 during 2027. comms-finite-key-qkd-proofs now takes this node as a soft accelerator (finite-key security proofs do not require these capacity results to be settled).",
+    "catalog_families": [
+     "266",
+     "272",
+     "273",
+     "276"
+    ]
+   }
+  },
+  {
+   "keep": "frontier-lattice-crypto-watch",
+   "drop": [
+    "comms-lattice-weakness",
+    "capability-crypto-watch"
+   ],
+   "patch": {
+    "title": "AI finds a crack in post-quantum or space-link crypto (watch item)",
+    "description": "Watch item, not a forecast: an AI-produced, independently verified cryptanalytic result that materially lowers the security of a standardized primitive used on satellite command and data links, above all ML-KEM/ML-DSA or the Module-LWE problems beneath them (for example 10+ bits off a parameter set, or a subexponential module-lattice algorithm), but also elliptic-curve schemes or AES modes, forcing parameter or algorithm changes and in-orbit re-keying on long-lived spacecraft.",
+    "merge_note": "A1: merged comms-lattice-weakness (S2 2028, S3 2027) and capability-crypto-watch (S2 2030, S3 2029); all three were the same watch item with Speculative/Low/Low bands and the same non-attack families (279, 138). Kept the frontier id and its middle years (>2031/2029/2028). Added comms' evidence: Olejnik-Naskrecki agent workflow broke eight non-standardized academic constructions (Aug 2026); Luo arXiv 2605.17412 claims a quantum Module-LWE attack over 2-power cyclotomics, unrefereed and unendorsed; a similar 2024 claim was withdrawn. comms-ai-cryptanalysis (agents audit crypto at research grade) is now a hard prerequisite. Dropped 272/266 from the family list: they refine QKD theory and are not attacks.",
+    "catalog_families": [
+     "138",
+     "279"
+    ]
+   }
+  },
+  {
+   "keep": "frontier-stiff-certified",
+   "drop": [
+    "prop-stiff-chemistry"
+   ],
+   "patch": {
+    "title": "Stiff chemistry with certified error (reduced mechanisms and solvers)",
+    "description": "Error theory, reduced kinetic mechanisms and verified structure-preserving stiff ODE/DAE integrators for large reaction networks (combustion, ablation, plasma chemistry, batteries), with provable error bounds on ignition delay, heat release and key species that hold for non-dissipative chemistry. First engineering use: detailed LOX/CH4 and LOX/H2 chemistry inside engine LES at a fraction of today's cost (chemistry integration dominates reacting-flow cost: 48,000 core-hours for 2 ms of one 54-species spray LES, UConn 2023).",
+    "pathway": "P1->P4->P6 (+P2 for verified integrators)",
+    "merge_note": "A1: merged prop-stiff-chemistry (same achievement; identical prerequisites, years 2030/2028/2028, bands Medium/High/High and family 149 at T1, conditional and marginal). Kept the frontier id as the general node; prop's engine-LES framing and 3-10x reacting-LES cost estimate (general) are carried in the description. prop-flame-response and prop-start-transient keep their hard dependency, now on this node."
+   }
+  },
+  {
+   "keep": "frontier-scalable-global-certificates",
+   "drop": [
+    "astro-global-optimality-certificates"
+   ],
+   "patch": {
+    "description": "Moment-SOS, tight convex relaxations, branch-and-bound and MIP methods that certify a trajectory, layout or design is globally optimal, or within a proven gap, at engineering scale, using sparsity, symmetry and convergence-rate theory. First applications: low-thrust, multi-body and rendezvous trajectories ('within 0.5% of the best possible' instead of 'best we found').",
+    "merge_note": "A1: merged astro-global-optimality-certificates (same methods and achievement; identical years 2030/2028/2027 and bands Medium/High/High). Kept the frontier id. Added astro's evidence: DA Taylor expansions plus moment-SOS with guaranteed convergence on low-thrust CR3BP station-keeping (Evans, Fossa, Armellin, Henrion, Zanetti, arXiv 2607.15801, Jul 2026); sparse Lasserre with GPU ADMM (STROM, arXiv 2406.05846). Scaling to many-revolution transfers remains open."
+   }
+  },
+  {
+   "keep": "verif-onboard-optimizer-certificates",
+   "drop": [
+    "astro-verified-onboard-solver"
+   ],
+   "patch": {
+    "description": "Embedded SOCP/QP solvers for powered-descent guidance, rendezvous MPC and collision avoidance with machine-checked proofs that, in the flight processor's floating-point arithmetic, they terminate within a fixed iteration budget and return an epsilon-feasible, epsilon-optimal solution or a certified infeasibility flag for every admissible state, paired with cheap runtime certificates (duality gaps) checked each control cycle. One reusable certified component for landers, docking systems and collision-avoidance planners.",
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2027"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High"
+    },
+    "binding_gate": "formalization",
+    "pathway": "P1->P2",
+    "merge_note": "A1: merged astro-verified-onboard-solver (same achievement: a proven onboard convex solver). verif had rated it 2031/2029/2028 Low/Medium/Medium with a qualification gate because it bundled timing evidence on radiation-tolerant processors and HIL; astro rated it 2030/2028/2027 Medium/High/High as a formalization milestone. Reconciled by scoping this node to the proofs plus runtime certificates (all hard prerequisites, including infra-verified-numerics and verif-verified-gnc-numerics, land by S2 2028), and leaving flight timing/HIL qualification to verif-lander-verified-gnc-flight and verif-hls-autonomy-certification. Astro's caution kept: a Jun 2026 audit found compilation-based metrics overstate numerical-analysis formalization quality (arXiv 2606.14000)."
+   }
+  },
+  {
+   "keep": "verif-lander-verified-gnc-flight",
+   "drop": [
+    "astro-landing-guidance-proven-flight"
+   ],
+   "patch": {
+    "title": "A lander flies proof-checked descent guidance and fault logic",
+    "description": "A lunar lander (or, as a first step, a vertical-landing test vehicle) flies terminal-descent GNC whose key properties are machine-checked, not only Monte Carlo-tested: convergence, feasibility and solver numerics of the powered-descent guidance, plus altitude plausibility, measurement-rejection gates, engine-cutoff and reboot logic. Its assumptions are red-teamed against terrain and sensor models.",
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High"
+    },
+    "merge_note": "A1: merged astro-landing-guidance-proven-flight (same milestone: first flight of proof-checked descent software; astro 2031/2029/2028 Low/Medium/High, verif 2030/2029/2028 Medium/High/High). Kept the verif id and its failure record (Schiaparelli, Beresheet, Hakuto-R M1, IM-1, Athena). The merged node now requires both guidance-solver proofs (verif-onboard-optimizer-certificates, astro-certified-gnc-toolchain, astro-scp-guarantees) and fault-logic checks, so bands take the stricter astro view. Full chain (S2): research-grade applied math public 2027 -> verified numerics and solver proofs 2028 -> GNC toolchain adopted 2028 -> software freeze 12-18 months before flight -> first flight 2029-30 on a CLPS-class lander or terrestrial testbed; launch cadence and software freeze bind, not cognition. No regulator is involved for commercial lunar landers, so no Medium cap."
+   }
+  },
+  {
+   "keep": "verif-rpo-assured-autonomy",
+   "drop": [
+    "astro-verified-rpo-servicing"
+   ],
+   "patch": {
+    "title": "Assured autonomous docking, servicing and propellant transfer",
+    "description": "Rendezvous, proximity operations, docking, servicing or debris capture, and ship-to-ship propellant transfer flown with machine-checked passive safety (collision-free under failures), keep-out zones, abort reachability and capture logic, plus runtime assurance on the guidance, used as primary safety evidence.",
+    "merge_note": "A1: merged astro-verified-rpo-servicing (same achievement for a different customer: servicing/inspection/debris capture vs Starship/HLS transfer; astro >2031/2030/2029, verif 2031/2029/2029, both Low/Medium/Medium). Kept the verif id and its years for the first-of-kind flight of either type. Added astro's prerequisites (astro-hybrid-rpo-verification, astro-certified-gnc-toolchain) and sourcing: commercial servicing demos and ESA CREAM are under way, none uses formal proofs as primary safety evidence; missions take 2-4 years from contract to launch. Confidence is gated by flight demonstrations and launch cadence, not proof capacity."
+   }
+  },
+  {
+   "keep": "verif-hls-autonomy-certification",
+   "drop": [
+    "astro-human-rated-proof-credit"
+   ],
+   "patch": {
+    "title": "Crewed GNC autonomy certified with AI proofs",
+    "description": "NASA human-rating (NPR 8705.2C with NPR 7150.2 Class A software), FAA commercial human-spaceflight rules or ECSS accept AI-produced machine-checked proofs as part of the certification evidence for crew-critical GNC autonomy (landing guidance, docking, abort and fault management). The likeliest first case is a block upgrade for a crewed lunar lander.",
+    "earliest_year": {
+     "S1": ">2031",
+     "S2": "2031",
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium"
+    },
+    "merge_note": "A1: merged astro-human-rated-proof-credit (same achievement; astro >2031/>2031/2031 Speculative/Low/Low, verif >2031/2030/2029 Low/Medium/Medium). Reconciled to >2031/2031/2030, Speculative/Low/Medium: human-rating needs general regulator credit for AI proofs first (infra-tool-qualification, S2 premise 2030), uncrewed flight heritage (verif-lander-verified-gnc-flight, S2 2029) and a block-upgrade cycle after the 2028 landing's frozen baseline, so S2 2030 had no slack. Aviation precedent (DO-333 from 2011, years to routine use) supports astro's caution; regulator acceptance caps every scenario at Medium."
+   }
+  },
+  {
+   "keep": "infra-tool-qualification",
+   "drop": [
+    "verif-checker-not-generator"
+   ],
+   "patch": {
+    "description": "Certification authorities (FAA via DO-178C, DO-333 and DO-330; NASA software assurance under NPR 7150.2; ECSS; Space Force) grant project-level credit for formal proofs written by AI agents on the 'checker, not generator' route: an already-qualified checker (SPARK GNATprove, Frama-C WP, Astree) or a newly qualified small kernel (Lean or Comparator) verifies the proofs, so the agent needs no tool qualification and human obligations shrink to reviewing specifications and justifying assumptions.",
+    "earliest_year": {
+     "S1": ">2031",
+     "S2": "2030",
+     "S3": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "merge_note": "A1: merged verif-checker-not-generator (same achievement: certification credit for AI-written proofs via a qualified checker). verif rated it 2029/2028/2028 Medium; capability 2031+/2030/2029 Low/Medium/Medium. Kept the capability id (shared tier-0) and the scenario parametrization ('regulator credit for AI proofs' S2 2030 is the client's base-case premise). verif's argument is kept as the upside signpost: under DO-330 qualification is needed only for tools whose output is not otherwise verified, so AI-written SPARK/Frama-C proofs checked by existing qualified checkers need only plan acceptance (software certification plan, SOI audits); a DO-178C or NPR 7150.2 project taking such credit in 2028 would pull this node forward a year. Airbus A380 unit-test replacement (2002) and DO-333 show the mechanism. Capped at Medium (regulator acceptance). Dependents verif-afss-part450 and verif-new-entrant-advantage were moved to stay after it."
+   }
+  },
+  {
+   "keep": "plasma-thermo-density-uq",
+   "drop": [
+    "astro-thermosphere-drag-uq"
+   ],
+   "patch": {
+    "title": "Upper-atmosphere density and drag with honest error bars",
+    "description": "Thermospheric density nowcasts and 1-3 day forecasts with calibrated uncertainty, cutting quiet-time error from ~20-40% toward ~10-15% and tracking 2-6x storm enhancements, by assimilating drag observed on thousands of constellation satellites, so LEO orbit predictions and covariances stay realistic through geomagnetic storms. Storm-time forecast skill beyond about a day stays bounded by CME arrival and magnetic-orientation forecasts.",
+    "merge_note": "A1: merged astro-thermosphere-drag-uq (same achievement viewed from the conjunction side; astro >2031/2029/2028 Low/Medium/Medium, plasma 2030/2029/2028 Medium/High/High). Kept the plasma id (space-weather physics owner) and its better-sourced data-assimilation view (Gannon storm, Parker-Linares 2024; Feb 2022 Starlink loss; CPAESS 2026), so years and bands follow plasma. Astro's caution is recorded in the description (storm drivers forecast at most 1-2 days ahead; Starlink lowering shells to ~480 km raises drag sensitivity). Astro's hard prerequisites cap-physics-theory and astro-nongaussian-uq-certified were converted to soft: calibrated density estimation is an estimation problem that needs neither new physics theory nor certified Pc math. astro-leo-safety-at-scale now depends on this node."
+   }
+  }
+ ],
+ "update": [
+  {
+   "id": "auton-mars-isru-demo",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2031",
+     "S2": "2031",
+     "S3": "2031"
+    },
+    "calibration_note": "A1: new hard edge from hyper-mars-heavy-landing (a kg/h ISRU unit needs a Starship-class Mars landing, as the node's own rationale says); hyper rates the first 20 t+ landing 2031 in every scenario (two windows; transfer and Moon priority first), so S2/S3 2029 moved to 2031 and S1 to >2031."
+   }
+  },
+  {
+   "id": "verif-afss-part450",
+   "patch": {
+    "earliest_year": {
+     "S1": ">2031",
+     "S2": "2030"
+    },
+    "calibration_note": "A1: its hard prerequisite verif-checker-not-generator was merged into infra-tool-qualification, which keeps the scenario premise for regulator credit for AI proofs (>2031/2030/2029); FAA Part 450 acceptance of proof-backed termination cannot precede that credit."
+   }
+  },
+  {
+   "id": "verif-new-entrant-advantage",
+   "patch": {
+    "earliest_year": {
+     "S2": "2030",
+     "S3": "2029"
+    },
+    "calibration_note": "A1: its hard prerequisite verif-checker-not-generator was merged into infra-tool-qualification (>2031/2030/2029, the scenario premise for regulator credit), so the moat cannot fall before certification credit for AI proofs exists."
+   }
+  }
+ ],
+ "add_edges": [
+  {
+   "from": "frontier-approx-ceilings",
+   "to": "auton-ops-planning-ceilings",
+   "why": "Robot-fleet limits are applications of the UGC, k-median and scheduling theorems; they are not 'known' until those are theorems."
+  },
+  {
+   "from": "capability-engineering-adoption",
+   "to": "frontier-math-unbinds",
+   "why": "Math stops limiting programs only once engineering organizations routinely pose and use AI applied math."
+  },
+  {
+   "from": "physclock-reactor-in-space",
+   "to": "struct-fsp-lunar-100kwe",
+   "why": "An operating lunar reactor implies a U.S. fission reactor has been launched (FSP/LR-1 satisfies both)."
+  },
+  {
+   "from": "physclock-heavy-cadence-100",
+   "to": "struct-gw-orbital-compute",
+   "why": "1 GW is ~10,000-14,000 t, ~100-140 Starship flights; not reachable by 2031 without 100+ reusable heavy launches a year."
+  },
+  {
+   "from": "materials-cots-orbital-compute-ops",
+   "to": "struct-gw-orbital-compute",
+   "why": "GW-scale orbital compute runs on commercial accelerators; rad-hard parts cannot supply it."
+  },
+  {
+   "from": "struct-highflux-radiator-flight",
+   "to": "materials-cots-orbital-compute-ops",
+   "why": "100 kW-class compute clusters must reject ~100 kW; 100 kW-class radiators have to fly first."
+  },
+  {
+   "from": "prop-hls-refuel-campaign",
+   "to": "auton-crew-optional-lunar-ops",
+   "why": "Crew visits to a lunar base need a refueled crewed lander; both HLS architectures refuel in orbit."
+  },
+  {
+   "from": "prop-ship-transfer-demo",
+   "to": "hyper-mars-heavy-landing",
+   "why": "A 20 t Mars landing needs a refilled Starship-class vehicle; ship-to-ship transfer must be demonstrated first."
+  },
+  {
+   "from": "hyper-mars-heavy-landing",
+   "to": "auton-mars-isru-demo",
+   "why": "A kg/h ISRU unit on Mars needs a Starship-class landing (node's own rationale)."
+  },
+  {
+   "from": "hyper-mars-heavy-landing",
+   "to": "auton-mars-propellant-plant",
+   "why": "A Starship-scale propellant plant needs heavy Mars landings."
+  },
+  {
+   "from": "physclock-starship-full-reuse",
+   "to": "struct-reusable-life-management",
+   "why": "Life management of fully reusable heavy stages presupposes both stages caught and reflown."
+  },
+  {
+   "from": "physclock-starship-full-reuse",
+   "to": "hyper-rapid-reuse-heatshield",
+   "why": "Five ship reflights require ship catch and a first reflight."
+  },
+  {
+   "from": "verif-verified-gnc-numerics",
+   "to": "astro-certified-gnc-toolchain",
+   "why": "The toolchain promises floating-point error bounds for GNC code; that is this capability."
+  },
+  {
+   "from": "verif-code-proof-agents",
+   "to": "astro-certified-gnc-toolchain",
+   "why": "Agents producing GNC code with machine-checked proofs is the toolchain's core step."
+  },
+  {
+   "from": "verif-closed-loop-guarantees",
+   "to": "hyper-certified-edl-guidance",
+   "why": "A formally verified guidance law needs machine-checked closed-loop stability and safety envelopes."
+  },
+  {
+   "from": "verif-verified-gnc-numerics",
+   "to": "hyper-certified-edl-guidance",
+   "why": "Verified guidance must hold for the floating-point code that flies."
+  },
+  {
+   "from": "verif-code-proof-agents",
+   "to": "comms-verified-routing-software",
+   "why": "A verified constellation control plane at commercial scale needs agents that prove real flight and ground code."
+  },
+  {
+   "from": "verif-code-proof-agents",
+   "to": "prop-verified-engine-software",
+   "why": "Formally verified engine-control software at practical cost needs agents that prove real flight code."
+  },
+  {
+   "from": "verif-assurance-cost-collapse",
+   "to": "astro-gnc-assurance-cost",
+   "why": "Verified autonomy cannot become cheap unless the cost per verified line collapses."
+  },
+  {
+   "from": "physclock-credibility-evidence-standard",
+   "to": "struct-cert-by-analysis",
+   "why": "Replacing structural tests with AI-made analysis needs a defined credibility standard for that evidence."
+  },
+  {
+   "from": "physclock-credibility-evidence-standard",
+   "to": "materials-am-digital-twin-qual",
+   "why": "Certifying each printed part from a digital twin is model-based credit; it needs an accepted evidence standard."
+  },
+  {
+   "from": "physclock-credibility-evidence-standard",
+   "to": "plasma-ep-life-by-analysis",
+   "why": "Accepting model-based extrapolation for part of a life requirement needs an accepted evidence standard."
+  }
+ ],
+ "remove_edges": [
+  {
+   "from": "cap-research-math-public",
+   "to": "frontier-landau-damping-general"
+  },
+  {
+   "from": "cap-physics-theory",
+   "to": "plasma-thermo-density-uq"
+  },
+  {
+   "from": "astro-nongaussian-uq-certified",
+   "to": "plasma-thermo-density-uq"
+  },
+  {
+   "from": "frontier-optical-quantum-capacity",
+   "to": "comms-finite-key-qkd-proofs"
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "frontier-turbulence-rigorous",
+   "to": "prop-les-convergence-theory"
+  },
+  {
+   "from": "frontier-turbulence-rigorous",
+   "to": "prop-closure-theory"
+  },
+  {
+   "from": "frontier-turbulence-rigorous",
+   "to": "hyper-sbli-heating-closure"
+  },
+  {
+   "from": "frontier-kinetic-global-regularity",
+   "to": "hyper-kinetic-solver-certification"
+  },
+  {
+   "from": "frontier-kinetic-global-regularity",
+   "to": "plasma-verified-kinetic-numerics"
+  },
+  {
+   "from": "hyper-boltzmann-foundations-check",
+   "to": "frontier-kinetic-global-regularity"
+  },
+  {
+   "from": "hyper-boltzmann-foundations-check",
+   "to": "frontier-nonuniqueness-map"
+  },
+  {
+   "from": "frontier-nonuniqueness-map",
+   "to": "prop-cfd-auto-vv"
+  },
+  {
+   "from": "frontier-mhd-wellposedness",
+   "to": "plasma-eruption-onset-theory"
+  },
+  {
+   "from": "frontier-mhd-wellposedness",
+   "to": "plasma-magnetic-nozzle-theory"
+  },
+  {
+   "from": "frontier-nbody-arnold-diffusion",
+   "to": "astro-stability-atlas"
+  },
+  {
+   "from": "frontier-nbody-arnold-diffusion",
+   "to": "astro-debris-evolution-models"
+  },
+  {
+   "from": "astro-nbody-transport-proofs",
+   "to": "frontier-nbody-arnold-diffusion"
+  },
+  {
+   "from": "frontier-chaos-linear-response",
+   "to": "plasma-swx-data-assimilation"
+  },
+  {
+   "from": "frontier-chaotic-adjoint-design",
+   "to": "prop-ai-engine-design-loop"
+  },
+  {
+   "from": "frontier-chaotic-adjoint-design",
+   "to": "prop-stability-design-tool"
+  },
+  {
+   "from": "frontier-chaotic-adjoint-design",
+   "to": "plasma-ep-predictive-design"
+  },
+  {
+   "from": "frontier-approx-ceilings",
+   "to": "astro-capacity-licensing"
+  },
+  {
+   "from": "frontier-nn-verification-complexity",
+   "to": "verif-nn-verification-scale"
+  },
+  {
+   "from": "frontier-nn-verification-complexity",
+   "to": "verif-runtime-assurance"
+  },
+  {
+   "from": "frontier-hjb-guarantees",
+   "to": "astro-scp-guarantees"
+  },
+  {
+   "from": "frontier-hjb-guarantees",
+   "to": "verif-closed-loop-guarantees"
+  },
+  {
+   "from": "frontier-hjb-guarantees",
+   "to": "hyper-certified-edl-guidance"
+  },
+  {
+   "from": "frontier-hjb-guarantees",
+   "to": "astro-autonomous-ca-at-scale"
+  },
+  {
+   "from": "frontier-scalable-global-certificates",
+   "to": "verif-onboard-optimizer-certificates"
+  },
+  {
+   "from": "frontier-scalable-global-certificates",
+   "to": "comms-constellation-design-optimizer"
+  },
+  {
+   "from": "frontier-certified-pde-error",
+   "to": "hyper-verified-aerothermal-numerics"
+  },
+  {
+   "from": "frontier-certified-pde-error",
+   "to": "plasma-verified-kinetic-numerics"
+  },
+  {
+   "from": "frontier-certified-pde-error",
+   "to": "prop-cfd-auto-vv"
+  },
+  {
+   "from": "frontier-certified-pde-error",
+   "to": "materials-multiscale-certified"
+  },
+  {
+   "from": "frontier-certified-pde-error",
+   "to": "struct-verified-fe-solvers"
+  },
+  {
+   "from": "frontier-stiff-certified",
+   "to": "hyper-gas-surface-chemistry"
+  },
+  {
+   "from": "frontier-stiff-certified",
+   "to": "materials-battery-life-qual"
+  },
+  {
+   "from": "auton-mass-action-permanence",
+   "to": "frontier-stiff-certified"
+  },
+  {
+   "from": "frontier-rare-event-certified",
+   "to": "astro-nongaussian-uq-certified"
+  },
+  {
+   "from": "frontier-rare-event-certified",
+   "to": "hyper-certified-margin-uq"
+  },
+  {
+   "from": "frontier-rare-event-certified",
+   "to": "materials-allowables-stats-framework"
+  },
+  {
+   "from": "frontier-rare-event-certified",
+   "to": "prop-life-twin"
+  },
+  {
+   "from": "frontier-rare-event-certified",
+   "to": "auton-ecls-reliability-uq"
+  },
+  {
+   "from": "frontier-rare-event-certified",
+   "to": "struct-certified-uq-margins"
+  },
+  {
+   "from": "frontier-transport-certified",
+   "to": "hyper-radiation-kinetics"
+  },
+  {
+   "from": "frontier-transport-certified",
+   "to": "prop-ntp-fuel-model"
+  },
+  {
+   "from": "frontier-transport-certified",
+   "to": "materials-see-system-models"
+  },
+  {
+   "from": "frontier-transport-certified",
+   "to": "auton-radiation-risk-uq"
+  },
+  {
+   "from": "frontier-inverse-stability",
+   "to": "hyper-tps-inverse-nde"
+  },
+  {
+   "from": "frontier-inverse-stability",
+   "to": "materials-am-digital-twin-qual"
+  },
+  {
+   "from": "frontier-inverse-stability",
+   "to": "struct-shm-inverse-limits"
+  },
+  {
+   "from": "struct-elasticity-fracture-foundations",
+   "to": "frontier-inverse-stability"
+  },
+  {
+   "from": "frontier-xc-certified",
+   "to": "materials-learned-functionals"
+  },
+  {
+   "from": "frontier-xc-certified",
+   "to": "hyper-gas-surface-chemistry"
+  },
+  {
+   "from": "frontier-xc-certified",
+   "to": "materials-energetics-design"
+  },
+  {
+   "from": "materials-dft-limits",
+   "to": "frontier-xc-certified"
+  },
+  {
+   "from": "frontier-lattice-crypto-watch",
+   "to": "verif-constellation-verified-updates"
+  },
+  {
+   "from": "frontier-lattice-crypto-watch",
+   "to": "comms-pq-fleet-migration"
+  },
+  {
+   "from": "frontier-optical-quantum-capacity",
+   "to": "comms-finite-key-qkd-proofs"
+  },
+  {
+   "from": "frontier-optical-quantum-capacity",
+   "to": "comms-quantum-receiver-theory"
+  },
+  {
+   "from": "frontier-applied-posing",
+   "to": "capability-engineering-adoption"
+  },
+  {
+   "from": "cap-research-math-public",
+   "to": "frontier-landau-damping-general"
+  },
+  {
+   "from": "cap-physics-theory",
+   "to": "plasma-thermo-density-uq"
+  },
+  {
+   "from": "astro-nongaussian-uq-certified",
+   "to": "plasma-thermo-density-uq"
+  },
+  {
+   "from": "materials-uhtc-tps-design",
+   "to": "hyper-aerothermal-design-loop"
+  },
+  {
+   "from": "materials-uhtc-tps-design",
+   "to": "hyper-rapid-reuse-heatshield"
+  },
+  {
+   "from": "materials-uhtc-tps-design",
+   "to": "hyper-12kms-entry-design-basis"
+  },
+  {
+   "from": "materials-uhtc-tps-design",
+   "to": "hyper-ablator-multiscale-response"
+  },
+  {
+   "from": "materials-tps-new-material-flight",
+   "to": "hyper-thinner-tps-flown"
+  },
+  {
+   "from": "materials-learned-functionals",
+   "to": "hyper-gas-surface-chemistry"
+  },
+  {
+   "from": "materials-mlip-certified-uq",
+   "to": "hyper-gas-surface-chemistry"
+  },
+  {
+   "from": "materials-ht-alloy-design",
+   "to": "prop-ai-engine-design-loop"
+  },
+  {
+   "from": "materials-creep-oxidation-life-models",
+   "to": "prop-life-twin"
+  },
+  {
+   "from": "materials-creep-oxidation-life-models",
+   "to": "prop-reuse-extended"
+  },
+  {
+   "from": "materials-am-defect-physics",
+   "to": "prop-ai-engine-design-loop"
+  },
+  {
+   "from": "prop-ai-engine-design-loop",
+   "to": "materials-ai-alloy-flight"
+  },
+  {
+   "from": "materials-wbg-rad-hard-power",
+   "to": "struct-100kw-per-tonne-fleet"
+  },
+  {
+   "from": "materials-cots-orbital-compute-ops",
+   "to": "struct-100kw-per-tonne-fleet"
+  },
+  {
+   "from": "materials-allowables-stats-framework",
+   "to": "struct-certified-uq-margins"
+  },
+  {
+   "from": "materials-see-system-models",
+   "to": "capability-ai-eda-space-processor"
+  },
+  {
+   "from": "physclock-credibility-evidence-standard",
+   "to": "materials-allowables-stats-framework"
+  },
+  {
+   "from": "physclock-credibility-evidence-standard",
+   "to": "materials-battery-life-qual"
+  },
+  {
+   "from": "physclock-credibility-evidence-standard",
+   "to": "struct-shm-inspection-credit"
+  },
+  {
+   "from": "physclock-credibility-evidence-standard",
+   "to": "struct-shell-knockdown-rules"
+  },
+  {
+   "from": "physclock-credibility-evidence-standard",
+   "to": "struct-launch-env-margins"
+  },
+  {
+   "from": "physclock-credibility-evidence-standard",
+   "to": "struct-reusable-life-management"
+  },
+  {
+   "from": "physclock-credibility-evidence-standard",
+   "to": "prop-reuse-extended"
+  },
+  {
+   "from": "physclock-credibility-evidence-standard",
+   "to": "hyper-probabilistic-tps-sizing"
+  },
+  {
+   "from": "physclock-credibility-evidence-standard",
+   "to": "hyper-thinner-tps-flown"
+  },
+  {
+   "from": "physclock-credibility-evidence-standard",
+   "to": "materials-qual-cycle-compression"
+  },
+  {
+   "from": "physclock-credibility-evidence-standard",
+   "to": "infra-tool-qualification"
+  },
+  {
+   "from": "physclock-qual-by-analysis-credit",
+   "to": "materials-qual-cycle-compression"
+  },
+  {
+   "from": "physclock-regulator-ai-capacity",
+   "to": "astro-capacity-licensing"
+  },
+  {
+   "from": "physclock-regulator-ai-capacity",
+   "to": "comms-performance-based-sharing-regime"
+  },
+  {
+   "from": "physclock-regulator-ai-capacity",
+   "to": "verif-afss-part450"
+  },
+  {
+   "from": "physclock-regulator-ai-capacity",
+   "to": "infra-tool-qualification"
+  },
+  {
+   "from": "physclock-licensing-in-weeks",
+   "to": "hyper-p2p-cargo-demo"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "prop-engine-dev-compression"
+  },
+  {
+   "from": "physclock-qual-cycle-compressed",
+   "to": "capability-program-cycle-compression"
+  },
+  {
+   "from": "physclock-cheap-mass-internal",
+   "to": "struct-gw-orbital-compute"
+  },
+  {
+   "from": "physclock-cheap-mass-internal",
+   "to": "materials-cots-orbital-compute-ops"
+  },
+  {
+   "from": "physclock-heavy-cadence-100",
+   "to": "struct-100kw-per-tonne-fleet"
+  },
+  {
+   "from": "physclock-heavy-cadence-100",
+   "to": "auton-crew-optional-lunar-ops"
+  },
+  {
+   "from": "physclock-heavy-cadence-100",
+   "to": "prop-cislunar-propellant-economy"
+  },
+  {
+   "from": "physclock-heavy-cadence-100",
+   "to": "hyper-mars-heavy-landing"
+  },
+  {
+   "from": "physclock-cheap-mass-internal",
+   "to": "auton-mars-architecture-close"
+  },
+  {
+   "from": "physclock-heavy-cadence-100",
+   "to": "struct-km-monolith"
+  },
+  {
+   "from": "physclock-cheap-mass-customer",
+   "to": "materials-in-space-mfg-product"
+  },
+  {
+   "from": "physclock-cheap-mass-customer",
+   "to": "plasma-vleo-at-scale"
+  },
+  {
+   "from": "physclock-heavy-cadence-100",
+   "to": "astro-leo-safety-at-scale"
+  },
+  {
+   "from": "physclock-satellite-gen-cadence",
+   "to": "comms-capacity-per-dollar-share"
+  },
+  {
+   "from": "physclock-cheap-mass-internal",
+   "to": "comms-capacity-per-dollar-share"
+  },
+  {
+   "from": "physclock-flight-test-cadence",
+   "to": "hyper-flight-data-pipeline"
+  },
+  {
+   "from": "physclock-starship-full-reuse",
+   "to": "prop-reuse-extended"
+  },
+  {
+   "from": "physclock-reactor-in-space",
+   "to": "plasma-nep-mars-cargo"
+  },
+  {
+   "from": "physclock-nuclear-safety-case-ai",
+   "to": "prop-ntp-ground-test"
+  },
+  {
+   "from": "hyper-rapid-reuse-heatshield",
+   "to": "physclock-heavy-cadence-100"
+  },
+  {
+   "from": "verif-closed-loop-guarantees",
+   "to": "astro-certified-gnc-toolchain"
+  },
+  {
+   "from": "verif-spec-engineering",
+   "to": "astro-certified-gnc-toolchain"
+  },
+  {
+   "from": "verif-closed-loop-guarantees",
+   "to": "astro-nav-filter-guarantees"
+  },
+  {
+   "from": "verif-fdir-model-checking",
+   "to": "astro-proof-backed-flight-software-ops"
+  },
+  {
+   "from": "verif-verified-onboard-stack",
+   "to": "astro-proof-backed-flight-software-ops"
+  },
+  {
+   "from": "verif-lander-verified-gnc-flight",
+   "to": "astro-proof-backed-flight-software-ops"
+  },
+  {
+   "from": "verif-runtime-assurance",
+   "to": "astro-autonomous-ca-at-scale"
+  },
+  {
+   "from": "verif-assumption-falsification",
+   "to": "astro-autonomous-nav-demo"
+  },
+  {
+   "from": "astro-proof-backed-flight-software-ops",
+   "to": "verif-mission-loss-rate"
+  },
+  {
+   "from": "verif-onboard-optimizer-certificates",
+   "to": "hyper-certified-edl-guidance"
+  },
+  {
+   "from": "verif-spec-engineering",
+   "to": "auton-temporal-logic-synthesis"
+  },
+  {
+   "from": "verif-game-solving-synthesis",
+   "to": "auton-temporal-logic-synthesis"
+  },
+  {
+   "from": "verif-code-proof-agents",
+   "to": "auton-verified-surface-autonomy"
+  },
+  {
+   "from": "verif-environment-assumption-models",
+   "to": "auton-verified-surface-autonomy"
+  },
+  {
+   "from": "verif-spec-engineering",
+   "to": "comms-verified-routing-software"
+  },
+  {
+   "from": "verif-code-proof-agents",
+   "to": "comms-pq-verified-implementations"
+  },
+  {
+   "from": "verif-verified-onboard-stack",
+   "to": "comms-crypto-agile-architecture"
+  },
+  {
+   "from": "verif-constellation-verified-updates",
+   "to": "comms-pq-fleet-migration"
+  },
+  {
+   "from": "comms-verified-routing-software",
+   "to": "verif-constellation-verified-updates"
+  },
+  {
+   "from": "comms-crypto-agile-architecture",
+   "to": "verif-constellation-verified-updates"
+  },
+  {
+   "from": "comms-pq-verified-implementations",
+   "to": "verif-constellation-verified-updates"
+  },
+  {
+   "from": "verif-verified-gnc-numerics",
+   "to": "prop-verified-engine-software"
+  },
+  {
+   "from": "verif-code-proof-agents",
+   "to": "materials-verified-fault-tolerance"
+  },
+  {
+   "from": "verif-afss-part450",
+   "to": "physclock-licensing-in-weeks"
+  },
+  {
+   "from": "verif-assurance-cost-collapse",
+   "to": "capability-program-cycle-compression"
+  },
+  {
+   "from": "verif-assurance-cost-collapse",
+   "to": "physclock-dev-capital-cut"
+  },
+  {
+   "from": "verif-new-entrant-advantage",
+   "to": "physclock-new-entrant-fast-orbit"
+  },
+  {
+   "from": "prop-ship-transfer-demo",
+   "to": "verif-rpo-assured-autonomy"
+  },
+  {
+   "from": "plasma-thermo-density-uq",
+   "to": "astro-catalog-scale-screening"
+  },
+  {
+   "from": "plasma-thermo-density-uq",
+   "to": "astro-autonomous-ca-at-scale"
+  },
+  {
+   "from": "plasma-thermo-density-uq",
+   "to": "astro-debris-evolution-models"
+  },
+  {
+   "from": "plasma-storm-robust-leo-ops",
+   "to": "astro-leo-safety-at-scale"
+  },
+  {
+   "from": "plasma-cme-arrival-skill",
+   "to": "plasma-thermo-density-uq"
+  },
+  {
+   "from": "science-helio-tomography",
+   "to": "plasma-swx-data-assimilation"
+  },
+  {
+   "from": "hyper-optimal-test-design",
+   "to": "physclock-optimal-test-campaigns"
+  },
+  {
+   "from": "hyper-tile-damage-accumulation",
+   "to": "physclock-twin-reflight-clearance"
+  },
+  {
+   "from": "struct-shm-inverse-limits",
+   "to": "physclock-twin-reflight-clearance"
+  },
+  {
+   "from": "struct-shm-inspection-credit",
+   "to": "physclock-critical-payload-reuse-acceptance"
+  },
+  {
+   "from": "struct-deployment-mechanics",
+   "to": "hyper-heavy-deployable-decelerator"
+  },
+  {
+   "from": "struct-two-phase-microgravity-models",
+   "to": "prop-cfm-models"
+  },
+  {
+   "from": "struct-agentic-analysis-workflows",
+   "to": "capability-engineering-adoption"
+  },
+  {
+   "from": "prop-psi-models",
+   "to": "hyper-mars-heavy-landing"
+  },
+  {
+   "from": "auton-granular-regolith-model",
+   "to": "prop-psi-models"
+  },
+  {
+   "from": "auton-lunar-oxygen-ops",
+   "to": "prop-cislunar-propellant-economy"
+  },
+  {
+   "from": "struct-fsp-lunar-100kwe",
+   "to": "auton-crew-optional-lunar-ops"
+  },
+  {
+   "from": "struct-fsp-lunar-100kwe",
+   "to": "auton-lunar-oxygen-ops"
+  },
+  {
+   "from": "prop-hls-refuel-campaign",
+   "to": "struct-fsp-lunar-100kwe"
+  },
+  {
+   "from": "hyper-reentry-cadence-economy",
+   "to": "materials-in-space-mfg-product"
+  },
+  {
+   "from": "auton-certified-assembly-skills",
+   "to": "struct-km-monolith"
+  },
+  {
+   "from": "prop-ai-engine-design-loop",
+   "to": "physclock-new-entrant-fast-orbit"
+  },
+  {
+   "from": "prop-life-twin",
+   "to": "struct-reusable-life-management"
+  },
+  {
+   "from": "hyper-tile-damage-accumulation",
+   "to": "struct-reusable-life-management"
+  },
+  {
+   "from": "capability-cheap-trust",
+   "to": "science-claims-audit"
+  },
+  {
+   "from": "capability-cost-collapse",
+   "to": "verif-assurance-cost-collapse"
+  },
+  {
+   "from": "capability-controlled-data-access",
+   "to": "hyper-aerothermal-design-loop"
+  },
+  {
+   "from": "capability-controlled-data-access",
+   "to": "materials-energetics-design"
+  },
+  {
+   "from": "capability-open-weights-math",
+   "to": "verif-new-entrant-advantage"
+  },
+  {
+   "from": "capability-algorithm-discovery",
+   "to": "astro-catalog-scale-screening"
+  },
+  {
+   "from": "capability-learned-emulators",
+   "to": "hyper-aerothermal-design-loop"
+  },
+  {
+   "from": "capability-engineering-adoption",
+   "to": "struct-design-cycle-compression"
+  },
+  {
+   "from": "hyper-certified-edl-guidance",
+   "to": "verif-hls-autonomy-certification"
+  },
+  {
+   "from": "prop-verified-engine-software",
+   "to": "verif-mission-loss-rate"
+  },
+  {
+   "from": "struct-fsp-next-gen-design",
+   "to": "plasma-nep-mars-cargo"
+  },
+  {
+   "from": "hyper-gas-surface-chemistry",
+   "to": "materials-uhtc-tps-design"
+  },
+  {
+   "from": "prop-les-convergence-theory",
+   "to": "frontier-certified-turbulent-cfd"
+  },
+  {
+   "from": "materials-verified-fault-tolerance",
+   "to": "struct-100kw-per-tonne-fleet"
+  }
+ ],
+ "notes": "A1 dedupe and cross-link on graph-v0 (360 nodes). 13 merges removing 16 duplicate ids: frontier keeps frontier-math problems (NS unforced, Landau damping, approximation ceilings, optical/quantum capacity, PQ-crypto watch, stiff chemistry, global certificates); verif keeps verification-method and proof-flight nodes (onboard optimizer certificates, lander proof-checked descent, assured RPO, crewed proof certification); capability keeps the shared tier-0 infra-tool-qualification (absorbs verif-checker-not-generator at the scenario premise >2031/2030/2029); plasma keeps thermospheric density (absorbs astro-thermosphere-drag-uq). Each kept node carries a merge_note. Hard edges are added only where the dependent cannot occur without the prerequisite (logical implication, physical necessity such as launch mass or refueling, or an accepted evidence standard for model-based credit); everything else is a soft 'accelerates' edge. Four hard edges were turned soft after merges (public access -> Landau damping; physics theory and certified Pc -> density UQ; capacity theorems -> finite-key QKD proofs). Three year calibrations, each with calibration_note: auton-mars-isru-demo (needs the 2031 heavy Mars landing), verif-afss-part450 and verif-new-entrant-advantage (follow regulator credit for AI proofs). Reviewer flags: (1) auton-mars-isru-demo S2 band Low may now deserve Speculative; (2) verif-lander-verified-gnc-flight bands lowered to Low/Medium/High because the merged node requires guidance-solver proofs as well as fault logic; (3) comms-finite-key-qkd-proofs (Medium/High/High) no longer hard-depends on a Low/Medium/Medium node; (4) infra-tool-qualification could move to S2 2029 if a project takes DO-333 credit for AI-written SPARK/Frama-C proofs in 2028 (verif's upside view)."
+}

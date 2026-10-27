@@ -1,0 +1,658 @@
+{
+ "update": [
+  {
+   "id": "auton-mass-action-permanence",
+   "patch": {
+    "description": "Family 149 claims boundedness and persistence for every finite weakly reversible mass-action network with positive constant rates: each solution from a strictly positive start stays between epsilon and 1/epsilon for all time, with epsilon depending on network, rates and initial state (the catalog headline says permanence, the stronger uniform property). Once independently confirmed it becomes a theorem-level guarantee for idealized closed chemical and microbial loop models.",
+    "status_oct2026": "Family 149, T1 per the release overview and the analyst catalog (no entry in lean/formalization.yaml). Newer detail found in the repo: lean/docs/149.md describes a Lean formalization of global boundedness and persistence with a Comparator statement (ComparatorChallenges/MassAction.lean). If that holds up it would be T3 for the formal part. No outside Comparator run reported as of 2026-10-07; repo has a single commit (Oct 6). MassAction.json targets OAI.Problem326.global_bounded_persistent_solution, and 149 is absent from formalization.yaml main_results. Statement-gap modifier: the headline stays T1, and only the formal part could reach T3 or T4.",
+    "revision_note": "B-moon-mars: Auditor (grounding): the description now states the formal scope (boundedness plus persistence with a state-dependent epsilon) rather than uniform permanence, and the status notes the statement gap (tr-position-2). Skeptic: the outgoing edge to auton-blss-stability-theory is now soft (see that node). Years and bands unchanged."
+   }
+  },
+  {
+   "id": "auton-contact-wellposedness",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "revision_note": "B-moon-mars: Skeptic (timing): S3 2027 -> 2028. The only prerequisite, cap-research-math-public, is 2027 in both S2 and S3, and capability.json gives S3 the same capability as S2 through 2028 (~150 h horizon at end-2027). A genuinely open nonsmooth-mechanics problem cannot be solved earlier in S3 than in S2 while capability is identical. Bands unchanged."
+   }
+  },
+  {
+   "id": "auton-granular-wellposedness",
+   "patch": {
+    "why": "Regolith handling is simulated today with DEM (10^6-10^8 particles, days to weeks per design point, general) or with continuum/MPM codes built on rheologies that are not well-posed and are regularized ad hoc. Continuum/MPM codes are already roughly 100-1,000x cheaper than DEM (general), and a well-posedness theorem does not make them cheaper. What it adds is confidence that results converge under mesh refinement for physical rather than numerical reasons (P5; tl-position-2), so the cheaper continuum codes can stand in for DEM in excavation and sintering design with less calibration doubt. Under S2 this is an AI-applied-math problem of 2028-29 difficulty; S3 a year earlier. It accelerates the calibrated regolith model but does not gate it.",
+    "strongest_case_small": "Engineers already regularize empirically and DEM is adequate for bucket-scale design. The spread in excavation energy between plausible ice forms (52x within ice-cemented simulant alone as ice rises from 1 to 12 wt%, and two to three orders of magnitude between ice-cemented and pressure-sintered simulant) dwarfs any modeling error a theorem removes.",
+    "revision_note": "B-moon-mars: Skeptic (claim): the why had credited the theorem with a 100-1,000x speedup over DEM. Continuum codes already have that cost advantage, so the theorem's contribution is confidence (P5, tl-position-2), not speed. Pathway stays P1->P5. Skeptic and auditor (fact): the '52x across plausible polar ice forms' wording is corrected. 52x is the spread across ice content within ice-cemented simulant; across forms the spread is far larger (doi:10.1007/s44461-026-00015-w). Advocate and skeptic: the edge into auton-granular-regolith-model is now soft. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "auton-ecls-reliability-uq",
+   "patch": {
+    "earliest_year": {
+     "S2": "2028",
+     "S3": "2028"
+    },
+    "band_2031": {
+     "S2": "Medium"
+    },
+    "why": "In the 2025 study the 5th-percentile spares mass corresponds to a 10x MTBF improvement, so the uncertainty band spans an order of magnitude in MTBF. A model that uses every ISS failure record, component physics and shelf-life data, with uncertainty propagated end to end, can narrow that band only if new failure data arrive. Conditional on new failure data: halving MTBF uncertainty (lognormal sigma 0.70 -> 0.35) cuts the 95th-percentile failure-rate multiplier from ~3.2x to ~1.8x, so spares mass at fixed risk falls ~20-40% only if the median holds. Better data can also move the median toward worse reliability, and remodeling the existing 2004-era public data alone narrows the band little (general derivation). The binding gate is data: the last public ECLSS failure release was 2004, and releasing more is an institutional decision that compresses 1.0x. Under S2 the modeling is routine AI applied statistics from 2027, but a credible result waits for released data or NASA in-house work (2028, Medium). Under S3, near-free cognition makes it likely that NASA's own analysts do it in-house with the full record, hence High (judgment).",
+    "revision_note": "B-moon-mars: Skeptic (band and timing): S2/S3 2027 -> 2028 and S2 High -> Medium. The node's own gate is data, and the last public ECLSS failure release was 2004 (ICES 2025, verified by the auditor). A data release is an institutional decision (1.0x), so the cognitive date (2027) is not the outcome date. The 20-40% spares claim is reworded as conditional on new data, with the skeptic's lognormal arithmetic, which I checked (exp(1.645 x 0.70) = 3.2; exp(1.645 x 0.35) = 1.8). Partly accepted: S3 stays High, because with near-free cognition NASA can do the work in-house without a public release. Skeptic (edge): the outgoing edge to auton-earth-independent-fdir is now soft."
+   }
+  },
+  {
+   "id": "auton-ops-planning-ceilings",
+   "patch": {
+    "pathway": "P3 (102 hardness; 125 lower bound) + P4 (124, 110, 111 and the 125 algorithm; constants unstated or galactic, not counted as practical)",
+    "status_oct2026": "102 Unique Games Conjecture (T3) fixes optimal approximation ratios for many labeling and partitioning problems; 125 metric k-median threshold 1+2/e (T3) bounds depot, charging-pad and relay siting; 124 polynomial-time unit-job scheduling on three identical machines with precedence (T1 per release overview; repo lean/docs/124.md lists a Comparator statement, so possibly T3); 110 optimal randomized k-server (T1) and 111 one-sample matroid prophet inequalities (T1; competitive ratio 2^-310, no polynomial-time implementation asserted) for online dispatch. lean/docs/110.md and 111.md also carry Comparator statements (KServer.lean, MatroidProphet.lean) that are absent from formalization.yaml, so they stay T1. For 125 the yaml main result is the KMedianRecovery (below-2) statement; the 1+2/e threshold appears only in lean/docs/125.md (KMedianThreshold.lean).",
+    "revision_note": "B-moon-mars: Auditor (grounding): 124 (exact scheduling) and 110 (k-server) are algorithms (P4), not ceilings, so the pathway is now P3+P4, matching ref-space-math-map. The status gives the repo's tier scope for 110, 111 and 125. Skeptic and advocate (both lenses): the edge into auton-crew-optional-lunar-ops is now soft. A hardness ceiling tells planners what not to attempt and does not gate running a base. Bands unchanged."
+   }
+  },
+  {
+   "id": "auton-temporal-logic-synthesis",
+   "patch": {
+    "status_oct2026": "Theory mature, flight use rare: synthesis works for small specs, but abstractions (terrain, energy, comm windows) and specs are built by scarce experts (general). Family 104 claims quasipolynomial algorithms for mean-payoff, stochastic and parity games. Only the randomized quasipolynomial mean-payoff algorithm and a counterexample to Truffet's procedure are formalized (T3, unchecked); the stochastic-game part is T1, conditional. Mean-payoff ('energy') objectives match battery-constrained rovers.",
+    "premise_tier": "n/a (capability); 104 is T3 for the randomized mean-payoff part only and T1 (conditional) for the stochastic-game part",
+    "strongest_case_small": "Mission operations culture values human-readable, human-reviewed plans; even the AI-planned Perseverance drives were validated by simulation, not proof. Specs, not proofs, are the hard part, and a proof of the wrong property adds little (tl-position-6; tr-position-2).",
+    "revision_note": "B-moon-mars: Auditor (grounding): replaced the nonexistent '(analyst position h)' with tl-position-6 and tr-position-2. The status and premise_tier now scope 104's T3 to its formalized randomized mean-payoff part (statement-gap modifier). Years and bands unchanged."
+   }
+  },
+  {
+   "id": "auton-isru-rom-control",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "pathway": "P1 (P6 only for scale-up tools)",
+    "revision_note": "B-moon-mars: Skeptic and advocate (both lenses): infra-verified-numerics moved from hard prerequisite to soft accelerator. Reactor ROMs and MPC get their error bounds from a-posteriori estimators and validation against test data, and melt-property data at 1,600 C dominate the error budget. Skeptic: S3 2027 -> 2028, because the node is data-gated and S3 equals S2 in capability through 2028. This also matches the trunk resolver's infra-verified-numerics S3 2028. Advocate's S1 2030 -> 2029 rejected: neither S1 prerequisite (cap-applied-math, verified numerics) is earlier than 2029, and the data gate does not move. Auditor: pathway relabeled P1 (P6 only for scale-up tools); P6's default band is Low, so High is consistent only with P1. Skeptic and advocate: the outgoing edges to auton-lunar-o2-flight-demo and auton-mars-isru-demo are now soft."
+   }
+  },
+  {
+   "id": "auton-certified-contact-sim",
+   "patch": {
+    "revision_note": "B-moon-mars: Advocate: added soft inputs from physclock-optimal-test-campaigns and physclock-ai-run-test-stands, the graph's mechanisms for compressing experiment gates (20-40% fewer tests, adaptive stopping), so the tree shows that path. Years and bands unchanged. Skeptic: S3 is consistent with auton-contact-wellposedness now being S3 2028."
+   }
+  },
+  {
+   "id": "materials-microgravity-process-models",
+   "patch": {
+    "status_oct2026": "Flawless Photonics drew 11.9 km of ZBLAN fiber on the ISS (Feb-Mar 2024; longest single draw 1,141 m). As of early 2026 no attenuation comparison with ground-drawn fiber has been published. Space Forge's ForgeStar-1 first generated ~1,000 C plasma on orbit on Dec 31, 2025, for wide-bandgap crystal growth. Varda re-entered capsules W-5 (Jan 2026) and W-6 (May 2026).",
+    "revision_note": "B-moon-mars: Auditor (contradicted and unverifiable facts): removed 'lower attenuation than ground-drawn fiber'. No published source supports it, the cited article said properties were still to be assessed, and it is the core quantity this node exists to predict. Also removed the unsourced 'more than 100 times' for ForgeStar-1 and corrected 12 km to 11.9 km (NASA). The source row in research/materials.json still carries 'lower attenuation' and needs the same fix. Skeptic: the outgoing edge to materials-in-space-mfg-product is now soft. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "auton-blss-stability-theory",
+   "patch": {
+    "earliest_year": {
+     "S3": "2029"
+    },
+    "binding_gate": "data",
+    "status_oct2026": "MELiSSA pilot plant has integrated liquid streams of three compartments and prepared gas closure across four (ICES 2025). China's Lunar Palace 365 ran 370 days at 98.2% closure (bioRxiv 2021). A 2025 npj Microgravity review flags critical US capability gaps in bioregenerative systems. Family 149 (T1; the formal part is possibly T3 per repo docs) claims a proof of boundedness and persistence for closed weakly reversible mass-action networks, an idealized building block.",
+    "premise_tier": "n/a (capability); 149 enters only as a soft, conditional (T1) accelerator",
+    "why": "Instability (microbial washout, crop failure, CO2/O2 imbalance) is the main operational risk of bioregenerative systems and the reason they carry large physico-chemical backups. Certified stability margins define safe operating envelopes and shrink buffer stocks. The value is AI building validated reduced models and Lyapunov or permanence-type certificates for the controlled loop, which do not need family 149. Real loops have Monod and light-limited kinetics, harvesting, control inputs and contamination, so they are not closed weakly reversible mass-action networks. 149 (T1, conditional) contributes only the idealized guarantee that a closed mass-action core cannot lose a species, and it accelerates the work without gating it. Validation uses existing closed-run data (MELiSSA, Lunar Palace), so the gate is data access, not a new test.",
+    "signpost": "Stability certificates and model-based controllers validated against existing MELiSSA or Lunar Palace closed-run data, published by those teams or a NASA or commercial analog group.",
+    "revision_note": "B-moon-mars: Skeptic (edge): auton-mass-action-permanence (149, T1) moved from hard prerequisite to soft accelerator. Real BLSS loops are not closed weakly reversible mass-action systems, the node's own why already said 149 contributes only the idealized guarantee, and Lunar Palace 365 ran 370 days at 98.2% closure with no such theorem. Skeptic (gate): experiment -> data, and the signpost now validates against existing closed-run data, which removes the circularity with its own child node auton-blss-closed-test. Auditor (grounding): 'proves permanence' -> 'claims a proof of boundedness and persistence' (T1 wording, formal scope). S3 2028 -> 2029 (resolver): this aligns with the trunk resolver's cap-physics-theory S3 2029 (a hard prerequisite) and with S3 equalling S2 through 2028. Bands unchanged."
+   }
+  },
+  {
+   "id": "auton-granular-regolith-model",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030"
+    },
+    "description": "Calibrated continuum-plus-DEM models (well-posed where theory allows, empirically regularized otherwise) of excavation, conveying and trafficability for polar regolith, including ice-cemented and vapor-deposited ice forms, predictive enough to size excavators and water-extraction feeders.",
+    "status_oct2026": "Lab-only. Ice-cemented simulant: excavation energy 2.74 to 143 J/g as ice rises from 1 to 12 wt% (52x, reported as 52 times less efficient). Pressure-sintered simulant: 0.35 to 0.11 J/g, 3.2 times more efficient with more ice. A vapor-deposited sample was much stronger than pressure-sintered and Apollo 16 samples (Space and Planetary Resources, Sep 2026). The authors conclude that icy regolith 'may be easier to excavate and traverse than previously thought' and question ice-cemented simulants as universal proxies. DEM calibration with realistic particle shapes and agglutinates is ongoing (2024-2026). The ice form at the poles is unknown.",
+    "why": "Without knowing the ice form, excavator power and wear sizing is uncertain by more than 10x. A model calibrated on lab simulants with empirical regularization (today's practice) and then tested blind against the first in-situ polar data (2028 at the earliest) becomes a design basis. A well-posedness theorem raises confidence but is not a precondition (tl-position-2). S3 cannot beat S2 here because the gate is the ground-truth mission, not cognition. S1 lags a year because AI applied math arrives in 2029 in S1, although human teams can do the calibration.",
+    "revision_note": "B-moon-mars: Advocate (edges): auton-granular-wellposedness and cap-physics-theory moved from hard prerequisites to soft accelerators, and cap-applied-math added as a hard prerequisite. Calibrated DEM/MPM with empirical regularization is how excavators are sized today, a well-posedness proof changes confidence and not the model (tl-position-2), and the skeptic makes the same point on the wellposedness node. The polar ground-truth data stay the hard gate. Advocate: S1 >2031 -> 2030 (band Low kept), because the binding gate is the 2028 data and not the theorem. Auditor's knock-on (S2/S3 2029 -> 2030) not applied, because ground truth stays 2028 (see that node). Auditor (fact): the status now reports both ice forms and the authors' conclusion (verified against the Crossref abstract)."
+   }
+  },
+  {
+   "id": "prop-psi-models",
+   "patch": {
+    "pathway": "P1->P6 (363/364 P5 link has nil engineering effect)",
+    "premise_tier": "n/a (capability premise via cap-applied-math); 363 and 364 are T1, conditional, with nil engineering effect",
+    "why": "Starship HLS already uses smaller mid-body methalox landing thrusters for terminal descent to raise the plume impingement point (general). Predictive PSI now sets standoff and throttle limits, landing-site and pad requirements, and keep-out zones for nearby base assets under repeated landings at one site, and it decides whether sintered pads are needed (auton-sinter-process-control). This is applied numerics plus data: DSMC for the rarefied gas phase (already adequate) coupled to CFD-DEM ejecta models calibrated on flight imagery. The data gate eases with landing cadence: SCALPSS 1.1 on Blue Ghost Mission 1 (Mar 2025) returned plume-surface imagery and stereo elevation maps, so every instrumented CLPS or HLS landing is a PSI experiment. Families 363 and 364 have nil engineering effect: DSMC's convergence to the Boltzmann equation is already proven (Wagner 1992, general), so new foundations for Boltzmann do not change DSMC practice. They are noted only as conditional (T1) theory context.",
+    "revision_note": "B-moon-mars: Skeptic and auditor (fact): the Raptor-plume framing was outdated, because Starship HLS uses mid-body landing thrusters for terminal descent. The why now lists what PSI still decides. Skeptic: 363/364 labeled nil engineering effect (Wagner 1992); pathway P5+P6 -> P1->P6. Advocate (edge): cap-physics-theory moved from hard to soft and cap-applied-math added as hard. Predictive PSI is DSMC plus CFD-DEM calibrated on flight data, which is applied numerics plus data and not new theory. Advocate's S3 2029 -> 2028 rejected: the gate is validation against landing imagery, and S3 cognition equals S2 through 2028, so S2 = S3 = 2029. New soft input from auton-lunar-heavy-cargo-landing; new soft outputs to auton-sinter-process-control (skeptic), auton-robotic-landing-pad and auton-crew-optional-lunar-ops (advocate). Bands unchanged."
+   }
+  },
+  {
+   "id": "auton-mre-anode-materials",
+   "patch": {
+    "earliest_year": {
+     "S3": "2030"
+    },
+    "why": "A 10 t/yr plant (~1.1 kg/h, about 8,800 operating hours a year) with anodes lasting 1,000 h needs ~9 anode swaps a year, each a robotic maintenance operation in a 1,600 C cell; at 10,000 h it needs fewer than one. AI-guided and autonomous-lab materials search (S2/S3) can shortlist compositions quickly. But autonomous labs cannot yet process refractory ceramics and superalloys (materials-closed-loop-discovery), and each candidate still needs fabrication and a multi-thousand-hour endurance test at 1,600 C: a 1,000 h screen takes ~6 weeks and a 10,000 h confirmation ~14 months. AI-run test stands can run candidates in parallel, which cuts the number of serial cycles but not the length of any one test. Chain (S2): discovery capability 2029 -> candidate fabricated and screened at 1,000 h, 2030 -> published with endurance data 2030-31 (Medium). S3 lands in the same year, because the discovery prerequisite is no earlier (2029) and endurance hours do not compress.",
+    "revision_note": "B-moon-mars: Skeptic (timing): S3 2029 -> 2030. S3 2029 equalled the hard prerequisite materials-closed-loop-discovery (S3 2029), which leaves no time to fabricate a refractory candidate and run even a 1,000 h screen. Skeptic's S2 2030 -> 2031 and Medium -> Low rejected: a 1,000 h screen is six weeks, so the 2029 -> 2030 lag is enough for a first endurance-backed candidate. Advocate's S3 Medium -> High rejected: parallel stands shorten serial cycles but not single tests, and refractory processing is a stated limit of autonomous labs. Both lenses: new soft edge to auton-lunar-oxygen-ops (anode life limits plant life). Advocate: soft input from physclock-ai-run-test-stands. Auditor (arithmetic): ~8 -> ~9 swaps a year (10,000 kg / 1.14 kg/h = ~8,770 h)."
+   }
+  },
+  {
+   "id": "auton-earth-independent-fdir",
+   "patch": {
+    "band_2031": {
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "description": "Onboard diagnosis and repair guidance for habitats, life support and crew medicine that a crew 3-22 light-minutes (one way) from Earth can trust: model-based reasoning and AI assistants whose conclusions are cross-checked against verified system models.",
+    "status_oct2026": "Research prototypes: the DARIA/STAMPS anomaly-response architecture (AIAA SciTech, Jan 2026; naming unverified); NASA's progressively Earth-independent medical operations (EIMO) framework, which names clinical AI as a high-value target (2025); AI-assisted medical diagnostics tests on ISS reported in Mar 2026 (press headline only, unverified). ISS relies on ground engineering teams.",
+    "why": "Mars crews face light-time delays and blackouts, and ECLSS maintenance alone is estimated at ~45 min/day. Faster, trustworthy diagnosis cuts downtime, spares and risk. Flying it on ISS or an Artemis mission (the signpost) puts a crew-facing safety function, including clinical decision support, under NASA flight-software and medical-operations acceptance, so the band is capped at Medium in every scenario. Sparing and MTBF models (auton-ecls-reliability-uq) inform priors but do not perform diagnosis, so they accelerate this node rather than gate it. Gateway's pause (Mar 2026) moves the uncrewed-habitat testbed role to ISS and the Moon base.",
+    "revision_note": "B-moon-mars: Skeptic and auditor (both lenses, certification cap): S2 High -> Medium. The node covers crew medicine and ECLSS repair guidance, and its signpost is a flight on ISS or Artemis, which needs NASA acceptance. S3 High -> Medium as well (auditor): the scorecard cap applies in every scenario, and the skeptic gave no S3-specific reason to keep High. Skeptic (edge): auton-ecls-reliability-uq moved from hard to soft, because sparing models do not diagnose. Its outgoing edges to auton-crew-optional-lunar-ops (skeptic) and auton-closed-loop-habitat (skeptic) are now soft. Auditor (fact): Earth-Mars one-way light time is ~3-22 min; the two unverifiable status items are marked. Gate adoption -> qualification, so the label matches the acceptance gate the why now names.",
+    "binding_gate": "qualification"
+   }
+  },
+  {
+   "id": "auton-verified-surface-autonomy",
+   "patch": {
+    "description": "Flight software for uncrewed rovers, excavators and other robotic surface assets whose planner, fault responses and safety monitors ship with machine-checked proofs: a synthesized planner plus a runtime-assurance wrapper around learned perception, produced by AI agents at a cost a commercial lunar company can afford. LTV software is out of scope, because it is human-rated even when the vehicle drives without crew (see verif-hls-autonomy-certification).",
+    "binding_gate": "adoption",
+    "premise_tier": "n/a (capability); 104 is T3 for the randomized mean-payoff part only",
+    "why": "Moon Base Phase 1 (up to 30 CLPS landings from 2027) puts many robots on the surface with small operations teams, and the verification cost of each autonomous behavior becomes the binding cost of autonomy. Agents that synthesize and prove planners and wrap learned components in proven monitors collapse that cost. The scope is uncrewed operation. CLPS is a commercial service buy with low NASA oversight, and uncrewed commercial robots need only an Article VI mission authorization (EO 14335 directs a streamlined process), so no certification step applies and the gate is supplier adoption. P2's default of Medium assumes a certification step; with none here, S2/S3 High rests on cheap proof tooling (2028) and many Moon Base Phase 1 suppliers. Crew-carrying LTV autonomy would trigger the Medium cap and is excluded.",
+    "revision_note": "B-moon-mars: Skeptic and auditor (gate vs band) against the advocate (gate). Both cappers offered the same alternative: drop the crew-carrying LTV from scope, set the gate to adoption, and keep S2 High. The advocate argued for adoption. All three are reconciled by narrowing the scope to uncrewed robots (LTVs excluded, because their software is human-rated) and setting binding_gate qualification -> adoption. Bands Medium/High/High kept. The why no longer both invokes NASA acceptance and denies the cap. Auditor: 104's scope note added to premise_tier. The outgoing edges to auton-crew-optional-lunar-ops and auton-surface-productivity are now soft (all three lenses)."
+   }
+  },
+  {
+   "id": "auton-sinter-process-control",
+   "patch": {
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium"
+    },
+    "revision_note": "B-moon-mars: Skeptic and auditor (both lenses): S2 High -> Medium and S1 Medium -> Low (S3 High kept). The node ends in P6 (default Low) and is gated by scarce relevant-environment vacuum-thermal tests (1.1-1.3x in S2) plus a plume-test signpost. A model-derived process window already exists without AI (Coatings 2026), and S1 Medium did not fit a 2031 earliest year. New soft input from prop-psi-models (skeptic: PSI sets pad requirements). New hard output to auton-robotic-landing-pad (advocate), which gives this formerly dangling node a downstream use."
+   }
+  },
+  {
+   "id": "auton-certified-assembly-skills",
+   "patch": {
+    "status_oct2026": "Northrop Grumman's Mission Robotic Vehicle launched Jul 22, 2026 with two NRL robotic arms and three Mission Extension Pods; NASA's Fly Foundational Robotics mission (Motiv arm, PickNik MoveIt Pro on Space ROS, Feb 2026) targets autonomous and ground-supervised manipulation. Payload's State of ISAM 2026 calls assembly 'perhaps the furthest away from reality' of ISAM capabilities (Apr 2026).",
+    "revision_note": "B-moon-mars: Auditor (fact): the Payload wording is quoted exactly instead of paraphrased in quotation marks. Other facts verified (MRV launch Jul 22, 2026 with two NRL arms and three MEPs; FFR Feb 2026). Years and bands unchanged."
+   }
+  },
+  {
+   "id": "auton-icy-regolith-ground-truth",
+   "patch": {
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "status_oct2026": "PRIME-1 drill on IM-2 (Mar 2025) returned limited data after the lander tipped over (general). VIPER: CS-7 task order to Blue Origin (Sep 19, 2025, up to $190M); the lunar-delivery option is exercised only after Blue Moon Mk1's first flight, and the target was late 2027. The May 28, 2026 New Glenn static-fire explosion destroyed the LC-36 transporter-erector and damaged the gantry (best-case pad restoration ~15 months per reporting), and NASA is evaluating Falcon Heavy. Chang'e-7 missed its Aug 2026 window and now targets 2027; its hopper and rover carry water and volatile analyzers, spectrometers and radar but no geotechnical drill. ESA's PROSPECT (ProSEED drill to ~1 m) flies on an Intuitive Machines Nova-C in 2027 to ~84.5 S, a site chosen for sunlight where ice-bearing layers may be out of reach. LUPEX (drill) is planned around 2028-29. Moon Base Phase 1 targets up to 30 CLPS landings from 2027.",
+    "why": "This node exists to show a gate AI cannot move: the excavation models above cannot be validated until a polar lander digs into ice-bearing regolith and returns strength or excavation data, not just detection. Chain: CS-7 base task -> Mk1 pathfinder (slipped by the LC-36 loss; New Glenn return to flight or Falcon Heavy) -> delivery option exercised -> VIPER on a second Mk1 (NET 2028, realistically 2029) -> landing -> TRIDENT drilling in ice-bearing regolith. Alternates: PROSPECT's drill (2027, sunlit site, ice possibly out of reach), LUPEX's drill (~2028-29) and Chang'e-8 (~2028-29). Chang'e-7 (2027) gives water data only. Landing success in the CLPS era has been near half (IM-1 and IM-2 tipped, Peregrine failed, ispace M1 and M2 crashed, Blue Ghost 1 succeeded; general), and ice-bearing layers may lie beyond drill reach. At least one usable dataset by 2031 is therefore Medium (judgment, roughly 50-65%), the same in every scenario because the gate is physical. The earliest year stays 2028, given several independent 2027-28 attempts.",
+    "signpost": "Blue Moon Mk1 pathfinder flies and the VIPER delivery option is exercised; PROSPECT drilling results at ~84.5 S (2027); LUPEX or Chang'e-8 drill data from ice-bearing regolith.",
+    "revision_note": "B-moon-mars: Skeptic and auditor (both lenses): bands High -> Medium in all scenarios. Measuring how hard the ice is to dig needs strength or excavation data from ice-bearing regolith. VIPER now sits behind two sequential physical gates (the Mk1 pathfinder, then the option), Chang'e-7 slipped and carries no drill, and CLPS-era landing success is near half. Advocate's High rejected; its new PROSPECT fact is added (verified on ESA's page: Nova-C, 2027, ~84.5 S, ~1 m drill), but the site is sunlit and ice may be out of reach. Auditor's 2028 -> 2029 rejected: the skeptic and advocate both keep 2028, and PROSPECT and LUPEX are 2027-28 attempts. Auditor (contradicted fact): the VIPER task order was Sep 19, 2025 (CS-7, $190M, option contingent), not Dec 2025 (verified, 33FG). The LC-36 damage wording is corrected, and the tier-5 chain is written out. Advocate's MoonFall drone claim is omitted (not verified)."
+   }
+  },
+  {
+   "id": "auton-lunar-o2-flight-demo",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S3": "High"
+    },
+    "description": "A flight demonstration that extracts at least 1 g of oxygen from lunar regolith on the surface (grams to kilograms), by carbothermal reduction, molten-regolith electrolysis, hydrogen reduction or another route. Sub-gram analytical runs, such as ProSPA's hydrogen-reduction oven test, are precursors and do not count.",
+    "status_oct2026": "Ground prototypes only: CaRD integrated solar-carbothermal test (Feb 2026, no flight date), LR-1 MRE (0.07 kg/h, late 2024), Blue Origin Air Pioneer MRE (Jun 2026). NASA's lunar ISRU strategy is a leader/follower sequence of flight demos leading to a pilot plant (NTRS 2025). NASA's LIFT-1 O2-extraction demo was planned in 2023 for a 2027 launch at $200-250M including landing (2026 status unconfirmed). ESA's ProSPA flies a sub-gram hydrogen-reduction test on an Intuitive Machines Nova-C in 2027. Helios (MRE) has reported plans to fly with ispace (date unconfirmed), and ASI's ORACLE carbothermal demo was proposed for a CLPS slot NET 2028 (IAC-23 paper). No payload making 1 g or more of oxygen is confirmed manifested as of Oct 2026; NASA's Mar 24, 2026 RFI seeks payloads for 2027-28 CLPS flights.",
+    "why": "The date is set by CLPS manifests, payload funding and lander success, not by AI math, and the demo would happen on roughly this schedule without it. AI reactor models are therefore an accelerator: they can shorten the cognitive third or so of a payload schedule, worth at most about a year between S1 and S2 (Amdahl ~18% vs ~38%). Chain (S1): a LIFT-1-class or commercial MRE or carbothermal payload manifested 2027-28 -> 12-18 months of integration plus typical slips (announced schedules run 1.5-3x long) -> landing 2030. Chain (S2): the same payloads with AI-assisted test design and anomaly closure from 2027 -> landing 2029. Chain (S3): ROM-tuned flight unit and faster integration -> landing 2028. With several independent candidates (LIFT-1, Helios, ORACLE, and Moon Base Phase 1's up to 30 landings) at CLPS-era landing odds of roughly 50-65% (general), at least one success by 2031 is Medium in S1 and S2, where no qualifying payload is yet manifested. It is High in S3, where launch cadence runs 0.5-1 year earlier and more attempts fit before 2031. Bands are judgments, not computed probabilities.",
+    "revision_note": "B-moon-mars: All three lenses (edge): auton-isru-rom-control moved from hard prerequisite to soft accelerator. The node's own strongest case says the demo happens on roughly this schedule without AI math. The A3 lag-ladder push (S1 2030 -> 2031, Medium -> Low) was an artifact of that edge and is undone: S1 2031 -> 2030 (the skeptic's year) and S1 Low -> Medium (the advocate's band; a non-AI schedule should not be rated below S2). Advocate's S2 2028 and S2 High rejected: no qualifying payload is manifested as of Oct 2026 (auditor), and payloads need 12-18 months after manifesting. S3 Medium -> High accepted from the advocate: multiple independent attempts plus launch cadence 0.5-1 year earlier in S3 (I verified LIFT-1 cost and target, ProSPA's 2027 Nova-C flight and Moon Base Phase 1's up to 30 landings). Advocate: description now requires at least 1 g, so ProSPA's sub-gram run does not trivially satisfy it. Auditor: S1/S2/S3 chains written out."
+   }
+  },
+  {
+   "id": "auton-verified-autonomy-lunar-flight",
+   "patch": {
+    "band_2031": {
+     "S3": "Medium"
+    },
+    "description": "An uncrewed rover, excavator or other robotic surface asset operates on the Moon using autonomy software whose planner and safety monitors carry machine-checked proofs.",
+    "why": "Once proof-carrying autonomy is cheap (S2 2028), adoption needs only one willing payload provider and one successful landing. No certifier is involved: CLPS is a commercial service buy, and uncrewed commercial robots need only an Article VI mission authorization (EO 14335). Chain (S2): proof-carrying autonomy tool 2028 -> integration and a software freeze 12-18 months before landing -> landing 2029. Software uplinks to long-lived robots already on the surface avoid the freeze lag. Chain (S3): the same tool date (S3 equals S2 through 2028) -> landing 2029. Each attempt carries CLPS-era landing odds of roughly 50-65% (general) and depends on a provider choosing proofs without customer pull. The band is therefore Medium in S2 and S3 (judgment), because S3's cheaper cognition raises neither landing reliability nor demand.",
+    "revision_note": "B-moon-mars: Skeptic and auditor (both lenses): S3 High -> Medium. Over 70% would need a 2028 tool, a 12-18 month freeze, a provider that chooses proofs and a successful landing inside about two years, and S3 does not raise landing reliability. Advocate's S2 Medium -> High rejected for the same reasons, although its no-certifier and uplink points are added to the why. The auditor's S2 chain is written out. The description is narrowed to uncrewed assets to match auton-verified-surface-autonomy's new scope."
+   }
+  },
+  {
+   "id": "auton-blss-closed-test",
+   "patch": {
+    "binding_gate": "capital",
+    "earliest_year": {
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S2": "Low"
+    },
+    "catalog_families": [],
+    "premise_tier": "n/a",
+    "description": "A ground test of 180+ days in which a bioregenerative or hybrid life-support loop runs under model-based control with stability certificates, at 95% or more material closure (food, O2, water). Lunar Palace 365 reached 98.2% over 370 days without such control.",
+    "why": "Crop cycles (60-120 days, general) and the need to observe disturbances and recoveries make the test inherently months long. Chain (S2): stability theory and controllers 2029 -> a funded facility (MELiSSA, a Lunar Palace successor or a US analog) adopts them -> a 180+ day run in 2030-31. That is Low, because it needs a funded facility and campaign inside two years. Chain (S3): theory 2029 with near-free controller design and AI-run parallel small loops -> crew-scale run 2030 (Medium). The US gap is funding, not modeling (npj Microgravity 2025).",
+    "revision_note": "B-moon-mars: Skeptic (gate and band): experiment -> capital and S2 Medium -> Low (S3 Medium kept). The node's own strongest case says funding, not modeling, limits US work, and a crew-scale run after a 2029 theory needs a funded facility plus 6+ months inside 2030-31. Description: 'higher closure than prior tests' was a near-impossible bar (Lunar Palace 365 reached 98.2%) and is now 95% or more. Skeptic: catalog_families [149] -> [] and premise_tier -> n/a, since 149 is now only a soft input upstream. S3 2029 -> 2030 (resolver): the upstream theory moved to S3 2029, and a 180-day run cannot finish in the same year."
+   }
+  },
+  {
+   "id": "auton-mars-isru-demo",
+   "patch": {
+    "band_2031": {
+     "S3": "Speculative"
+    },
+    "status_oct2026": "OxEon MOMS hardware in design (ICES 2026). SpaceX reached orbit with Starship on Flight 14 (Sep 28, 2026), and ship-to-ship propellant transfer is expected in early 2027. In Feb 2026 SpaceX made a 'self-growing city' on the Moon (in under 10 years) its priority, with Mars work to begin within 5-7 years, and it told investors it targets an uncrewed lunar landing in Mar 2027 (WSJ via NBC News). Remaining Mars departure windows in the horizon: late 2026 (SpaceX not using it), Dec 2028-Jan 2029, and Feb-Mar 2031 (arrival late 2031).",
+    "why": "hyper-mars-heavy-landing puts the first 20 t-class Mars landing in the early-2031 window at the earliest (arrival late 2031), after propellant transfer and the Moon. Full chain (every scenario): a launch in the Feb-Mar 2031 window arrives about Sep-Nov 2031, leaving 1-3 months in the horizon. A 1-3 kg/h unit also needs roughly 25-50 kW of landed and deployed power (MOXIE-class scaling, general), a funded MOMS payload on a SpaceX ship (no such contract exists) and an H2 or water source for the methane leg. None of these compress in S3, and SpaceX's Moon-first pivot removes the main sponsor for an early-2031 ISRU payload, so every scenario is Speculative. AI math cannot add windows, shorten transits or raise landing reliability much, and AI reactor models are only an accelerator.",
+    "revision_note": "B-moon-mars: Skeptic (band): S3 Low -> Speculative. The full S3 chain leaves 1-3 months after a late-2031 arrival and needs landed power, a contract and a hydrogen source, none of which S3 compresses. The advocate kept Low but conceded that SpaceX's Feb 2026 Moon-first pivot removes the main route to an early ISRU payload (verified, NBC News Feb 9, 2026). Skeptic: auton-isru-rom-control moved from hard to soft. Auditor (fact): the window list now includes the unused late-2026 window. Advocate: the Moon-first status is added. The why is rewritten, because its 'S3 Low' sentence no longer applies."
+   }
+  },
+  {
+   "id": "auton-assembly-flight-demo",
+   "patch": {
+    "band_2031": {
+     "S3": "Low"
+    },
+    "why": "Needs the certified-skills toolchain (S2 2030, S3 2029) and a flight slot. Chain (S3): certified contact sim 2028 -> certified skills 2029 -> software upload to a servicer such as MRV, or a NASA FFR follow-on -> demo 2030. The chain multiplies three uncertain steps: two Medium nodes and a host willing either to risk paying missions or to fund a government demo. 'Qualified mainly by certified simulation' is also itself a qualification-acceptance claim, so even S3 is Low (judgment).",
+    "revision_note": "B-moon-mars: Skeptic (band): S3 Medium -> Low. Three uncertain steps are chained (two Medium nodes plus a flight host), MRV's client operators are unlikely to risk paying missions on a demo, and qualification by simulation is an acceptance claim. No lens argued for keeping Medium. The S3 chain is written out."
+   }
+  },
+  {
+   "id": "auton-ai-planned-ops-routine",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028"
+    },
+    "why": "This is the capability channel in its purest form: no catalog theorem is involved. Ground operations dominate extended-mission cost, and the Moon Base plan multiplies the number of robots per operator. Formal plan checking (model checking of command sequences against flight rules) makes AI plans acceptable without line-by-line human review. 'Routine' means a change in operations culture and flight-rule practice on flagship rovers and Moon Base operators, so it lags the checking tools (verif-fdir-model-checking, S2 2027) by about a year. In 2027 the lunar surface holds only a handful of single-lunar-day landers. Chain (S2): checking tools 2027 -> flight-rule and digital-twin integration at JPL and Phase 1 operators -> majority of drives AI-planned 2028.",
+    "revision_note": "B-moon-mars: Skeptic (timing): 2028/2027/2027 -> 2029/2028/2028. A tier-6 'routine' change in flight-rule practice cannot land in the same year that its tier-4 checking tool first exists; this applies the A3 lag-ladder logic. The advocate's chain also starts from 2027 tools, so its 'routine 2027' is the tool date, not the adoption date. Bands unchanged."
+   }
+  },
+  {
+   "id": "auton-crew-optional-lunar-ops",
+   "patch": {
+    "earliest_year": {
+     "S3": "2031"
+    },
+    "band_2031": {
+     "S2": "Low"
+    },
+    "catalog_families": [],
+    "premise_tier": "n/a (capability); 102 (T3) and 124 (T1, conditional) enter only through auton-ops-planning-ceilings, a soft input",
+    "why": "Between six-month crew visits a base has months of idle infrastructure that must be maintained (dust, thermal cycling, power management). The cognitive enablers (AI-planned operations, runtime-assured autonomy, fault diagnosis) are ready by 2028 in S2. With a 1.3 s light-time, Earth-supervised AI planning and teleoperation can run a base, so proof-carrying autonomy, planning ceilings and crew-side diagnosis accelerate this node rather than gate it. The binding gate is that there must be enough base to operate. Moon Base Phase 2 (2029-2032) brings semi-permanent infrastructure, and sustained presence comes only in Phase 3 (from 2032). Politics and appropriations compress 1.0x, and flagship programs slip 2-7 years (the first crewed landing already slipped ~4 years). Chain (S2): AI operations routine 2028 -> HLS refuel campaign and first heavy cargo landing 2029 -> Phase 2 power, LTVs, a logistics cache and a semi-habitable element operating 2031 -> months of Earth-supervised operation between visits only at the very end of the horizon (Low). Chain (S3): refuel and heavy cargo 2028 -> Phase 2 elements 2030 -> months of uncrewed operation 2031 (Medium). Gateway's pause removes the planned uncrewed-habitat autonomy testbed, so the surface base inherits that role.",
+    "signpost": "Moon Base Phase 2 semi-habitable elements maintained without crew for 3+ months; NASA Phase 2 contracts that specify autonomous operations between crewed missions.",
+    "revision_note": "B-moon-mars: Edges: auton-ops-planning-ceilings and auton-verified-surface-autonomy moved from hard to soft (skeptic and advocate both). auton-earth-independent-fdir also moved to soft (skeptic; the advocate wanted it hard): crew-side diagnosis is for crew present, and this node is about crew absent, with Earth 1.3 s away. New hard prerequisite auton-moon-base-infrastructure (skeptic's missing gate). New soft inputs: prop-psi-models and auton-robotic-landing-pad (advocate). Timing and band, skeptic vs advocate: S3 2030 -> 2031 and S2 Medium -> Low (skeptic). The advocate's S2 2030, S3 2029 and gate -> launch were rejected. NASA's own phasing (Phase 2 2029-2032, Phase 3 from 2032; NBC, verified) and 1.0x appropriations bind, and the band cannot exceed the new hard prerequisite's S2 Low. Gate stays capital (launch now sits on auton-lunar-heavy-cargo-landing). Auditor and skeptic: catalog_families [102,124] -> [] and premise_tier relabeled (124 was cited without 'conditional'); S2 and S3 chains written out. Skeptic: the signpost no longer uses LTV uncrewed operation, which is baseline LTV design."
+   }
+  },
+  {
+   "id": "materials-in-space-mfg-product",
+   "patch": {
+    "status_oct2026": "Demonstrations only: 11.9 km of ZBLAN drawn on the ISS (2024; no published attenuation comparison yet), ForgeStar-1 plasma operations (from Dec 31, 2025; deorbit planned 2026), Varda defense and pharmaceutical reentries (W-5 and W-6 in 2026).",
+    "why": "Products sell on measured quality (fiber attenuation, defect density), not on a model's prediction, and Flawless Photonics and Varda already fly without validated models. Process models help investors and operators choose which products clear the cost of launch and return, so they accelerate this node without gating it. Recurring volume needs dedicated free-flyers, frequent return capsules and committed buyers, all physical and capital gates that AI cognition does not compress. Chain (S2): demonstrations 2024-26 -> measured quality advantage published -> multi-year offtake 2029-30 -> recurring sales 2031 (Low).",
+    "revision_note": "B-moon-mars: Skeptic (edge): materials-microgravity-process-models moved from hard prerequisite to soft accelerator, because products sell on measured quality and demonstrations already fly without validated models. Auditor: status corrected to 11.9 km, with no attenuation advantage claimed. Years and bands unchanged. The skeptic's suggestion to move both materials nodes to another branch was not applied (out of scope for this resolver)."
+   }
+  },
+  {
+   "id": "auton-closed-loop-habitat",
+   "patch": {
+    "band_2031": {
+     "S1": "Speculative",
+     "S3": "Low"
+    },
+    "why": "Reliability is demonstrated with operating hours: a zero-failure demonstration of MTBF M at 95% confidence needs about 3M unit-hours (general). For an assembly with a 20,000 h MTBF target that is ~60,000 flight unit-hours, about 7 unit-years. The only path that compresses this is acceptance of model-based priors (physclock: 0.3-0.6x, i.e. ~18-36k unit-hours). That needs the credibility standard (S2 2029, Medium) and still needs the 75%+ oxygen-recovery hardware to fly. Parallel ground units can de-risk but do not meet the in-flight criterion, and flight unit-hours before ISS retirement (2030-32) are limited by upmass, crew time and the regenerative units' failure history. Hence Low in S2 and S3, and Speculative in S1, where no credibility standard arrives before 2031. Crew-side diagnosis (auton-earth-independent-fdir) helps operations but is not needed for an ISS demonstration, which the ground supports.",
+    "revision_note": "B-moon-mars: Skeptic and auditor (both lenses): S3 Medium -> Low. The definition requires flight, so S3's parallel ground units do not count. Skeptic: S1 Low -> Speculative (no credibility standard in S1 before 2031, so the no-prior binomial applies). Skeptic's S2 Low -> Speculative and the advocate's S2 >2031 -> 2031 cancel out, so S2 stays >2031 Low. The advocate's model-based-prior mechanism is real (physclock 0.3-0.6x) but needs both regulator acceptance and the oxygen-recovery hardware in flight. It is added as soft inputs from physclock-credibility-evidence-standard and physclock-ai-run-test-stands. Skeptic (edge): auton-earth-independent-fdir moved from hard to soft."
+   }
+  },
+  {
+   "id": "auton-lunar-oxygen-ops",
+   "patch": {
+    "why": "Needs the flight demo, then a funded pilot plant (NASA's leader/follower sequence, LIFT-2-class), regolith handling and maintenance robots. Power is smaller than often assumed. 1 t/yr is ~0.11 kg/h, about 1.6x LR-1's demonstrated rate, and needs ~3-6 kW continuous: linear scaling of the 2025 study's <30 kW for 10 t/yr gives ~3 kW, and small cells lose proportionally more heat (general). A ridge-site solar array can supply that, so fission is not required at this scale. The real gates are run duration (8,760 h a year against LR-1's 9 h), anode life (~9 swaps a year at 1,000 h, or the carbothermal route), keeping a ~1,600 C melt through ridge-site dark periods (storage, or freeze-thaw cycles that stress cells and anodes; general), pilot-plant funding (1.0x) and landing success. Chain (S2): first demo 2029 -> pilot unit funded and designed with AI ROMs and MPC 2029-30 -> build and qualification 18-24 months -> landing 2031 at the earliest -> sustained 1 t/yr rate after 2031 (Low by 2031). Chain (S3): demo 2028 -> near-free design and AI-run test stands 2028-29 -> landing 2030 -> 1 t/yr annualized rate in 2031 (Low, because funding, endurance and landing odds do not compress).",
+    "revision_note": "B-moon-mars: Advocate (claim): 'tens of kW of continuous power' corrected. 1 t/yr needs ~3-6 kW (the advocate's linear scaling, which I checked: 30 kW x 8,766 h / 10 t = ~26 kWh/kg). The resolver adds the night-continuity constraint for a molten bath. Skeptic vs advocate on bands: the skeptic wanted S2 Low -> Speculative, and the advocate wanted S2 >2031 -> 2031 and S3 Low -> Medium. Both were rejected and years and bands kept (Speculative/Low/Low). The S2 chain needs a funded pilot plant built and landed within two years of a 2029 demo, and S3 does not compress funding, endurance or landing odds. Both lenses: soft input from auton-mre-anode-materials. Advocate: soft input from auton-lunar-heavy-cargo-landing. Skeptic: soft input from auton-moon-base-infrastructure (a pilot plant is a Phase 2 element). Chains written out."
+   }
+  },
+  {
+   "id": "auton-mars-propellant-plant",
+   "patch": {
+    "revision_note": "B-moon-mars: Skeptic (edge): auton-excavation-design moved from hard prerequisite to soft accelerator. That node models lunar polar icy regolith (0.165 g, vacuum, unknown ice form), and Mars mining targets mid-latitude ground ice under an atmosphere at 0.38 g, so the models do not carry over. No date effect (>2031 everywhere); this fixes a misleading skill-tree link. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "auton-surface-productivity",
+   "patch": {
+    "title": "Severalfold more robot work per operator",
+    "earliest_year": {
+     "S3": "2029"
+    },
+    "description": "Useful surface work (km driven, kg excavated, tasks completed) per ground-operator hour rises severalfold (3-10x, judgment) versus 2025 practice on lunar or Mars surface robots. It comes mainly from AI planning with automated plan checks and from multi-robot coordination, and verified autonomy accelerates it.",
+    "why": "Moon Base Phase 1 cannot be staffed like MER/MSL-era teams per robot, and planning automation plus automated checking removes the operator bottleneck. The metric is a ratio, so it can be shown without a large fleet: on Mars rovers already flying AI-planned drives checked by a digital twin, and on Phase 1 and CADRE-class lunar robots. Chain (S2): AI-planned operations routine 2028 -> adopted by JPL and Moon Base Phase 1 robot operators -> operator-hours per km or per task reported falling severalfold across successive missions or quarters, 2029. Chain (S3): the same timing, with formal plan checks near-free from 2029 (High). Chain (S1): routine AI planning 2029 -> reported 2031. This is the domain's largest five-year outcome and rests on the capability, not the catalog. The earlier 'tenfold' figure had no source; 'severalfold' matches the signpost.",
+    "revision_note": "B-moon-mars: All three lenses (edge): auton-verified-surface-autonomy moved from hard prerequisite to soft accelerator. The operator saving comes from AI planning plus digital-twin or formal plan checks (Perseverance precedent). Skeptic (claim): 'about tenfold' -> 'severalfold (3-10x, judgment)', matching the node's own signpost; the title changed accordingly. Timing, skeptic vs advocate: S3 2028 -> 2029, because auton-ai-planned-ops-routine is now S3 2028 and the metric is measured across successive missions. The skeptic's S2 2029 -> 2030 and the advocate's S2 2029 -> 2028 were both rejected: S2 stays 2029, one year after routine adoption. Bands: the advocate's S2 High rejected (public reporting of the ratio is uncertain); the skeptic's S3 High -> Medium and S1 Medium -> Low rejected, because its ordering argument fell away once the edge became soft and the bar is now severalfold. Bands stay Medium/Medium/High. Auditor: the tier-7 chains are written out."
+   }
+  },
+  {
+   "id": "auton-mars-architecture-close",
+   "patch": {
+    "title": "Mars outpost logistics cut by validated ISRU and closure",
+    "band_2031": {
+     "S3": "Speculative"
+    },
+    "description": "Validated ISRU, closed-loop life support and robot-first precursors reduce Earth-supplied mass for a first Mars outpost materially. In the 33FG model, life support is ~20% and power ~25% of a 152 t ten-person manifest. ISRU mainly saves return propellant, which is outside that manifest (general), and ISRU and closure savings are not yet quantified (judgment).",
+    "status_oct2026": "Industry model (33FG, May 2025): a 10-person Mars outpost needs ~152 t of cargo; ISRU is ~40% of cargo cost, life support ~20% of mass, power ~25% of mass; a robot-only precursor cuts ~29% of cost and ~36% of mass but cannot delete ISRU, power and construction. The -29% cost and -36% mass figures come from removing the crew in a robot-only precursor, not from ISRU or closure.",
+    "revision_note": "B-moon-mars: Skeptic and auditor (claim): the '30-40%' figure was borrowed from the source's robot-only precursor result (removing the crew), which the source says cannot delete ISRU, power and construction. It was then credited to ISRU and closure, so the title and description are rewritten. Skeptic: S3 Low -> Speculative, which is also forced by the hard prerequisite auton-mars-isru-demo now being Speculative in S3."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "id": "auton-lunar-heavy-cargo-landing",
+   "title": "Heavy cargo landed on the Moon",
+   "tier": 6,
+   "kind": "infrastructure",
+   "description": "A refueled Starship or Blue Moon Mk2 cargo lander delivers at least 15 t of useful payload to the lunar south-pole region in one landing. This is where the launch-cost exponential enters the lunar chain: reactors, LTVs, ISRU pilot units, habitats and spares. Smaller Mk1-class deliveries (about 3 t; VIPER, LTVs) are covered in the ground-truth and base chains.",
+   "status_oct2026": "No heavy lunar cargo landing yet. Starship reached orbit on Flight 14 (Sep 28, 2026), and ship-to-ship propellant transfer is expected in early 2027. In Feb 2026 SpaceX made a lunar 'self-growing city' its priority and told investors it targets an uncrewed lunar landing in Mar 2027 (WSJ via NBC News). NASA's Moon Base plan says heavier infrastructure arrives as cargo-capable HLS come online, and bulk launch buys pairing 4-5 rockets with commercial landers were reported near (Bloomberg via 33FG, Oct 6, 2026). Blue Origin's lunar schedule is exposed to the May 28, 2026 LC-36 loss. struct-fsp-lunar-100kwe names a ~15 t lander as its binding gate.",
+   "catalog_families": [],
+   "prerequisites": [
+    "prop-hls-refuel-campaign"
+   ],
+   "accelerated_by": [
+    "physclock-heavy-cadence-100",
+    "physclock-cheap-mass-internal",
+    "prop-cfm-models"
+   ],
+   "binding_gate": "launch",
+   "pathway": "P7 (physical exponential, largely independent of AI math)",
+   "earliest_year": {
+    "S1": "2030",
+    "S2": "2029",
+    "S3": "2028"
+   },
+   "band_2031": {
+    "S1": "Medium",
+    "S2": "Medium",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a",
+   "why": "Launch cadence and refueling, not cognition, set this date. AI contributes at the margin through boil-off and transfer models (prop-cfm-models), faster anomaly closure and PSI-informed site selection: 0-0.5 year in S2 and 0.5-1 year in S3 (physclock launch row). Chain (S2): ship-to-ship transfer 2027 -> full refuel campaign 2029 -> uncrewed or cargo-configured landing carrying 15 t or more 2029, under the Moon Base bulk-buy model. Chain (S1): the same curve without AI-assisted anomaly closure -> 2030. Chain (S3): refuel 2028 -> cargo landing 2028. The band is Medium in every scenario: it cannot exceed the refuel campaign's Medium in S1 and S2, announced schedules slip 1.5-3x, and a first landing of a new vehicle class on south-polar terrain carries real tip-over risk even in S3. Second-order unlock where the two curves combine: once landed mass is cheap and design iterations cost almost nothing, lunar hardware can be built mass-tolerant and rich in spares. That shifts reliability gates (ECLSS MTBF, MRE anode life) from 'demonstrate MTBF' toward 'carry spares and let robots swap them'.",
+   "strongest_case_small": "This node is almost entirely SpaceX's and Blue Origin's physical program; AI math moves it by months at most, and a single landing failure or refuel-campaign slip costs a year regardless of analysis speed.",
+   "signpost": "A Starship or Blue Moon Mk2 landing on the Moon with a declared payload of 15 t or more; NASA bulk lunar-delivery contracts naming heavy cargo flights.",
+   "domain": "auton",
+   "revision_note": "B-moon-mars: New node. It merges the advocate's auton-lunar-heavy-cargo-landing with the auditor's physclock-lunar-heavy-cargo; the advocate's 15 t threshold is kept because that is the gate struct-fsp-lunar-100kwe names and the one base infrastructure needs. The advocate's 2030/2029/2028 years are kept. Its S3 High is tempered to Medium (auditor's Medium; announced schedules slip 1.5-3x; landing risk), and the 'second landing within 12 months' clause is dropped so the year marks a single event. Not a duplicate: prop-hls-refuel-campaign is the propellant campaign, and no node covered landed heavy cargo. Edges into external nodes (a hard edge into struct-fsp-lunar-100kwe) are left for the struct branch."
+  },
+  {
+   "id": "auton-moon-base-infrastructure",
+   "title": "Moon Base Phase 2 infrastructure on the surface",
+   "tier": 6,
+   "kind": "infrastructure",
+   "description": "At one south-polar site, the following are landed and operating: night-surviving surface power of tens of kW (ridge-site solar with storage, or fission), surface communications, LTVs and a logistics cache, plus at least one semi-habitable element. This is the physical base that 'runs itself between crew visits' would maintain. It has no AI-math pathway and exists to show the gate.",
+   "status_oct2026": "NASA's Moon Base plan (Mar 24, 2026) has three phases: Build, Test, Learn (CLPS and LTVs, up to 30 robotic landings from 2027); Establish Early Infrastructure (semi-habitable infrastructure and regular logistics); and long-duration presence once cargo-capable HLS come online. Reporting dates Phase 2 to 2029-2032 and Phase 3 to 2032 onward (NBC; NASA's release gives no years). Budget reported at ~$30B (Bloomberg via 33FG). LTV awards in May 2026 (Astrolab $219M, Lunar Outpost $220M). Lunar Reactor-1 is to land in 2030. Astrobotic's LunaGrid-Lite (1 kW over 1 km of cable) is a power-distribution precursor.",
+   "catalog_families": [],
+   "prerequisites": [
+    "auton-lunar-heavy-cargo-landing"
+   ],
+   "accelerated_by": [
+    "struct-fsp-lunar-100kwe",
+    "physclock-heavy-cadence-100"
+   ],
+   "binding_gate": "capital",
+   "pathway": "P7 (physical and appropriations gate)",
+   "earliest_year": {
+    "S1": "2031",
+    "S2": "2031",
+    "S3": "2030"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Low",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a",
+   "why": "This is the gate auton-crew-optional-lunar-ops names for itself: there must be enough base to operate. Phase 2 runs 2029-2032. Politics and appropriations compress 1.0x, government flagships slip 2-7 years (physclock), and the first crewed landing has already slipped about four years. Chain (S2): refuel campaign and first heavy cargo landing 2029 -> Phase 2 power, LTVs, logistics cache and a semi-habitable element delivered over several heavy and CLPS landings 2030-31 -> all operating at one site by late 2031 (Low). Chain (S3): heavy cargo 2028 -> launch cadence 0.5-1 year earlier plus near-free design -> operating 2030 (Medium). Chain (S1): the same as S2, with the 2030 heavy-cargo date making 2031 the edge of the horizon (Low). SpaceX's Moon-first priority is an upside a NASA-only schedule would not show.",
+   "strongest_case_small": "Nothing here depends on AI mathematics; the base is built when appropriations, landers and landing success allow, and AI only trims engineering labor.",
+   "signpost": "NASA Moon Base Phase 2 contracts for a semi-habitable element and surface power with named delivery dates; a surface power system of 10 kW or more operating through more than one lunar day at the south pole.",
+   "domain": "auton",
+   "revision_note": "B-moon-mars: New node from the skeptic: the binding gate auton-crew-optional-lunar-ops names for itself was missing from the graph. The skeptic's years and bands (2031/2031/2030, Low/Low/Medium) are kept. The hard prerequisite is auton-lunar-heavy-cargo-landing instead of prop-hls-refuel-campaign directly (the refuel gate is reached through it). The advocate's separate auton-lunar-solar-grid node was folded in as the 'night-surviving surface power' component and not added: a 1 t/yr oxygen pilot can carry its own ~3-6 kW array, so a stand-alone grid node is not a gate for anything in this branch. Not a duplicate of struct-fsp-lunar-100kwe (one power source, here a soft input)."
+  },
+  {
+   "id": "auton-robotic-landing-pad",
+   "title": "First robot-built landing pad or blast berm on the Moon",
+   "tier": 5,
+   "kind": "technology",
+   "description": "Autonomous machines build a landing pad or blast berm of tens of square meters or more from local regolith on the Moon (sintered, melted or 3D-printed), using process windows from auton-sinter-process-control. The structure then survives the plume of a lander or a dedicated plume-test thruster.",
+   "status_oct2026": "NASA's MMPACT work with ICON (Project Olympus, $57.2M) aimed at a south-pole pad and blast-shield demonstration, originally targeted for about 2026, and no flight is manifested as of Oct 2026 (general). Lunar construction startups: Lunar Forge (Jul 2026); Astroport with Vermeer on autonomous construction machinery (Apr 2026). Microwave-sintered regolith cracks when cooled faster than ~16 C/min (Coatings, Feb 2026). SCALPSS imaged plume erosion on Blue Ghost Mission 1 (2025).",
+   "catalog_families": [],
+   "prerequisites": [
+    "auton-sinter-process-control"
+   ],
+   "accelerated_by": [
+    "prop-psi-models",
+    "auton-lunar-heavy-cargo-landing",
+    "auton-ai-planned-ops-routine"
+   ],
+   "binding_gate": "launch",
+   "pathway": "P1->P6->P7",
+   "earliest_year": {
+    "S1": ">2031",
+    "S2": "2031",
+    "S3": "2030"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Low"
+   },
+   "premise_tier": "n/a",
+   "why": "Pads and berms matter because landing plumes eject regolith at high speed, and the hazard grows with Starship-class landers and repeated landings at one base site. Chain (S2): AI-mapped process windows and cooling-rate control 2029 -> flight unit after a 12-18 month smallsat-class lag -> landing 2031 -> pad-scale area sintered within one lunar day and plume-tested (Low). Chain (S3): process control 2028 -> landing 2030 (Low). The physics that does not compress, sintering power of kW to hundreds of kW and thermal-cycling cracking, keeps even S3 at Low, along with landing odds and the lack of a manifested flight.",
+   "strongest_case_small": "Operators can engineer around plumes with mid-body landing thrusters, throttling and standoff distance, so a pad may not be needed before the base has many landings, and the binding constraint is power, not recipes.",
+   "signpost": "A CLPS or Moon Base Phase 1 manifest that includes a construction or pad-sintering payload; a relevant-environment test in which a sintered pad survives a rocket plume.",
+   "domain": "auton",
+   "revision_note": "B-moon-mars: New node from the advocate. It gives the dangling auton-sinter-process-control and prop-psi-models a downstream use in the skill tree. The advocate's years and bands (>2031/2031/2030, Speculative/Low/Low) are kept. Its soft input from the rejected auton-lunar-solar-grid is dropped. The test criterion allows a dedicated plume-test thruster as well as a lander plume, so the node does not need a second landing at the same site. Not a duplicate: no pad or construction outcome node exists."
+  }
+ ],
+ "add_edges": [
+  {
+   "from": "auton-moon-base-infrastructure",
+   "to": "auton-crew-optional-lunar-ops"
+  },
+  {
+   "from": "cap-applied-math",
+   "to": "auton-granular-regolith-model"
+  },
+  {
+   "from": "cap-applied-math",
+   "to": "prop-psi-models"
+  }
+ ],
+ "remove_edges": [
+  {
+   "from": "auton-ops-planning-ceilings",
+   "to": "auton-crew-optional-lunar-ops"
+  },
+  {
+   "from": "auton-verified-surface-autonomy",
+   "to": "auton-crew-optional-lunar-ops"
+  },
+  {
+   "from": "auton-earth-independent-fdir",
+   "to": "auton-crew-optional-lunar-ops"
+  },
+  {
+   "from": "auton-mass-action-permanence",
+   "to": "auton-blss-stability-theory"
+  },
+  {
+   "from": "auton-isru-rom-control",
+   "to": "auton-lunar-o2-flight-demo"
+  },
+  {
+   "from": "auton-isru-rom-control",
+   "to": "auton-mars-isru-demo"
+  },
+  {
+   "from": "auton-verified-surface-autonomy",
+   "to": "auton-surface-productivity"
+  },
+  {
+   "from": "auton-ecls-reliability-uq",
+   "to": "auton-earth-independent-fdir"
+  },
+  {
+   "from": "auton-earth-independent-fdir",
+   "to": "auton-closed-loop-habitat"
+  },
+  {
+   "from": "auton-excavation-design",
+   "to": "auton-mars-propellant-plant"
+  },
+  {
+   "from": "materials-microgravity-process-models",
+   "to": "materials-in-space-mfg-product"
+  },
+  {
+   "from": "infra-verified-numerics",
+   "to": "auton-isru-rom-control"
+  },
+  {
+   "from": "auton-granular-wellposedness",
+   "to": "auton-granular-regolith-model"
+  },
+  {
+   "from": "cap-physics-theory",
+   "to": "auton-granular-regolith-model"
+  },
+  {
+   "from": "cap-physics-theory",
+   "to": "prop-psi-models"
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "auton-ops-planning-ceilings",
+   "to": "auton-crew-optional-lunar-ops"
+  },
+  {
+   "from": "auton-verified-surface-autonomy",
+   "to": "auton-crew-optional-lunar-ops"
+  },
+  {
+   "from": "auton-earth-independent-fdir",
+   "to": "auton-crew-optional-lunar-ops"
+  },
+  {
+   "from": "auton-mass-action-permanence",
+   "to": "auton-blss-stability-theory"
+  },
+  {
+   "from": "auton-isru-rom-control",
+   "to": "auton-lunar-o2-flight-demo"
+  },
+  {
+   "from": "auton-isru-rom-control",
+   "to": "auton-mars-isru-demo"
+  },
+  {
+   "from": "auton-verified-surface-autonomy",
+   "to": "auton-surface-productivity"
+  },
+  {
+   "from": "auton-ecls-reliability-uq",
+   "to": "auton-earth-independent-fdir"
+  },
+  {
+   "from": "auton-earth-independent-fdir",
+   "to": "auton-closed-loop-habitat"
+  },
+  {
+   "from": "auton-excavation-design",
+   "to": "auton-mars-propellant-plant"
+  },
+  {
+   "from": "materials-microgravity-process-models",
+   "to": "materials-in-space-mfg-product"
+  },
+  {
+   "from": "infra-verified-numerics",
+   "to": "auton-isru-rom-control"
+  },
+  {
+   "from": "auton-granular-wellposedness",
+   "to": "auton-granular-regolith-model"
+  },
+  {
+   "from": "cap-physics-theory",
+   "to": "auton-granular-regolith-model"
+  },
+  {
+   "from": "cap-physics-theory",
+   "to": "prop-psi-models"
+  },
+  {
+   "from": "auton-mre-anode-materials",
+   "to": "auton-lunar-oxygen-ops"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "auton-mre-anode-materials"
+  },
+  {
+   "from": "physclock-optimal-test-campaigns",
+   "to": "auton-certified-contact-sim"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "auton-certified-contact-sim"
+  },
+  {
+   "from": "physclock-credibility-evidence-standard",
+   "to": "auton-closed-loop-habitat"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "auton-closed-loop-habitat"
+  },
+  {
+   "from": "prop-psi-models",
+   "to": "auton-sinter-process-control"
+  },
+  {
+   "from": "prop-psi-models",
+   "to": "auton-crew-optional-lunar-ops"
+  },
+  {
+   "from": "auton-robotic-landing-pad",
+   "to": "auton-crew-optional-lunar-ops"
+  },
+  {
+   "from": "auton-lunar-heavy-cargo-landing",
+   "to": "auton-lunar-oxygen-ops"
+  },
+  {
+   "from": "auton-lunar-heavy-cargo-landing",
+   "to": "prop-psi-models"
+  },
+  {
+   "from": "auton-moon-base-infrastructure",
+   "to": "auton-lunar-oxygen-ops"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "moon-mars",
+   "nodes": [
+    "auton-lunar-heavy-cargo-landing",
+    "auton-moon-base-infrastructure",
+    "auton-robotic-landing-pad"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "moon-mars",
+   "patch": {
+    "thesis": "If AI can plan and check robot operations and put honest numbers on life-support and oxygen-plant reliability, lunar and Mars robots do severalfold more work per operator by about 2029 (base case, Medium). A base that runs itself between crew visits waits on heavy cargo landings and Moon Base Phase 2 infrastructure (2029-2032) and stays Low by 2031 in the base case. A tonne-a-year oxygen plant needs only a few kilowatts but is gated by anode endurance, riding a molten bath through lunar dark periods and pilot-plant funding, while Mars logistics stay gated by launch windows.",
+    "reader_hook": "A 2024 molten-regolith electrolysis rig made 0.07 kg of oxygen an hour and MOXIE made 12 g/h, against about 1.1 kg/h for a 10 t/yr lunar plant and about 65 kg/h for a Starship return. Excavation energy rises 52x (2.74 to 143 J/g) as ice content goes from 1 to 12 wt% in ice-cemented simulant but falls about 3x in pressure-sintered simulant, so the unknown form of polar ice swings excavation cost by two to three orders of magnitude.",
+    "spine": [
+     "auton-temporal-logic-synthesis",
+     "auton-verified-surface-autonomy",
+     "auton-ai-planned-ops-routine",
+     "auton-surface-productivity",
+     "auton-ecls-reliability-uq",
+     "auton-earth-independent-fdir",
+     "auton-lunar-heavy-cargo-landing",
+     "auton-moon-base-infrastructure",
+     "auton-crew-optional-lunar-ops",
+     "auton-isru-rom-control",
+     "auton-lunar-o2-flight-demo",
+     "auton-lunar-oxygen-ops"
+    ]
+   }
+  }
+ ],
+ "notes": "B-moon-mars resolver (2026-10-07). Inputs: physics and engineering skeptic, exponential advocate, grounding and fact auditor. Main moves: (1) accelerators that had been drawn as prerequisites are now soft edges: planning ceilings (P3), proof-carrying autonomy and crew-side FDIR into crew-optional ops; family 149 into BLSS theory; AI reactor ROMs into the first lunar O2 demo and the Mars ISRU demo; verified autonomy into surface productivity; ECLSS sparing models into FDIR; FDIR into the closed-loop habitat; the lunar excavator into the Mars propellant plant; process models into in-space manufactured products; verified numerics into ROMs; well-posedness and physics theory into the regolith and PSI models (cap-applied-math is the hard input instead). (2) Three new nodes put the physical gates on the tree: auton-lunar-heavy-cargo-landing (launch exponential; merges the advocate's and auditor's heavy-cargo nodes), auton-moon-base-infrastructure (skeptic; the gate crew-optional ops names for itself) and auton-robotic-landing-pad (advocate; gives sinter-process-control and PSI a downstream use). The advocate's auton-lunar-solar-grid was folded into base infrastructure. (3) Crew-optional ops: S2 Medium -> Low, S3 2030 -> 2031, following NASA's Phase 2 (2029-2032) and Phase 3 (2032+) timing. (4) Certification cap applied to FDIR (Medium in every scenario). Verified surface autonomy keeps High by excluding crew-rated LTVs and taking the adoption gate. (5) Facts fixed: VIPER task order date and option contingency, LC-36 damage, Chang'e-7 slip (no drill), the 52x ice-form misreading, ZBLAN 'lower attenuation' removed, ForgeStar-1 '100 times' removed, Starship HLS mid-body thrusters, the 'position h' citation, Mars light-time and windows, anode swap arithmetic, Mars logistics 30-40% misattribution, 149 T1 wording and scope, and 104 scope. (6) S3 aligned with S2 through 2028 where capability is identical (contact well-posedness, ROMs, BLSS theory, which also matches the trunk resolver's cap-physics-theory S3 2029). Not applied (outside this branch): a hard edge auton-lunar-heavy-cargo-landing -> struct-fsp-lunar-100kwe (that node names a ~15 t lander as its gate; recommended to the struct resolver); the '52x across plausible polar ice forms' wording in graph domains.auton.key_insights and research/auton.json; 'lower attenuation' in research/materials.json sources; '(analyst position h)' / '(position h)' in verif-branch nodes and the verif domain bottleneck text; moving the two materials nodes to another branch."
+}

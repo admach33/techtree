@@ -1,0 +1,705 @@
+<title>Space Unlock Tree</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Saira+Condensed:wght@500;600;700&display=swap">
+<style>
+/* Layout: controls -> two-clocks chart beside a branch-by-year overview -> one branch drawn as a waterfall
+   (tier rows top to bottom, earliest-credible-year columns left to right) with a detail panel. */
+:root {
+  --bg: #f2f4f5; --surface: #fbfcfc; --surface-2: #e9edf0; --ink: #0f1820; --ink-2: #44515d; --muted: #6f7b86;
+  --line: #d8dee3; --line-2: #bcc6ce; --hatch: rgba(15, 24, 32, .055);
+  --cog: #2a78d6; --cog-ink: #1c5cab; --cog-soft: #dce9fa; --phys: #eb6834; --phys-ink: #a9441a; --phys-soft: #fbe3d8;
+  --sel: #0f1820; --shadow: 0 1px 2px rgba(15, 24, 32, .08);
+  --f-display: "Saira Condensed", "Arial Narrow", system-ui, sans-serif;
+  --f-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c1014; --surface: #131920; --surface-2: #1b232b; --ink: #e8edf1; --ink-2: #a9b4be; --muted: #7d8994;
+    --line: #232d36; --line-2: #34424e; --hatch: rgba(232, 237, 241, .05);
+    --cog: #3987e5; --cog-ink: #8dbaf0; --cog-soft: #142d4a; --phys: #d95926; --phys-ink: #f2a582; --phys-soft: #3a1e12;
+    --sel: #e8edf1; --shadow: none; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0c1014; --surface: #131920; --surface-2: #1b232b; --ink: #e8edf1; --ink-2: #a9b4be; --muted: #7d8994;
+  --line: #232d36; --line-2: #34424e; --hatch: rgba(232, 237, 241, .05);
+  --cog: #3987e5; --cog-ink: #8dbaf0; --cog-soft: #142d4a; --phys: #d95926; --phys-ink: #f2a582; --phys-soft: #3a1e12;
+  --sel: #e8edf1; --shadow: none; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1480px; margin: 0 auto; padding-inline: clamp(16px, 3vw, 40px); padding-block: 28px 72px; display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 600; letter-spacing: .01em; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(34px, 5vw, 52px); line-height: 1; font-weight: 700; }
+h2 { font-size: 24px; line-height: 1.1; }
+h3 { font-size: 18px; line-height: 1.15; }
+p { margin: 0; }
+a { color: var(--cog-ink); }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--sel); outline-offset: 2px; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.lede { max-width: 72ch; color: var(--ink-2); font-size: 16px; }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+header { display: grid; gap: 12px; }
+
+/* controls */
+.controls { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: end; padding-block: 14px; border-block: 1px solid var(--line); position: sticky; top: env(safe-area-inset-top, 0px); background: var(--bg); z-index: 20; }
+.ctl { display: grid; gap: 6px; min-width: 0; }
+.ctl label, .ctl .lbl { font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.seg { display: inline-flex; border: 1px solid var(--line-2); border-radius: 6px; overflow: hidden; background: var(--surface); }
+.seg button { border: 0; background: transparent; padding: 7px 12px; cursor: pointer; font-size: 14px; white-space: nowrap; }
+.seg button + button { border-left: 1px solid var(--line-2); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.yearctl { display: flex; align-items: center; gap: 12px; }
+.yearctl input[type=range] { width: min(260px, 52vw); accent-color: var(--ink); }
+.yearval { font-family: var(--f-display); font-size: 26px; font-weight: 700; min-width: 3.2ch; line-height: 1; }
+.search { position: relative; }
+.search input { width: min(280px, 80vw); padding: 7px 10px; border: 1px solid var(--line-2); border-radius: 6px; background: var(--surface); }
+.results { position: absolute; top: calc(100% + 4px); left: 0; width: min(420px, 86vw); background: var(--surface); border: 1px solid var(--line-2); border-radius: 6px; box-shadow: 0 6px 24px rgba(0,0,0,.14); z-index: 40; max-height: 320px; overflow: auto; }
+.results button { display: block; width: 100%; text-align: left; border: 0; background: none; padding: 8px 10px; cursor: pointer; border-bottom: 1px solid var(--line); }
+.results button:hover, .results button:focus { background: var(--surface-2); }
+.results small { display: block; color: var(--muted); font-size: 12px; }
+.scen-blurb { color: var(--ink-2); font-size: 14px; max-width: 64ch; }
+
+/* top panels */
+.top { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 20px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; min-width: 0; display: grid; gap: 12px; align-content: start; }
+.statline { font-size: 15px; color: var(--ink-2); }
+.statline b { color: var(--ink); }
+.clocks svg { width: 100%; height: auto; display: block; overflow: visible; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--ink-2); }
+.key { display: inline-flex; align-items: center; gap: 6px; }
+.swatch { width: 18px; height: 3px; border-radius: 2px; display: inline-block; }
+.chip-sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; border: 1px solid; }
+.tip { position: absolute; pointer-events: none; background: var(--surface); border: 1px solid var(--line-2); border-radius: 6px; padding: 8px 10px; font-size: 13px; box-shadow: 0 4px 16px rgba(0,0,0,.12); z-index: 50; min-width: 170px; }
+.tip .row { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
+.tip .v { font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* overview matrix */
+.ov { overflow-x: auto; }
+.ovgrid { display: grid; grid-template-columns: minmax(170px, 2fr) repeat(11, minmax(34px, 1fr)); min-width: 640px; font-size: 13px; }
+.ovgrid .h { font-family: var(--f-mono); font-size: 11px; color: var(--muted); padding: 4px 6px; border-bottom: 1px solid var(--line); text-align: center; }
+.ovgrid .h:first-child { text-align: left; }
+.ovrow { display: contents; }
+.ovrow > * { border-bottom: 1px solid var(--line); padding: 6px; min-height: 34px; }
+.ovname { text-align: left; border: 0; background: none; cursor: pointer; font-weight: 700; line-height: 1.2; font-size: 13px; display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.ovname .mono { font-weight: 400; color: var(--muted); font-size: 11px; }
+.ovrow[data-on="true"] > * { background: var(--surface-2); }
+.ovrow:hover > * { background: var(--surface-2); }
+.ovcell { display: flex; flex-wrap: wrap; gap: 3px; align-content: center; justify-content: center; }
+.ovcell.late { background: repeating-linear-gradient(135deg, var(--hatch) 0 4px, transparent 4px 8px); }
+.ovcell.future { opacity: .38; }
+.dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+.dot.cog { background: var(--cog); } .dot.phys { background: var(--phys); }
+
+/* branch section */
+.branchhead { display: grid; gap: 8px; }
+.tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
+.tab { border: 1px solid var(--line-2); background: var(--surface); border-radius: 999px; padding: 6px 12px; cursor: pointer; white-space: nowrap; font-size: 13px; display: inline-flex; gap: 8px; align-items: center; }
+.tab[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.tab .mono { font-size: 11px; opacity: .75; }
+.thesis { font-size: 17px; max-width: 78ch; }
+.branchmeta { display: grid; gap: 8px; }
+.narr { max-width: 78ch; display: grid; gap: 10px; font-size: 15px; }
+.narr details { display: grid; gap: 10px; }
+.narr details[open] summary { margin-bottom: 10px; }
+.narr summary { font-family: var(--f-mono); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-2); }
+.narr details p + p { margin-top: 10px; }
+.branchmeta .row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.branchmeta .row > .lbl { font-family: var(--f-mono); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
+.hook { color: var(--ink-2); max-width: 78ch; font-size: 14px; }
+.branchbody { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; align-items: start; }
+@media (min-width: 1560px) { .branchbody { grid-template-columns: minmax(0, 1fr) 380px; } }
+.toolbar { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; justify-content: space-between; }
+.howto { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); align-items: center; }
+
+.canvaswrap { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: auto; max-height: 80vh; position: relative; }
+.canvas { position: relative; display: grid; }
+.canvas .colh, .canvas .corner { position: sticky; top: 0; z-index: 6; background: var(--surface); border-bottom: 1px solid var(--line); font-family: var(--f-mono); font-size: 12px; color: var(--ink-2); display: flex; align-items: center; justify-content: center; }
+.canvas .colh.past { color: var(--ink); font-weight: 500; }
+.canvas .colh.late { background: var(--surface); }
+.canvas .corner { left: 0; z-index: 8; justify-content: flex-start; padding-left: 12px; color: var(--muted); font-size: 11px; }
+.canvas .rowl { position: sticky; left: 0; z-index: 5; background: var(--surface); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 8px 10px; display: grid; align-content: start; gap: 2px; }
+.rowl .tn { font-family: var(--f-display); font-size: 22px; font-weight: 700; line-height: 1; }
+.rowl .tname { font-size: 12px; color: var(--ink-2); line-height: 1.2; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.rowl.cog .tn { color: var(--cog-ink); } .rowl.phys .tn { color: var(--phys-ink); }
+.canvas .cell { border-bottom: 1px solid var(--line); border-right: 1px dashed var(--line); }
+.canvas .cell.late { background: repeating-linear-gradient(135deg, var(--hatch) 0 5px, transparent 5px 10px); }
+.canvas .cell.future { background-color: var(--hatch); }
+.canvas .cell.cpline { border-right: 2px solid var(--line-2); }
+.canvas .clockdiv { border-bottom: 2px solid var(--line-2); }
+.edges { position: absolute; left: 0; top: 0; z-index: 1; pointer-events: none; transition: opacity .2s; }
+.edges path { fill: none; stroke: var(--line-2); stroke-width: 1.2; }
+.edges path.soft { stroke-dasharray: 3 4; }
+.edges path.hi { stroke: var(--ink); stroke-width: 1.8; }
+.edges path.lo { opacity: .25; }
+.card { position: absolute; left: 0; top: 0; z-index: 2; width: var(--cw); height: var(--ch); border-radius: 7px; border: 1px dashed var(--line-2); background: var(--surface); padding: 6px 8px; text-align: left; cursor: pointer; display: grid; grid-template-rows: 1fr auto; gap: 2px; transition: transform .45s cubic-bezier(.2,.7,.2,1), opacity .2s; overflow: hidden; }
+.card .ct { font-size: 12px; line-height: 1.2; font-weight: 700; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.card .cm { display: flex; justify-content: space-between; align-items: center; gap: 6px; font-family: var(--f-mono); font-size: 10.5px; color: var(--muted); }
+.card .cm .gate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.card.on.cog { background: var(--cog-soft); border: 1px solid var(--cog); }
+.card.on.phys { background: var(--phys-soft); border: 1px solid var(--phys); }
+.card.maybe { border-style: dotted; border-width: 1.5px; }
+.card.maybe.cog { border-color: var(--cog); background: repeating-linear-gradient(135deg, var(--cog-soft) 0 3px, var(--surface) 3px 8px); }
+.card.maybe.phys { border-color: var(--phys); background: repeating-linear-gradient(135deg, var(--phys-soft) 0 3px, var(--surface) 3px 8px); }
+.card.maybe .ct { color: var(--ink-2); }
+.card.on .ct { color: var(--ink); }
+.card.on .cm { color: var(--ink-2); }
+.card.spine::after { content: ""; position: absolute; right: 6px; top: 6px; width: 6px; height: 6px; border-radius: 50%; background: var(--ink); opacity: .7; }
+.card.sel { box-shadow: 0 0 0 2px var(--sel); }
+.card.dim { opacity: .28; }
+.card.ext .ct { font-style: italic; }
+.card.ext:not(.on):not(.maybe) { border-style: dotted; }
+.card:hover { box-shadow: 0 0 0 1px var(--ink-2); }
+.card.sel:hover { box-shadow: 0 0 0 2px var(--sel); }
+.bars { display: inline-flex; align-items: flex-end; gap: 1.5px; height: 10px; flex: none; }
+.bars i { width: 3px; background: var(--line-2); border-radius: 1px; display: block; }
+.bars i.f { background: currentColor; }
+.bars i:nth-child(1) { height: 3px; } .bars i:nth-child(2) { height: 5px; } .bars i:nth-child(3) { height: 7.5px; } .bars i:nth-child(4) { height: 10px; }
+
+.listwrap { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: auto; max-height: 80vh; }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { position: sticky; top: 0; background: var(--surface); font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 500; z-index: 1; }
+td .mono { font-size: 12.5px; }
+tbody tr { cursor: pointer; }
+tbody tr:hover { background: var(--surface-2); }
+tbody tr[aria-selected="true"] { background: var(--surface-2); box-shadow: inset 3px 0 0 var(--ink); }
+
+/* detail panel: side column on wide screens, bottom sheet otherwise */
+.detail { position: sticky; top: 96px; max-height: calc(100vh - 116px); overflow: auto; }
+.sheethead { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
+.close { border: 1px solid var(--line-2); background: var(--surface); border-radius: 6px; padding: 4px 10px; cursor: pointer; font-size: 13px; flex: none; }
+@media (min-width: 1560px) { .close { display: none; } }
+@media (max-width: 1559px) {
+  .detail { position: fixed; left: 0; right: 0; bottom: 0; top: auto; z-index: 30; max-height: min(46vh, 520px); border-radius: 12px 12px 0 0; border-bottom: 0; padding-inline: max(16px, calc((100vw - 1400px) / 2)); padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -8px 30px rgba(0,0,0,.16); }
+  .detail[data-empty="true"] { display: none; }
+  .detail .cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 12px 28px; }
+  body.sheet-open .wrap { padding-bottom: min(48vh, 540px); }
+}
+@media (max-width: 760px) { .detail .cols { grid-template-columns: minmax(0, 1fr); } }
+.detail .kv { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 13.5px; }
+.detail .kv dt { color: var(--muted); font-family: var(--f-mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: .04em; padding-top: 2px; }
+.detail .kv dd { margin: 0; }
+.detail section { display: grid; gap: 4px; }
+.detail section h4 { margin: 0; font-family: var(--f-mono); font-size: 11.5px; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+.detail section p { font-size: 14px; }
+.yt { width: 100%; font-size: 13px; }
+.yt td, .yt th { padding: 5px 6px; }
+.yt th { position: static; }
+.yt tr.cur td { font-weight: 700; }
+.linklist { display: flex; flex-wrap: wrap; gap: 6px; }
+.nlink { border: 1px solid var(--line-2); background: var(--surface); border-radius: 6px; padding: 3px 8px; font-size: 12.5px; cursor: pointer; text-align: left; line-height: 1.25; }
+.nlink:hover { background: var(--surface-2); }
+.nlink .mono { color: var(--muted); font-size: 10.5px; display: block; }
+.badge { font-family: var(--f-mono); font-size: 11px; padding: 2px 6px; border-radius: 4px; border: 1px solid var(--line-2); color: var(--ink-2); white-space: nowrap; }
+.badges { display: flex; flex-wrap: wrap; gap: 6px; }
+details summary { cursor: pointer; font-size: 13.5px; color: var(--ink-2); }
+details ul { margin: 6px 0 0; padding-left: 18px; font-size: 13px; display: grid; gap: 4px; }
+
+/* debates and notes */
+.lower { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; }
+.debate { border-top: 1px solid var(--line); padding-top: 12px; display: grid; gap: 6px; font-size: 14px; }
+.debate:first-of-type { border-top: 0; padding-top: 0; }
+.debate .who { font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.debate .res { font-weight: 700; }
+.nil li { margin-bottom: 6px; }
+.method { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; font-size: 14px; color: var(--ink-2); }
+.method h3 { color: var(--ink); margin-bottom: 6px; }
+.method dl { margin: 0; display: grid; gap: 4px; }
+.method dt { font-weight: 700; color: var(--ink); }
+.method dd { margin: 0 0 6px; }
+footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 16px; }
+
+@media (max-width: 1180px) {
+  .top { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  .lower { grid-template-columns: minmax(0, 1fr); }
+  .controls { position: static; }
+  .canvaswrap, .listwrap { max-height: 70vh; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card, .edges { transition: none; }
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">AI mathematics and space technology · as of 7 Oct 2026</div>
+    <h1>Space Unlock Tree</h1>
+    <p class="lede">What becomes solvable in space technology when AI can do research mathematics on request? Each card is a problem, method, technology or outcome. Each line says one must come before the other. Cards sit in the year they first become credible under the chosen scenario. Move the year to see what has unlocked, through 2035. A card counts as unlocked once its year arrives and it is rated High or Medium at the next checkpoint (end-2031 for years through 2031, end-2035 after). The year is the earliest credible year, not a forecast date.</p>
+  </header>
+
+  <div class="controls" role="group" aria-label="Scenario and year">
+    <div class="ctl">
+      <span class="lbl" id="scen-lbl">Scenario</span>
+      <div class="seg" id="scen" role="group" aria-labelledby="scen-lbl"></div>
+    </div>
+    <div class="ctl">
+      <label for="year">Unlocked by</label>
+      <div class="yearctl"><input type="range" id="year" min="2026" max="2035" step="1" value="2031"><span class="yearval mono" id="yearval">2031</span></div>
+    </div>
+    <div class="ctl search">
+      <label for="q">Find a node</label>
+      <input id="q" type="search" placeholder="e.g. heat shield, Navier–Stokes" autocomplete="off" aria-controls="results">
+      <div class="results" id="results" role="listbox" hidden></div>
+    </div>
+    <p class="scen-blurb" id="scenblurb"></p>
+  </div>
+
+  <div class="top">
+    <section class="panel clocks" aria-labelledby="clocks-h">
+      <h2 id="clocks-h">Two clocks</h2>
+      <p class="statline" id="statline"></p>
+      <div style="position:relative">
+        <svg id="clockchart" viewBox="0 0 560 230" role="img" aria-label="Share of nodes unlocked each year, cognitive layers versus physical layers"></svg>
+        <div class="tip" id="clocktip" hidden></div>
+      </div>
+      <div class="legend">
+        <span class="key"><span class="swatch" style="background:var(--cog)"></span>Cognitive layers (tiers 0–4)</span>
+        <span class="key"><span class="swatch" style="background:var(--phys)"></span>Physical layers (tiers 5–7)</span>
+        <span class="key"><span class="swatch" style="background:var(--line-2);height:10px;opacity:.7"></span>Range across all three scenarios</span>
+      </div>
+    </section>
+    <section class="panel" aria-labelledby="ov-h">
+      <h2 id="ov-h">Every branch, by year</h2>
+      <p class="statline">Each dot is one node, placed in its earliest credible year under the chosen scenario. Faded dots are rated Low or Speculative at the checkpoint for the chosen year. Pick a branch to open it below.</p>
+      <div class="ov"><div class="ovgrid" id="ovgrid"></div></div>
+    </section>
+  </div>
+
+  <section class="branchhead" aria-labelledby="branch-title">
+    <div class="tabs" id="tabs" role="tablist" aria-label="Branches"></div>
+    <h2 id="branch-title"></h2>
+    <p class="thesis" id="branch-thesis"></p>
+    <p class="hook" id="branch-hook"></p>
+    <div class="branchmeta" id="branch-meta"></div>
+    <div class="narr" id="branch-narr"></div>
+  </section>
+
+  <div class="toolbar">
+    <div class="howto">
+      <span class="key"><span class="chip-sw" style="background:var(--cog-soft);border-color:var(--cog)"></span>Unlocked, cognitive</span>
+      <span class="key"><span class="chip-sw" style="background:var(--phys-soft);border-color:var(--phys)"></span>Unlocked, physical</span>
+      <span class="key"><span class="chip-sw" style="background:repeating-linear-gradient(135deg,var(--cog-soft) 0 2px,var(--surface) 2px 5px);border-color:var(--cog);border-style:dotted"></span>Possible, but Low or Speculative</span>
+      <span class="key"><span class="chip-sw" style="background:var(--surface);border-color:var(--line-2);border-style:dashed"></span>Not yet</span>
+      <span class="key"><span class="bars" style="color:var(--ink-2)"><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span>Likelihood at checkpoint (2031 or 2035)</span>
+      <span class="key"><span class="dot" style="background:var(--ink);opacity:.7;width:6px;height:6px"></span>Main chain</span>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <div class="seg" id="showseg" role="group" aria-label="Which nodes">
+        <button data-v="spine" aria-pressed="true">Main chain</button><button data-v="all" aria-pressed="false">All nodes</button>
+      </div>
+      <div class="seg" id="viewseg" role="group" aria-label="View">
+        <button data-v="tree" aria-pressed="true">Tree</button><button data-v="list" aria-pressed="false">List</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="branchbody">
+    <div style="min-width:0">
+      <div class="canvaswrap" id="canvaswrap"><div class="canvas" id="canvas"></div></div>
+      <div class="listwrap" id="listwrap" hidden></div>
+    </div>
+    <aside class="panel detail" id="detail" aria-live="polite"></aside>
+  </div>
+
+  <div class="lower">
+    <section class="panel" aria-labelledby="deb-h">
+      <h2 id="deb-h">Where the reviewers disagreed</h2>
+      <p class="statline">Each branch was challenged by a physics-and-engineering skeptic and an advocate for the exponential case. These are the disputes and how they were settled.</p>
+      <div id="debates" style="display:grid;gap:12px"></div>
+    </section>
+    <section class="panel" aria-labelledby="nil-h">
+      <h2 id="nil-h">What does not change</h2>
+      <p class="statline">Limits set by physics, data or institutions, which hold in every scenario.</p>
+      <ul class="nil" id="nil" style="margin:0;padding-left:18px;font-size:14px"></ul>
+    </section>
+  </div>
+
+  <section class="panel" aria-labelledby="m-h">
+    <h2 id="m-h">How to read this</h2>
+    <div class="method">
+      <div>
+        <h3>Scenarios</h3>
+        <dl id="m-scen"></dl>
+      </div>
+      <div>
+        <h3>Layers</h3>
+        <dl id="m-tiers"></dl>
+      </div>
+      <div>
+        <h3>Likelihood and trust</h3>
+        <dl>
+          <dt>Likelihood at two checkpoints</dt><dd>Each node is rated for the end of 2031 and the end of 2035. Bars show the checkpoint for the chosen year. Four bars: High (roughly over 70%). Three: Medium (30–70%). Two: Low (10–30%). One: Speculative (under 10%). These are analyst judgments, not computed probabilities.</dd>
+          <dt>Earliest credible year</dt><dd>The first year the node is credibly achieved: a result proved, a tool in use, a first flight. A card cannot unlock before its prerequisites.</dd>
+          <dt>Trust tier of a premise</dt><dd>T1 a manuscript only, T2 a manuscript with an outside expert's endorsement, T3 an unchecked Lean proof in the lab's repository, T4 an independent machine check plus an audit of the formal statement. Nothing in the October 2026 release is above T3. Nodes resting on T1 or T2 results are conditional.</dd>
+          <dt>Binding gate</dt><dd>The slowest thing between the node and reality: cognition, formalization, data, experiment, fabrication, qualification, regulation, capital, launch or adoption.</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <footer>Built from a model of <span class="mono" id="foot-n"></span> nodes and <span class="mono" id="foot-e"></span> dependencies, researched on 7 October 2026 from the openai/math release, agency and company sources, and 33FG research. Forecasts are scenario judgments, not predictions of record.</footer>
+</div>
+
+<script id="data" type="application/json">__VIEWER_DATA__</script>
+<script>
+(function () {
+  const DATA = JSON.parse(document.getElementById('data').textContent);
+  const N = DATA.nodes, BR = DATA.branches, TIERS = DATA.tiers, SC = DATA.scenarios;
+  const BRMAP = Object.fromEntries(BR.map(b => [b.id, b]));
+  const YEARS = [2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035];
+  const NC = YEARS.length + 1, LATE = YEARS.length;
+  const BAND = { Speculative: 1, Low: 2, Medium: 3, High: 4 };
+  const COL_W = 140, CARD_W = 128, CARD_H = 64, GAP = 8, PAD = 10, LABEL_W = 122, HEAD_H = 38, EMPTY_ROW = 58;
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const st = { scen: 'S2', year: 2031, branch: null, sel: null, show: 'spine', view: 'tree' };
+  const first = BRMAP['verified-autonomy'] || BR.find(b => b.id !== 'trunk') || BR[0];
+  st.branch = first.id;
+  try { const h = decodeURIComponent((location.hash || '').slice(1)); if (h && BRMAP[h]) st.branch = h; } catch (e) {}
+
+  const $ = id => document.getElementById(id);
+  function el(tag, attrs, kids) {
+    const e = document.createElement(tag);
+    if (attrs) for (const k in attrs) {
+      const v = attrs[k];
+      if (v == null || v === false) continue;
+      if (k === 'class') e.className = v; else if (k === 'text') e.textContent = v;
+      else if (k.startsWith('on')) e.addEventListener(k.slice(2), v); else e.setAttribute(k, v === true ? '' : v);
+    }
+    (kids || []).forEach(c => { if (c == null) return; e.appendChild(typeof c === 'string' ? document.createTextNode(c) : c); });
+    return e;
+  }
+  const svgEl = (tag, attrs) => { const e = document.createElementNS('http://www.w3.org/2000/svg', tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; };
+  const clock = n => (n.tier <= 4 ? 'cog' : 'phys');
+  const yOf = (n, s) => { const y = n.y[s || st.scen]; return y == null ? 2036 : y; };
+  const colOf = (n, s) => { const y = yOf(n, s); return y >= 2036 ? LATE : Math.max(0, Math.min(LATE - 1, Math.floor(y) - 2026)); };
+  const reached = (n, s, yr) => { const y = yOf(n, s); return y < 2036 && Math.floor(y) <= (yr || st.year); };
+  const bandAt = (n, s, yr) => ((yr || st.year) <= 2031 ? n.b : n.b5)[s || st.scen];
+  const cpOf = yr => ((yr || st.year) <= 2031 ? 2031 : 2035);
+  const isOn = (n, s, yr) => reached(n, s, yr) && (BAND[bandAt(n, s, yr)] || 0) >= 3;
+  const stateOf = n => (isOn(n) ? 'on' : reached(n) ? 'maybe' : 'off');
+  const scenName = id => (SC.find(s => s.id === id) || {}).name || id;
+  function bars(band) {
+    const k = BAND[band] || 0, b = el('span', { class: 'bars', 'aria-hidden': 'true' });
+    for (let i = 1; i <= 4; i++) b.appendChild(el('i', { class: i <= k ? 'f' : '' }));
+    return b;
+  }
+
+  /* ---------- controls ---------- */
+  function buildControls() {
+    const seg = $('scen');
+    SC.forEach(s => seg.appendChild(el('button', { 'data-v': s.id, 'aria-pressed': String(s.id === st.scen), text: s.name + (s.id === 'S2' ? ' (base)' : ''), onclick: () => { st.scen = s.id; renderAll(true); } })));
+    $('year').addEventListener('input', e => { st.year = +e.target.value; renderAll(false); });
+    $('showseg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; st.show = b.dataset.v; renderBranch(true); });
+    $('viewseg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; st.view = b.dataset.v; renderBranch(true); });
+    const q = $('q'), res = $('results');
+    q.addEventListener('input', () => {
+      const s = q.value.trim().toLowerCase();
+      res.textContent = '';
+      if (s.length < 2) { res.hidden = true; return; }
+      const hits = Object.entries(N).filter(([k, n]) => (n.t || '').toLowerCase().includes(s) || (n.d || '').toLowerCase().includes(s) || k.includes(s)).slice(0, 12);
+      hits.forEach(([k, n]) => res.appendChild(el('button', { role: 'option', onclick: () => { res.hidden = true; q.value = ''; goTo(k); } }, [n.t, el('small', { text: (BRMAP[n.br] || {}).title || '' })])));
+      if (!hits.length) res.appendChild(el('div', { style: 'padding:8px 10px;color:var(--muted);font-size:13px', text: 'No matching node' }));
+      res.hidden = false;
+    });
+    q.addEventListener('keydown', e => { if (e.key === 'Escape') { res.hidden = true; } if (e.key === 'Enter') { const f = res.querySelector('button'); if (f) f.click(); } });
+    document.addEventListener('click', e => { if (!e.target.closest('.search')) res.hidden = true; });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && st.sel) { st.sel = null; renderBranch(false); } });
+    const ms = $('m-scen'); SC.forEach(s => { ms.appendChild(el('dt', { text: s.name })); ms.appendChild(el('dd', { text: s.blurb })); });
+    const mt = $('m-tiers'); TIERS.forEach(t => { mt.appendChild(el('dt', { text: t.t + ' · ' + t.name })); });
+    mt.appendChild(el('dd', { text: 'Tiers 0–4 run on the cognitive clock, which AI can compress. Tiers 5–7 run on the physical clock: test campaigns, fabrication, qualification, launch, regulation and budgets.' }));
+    $('foot-n').textContent = DATA.meta.nNodes; $('foot-e').textContent = DATA.meta.nEdges;
+  }
+  function syncControls() {
+    $('scen').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.v === st.scen)));
+    $('showseg').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.v === st.show)));
+    $('viewseg').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.v === st.view)));
+    $('yearval').textContent = st.year;
+    $('scenblurb').textContent = (SC.find(s => s.id === st.scen) || {}).blurb || '';
+  }
+
+  /* ---------- two clocks chart ---------- */
+  const ALL = Object.values(N);
+  const groups = { cog: ALL.filter(n => n.tier <= 4), phys: ALL.filter(n => n.tier >= 5) };
+  const share = (g, s, yr) => groups[g].length ? 100 * groups[g].filter(n => isOn(n, s, yr)).length / groups[g].length : 0;
+  function drawClocks() {
+    const svg = $('clockchart'); svg.textContent = '';
+    const W = 560, H = 230, L = 40, R = 116, T = 14, B = 30;
+    const x = yr => L + (yr - 2026) * (W - L - R) / 9, y = v => T + (100 - v) * (H - T - B) / 100;
+    [0, 25, 50, 75, 100].forEach(v => {
+      svg.appendChild(svgEl('line', { x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: 'var(--line)', 'stroke-width': 1 }));
+      const t = svgEl('text', { x: L - 8, y: y(v) + 4, 'text-anchor': 'end', 'font-size': 11, fill: 'var(--muted)', 'font-family': 'var(--f-mono)' }); t.textContent = v + '%'; svg.appendChild(t);
+    });
+    YEARS.forEach(yr => { const t = svgEl('text', { x: x(yr), y: H - 8, 'text-anchor': 'middle', 'font-size': 11, fill: yr === st.year ? 'var(--ink)' : 'var(--muted)', 'font-family': 'var(--f-mono)', 'font-weight': yr === st.year ? 600 : 400 }); t.textContent = yr; svg.appendChild(t); });
+    svg.appendChild(svgEl('line', { x1: x(st.year), x2: x(st.year), y1: T - 4, y2: H - B, stroke: 'var(--ink)', 'stroke-width': 1, 'stroke-dasharray': '2 3' }));
+    const ends = [];
+    ['cog', 'phys'].forEach(g => {
+      const col = g === 'cog' ? 'var(--cog)' : 'var(--phys)';
+      const lo = YEARS.map(yr => Math.min(...SC.map(s => share(g, s.id, yr)))), hi = YEARS.map(yr => Math.max(...SC.map(s => share(g, s.id, yr))));
+      let d = YEARS.map((yr, i) => (i ? 'L' : 'M') + x(yr) + ',' + y(hi[i])).join(' ') + ' ' + YEARS.slice().reverse().map((yr, i) => 'L' + x(yr) + ',' + y(lo[YEARS.length - 1 - i])).join(' ') + 'Z';
+      svg.appendChild(svgEl('path', { d, fill: col, opacity: .13 }));
+      const v = YEARS.map(yr => share(g, st.scen, yr));
+      svg.appendChild(svgEl('path', { d: YEARS.map((yr, i) => (i ? 'L' : 'M') + x(yr) + ',' + y(v[i])).join(' '), fill: 'none', stroke: col, 'stroke-width': 2, 'stroke-linejoin': 'round' }));
+      const cy = y(v[YEARS.indexOf(st.year)]);
+      svg.appendChild(svgEl('circle', { cx: x(st.year), cy, r: 4.5, fill: col, stroke: 'var(--surface)', 'stroke-width': 2 }));
+      ends.push({ g, yv: y(v[LATE - 1]), val: v[LATE - 1] });
+    });
+    if (Math.abs(ends[0].yv - ends[1].yv) < 30) { const m = (ends[0].yv + ends[1].yv) / 2; ends[0].yv = Math.min(ends[0].yv, ends[1].yv) === ends[0].yv ? m - 15 : m + 15; ends[1].yv = ends[0].yv < m ? m + 15 : m - 15; }
+    ends.forEach(e => {
+      const t = svgEl('text', { x: W - R + 10, y: e.yv + 4, 'font-size': 12, fill: 'var(--ink)' });
+      t.textContent = (e.g === 'cog' ? 'Cognitive ' : 'Physical ') + Math.round(e.val) + '%'; svg.appendChild(t);
+    });
+    const tip = $('clocktip');
+    svg.onpointermove = ev => {
+      const r = svg.getBoundingClientRect(), px = (ev.clientX - r.left) * W / r.width;
+      const yr = Math.max(2026, Math.min(2035, Math.round(2026 + (px - L) * 9 / (W - L - R))));
+      tip.textContent = '';
+      tip.appendChild(el('div', { class: 'mono', style: 'font-size:11px;color:var(--muted);margin-bottom:4px', text: 'By ' + yr + ' · ' + scenName(st.scen) }));
+      ['cog', 'phys'].forEach(g => {
+        const lo = Math.min(...SC.map(s => share(g, s.id, yr))), hi = Math.max(...SC.map(s => share(g, s.id, yr)));
+        tip.appendChild(el('div', { class: 'row' }, [el('span', { class: 'key' }, [el('span', { class: 'swatch', style: 'background:var(--' + g + ')' }), g === 'cog' ? 'Cognitive' : 'Physical']), el('span', { class: 'v', text: Math.round(share(g, st.scen, yr)) + '%' })]));
+        tip.appendChild(el('div', { style: 'font-size:11.5px;color:var(--muted);margin:-2px 0 4px 24px', text: 'range ' + Math.round(lo) + '–' + Math.round(hi) + '%' }));
+      });
+      tip.hidden = false;
+      const left = (x(yr) / W) * r.width;
+      tip.style.left = Math.min(left + 12, r.width - 190) + 'px'; tip.style.top = '8px';
+    };
+    svg.onpointerleave = () => { tip.hidden = true; };
+    const on = ALL.filter(n => isOn(n)).length;
+    $('statline').innerHTML = '';
+    $('statline').append('By ', el('b', { text: String(st.year) }), ' under ', el('b', { text: scenName(st.scen) }), ': ', el('b', { text: on + ' of ' + ALL.length }), ' nodes are unlocked (year reached and rated High or Medium by ' + cpOf() + '), ' + Math.round(share('cog', st.scen, st.year)) + '% of the cognitive layers and ' + Math.round(share('phys', st.scen, st.year)) + '% of the physical ones.');
+  }
+
+  /* ---------- overview ---------- */
+  function drawOverview() {
+    const g = $('ovgrid'); g.textContent = '';
+    g.appendChild(el('div', { class: 'h', text: 'Branch' }));
+    YEARS.forEach(y => g.appendChild(el('div', { class: 'h', text: String(y) })));
+    g.appendChild(el('div', { class: 'h', text: 'Later' }));
+    BR.forEach(b => {
+      const row = el('div', { class: 'ovrow', 'data-on': String(b.id === st.branch) });
+      const ids = b.nodes.filter(k => N[k]);
+      const on = ids.filter(k => isOn(N[k])).length;
+      row.appendChild(el('button', { class: 'ovname', onclick: () => { selectBranch(b.id); document.getElementById('branch-title').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); } }, [b.title, el('span', { class: 'mono', text: on + '/' + ids.length })]));
+      for (let c = 0; c < NC; c++) {
+        const cell = el('div', { class: 'ovcell' + (c === LATE ? ' late' : '') + (c < LATE && YEARS[c] > st.year ? ' future' : '') });
+        ids.filter(k => colOf(N[k]) === c).sort((a, z) => N[a].tier - N[z].tier).forEach(k => cell.appendChild(el('span', { class: 'dot ' + clock(N[k]), style: (BAND[bandAt(N[k])] || 0) >= 3 ? '' : 'opacity:.35', title: N[k].t + ' (' + (bandAt(N[k]) || '') + ' by ' + cpOf() + ')' })));
+        row.appendChild(cell);
+      }
+      g.appendChild(row);
+    });
+  }
+
+  /* ---------- branch ---------- */
+  function selectBranch(id, keepSel) {
+    st.branch = id; if (!keepSel) st.sel = null;
+    try { history.replaceState(null, '', '#' + id); } catch (e) {}
+    renderBranch(true); drawOverview();
+  }
+  function goTo(k) { const n = N[k]; if (!n) return; if (st.show === 'spine' && !(BRMAP[n.br].spine || []).includes(k)) st.show = 'all'; st.sel = k; selectBranch(n.br, true); const c = document.querySelector('.card[data-id="' + CSS.escape(k) + '"]'); if (c) c.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest', inline: 'center' }); }
+  function visibleIds() {
+    const b = BRMAP[st.branch];
+    const spine = (b.spine || []).filter(k => N[k]);
+    if (st.show === 'spine' && spine.length) return spine;
+    return [...new Set(b.nodes.filter(k => N[k]).concat(spine))];
+  }
+  function layout(ids) {
+    const cells = {}, pos = {};
+    ids.forEach(k => { const key = N[k].tier + '|' + colOf(N[k]); (cells[key] = cells[key] || []).push(k); });
+    Object.values(cells).forEach(a => a.sort((p, q) => yOf(N[p]) - yOf(N[q]) || N[p].t.localeCompare(N[q].t)));
+    const rows = TIERS.map(t => Math.max(0, ...Array.from({ length: NC }, (_, c) => (cells[t.t + '|' + c] || []).length)));
+    const rowH = rows.map(c => (c ? c * (CARD_H + GAP) - GAP + 2 * PAD : EMPTY_ROW));
+    const rowTop = []; let acc = HEAD_H; rowH.forEach((h, i) => { rowTop[i] = acc; acc += h; });
+    const place = () => { for (const key in cells) { const [t, c] = key.split('|').map(Number); cells[key].forEach((k, i) => { pos[k] = { x: LABEL_W + c * COL_W + (COL_W - CARD_W) / 2, y: rowTop[t] + PAD + i * (CARD_H + GAP) }; }); } };
+    place();
+    const inSet = new Set(ids);
+    for (let it = 0; it < 3; it++) {
+      for (const key in cells) {
+        const bc = k => { const nb = N[k].pre.concat(N[k].unl).filter(x => inSet.has(x) && pos[x]); return nb.length ? nb.reduce((s, x) => s + pos[x].y, 0) / nb.length : pos[k].y; };
+        const m = Object.fromEntries(cells[key].map(k => [k, bc(k)]));
+        cells[key].sort((p, q) => m[p] - m[q]);
+      }
+      place();
+    }
+    return { pos, rowTop, rowH, W: LABEL_W + NC * COL_W, H: acc };
+  }
+  function edgePath(a, b) {
+    if (b.x > a.x + 1) {
+      const x1 = a.x + CARD_W, y1 = a.y + CARD_H / 2, x2 = b.x, y2 = b.y + CARD_H / 2, dx = Math.max(22, (x2 - x1) / 2);
+      return `M${x1},${y1} C${x1 + dx},${y1} ${x2 - dx},${y2} ${x2},${y2}`;
+    }
+    if (b.y > a.y + 1) {
+      const x1 = a.x + CARD_W * 0.72, y1 = a.y + CARD_H, x2 = b.x + CARD_W * 0.72, y2 = b.y, dy = Math.max(14, (y2 - y1) / 2);
+      return `M${x1},${y1} C${x1},${y1 + dy} ${x2},${y2 - dy} ${x2},${y2}`;
+    }
+    const x1 = a.x + CARD_W, y1 = a.y + CARD_H / 2, x2 = b.x + CARD_W, y2 = b.y + CARD_H / 2;
+    return `M${x1},${y1} C${x1 + 26},${y1} ${x2 + 26},${y2} ${x2},${y2}`;
+  }
+  function lineage(k) {
+    const up = new Set(), down = new Set();
+    const walk = (x, dir, set) => (N[x] ? N[x][dir] : []).forEach(y => { if (!set.has(y)) { set.add(y); walk(y, dir, set); } });
+    walk(k, 'pre', up); walk(k, 'unl', down);
+    return { up, down };
+  }
+  let lastLayout = null;
+  function renderBranch(full) {
+    syncControls();
+    const b = BRMAP[st.branch];
+    $('tabs').querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', String(t.dataset.id === st.branch)));
+    $('branch-title').textContent = b.title;
+    $('branch-thesis').textContent = b.thesis || '';
+    $('branch-hook').textContent = b.reader_hook || '';
+    $('canvaswrap').hidden = st.view !== 'tree'; $('listwrap').hidden = st.view !== 'list';
+    if (st.view === 'tree') drawCanvas(full); else drawList();
+    drawBranchMeta(); drawNarr(); drawDetail(); drawLower();
+  }
+  function drawCanvas(full) {
+    const ids = visibleIds(), cv = $('canvas');
+    const L = layout(ids);
+    const sameSet = lastLayout && lastLayout.branch === st.branch && lastLayout.show === st.show;
+    cv.textContent = '';
+    cv.style.width = L.W + 'px'; cv.style.height = L.H + 'px';
+    cv.style.gridTemplateColumns = LABEL_W + 'px repeat(' + NC + ',' + COL_W + 'px)';
+    cv.style.gridTemplateRows = HEAD_H + 'px ' + L.rowH.map(h => h + 'px').join(' ');
+    cv.appendChild(el('div', { class: 'corner', text: 'tier ↓  year →' }));
+    YEARS.forEach(y => cv.appendChild(el('div', { class: 'colh' + (y <= st.year ? ' past' : ''), text: String(y) })));
+    cv.appendChild(el('div', { class: 'colh late', text: 'after 2035' }));
+    TIERS.forEach(t => {
+      cv.appendChild(el('div', { class: 'rowl ' + (t.t <= 4 ? 'cog' : 'phys') + (t.t === 4 ? ' clockdiv' : '') }, [el('span', { class: 'tn', text: String(t.t) }), el('span', { class: 'tname', text: t.name })]));
+      for (let c = 0; c < NC; c++) cv.appendChild(el('div', { class: 'cell' + (c === LATE ? ' late' : '') + (c < LATE && YEARS[c] > st.year ? ' future' : '') + (c === 5 ? ' cpline' : '') + (t.t === 4 ? ' clockdiv' : '') }));
+    });
+    const svg = svgEl('svg', { class: 'edges', width: L.W, height: L.H, viewBox: `0 0 ${L.W} ${L.H}`, 'aria-hidden': 'true' });
+    cv.appendChild(svg);
+    const sel = st.sel && L.pos[st.sel] ? st.sel : null;
+    const lin = sel ? lineage(sel) : null;
+    const inLin = k => !lin || k === sel || lin.up.has(k) || lin.down.has(k);
+    const drawEdges = () => {
+      svg.textContent = '';
+      const set = new Set(ids);
+      const add = (from, to, soft) => {
+        const a = L.pos[from], c = L.pos[to]; if (!a || !c) return;
+        const hi = lin && inLin(from) && inLin(to) && (from === sel || to === sel || (lin.up.has(from) && (lin.up.has(to) || to === sel)) || (lin.down.has(to) && (lin.down.has(from) || from === sel)));
+        svg.appendChild(svgEl('path', { d: edgePath(a, c), class: (soft ? 'soft ' : '') + (hi ? 'hi' : (lin ? 'lo' : '')) }));
+      };
+      ids.forEach(k => { N[k].pre.forEach(p => set.has(p) && add(p, k, false)); N[k].acc.forEach(p => set.has(p) && add(p, k, true)); });
+    };
+    const spine = new Set(BRMAP[st.branch].spine || []);
+    const prev = lastLayout && sameSet ? lastLayout.pos : null;
+    const cards = [];
+    ids.forEach(k => {
+      const n = N[k], on = isOn(n), sOf = stateOf(n), p = L.pos[k];
+      const card = el('button', { class: 'card ' + clock(n) + (sOf !== 'off' ? ' ' + sOf : '') + (spine.has(k) && st.show === 'all' ? ' spine' : '') + (n.br !== st.branch ? ' ext' : '') + (k === sel ? ' sel' : '') + (lin && !inLin(k) ? ' dim' : ''), 'data-id': k, style: `--cw:${CARD_W}px;--ch:${CARD_H}px`, 'aria-label': `${n.t}. Tier ${n.tier}. ${scenName(st.scen)}: ${n.ys[st.scen]}, likelihood ${n.b[st.scen]} by 2031 and ${n.b5[st.scen]} by 2035.${on ? ' Unlocked by ' + st.year + '.' : sOf === 'maybe' ? ' Possible by ' + st.year + ' but unlikely by ' + cpOf() + '.' : ''}`, onclick: () => { st.sel = st.sel === k ? null : k; renderBranch(false); } },
+        [el('span', { class: 'ct', text: n.t }), el('span', { class: 'cm' }, [el('span', { class: 'gate', text: (n.ys[st.scen] || '') + ' · ' + (n.br !== st.branch ? 'from ' + ((BRMAP[n.br] || {}).short || 'trunk') : (n.gate || '')) }), bars(bandAt(n))])]);
+      const from = prev && prev[k] ? prev[k] : p;
+      card.style.transform = `translate(${from.x}px,${from.y}px)`;
+      cv.appendChild(card); cards.push([card, p]);
+    });
+    if (prev && full && !reduce) {
+      svg.style.opacity = 0;
+      requestAnimationFrame(() => requestAnimationFrame(() => { cards.forEach(([c, p]) => { c.style.transform = `translate(${p.x}px,${p.y}px)`; }); }));
+      setTimeout(() => { drawEdges(); svg.style.opacity = 1; }, 470);
+    } else { cards.forEach(([c, p]) => { c.style.transform = `translate(${p.x}px,${p.y}px)`; }); drawEdges(); }
+    lastLayout = { branch: st.branch, show: st.show, pos: L.pos };
+  }
+  function drawList() {
+    const ids = visibleIds().slice().sort((a, b) => N[a].tier - N[b].tier || yOf(N[a]) - yOf(N[b]));
+    const w = $('listwrap'); w.textContent = '';
+    const t = el('table');
+    t.appendChild(el('thead', null, [el('tr', null, [el('th', { text: 'Node' }), el('th', { text: 'Tier' }), ...SC.map(s => el('th', { text: s.name })), el('th', { text: 'Binding gate' })])]));
+    const tb = el('tbody');
+    ids.forEach(k => {
+      const n = N[k];
+      tb.appendChild(el('tr', { 'aria-selected': String(k === st.sel), tabindex: '0', onclick: () => { st.sel = k; renderBranch(false); }, onkeydown: e => { if (e.key === 'Enter') { st.sel = k; renderBranch(false); } } },
+        [el('td', null, [el('b', { text: n.t })]), el('td', { class: 'mono', text: String(n.tier) }), ...SC.map(s => el('td', null, [el('span', { class: 'mono', text: (n.ys[s.id] || '') + ' ' }), el('span', { style: 'color:var(--ink-2);font-size:12.5px', text: (n.b[s.id] || '') + (n.b5[s.id] !== n.b[s.id] ? ' → ' + n.b5[s.id] : '') })])), el('td', { text: n.gate || '' })]));
+    });
+    t.appendChild(tb); w.appendChild(t);
+  }
+  function nodeLink(k) {
+    const n = N[k]; if (!n) return null;
+    const ext = n.br !== st.branch;
+    return el('button', { class: 'nlink', onclick: () => goTo(k) }, [n.t, el('span', { class: 'mono', text: `tier ${n.tier} · ${n.ys[st.scen]}` + (ext ? ' · ' + ((BRMAP[n.br] || {}).title || '') : '') })]);
+  }
+  function para(segs) {
+    return el('p', null, segs.map(sg => sg.a ? el('a', { href: sg.a, target: '_blank', rel: 'noopener', text: sg.t }) : sg.b ? el('b', { text: sg.t }) : sg.t));
+  }
+  function drawNarr() {
+    const b = BRMAP[st.branch], box = $('branch-narr'); box.textContent = '';
+    const ps = b.narr || [];
+    if (!ps.length) return;
+    box.appendChild(para(ps[0]));
+    if (ps.length > 1) {
+      const d = el('details', null, [el('summary', { text: 'Read the full branch analysis' })]);
+      ps.slice(1).forEach(p => d.appendChild(para(p)));
+      box.appendChild(d);
+    }
+  }
+  function drawBranchMeta() {
+    const b = BRMAP[st.branch], m = $('branch-meta'); m.textContent = '';
+    const ids = b.nodes.filter(k => N[k]), on = ids.filter(k => isOn(N[k])).length;
+    const r0 = el('div', { class: 'row' }, [el('span', { class: 'badge', text: `${on} of ${ids.length} unlocked by ${st.year} · ${scenName(st.scen)}` }), b.binding_gate ? el('span', { class: 'badge', text: 'usually binds: ' + b.binding_gate }) : null]);
+    m.appendChild(r0);
+    if ((b.roots || []).length) m.appendChild(el('div', { class: 'row' }, [el('span', { class: 'lbl', text: 'Grows from' }), ...b.roots.filter(k => N[k]).map(nodeLink)]));
+  }
+  function drawDetail() {
+    const d = $('detail'); d.textContent = '';
+    const has = st.sel && N[st.sel];
+    d.setAttribute('data-empty', String(!has));
+    document.body.classList.toggle('sheet-open', !!has);
+    const b = BRMAP[st.branch];
+    if (!has) {
+      d.appendChild(el('div', { class: 'eyebrow', text: 'Branch overview' }));
+      d.appendChild(el('h3', { text: b.title }));
+      d.appendChild(el('p', { style: 'font-size:14px;color:var(--ink-2)', text: 'Select a card to see why it unlocks when it does, what it needs first, and what it opens.' }));
+      if ((b.spine || []).length) d.appendChild(el('section', null, [el('h4', { text: 'Main chain' }), el('div', { class: 'linklist' }, b.spine.filter(k => N[k]).sort((x, y) => N[x].tier - N[y].tier || yOf(N[x]) - yOf(N[y])).map(nodeLink))]));
+      return;
+    }
+    const k = st.sel, n = N[k], dom = DATA.domains[n.dom] || {};
+    const head = el('div', { class: 'sheethead' }, [el('div', null, [el('div', { class: 'eyebrow', text: `Tier ${n.tier} · ${(TIERS[n.tier] || {}).name || ''} · ${(dom.title || n.dom || '')}` }), el('h3', { text: n.t })]), el('button', { class: 'close', text: 'Close', onclick: () => { st.sel = null; renderBranch(false); } })]);
+    d.appendChild(head);
+    const colA = el('div', { style: 'display:grid;gap:12px;align-content:start' }), colB = el('div', { style: 'display:grid;gap:12px;align-content:start' });
+    const cols = el('div', { class: 'cols', style: 'display:grid;gap:12px' }, [colA, colB]);
+    d.appendChild(cols);
+    colA.appendChild(el('div', { class: 'badges' }, [el('span', { class: 'badge', text: 'gate: ' + (n.gate || '–') }), el('span', { class: 'badge', text: 'pathway ' + (n.path || '–') }), n.pt && n.pt !== 'n/a' ? el('span', { class: 'badge', text: 'premise ' + n.pt }) : null, ...(n.fam || []).map(f => el('span', { class: 'badge', text: 'family ' + f }))]));
+    const yt = el('table', { class: 'yt' });
+    yt.appendChild(el('thead', null, [el('tr', null, [el('th', { text: 'Scenario' }), el('th', { text: 'Earliest' }), el('th', { text: 'By 2031' }), el('th', { text: 'By 2035' })])]));
+    const tb = el('tbody');
+    SC.forEach(s => tb.appendChild(el('tr', { class: s.id === st.scen ? 'cur' : '' }, [el('td', { text: s.name }), el('td', { class: 'mono', text: n.ys[s.id] || '' }), el('td', null, [el('span', { style: 'display:inline-flex;gap:6px;align-items:center' }, [bars(n.b[s.id]), n.b[s.id] || ''])]), el('td', null, [el('span', { style: 'display:inline-flex;gap:6px;align-items:center' }, [bars(n.b5[s.id]), n.b5[s.id] || ''])])])));
+    yt.appendChild(tb); colA.appendChild(yt);
+    if (n.pre.length) colA.appendChild(el('section', null, [el('h4', { text: 'Needs first' }), el('div', { class: 'linklist' }, n.pre.map(nodeLink))]));
+    if (n.acc.length) colA.appendChild(el('section', null, [el('h4', { text: 'Sped up by' }), el('div', { class: 'linklist' }, n.acc.map(nodeLink))]));
+    if (n.unl.length) colA.appendChild(el('section', null, [el('h4', { text: 'Unlocks' }), el('div', { class: 'linklist' }, n.unl.map(nodeLink))]));
+    const sec = (h, txt) => txt ? el('section', null, [el('h4', { text: h }), el('p', { text: txt })]) : null;
+    [sec('What it is', n.d), sec('Status, October 2026', n.st), sec('Why it unlocks when it does', n.why), sec('2032–2035 and the Embodied case', n.n35), sec('Strongest case that the effect is small', n.small), sec('Signpost to watch', n.sign)].forEach(x => x && colB.appendChild(x));
+    if ((dom.sources || []).length) {
+      const det = el('details', null, [el('summary', { text: `Sources for ${dom.title || n.dom} (${dom.sources.length})` })]);
+      const ul = el('ul');
+      dom.sources.slice(0, 80).forEach(s => ul.appendChild(el('li', null, [el('a', { href: s.url, target: '_blank', rel: 'noopener', text: s.title || s.url }), s.date ? el('span', { style: 'color:var(--muted)', text: ' · ' + s.date }) : null])));
+      det.appendChild(ul); colB.appendChild(det);
+    }
+  }
+  function drawLower() {
+    const b = BRMAP[st.branch], deb = $('debates'); deb.textContent = '';
+    (b.debates || []).forEach(x => deb.appendChild(el('div', { class: 'debate' }, [x.round ? el('div', { class: 'who', text: x.round }) : null, el('h3', { text: x.topic }), el('div', { class: 'who', text: 'Skeptic' }), el('p', { text: x.skeptic_view }), el('div', { class: 'who', text: 'Exponential advocate' }), el('p', { text: x.advocate_view }), el('div', { class: 'who', text: 'Resolution' }), el('p', { class: 'res', text: x.resolution })])));
+    if (!(b.debates || []).length) deb.appendChild(el('p', { class: 'statline', text: 'No recorded disputes for this branch.' }));
+    const cnt = {}; b.nodes.filter(k => N[k]).forEach(k => { cnt[N[k].dom] = (cnt[N[k].dom] || 0) + 1; });
+    const doms = Object.keys(cnt).sort((x, y) => cnt[y] - cnt[x]).slice(0, 3);
+    const nil = $('nil'); nil.textContent = '';
+    doms.forEach((dk, i) => ((DATA.domains[dk] || {}).nil || []).slice(0, i ? 2 : 4).forEach(t => nil.appendChild(el('li', { text: t }))));
+    if (!nil.children.length) nil.appendChild(el('li', { text: 'See the branch nodes for limits.' }));
+  }
+  function buildTabs() {
+    const t = $('tabs');
+    BR.forEach(b => t.appendChild(el('button', { class: 'tab', role: 'tab', 'data-id': b.id, 'aria-selected': String(b.id === st.branch), onclick: () => selectBranch(b.id) }, [b.title, el('span', { class: 'mono', text: String(b.nodes.filter(k => N[k]).length) })])));
+  }
+  function renderAll(full) { syncControls(); drawClocks(); drawOverview(); renderBranch(full); }
+
+  buildControls(); buildTabs(); renderAll(false);
+  if (location.hash) { const tb = document.querySelector('.tab[aria-selected="true"]'); if (tb) tb.scrollIntoView({ block: 'nearest', inline: 'center' }); }
+})();
+</script>

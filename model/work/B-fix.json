@@ -1,0 +1,509 @@
+{
+ "update": [
+  {
+   "id": "frontier-euler-blowup-r3",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "why": "Ingredients exist: an AI-found candidate R^3 profile (Ganeshram-Duruisseaux-Anandkumar, Sep 2026), a stability framework that reduces nonlinear stability to a large but finite set of explicit estimates (not yet done), and computer-assisted estimate machinery. Difficulty is about the level that fell on Oct 6 (judgment: 0 doublings beyond), so discovery in 2027 is plausible under S2. Acceptance, not discovery, sets the year: the bar is a Lean- or interval-verified proof with an independent re-run; Chen-Hou's 2022 boundary proof was still drawing clarification notes in Jul-Aug 2026; and a Lean route needs verified interval arithmetic (infra-verified-numerics: S2 and S3 2028). Hence S2 and S3 2028 (S3 equals S2 through 2027), S1 2029. It accelerates frontier-ns-unforced and the ideal-MHD part of frontier-mhd-wellposedness (ideal MHD with zero field is Euler) but is a prerequisite of neither. Spillover, the one concrete channel from this famous problem to engineering: the interval-verified proof machinery it requires (rigorous enclosures, fixed-point arguments around a numerical profile, formal interval arithmetic) is the same stack that guaranteed error bounds for engineering PDEs need (frontier-certified-pde-error, infra-verified-numerics). Band = judged chance the result is established (T4 Lean check or T2+ expert acceptance) by 2031; the engineering implication is judged separately and is nil to Low (P5).",
+    "revision_note": "B-math-frontier: [skeptic+auditor] Hard prerequisite verif-independent-check added (node is defined as proven with an independent re-run). [skeptic] S1 2028 -> 2029, S2 2027 -> 2028: acceptance, not discovery, sets the year (Ganeshram et al. still lack the finite set of estimates; Chen-Hou clarifications ~4 years on; Lean route needs verified interval arithmetic, S2 2028). S3 kept at 2027 (optimistic end: the graph has infra-verified-numerics at S3 2027) [skeptic S3 2028 and advocate S2 2027 both rejected]. [advocate] spillover sentence and soft edge into frontier-certified-pde-error. [auditor] band semantics. | B-fix (integrator, 2026-10-07): S3 2027 -> 2028: the stated basis (infra-verified-numerics S3 2027) no longer holds after B-trunk moved that anchor to S3 2028, and S3 equals S2 through 2027. soft edge from infra-verified-numerics added to match the why, which ties the year to that anchor; the advocate's reverse edge (euler -> infra-verified-numerics) rejected: it would form a soft loop and the spillover is already drawn via frontier-certified-pde-error."
+   }
+  },
+  {
+   "id": "frontier-kinetic-global-regularity",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "why": "Comparable in difficulty to 362, which was claimed in the Sep-Oct run (judgment: about D0), and the human program is close: conditional regularity reduces it to hydrodynamic bounds, and there is a new continuation criterion. Discovery could come in 2027 under S2 once a lab poses it; acceptance sets the year. A claim alone is T1, PDE is the release's least formalized area (3 of 16 families), and a long unformalized kinetic manuscript is absorbed on the 1-3 year expert clock (tr-position-5) until applied Lean libraries arrive (infra-mathlib-applied: S2 and S3 2028). Hence S2 and S3 2028 (S3 equals S2 through 2027), S1 2029. The S2 band is Medium, not High, because the node needs a positive answer for both Boltzmann and Landau with physical potentials far from equilibrium, and the truth may be partial (judgment). Band = judged chance the result is established (T4 Lean check or T2+ expert acceptance) by 2031; the engineering implication is judged separately. Effect: P5 confidence for DSMC and kinetic codes, plus quantitative moment and decay bounds that can feed solver error control (hyper-kinetic-solver-certification, plasma-verified-kinetic-numerics; tl-position-2 exception).",
+    "revision_note": "B-math-frontier: [skeptic+auditor] S2 2027 -> 2028 (a claim needs acceptance; no Lean path before applied Lean libraries; 1-3 year expert clock). [auditor] hard prerequisite verif-independent-check; gate cognitive -> formalization; S2 band High -> Medium (scope: both equations, physical potentials, far from equilibrium; truth may be partial); status \"rules out\" -> \"largely rules out\". S1 kept at 2029 (skeptic 2030 vs advocate 2028; matches Euler S1 2029). S3 kept at 2027 (Lean route: infra-mathlib-applied S3 2027). | B-fix (integrator, 2026-10-07): S3 2027 -> 2028: the stated basis (infra-mathlib-applied S3 2027) no longer holds after B-trunk moved that anchor to S3 2028; S3 equals S2 through 2027. S3 band High kept (near-free cognition from 2029 raises the chance of a full answer by 2031). soft edge from infra-mathlib-applied added to match the why, which ties the year to that anchor."
+   }
+  },
+  {
+   "id": "hyper-boltzmann-foundations-check",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "why": "If 363 holds, the kinetic equation alone does not fix the physical solution in some regime, so DSMC and deterministic Boltzmann solvers need an explicit selection principle there (entropy, molecular chaos). If 364 holds, the particle-noise statistics of DSMC have a rigorous basis rather than being numerical artifacts. Both change confidence in the models, not the heating numbers. Band: P3 defaults to High, down one in every scenario because the implications are conditional on T1 premises (363, 364); as for the sibling confirmation nodes, the band is the chance that the results are checked and confirmed by 2031. The chance that a check either way (endorsement or refutation) is published by 2031 is higher (judgment: High in S2 and S3), and a refutation would also give hyper-kinetic-solver-certification the scoping it needs. Timing: before applied Lean libraries arrive (S2 and S3 2028) the realistic check is a few dozen kinetic-theory specialists reading long manuscripts, and absorption of deep results takes 1-3 years (tr-position-5). Hence S2 and S3 2028 (S3 equals S2 through 2027), S1 2029.",
+    "revision_note": "B-math-frontier: [skeptic] S1 2028 -> 2029, S2 2027 -> 2028: 363/364 are manuscript-only, PDE formalization is 3/16, the realistic check before applied Lean libraries is a few dozen specialists, absorption takes 1-3 years (tr-position-5); S3 kept at 2027 (Lean route, infra-mathlib-applied S3 2027). Gate kept as formalization. [advocate, rejected] S2/S3 band High: the band keeps the sibling semantics (results checked and confirmed), which carries the T1 drop; the higher chance of a check either way is now stated in why. Hard edge into hyper-kinetic-solver-certification (entry branch) recommended soft; left for that branch. | B-fix (integrator, 2026-10-07): S3 2027 -> 2028: the stated basis (infra-mathlib-applied S3 2027) no longer holds after B-trunk moved that anchor to S3 2028; S3 equals S2 through 2027. soft edge from infra-mathlib-applied added to match the why, which ties the year to that anchor."
+   }
+  },
+  {
+   "id": "frontier-mhd-wellposedness",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "revision_note": "B-math-frontier: [skeptic] Description rescoped: the full 3D map contained the Navier-Stokes problem (visco-resistive MHD with B=0 is NS) yet was dated before it; rescoped node keeps years and bands. [skeptic+auditor] Euler blowup moved from hard prerequisite to soft (Hall- and electron-MHD results need no Euler input). [auditor] signpost no longer fires on the known Jeong-Oh Hall-MHD ill-posedness; internal-model calibration note rewritten; band semantics. | B-fix (integrator, 2026-10-07): S3 2027 -> 2028 (S3 equals S2 through 2027; capability.json)."
+   }
+  },
+  {
+   "id": "frontier-scalable-global-certificates",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "revision_note": "B-math-frontier: [skeptic+auditor] S2 band High -> Medium (P4 default is Medium at best; signpost far beyond the Jul 2026 CR3BP demonstration). [skeptic] S1 Medium -> Low; frontier-approx-ceilings hard -> soft (worst-case ceilings do not gate instance certificates); infra-verified-numerics added as soft (rigorous rounding of SDP output is needed but can be done outside Lean, VSDP-style, so not a hard prerequisite); unsupported \"few percent\" gain removed. [auditor] premise_tier. Soft edge into cap-design-optimization (advocate) requested from trunk. | B-fix (integrator, 2026-10-07): S3 2027 -> 2028 (S3 equals S2 through 2027). S3 High kept: its stated reason is near-free cognition from ~2029."
+   }
+  },
+  {
+   "id": "astro-hybrid-rpo-verification",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "revision_note": "B-verified-autonomy: Skeptic + advocate: infra-mathlib-applied moved from hard to soft (the KeYmaera X and SOS bypass named in the verification domain's shared-upstream table). Skeptic: contact and capture dynamics removed from the achieved scope, so the cognitive gate and High band stand. Auditor: Artemis III status corrected (two landers' pathfinders; NET mid-2027). Years and bands unchanged. | B-fix (integrator, 2026-10-07): S3 2027 -> 2028 (S3 equals S2 through 2027; the S2 one-year lag after cap-applied-math 2027 applies equally in S3)."
+   }
+  },
+  {
+   "id": "prop-certified-stability-rom",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "why": "Stability analysis of a given model is bespoke but routine mathematics, exactly the kind that becomes on-demand under tl-position-4. With public research-grade models in 2027 (S2), a team can get certified margins for every injector variant in days instead of a specialist's months. The value is capped by the flame-response input (prop-flame-response).",
+    "revision_note": "B-fix (integrator, 2026-10-07): S3 2027 -> 2028 (S3 equals S2 through 2027; cap-applied-math is 2027 in both, so the same one-year lag applies). lettered citation 'under position (a' replaced with the KB position id under tl-position-4."
+   }
+  },
+  {
+   "id": "prop-cfd-auto-vv",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (claim, accepted): labor collapses but compute does not; solution verification of unsteady LES costs several times the base run and adjoint error estimates diverge on chaotic LES. Soft edge from frontier-certified-turbulent-cfd (all three lenses; the merged LES-convergence node said it feeds this one). Advocate's S2 2028 -> 2027 rejected: adoption gate cannot land the same year as its capability prerequisites (lag ladder). | B-fix (integrator, 2026-10-07): S3 2027 -> 2028 (S3 equals S2 through 2027; the resolver's own lag-ladder argument against S2 2027 applies to S3 too)."
+   }
+  },
+  {
+   "id": "prop-mass-gauging",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "status_oct2026": "Gauging is a focus area of NASA's CFM portfolio, alongside boil-off and transfer. Family 365 [L]: its formalized main result is nonuniqueness of bounded measurable scalar conductivities on a 3D ball (T3, unaudited by outsiders), the part used here as a ceiling: some rough interior configurations cannot be told apart from boundary data alone without priors or extra sensing. Its headline, joint metric and connection recovery from one boundary patch, is unformalized (T1, conditional).",
+    "why": "Gauging uncertainty turns into reserve propellant: 1% of a 1,200 t depot load is ~12 t, about 0.1 of a 120 t tanker (illustrative, general), so the economic stake is small. Gauging needs a scalar (total mass), which can be identifiable even when the interior configuration is not; 365's formalized part concerns rough (bounded measurable) 3D scalar conductivities and its T1 headline concerns joint metric and connection recovery, so it bounds full tomographic imaging, not mass estimation. The practical ceiling for few-electrode capacitance gauging is classical logarithmic instability (general). The ceiling side tells designers not to rely on full tomographic reconstruction and to fuse sensors with thermodynamic models.",
+    "strongest_case_small": "Operators can gauge after a settling burn with conventional sensors and accept the margin. The formalized nonuniqueness in family 365 concerns rough (bounded measurable) 3D conductivities, which may not match real tank fill states.",
+    "premise_tier": "n/a (capability premise); 365's formalized part (3D scalar-conductivity nonuniqueness, used as the imaging ceiling) is T3; its metric/connection recovery headline is T1 (conditional, context only)",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Auditor (grounding, accepted): 365's formalized main result is T3 but the nonuniqueness companion used as the ceiling is T1 unless shown formalized, so the ceiling is conditional; premise_tier and pathway relabelled (the practical ceiling for few-electrode capacitance gauging is classical log-instability). Skeptic (claim, accepted): gauging needs a scalar (total mass), which can be identifiable when the configuration is not, so 365 bounds tomographic imaging, not mass estimation; economic stake ~0.1 tanker per 1% error. Soft edge from new node prop-loxsat-cfm-flight-data. Years and bands unchanged. | B-fix (integrator, 2026-10-07): S3 2027 -> 2028 (S3 equals S2 through 2027; cap-applied-math is 2027 in both). 365 tiering corrected to match frontier-inverse-stability, struct-elasticity-fracture-foundations, hyper-tps-inverse-nde, struct-shm-inverse-limits and materials-am-digital-twin-qual (lean/docs/365.md formalizes only the scalar-conductivity nonuniqueness): the ceiling is T3, the recovery headline T1. Band unaffected (capability premise)."
+   }
+  },
+  {
+   "id": "cap-applied-math",
+   "patch": {
+    "status_oct2026": "Not yet a routine service. The catalog shows applied-adjacent depth: 362 Vlasov-Maxwell [L, T3]; 363 and 364 Boltzmann (T1); 372 elasticity inverse problem (T1); 365 boundary problems [L: scalar-conductivity nonuniqueness T3; metric-connection recovery headline T1]; plus the separate forced Navier-Stokes blowup claim (Sep 8). These were lab-posed problems, PDE formalization is thin, and nothing in the release touches UQ, stiff numerics or radiation transport.",
+    "premise_tier": "n/a (capability premise); 362 is [L] T3 and 365's formalized conductivity-nonuniqueness part is T3 (its recovery headline T1); 363, 364 and 372 are T1 (conditional), supporting evidence only",
+    "why": "Most engineering math is bespoke and easier than the catalog's problems (tl-position-4); what it adds is messy context: empirical coefficients, real boundary conditions, and a need for explicit constants and rates. A stability proof for a specific control law or a convergence bound for a specific solver is a week-to-month task for a specialist (general), which fits inside the S2 task horizon by 2027-28. Under S1, diffusion waits on public access (2028) plus domain workflows. This is mostly 'solved in principle but expert-scarce' work, so on-demand expertise is the unlock.",
+    "strongest_case_small": "Engineers already get adequate answers from simulation and test without proofs; certified bounds for realistic 3D multiphysics are often too loose to use; the gain is confidence, not performance (tl-position-2). Several catalog premises are T1, so implications resting on 363, 364 and 372 are conditional.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: premise label split so the T1 rule does not misfire; scope limited to reduced models (node's own strongest case). Skeptic: Lean is needed for trust, not to produce applied math, so cap-autoformalization hard -> soft. Year and band unchanged. | B-fix (integrator, 2026-10-07): 365 tier wording aligned with the other branches (formal part T3, recovery headline T1). lettered citation 'position a' replaced with the KB position id tl-position-4. lettered citation 'position d' replaced with the KB position id tl-position-2."
+   }
+  },
+  {
+   "id": "astro-nbody-transport-proofs",
+   "patch": {
+    "why": "This is the bespoke, hard-but-not-famous problem class that tl-position-4 says the capability absorbs first. A single computer-assisted diffusion proof took a leading group years; at release-level reasoning cost (the openai/math ~3 hours per result applies to posed pure-math problems with roughly 9% yield, ~372 families from ~4,000 problems, not to validated interval computation), a library of system-specific theorems (one per orbit family of operational interest) becomes affordable once outside teams have access. Value: replaces 'we ran 10^4 propagations' with 'no trajectory starting in set A leaves before time T', the form a disposal-orbit or parking-orbit safety case wants.",
+    "revision_note": "B-safe-orbits: Skeptic: ephemeris-forced scope limited to short horizons (wrapping effect), keeping S2 High; the ~3 hours per result applies to posed pure-math problems with ~9% yield (ref-release-anatomy: ~4,000 posed, 372 families), not to validated interval computation. Auditor: Capinski-Gidea do give diffusion-time estimates; the limit is the system covered. S3 2027 -> 2028: capability.json defines S3 as S2 until 2028 with the same end-2027 horizon, and the trunk resolver moved infra-verified-numerics and infra-mathlib-applied to S3 2028 (skeptic, systemic finding). | B-fix (integrator, 2026-10-07): lettered citation 'analyst position (a' replaced with the KB position id tl-position-4."
+   }
+  },
+  {
+   "id": "astro-certified-gnc-toolchain",
+   "patch": {
+    "why": "Verification and validation commonly consume around half of flight-software cost (general). Formal methods were limited by expert cost, not tools (tl-position-6); the openai/math pipeline formalized the main results of 162 papers in weeks. Applied to GNC modules, proof cost per function falls from expert-weeks to agent-hours, putting verified GNC within reach of smallsat and startup teams, not only NASA. Most GNC modules (attitude control, navigation filters, collision-avoidance logic) contain no optimizer, so optimizer certificates accelerate rather than gate the toolchain, while the stability proofs it promises are exactly what verif-closed-loop-guarantees delivers (now a hard prerequisite). Organizational adoption is the gate, and S3 equals S2 through 2028, so S3 is 2028.",
+    "revision_note": "B-verified-autonomy: Skeptic: S3 2027 -> 2028 (adoption gate; S3 equals S2 until 2028); verif-onboard-optimizer-certificates moved from hard to soft; 'timing' scoped to static WCET on single-core with multicore timing measured. Auditor: verif-closed-loop-guarantees moved from soft to hard (no year change: 2030/2027/2027 <= 2030/2028/2028) and timing wording aligned with the A1 merge. S1, S2 and bands unchanged. | B-fix (integrator, 2026-10-07): lettered citation 'analyst position b' replaced with the KB position id tl-position-6."
+   }
+  },
+  {
+   "id": "astro-trajectory-design-on-demand",
+   "patch": {
+    "why": "Trajectory design is solved in principle but expert-scarce (tl-position-4): perhaps a few hundred specialists worldwide design multi-body low-thrust transfers (general). The GTOC 12 failure modes are exactly what stronger reasoning plus verification removes. Low-energy and multi-body designs matter most for small lunar missions that cannot buy expert time. Global-optimality certificates (frontier-scalable-global-certificates) strengthen but do not gate this node.",
+    "revision_note": "B-safe-orbits: Skeptic: the 59 m/s ballistic-transfer figure (a 2013 pre-AI result attributed to search summaries) deleted; it showed design-space exploration in general, not an AI effect. | B-fix (integrator, 2026-10-07): lettered citation 'analyst position a' replaced with the KB position id tl-position-4."
+   }
+  },
+  {
+   "id": "capability-cheap-trust",
+   "patch": {
+    "why": "In engineering, statement gaps become specification errors, the main residual risk in formally verified systems (general). An adversarial auditor model plus Lean plus a human sign-off turns P1 answers into evidence a design review can accept. This is the node that moves the bottleneck from proving to understanding (tr-position-5) back toward engineering. Engineering claims involve continuous math (PDE, numerics, stochastic processes) where Lean coverage stays thin until infra-mathlib-applied (S2 2028; best agent 34.9% on StochBench, per frontier research), and an audit pipeline worth relying on needs a track record that starts only with public research-math access (mid-to-late 2027 in S2), so S2 and S3 are 2028. The final judgment stays human, so days, not hours.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: S2/S3 2027 -> 2028, hours -> days, soft edge from infra-mathlib-applied. Auditor: review-board acceptance moved out of the signpost (that is the Medium-capped regulatory node downstream), scope note added, P2-override note. Bands unchanged. | B-fix (integrator, 2026-10-07): lettered citation 'position h' replaced with the KB position id tr-position-5."
+   }
+  },
+  {
+   "id": "frontier-lattice-crypto-watch",
+   "patch": {
+    "why": "Module-LWE has survived about 20 years of study, but the capability is strongest at constructive, adversarial search, as the Aug 2026 breaks of academic schemes show (tl-position-5). The space angle: satellites fly cryptography in hardware for 5-15 years, so even a parameter-level weakening mid-life forces rekeying or algorithm changes that many buses cannot make. Crypto agility is the hedge regardless of the probability.",
+    "revision_note": "B-networks resolver: Skeptic: trigger reworded - a 10-bit loss leaves ML-KEM-768/1024 inside their categories and would not force changes. Auditor: Luo claim and its rebuttal added (verified via the postquantum.com analysis). Years and bands unchanged. | B-fix (integrator, 2026-10-07): lettered citation 'analyst position f' replaced with the KB position id tl-position-5."
+   }
+  },
+  {
+   "id": "plasma-vm-wellposed",
+   "patch": {
+    "why": "The Lean proof exists, so a Comparator run is cheap; the slow part is the statement audit (does the Lean definition of the system, its function spaces and 'finite energy' match what physicists mean?). The March 2026 AI-assisted formalization of the Vlasov-Maxwell-Landau equilibrium reported exactly these definition-alignment bugs and hypothesis creep, which is why the gate is formalization rather than cognition. Hexagon (launched Oct 6, 2026) exists to do this. Once T4, kinetic codes for the one-species relativistic system are known to approximate a solution that exists and stays smooth for all time: a confidence gain, per tl-position-2. Real plasmas have at least two species, so the multi-species case stays open.",
+    "revision_note": "B-plasma-nuclear resolver (2026-10-07): Auditor (statement-gap rule, tr-position-2): title and description scoped to one species, 3D, per the release overview; signpost asks the audit to state species and data class. Why no longer says every collisionless code is covered. Years and bands unchanged. | B-fix (integrator, 2026-10-07): lettered citation 'per analyst position (d' replaced with the KB position id per tl-position-2."
+   }
+  },
+  {
+   "id": "struct-test-data-commons",
+   "patch": {
+    "why": "fc-position-2: this domain is limited by modeling fidelity, data and verification cost, not conjectures. Every physics node below (damage, two-phase flow, deployment, mid-frequency vibration) is data-gated: an AI that can build theory still needs validated tests with known uncertainties. Organizing existing evidence is cheap compared with new tests (a single 8-ft shell test or thermal-vacuum campaign takes months); under S2 the incentive to make data AI-readable is strong, so large organizations do it internally by 2028.",
+    "revision_note": "B-certification: [auditor] Fact fix: the Zenodo knockdown record (Jul 27 2026) lists Wagner only, not 'Wagner and Huehne'. Now also a hard prerequisite of struct-cert-by-analysis [skeptic]. Years and bands unchanged. | B-fix (integrator, 2026-10-07): lettered citation 'Analyst position (g):' replaced with the KB position id fc-position-2."
+   }
+  },
+  {
+   "id": "struct-verified-fe-solvers",
+   "patch": {
+    "why": "Certification by analysis rests today on solver verification by benchmark plus test correlation. Proof-carrying error bounds remove the code- and solution-verification layer of NASA-STD-7009-style credibility, freeing scarce reviewers for model-form questions. tl-position-6: formal verification is the bridge to safety-critical use, here applied to numerics rather than flight code.",
+    "revision_note": "B-fix (integrator, 2026-10-07): lettered citation 'Analyst position (b):' replaced with the KB position id tl-position-6."
+   }
+  },
+  {
+   "id": "struct-agentic-analysis-workflows",
+   "patch": {
+    "why": "tl-position-4: most engineering math is bespoke and easier than the catalog. The bulk of structures and thermal effort is setup, checking and correlation by scarce senior analysts: solved in principle, expert-scarce. Under S2 an analysis cycle costs several times less; a thermal-model correlation that takes weeks after a test could take days (assumption).",
+    "revision_note": "B-fix (integrator, 2026-10-07): lettered citation 'Analyst position (a):' replaced with the KB position id tl-position-4."
+   }
+  },
+  {
+   "id": "verif-spec-engineering",
+   "patch": {
+    "why": "Once proofs are cheap, specs become the bottleneck: a proof of the wrong property is worthless (tr-position-2). In all 9 software-related losses and near-losses in our failure table, the missing piece was an assumption, interface spec or process step, not proof capacity. AI cuts spec drafting and consistency checking several-fold (general). Each spec still needs a qualified engineer to accept that it says what the mission needs, so human review bandwidth binds. 'Achieved' means first use on a flight program for a safety-critical function; it does not imply the spec-review bandwidth that fleet-wide invariants (verif-constellation-verified-updates) or $5-20-per-line costs (verif-assurance-cost-collapse) assume, and those nodes carry that risk in their own bands.",
+    "revision_note": "B-verified-autonomy: Skeptic: clarified that 'achieved' is first flight-program use, not review bandwidth at fleet scale. Auditor: 'losses' -> 'losses and near-losses'. Auditor's S1 High -> Medium rejected: the node is P1->P2 (P1 default High), and a single flight-program use by 2031 does not need certification or public models beyond the 2028 S1 release. Years and bands unchanged. | B-fix (integrator, 2026-10-07): lettered citation 'analyst position h' replaced with the KB position id tr-position-2. soft edge from frontier-applied-posing (B-math-frontier request 5)."
+   }
+  },
+  {
+   "id": "verif-closed-loop-guarantees",
+   "patch": {
+    "why": "This is the bespoke math, easier than the catalog's, that tl-position-4 says matters most: a stability or keep-out proof for one control law. Under S2, research-grade applied math is on tap from 2027, and existing provers (KeYmaera X differential dynamic logic, sum-of-squares barrier certificates) with agent-written proofs are a mature route that does not wait for Lean/Mathlib coverage of ODEs and hybrid systems. These certificates are over real numbers; the floating-point gap is closed separately by verif-verified-gnc-numerics or by runtime monitors, so neither the Lean library nor the floating-point node gates this one. 'Achieved' means a machine-checked stability or safety certificate for a flight-representative GNC loop (the flight control law with saturation, sampling delay and mode logic), published or delivered to a program; flight use is tracked in verif-lander-verified-gnc-flight and verif-rpo-assured-autonomy.",
+    "revision_note": "B-verified-autonomy: All three lenses: family 143 removed from catalog_families (the node itself says it does not reach this workflow; it would draw a false 'family 143 unlocks GNC stability' edge); premise_tier -> n/a; 'achieved' no longer requires a flown loop (a tier-5 outcome). Skeptic + advocate: infra-mathlib-applied hard -> soft; advocate + auditor: verif-verified-gnc-numerics hard -> soft. Advocate: S2 2028 -> 2027 accepted, because the skeptic's reason to keep 2028 (the numerics edge) is gone and the KeYmaera X/SOS route is mature (mechanism in the verification domain's table; 2026 Lean Lyapunov work checked by the auditor). Downstream nodes do not move. S1 and bands unchanged. | B-fix (integrator, 2026-10-07): lettered citation 'analyst position (a' replaced with the KB position id tl-position-4."
+   }
+  },
+  {
+   "id": "verif-assumption-falsification",
+   "patch": {
+    "why": "Counterexamples act fastest (fc-position-1): a found scenario changes the design within weeks. Agents can rerun targeted searches over terrain, sensor timing and fault combinations every time the design or landing site changes, which is exactly where Hakuto-R M1, Schiaparelli and Ariane 501 escaped. The gate is the fidelity of simulators and sensor models. Simulation-based falsification and Monte Carlo search run against existing requirements and need public research-grade models (P1), not AI-drafted specs adopted on a flight program, so spec engineering accelerates rather than gates it; validated environment envelopes widen what the simulator can represent.",
+    "revision_note": "B-verified-autonomy: Auditor: hard edge from verif-spec-engineering made soft (falsification runs against existing requirements); hard edge from cap-research-math-public added so the P1 node keeps a capability gate (2028/2027/2027, equal to this node's years). Skeptic: soft edge from verif-environment-assumption-models. Years and bands unchanged. | B-fix (integrator, 2026-10-07): lettered citation 'analyst position c' replaced with the KB position id fc-position-1."
+   }
+  },
+  {
+   "id": "physclock-credibility-evidence-standard",
+   "patch": {
+    "why": "Every test-substitution chain needs a rule saying what analysis evidence is worth. The named base standards revise every 8-10 years (NASA-STD-7009 2008, 2016 and 2024; GSFC-STD-7000 2013 and 2021; ECSS-E-ST-10-03 2012 and 2022, about 19 months from draft to publication), so the next base revision of 7009 falls around 2030-32. The faster route is a NASA handbook, interim or engineering directive, or an ECSS handbook. S2's independent checks (2026-27) and automated statement audits (capability-cheap-trust, 2028 after B-trunk) supply the evidence, so a first directive or handbook naming AI-generated analysis lands around 2029. Verified numerics (2028) strengthen the case but do not gate it: NASA-STD-7009B is already risk-based, and FDA wrote AI-credibility rules without machine-checked numerics. Capped at Medium because it is regulator acceptance.",
+    "revision_note": "B-certification: [skeptic] why: revision cycles corrected from '3-6 years (general)' to the named standards' 8-10 years (7009 2008/2016/2024; GSFC-STD-7000 2013/2021; ECSS-E-ST-10-03 2012/2022); the 2029 date now rests explicitly on the directive/handbook route. [skeptic] description no longer maps credibility levels to allowed test reductions (programs set acceptance). [advocate] infra-verified-numerics hard -> soft (a risk-based credibility rule does not need the toolchain to exist); description names directive and handbook routes; FDA precedents added to status. [auditor] status: the 2021 CbA guide is a contractor report with a 2040 vision, 2040-2050 is from the 2024 UQ paper, CM4QC is aviation-focused. Years kept: skeptic's S2 2030/S3 2029/S1 >2031 and advocate's S2 2028 both rejected (see debates). Bands unchanged. | B-fix (integrator, 2026-10-07): cheap-trust year in why updated to 2028 (B-trunk moved it from 2027); the S2 2029 date still holds (trunk follow-up 5)."
+   }
+  },
+  {
+   "id": "hyper-transition-prediction-theory",
+   "patch": {
+    "why": "Turbulent heating is roughly 3-5x laminar (general), so without trusted transition prediction, slender and lifting vehicles carry TPS sized for turbulent flow over much of their acreage. Predictive transition could save tens of percent of acreage TPS mass on such vehicles (judgment). Under S2, AI can produce the theory by 2029-30. Validation needs flight transition datasets: open ones remain a handful (BOLT, HIFiRE), while defense datasets grow toward dozens a year (MACH-TB up to 50 tests a year, reusable Talon-A) inside classified enclaves that S2 models can reach (capability-controlled-data-access, S2 2028) but whose results may not be published. The flight disturbance environment is poorly characterized, and a blind test needs a new instrumented article (BOLT-1B's forebody took ~14 months). The physical clock keeps S2 at Low.",
+    "revision_note": "B-entry: [skeptic] S3 2029 -> 2030: a blind prediction on a new flight needs the theory (cap-physics-theory S3 2028) plus a ~14-month instrumented article, and flight count compresses only 1.3-1.5x in S3. [advocate, partly accepted] Soft edge from capability-controlled-data-access and defense-dataset growth added to why; S2 Low -> Medium rejected: classified validation may never be published, the disturbance-environment problem remains, and the domain signpost makes a flight-validated prediction the trigger for that raise. | B-fix (integrator, 2026-10-07): controlled-data-access year in why updated to S2 2028 (B-trunk)."
+   }
+  },
+  {
+   "id": "science-private-observatories",
+   "patch": {
+    "why": "Full P7 chain: (1) capital was committed by a foundation in Jan 2026, not by appropriations; (2) design and build run 2026-28, mostly before public research-grade applied math (S2 2027), so AI's share is integration analysis, test-anomaly diagnosis (physclock-ai-mishap-analysis, S2 2027) and operations; (3) mirror and detector fabrication, thermal-vacuum testing and integration stay physical (1.05-1.3x); (4) launch is not scarce; (5) commissioning, then data. Announced schedules run 1.5-3x long (physclock slip table), so a 2.5-year plan from Jan 2026 implies launch from late 2029 to 2033 and data by 2031 at roughly even odds: Medium in every scenario (judgment). AI trims slips at the margin but does not change the earliest year, so the node is identical across scenarios. It qualifies 'no observatory flies sooner': outside agency selection and appropriations, the physical clock is the only clock. A second, AI-native private observatory started in 2028 and flying by 2031 would need an unannounced funder and is not counted.",
+    "revision_note": "B-science resolver (2026-10-07): New node from the advocate, reshaped: AI-capability hard prerequisite dropped (Lazuli's funding and schedule predate public applied-math capability; AI enters as soft edges), bands set equal across scenarios at Medium (advocate had S3 High), and Mauve excluded by the 1 m threshold (resolver verified 13 cm). Facts verified on Sky & Telescope (Jan 14 2026) and bssl.space. | B-fix (integrator, 2026-10-07): mishap-analysis year in why corrected to S2 2027 (B-certification)."
+   }
+  },
+  {
+   "id": "science-onboard-science-inference",
+   "patch": {
+    "why": "Two curves combine: onboard compute is becoming routine (COTS AI chips in orbit, materials-cots-orbital-compute-ops, S2 2029) and AI applied math makes instrument-specific error analysis cheap. Chain (S2): cap-applied-math 2027 -> error-bounded detection and compression for a specific instrument 2028 -> software upload to an operating mission or a rideshare smallsat (12-18 month lag ladder for derivative payloads) -> operating with a stated downlink saving in 2029. It attacks downlink, part of the domain's dominant data-supply bottleneck (research/science.json). S2 Medium because science teams are conservative about discarding raw data and certification is the novelty, not the inference; S3 High because cognition is near-free from 2029 and one mission (a university smallsat is enough) clears the bar with two years of slack; S1 Low because applied math reaches outside teams only in 2029. S3 equals S2 through 2028. Bands are judgments.",
+    "revision_note": "B-science resolver (2026-10-07): New node from the advocate, reshaped: precedent added (EO-1 ASE, AEGIS, Phi-sat-2), so the novelty is certified error bounds accepted by a science team; hard prerequisite materials-verified-fault-tolerance made soft (Phi-sat-2 flies COTS AI without proven fault bounds); S2 High -> Medium and S3 2028 -> 2029 (S3 equals S2 through 2028). | B-fix (integrator, 2026-10-07): cots-orbital-compute year in why corrected to S2 2029 (B-orbital-compute-power)."
+   }
+  },
+  {
+   "id": "frontier-turbulence-rigorous",
+   "patch": {
+    "why": "This is the theory engineering actually wants, because closures need statistics, not trajectories. It is harder than NS regularity in two respects: the right statements must be invented, so posing is part of the problem (judgment: 2-4 doublings plus posing), and only one answer counts, since the zeroth law for natural forcing may be false or unprovable in a given framework. At S2's 6-9 months per doubling, capability arrives late 2027 to late 2029; with posing and checking, 2030. S3 keeps Medium for the same truth risk, though it arrives a year earlier. Chain: zeroth law and scaling, then a rigorous LES convergence theory (prop-les-convergence-theory, now merged into frontier-certified-turbulent-cfd), then closures with error bounds for canonical flows, then (data-gated) engineering closures (prop-closure-theory, hyper-sbli-heating-closure). Band = judged chance the result is established (T4 Lean check or T2+ expert acceptance) by 2031; the engineering implication is judged separately and is Low (P5->P6).",
+    "revision_note": "B-math-frontier: [advocate, rejected] S2 2030 -> 2029, S3 2029 -> 2028 and S3 band High: unlike frontier-ns-unforced, this node needs one specific answer (the zeroth law and scaling hold for natural forcing), which may be false or unprovable in the posed form, and the statements must still be posed; the 2-4 doubling arithmetic gives capability late 2027 to late 2029, plus posing and checking. Years and bands kept. [auditor] band semantics added. | B-fix (integrator, 2026-10-07): reference to the merged node prop-les-convergence-theory redirected to frontier-certified-turbulent-cfd (B-engines-materials merge)."
+   }
+  },
+  {
+   "id": "verif-launch-fsw-per-flight",
+   "patch": {
+    "status_oct2026": "None known publicly. Falcon 9 flew 165 times in 2025 with no failures, and Starship flew at 48-91-day intervals in 2025 and 63-66 days in 2026 with software changes between flights (physical-clock domain). Under 14 CFR 450.35(a) the FAA requires an accepted means of compliance for the flight safety system (450.145(b)) but not for computing-system safety items (450.141). Newsletter commentary named a sensor trip as one hypothesis for the 2026 Raptor 3 boostback shutdowns (unverified). The largest launch operator owns a frontier AI lab (SpaceX acquired xAI, Feb 2026).",
+    "revision_note": "B-verified-autonomy: New node from the advocate (the uncertified counterpart of prop-verified-engine-software, joining the launch-cadence and cognitive curves). Advocate's 2030/2028/2028 Low/Medium/High tempered to 2031/2029/2029 Low/Medium/Medium: the A3 lag ladder puts proof-carrying flight software in flight at S2 2029, S3 equals S2 through 2028, and disclosure, not cognition, binds the public signpost. physclock-flight-test-cadence made soft, because Falcon 9 already gives a reusable vehicle with frequent software changes. Not a duplicate: prop-verified-engine-software is the certified crewed-program version and astro-proof-backed-flight-software-ops covers spacecraft, not launch vehicles. Soft unlocks are limited to this branch's nodes; edges into external nodes (physclock-test-loop-monthly) are left to that branch. | B-fix (integrator, 2026-10-07): Starship interval aligned with physclock-flight-test-cadence (48-91 days in 2025; 63-66 in 2026)."
+   }
+  },
+  {
+   "id": "prop-turbopump-tool",
+   "patch": {
+    "status_oct2026": "CFD predictions of cavitation instabilities depend strongly on the chosen cavitation and turbulence models, and 3D linear perturbation theories with dynamic transfer matrices are advancing (Pisa thesis, Jun 2025). On Starship Flight 12 (May 22, 2026) the booster lost an engine on ascent and more during boostback, ending in a hard Gulf landing (SpaceNews via 33FG); on Flight 13 (Jul 24, 2026) only 10 of 13 landing engines relit (Spaceflight Now). No official cause has been given.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Edge: prop-closure-theory hard -> soft (advocate + skeptic). Timing (advocate, concrete mechanism accepted): with closure guarantees no longer gating, the remaining gate is blind water-rig confirmation, which the node itself calls cheap; S2 2030 -> 2029, S3 2029 -> 2028. Advocate's S3 Medium -> High rejected (P1->P6, P6 default Low; blind prediction for a new inducer is still a modeling problem). Soft edge from physclock-ai-run-test-stands. Fact fix (auditor): Nerra Network newsletter replaced by primary reports of Flight 12 (SpaceNews via 33FG news 518, verified) and Flight 13 (Spaceflight Now). | B-fix (integrator, 2026-10-07): Flight 13 date harmonized to Jul 24, 2026 (launch date per 33FG news 596 / Wikipedia flight list; trunk and verif already used Jul 24)."
+   }
+  },
+  {
+   "id": "prop-start-transient",
+   "patch": {
+    "status_oct2026": "A live 2026 problem: on Flight 13 (Jul 24, 2026) only 10 of 13 booster engines relit for landing, and about five were running at splashdown (Spaceflight Now). Start transients are stiff differential-algebraic systems with uncertain two-phase chilldown physics (general).",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Auditor (band): S1 Medium -> Low (S1 earliest year is 2031, the window edge). Skeptic (edge, accepted): frontier-stiff-certified hard -> soft; chemistry-integration error is negligible next to rate-constant and two-phase uncertainty (the stiff node admits it); prop-cfm-models stays hard. Soft edge from physclock-ai-run-test-stands (advocate). Advocate's S2 Medium -> High rejected: booster relights after minutes of coast are plentiful, but the HLS case (days to weeks in orbit) has little data before the 2029 campaigns, and prop-cfm-models is now S2 2029. | B-fix (integrator, 2026-10-07): Flight 13 date harmonized to Jul 24, 2026 (launch date per 33FG news 596 / Wikipedia flight list; trunk and verif already used Jul 24)."
+   }
+  },
+  {
+   "id": "hyper-tile-damage-accumulation",
+   "patch": {
+    "status_oct2026": "Starship V3 Flight 13 (24 Jul 2026) deliberately stressed the heat shield: minimal tile loss, but cracked tiles and streaks at tile boundaries that suggest hot-gas penetration. Load-sensing tiles were flown and reflown tiles were tested. Musk said on 4 Aug 2026 that he would call the heat shield problem solved. Dan Rasky (co-inventor of PICA) called the current TPS a dead end for rapid reuse (29 Jul 2026). Flight 14 reached orbit on 28 Sep 2026 and splashed down; no ship has been caught or reflown.",
+    "revision_note": "B-entry: [skeptic+auditor] Hard edge added from physclock-starship-full-reuse: the model's data clock is reflights of the same tiles, and no ship has been caught or reflown. [skeptic+advocate] Hard edge from hyper-tps-inverse-nde made soft (camera/ML and direct inspection can substitute). Hard edge from hyper-flight-data-pipeline made soft because that node now counts only data shared beyond the operator, while this model runs on the operator's own reflight data (soft edge from new hyper-fleet-aerothermal-twin). [skeptic] S2/S3 2028 -> 2029: zone-level cycles-to-failure needs several reflights per ship after a 2027 first reflight; S3's 1.3-1.5x physical multiplier does not change that. [auditor] S2/S3 High -> Medium (P6 default Low; proprietary data; disclosure needed). [skeptic] Signpost replaced (old one duplicated hyper-rapid-reuse-heatshield). | B-fix (integrator, 2026-10-07): Flight 13 date harmonized to Jul 24, 2026."
+   }
+  },
+  {
+   "id": "capability-compute-launch-demand",
+   "patch": {
+    "status_oct2026": "Not yet. SpaceX disclosed AI1's first specification in Jun 2026 (150 kW peak; about 2.1 t per Mach33's reconstruction; modular, interchangeable chip inserts), then raised it on its Aug 2026 product page to 175 kW average / 250 kW peak; its Sep 16 2026 FCC response bounds each satellite under 4,000 kg, and 33FG's Oct 2026 reference satellite is about 4.0-4.5 t and partnered with Nvidia on its compute payload (Rubin GPUs and Vera CPUs; SpaceX, Aug 4 2026, via 33FG). Mach33 reports the power target rising to about 250 kW by Oct 2026 and calls space datacenters the largest uncertainty in its Starship launch-revenue model (Sep 2026). 100-kW-class radiators first fly in 2028 in every scenario (struct-highflux-radiator-flight; SpaceX targets Q4 2027).",
+    "why": "Full chain (S2): both Starship stages reflown 2027 -> first 100-kW-class compute satellites flown 2028 (struct-highflux-radiator-flight) -> paying 100-kW-class operations in orbit 2029 (materials-cots-orbital-compute-ops) -> internal launch cost under ~$300/kg, Mach33's orbital-compute base-case input, 2029 -> 10 or more compute flights in one year, 2030, with little slack. At about 4.0-4.5 t per AI1-class satellite (Oct 2026 reference), 10 flights of 100 t carry roughly 220-250 satellites, about 40-60 MW at 175-250 kW each. This is where the AI curve meets the launch clock: frontier training compute grows ~5x a year and a GW-scale ground site takes ~2.1 years (Epoch), so S2 and S3 raise demand for compute that needs no grid interconnection. S3 is a year earlier because demand and the physical multiplier both rise from 2028; S1 is later because a capability plateau slows the build-out. More flights also speed Starship production learning. Mach33 projections are a single commercial forecaster's model estimates, not independent research (an equity disclosure was reported on its pages; unverified here).",
+    "strongest_case_small": "The economics are unproven and Mach33 itself treats space datacenters as the largest uncertainty in launch revenue; running chips hot shortens their life (33FG's Oct 2026 model puts logic near 134 C at 250 kW in a 200 m2 radiator; struct-hot-chip-hbm-qualification); Starlink V3 competes for the same flights through 2028; and ten compute flights in a year is a SpaceX demand decision it can defer.",
+    "revision_note": "B-trunk resolver (2026-10-07): New node from the advocate (proposed as physclock-compute-manifest-anchor; renamed to the trunk's domain prefix). Years moved one year later than proposed (S1 2031 / S2 2030 / S3 2029) to follow physclock-cheap-mass-internal (now 2029) and the launch-slip calibration; S3 High -> Medium (economics unproven). Labelled as an AI-capability demand effect, not AI math. Not a duplicate: struct-gw-orbital-compute is the 1 GW cumulative outcome downstream. | B-fix (integrator, 2026-10-07): status, chain and strongest case re-based on the orbital-compute branch: radiator first flight 2028 and paying ops 2029 (was 2027/2028), AI1 ~4.0-4.5 t (was 2.1 t), 10 flights ~220-250 satellites / ~40-60 MW (was ~450 / 70-110 MW); soft edge to struct-gw-orbital-compute added. Years and bands unchanged (S2 2030 Medium matches the GW node chain)."
+   }
+  },
+  {
+   "id": "struct-fsp-lunar-100kwe",
+   "patch": {
+    "accelerated_by": [],
+    "why": "Scenario-invariant on purpose: the binding gates are a heavy cargo lander able to land ~15 t (auton-lunar-heavy-cargo-landing, itself behind schedule), nuclear launch approval, HALEU fuel supply and nuclear ground testing. The Q1 FY2030 launch-ready target predates the Mar 2026 procurement reset; with no provider under contract and LR-1 now sequenced behind SR-1, a space reactor's 4-6 years from a funded start (physclock lag ladder) puts launch after 2031. AI mathematics does not move licensing, appropriations or lander schedules, and the first unit's design freezes before AI design tools mature.",
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Auditor (verified: SAM.gov notice of Mar 26 2026 via bidpulsar; Wikipedia on LR-1/SR-1): status corrected (procurement reset, no provider); years 2031 -> >2031 and bands Low -> Speculative in all scenarios (no provider five years out; LR-1 behind SR-1). | B-fix (integrator, 2026-10-07): hard prerequisite auton-lunar-heavy-cargo-landing added (B-moon-mars request: the node names a ~15 t lander as its gate); the soft edge from prop-hls-refuel-campaign removed as redundant (it is the lander node's hard prerequisite). Years and bands unchanged (>2031, Speculative)."
+   }
+  },
+  {
+   "id": "physclock-flight-test-cadence",
+   "patch": {
+    "why": "Cadence is set by vehicle build and pad turnaround: about nine weeks per V3 loop with one active pad. A second Starbase pad, LC-39A and first reflights (expected early 2027) bring the interval to 3-4 weeks, giving 12 or more flights in 2027. AI barely changes this: Flight 12 went from Musk's 'about 6 weeks' (Jan 26 2026) to May 22, about 2.8 times the stated interval, because of V3 hardware readiness and a Starbase component failure in April, not analysis. Starship has never met a yearly flight plan: 2, 4, 5 and 3 flights (2023 to Oct 2026), 5 against 25 authorized in 2025. Twelve in 2027 needs about 3x the 2026 rate, a debut of LC-39A (not yet launched) and roughly a dozen new ships before ship reuse arrives, which makes 2027 about a coin flip, so the central year is 2028. AI-assisted mishap diagnosis (physclock-ai-mishap-analysis) shortens stand-downs whose cause is not hardware, a marginal accelerator only.",
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: 2027 -> 2028 in all scenarios (slip-ratio table; 2,4,5,3 flights per year; 12 in 2027 is about a coin flip). Auditor: tier 0 -> 5 (a launch cadence is not an AI capability), stale strongest-case and engine-out wording fixed, interval range 48-91, exogenous P7 label. Advocate kept cadence unchanged without a counter-mechanism. Band unchanged. Cascade: physclock-test-loop-monthly S3 -> 2028. | B-fix (integrator, 2026-10-07): soft edge from physclock-ai-mishap-analysis added (B-certification request; carries the content of the removed physclock-test-loop-monthly). 2028 High in all scenarios re-checked against physclock.json (S2 interval 0.6-0.8x of 63-66 days = 38-53 days, short of monthly without new pads and reflight): kept."
+   }
+  },
+  {
+   "id": "hyper-fleet-aerothermal-twin",
+   "patch": {
+    "earliest_year": {
+     "S3": "2029"
+    },
+    "accelerated_by": [
+     "cap-applied-math",
+     "capability-learned-emulators",
+     "capability-engineering-adoption"
+    ],
+    "why": "Two curves combine. Launch cadence supplies the owner with the flight data that the general tier-3 closure nodes lack: roughly 8-10 ship reentries with data through Oct 2026 (general count), about a dozen flights a year from 2028 (physclock-flight-test-cadence; 2027 is about a coin flip) and more once physclock-heavy-cadence-100 is reached (S2 2030, S3 2029), so ~50 instrumented reentries of one family accumulate around 2029. On-demand applied math (S2 2027) makes data assimilation, inverse heat conduction and Bayesian updating cheap to build and maintain. The general transition and SBLI nodes exclude per-vehicle tuning by definition, yet per-vehicle tuning is what an operator needs, so for the owner the open physics leaves the critical path while it stays open for everyone else. The data clock is the launch curve, which is largely independent of AI (S3 runs 0.5-1 year ahead), so S1 and S2 share a year. P6 defaults to Low; Medium because the owner needs no outside acceptance, held below High because the operator may never say it uses such a model.",
+    "status_oct2026": "Starship ships have re-entered on most integrated flights since 2024; Flight 10 (Aug 2025) deliberately removed tiles and flew metallic and actively cooled tiles, and Flight 13 (Jul 2026) flew load-sensing and reflown tiles in a heat-shield stress test. Starship flew 3 times in 2026 to Oct 7; physclock-flight-test-cadence expects 12+ a year from 2028 (2027 about a coin flip), and Mach33's reference case has ~90 flights in 2028. SpaceX does not publish its heating models; no ship has been caught.",
+    "revision_note": "B-entry: New node from the advocate, narrowed. Carries the owner-data curve that the skeptic and auditor removed from hyper-flight-data-pipeline. Scoped to heating so it does not duplicate hyper-tile-damage-accumulation (tile fatigue) or physclock-twin-reflight-clearance (reflight clearance); hard prerequisite is the flight-cadence node rather than ship reuse because reentries accrue on expended ships too. Advocate's bands Medium/High/High and years 2029/2028/2028 lowered to Medium x3 and 2029/2029/2028: disclosure risk does not vary by scenario, and the launch curve moves S2 by at most 0-0.5 year. | B-fix (integrator, 2026-10-07): S3 2028 -> 2029 and why/status re-based on B-trunk's launch clock (12+ flights a year from 2028, not 2027; heavy cadence S3 2029): ~50 instrumented reentries accrue around 2029 at the earliest in every scenario. Soft edge from physclock-heavy-cadence-100 removed: it lands after this node in every scenario and closed the only soft loop in the graph (heatshield -> heavy cadence -> this node -> heatshield); the later data growth stays in the why."
+   }
+  },
+  {
+   "id": "hyper-rapid-reuse-heatshield",
+   "patch": {
+    "accelerated_by": [
+     "materials-uhtc-tps-design",
+     "hyper-tile-damage-accumulation",
+     "hyper-tps-inverse-nde",
+     "hyper-fleet-aerothermal-twin"
+    ],
+    "revision_note": "B-entry: [skeptic+advocate+auditor] Hard edges from hyper-tile-damage-accumulation and hyper-tps-inverse-nde made soft (the node's own strongest case: SpaceX gets there with or without AI mathematics). [advocate] Soft edges added from physclock-twin-reflight-clearance and new hyper-fleet-aerothermal-twin. [skeptic] Years 2030/2029/2028 -> 2031/2030/2029: no ship caught as of Oct 2026; S3 2028 predated S3's divergence from S2; the advocate's own Mach33 arithmetic puts the base path at ~2030. [advocate vs skeptic/auditor] Advocate's S2/S3 High rejected: 5 reflights with <2-week turnaround is strictly harder than 100+ reusable launches a year, so High there implies roughly Medium here, consistent with physclock nodes. [skeptic] Booster-reuse sentence replaced with the Super Heavy record. | B-fix (integrator, 2026-10-07): soft edge from physclock-twin-reflight-clearance removed: this node is a hard prerequisite of that one, so it cannot accelerate it (hard/soft 2-cycle)."
+   }
+  },
+  {
+   "id": "hyper-flight-data-pipeline",
+   "patch": {
+    "why": "Every AI-built aerothermal or material model in this tree has to be calibrated against flight data, because ground facilities cannot reproduce the combined flight environment. There are two data curves. Open and sponsor-shared calibration data grow roughly linearly (capsules, BOLT-class experiments, testbeds), set by rideshare cadence, capital and classification rather than cognition; this is the slope limiter for civil and shared-data model builders in all three scenarios. Owner and defense flight data ride the launch exponential: Starship reentries go from 3 in 2026 to 12+ a year from 2028 (physclock-flight-test-cadence; 2027 is about a coin flip) and to tens a year once physclock-heavy-cadence-100 is reached, MACH-TB targets up to 50 tests a year, and Talon-A is reusable. For the vehicle owner, and for AI working inside classified enclaves (capability-controlled-data-access), the data clock is much faster for its own vehicle; that channel is carried by hyper-fleet-aerothermal-twin, not by this node.",
+    "revision_note": "B-entry: [skeptic+auditor] Definition narrowed to data shared beyond the operator (owner-only Starship data no longer count; the node's own nil_effects say classified data will not reach civil builders). [skeptic+auditor] Status corrected: Varda's monthly target slipped; W-4 burned up 22 May 2026 (Wikipedia); W-6 carried Sandia material samples plus two Ames instrumented eChar tiles (Varda/KXAN release). [advocate] Why rewritten as two data curves; the owner-data curve is now a separate node (hyper-fleet-aerothermal-twin). [auditor] Pathway given a non-P-code 'n/a' label. Year kept at 2027 (auditor proposed 2028): with sponsor-shared data counted (Talon-A ~6/yr, Varda 3 attempts, MACH-TB campaigns), 12+ in 2027 remains the earliest plausible year; High unchanged. Downstream hard edges whose real data source is owner data (tile damage, SRP, Mars landing) or ground/DNS data (SBLI, blackout) or capital (aerocapture) were made soft. | B-fix (integrator, 2026-10-07): Starship cadence in why re-based on B-trunk (12+ a year from 2028). Year unchanged: the definition counts shared-data flights (Varda, Talon-A, MACH-TB), not Starship."
+   }
+  },
+  {
+   "id": "materials-hot-section-reuse",
+   "patch": {
+    "why": "Hot-section refurbishment is a major reuse cost driver (general); doubling the life of the most-replaced parts would cut turnaround cost, but proving life needs fleet hours and post-flight tear-downs, a physical clock: reuse learning took 15 months from first landing to first reflight and 3-5 years to mature life, compressing only 0.8-0.9x in S2 (physclock). Chain (S2): materials-ai-alloy-flight (2030 at the earliest, Low) + materials-creep-oxidation-life-models (2029) -> fleet-leader parts run past the prior refurbishment interval and torn down -> operator-attributed interval increase (after 2031). Chain (S3): alloy flight (2030) -> parts flown on a subset of a high-cadence fleet (100+ heavy flights a year from 2029, physclock-heavy-cadence-100 in S3) -> attributed interval increase (2031 at the earliest, Low).",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (timing/band, two lenses): S2 2031 -> >2031, S2 Low -> Speculative; an alloy first flying in 2030 (Low) cannot have a fleet-proven, operator-attributed interval increase within a year (reuse learning: 15 months to first reflight, 3-5 years to mature life, 0.8-0.9x in S2). S3 kept at 2031 Low; advocate's S3 Medium rejected (alloy flight is now S3 2030, leaving one year for fleet hours and attribution; P7 default Speculative). Gate qualification -> data (fleet hours and teardowns bind; first mover self-certifies). Gate convention (advocate, accepted): the first mover is a self-certifying commercial operator; FAA Part 450 regulates public safety, not engine materials or test counts, so the regulator/certification Medium cap does not apply unless the node needs NASA crew, NSSL or other customer certification. The band here rests on physical clocks, not on that cap. Chains written out (grounding rule). Soft edge from physclock-heavy-cadence-100 (advocate: cadence accrues fleet hours). | B-fix (integrator, 2026-10-07): S3 heavy-cadence year in why updated to 2029 (B-trunk). Years and bands unchanged."
+   }
+  },
+  {
+   "id": "prop-cislunar-propellant-economy",
+   "patch": {
+    "why": "The economics depend on tankers per delivered tonne. Boil-off costs ~1-5 extra tankers per HLS-class campaign (illustrative table). Validated boil-off and transfer models recover only the planning margin on top of that, ~0-1 tanker at <=6-day cadence; gauging error at 1% of a 1,200 t load is ~12 t, ~0.1 tanker. Together that is a few percent of campaign launches. The rest comes down to cadence and vehicle reuse. Chain (S2): prop-ship-transfer-demo (2027) -> prop-cfm-models (2029) + prop-hls-refuel-campaign (2029) + physclock-heavy-cadence-100 (2030, after B-trunk) -> more than 20 transfers in a year (2030 at the earliest, from a second lunar campaign plus fuelling Mars ships for the early-2031 window; P1->P6->P7). Chain (S3): the same prerequisites in 2028-29 (heavy cadence 2029) -> early-2029 Mars-window fuelling plus lunar campaigns (2029). The band stays Medium: the earliest years are optimistic and AI mathematics is not on the critical path.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (claim, two lenses): model value restated as margin (~0-1 tanker) and gauging (~0.1 tanker), not the 1-5-tanker physical loss; '10-30% of campaign launches' dropped. Edges (skeptic, accepted): prop-mass-gauging hard -> soft (worth ~0.1 tanker; operators can gauge after a settling burn); physclock-heavy-cadence-100 soft -> hard (dozens of transfers a year need heavy cadence; year-consistent in all scenarios). premise_tier -> n/a (auditor; 365 no longer load-bearing). Timing (advocate, concrete mechanism accepted): S2 2031 -> 2030 and S3 2030 -> 2029 (a second lunar campaign plus Mars-ship fuelling for the early-2031 window, or the early-2029 window in S3, can exceed 20 transfers once all prerequisites land by 2029/2028); this also removes the auditor's 'Medium with earliest year 2031' inconsistency, so the auditor's S2 Low is not applied. Advocate's S3 High rejected (tier-7 P7 outcome; AI math not on the critical path). | B-fix (integrator, 2026-10-07): heavy-cadence years in the chains updated (S2 2030, S3 2029, B-trunk); node years unchanged and still consistent with that hard prerequisite."
+   }
+  },
+  {
+   "id": "science-hwo-design-closure",
+   "patch": {
+    "why": "Two things are needed by 2031: an agency freeze of aperture, coronagraph type, wavelength range and stability requirements, and AI-run integrated modeling materially used in it. Under S2, multiphysics design optimization arrives in 2028 and could close the requirement tree with fewer contractor study cycles, but the freeze is an agency decision that follows appropriations, which compress 1.0x in every scenario, so S3 is no earlier than S2. With the FY2027 request cutting HWO to $5M, a freeze by 2031 depends on Congress restoring the line (science-smd-budget-restored, Medium); with roughly 40-50% for a freeze and about 50% for material AI use, the joint chance is Low in every scenario (judgment). Proven coronagraph bounds, certified wavefront control and retrieval identifiability speed closure but are not required; Starship-class launch (internal cost under $300/kg by 2029, physclock-cheap-mass-internal) widens the closable design space (less lightweighting, larger margins).",
+    "revision_note": "B-science resolver (2026-10-07): Skeptic (resolver verified the FY2027 HWO request of $5M versus $150M enacted and the 47% SMD cut): S2 Medium->Low, S3 Medium->Low, S3 2029->2030 (an agency freeze follows appropriations, 1.0x); hard edges from coronagraph-limits, wfsc-certified (also advocate) and retrieval-identifiability made soft; new hard prerequisite science-smd-budget-restored. Advocate: soft edge from physclock-cheap-mass-internal accepted (HWO page notes larger mirrors depend on launch vehicles); mass-rich-design node not added. Auditor: 'Exploratory Analytic Cases' corrected to 'Engineering Architecture Concepts (EACs)'. | B-fix (integrator, 2026-10-07): cheap-mass year in why updated to 2029 (B-trunk)."
+   }
+  },
+  {
+   "id": "struct-reusable-life-management",
+   "patch": {
+    "why": "Needs inspection credit (2030 in S2), data-cleared reflight from a probabilistic life twin (physclock-twin-reflight-clearance, S2 2030 after B-trunk), and flight cycles to build confidence (Mach33 base: 8.9 flights per stack in 2029, 18 in 2030). Physics-based damage closure (struct-damage-tolerance-physics) accelerates but does not gate: operators set life with data-driven models and fleet leaders first. Fleet experience accumulates only with flights, which no cognition compresses. S2 Low because it chains two Medium prerequisites and needs a public description of sensor-based inspection; S3 Medium.",
+    "revision_note": "B-certification: [advocate] struct-damage-tolerance-physics hard -> soft; physclock-twin-reflight-clearance added as a hard prerequisite (operators manage life with data-driven twins and fleet leaders before physics closure). Advocate's S2 Low -> Medium rejected: the node still chains two Medium prerequisites and a public-disclosure signpost (see debates). Years unchanged. | B-fix (integrator, 2026-10-07): twin-reflight-clearance year in why updated to S2 2030 (B-trunk); node S2 2031 still follows it."
+   }
+  },
+  {
+   "id": "prop-flame-response",
+   "patch": {
+    "earliest_year": {
+     "S3": "2030"
+    },
+    "why": "With flame response predicted, certified reduced models (prop-certified-stability-rom) predict growth rates, not just frequencies. Flame transfer functions are already computed by LES with existing subgrid models; what is missing is validated real-fluid, transcritical injection physics at 100-350 bar and rig data, so closure theory (prop-closure-theory) accelerates the work but is not required. Validation can start against decades of archived rig data, but it then needs about a year of blind rig tests. That experimental year binds in S2 and S3 alike: chain (S2) cap-physics-theory (2029) -> model -> blind rig year -> 2030; (S3) 2029 (cap-physics-theory, moved from 2028 by B-trunk) -> 2030.",
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (timing, two lenses): S2 2029 -> 2030; the node's own text says a year of blind rig tests binds, yet S2 equalled its prerequisites' year. prop-closure-theory hard -> soft (skeptic + advocate: flame transfer functions are computed by LES with existing subgrid models; what is missing is transcritical real-fluid injection physics and rig data). Soft edge from physclock-ai-run-test-stands (advocate). Advocate's S3 2029 -> 2028 rejected: theory capability lands in S3 2028 and the blind rig campaign (8-9 months at 1.3-1.5x) cannot finish the same year. Fact fix (auditor, verified): the 350 bar milestone was reported in May 2023, not 2026. | B-fix (integrator, 2026-10-07): S3 2029 -> 2030: the node's own rule (a blind rig year after the theory capability, in S2 and S3 alike) applied to cap-physics-theory S3 2029 after B-trunk moved it from 2028. Band unchanged."
+   }
+  },
+  {
+   "id": "prop-closure-theory",
+   "patch": {
+    "earliest_year": {
+     "S3": "2030"
+    },
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic (timing/band, concrete mechanism accepted): S2 2029 -> 2030, S3 2028 -> 2029, S2 Medium -> Low. The success criterion includes a blind workshop win, which cannot happen in the year the theory capability lands (cap-physics-theory S2 2029 / S3 2028); data at engine conditions bind; P6 default Low. Edges to prop-turbopump-tool (skeptic + advocate) and prop-flame-response (skeptic + advocate) made soft. S3 Medium kept. | B-fix (integrator, 2026-10-07): S3 2029 -> 2030: the why says a closure cannot be blind-validated in the year cap-physics-theory lands, and B-trunk moved that anchor to S3 2029. S3 band Medium kept."
+   }
+  },
+  {
+   "id": "prop-stability-design-tool",
+   "patch": {
+    "earliest_year": {
+     "S3": "2031"
+    },
+    "band_2031": {
+     "S3": "Low"
+    },
+    "revision_note": "B-engines-materials resolver (2026-10-07): Skeptic + auditor (timing/band, two lenses): S2 2030 -> 2031 and S2 Medium -> Low (needs validated flame response, now S2 2030, then use on a real engine program). S3 2029 -> 2030 (skeptic; same lag after flame response S3 2029). Gate qualification -> experiment (skeptic + advocate: the tests saved are development tests; the real gate is rig and hot-fire validation of the tool's rankings). Gate convention (advocate, accepted): the first mover is a self-certifying commercial operator; FAA Part 450 regulates public safety, not engine materials or test counts, so the regulator/certification Medium cap does not apply unless the node needs NASA crew, NSSL or other customer certification. The band here rests on physical clocks, not on that cap. Soft edge from physclock-optimal-test-campaigns (advocate). | B-fix (integrator, 2026-10-07): S3 2030 -> 2031 and S3 Medium -> Low: prop-flame-response moved to S3 2030, and the node's own chain needs rig and hot-fire validation after it (experiment gate, 1.3-1.5x in S3), so S3 now matches S2 (2031, Low)."
+   }
+  },
+  {
+   "id": "capability-program-cycle-compression",
+   "patch": {
+    "revision_note": "B-trunk resolver (2026-10-07): Debated (skeptic vs advocate, auditor on wording). Skeptic accepted: 38% is a ceiling, realized lower; S2 2030 -> 2031, S3 2029 -> 2030 (only post-adoption programs count). Advocate partly accepted: the qualification cap was misapplied (gate -> experiment), cap-design-optimization hard -> soft, soft edges from mishap analysis and cheap mass; its 35-50% S2 figure rejected as largely double-counting what the 1.1-1.2x physical multipliers already credit, and its S2 2029 / S3 High rejected (depended on adoption in 2027). Realized range set at 20-30% in S2 between the skeptic's 15-25% and the advocate's 35-50%. | B-fix (integrator, 2026-10-07): soft edges from frontier-math-unbinds (B-math-frontier request 3) and physclock-commercial-analysis-first-qual (B-certification request 2)."
+   }
+  },
+  {
+   "id": "physclock-dev-capital-cut",
+   "patch": {
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: headline 15-30% did not follow from its own derivation (a labor figure presented as total cost), now about 10-20%; S3 2028 -> 2029; gate capital -> adoption. Auditor: chain written out; off-topic orbital-compute line removed. Advocate: soft edges from cost-collapse and program-cycle-compression and the standing-army channel added; advocate's S2 High rejected (by 2031 the evidence is mostly estimates and scope growth is the node's own strongest case). | B-fix (integrator, 2026-10-07): soft edges from frontier-math-unbinds (B-math-frontier request 3) and physclock-commercial-analysis-first-qual (B-certification request 2)."
+   }
+  },
+  {
+   "id": "capability-learned-emulators",
+   "patch": {
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: certified-bounds claim narrowed to code-relative bounds; cap-applied-math hard -> soft. Skeptic + auditor: S3 2027 -> 2028. Auditor: pathway P6 -> P4 with a stated reason for the High band. Bands unchanged. | B-fix (integrator, 2026-10-07): soft edge from frontier-certified-pde-error (B-math-frontier request 3)."
+   }
+  },
+  {
+   "id": "cap-design-optimization",
+   "patch": {
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic: guarantees are model-relative (optimizers exploit model error), and emulators are not required, so learned-emulators hard -> soft. Auditor: pathway-override note. Years and bands unchanged (S2 2028 is the client premise). | B-fix (integrator, 2026-10-07): soft edge from frontier-scalable-global-certificates (B-math-frontier request 3)."
+   }
+  },
+  {
+   "id": "physclock-optimal-test-campaigns",
+   "patch": {
+    "revision_note": "B-certification: [skeptic+auditor] Re-scoped to development tests operators control (qualification matrices are standards- and customer-set, capped at Medium, and modeled in physclock-qual-by-analysis-credit); signpost changed to match; S2 High kept only with this narrowing. [skeptic] matrix shrink 20-40% -> 10-30% (assumption); DOE precedents (NASA Langley MDOE, DOT&E 2010) added. Advocate's S2 2028 -> 2027 and capability-engineering-adoption hard -> soft rejected: 'typical' matrices are an industry outcome (see debates). | B-fix (integrator, 2026-10-07): soft edge from frontier-rare-event-certified (B-math-frontier request 4). S3 2027 -> 2028 by autofix accepted (capability-engineering-adoption S3 2028)."
+   }
+  },
+  {
+   "id": "physclock-satellite-gen-cadence",
+   "patch": {
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S2 2029 -> 2030, S3 2028 -> 2029, S3 High -> Medium; chain written out. Advocate: optimal-test-campaigns hard -> soft (Starlink iterated without them), soft edge from starship-full-reuse, AI1 modular-insert status added; advocate's S2 High rejected (the chip-cadence mechanism is not AI-math-driven and depends on unproven orbital-compute economics). | B-fix (integrator, 2026-10-07): soft edges from physclock-commercial-analysis-first-qual (B-certification request 2) and materials-see-system-models (B-orbital-compute-power request 2: radiation testing is a named binding item here)."
+   }
+  },
+  {
+   "id": "physclock-critical-payload-reuse-acceptance",
+   "patch": {
+    "revision_note": "B-trunk resolver (2026-10-07): Skeptic + auditor: S2 2030 -> 2031, S3 2029 -> 2030 (follows the revised twin timing). Skeptic: scope limited to NASA crew, Category 3 and NSSL Lane 2 (a Lane 1 mission could fly with no AI evidence and break the causal chain); why rewritten around flight history. Bands unchanged. | B-fix (integrator, 2026-10-07): soft edge from physclock-reliability-priors-credit (B-certification request 2)."
+   }
+  },
+  {
+   "id": "comms-hardness-aware-tasking",
+   "patch": {
+    "revision_note": "B-networks resolver: Skeptic: comms-certified-network-optimization hard -> soft (tasking does not use mesh routing); years 2028/2027/2027 -> 2029/2028/2028 (adoption gate plus P1 lag 0-2 years after public access in 2027 under S2; same-year operator reporting not credible); 124 example corrected; PTAS note added. Auditor: 125 is T3 per lean/docs/125.md. Bands unchanged. | B-fix (integrator, 2026-10-07): soft edge from capability-algorithm-discovery (B-trunk request 2)."
+   }
+  },
+  {
+   "id": "struct-gw-orbital-compute",
+   "patch": {
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic: S2 Medium -> Low (revised mass ~16,000-18,000 t is 1.3-1.8x the old basis; first flight slips to 2028; zero slack), supported by the trunk resolver's note that 1 GW S2 Medium sat above capability-compute-launch-demand (10 compute flights in a year, S2 2030 Medium) and by Mach33's early-2030s scaled-deployment date. Advocate's S1 >2031 -> 2031, S2/S3 2031 -> 2030 and S3 Medium -> High rejected: their chain used heavy-cadence-100 at S2 2029 / S3 2028, which the trunk resolver moved to 2030 / 2029 (see debates). Auditor + advocate: pathway relabelled 'not AI-math-driven'; chain written out; mass basis and peak-versus-average definition fixed; family 107 nil note added. Auditor's cots-ops hard -> soft not applied: cots-ops is now the non-AI commercial milestone (its AI-math edge is soft), so the edge is a true physical precursor. Soft edges added: light solar arrays, hot-chip qualification, formation clusters, capability-ai-rnd-acceleration (trunk resolver proposal). Years unchanged; S1 Low and S3 Medium unchanged. | B-fix (integrator, 2026-10-07): soft edge from capability-compute-launch-demand (B-trunk and B-orbital-compute-power requests); kept soft, not hard, because 1 GW could in principle be lofted partly by non-Starship launchers."
+   }
+  },
+  {
+   "id": "materials-cots-orbital-compute-ops",
+   "patch": {
+    "revision_note": "B-orbital-compute-power resolver (2026-10-07): Skeptic: hard edge from materials-see-system-models made soft and the AI-math clause removed from the description, so the node is the commercial milestone and AI math no longer appears to gate 1 GW (this also resolves the auditor's cots-ops -> 1 GW finding, so that hard edge, a true physical precursor, is kept). Skeptic: S2/S3 2028 -> 2029 following the 100-kW radiator first-flight slip to 2028. Advocate: gate capital -> launch (capital does not bind the leader); soft edge from materials-verified-fault-tolerance. Auditor + skeptic: pathway relabelled (not AI-math-driven); ~2.5x lever removed; status updated (Starmind Q4 2027 target, Suncatcher launch, Starcloud-3, FT debt report). Bands unchanged. | B-fix (integrator, 2026-10-07): soft edge from plasma-radbelt-charging-forecast (B-safe-orbits request: 500-2,000 km SSO fleets gain from charging forecasts)."
+   }
+  }
+ ],
+ "add_edges": [
+  {
+   "from": "auton-lunar-heavy-cargo-landing",
+   "to": "struct-fsp-lunar-100kwe"
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "frontier-math-unbinds",
+   "to": "capability-program-cycle-compression"
+  },
+  {
+   "from": "frontier-math-unbinds",
+   "to": "physclock-dev-capital-cut"
+  },
+  {
+   "from": "frontier-certified-pde-error",
+   "to": "capability-learned-emulators"
+  },
+  {
+   "from": "frontier-scalable-global-certificates",
+   "to": "cap-design-optimization"
+  },
+  {
+   "from": "frontier-rare-event-certified",
+   "to": "physclock-optimal-test-campaigns"
+  },
+  {
+   "from": "frontier-applied-posing",
+   "to": "verif-spec-engineering"
+  },
+  {
+   "from": "physclock-commercial-analysis-first-qual",
+   "to": "capability-program-cycle-compression"
+  },
+  {
+   "from": "physclock-commercial-analysis-first-qual",
+   "to": "physclock-satellite-gen-cadence"
+  },
+  {
+   "from": "physclock-commercial-analysis-first-qual",
+   "to": "physclock-dev-capital-cut"
+  },
+  {
+   "from": "physclock-reliability-priors-credit",
+   "to": "physclock-critical-payload-reuse-acceptance"
+  },
+  {
+   "from": "physclock-ai-mishap-analysis",
+   "to": "physclock-flight-test-cadence"
+  },
+  {
+   "from": "materials-see-system-models",
+   "to": "physclock-satellite-gen-cadence"
+  },
+  {
+   "from": "capability-algorithm-discovery",
+   "to": "comms-hardness-aware-tasking"
+  },
+  {
+   "from": "capability-compute-launch-demand",
+   "to": "struct-gw-orbital-compute"
+  },
+  {
+   "from": "plasma-radbelt-charging-forecast",
+   "to": "materials-cots-orbital-compute-ops"
+  },
+  {
+   "from": "infra-verified-numerics",
+   "to": "frontier-euler-blowup-r3"
+  },
+  {
+   "from": "infra-mathlib-applied",
+   "to": "frontier-kinetic-global-regularity"
+  },
+  {
+   "from": "infra-mathlib-applied",
+   "to": "hyper-boltzmann-foundations-check"
+  }
+ ],
+ "notes": "B-fix integrator pass (2026-10-07), applied last on graph-v1 after the 12 B-<branch>-edits files (order: trunk, math-frontier, verified-autonomy, networks, certification, engines-materials, entry, orbital-compute-power, moon-mars, science, safe-orbits, plasma-nuclear; no node is touched by two resolvers, so order does not change the result).\n\nFIRST APPLY (B files only): 370 nodes, 0 dangling, 0 cycles, 0 monotonic or scenario-order violations, 0 late_but_likely, every node in exactly one branch, 0 hard-prerequisite band inversions, all catalog families valid. Three autofixes (physclock-optimal-test-campaigns, verif-verified-gnc-numerics, verif-onboard-optimizer-certificates: S3 2027 -> 2028), all accepted: they follow the trunk anchors and enforce S3 = S2 through 2027.\n\nCONFLICTS RESOLVED\n1. S3 = S2 through end-2027 (capability.json: S3 doubles like S2 until 2028). B-trunk moved infra-mathlib-applied and infra-verified-numerics to S3 2028; B-math-frontier, working in parallel, kept S3 2027 on Euler R^3, kinetic regularity and the Boltzmann check because those anchors were S3 2027. Nine nodes had S3 2027 with S2 2028; all moved to S3 2028 (no S2 change), text updated. The graph-wide '~56 nodes' issue raised by four resolvers is now closed: 0 nodes have S3 <= 2027 below S2.\n2. Family 365 tiering: prop-mass-gauging (engines-materials) said the recovery headline is the formalized T3 part and the conductivity nonuniqueness is T1; five nodes in math-frontier, entry and certification (and lean/docs/365.md as read by two resolvers) say the reverse. Corrected, plus the matching wording in cap-applied-math.\n3. Stale cross-branch text: capability-compute-launch-demand (trunk) re-based on the orbital-compute branch's Oct 2026 AI1 numbers and 2028/2029 radiator and ops dates; cheap-trust, controlled-data-access, mishap-analysis and cots-ops years quoted in other branches' text; a reference to the merged prop-les-convergence-theory; Starship '48-90' interval; Flight 13 date (Jul 24, 2026, per 33FG news 596 citing the Wikipedia flight list).\n4. Lettered analyst-position citations (a, b, c, d, f, g, h) replaced with KB ids in 14 nodes: a -> tl-position-4, b -> tl-position-6, c -> fc-position-1, d -> tl-position-2, f -> tl-position-5, g -> fc-position-2, h -> tr-position-5 (bottleneck sense) or tr-position-2 (wrong-property sense).\n\nCROSS-BRANCH REQUESTS\nAccepted: auton-lunar-heavy-cargo-landing -> struct-fsp-lunar-100kwe as a hard edge (moon-mars); 15 requested soft edges from the math-frontier, certification, trunk, orbital-compute-power and safe-orbits notes, including physclock-ai-mishap-analysis -> physclock-flight-test-cadence. Three more soft edges (infra anchors -> Euler, kinetic regularity, Boltzmann check) were added by the integrator so the tree shows the dependency those nodes' why text uses to set their years.\nAlready satisfied by the owning resolver: prop-ns-forced-verified no longer gates LES theory (merged node has no such edge); hyper-boltzmann-foundations-check is soft on hyper-kinetic-solver-certification; materials-uhtc-tps-design no longer outranks a hard prerequisite (learned functionals is soft); struct-gw-orbital-compute S2 is Low; struct-100kw-per-tonne-fleet -> plasma-nep-mars-cargo is present; flight-test-cadence status already reads 48-91 days.\nRejected or left: frontier-euler-blowup-r3 -> infra-verified-numerics (soft loop with the dependency the node's own why states; spillover already drawn via frontier-certified-pde-error); materials-see-system-models -> capability-ai-native-spacecraft (that node's own text says build, integration and test bind, not analysis); the verified-autonomy advocate's unspecified soft edges into the two trunk nodes; cap-autonomous-labs -> physclock-ai-run-test-stands kept hard (the tier-0 node is the AI capability to plan, run and interpret closed-loop experiments, which explicitly includes components; years and bands already consistent); moving materials-microgravity-process-models and materials-in-space-mfg-product out of moon-mars (no better-fitting branch: 'working off Earth' covers in-space manufacturing).\n\n5. Parallel-work staleness on the launch clock and physics-theory anchor. B-trunk moved flight-test cadence 2027 -> 2028, heavy cadence S2 2029 -> 2030 (S3 2028 -> 2029), cheap mass 2028 -> 2029, twin reflight S2 2029 -> 2030 and cap-physics-theory S3 2028 -> 2029. hyper-fleet-aerothermal-twin (entry) counted 12+ flights in 2027: S3 2028 -> 2029. prop-flame-response and prop-closure-theory (engines-materials) state that blind validation needs a year after the theory capability in S3 as in S2: S3 2029 -> 2030, and prop-stability-design-tool S3 2030 -> 2031 with S3 Medium -> Low (now equal to S2). Quoted years fixed in five other nodes.\n6. Cycles through soft edges: physclock-twin-reflight-clearance soft-accelerated hyper-rapid-reuse-heatshield, which is its hard prerequisite (removed); physclock-heavy-cadence-100 soft-accelerated hyper-fleet-aerothermal-twin although it lands later in every scenario, closing the graph's only soft loop (removed). The hard+soft graph is now acyclic.\n\nJUDGED, NOT CHANGED\n- After B-trunk moved cap-physics-theory to S3 2029, its other dependents at S3 2029 (ten of them with a one-year lag in S2) were kept: their owners either saw the trunk change (plasma-nuclear, moon-mars) or gave no post-theory validation-year argument, and in S3 cognition is near-free from 2029 while closed-loop labs supply validation data from ~2028, so the S3 lag shrinks to months (earliest years).\n- 40 nodes have S3 2028 with S2 2029: allowed, since S3 diverges during 2028; launch-gated ones (prop-hls-refuel-campaign, auton-lunar-heavy-cargo-landing, auton-lunar-o2-flight-demo) match physclock's 'own curve, 0.5-1 year earlier' launch row.\n- Qualification-gated High nodes (verif-runtime-assurance, comms-pq-verified-implementations, verif-verified-onboard-stack S3) and the networks nodes defined without regulator acceptance are not regulator-acceptance outcomes, so the Medium cap does not apply.\n- Eight hard edges point from a higher tier to a lower one (data or flight evidence feeding models); five predate this round and three are new (hyper-tile-damage-accumulation, science-dark-energy-verdict, hyper-fleet-aerothermal-twin). They are causal, so they were not reversed; the viewer should lay out by topological order, not tier alone."
+}

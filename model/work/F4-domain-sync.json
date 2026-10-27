@@ -1,0 +1,41 @@
+[
+ {
+  "domain": "astro",
+  "path": [
+   "tables",
+   1,
+   "rows",
+   11,
+   3
+  ],
+  "old": "2031 / Medium",
+  "new": "2031 / Low",
+  "reason": "Integrator sync after F2: astro-cislunar-traffic-management S2 band Medium -> Low (F2 audit 2026-10-07)."
+ },
+ {
+  "domain": "materials",
+  "path": [
+   "tables",
+   3,
+   "rows",
+   4,
+   2
+  ],
+  "old": "H0/M1/L2/S4",
+  "new": "H0/M0/L3/S4",
+  "reason": "Integrator sync after F2: materials-closed-loop-discovery (tier 5) S1 band Medium -> Low; recomputed from graph-v4 nodes."
+ },
+ {
+  "domain": "materials",
+  "path": [
+   "tables",
+   3,
+   "rows",
+   7,
+   2
+  ],
+  "old": "H0/M9/L12/S11",
+  "new": "H0/M8/L13/S11",
+  "reason": "Integrator sync after F2: materials-closed-loop-discovery S1 Medium -> Low; 'all' row recomputed from graph-v4 nodes."
+ }
+]

@@ -1,0 +1,706 @@
+[
+ {
+  "lens": "NUMBERS AND CONSISTENCY",
+  "verdict": "Mostly sound, with a few reader-visible contradictions. I rebuilt the document with Python, and every {{placeholder}} matches graph-v4.json. I also recomputed analytics-v4.json from the graph and it matches exactly. No node is dated before a hard prerequisite. All 12 rows of the trunk table and every year and band in the 06 branch table match the graph. Almost every year, band and Plateau/Recursive contrast in the 12 branch narratives also matches. The 230-trial, 6 g helium-3, 1.1 kg/h, 2\u20139% and 2.6-year arithmetic checks out. Process counts match the work files: 722 changes accepted, 132 rejected, 173 facts flagged, 20 nodes added, 632 sources.\n\nThe problems are concentrated. (1) Program compression is given two ways. The hand-written text and the node title say \"a quarter to a third\" (25\u201333%), \"at best\". The node's own description, the scenario table, 04-two-clocks and the trunk narrative say 20\u201330% realized, with a 38% ceiling. (2) Qualification savings are given as \"15\u201330%\" for the base case. The node description and the physical-gate table put the base case at 10\u201320% (15% is the node's threshold, and 20\u201330% applies to Recursive). (3) The critical-path intro misstates what the table shows: only 13 of 39 paths run through public access, and none ends at a qualification gate. (4) Several \"every scenario\" and date claims contradict the graph: low-orbit safety at 100,000 satellites is 2031 in Recursive, the graph lists three Mars windows, the qualified-checker date in the open questions is wrong, the Plateau definition is wrong, and on-demand math is dated 2027 instead of 2028. (5) The rendered reviewer-dispute text is stale for four nodes. The other findings are low-severity wording and title-matching fixes.",
+  "findings": [
+   {
+    "severity": "high",
+    "file": "doc/01-bottom-line.md",
+    "current_text": "New programs get a quarter to a third shorter at best, never 10x",
+    "replacement_text": "New programs get about 20\u201330% shorter (38% at most), never 10x",
+    "why": "The graph puts the ceiling at 38% and the realized base case at 20\u201330%. Sources: the capability-program-cycle-compression description, the scenario-table row \"~38% ceiling (~20-30% realized)\", the trunk hook, 04-two-clocks and trunk.md. A quarter to a third is 25\u201333%, and \"at best\" contradicts the 38% ceiling. This is the headline claim a writer will lift."
+   },
+   {
+    "severity": "high",
+    "file": "generated",
+    "current_text": "Development cycles shrink by a quarter to a third, not 10x",
+    "replacement_text": "Development cycles 20-30% shorter, not 10x",
+    "why": "This is the title of graph node capability-program-cycle-compression. The node's own description says \"Expected realized compression ... about 20-30% in S2\". The title is rendered six times in the document (branch tree, node table, mermaid diagram, critical-path table, year list), so the prose keeps echoing the wrong range. After retitling, update the hand-written echoes in 01, 06, 07 and trunk.md (see the separate findings)."
+   },
+   {
+    "severity": "medium",
+    "file": "generated",
+    "current_text": "New program schedules shrink about a quarter to a third (38% at most), since tests, factories and launches run on physical time.",
+    "replacement_text": "New program schedules shrink about 20-30% (38% at most), since tests, factories and launches run on physical time.",
+    "why": "This is the trunk branch thesis in graph-v4.json branches[trunk].thesis. It contradicts the trunk reader_hook printed directly below it (\"realized gains are likelier 20-30%\") and the node description."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/06-branches-intro.md",
+    "current_text": "Development cycles a quarter to a third shorter, 2031 (Medium), never 10x",
+    "replacement_text": "Development cycles 20\u201330% shorter, 2031 (Medium), never 10x",
+    "why": "This is the same inconsistency: the graph and 04-two-clocks give 20\u201330% realized for the base case."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/07-by-year.md",
+    "current_text": "Program cycles are a quarter to a third shorter (Medium) and qualification campaigns 15\u201330% shorter (Low)",
+    "replacement_text": "Program cycles are 20\u201330% shorter (Medium) and qualification campaigns at least 15% shorter (Low; the base-case estimate is 10\u201320%)",
+    "why": "capability-program-cycle-compression gives 20\u201330% realized in S2. physclock-qual-cycle-compressed defines success as at least 15% shorter, with \"about 10-20% in S2 and 20-30% in S3, per the physical-gate table\". The gate table gives spacecraft environmental qualification 0.8\u20130.9x in S2."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/branches/trunk.md",
+    "current_text": "Development cycles shrink by a quarter to a third about 2031 (Medium), held by test hardware.",
+    "replacement_text": "Development cycles shrink 20 to 30% about 2031 (Medium), held by test hardware.",
+    "why": "The same narrative later says \"The analysts settled on 20 to 30%\", which agrees with the graph, so it contradicts itself. The replacement brings the narrative to 395 words, within the 400-word cap."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/08-findings.md",
+    "current_text": "Even so, qualification campaigns shorten only 15\u201330%, and not before about 2031 (Low)",
+    "replacement_text": "Even so, qualification campaigns shorten only about 10\u201320% in the base case (20\u201330% in Recursive), and even the model's 15% threshold is not expected before about 2031 (Low)",
+    "why": "physclock-qual-cycle-compressed defines the node as at least 15% shorter and estimates about 10\u201320% in S2 and 20\u201330% in S3. The physical-gate table agrees (0.8\u20130.9x in S2, 0.7\u20130.8x in S3). 15\u201330% mixes the threshold with the Recursive range and overstates the base case."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/06-branches-intro.md",
+    "current_text": "Qualification campaigns 15\u201330% shorter, 2031 (Low); lighter structures after 2031",
+    "replacement_text": "Qualification campaigns at least 15% shorter (10\u201320% expected), 2031 (Low); lighter structures after 2031",
+    "why": "Same qualification-savings inconsistency: the node description and the gate table put the base case at 10\u201320%."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/branches/certification.md",
+    "current_text": "Qualification campaigns 15\u201330% shorter follow about 2031 (Low; Medium in Recursive), because test stands bind. In Plateau, government credit falls beyond 2031.",
+    "replacement_text": "Qualification campaigns at least 15% shorter (10\u201320% expected) follow about 2031 (Low; Medium in Recursive): test stands bind. Plateau puts government credit beyond 2031.",
+    "why": "Same qualification-savings inconsistency (node description: about 10\u201320% in S2). With the next two replacements, the narrative goes from 398 to 400 words, which stays within the 400-word cap stated in 06."
+   },
+   {
+    "severity": "low",
+    "file": "doc/branches/certification.md",
+    "current_text": "became 15\u201330% by 2031",
+    "replacement_text": "became 10\u201320% by 2031",
+    "why": "Keeps the skeptic-versus-advocate sentence consistent with the node's base-case estimate (10\u201320% in S2) once the title range is no longer quoted as the base case. The word count does not change."
+   },
+   {
+    "severity": "medium",
+    "file": "generated",
+    "current_text": "Qualification campaigns 15-30% shorter",
+    "replacement_text": "Qualification campaigns at least 15% shorter",
+    "why": "This is the title of node physclock-qual-cycle-compressed. Its description says the threshold is at least 15% and the S2 estimate is 10\u201320%. The 15-30% title is what pulled 15\u201330% into four hand-written sections."
+   },
+   {
+    "severity": "medium",
+    "file": "generated",
+    "current_text": "Analysis runs 2-5x faster, but test stands hold qualification savings to 15-30%, about 2031 (Low).",
+    "replacement_text": "Analysis runs 2-5x faster, but test stands hold qualification savings to about 10-20% in the base case (at least 15% by 2031 is Low).",
+    "why": "This is the certification branch thesis in graph-v4.json. It conflicts with physclock-qual-cycle-compressed's own S2 estimate (10\u201320%) and with the physical-gate table."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/07b-critical-paths.md",
+    "current_text": "Most paths run through public access to research-grade mathematics (2027) and applied mathematics. They then turn physical, and the last step is almost always launch, qualification, adoption or capital.",
+    "replacement_text": "Of the 39 paths, 13 run through public access to research-grade mathematics (2027), 10 of them also through applied mathematics. Another 12 run through machine-checked proofs and specifications without public access. The remaining 14 contain no AI-mathematics node at all, because they are launch-clock and hardware anchors. The binding gate at the end is usually adoption (18), launch (8) or fabrication (7); none is qualification.",
+    "why": "Recomputed from analytics-v4 critical_paths (tiers 6\u20137, S2 Medium or better, 39 rows). Paths containing cap-research-math-public: 13; cap-applied-math: 10; cap-autoformalization without public access: 12; no AI-math node: 14. End-node gates: adoption 18, launch 8, fabrication 7, data 2, capital 2, regulatory 1, experiment 1, qualification 0. Also note that the table shows only the latest-prerequisite path, not the full chain the framework rule asks for; the full chains are in the node notes."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/07-by-year.md",
+    "current_text": "Fusion propulsion, nuclear thermal stages, Mars propellant plants, a safe low orbit at 100,000 satellites, and LISA's science all lie beyond the window in every scenario.",
+    "replacement_text": "Fusion propulsion, nuclear thermal stages, Mars propellant plants and LISA's science lie beyond the window in every scenario. A safe low orbit at 100,000 satellites does too, except in Recursive, which dates it 2031 (Low).",
+    "why": "astro-leo-safety-at-scale is >2031/>2031/2031 (Speculative/Low/Low). safe-orbits.md correctly says \"Recursive 2031, Low\", so this sentence contradicts the graph and the branch narrative."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/09-nil.md",
+    "current_text": "There are only two Mars launch windows before the end of 2031.",
+    "replacement_text": "There are only three Mars launch windows before the end of 2031 (late 2026, already too close to use; late 2028 to early 2029; early 2031).",
+    "why": "The graph's nil_effects and the auton node status list \"late 2026 (SpaceX not using it), Dec 2028-Jan 2029, and Feb-Mar 2031\". The audit log (facts-flagged, moon-mars) records that the list was corrected to include late 2026."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/11-assumptions.md",
+    "current_text": "Whether certification bodies accept AI-produced proofs through already-qualified checkers (about 2028\u201329) or only after qualifying the AI toolchain itself (2030 or later).",
+    "replacement_text": "Whether certification bodies accept AI-produced proofs through already-qualified checkers early (2028\u201329, the upside case), on the base-case date (about 2030), or only after the Lean kernel or Comparator itself is qualified (later).",
+    "why": "In the graph, infra-tool-qualification (S2 2030, Medium) is the already-qualified-checker route. Its description says \"qualifying a new small kernel (Lean or Comparator) is a later, separate step\", and 2028\u201329 is the upside. 08-findings #2 and 10-signposts also date qualified-checker acceptance to about 2030. The current wording swaps the base case and the upside."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/03-premise.md",
+    "current_text": "Capability stays near today's level and diffuses slowly.",
+    "replacement_text": "Capability keeps improving, but slowly (the task horizon doubles every 12\u201318 months, against 6\u20139 in the base case), and research-grade mathematics reaches outside teams only in 2028.",
+    "why": "The generated scenario table defines S1 as 12\u201318-month doubling: about 76 h by end-2027 and about 700 h by end-2031, against about 40 h in October 2026, roughly 17x growth. cap-research-math-public is S1 2028. \"Stays near today's level\" contradicts the table printed a few lines later."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/07-by-year.md",
+    "current_text": "Research-grade mathematics reaches outside teams, and with it applied mathematics on demand (High).",
+    "replacement_text": "Research-grade mathematics reaches outside teams, and with it research-grade applied mathematics (High); routine on-demand use in space engineering follows in 2028.",
+    "why": "cap-applied-math (\"AI does research-grade applied math\") is S2 2027. capability-engineering-adoption (\"On-demand applied math in space engineering\") is S2 2028. The bottom line (\"By about 2028 ... on-demand applied mathematics\") and this section's own 2028 entry (\"routine on-demand analysis\") both use 2028."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/02-method.md",
+    "current_text": "P4, practical algorithms: never, when the speedup is galactic.",
+    "replacement_text": "P4, practical algorithms: 1\u20135 years when the constants are practical; never when the speedup is galactic.",
+    "why": "The knowledge base (fw-translation-pathways) gives P4 a lag of \"1\u20135 yrs if constants are practical; never if galactic\". 24 nodes carry P4 in their pathway, 11 of them rated High in S2 (for example \"Near-optimal mesh routing with a proven gap\", P1->P4, 2027 High). As written, readers will see P4 as meaning \"never\" and think those nodes contradict the method."
+   },
+   {
+    "severity": "medium",
+    "file": "generated",
+    "current_text": "Where acceptance runs through formal infrastructure that the graph already dates S3 2027 (Euler, kinetic, Boltzmann check), S3 stays 2027 as the optimistic end.",
+    "replacement_text": "S3 was later aligned with S2 at 2028 for Euler, kinetic regularity and the Boltzmann check, under the rule that S3 equals S2 through 2028.",
+    "why": "This is stale text in the math-frontier \"Where the reviewers disagreed\" block, rendered from work/wf2-result.json challenge debates. In graph-v4, frontier-euler-blowup-r3, frontier-kinetic-global-regularity and hyper-boltzmann-foundations-check are all S3 2028, and the node table directly below says 2028."
+   },
+   {
+    "severity": "low",
+    "file": "generated",
+    "current_text": "Flame response is S2 2030 and S3 2029: the S3 theory capability lands in 2028 and the blind campaign cannot finish the same year.",
+    "replacement_text": "Flame response is S2 2030 and S3 2030 (a later pass moved S3 from 2029): the blind campaign cannot finish the year the theory capability lands.",
+    "why": "Stale engines-materials dispute text (wf2-result.json). prop-flame-response is >2031/2030/2030 in graph-v4."
+   },
+   {
+    "severity": "low",
+    "file": "generated",
+    "current_text": "The owner curve is a new, narrowed node (hyper-fleet-aerothermal-twin, Medium x3, 2029/2029/2028).",
+    "replacement_text": "The owner curve is a new, narrowed node (hyper-fleet-aerothermal-twin, Medium x3, 2029/2029/2029).",
+    "why": "Stale entry dispute text (wf2-result.json). hyper-fleet-aerothermal-twin is 2029 in all three scenarios in graph-v4."
+   },
+   {
+    "severity": "low",
+    "file": "generated",
+    "current_text": "Medium in both S2 and S3, and S1 Medium.",
+    "replacement_text": "Medium in both S2 and S3; S1 is now Low (2031).",
+    "why": "Stale orbital-compute dispute text on struct-radiator-lightweight-production (wf2-result.json). graph-v4 has 2031/2030/2030 and Low/Medium/Medium."
+   },
+   {
+    "severity": "low",
+    "file": "doc/08-findings.md",
+    "current_text": "Shared data commons for tests and flights are among the highest-fanout nodes in the hardware tiers.",
+    "replacement_text": "A shared, AI-ready structural and thermal test-data commons (2028) is among the 15 nodes with the most downstream dependents in the whole tree.",
+    "why": "The data-commons nodes are tier 0, not hardware tiers. struct-test-data-commons reaches 15 downstream nodes and ranks 15th overall (it is the last row of the keystones table); hyper-flight-data-pipeline reaches 4. No data-commons node is in tiers 5\u20137. The highest-reach hardware nodes are the Starship reuse and ship-transfer anchors (12 each)."
+   },
+   {
+    "severity": "low",
+    "file": "doc/08-findings.md",
+    "current_text": "Every branch's main chain starts from that capability, not from a theorem.",
+    "replacement_text": "Eleven of the twelve branch main chains start from that capability, and none rests on a catalog result; the orbital-compute chain starts from SpaceX hardware.",
+    "why": "The orbital-compute-power main chain (spine) has two roots: struct-highflux-radiator-flight and struct-light-solar-array-production, both tier-5 exogenous anchors. Its own narrative says \"The main chain is hardware on SpaceX's clock.\""
+   },
+   {
+    "severity": "low",
+    "file": "doc/08-findings.md",
+    "current_text": "and only {{n_fam}} of the release's 372 families appear at all. Almost all of them sit in the mathematics tiers,",
+    "replacement_text": "and only {{n_fam}} of the release's 372 families are cited by any node. Most of those nodes (48 of {{n_fam_nodes}}) sit in the frontier- and applied-mathematics tiers,",
+    "why": "The 70 family-citing nodes split by tier as follows: T1 22, T2 26, T3 8, T0 6, T4 5, T5 2, T7 1. That is 48 of 70 in the mathematics tiers, which is \"most\", not \"almost all\". The prose also discusses families 107 and 130 (09-nil, orbital-compute narrative), which no node cites, so \"appear at all\" is off by two. Consider adding a builder placeholder for the 48."
+   },
+   {
+    "severity": "low",
+    "file": "doc/08-findings.md",
+    "current_text": "Under Exponential, the binding gate across the tree shifts from cognition to adoption ({{n_gate_adoption}} nodes), data ({{n_gate_data}}) and experiment ({{n_gate_experiment}}).",
+    "replacement_text": "Across the tree, the commonest binding gates are adoption ({{n_gate_adoption}} nodes), data ({{n_gate_data}}) and experiment ({{n_gate_experiment}}); cognition binds only {{n_gate_cognitive}}, all in tiers 0\u20132.",
+    "why": "binding_gate is a single, scenario-independent field, so nothing \"shifts under Exponential\". Cognitive remains the fourth-largest gate (45 nodes: 4 in T0, 17 in T1, 24 in T2). build_doc.py already provides {{n_gate_cognitive}}."
+   },
+   {
+    "severity": "low",
+    "file": "doc/05-trunk.md",
+    "current_text": "Three trunk nodes carry most of the tree:",
+    "replacement_text": "Below the in-lab capability itself, which sits upstream of almost everything (first row of the table below), three trunk nodes carry most of the tree:",
+    "why": "The keystones table printed right after this list puts \"Research-grade math inside the labs\" first, with 314 nodes downstream, ahead of public access (256) and applied math (218). Readers will ask why it is missing from the list."
+   },
+   {
+    "severity": "low",
+    "file": "doc/10-signposts.md",
+    "current_text": "| A model at the release's level becomes available to outside engineering teams, or an open-weight model reaches research grade | 2027 |",
+    "replacement_text": "| A model at the release's level becomes available to outside engineering teams, or an open-weight model reaches research grade | 2027 (open weights: 2028) |",
+    "why": "capability-open-weights-math (\"Open-weight model at research-math level\") is S2 2028; only cap-research-math-public is 2027."
+   },
+   {
+    "severity": "low",
+    "file": "doc/11-assumptions.md",
+    "current_text": "so if those slip, dozens of nodes slip together",
+    "replacement_text": "so if those slip, up to {{reach_public}} nodes, about two-thirds of the tree, slip together",
+    "why": "Public access alone has 256 of 390 nodes downstream (keystones; the same figure is used in 05 and 10). \"Dozens\" understates it by an order of magnitude."
+   },
+   {
+    "severity": "low",
+    "file": "doc/01-bottom-line.md",
+    "current_text": "Every number in this document is generated from the model graph (`model/graph-v4.json`).",
+    "replacement_text": "Every table, count and node date in this document is generated from the model graph (`model/graph-v4.json`); figures quoted in the prose are taken from the graph's node and domain notes.",
+    "why": "Many figures are typed into doc/*.md by hand, not generated: $4,900/kg, 38%, 230 trials, $300\u2013600 per line, 15\u201330%, and others. Several of them disagree with the graph (see the other findings), so the claim as written is not true."
+   },
+   {
+    "severity": "low",
+    "file": "doc/01-bottom-line.md",
+    "current_text": "- Section 2 states the premise and the three scenarios.",
+    "replacement_text": "- Section 1 explains what was modeled and how.\n- Section 2 states the premise and the three scenarios.",
+    "why": "The skeleton has a section 1 (\"What was modeled, and how\"), but the reader's guide skips from the bottom line to section 2."
+   },
+   {
+    "severity": "low",
+    "file": "doc/02-method.md",
+    "current_text": "T1 manuscript only; T2 plus a named outside expert's endorsement; T3 plus a Lean proof in the lab's repository, unchecked by outsiders; T4 independently checked; T5 established.",
+    "replacement_text": "T1 a manuscript only; T2 a manuscript plus a named outside expert's endorsement; T3 a Lean proof of the main result in the lab's repository, unchecked by outsiders; T4 a T3 result plus an independent Comparator run and a statement audit; T5 established (independently reconstructed, refereed or reused).",
+    "why": "In the knowledge base (fw-trust-tiers), T3 does not require T2's endorsement, but the \"plus\" chain implies it does. T4 also needs a statement audit, not just an independent check, and that distinction is what 10-signposts and the Navier\u2013Stokes nodes rely on."
+   },
+   {
+    "severity": "low",
+    "file": "doc/02-method.md",
+    "current_text": "physical lag ladder: from design-complete to first flight takes",
+    "replacement_text": "physical lag ladder for the base case: from design-complete (not program start) to first flight takes",
+    "why": "The physclock domain labels the ladder \"(S2)\". The generated gate table in section 3 gives \"6-13 years\" for a new engine and \"5+ years\" for a space nuclear system, measured from program or funded start. Readers will otherwise see these as contradicting the ladder's 4\u20136 years."
+   },
+   {
+    "severity": "low",
+    "file": "doc/02-method.md",
+    "current_text": "127 families carry agent-written Lean proofs that the repository marks unchecked",
+    "replacement_text": "127 families (by the release's formalization catalog) carry agent-written Lean proofs that the repository marks unchecked; auditors found Lean files for more families than that, a discrepancy not yet reconciled",
+    "why": "work/facts-flagged.txt (networks item 24; certification item 40) records that the repository links Lean docs for 235 families against the catalog's 127. Families 124 and 372 have Lean main results and Comparator challenges but are treated as T1. The graph keeps 127, so the paper should hedge the figure."
+   },
+   {
+    "severity": "low",
+    "file": "doc/06-branches-intro.md",
+    "current_text": "| Plasma, nuclear and fusion propulsion | Full-thruster kinetic simulation affordable, 2028 (Medium) | Design-before-build electric thrusters, 2030 (Low) |",
+    "replacement_text": "| Plasma, nuclear and fusion propulsion | Full-thruster kinetic simulation affordable, 2028 (Medium) | AI-designed thruster flies and performs as predicted, 2031 (Low) |",
+    "why": "\"Design-before-build electric thrusters\" (plasma-ep-predictive-design) is a tier-4 engineering tool, so it is not a physical or operational step. The first AI-linked physical node in the branch is plasma-ai-designed-thruster-flight (T5, S2 2031, Low). The 12 kW wear test (2029) and the reactor launch (2030) are exogenous anchors."
+   },
+   {
+    "severity": "low",
+    "file": "doc/06-branches-intro.md",
+    "current_text": "Routine reentry at 50 or more commercial returns a year, 2031 (Low)",
+    "replacement_text": "Routine, cheap reentry: 50+ commercial returns a year, 2031 (Low)",
+    "why": "The graph title is \"Routine, cheap reentry: 50+ commercial returns a year\". The paraphrase cannot be matched with a page find in the viewer or in the node tables."
+   },
+   {
+    "severity": "low",
+    "file": "doc/06-branches-intro.md",
+    "current_text": "Flown heat shield sized with model-based margins, 2030 (Medium)",
+    "replacement_text": "Flown heat shield sized with reduced, model-based margins, 2030 (Medium)",
+    "why": "The graph title is \"Flown heat shield sized with reduced, model-based margins\". entry.md already uses the exact title."
+   },
+   {
+    "severity": "low",
+    "file": "generated",
+    "current_text": "Unforced Navier-Stokes settled, either way",
+    "replacement_text": "Unforced Navier\u2013Stokes settled, either way",
+    "why": "The graph titles mix dashes: \"Forced Navier\u2013Stokes blowup independently checked\" uses an en dash, while \"Unforced Navier-Stokes settled, either way\" and \"Clay rules on the forced Navier-Stokes breakdown claim\" use hyphens. 06, 07 and 08 write \"Navier\u2013Stokes\", so a page find for the prose spelling misses two of the three nodes. Normalize both hyphenated titles to the en dash, and use the en dash in math-frontier.md as well."
+   },
+   {
+    "severity": "low",
+    "file": "doc/branches/math-frontier.md",
+    "current_text": "139 and 140 (T3) as rare-event ceilings, plus 374 and 376 (T1, conditional).",
+    "replacement_text": "139, 140 and 360 (T3) as rare-event ceilings, plus 374 (T1, conditional).",
+    "why": "frontier-rare-event-certified cites 139, 140, 360 and 374, and its premise reads \"139, 140 and 360 are T3; 374 is T1\". Family 376 is cited only by the Navier\u2013Stokes, nonuniqueness and turbulent-CFD nodes, not the rare-event node. The replacement brings the narrative to 397 words."
+   },
+   {
+    "severity": "low",
+    "file": "doc/branches/moon-mars.md",
+    "current_text": "against about 1.1 kg/h for a 10 t/yr plant.",
+    "replacement_text": "against about 0.11 kg/h, year-round, for 1 t/yr.",
+    "why": "The narrative's node, \"Tonne-per-year lunar oxygen plant\" (auton-lunar-oxygen-ops), uses a 1 t/yr threshold: about 0.11 kg/h, about 1.6x LR-1's rate, with run duration (8,760 h against 9 h) and anode life as the gates. Comparing against a 10 t/yr plant implies a 16x rate gap for a node whose gap is endurance. The narrative is at exactly 400 words, and this replacement takes it to 399."
+   },
+   {
+    "severity": "low",
+    "file": "doc/branches/certification.md",
+    "current_text": "a Lean-checked sampling result (T3)",
+    "replacement_text": "a Lean-formalized sampling result (T3)",
+    "why": "T3 means agent-written Lean that no outsider has checked. \"Lean-checked\" suggests verification, which is T4. The other narratives say \"agent-written Lean (T3)\" for the same family 139. The word count does not change."
+   },
+   {
+    "severity": "low",
+    "file": "doc/08-findings.md",
+    "current_text": "falls from about $300\u2013600 to about $5\u201320 by 2028\u201329",
+    "replacement_text": "falls from about $300\u2013600 to about $5\u201320 by about 2028 (High)",
+    "why": "verif-assurance-cost-collapse is S2 2028, High. The bottom line, 07-by-year and verified-autonomy.md all say 2028. The generated verified-autonomy thesis and hook also say \"by 2028-29\" and should be aligned the same way."
+   },
+   {
+    "severity": "low",
+    "file": "doc/07-by-year.md",
+    "current_text": "The full list of tier 4\u20137 nodes rated High or Medium by 2031 follows, by Exponential-case year, with the Plateau and Recursive years for comparison.",
+    "replacement_text": "The full list of tier 4\u20137 nodes rated High or Medium by 2031 follows, by Exponential-case year, with the Plateau and Recursive years for comparison; a last group lists every tier 4\u20137 node dated after 2031, whatever its rating.",
+    "why": "build_doc.py's year_by_year block includes a \">2031\" group with no band filter, so it contains Low and Speculative nodes that the intro sentence says are excluded."
+   }
+  ]
+ },
+ {
+  "lens": "Analyst grounding and facts (ai-math-frontier-analyst rules: pathway and band on implications, conditional wording for T1/T2, no practical galactic speedups, written chains for hardware outcomes, bands as judgments, catalog families only, trust tiers capped at T3 as of 2026-10-07, correct release statistics) plus a fact-check of load-bearing empirical claims.",
+  "verdict": "The grounding is mostly sound. All 42 families cited in the graph and every family number in the narratives appear in ref-family-catalog. Most narrative tier labels match the Lean flags and the graph's statement-gap notes. Galactic speedups (107, 130, 109) are never treated as practical. The release statistics are right (722 manuscripts, 372 families, 127 with Lean, about 4,000 problems, unreleased model, 3 of 16 PDE and 5 of 6 logic families formalized). Bands are called judgments throughout. The regulator cap is respected, with one exception that the graph explains (cap-research-math-public). The hand-written tables match the graph: I checked all 12 rows of the trunk table and every node in the 06 summary table that matched a graph title exactly, and found no mismatch. The Amdahl figures (18/38/51%) reproduce. Three problems need fixing before handoff. (1) The builder labels node tiers \"T0\" to \"T7\". About 500 labels such as \"(T5 \u00b7 2029 \u00b7 Medium)\" read as trust tiers T4/T5 and contradict \"nothing above T3\". (2) 02-method says the model uses the framework's bands but does not disclose two departures. Most nodes sit above their pathway default: by my count 206 of 350 non-exogenous nodes in Exponential, and 88 even in Plateau. The trunk node \"Research-grade math for outside teams\" is High in every scenario despite the framework's public-model cap and its regulatory gate, and 256 nodes sit downstream of it. (3) The written-chain rule is met only for tiers 6\u20137. Ten tier-5 flight demonstrations rated Medium have no written chain. I fact-checked 20 empirical claims against primary sources, 33FG/Mach33 and the research files. Fourteen held up: Mach33's $4,915/$656/~$300 per kg path, AI1 solar at 56% and 71 kW/t, the V3 10x capacity step, Vero 27/43, Ilin's 10 days, $200 and 229 prompts, the Perseverance AI-planned drives of Dec 8 and 10 2025, the Peregrine valve, three failed relights on Flight 13, the NASA UQ paper's 2040\u20132050, second-order self-force existing only for circular Schwarzschild orbits, the NP-hardness in arXiv 2601.21914, the AEPS paper's \"100% test with 50% margin by analysis\", the FY2026 $24.4B against the FY2027 request of $18.8B, and Astra's ~$2,000 for ten results. Two were contradicted. 09-nil says two Mars windows remain before end-2031 when there are three, and it calls 460 s the hydrogen-oxygen Isp limit when RL10B-2 flies at 465.5 s. Four were overstated or unqualified: HELIOS \"11 of 11\" counts compilation success only; seL4's 25 person-years covered design and implementation as well as proof; the Kingy Comparator run was a tech blog's run with no statement audit; and the Mach33 SpaceX-equity disclosure is missing.",
+  "findings": [
+   {
+    "severity": "high",
+    "file": "generated",
+    "current_text": "tools/build_doc.py line 43: return f\"T{n['tier']} \u00b7 {n['earliest_year'][s]} \u00b7 {n['band_2031'][s]}\"  | line 74: label = f\"{n['title']}<br/>T{n['tier']} \u00b7 S2 {n['earliest_year']['S2']} \u00b7 {n['band_2031']['S2']}\".replace('\"', \"'\")  | line 151: out.append(f\"- {title} (T{tier}, {band}; Plateau {n['earliest_year']['S1']}, Recursive {n['earliest_year']['S3']})\")",
+    "replacement_text": "line 43: return f\"Tier {n['tier']} \u00b7 {n['earliest_year'][s]} \u00b7 {n['band_2031'][s]}\"  | line 74: label = f\"{n['title']}<br/>Tier {n['tier']} \u00b7 S2 {n['earliest_year']['S2']} \u00b7 {n['band_2031']['S2']}\".replace('\"', \"'\")  | line 151: out.append(f\"- {title} (tier {tier}, {band}; Plateau {n['earliest_year']['S1']}, Recursive {n['earliest_year']['S3']})\")",
+    "why": "The node-tier labels use the same notation as the trust tiers. The rendered doc carries about 500 such labels. For example, '**Lander flies proof-checked descent guidance and fault logic** (T5 \u00b7 2029 \u00b7 Medium; gate: adoption)' and '**AI chips and memory qualified to run hot in orbit** (T5 \u00b7 2029 \u00b7 Medium)' sit next to narratives where T5 means 'established' and T4 means 'formally verified'. T4 and T5 labels appear about 175 times. A non-specialist writer will read them as trust tiers, which contradicts the doc's own rule, 'Nothing in the October release is above T3'. That rule follows fw-trust-tiers: as of 2026-10-07 every openai/math result is T1, T2 or T3. Spelling out 'Tier' removes the collision. The main-chain headers ('tier \u00b7 year \u00b7 likelihood') can stay."
+   },
+   {
+    "severity": "high",
+    "file": "doc/02-method.md",
+    "current_text": "They are judgments, not computed probabilities. Anything that needs a regulator's acceptance is capped at Medium.",
+    "replacement_text": "They are judgments, not computed probabilities. The framework starts each implication at its pathway's default band (High for P1 and P3, Medium for P2, Medium or Low for P4 and P5, Low for P6, Speculative for P7) and only adjusts downward. This model departs from that on purpose. In the Exponential and Recursive cases the premise itself lifts many cognitive-tier nodes above their pathway default. A few hardware nodes are raised with stated reasons, such as commercial capsules that iterate in months. Exogenous launch anchors take their bands from industry forecasts. For frontier-mathematics nodes, the band is the judged chance that the result is independently checked by 2031. Two framework rules are kept: anything that needs a regulator's acceptance is capped at Medium, and implications resting on T1 or T2 results drop one band. A third rule caps at Medium anything that depends on the internal model becoming public. That rule is not applied to the trunk node 'Research-grade math for outside teams' (High in every scenario), because public release is how the scenarios are defined. Every node downstream of it is therefore conditional on that release.",
+    "why": "fw-horizon-scorecard says 'Start from the pathway's default band, then adjust', and it lists only downward adjustments. Taking the slowest pathway in each chain, 206 of 350 non-exogenous nodes are above their default in Exponential, and 88 are even in Plateau, which the doc calls the analyst's default. At least 35 nodes on P2 chains are High (default Medium), and 14 non-exogenous nodes on P7 chains are Medium or High (default Speculative). Examples include verif-assurance-cost-collapse, hyper-thinner-tps-flown (its own note says 'P7 defaults to Speculative; the band is raised to Medium') and struct-hot-spots-thermal-modes (T1, P5, rated Medium). The scorecard also says 'Depends on the internal model becoming public: cap at Medium unless a public model with similar capability exists'. cap-research-math-public is High in all scenarios even though its gate is coded 'regulatory'. Its only public equivalent is GPT-6 Astra at 2 of 68 FrontierMath Erdos problems, and 256 nodes sit downstream of it. The graph records these overrides in revision and calibration notes, but the doc's method section implies that the framework's bands were applied as written. A writer citing 'bands follow the analyst framework' would misstate the model."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/07b-critical-paths.md",
+    "current_text": "For each operational system or outcome rated Medium or better in the Exponential case, the table follows its latest prerequisite back at every step. That path sets the node's date, and it satisfies the framework's rule that any hardware or physical outcome forecast inside five years must have its full chain written out.",
+    "replacement_text": "For each validated technology, operational system or outcome (tiers 5\u20137) rated Medium or better in the Exponential case, the table follows its latest prerequisite back at every step. That path sets the node's date, and it satisfies the framework's rule that any hardware or physical outcome forecast inside five years must have its full chain written out.",
+    "why": "The rule ('predicts a hardware... outcome inside five years without writing out the chain (pathway P7)') covers flight demonstrations, but tools/analytics.py line 90 ('if n['tier'] >= 6:') builds critical paths for tiers 6\u20137 only. Ten non-exogenous tier-5 hardware nodes rated Medium in Exponential sit on no branch main chain, so their chain appears nowhere in the doc: astro-autonomous-nav-demo, capability-ai-eda-space-processor, comms-pq-ttc-flight-demo, materials-closed-loop-discovery, materials-tps-new-material-flight, physclock-twin-reflight-clearance (the one hardware node the bottom line says cites a family), struct-shm-inspection-credit, verif-verified-onboard-stack, verif-rpo-assured-autonomy and science-onboard-science-inference. Apply the replacement together with the generated change at analytics.py line 90: 'if n['tier'] >= 5 and 'exogenous' not in n['pathway']:'. If the builder is not changed, use this text instead: 'For each operational system or outcome (tiers 6\u20137) rated Medium or better... Ten tier-5 flight demonstrations rated Medium that are off the branch main chains have their chains only in the model graph.'"
+   },
+   {
+    "severity": "medium",
+    "file": "doc/07-by-year.md",
+    "current_text": "  - a lander flies proof-checked descent software;\n  - constellations take proof-checked updates;\n  - commercial operators fly hardware qualified mainly by analysis;\n  - engines earn model-based reuse life;\n  - missions fly AI-designed trajectories;\n  - lunar robots do severalfold more work per operator.",
+    "replacement_text": "  - a lander flies proof-checked descent software (Medium);\n  - constellations take proof-checked updates (Medium);\n  - commercial operators fly hardware qualified mainly by analysis (Medium);\n  - engines earn model-based reuse life (Medium);\n  - missions fly AI-designed trajectories (High);\n  - lunar robots do severalfold more work per operator (Medium).",
+    "why": "Grounding rule: 'an implication has no pathway tag or no band' fails. The by-year section is the part a writer is most likely to quote. These are the model's first hardware outcomes, and all but one are only Medium by 2031. As written they read as certain events. The bands are from graph-v4: verif-lander-verified-gnc-flight, verif-constellation-verified-updates, physclock-commercial-analysis-first-qual and prop-reuse-extended are Medium; astro-ai-designed-trajectory-flown is High; auton-surface-productivity is Medium."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/07-by-year.md",
+    "current_text": "- **2030.** Regulators accept AI-produced proofs through already-qualified checkers (Medium). Capsules fly thinner, model-based heat shields. Ship-scale heat shields become rapidly reusable on flight data. Orbital refueling becomes routine on the launch clock. Heavy launch passes 100 flights a year.",
+    "replacement_text": "- **2030.** Regulators accept AI-produced proofs through already-qualified checkers (Medium). Capsules fly thinner, model-based heat shields (Medium). Ship-scale heat shields become rapidly reusable on flight data (Medium). Orbital refueling becomes routine on the launch clock (Medium). Heavy launch passes 100 flights a year (High; an exogenous launch anchor).",
+    "why": "These are the same missing-band P7 hardware outcomes. The graph has hyper-thinner-tps-flown Medium, hyper-rapid-reuse-heatshield Medium, prop-cislunar-propellant-economy Medium and physclock-heavy-cadence-100 High (S2). Without bands, Medium hardware outcomes read as forecasts of fact."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/06-branches-intro.md",
+    "current_text": "Unforced Navier\u2013Stokes settled, 2029 (Medium), which changes no engine",
+    "replacement_text": "An AI proof on unforced Navier\u2013Stokes (blowup or smoothness) passes an independent check, 2029 (Medium), which changes no engine",
+    "why": "The node frontier-ns-unforced defines its band as the 'chance the result is established (T4 Lean check or T2+ expert acceptance)'. Under fw-trust-tiers, T2 is only 'claims a proof, endorsed by', T4 is 'formally verified', and only T5 is 'established'. To a general reader, 'settled' also implies Clay acceptance, which the node itself says needs qualifying publication plus two years. Forecasting a settled Millennium problem at Medium by 2029 is the most quotable overclaim in the doc. The same wording needs the same fix in two places. In 07-by-year.md, 'Unforced Navier\u2013Stokes is settled, and nothing in engineering changes.' becomes 'An AI proof on unforced Navier\u2013Stokes passes an independent check (Medium); nothing in engineering changes.' In branches/math-frontier.md, 'unforced Navier-Stokes settled about 2029 (Medium)' becomes 'an independently checked AI proof on unforced Navier-Stokes about 2029 (Medium)'. In the generated graph, retitle 'Unforced Navier-Stokes settled, either way', and drop 'or T2+ expert acceptance' from the band definitions in frontier-ns-unforced and frontier-euler-blowup-r3."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/09-nil.md",
+    "current_text": "There are only two Mars launch windows before the end of 2031.",
+    "replacement_text": "Only three Mars launch windows open before the end of 2031 (late 2026, around the turn of 2028\u201329, and early 2031), and only the last two can carry anything designed after this release.",
+    "why": "This is contradicted by orbital mechanics. Mars oppositions fall on 19 Feb 2027, 25 Apr 2029 and 27 Jun 2031, so transfer windows open around Nov\u2013Dec 2026, Dec 2028\u2013Jan 2029 and early 2031. The late-2026 window is the one Musk long targeted, and it still lies ahead of the 7 October 2026 as-of date. The source, research/auton.json, lists only 'late 2028, early 2031', so it silently drops 2026. The nil argument still holds once it is restated."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/09-nil.md",
+    "current_text": "the thermochemical limits on specific impulse (about 380 s for methane\u2013oxygen and 460 s for hydrogen\u2013oxygen in vacuum)",
+    "replacement_text": "the thermochemical limits on specific impulse (the best vacuum engines reach about 380 s on methane\u2013oxygen and about 465 s on hydrogen\u2013oxygen, close to what the propellant chemistry allows)",
+    "why": "An existing engine contradicts this figure. The RL10B-2 hydrogen-oxygen upper-stage engine is rated at 465.5 s vacuum Isp, above the stated '460 s' limit. The figures are practical values for current engines, not thermochemical ceilings, which rise with expansion ratio. The source (research/prop.json nil_effects) marks them '(general)', and the doc drops that qualifier and presents them as limits that 'do not move'."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/11-assumptions.md",
+    "current_text": "relied on secondary sources (Wikipedia, press and 33FG/Mach33 research).",
+    "replacement_text": "relied on secondary sources (Wikipedia, press and 33FG/Mach33 research). Mach33 supplies the launch-cost curve, the orbital-compute satellite reconstruction and several cadence figures. It states that it, its affiliates and its employees hold SpaceX equity, including pre-IPO positions, and that its work is not independent research. Those anchors should be cross-checked before publication.",
+    "why": "I verified the disclosure through the 33FG MCP. The post 'Lower Launch Costs Expand Markets; SpaceX Captures the Initial Economics' (2026-08-19) says: 'Mach33, affiliates, and employees hold SpaceX equity, including pre-IPO positions. This is not independent research'. work/facts-flagged.txt had left the disclosure 'unverified'. The doc's physical-clock anchors depend heavily on Mach33: 04-two-clocks takes its $4,900 to $650 to $300 per kg path from Mach33 (verified against 'Starship's First Orbital Cargo', 2026-09-23), and the orbital-compute branch cites 33FG for 56% solar mass and 71 to 56 kW per tonne. A paper for a space-industry readership should state this conflict."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/08-findings.md",
+    "current_text": "**8. Ceilings are a real deliverable.** Hardness results tell planners to stop searching for general solvers for tasking, ground-station siting and network partitioning. Uniqueness and nonuniqueness theorems tell inspectors which measurements can and cannot identify damage. No-go results tighten bounds on exotic propulsion and redirect a small funding pool. These act within months, because they change what people stop doing.",
+    "replacement_text": "**8. Ceilings are a real deliverable, once checked.** Hardness results tell planners to stop searching for general solvers for tasking, ground-station siting and network partitioning. The Unique Games and k-median results (families 102 and 125) are T3; sparsest-cut hardness (117) is T1 and conditional. Uniqueness and nonuniqueness results tell inspectors which measurements can and cannot identify damage, but the elasticity uniqueness claim (372) and the recovery headline of 365 are T1 and conditional; only 365's scalar-conductivity nonuniqueness has a Lean proof (T3). Human-proved no-go results tighten bounds on exotic propulsion and redirect a small funding pool. Ceilings act within months of being independently checked, because they change what people stop doing. On the geometric instances real constellations present, they often do not bind.",
+    "why": "Grounding rules: an implication resting on a T1 or T2 premise must say 'conditional', and tr-position-1 says never to write 'proved' below T4. As written, the finding presents unaudited and manuscript-only catalog results as delivered theorems. The graph's own node (frontier-approx-ceilings) says ceilings act 'once they are independently checked'. It also says they do not bind on the geometric instances operators face (planar Max-Cut, PTAS for doubling metrics, minor-free flow-cut gaps), which tl-position-3 also notes."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/02-method.md",
+    "current_text": "722 manuscripts in 372 result families, produced in under four weeks by an unreleased model. 127 families carry agent-written Lean proofs that the repository marks unchecked, and no outside expert audit had been reported by 7 October.",
+    "replacement_text": "722 manuscripts in 372 result families from an unreleased model, with manuscripts dated 10 September to 6 October 2026. In 127 families at least one manuscript's main result has an agent-written Lean proof, listed in the repository's formalization.yaml and marked unchecked; no outside expert audit had been reported by 7 October. A Lean check covers only the formal statement, which can be narrower than the headline. The quasi-Riemann challenge targets the zeta function only, not every Dirichlet L-function. In this tree, families 104, 117, 143, 263, 347 and 365 have formal parts narrower than their headlines, and the rest of each headline stays T1.",
+    "why": "The method section never explains statement gaps, a central rule of the lens (tr-position-2: 'Lean certifies the formal statement, not the headline'). The doc does not mention the quasi-RH zeta-only gap anywhere. The narratives already split tiers for 104, 117, 143, 365 and others, but the reader is never told why. The counting basis also matters. The auditor reports that the repo links Lean docs for 235 families, against the KB's 127, which counts formalized main results. Naming formalization.yaml keeps the doc's 127 correct. Finally, the graph auditor corrected 'in under four weeks' elsewhere because it describes manuscript dates, not production time, and the facts-flagged file records that formalization timing is not reported."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/branches/safe-orbits.md",
+    "current_text": "The [HELIOS agent](https://arxiv.org/abs/2607.24051) handled 11 of 11 test cases in July 2026.",
+    "replacement_text": "With its best model backend, the [HELIOS agent](https://arxiv.org/abs/2607.24051) produced compiling solvers for all 11 of its test problems in July 2026, from simple rendezvous to gravity assists; scores varied widely across the eight models tested.",
+    "why": "Overstated. The arXiv 2607.24051 abstract says the 'best compilation success rate reaches 100% (11/11)'. That counts compiling code from the best backend, not correct trajectories. Total scores ranged from 250 to 905 across eight LLM backends. 'Handled 11 of 11' implies solved."
+   },
+   {
+    "severity": "low",
+    "file": "doc/branches/verified-autonomy.md",
+    "current_text": "[seL4 needed about 25 person-years](https://trustworthy.systems/projects/OLD/l4.verified/numbers) for 8,700 lines.",
+    "replacement_text": "[seL4's design, implementation and proof took about 25 person-years](https://trustworthy.systems/projects/OLD/l4.verified/numbers), with 7,500 of its 8,700 lines of C verified.",
+    "why": "Overstated. The cited page says 'design, documentation, implementation and verification of the seL4 kernel come to about 25 person years', including new research and tools, and that 7,500 of the 8,700 lines of C were verified. In the narrative's sentence ('This once took proof-engineer years') the number reads as proof effort alone. research/verif.json also notes an estimate of under 10 person-years if redone."
+   },
+   {
+    "severity": "low",
+    "file": "doc/branches/trunk.md",
+    "current_text": "The [first outside Comparator run](https://kingy.ai/blog/openai-math-proof-test-local-memory-limit/) cleared one of three targets; two hit a 7 GiB memory cap.",
+    "replacement_text": "The [first outside Comparator run](https://kingy.ai/blog/openai-math-proof-test-local-memory-limit/), by a tech blog on a small virtual machine, passed one of three targets (neither 102 nor 362 was tested); two hit a 7 GiB memory cap, and no statement was audited, so no family changes tier.",
+    "why": "I checked the post. Kingy.ai, a tech blog, ran Comparator with an AI assistant operating the environment on an 8 GiB VM. Abhyankar\u2013Sathaye passed; Affine Bernstein and Pi Exponent hit the cap. 'No human mathematician reviewed the correspondence between the formal statements and their accompanying manuscripts', and the Pi Exponent statement omits a manuscript consequence. Without the qualifier, the sentence sits right after a list of T3 headline families and implies those families were checked, toward T4. The KB says no independent run had been reported as of 2026-10-07, so the doc should say clearly that this one changes no tier."
+   },
+   {
+    "severity": "low",
+    "file": "doc/03-premise.md",
+    "current_text": "One outside machine run of three challenge targets passed one and ran out of memory on two.",
+    "replacement_text": "A tech blog ran Comparator on three challenge targets on 6 October: one passed and two ran out of memory, with no statement audit, so no result moved to T4.",
+    "why": "The sentence follows directly after 'Nothing in the release has been independently verified', and an unqualified 'outside run... passed one' reads as a partial contradiction. The run was not an expert audit (see the trunk.md finding), and the KB's T4 requires an independent Comparator run plus a statement audit."
+   },
+   {
+    "severity": "low",
+    "file": "doc/branches/safe-orbits.md",
+    "current_text": "Family 104 (T3) touches game models of coordination;",
+    "replacement_text": "Family 104 touches game models of coordination (T3 only for its randomized mean-payoff algorithm; the stochastic-game part is T1, conditional);",
+    "why": "Statement gap. lean/docs/104.md formalizes only a randomized mean-payoff algorithm (facts-flagged, math-frontier). The graph marks the stochastic-game and parity versions T1 and conditional, and those are the parts relevant to coordination games. math-frontier.md and moon-mars.md already state this split correctly."
+   },
+   {
+    "severity": "low",
+    "file": "doc/branches/engines-materials.md",
+    "current_text": "Family 143 (T3) bounds oscillation states in planar models, with no practical constant.",
+    "replacement_text": "Family 143 claims uniform bounds on oscillation states in planar models (T1, conditional; its Lean proof covers only quintic Li\u00e9nard systems, T3), with no practical constant.",
+    "why": "Statement gap. The graph's premise tier for astro-catalog-dynamics-results reads \"143's uniform-bound headline\" T1, with T3 only for quintic Li\u00e9nard systems, and facts-flagged confirms '143 covers only quintic Lienard systems'. Giving the headline T3 overstates its trust tier."
+   },
+   {
+    "severity": "low",
+    "file": "doc/branches/certification.md",
+    "current_text": "Family 139, a Lean-checked sampling result (T3), is background theory",
+    "replacement_text": "Family 139, a sampling result with an agent-written Lean proof no outsider has checked (T3), is background theory",
+    "why": "'Lean-checked' implies verification. Under fw-trust-tiers, the T3 wording is 'has an unaudited formal proof of', and tr-position-3 says repo formalizations are 'strong evidence, not confirmation'."
+   },
+   {
+    "severity": "low",
+    "file": "doc/branches/networks.md",
+    "current_text": "the Unique Games proof (family 102, T3)",
+    "replacement_text": "the claimed Unique Games proof (family 102, T3: its Lean proof is unaudited)",
+    "why": "tr-position-1 says: 'Never write \"proved\" for a result below T4; write \"claims a proof\"'. Calling it 'the Unique Games proof' asserts the result. The trunk narrative already uses the correct framing ('agent-written Lean no outsider has checked')."
+   },
+   {
+    "severity": "low",
+    "file": "generated",
+    "current_text": "Node titles in graph-v4.json: 'Proven limits of the workhorse quantum-chemistry method' (materials-dft-limits) | 'Proven limits for scheduling and network planning' (frontier-approx-ceilings) | 'Tasking and ground planning built on proven limits' (comms-hardness-aware-tasking) | frontier-approx-ceilings description: 'become verified theorems rather than beliefs: beating Goemans-Williamson Max-Cut ... is NP-hard given 102 (UGC proved, T3)'",
+    "replacement_text": "'Claimed limits of the workhorse quantum-chemistry method (conditional)' | 'Limits for scheduling and network planning (claimed; Lean proofs unaudited)' | 'Tasking and ground planning built on claimed limits' | 'become formal claims awaiting outside checks rather than beliefs: beating Goemans-Williamson Max-Cut ... is NP-hard given 102 (UGC, claimed with an unaudited Lean proof, T3)'",
+    "why": "These titles print in the branch node tables and the year-by-year list. 'Proven' and 'UGC proved' breach tr-position-1 for results that are T1 (278, 275) or T3 (102, 125). The node's own premise field says the limits are conditional or unaudited."
+   },
+   {
+    "severity": "low",
+    "file": "generated",
+    "current_text": "tools/build_doc.py line 129: f\"cite{'' if len(hw) > 1 else 's'} a family ({'; '.join(n['title'] + ', family ' + ', '.join(n['catalog_families']) for n in hw)}), and only as supporting theory.\"",
+    "replacement_text": "f\"cite{'' if len(hw) > 1 else 's'} a family ({'; '.join(n['title'] + ', family ' + ', '.join(n['catalog_families']) for n in hw)}; manuscript-only, T1 and conditional), and only as supporting theory.\"",
+    "why": "The rendered bottom line and Finding 1 say 'only 1 node... cites a family (Reflight cleared by data, not teardown, family 372)'. Family 372 has no Lean flag in ref-family-catalog, so it is T1, and the grounding rules require 'conditional' wording. The fixed suffix is correct while the only such node rests on 372. A more general fix would print each node's premise tier."
+   },
+   {
+    "severity": "low",
+    "file": "doc/02-method.md",
+    "current_text": "T4 independently checked; T5 established.",
+    "replacement_text": "T4 adds an independent Comparator run and an audit of the formal statement against the manuscript; T5 established (independent reconstruction, refereed publication or reuse).",
+    "why": "fw-trust-tiers defines T4 as 'T3 plus an independent Comparator run and a statement audit'. 'Independently checked' could be read as covering a bare outside machine run like Kingy's, which does not qualify."
+   },
+   {
+    "severity": "low",
+    "file": "doc/02-method.md",
+    "current_text": "  - P4, practical algorithms: never, when the speedup is galactic.",
+    "replacement_text": "  - P4, practical algorithms: 1\u20135 years when the constants are practical; never when the speedup is galactic.",
+    "why": "fw-translation-pathways gives P4 '1\u20135 yrs if constants are practical; never if galactic'. The doc gives only the 'never' half. 17 nodes carry P4 tags, several rated High (for example comms-certified-network-optimization and astro-nongaussian-uq-certified), which a reader would find inconsistent with 'never'."
+   },
+   {
+    "severity": "low",
+    "file": "doc/03-premise.md",
+    "current_text": "The October release was only 7.5% PDE and dynamics by family because that is what was posed.",
+    "replacement_text": "Only 28 of the release's 372 families (7.5%) are in PDEs or dynamics, reflecting which of the roughly 4,000 problems the lab chose to pose and which survived its significance filter.",
+    "why": "The causal claim is unsupported. ref-release-anatomy says about 4,000 problems were posed and the 372 families 'survived OpenAI's aggregation and significance filter', so the low PDE share may reflect harder problems or filtering as well as posing choices. The count is correct (16 + 12 = 28, which is 7.5%). The generated math-frontier reader_hook ('because that is what was posed') needs the same edit."
+   },
+   {
+    "severity": "low",
+    "file": "doc/03-premise.md",
+    "current_text": "A research-grade result costs roughly $200\u20132,000 in compute.",
+    "replacement_text": "A research-grade result costs roughly $200\u20132,000 in compute; the low end is OpenAI's token cost for ten published successes at API prices, and counting failed attempts moves it toward the high end.",
+    "why": "Verified: The Decoder reports OpenAI said the ten Astra solutions 'would have cost about $2,000 at Sol's API rates', which is $200 each and counts successes only. The trunk reader hook and facts-flagged carry this qualifier, but the premise section drops it."
+   },
+   {
+    "severity": "low",
+    "file": "doc/01-bottom-line.md",
+    "current_text": "verified flight code, 15\u2013120x cheaper per line;",
+    "replacement_text": "verified flight code, 15\u2013120x cheaper per line on the model's cost assumptions;",
+    "why": "The 15\u2013120x figure is the ratio of the model's own cost assumptions ($300\u2013600 down to $5\u201320 per line; research/verif.json labels the table 'our assumptions, general'). It is not a measured result. The narrative says 'Under our cost model', but the bottom line presents it as a rated fact."
+   },
+   {
+    "severity": "low",
+    "file": "doc/05-trunk.md",
+    "current_text": "100 or more fully reusable heavy launches a year (about 2030, High)",
+    "replacement_text": "100 or more fully reusable heavy launches a year (about 2030; High in Exponential and Recursive, Medium in Plateau)",
+    "why": "In graph-v4, physclock-heavy-cadence-100 is Medium, High, High with S3 in 2029. The paragraph says these anchors do not depend on AI mathematics, so the scenario variation should be visible."
+   },
+   {
+    "severity": "low",
+    "file": "doc/branches/plasma-nuclear.md",
+    "current_text": "thruster codes mostly solve electrostatic equations proved smooth in 1991-92.",
+    "replacement_text": "thruster codes mostly solve electrostatic equations whose collisionless, whole-space form (Vlasov\u2013Poisson) was proved smooth in 1991-92; the bounded, collisional versions in thruster codes are different equations.",
+    "why": "The 1991\u201392 global-regularity results (Pfaffelmoser; Lions\u2013Perthame; Schaeffer) cover collisionless Vlasov\u2013Poisson in whole space. The graph's plasma-vm-wellposed node stresses that thruster codes use 'electrostatic, non-relativistic, collisional or bounded-domain versions that are different equations'. As written, the sentence overstates what was proved for the equations thruster codes actually solve."
+   },
+   {
+    "severity": "low",
+    "file": "doc/branches/entry.md",
+    "current_text": "found a shield at about 75% of baseline thickness kept its bondline within limits in about 99% of cases, at one location.",
+    "replacement_text": "for the now-cancelled Mars Sample Retrieval Lander, an 8 km/s Mars entry, found a shield at about 75% of baseline thickness kept its bondline within limits in about 99% of cases, at one location.",
+    "why": "The figure comes from the Mars Sample Retrieval Lander study (NTRS 20260005218; graph reader hook), and SRL ended when MSR went unfunded. Later in the narrative the text says 'at that 8 km/s entry' without having named the entry. A reader could assume a LEO capsule entry, which the graph says thins less (about 7.5\u20137.8 km/s, little radiative heating)."
+   }
+  ]
+ },
+ {
+  "lens": "Editor for the paper writer and readers: clarity, jargon, redundancy, structure, signposting, consistent terminology, house style. Numbers were cross-checked with Python against graph-v4.json and work/analytics-v4.json.",
+  "verdict": "Partly. The substance a writer needs is there. It has a clear thesis (two clocks), three explicit scenarios, dated and banded nodes, the strongest counter-case for every branch, a nil-effects section, signposts, assumptions and recorded disputes. The section most worth lifting is the Bottom line plus sections 3, 8 and 9.\n\nThe document still needs work before a writer can use it safely.\n\n1. Some headline sentences contradict their own data.\n   - Section 3 says the provable-to-flyable gap \"widens\", but its own counts narrow it from 77 to 49 nodes.\n   - Section 7 says most critical paths run through public access. Only 13 of 39 do, and 14 have no AI-math step at all. That is itself a strong, buried finding.\n   - Program compression appears as \"a quarter to a third at best\", as \"20\u201330%\" and as a \"38%\" ceiling.\n   - \"The physical half barely moves\" overstates a shift of 0.8\u20131.0 years against 1.1\u20131.7.\n2. The notation and wording invite misreading.\n   - Node tiers and trust tiers share the \"T\" prefix.\n   - \"Likely\" is used for Medium (30\u201370%).\n   - Earliest credible years read as forecasts, and the warning comes about 1,900 lines later.\n   - Scenario names alternate with S1/S2/S3, and \"certified\", \"guaranteed\" and \"honest\" error bars are never distinguished.\n3. Jargon is unglossed. Lean, Comparator, Hexagon, galactic, unforced Navier\u2013Stokes and the gate names are all used without definitions. About 150 internal node IDs, tl-position tags and process notes (\"the client\", \"A1 merged\u2026\", \"the paper should say so in advance\") leak into generated text.\n4. The 2,900-line structure buries the argument. The cross-cutting findings come after about 1,550 lines of branch detail, and every branch states its hook facts two or three times.\n5. There is a lot of repetition across sections:\n   - \"Space's own exponential is physical\" appears in four places.\n   - The catalog-family sentence appears verbatim in both the Bottom line and Finding 1.\n   - The audit counts (173 flagged, about 40 corrected) appear in both sections 1 and 11.\n\nWhat the writer still lacks:\n\n1. **A glossary** (finding 9 drafts one).\n2. **A claim-to-source map** for the 25\u201330 numbers the paper will quote. Sources are listed only by domain, and two rows in the capability-ladder table cite only \"Analyst timeline\".\n3. **A quotable-numbers list** that shows each figure's audit status from work/facts-flagged.txt.\n4. **A chart-ready table of the two-clocks curve.** The cumulative share by year, tier group and scenario is computed in analytics but never rendered, and it is the natural lead figure.\n5. **A decision on disclosure.** This covers the commissioning premise (\"client\") and the heavy reliance on Mach33/33FG launch-cost sources; the claim that those pages disclose SpaceX holdings is itself marked unverified.\n6. **A short \"what this means for whom\" section.** It should cover operators, agencies, insurers and investors, beyond the adoption order in Finding 5.\n\nMoving section 8 to follow section 3 (in doc/_skeleton.md), or at least adding the reading path in finding 8, would let the writer find the argument quickly.",
+  "findings": [
+   {
+    "severity": "high",
+    "file": "generated",
+    "current_text": "\u2192 **Spacecraft engineered mostly by AI flies** (T6 \u00b7 2029 \u00b7 Medium; gate: fabrication)",
+    "replacement_text": "\u2192 **Spacecraft engineered mostly by AI flies** (tier 6 \u00b7 2029 \u00b7 Medium; gate: fabrication)",
+    "why": "Node tiers (0\u20137) and trust tiers (T1\u2013T5) both use a 'T' prefix. In the same branch section a reader meets 'families 102 and 362 are T3' (trust tier: an unchecked Lean proof) and '(T3 \u00b7 2028 \u00b7 High)' (node tier 3: a physics model). Fix in tools/build_doc.py. Change tag() to f\"tier {n['tier']} \u00b7 ...\". Change the mermaid label 'T{tier} \u00b7 S2 \u2026' to 'tier N \u00b7 2029 \u00b7 \u2026'. Change the year_by_year line '(T{tier}, {band}; \u2026)' to '(tier {tier}, \u2026)'. For example, '- AI agents run and check structural and thermal analysis (T4, High; Plateau 2028, Recursive 2027)' becomes '(tier 4, High; \u2026)'. Keep T1\u2013T5 for trust tiers only. This touches every main chain, side lane, diagram and the section 6 list."
+   },
+   {
+    "severity": "high",
+    "file": "doc/01-bottom-line.md",
+    "current_text": "New programs get a quarter to a third shorter at best, never 10x, because test stands, factories, launch windows and approvals run on their own clock.",
+    "replacement_text": "New programs get about 20\u201330% shorter by 2031, and 38% at most. Test stands, factories, launch windows and approvals run on their own clock.",
+    "why": "One quantity appears three ways. 'A quarter to a third' is 25\u201333%. The text also says 'at best'. The scenario table, section 3, the trunk narrative and the dispute resolution all give 20\u201330% as the realized Exponential value and 38% as the Amdahl ceiling. So 'a quarter to a third \u2026 at best' is both a different number and the wrong bound. Use one number everywhere.\n- doc/06-branches-intro.md: '| Development cycles a quarter to a third shorter, 2031 (Medium), never 10x |' becomes '| Development cycles 20\u201330% shorter, 2031 (Medium) |'.\n- doc/07-by-year.md: 'Program cycles are a quarter to a third shorter (Medium)' becomes 'Program cycles are 20\u201330% shorter (Medium)'.\n- doc/branches/trunk.md: 'Development cycles shrink by a quarter to a third about 2031 (Medium), held by test hardware.' becomes 'Development cycles shrink 20\u201330% about 2031 (Medium), held by test hardware.'\n- Generated: the title of node capability-program-cycle-compression, 'Development cycles shrink by a quarter to a third, not 10x', becomes 'Development cycles 20\u201330% shorter'.\n- Generated: the trunk branch thesis 'shrink about a quarter to a third (38% at most)' becomes 'shrink about 20\u201330% (38% at most)'."
+   },
+   {
+    "severity": "high",
+    "file": "doc/04-two-clocks.md",
+    "current_text": "**The gap between what can be proved and what can be flown widens.** By 2029 under Exponential, {{gap_2029_cog}} frontier-math, applied-math and physics-model nodes have reached their earliest year, against {{gap_2029_phys}} validated technologies and operational systems. By 2031 the counts are {{gap_2031_cog}} and {{gap_2031_phys}}. The exponential shows up as a growing stock of solved problems waiting on hardware, data and approval.",
+    "replacement_text": "**What can be proved runs well ahead of what can be flown.** Under Exponential, by 2029 {{gap_2029_cog}} of the 150 frontier-math, applied-math and physics-model nodes have reached their earliest year, against {{gap_2029_phys}} of the 115 validated technologies and operational systems. Hardware then catches up only in part. By 2031 the counts are {{gap_2031_cog}} and {{gap_2031_phys}}, and only 56 of those {{gap_2031_phys}} hardware nodes are rated at least Medium. The exponential shows up first as a stock of solved problems waiting on hardware, data and approval.",
+    "why": "The heading says the gap widens. The printed numbers (121 vs 44 in 2029, 147 vs 98 in 2031) show it narrowing from 77 to 49 nodes, or from 43 to 13 percentage points. A reader who does the subtraction will distrust the section. The denominators are also missing. Checked with Python: tiers 1\u20133 have 150 nodes and tiers 5\u20136 have 115. Of the 98 hardware nodes dated by 2031 under S2, only 56 are High or Medium. Consider adding builder placeholders for 150, 115 and 56."
+   },
+   {
+    "severity": "high",
+    "file": "doc/07b-critical-paths.md",
+    "current_text": "For each operational system or outcome rated Medium or better in the Exponential case, the table follows its latest prerequisite back at every step. That path sets the node's date, and it satisfies the framework's rule that any hardware or physical outcome forecast inside five years must have its full chain written out. Most paths run through public access to research-grade mathematics (2027) and applied mathematics. They then turn physical, and the last step is almost always launch, qualification, adoption or capital.",
+    "replacement_text": "For each operational system or outcome rated Medium or better in the Exponential case (39 nodes), the table follows its latest prerequisite back at every step. That path sets the node's date. 25 of the 39 paths start from research-grade AI mathematics, and 13 of those pass through public access in 2027. The other 14 have no AI-mathematics step at all. They run on launch, pads, propellant transfer and hardware alone, which is the two-clocks finding in its plainest form. For 33 of the 39, the outcome's binding gate is adoption (18), launch (8) or fabrication (7).",
+    "why": "Checked against critical_paths in work/analytics-v4.json. Only 13 of 39 paths pass through 'Research-grade math for outside teams', so 'most paths run through public access' is wrong. No listed outcome is gated by qualification. The actual gates are adoption 18, launch 8, fabrication 7, data 2, capital 2, regulatory 1 and experiment 1. The 14 paths with no AI-math step are a headline-quality result that the current text hides. Examples are the lunar-lander refueling campaign, heavy lunar cargo, 100+ launches a year and commercial AI chips in orbit. The clause about the framework's rule is process detail. Ideally, generate these counts as placeholders."
+   },
+   {
+    "severity": "high",
+    "file": "doc/01-bottom-line.md",
+    "current_text": "- **The physical half barely moves.** Hardware, missions and outcomes arrive only {{shift_phys}} years earlier than they would under a plateau. Only about half of the validated technologies and operational systems in the tree ({{hm_t5}} and {{hm_t6}}) are rated at least Medium by 2031.",
+    "replacement_text": "- **The physical half moves less, and less surely.** Hardware, missions and outcomes arrive {{shift_phys}} years earlier than under Plateau, against {{shift_cog}} years for the cognitive layers. Under Exponential, {{hm_t5}} of validated technologies and {{hm_t6}} of operational systems are rated at least Medium by 2031, against {{hm_cog_s2}} of the cognitive layers.",
+    "why": "A shift of 0.8\u20131.0 years against 1.1\u20131.7 years is a modest difference, so 'barely moves' overstates the tree. Also, 43% is not 'about half'. The stronger evidence is the likelihood share: 37\u201355% for the physical layers against 69\u2013100% for the cognitive layers. The bullet should lead with it. The year shift also understates physical movement. The analytics count 'after 2031' as 2032, and 27 tier 5\u20137 nodes fall beyond 2031 in both Plateau and Exponential. For tier-7 nodes dated inside the window, the shift is 1.4 years. Make the matching change in doc/04-two-clocks.md: 'The exponential premise accelerates the first and barely touches the second.' becomes 'The exponential premise accelerates the first far more than the second.'"
+   },
+   {
+    "severity": "high",
+    "file": "doc/08-findings.md",
+    "current_text": "Under Exponential, the binding gate across the tree shifts from cognition to adoption ({{n_gate_adoption}} nodes), data ({{n_gate_data}}) and experiment ({{n_gate_experiment}}).",
+    "replacement_text": "Across the tree, the most common binding gates are adoption ({{n_gate_adoption}} nodes), data ({{n_gate_data}}) and experiment ({{n_gate_experiment}}). Cognition binds {{n_gate_cognitive}}, all of them in the capability and mathematics tiers (0\u20132).",
+    "why": "Each node has one binding gate for all scenarios, so nothing in the graph shows a shift 'under Exponential'. Cognition is still the gate for 45 nodes, all in tiers 0\u20132 (checked in graph-v4.json). The n_gate_cognitive placeholder already exists in build_doc.py."
+   },
+   {
+    "severity": "high",
+    "file": "doc/01-bottom-line.md",
+    "current_text": "The interactive Space Unlock Tree shows the same graph with a scenario switch and a year slider. Every number in this document is generated from the model graph (`model/graph-v4.json`). Bands are analyst judgments, not probabilities.",
+    "replacement_text": "The interactive Space Unlock Tree shows the same graph with a scenario switch and a year slider. Every table and node count here is generated from the model graph. Each node carries two judgments. Its year is the earliest credible year, not a forecast date. Its band (High, Medium, Low or Speculative) is the analysts' estimate of the chance it happens by the end of 2031. So \"2029 (Medium)\" means it could happen as early as 2029, with roughly a 30\u201370% chance by 2031. The argument sits in this bottom line and in sections 3, 8, 9 and 10. The rest is reference.",
+    "why": "This is the writer's most likely error. Narratives say things like 'a spacecraft engineered mostly by AI flies about 2029 (Medium)', which reads as a forecast. The warning that the year is optimistic by construction comes only in section 11, about 1,900 lines later. 'Every number is generated' is untrue: 38%, $300\u2013600 per line, 230 trials and many other figures are typed by hand in doc/*.md. 'Bands are not probabilities' sits oddly beside the percentage ranges in section 1. The file path means nothing to readers. The added reading path shows the writer where the argument is in a 2,900-line document."
+   },
+   {
+    "severity": "high",
+    "file": "doc/02-method.md",
+    "current_text": "- *Likelihood bands:* High (more likely than not, roughly over 70%), Medium (30\u201370%), Low (10\u201330%) and Speculative (under 10%). They are judgments, not computed probabilities. Anything that needs a regulator's acceptance is capped at Medium.",
+    "replacement_text": "- *Likelihood bands:* High (roughly over 70%), Medium (30\u201370%), Low (10\u201330%) and Speculative (under 10%). They are judgments, not computed probabilities. Anything that needs a regulator's acceptance is capped at Medium.\n\n**Terms used throughout.**\n\n- *Lean* is a proof language in which a computer checks every step. *Mathlib* is its shared library.\n- *Comparator* is a tool that re-checks a Lean proof against its stated target theorem. A *statement audit* is an expert check that the formal statement says what the paper claims. *Hexagon* is a community repository for AI-generated mathematics, launched on 6 October 2026, and a likely venue for both.\n- *Certified* or *guaranteed* error bars are proven bounds. *Honest* error bars are calibrated estimates that state their uncertainty. They carry no proof.\n- A *galactic* algorithm is faster only at problem sizes too large to occur in practice.\n- *Posing* is stating an engineering question precisely enough for a machine to prove an answer.\n- *Forced* Navier\u2013Stokes refers to OpenAI's September 2026 breakdown claim, which uses a smooth external force that two of the Clay prize's four official statements allow. The *unforced* case remains open, and Clay still lists the problem as unsolved.\n- *Binding gates* name what holds a node back: cognitive (the mathematics or design itself), formalization (making it machine-checkable), adoption (organizations choosing to use it), data, experiment, fabrication, qualification, launch, regulatory or capital.\n- *Exogenous* nodes, such as Starship reuse and launch cost, do not depend on AI mathematics. They are in the tree because AI-math nodes depend on them.",
+    "why": "'More likely than not' means over 50%. That contradicts 'over 70%' and overlaps Medium. The document never defines several terms it relies on:\n- Lean (used from section 1).\n- Comparator (22 uses).\n- Hexagon (12 uses).\n- 'Galactic' (6 uses).\n- Unforced Navier\u2013Stokes.\n- The ten gate names.\n- 'Honest' versus 'certified' error bars (18 uses against 11).\n\nA non-specialist cannot tell that honest and certified error bars are different claims. In the graph, frontier-certified-pde-error describes 'guaranteed, not asymptotic' bounds, while plasma-thermo-density-uq describes 'calibrated uncertainty'. The definitions follow the analyst knowledge base (src-infra-hexagon, src-primary-lean-formalization-yaml) and the facts-flagged.txt entry on Clay statements (C) and (D)."
+   },
+   {
+    "severity": "high",
+    "file": "generated",
+    "current_text": "| Oct-2026 internal level public (cap-research-math-public) | 2028 | 2027 | 2027 |",
+    "replacement_text": "| Research-grade math for outside teams | 2028 | 2027 | 2027 |",
+    "why": "Internal identifiers leak into visible text. There are 150 node IDs (105 distinct) on 107 lines. They appear in:\n- the scenario table rows;\n- every dispute block (for example 'capability-program-cycle-compression', 'struct-gw-orbital-compute is only Medium' and 'A1 merged verif-checker-not-generator into it');\n- the generated domain signposts and nil effects.\n\nThe same blocks carry '(tl-position-5)', 'per analyst position tl-position-2', raw domain keys such as 'astro' and 'auton', and an internal note, 'the paper should say so in advance'. The document also has 441 ASCII '->' arrows.\n\nFix in build_doc.py:\n- Replace each node ID with its title.\n- Map domain keys to readable names.\n- Strip tl-position references.\n- Render '->' as '\u2192' or 'to'.\n\nAlso align the scenario-table row labels with the node titles:\n- 'Research-grade applied math (cap-applied-math)' becomes 'AI does research-grade applied math'.\n- 'Design optimization with guarantees' becomes 'AI multiphysics design with guarantees'.\n- 'Autonomous labs at scale' becomes 'AI-run closed-loop labs at scale'.\n- 'Regulator credit for AI proofs' becomes 'Regulators accept AI-produced proofs'."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/08-findings.md",
+    "current_text": "Shared data commons for tests and flights are among the highest-fanout nodes in the hardware tiers.",
+    "replacement_text": "A shared, AI-ready database of structural and thermal test results is one of the 15 most depended-on nodes in the tree.",
+    "why": "The claim is wrong as written. The test-data node ('AI-ready structural and thermal test data') is tier 0, not a hardware tier. It ranks 15th by downstream reach, with 15 nodes. The flight-data node ('Public flight data on storing cryogenic propellant in orbit') has no dependents. 'Fanout' is also jargon."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/03-premise.md",
+    "current_text": "- **Exponential** (S2) is the base case and the client's premise.",
+    "replacement_text": "- **Exponential** (S2) is the base case and the premise this study was asked to test.",
+    "why": "'Client' appears 5 times: here, in sections 4 and 11, and in two disputes. To a public reader it signals only that someone paid. The writer must decide on disclosure, and the neutral wording works either way. Apply the same fix elsewhere.\n- doc/05-trunk.md: 'Their dates are the client's premise for the Exponential case, and almost every downstream date inherits them, so they are the assumptions to watch.' becomes 'Their Exponential-case dates are the premise this study was asked to test. Almost every downstream date inherits them, so they are the assumptions to watch.'\n- doc/11-assumptions.md: 'Exponential is the base case because the client asked for it, and the capability record supports it.' becomes 'Exponential is the base case because the study was asked to test it, and the capability record supports it.'\n- doc/03-premise.md: '- **Plateau** (S1) is the analyst's default without the premise.' becomes '- **Plateau** (S1) is the analyst framework's default without the premise.' The text never introduces 'the analyst'."
+   },
+   {
+    "severity": "medium",
+    "file": "generated",
+    "current_text": "For NASA's now-cancelled Mars Sample Retrieval Lander, a Monte Carlo at one stressing point found a heat shield at ~75% of baseline thickness kept its adhesive bondline below the limit in ~99% of cases. But it sampled heating error only up to existing margins, while at that 8 km/s entry the radiation model under-predicted shock-tube data by up to 2x.",
+    "replacement_text": "(Delete this reader hook. The narrative's first and fifth paragraphs already give both facts with their sources.)",
+    "why": "In all 12 branches, the reader hook (the graph's reader_hook field) states facts that the narrative then repeats. Readers meet the same number two or three times in about 500 words.\n- Entry: 75% thickness and 99% three times; the 2x radiation error twice.\n- Plasma: 23,000 hours, the 50% margin and helium-3, twice each.\n- Engines: 230 starts and the boil-off tanker figure, twice each.\n- Famous problems: the 10-day, $200, 229-prompt formalization twice; '16 PDE and 12 dynamics families' twice.\n- Trunk: the $200\u20132,000 cost three times, counting section 2.\n\nSimplest fix: stop emitting reader_hook in build_doc.py. Then change doc/06-branches-intro.md 'Each branch section below gives the branch's thesis and a quantitative hook, then a narrative of at most 400 words.' to 'Each branch section below gives the branch's thesis in italics, then a short narrative.' Alternatively, keep the hooks and cut the repeated sentences from doc/branches/*.md. For example, delete 'A result costs about $200 to $2,000 in tokens, so checking sets the price.' from trunk.md."
+   },
+   {
+    "severity": "medium",
+    "file": "generated",
+    "current_text": "35 nodes. Likely by 2031 (High or Medium): Plateau 24, Exponential 32, Recursive 34. Usually binding: fabrication.",
+    "replacement_text": "35 nodes. Rated High or Medium by 2031: Plateau 24, Exponential 32, Recursive 34. Main binding gate: fabrication.",
+    "why": "Medium means 30\u201370%, so 'likely' mislabels it. The document uses four phrasings for the same threshold: 'likely', 'High or Medium', 'Medium or better' and 'at least Medium'. Pick one and use it everywhere. 'Usually binding' implies a count, but the branch field is a judgment. Change the f-string in build_doc.py; it produces all 12 branch summary lines."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/06-branches-intro.md",
+    "current_text": "| Plasma, nuclear and fusion propulsion | Full-thruster kinetic simulation affordable, 2028 (Medium) | Design-before-build electric thrusters, 2030 (Low) | Fusion-powered thrust in space, after 2031 (Speculative) |",
+    "replacement_text": "| Plasma, nuclear and fusion propulsion | Full-thruster kinetic simulation affordable, 2028 (Medium) | AI-designed thruster flies and performs as predicted, 2031 (Low) | Fusion-powered thrust in space, after 2031 (Speculative) |",
+    "why": "'Design-before-build electric thrusters' is tier 4, an engineering method on the cognitive clock. It does not belong in the 'first physical or operational step' column. The branch's first physical step is 'AI-designed thruster flies and performs as predicted' (tier 5, 2031, Low in Exponential). The orbital compute row has a related problem. It puts a sentence ('AI math adds a few percent here') where a node belongs. The matching node is 'AI-optimized radiators and heat transport, 2028 (High)'. In the same row, 'physical anchor' should read 'exogenous' to match the rest of the document."
+   },
+   {
+    "severity": "medium",
+    "file": "generated",
+    "current_text": "- Both Starship stages caught and reflown (T5 \u00b7 2027 \u00b7 High) \u2192 100+ fully reusable heavy launches a year (T6 \u00b7 2030 \u00b7 High) \u2192 Starship internal cost under $300 per kg (T7 \u00b7 2029 \u00b7 High) \u2192 Customers buy orbit under $1,000 per kg (T7 \u00b7 2031 \u00b7 Low)",
+    "replacement_text": "- Both Starship stages caught and reflown (tier 5 \u00b7 2027 \u00b7 High) \u2192 Starship internal cost under $300 per kg (tier 7 \u00b7 2029 \u00b7 High) \u2192 Customers buy orbit under $1,000 per kg (tier 7 \u00b7 2031 \u00b7 Low)\n- Both Starship stages caught and reflown (tier 5 \u00b7 2027 \u00b7 High) \u2192 100+ fully reusable heavy launches a year (tier 6 \u00b7 2030 \u00b7 High) \u2192 Customers buy orbit under $1,000 per kg (tier 7 \u00b7 2031 \u00b7 Low)",
+    "why": "The arrow from '100+ launches a year' (2030) to 'internal cost under $300 per kg' (2029) runs backward in time. It also has no edge in graph-v4.json: physclock-cheap-mass-internal depends only on full reuse. Readers will take the arrows as causal. Split the trunk branch's side_chains into the two real chains."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/09-nil.md",
+    "current_text": "Appropriations and politics compress by a factor of 1.0.",
+    "replacement_text": "Budgets and politics set those dates, and AI does not speed them up.",
+    "why": "'Compress by a factor of 1.0' is model jargon. It also contradicts the physical-gates table in section 3, which gives government flagship programs 0.9x in Exponential and 0.85x in Recursive."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/09-nil.md",
+    "current_text": "Demonstrating 0.99 reliability at 90% confidence by test takes about 230 zero-failure trials unless a customer or regulator accepts model-based evidence. That is a rule, and rules move on committee cycles of 8\u201310 years.",
+    "replacement_text": "Demonstrating 0.99 reliability at 90% confidence by test alone takes about 230 trials without a failure. That arithmetic is fixed. Customers and regulators could accept model-based evidence in place of some trials, but base standards are revised on committee cycles of 8\u201310 years.",
+    "why": "The current text calls a binomial calculation 'a rule' and then says rules move. Readers cannot tell which part is fixed and which can change."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/10-signposts.md",
+    "current_text": "The model's dates hinge on a handful of shared prerequisites, so a few observable events would move whole branches at once. Watch these over the next 12\u201324 months.",
+    "replacement_text": "The model's dates hinge on a handful of shared prerequisites, so a few observable events would move whole branches at once. The first three can be checked within 12\u201324 months. The rest show whether the later, physical steps arrive on the base-case dates.",
+    "why": "Most events in the table are dated 2029\u201331, so 'over the next 12\u201324 months' is wrong for most rows. Two cells in the same table also conflict with the graph.\n- 'Earlier would favor the Recursive case.' should read 'Earlier would beat every scenario in the model.' The lander and constellation nodes are dated 2029 in Recursive too.\n- '| 2030\u201331 (Low to Medium) |' should read '| 2030\u201331 (Low) |'. The column gives the base case, and the AI-designed alloy and thruster flights are both Low in Exponential. Medium applies only to Recursive."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/11-assumptions.md",
+    "current_text": "- Whether certification bodies accept AI-produced proofs through already-qualified checkers (about 2028\u201329) or only after qualifying the AI toolchain itself (2030 or later).",
+    "replacement_text": "- Whether certification bodies accept AI-written proofs checked by an already-qualified tool early (2028\u201329, the upside case), on the base-case date (about 2030), or only after the AI toolchain itself is qualified (later still).",
+    "why": "Sections 6 and 10 and the trunk table all date the already-qualified-checker route at about 2030 (Medium) in the base case, and section 10 calls 2028\u201329 the upside. The open question assigns 2028\u201329 to that same route and '2030 or later' to the toolchain route. That makes the base case read as the pessimistic branch."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/03-premise.md",
+    "current_text": "3. **That applied problems behave like pure ones.** The researchers found that for the applied mathematics space engineering needs, capability is not what binds. What binds, in order, is access, then posing (stating the engineering question precisely enough to prove), then formal trust (Lean's library covers PDEs and numerics thinly: 3 of 16 PDE families in the release were formalized, against 5 of 6 in logic), then data wherever physics has to be closed by measurement. The October release was only 7.5% PDE and dynamics by family because that is what was posed.",
+    "replacement_text": "3. **That applied problems behave like pure ones.** For the applied mathematics space engineering needs, raw capability is rarely the limit. Four things limit it, in order. The first is access to the model. The second is posing, which means stating the engineering question precisely enough to prove. The third is formal trust. Lean's library barely covers the equations of physics and numerical methods, so only 3 of the release's 16 families on partial differential equations were machine-checked, against 5 of 6 in logic. The fourth is data, wherever a physics model has to be tuned to measurements. Only 7.5% of the release's families concern partial differential equations or dynamics, because that is what the lab chose to pose.",
+    "why": "This is one 80-word sentence with four nested parentheticals. It leaves 'PDEs', 'numerics' and 'closed by measurement' undefined. Splitting it keeps every fact and makes the four bottlenecks quotable. Numbers checked: 16 + 12 = 28 of 372 families, which is 7.5%."
+   },
+   {
+    "severity": "medium",
+    "file": "doc/03-premise.md",
+    "current_text": "The model that produced the release is unreleased.",
+    "replacement_text": "The model that produced the release is unreleased. The strongest public model, GPT-6 Astra, solved 2 of 68 FrontierMath Erdos problems in September 2026.",
+    "why": "The ladder table just above lists 'GPT-6 Astra public' in September 2026, so readers will ask how the release model can be unreleased. Stating the public model's level makes the access gap concrete. The figure comes from the ladder row for Sep 3\u20134, 2026 and matches the trunk narrative's '3%'."
+   },
+   {
+    "severity": "low",
+    "file": "doc/04-two-clocks.md",
+    "current_text": "**Why ten times faster thinking gives about 1.6 times faster programs.** Only about a third of a hardware program's critical path is cognitive work: requirements, design, analysis and software.",
+    "replacement_text": "**Why 5\u201310 times faster thinking shortens programs by 38% at most.** Only about a third of a hardware program's critical path is cognitive work: requirements, design, analysis and software.",
+    "why": "The paragraph itself says cognitive work runs 5\u201310 times faster under Exponential, not ten. And 1.6x is the Amdahl ceiling, not the expected gain of 20\u201330%. Mixing 'times faster' with '% shorter' confuses readers; the trunk dispute records the auditor's correction away from 'faster'. Gloss Amdahl's law once: 'Amdahl's law then caps schedule compression for a new program at about 38%.' becomes 'Amdahl's law, which says a job cannot speed up more than its unchanged parts allow, then caps schedule compression for a new program at about 38%.' Fix the matching caption in doc/_skeleton.md: '**Why a 10x faster cognitive clock gives about 1.6x faster programs** (illustrative Amdahl bound)' becomes '**Why 5\u201310x faster cognitive work shortens programs by 38% at most** (illustrative Amdahl bound)'."
+   },
+   {
+    "severity": "low",
+    "file": "doc/07-by-year.md",
+    "current_text": "- **2030.** Regulators accept AI-produced proofs through already-qualified checkers (Medium). Capsules fly thinner, model-based heat shields. Ship-scale heat shields become rapidly reusable on flight data. Orbital refueling becomes routine on the launch clock. Heavy launch passes 100 flights a year.",
+    "replacement_text": "- **2030.** Regulators accept AI-produced proofs through already-qualified checkers (Medium). Capsules fly thinner, model-based heat shields (Medium). Ship-scale heat shields become rapidly reusable on flight data (Medium). Orbital refueling becomes routine on the launch clock (Medium). Heavy launch passes 100 flights a year (High).",
+    "why": "The year-by-year narrative is the passage a writer is most likely to lift, and without bands it reads as a list of certainties. Bands checked in graph-v4.json: hyper-thinner-tps-flown, hyper-rapid-reuse-heatshield and prop-cislunar-propellant-economy are Medium; physclock-heavy-cadence-100 is High. Do the same for 2029: '- **2029.** The first physical steps attributable to AI mathematics appear where no regulator certifies the work:' becomes '- **2029.** The first physical steps attributable to AI mathematics appear where no regulator certifies the work. All are rated Medium except AI-designed trajectories (High):'."
+   },
+   {
+    "severity": "low",
+    "file": "doc/branches/*.md (all except math-frontier.md)",
+    "current_text": "The strongest case for a small effect: ",
+    "replacement_text": "The strongest case for a small effect is that ",
+    "why": "House style bans colon-then-reveal sentences. This exact opening starts a paragraph in 11 of the 12 narratives, and each following clause reads correctly after 'is that'. In the same files, also delete the repeated band disclaimer:\n- Delete 'Bands are analyst judgments.' from certification, engines-materials, entry, moon-mars, networks, orbital-compute-power, plasma-nuclear and safe-orbits.\n- Delete 'Bands are our judgments.' from verified-autonomy.\n- In science, cut 'Bands and that gain are analyst judgments.' to 'That gain is an analyst judgment.'\n\nThe point is already made in sections 1 and 11. 'Our' and 'we' also break the document's third-person voice: see 'we model it as hours' in trunk.md and 'Under our cost model' in verified-autonomy.md."
+   },
+   {
+    "severity": "low",
+    "file": "generated",
+    "current_text": "verified code gets 15-120x cheaper per line by 2028-29 and flies widely from 2029-30 (base case).",
+    "replacement_text": "verified code gets 15\u2013120x cheaper per line by 2028\u201329 and first flies on landers and constellations about 2029 (base case, Medium).",
+    "why": "'Flies widely' overstates nodes rated Medium: the lander, constellation-update and reusable-launcher software nodes are all 2029, Medium. Two other branch theses in graph-v4.json need the same care.\n- Engines: '(Low in the base case, Medium in S3)' becomes '(Low in the base case, Medium in Recursive)', because the prose elsewhere uses scenario names.\n- Science: 'science per dollar rises from archives and satellite methane data get honest error bars by 2028 (Medium, base case)' is a garden-path sentence. It becomes 'archive mining raises science per dollar, and satellite methane data get honest error bars, by 2028 (base case, Medium)'.\n\nGenerated ranges use hyphens ('2029-30', '15-120x'), while the hand-written sections use en dashes. Normalize them in build_doc.py."
+   }
+  ]
+ }
+]

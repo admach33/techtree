@@ -1,0 +1,190 @@
+{
+ "f1": {
+  "file": "/Users/alex/projects/openai math paper/model/work/F1-domain-patches.json",
+  "n_changes": 484,
+  "summary": "I wrote 484 patches covering all 13 domain records in graph-v3.json: 471 field edits and 13 source-row deletions. No nodes were touched. I applied every patch to a copy of the domains. All 484 \"old\" values match graph-v3 exactly, every table row still has as many cells as its table has columns, and no Google News URLs remain.\n\nI checked all 173 flagged facts against the domain records. I read each domain in full and also searched for each fact's key phrase. Facts that appeared in domain text were fixed. These include:\n- Gateway \"paused in its current form\", not cancelled.\n- The 52x figure, scoped to ice content in ice-cemented simulant.\n- ZBLAN \"lower attenuation\" removed; the ISS draw total is now 11.9 km.\n- Starship flight intervals 48-91 days.\n- Lentz rebuttal dated May 2021.\n- GNoME disorder figure re-sourced to Jakob/Margraf (PMC12822528).\n- The S1 cost row now states its rate of about 2-4x a year.\n- \"First reflights\" corrected: boosters B14 and B15 already reflew in 2025.\n- FLT is 13 million lines.\n- TAE's Copernicus was cancelled and the Trump Media merger has not closed.\n- SR-1's $10M was a House committee recommendation.\n- NSPM-20 Tier II authorization replaces \"presidential approval\".\n- Starlink's threshold is about 330x stricter, not 100x.\n- The CME arrival baseline separates the all-submission average from the best ensemble, and HASDM is now mentioned.\n- Lean statement gaps for families 104, 125, 143, 347 and 365.\n- Ilin's 229 human prompts; Urban's library is in Megalodon, not Lean.\n- Knockdown factors and NASA-STD-5001B: tests are the norm, not mandatory.\n- The superseded AI1 spec, and the Fission Surface Power procurement made inactive in Mar 2026.\n- The 15-120x per-line verification cost and the ~2x program-level saving.\n- The \"analyst position\" letters mapped to knowledge-base ids.\n- Stale Varda, Raptor, RDRE, depot boil-off, Oracle-Prime and Mars Sample Return (SRL) text.\n\nFacts that never appeared in domain text needed no patch.\n\nAll 11 domain_patches_proposed in B-science were applied; no other B file has any. The domain follow-ups listed in the B notes (trunk, entry, moon-mars, orbital-compute-power, plasma-nuclear, engines-materials, math-frontier) were also applied.\n\nOf the 15 Google News items in the capability domain, one table-cell URL now points to the tech-insider article already in its sources. One row (EDA) now uses the Synopsys newsroom named in the B notes. The other 13 rows are dropped.\n\nYear/band cells, node counts and shared upstream years were synced to the current nodes, mainly the S3 = S2 until 2028 rule, the launch clock moved a year later, and merged node ids. That is 263 of the 484 patches.",
+  "notable": [
+   "Applying the file: the 13 deletions (capability sources 14, 25, 27, 32-40, 42) come last in the file, in descending index order. Apply all field edits first, then the deletions in file order. Indices refer to graph-v3.",
+   "The EDA source now points to https://news.synopsys.com/, a newsroom front page rather than the specific Jul 27 2026 release. It is the only URL the B-orbital-compute-power notes name, and it would be worth replacing with the article link.",
+   "Several numbers were recomputed, not copied: the plasma, auton, frontier, materials and struct scenario node counts and band distributions, and the materials 2031 band-by-tier table (now 32 nodes, not 30). They describe graph-v3 as it stands.",
+   "One illustrative row was replaced: struct tables[2] row 2 changes from 'KDF 0.65 -> 0.90' to 'KDF 0.32 -> 0.60, ~27%'. The 0.65 -> 0.8 gain was already realized by NASA's SBKF tests, and 0.32 -> 0.60 is the checked case where headroom remains.",
+   "Plasma tables[1] row 4: the old S2 target of ~10-15% density error is already beaten operationally by HASDM (<10% MAE). The target is reframed as public, calibrated nowcasts. This is a judgment change, not a pure fact fix.",
+   "Merged node ids are still named in domain text on purpose, as '(which absorbed X)' or 'merged into this node'. The viewer and doc builders do not auto-link ids, so these are harmless.",
+   "Out of scope and still open: the research/*.json files are unchanged, and the C-sectors/C-disciplines notes on sectors where AI math changes little (LEO stations, space solar power, asteroid mining, space medicine, ground software) still need to go into the paper text, not the domains.",
+   "Builder script: /private/tmp/claude-501/-Users-alex-projects-openai-math-paper/9b4758c5-f2bd-49e9-85e1-f4e3c74ea49c/scratchpad/f1/build_patches.py. It asserts every old value and merges multiple edits to one field into a single patch. A patched-domains preview is next to it as domains-patched.json."
+  ]
+ },
+ "f2": {
+  "file": "/Users/alex/projects/openai math paper/model/work/F2-node-edits.json",
+  "n_changes": 51,
+  "summary": "I wrote 51 \"update\" patches to `/Users/alex/projects/openai math paper/model/work/F2-node-edits.json`. The file also carries a `notes` block and a `domain_patches_proposed` list with 41 entries that `apply_edits.py` ignores. The test apply ran clean. `/tmp/f2-test-report.json` shows no dangling edges, no cycles, no monotonic, scenario-order, unparsed-year, bad-band or late-but-likely problems, 0 autofixes and 0 apply-log lines. No re-banded node now rates above its own hard prerequisite, and no exogenous node depends on an AI-math node.\n\nEach patch adds an \"F2 audit (2026-10-07)\" note to `revision_note`, appended after \" | \" as earlier passes did. It also adds a `revisions` record that keeps the old values of any band, year, pathway, premise or description it changed.\n\n**(1) High-band P7 audit.** 40 tier 5-7 nodes contain P7 with Medium or High in S2, not about 31; the v3 count came from v2, and C-final added nodes since.\n\n- **Exogenous physical anchors (25 nodes).** The pathway now reads exactly \"P7 (exogenous)\", the premise label is standard, and the why opens with \"Not an AI-math implication\". Where band reasoning was missing, I added it.\n  - Four of these had AI-math labels that their own text contradicted: prop-hls-refuel-campaign (was P1->P7), auton-lunar-o2-flight-demo (was P1->P6->P7), comms-space-qkd-network-demo and materials-wbg-rad-hard-power.\n  - For materials-wbg-rad-hard-power I changed the description to match its signpost, so the milestone no longer requires the mechanism model. Its edges already treated that model as optional.\n- **Three more anchors outside the literal filter.** prop-ship-transfer-demo, prop-loxsat-cfm-flight-data and prop-rde-flight-demo are tier-5 hardware outcomes tagged \"P1 (marginal)\", which kept them away from the P7 rule. I relabelled them the same way.\n- **AI-math implications (15 nodes).** Each why now explains why its band sits above the Speculative default, or the band came down:\n  - capability-ai-native-spacecraft: Medium/High/High to Low/Medium/High. It stacks a build, a launch, on-orbit success and public evidence on top of a High prerequisite, and it carries the same disclosure risk as its sibling nodes that sit at Medium.\n  - astro-cislunar-traffic-management: S2 Medium to Low. Its gates are sensors and a funded operator, and its earliest year (2031) leaves no slack.\n  - physclock-critical-payload-reuse-acceptance: S2 Medium to Low. It needs certification, both hard prerequisites are Medium, and it has no slack. S3 stays at the Medium cap.\n  - materials-closed-loop-discovery: S1 Medium to Low.\n  - physclock-satellite-gen-cadence: S1 moves from 2030/Medium to 2031/Low.\n- **comms-space-qkd-network-demo** keeps High as an exogenous anchor, now with written reasoning. Several funded programs can each satisfy it, and Jinan-1 has already exchanged a key between China and South Africa.\n\n**(2) Leftover contradicted claims in node text.**\n- \"Gateway cancelled\" now reads \"paused in its current form\" in the status and strongest case of astro-cislunar-od-uq and astro-cislunar-traffic-management. I checked this against 33FG news 445, which quotes NASA's Mar 24, 2026 release; 33FG's own commentary there says \"canceling\", probably where the error came from.\n- verif-lander-verified-gnc-flight: the Beresheet \"reboot loop\" wording, which the cited sources don't support, now matches verif-fdir-model-checking.\n- infra-mathlib-applied: Urban's 130k-line library is now identified as Megalodon, not Lean.\n- plasma-nep-mars-cargo: the stale June AI1 spec is now marked as superseded.\n- Every other listed claim was already fixed in node text (52x, lower attenuation, Oracle-Prime, 13.4M, \"no Starship stage has reflown\", Copernicus, $10M, Rocket Cargo, Varda, the warp lag and others).\n- Copies of these claims remain in domain-level text, which the update format cannot change. The 41 proposed fixes each give the exact path, from-text and to-text:\n  - Gateway in the astro and physclock domains.\n  - The 52x framing and 4-24 min in auton.\n  - 13.4M in capability.\n  - 48-90 days, presidential approval, \"$10M directed\" and the withdrawn $1-2B in physclock.\n  - The unforced Clay wording and \"5x lower feed pressure\" in prop.\n  - Varda, Kratos and family 365 in hyper.\n  - ZBLAN in materials, plus a few in plasma and struct.\n- The `research/*.json` files still carry these claims too, and I did not edit them.\n\n**(3) Conditional wording and regulator caps.**\n- Every node whose premise is T1 already says \"conditional\" in its why.\n- Four places stated T1 families as settled fact. They now say \"claims ... (T1, so conditional)\": frontier-stiff-certified (149), physclock-twin-reflight-clearance (372), and science-opacity-line-lists (275 and 278, in both why and status).\n- Every node that needs regulator or certification acceptance is at Medium or below. The one exception, cap-research-math-public, is the S2 premise node and I left it unchanged.\n- Two nodes have a qualification gate and High bands: comms-pq-verified-implementations and verif-runtime-assurance. Their why now says why the Medium cap does not apply.\n- hyper-aerothermal-design-loop pointed to the old High on capability-ai-native-spacecraft; I updated that reference.",
+  "notable": [
+   "The high-band P7 set is 40 nodes in graph-v3, not about 31. After the edits, 28 nodes graph-wide read exactly 'P7 (exogenous)', and every remaining AI-math P7 node at Medium or High states why its band beats the Speculative default.",
+   "Biggest call: capability-ai-native-spacecraft moves from S2 High to Medium (Low/Medium/High). It is a conjunction on top of a High prerequisite, and its disclosure risk is the same one that holds capability-ai-eda-space-processor and verif-lander-verified-gnc-flight at Medium. It sits at the top of Medium; if you want the client's base case kept High, this is the one band to revisit.",
+   "Three other bands came down: astro-cislunar-traffic-management S2 to Low, physclock-critical-payload-reuse-acceptance S2 to Low, and materials-closed-loop-discovery S1 to Low. physclock-satellite-gen-cadence S1 moves from 2030/Medium to 2031/Low. None has a hard dependent rated higher.",
+   "Gateway 'cancelled' was still in two nodes. 33FG news 445's own commentary says 'canceling' even though the NASA release it quotes says 'paused in its current form', which is probably the source of the error.",
+   "Hidden P7s: prop-ship-transfer-demo (High), prop-loxsat-cfm-flight-data and prop-rde-flight-demo were tagged 'P1 (marginal)' and so escaped the P7 rule. They are now relabelled as exogenous anchors. comms-pq-ttc-flight-demo and auton-verified-autonomy-lunar-flight are flight demonstrations tagged 'P2'; I flagged them in notes but did not edit them.",
+   "astro-ai-designed-trajectory-flown (S2 High, P1) carries the same disclosure risk that lowered ai-native-spacecraft. I left it High, since trajectory methods are routinely published, and flagged it for a second look.",
+   "Domain-level copies of the contradicted claims cannot be fixed with update patches. 41 exact path/from/to fixes are in domain_patches_proposed for the orchestrator. The science-domain items are already proposed in B-science-edits.json and are not repeated. The research/*.json files also still carry these claims."
+  ]
+ },
+ "f3": {
+  "file": "/Users/alex/projects/openai math paper/model/work/F3-copy-edits.json",
+  "n_changes": 50,
+  "summary": "I wrote 50 patches to work/F3-copy-edits.json: 12 branch_update entries (thesis and reader_hook for every branch) and 38 node title updates. They touch presentation fields only. The file applies cleanly to graph-v3.json with tools/apply_edits.py. The check reports zero integrity issues, zero autofixes and no scenario-order violations. A diff of the test graph confirms only titles, theses and hooks changed. All 12 theses are 44-45 words in two sentences. All 12 hooks are 50-60 words; before the edit, 9 of 12 hooks and all 12 theses were over the limit. All 38 new titles are 60 characters or fewer. Branch titles are unchanged. A script checked that every number in the new text also appears in the source text; the only new numeral is the \"3\" in the scenario label S3. Every year and band in the new theses was checked against the node index (for example: compute satellites making money about 2029 in every scenario, 1 GW Low; heat-shield reuse 2030 Medium; reactor Low; trajectories and million-object screening 2029). Edits to node titles: the 8 titles over 60 characters were shortened; the rest swap jargon for plain words, e.g. cislunar became Earth-Moon, proof-carrying became proof-checked, bioregenerative became biological, design allowables/coupons became material strength limits/test samples, and integrity became error bounds. I made no em-dashes and no \"not X, but Y\" sentences, and dropped several \"not X\" tails such as \"not 10x\" and \"not proof capacity\".",
+  "notable": [
+   "To fit 45 words, some secondary claims came out of the theses. The cut claims are listed below, and most of them now live only in the node text. Restore any you think the paper must keep in the branch summary.",
+   "Cut from thesis, trunk: 1.6x speedup.",
+   "Cut from thesis, networks: the vertically integrated operator about a year early.",
+   "Cut from thesis, certification: the S3 High band and the 20-30% S3 figure.",
+   "Cut from thesis, verified-autonomy: the mission-loss sentence. The hook carries it as the 9-of-12 cases fact.",
+   "Cut from thesis, science: BHEX, Lazuli, warp drives and the Low band for methane as regulatory evidence.",
+   "Cut from thesis, plasma-nuclear: S3 2029 Medium, AI-designed thrusters flying by 2030-31, and megawatt nuclear-electric cargo.",
+   "Cut from thesis, moon-mars: Moon Base Phase 2 and the Mars launch windows.",
+   "Hooks were cut down to their most vivid facts. Dropped secondary facts: networks lost the 5-20% software capacity vs the 10x V3 step, certification lost SP-8007-2020, orbital-compute lost the 19,400 t to 3,500-6,500 t thermal-mass figures and the ~250 kW radiator note, moon-mars lost the 52x excavation-energy figures, and plasma lost the ~50 kg/yr helium-3 need for a gigawatt fleet.",
+   "Notation change with the same value: the safe-orbits hook now writes Starlink's 3e-7 threshold as '3 in 10 million'. The flagged-facts file puts the ratio at about 330x; the hook keeps the existing 'about 300 times'.",
+   "Substance issue, not edited: node physclock-qual-cycle-compressed is titled 'Qualification campaigns 15-30% shorter', but the certification thesis says 10-20% (S2) to 20-30% (S3). A content owner should reconcile them.",
+   "Fixing two scenario labels: the engines-materials thesis now says 'Medium in S3' (it was 'Medium if AI speeds up its own R&D'), and the entry thesis opens with 'With on-demand AI uncertainty analysis' instead of 'If AI can...'.",
+   "Count note: n_changes = 50 counts 12 branch patches plus 38 title patches. As fields, that is 62: 24 branch fields plus 38 titles.",
+   "False positive in my checker: it counts the plasma-nuclear thesis as 3 sentences because of the periods in 'U.S.'. It is 2 sentences and 45 words."
+  ]
+ },
+ "v4": {
+  "file": "/Users/alex/projects/openai math paper/model/graph-v4.json",
+  "n_changes": 588,
+  "summary": "graph-v4.json is built and the integrity check is clean. It has 390 nodes, 575 hard edges, 628 soft edges and 12 branches. The check found no dangling edges, cycles, out-of-order years, scenario-order violations, late-but-likely nodes, unparsed years, bad bands or unknown branch members. Nodes reached by 2031: 243 in S1, 360 in S2, 372 in S3. meta.version is now 4. I did not need F4-fix.json.\n\nStep 1 (F2 then F3, with --autofix) applied every patch, with no log lines and no autofixes:\n- F2: 51 node updates.\n- F3: 12 branch updates and 38 title updates.\n- No node had its title edited by both files, so nothing had to be resolved there.\n- F2's new revisions lists and revision notes extend the old ones; no earlier history was lost.\n- I checked every patched field in v4 against its patch value: no mismatches. The 83 changed nodes are exactly the ones F2 or F3 touched.\n\nStep 2 (domain patches) applied all 484 F1 patches, with no failures:\n- 471 were exact matches; no partial-text matching was needed.\n- The 13 deletions in the capability domain's sources list were applied last, from the highest index down.\n- The patched domains match F1's own preview exactly, apart from 3 cells I changed (below).\n\nThe 3 cells: F2 lowered some bands after F1 had copied node values into domain tables, so I re-copied them. These are in work/F4-domain-sync.json (same format as F1) and are applied after F1:\n- astro table 1, row 11 (\"Cislunar traffic management service\"): S2 \"2031 / Medium\" becomes \"2031 / Low\".\n- materials table 3 (band counts by tier), S1 column: the tier-5 row goes from H0/M1/L2/S4 to H0/M0/L3/S4, and the all-nodes row from H0/M9/L12/S11 to H0/M8/L13/S11. Both are recounted from v4 nodes.\n\nThe other three re-banded nodes (capability-ai-native-spacecraft, physclock-critical-payload-reuse-acceptance, physclock-satellite-gen-cadence) have no band or year cells in domain text that need re-copying.\n\nF2's 41 proposed domain fixes: none of the problem wording is left in v4. F1 had already fixed every one, sometimes with different wording.\n\nI then rebuilt from v3 (F2, F3, F1, F4-domain-sync), re-ran the check (clean) and wrote work/node-index-v4.txt (390 nodes).\n\nFiles:\n- /Users/alex/projects/openai math paper/model/graph-v4.json\n- /Users/alex/projects/openai math paper/model/graph-v4-report.json (report from step 1)\n- /Users/alex/projects/openai math paper/model/work/node-index-v4.txt\n- /Users/alex/projects/openai math paper/model/work/F4-domain-sync.json\n- /Users/alex/projects/openai math paper/model/work/domain-patch-log-v4.json (every domain patch, how it applied, and any failures; none failed)\n- Patch script: /private/tmp/claude-501/-Users-alex-projects-openai-math-paper/9b4758c5-f2bd-49e9-85e1-f4e3c74ea49c/scratchpad/integ/apply_domain_patches.py\n\nn_changes = 588: 51 (F2) + 50 (F3: 12 branch, 38 title) + 484 (F1) + 3 (F4-domain-sync).",
+  "notable": [
+   "No patch failed. F2 applied 51 of 51, F3 50 of 50, F1 484 of 484 (471 exact matches, 13 deletions) and F4-domain-sync 3 of 3. No autofixes, empty apply log, and F4-fix.json was not needed.",
+   "Two F1 cells were changed twice: materials table 3, rows 4 and 7, S1 column. F1 recounted them against v3, then F4-domain-sync recounted them after F2's band change to materials-closed-loop-discovery. The patches run in order, so the F4 values are the final ones.",
+   "graph-v4-report.json is the report from the node-edit step (domain patches came later). A separate check run on the final graph-v4.json is also clean.",
+   "Open question for the content owner: capability-ai-native-spacecraft is now Low/Medium/High (F2 lowered S2 from High). If the client's base case needs it at High, this is the one to revisit. F2 also asked for a second look at astro-ai-designed-trajectory-flown (S2 High, same disclosure risk), and at comms-pq-ttc-flight-demo and auton-verified-autonomy-lunar-flight (flight demos tagged P2 rather than P7). None of these were edited.",
+   "Open: physclock-qual-cycle-compressed is titled 'Qualification campaigns 15-30% shorter', and the physclock S2 scenario text also says 15-30%. The new certification thesis (F3) says 'only 10-20% shorter by 2031'. They need reconciling.",
+   "F3 cut secondary claims from theses and hooks to meet word limits. Examples: the 1.6x speedup from trunk; the S3 High band and 20-30% figure from certification; Moon Base Phase 2 and the Mars windows from moon-mars; megawatt nuclear-electric cargo from plasma. Restore any the paper must keep at branch level.",
+   "Domain table labels still use the old wording that F3 replaced in node titles, e.g. 'Cislunar traffic management service' against the new 'Traffic management service for Earth-Moon space'. The meaning is the same, but the viewer will show both.",
+   "Still open from F1: the EDA source URL is the Synopsys newsroom front page (https://news.synopsys.com/), not the Jul 27 2026 release. research/*.json still carries the old contradicted claims. The C-sectors and C-disciplines notes (LEO stations, space solar power, asteroid mining, space medicine, ground software) belong in the paper text and are not in the graph.",
+   "F1 made two judgment calls beyond fact fixes, worth a content-owner look. The plasma table 1 row 4 S2 target was reframed because HASDM already beats it. The struct illustrative row now reads KDF 0.32 -> 0.60, ~27%. The struct signpost still says AI1 is 'targeted Q4 2027', while the nodes model the first flight in 2028; that is consistent, since the signpost gives the target date."
+  ]
+ },
+ "narratives": [
+  {
+   "branch": "trunk",
+   "words": 398,
+   "summary": "Wrote the trunk section in five paragraphs (398 words), in the order the brief asked for. It covers the capability channel and the main chain with Exponential-case years and bands (outside access about 2027, trust tooling and engineering adoption about 2028, a spacecraft engineered mostly by AI about 2029, annual satellite generations about 2030, cycles a quarter to a third shorter about 2031) and where the Plateau and Recursive cases differ. It also covers the catalog's small contribution (102 and 362 at T3; 363, 364 and 372 at T1, so conditional), the Amdahl-ceiling debate settled at 20 to 30%, and two signposts. It has three source links (the openai/math repo, the Kingy AI Comparator run and Epoch's benchmarks page), none of which the auditors contradicted.",
+   "quotable": [
+    "A result costs about $200 to $2,000 in tokens, so checking sets the price.",
+    "The openai/math catalog contributes evidence for the first step and little else.",
+    "Amdahl's law caps the Exponential-case schedule cut near 38%; the analysts settled on 20 to 30%, judging that the advocate mostly double-counted gains the physical speedups already credit."
+   ]
+  },
+  {
+   "branch": "math-frontier",
+   "words": 398,
+   "summary": "I wrote the math-frontier branch section: 398 words in five paragraphs, built from graph-v4.json, the wf2-result.json challenge entry and the frontier domain sources. It covers the capability channel, which is expert-scarce problems where stating the problem is the hard step (Ilin 2026). It walks the applied chain in the Exponential case: outside access about 2027, engineering math posed as precise problems about 2028 (High), the three certified-method nodes about 2028 (High), and math expertise stops limiting space programs about 2029 (Medium), with Plateau and Recursive contrasts and the gate at each step. It finds the catalog's contribution weak (104, 139, 140 at T3; 374 and 376 T1, conditional; 179 and 076 T3), states the case that the effect is small and how the resolver settled the spillover dispute, and ends with two signposts: the forced Navier-Stokes Comparator audit and an applied-families release.",
+   "quotable": [
+    "An agent workflow formalized a plasma result in 10 days for about $200, yet needed 229 human prompts, and two of its three failure modes were statement errors.",
+    "The chain has no hardware step. Math expertise stops limiting space programs about 2029 in the Exponential case (Medium), and by analyst judgment that saves 8-14% of engineering hours, or 2-7% of program cost.",
+    "Settling Navier-Stokes would change no CFD code, since codes already regularize."
+   ]
+  },
+  {
+   "branch": "verified-autonomy",
+   "words": 398,
+   "summary": "I wrote the 398-word, five-paragraph section for the verified-autonomy branch from graph-v4.json. It covers AI-written proofs and specs for flight code, the base-case chain (proof-cost drop about 2028 High; landers and constellation updates about 2029 Medium; regulator plan acceptance about 2030, capped at Medium; crewed certification Low by 2031) with the Plateau and Recursive differences, the catalog's near-zero contribution (only family 140, T3, on a side node), the strongest case that the effect is small, how the constellation and certification debates were settled, and two signposts, with 3 links to sources the auditors did not contradict (seL4 numbers, Vero, Peregrine valve).",
+   "quotable": [
+    "Under our cost model, a verified line falls from about $300-600 to $5-20 by about 2028 (High). A top-criticality program gets only about 2x cheaper, because integration testing stays physical.",
+    "Of 12 notable losses and near-losses from Ariane 501 to Athena, 9 involved software or logic, and in each the missing piece was a wrong assumption, spec or process step.",
+    "The openai/math catalog contributes almost nothing. The evidence is the pipeline: agent-written Lean for the main results of 162 papers, unchecked by outsiders (T3)."
+   ]
+  },
+  {
+   "branch": "networks",
+   "words": 398,
+   "summary": "Wrote the 398-word, five-paragraph networks section. It covers six things in order: what the capability buys first (certified routing gaps, certified interference bounds, verified routing and encryption code); the main chain with Exponential-case years and bands; where Plateau and Recursive differ; the catalog's small contribution (ceilings 102, 125 and 117 at T3, and conditional families 120 and 273); the strongest case that the effect is small, plus how the debates were settled; and two signposts for the next 12-24 months. It uses three source links (arXiv 2601.21914, the 33FG note on FCC 26-26, and the 33FG analysis of V3) and stays within the style rules.",
+   "quotable": [
+    "Pairing laser terminals and routing traffic across 10,000-plus satellites is NP-hard at every snapshot, so teams can ask for proof of how near optimal their plan is.",
+    "The strongest case for a small effect: SpaceX and peers already optimize well in house. The model judges the remaining gain at 5-20% of capacity, beside a 10x per-satellite step from V3 hardware.",
+    "Proven upgradeable encryption arrives about 2028 (High), but fleets able to swap encryption before the 2035 cutoff are about 2030 (Low), since buyers must demand proofs."
+   ]
+  },
+  {
+   "branch": "certification",
+   "words": 398,
+   "summary": "I wrote a 398-word, five-paragraph section on the certification branch from graph-v4.json. It covers the capability channel, the split chain to qualification (commercial and government tracks, Exponential-case years and bands, with Plateau and Recursive differences), the catalog's near-nil role (139 at T3; 372, 365 and 124 as conditional T1), the strongest case for a small effect with how the debates were settled, and two signposts due by 2028. It uses three primary-source links: the PDE-Agents arXiv paper, NASA's 2024 uncertainty-quantification paper (NTRS 20230016541) and NASA-STD-7009.",
+   "quotable": [
+    "An operator that carries its own risk flies new hardware qualified mainly by AI analysis about 2029 (Medium, adoption gate; Low in Plateau, High in Recursive).",
+    "Qualification campaigns 15\u201330% shorter follow about 2031 (Low; Medium in Recursive), because test stands bind.",
+    "The strongest case for a small effect: much of this exists without AI. NASA-STD-5001B already lets metallic structures skip strength tests, generally at larger safety factors."
+   ]
+  },
+  {
+   "branch": "engines-materials",
+   "words": 397,
+   "summary": "Wrote the 397-word, five-paragraph engines-materials section from graph-v4. It covers what AI does first (stability margins, error bars on flow simulations, life models and alloy screening, about 2028, High). It then walks the Exponential chains: reuse life about 2029 (Medium), the instability design tool in 2031 (Low) with development cuts after 2031, and AI-designed alloy flight about 2030 (Low, Medium in Recursive). It says the catalog adds little (143 and 365 at T3, 372 and 366 at T1, conditional), explains how the 230-starts debate was settled, and ends with two signposts. It has two links to sources the auditors did not contradict: NASA's materials-readiness framework and Spaceflight Now on Flight 13.",
+   "quotable": [
+    "Starts on one vehicle are correlated and each failure resets the count, as three failed booster relights on Flight 13 showed. Finding and fixing failure modes sets the pace.",
+    "Refuelling is similar: in an illustrative model, validated boil-off models save about 0-1 of the 1-5 extra tankers per lunar-lander campaign at a 6-day cadence.",
+    "First AI-agent-designed alloy flies in a rocket engine comes about 2030: Low in Exponential, Medium in Recursive, Speculative in Plateau."
+   ]
+  },
+  {
+   "branch": "entry",
+   "words": 399,
+   "summary": "Wrote the 399-word section for the entry branch (\"Getting through the atmosphere\"), five paragraphs, two inline primary-source links. It covers the capability channel (joint probabilistic heat-shield margins and arc-jet test planning, tied to the NASA SRL 75%/99% study with its caveats). It walks the Exponential chain: applied math 2027 High, margins 2028 High, probabilistic sizing adopted 2029 Medium, a thinner flown capsule shield 2030 Medium (Plateau 2031 Low, Recursive the same as Exponential), 50+ commercial returns a year Low for 2031, and a rapidly reusable Starship heat shield 2030 Medium (2031 in Plateau, 2029 in Recursive; AI adds 6-12 months). It states that the catalog adds little: families 365, 372 and 366 are T1 and conditional except one T3 side result of 365; 363/364 and 275/278 are T1 and conditional. It gives the strongest case for a small effect (methods about 20 years old, post-Artemis I risk posture, radiation under-prediction of up to 2x) and how the advocate's High bids were held to Medium, and names two signposts (first Starship ship catch and reflight with tile-replacement counts; a capsule maker disclosing reliability-based sizing).",
+   "quotable": [
+    "The openai/math catalog contributes little and changes no heating number.",
+    "The strongest case for a small effect: the mathematics was never the barrier. Probabilistic heat-shield methods are about 20 years old, and Artemis I's char loss pushes NASA toward more margin.",
+    "A flown heat shield sized with reduced, model-based margins, at least 10% thinner than the operator's previous one, comes about 2030 (Medium), gated by launch. Commercial capsules lead: they fly every few months and need no certifier."
+   ]
+  },
+  {
+   "branch": "orbital-compute-power",
+   "words": 399,
+   "summary": "I wrote the 399-word orbital-compute-power section in five paragraphs: what AI math answers first (radiation error models, radiator design, accelerated-life models, about 2028 High); then SpaceX's hardware chain from first 100-kW-class radiator flights (2028 High) to 1 GW in orbit (about 2031, Low in Exponential, Medium in Recursive); then a plain statement that the catalog contributes nothing (families 107 T3, 177/178 and 369 T1 conditional); then the strongest small-effect case and how the debates were settled, with three links (33FG AI1 reconstruction, Google Suncatcher, Mach33 orbital data centers report); and finally two signposts for the period through 2028.",
+   "quotable": [
+    "The openai/math catalog contributes nothing here.",
+    "*1 GW of compute operating in orbit*, about 4,000 satellites and 110-180 Starship flights, is about 2031 (Low), gated by launch.",
+    "Qualifying hotter chips would save about 1,900 t per GW, more than AI radiator design's assumed 350-1,400 t."
+   ]
+  },
+  {
+   "branch": "moon-mars",
+   "words": 400,
+   "summary": "I wrote the moon-mars section from graph-v4.json in 5 paragraphs and 400 words with 3 links to JPL, ICES 2025 and ICES 2026. It argues that AI mathematics first pays off in robot operations, where AI planning becomes routine about 2028 (High) and robots do severalfold more work per operator about 2029 (Medium); the self-running base, the tonne-per-year oxygen plant and Mars-class closed-loop life support are all Low for 2031 because of physical, funding and data gates; and the openai/math catalog contributes little (104 partly T3, 102 and 125 T3, 124, 110, 111 and 149 conditional).",
+   "quotable": [
+    "The strongest case for a small effect: AI planning already works without new mathematics, and lunar nights, dust and hardware failures cap robot output.",
+    "A 2024 electrolysis rig made 0.07 kg of oxygen an hour, against about 1.1 kg/h for a 10 t/yr plant.",
+    "The surest chain runs through operations: AI-planned rover operations with machine-checked plans become routine about 2028 in the Exponential case (High), and severalfold more robot work per operator follows about 2029 (Medium), while a lunar base that runs itself between crew visits stays Low for 2031, gated by appropriations."
+   ]
+  },
+  {
+   "branch": "science",
+   "words": 399,
+   "summary": "Wrote the 399-word science branch section from graph-v4.json and covered all five points. In the Exponential case, archive mining arrives about 2027 (High) and science per mission dollar about 2028 (Medium); the waveforms LISA needs for spinning black holes arrive about 2030 (Medium) and its analysis readiness about 2031 (Low); methane error bars arrive about 2028 (Medium) and compliance use about 2030 (Low). The catalog contributes almost nothing (families 260, 264 and 374 are T1 and conditional, 139 is T3). The skeptic won most debates, and no flight date moves.",
+   "quotable": [
+    "The strongest case for a small effect: space science is short of photons and money, and no theorem adds either.",
+    "LISA's hardest waveforms computed for spinning black holes land about 2030 (Medium) in the Exponential case, roughly three to five years early (analyst judgment), yet LISA still launches in 2035.",
+    "The openai/math catalog contributes almost nothing: family 260 (T1, conditional) extends mass bounds to moving black-hole data, but published warp-drive shells have no trapped surface, so it binds no published design."
+   ]
+  },
+  {
+   "branch": "safe-orbits",
+   "words": 399,
+   "summary": "The safe-orbits section is written in five paragraphs (399 words, 3 links). Its main point is that on-demand AI math gives teams certified collision probabilities, verified screening and trajectory design from 2027 to 2029 in the Exponential case. The chain stalls at sensors and standards: cross-operator collision avoidance and a small-debris catalog come about 2031 (Low), and safe low orbit at 100,000 satellites is beyond 2031 (Low, and only 2031 Low in Recursive). The openai/math catalog contributes almost nothing.",
+   "quotable": [
+    "A precise collision probability from a wrong orbit uncertainty is still wrong.",
+    "About 1.2 million 1-10 cm fragments go untracked, and no theorem detects them.",
+    "A claimed 2-5x cut in avoidance maneuvers became 1.5-1.8x, and only if operators relax thresholds."
+   ]
+  },
+  {
+   "branch": "plasma-nuclear",
+   "words": 398,
+   "summary": "I wrote the 398-word section for the plasma-nuclear branch: AI math first speeds kinetic algorithms and transport-model calibration (about 2027-28 in the Exponential case), but wall-clock wear tests, agency acceptance and capital keep EP development gains, a U.S. space reactor (Low) and fusion thrust (Speculative) at or past 2031, and the openai/math catalog adds almost nothing.",
+   "quotable": [
+    "A 23,000-hour life requirement means 2.6 years of continuous firing, and no proof shortens it.",
+    "NASA already credits the 50% life margin by analysis, so crediting part of the test itself is an institutional step.",
+    "Fusion-powered thrust in space stays Speculative: no device has burned deuterium-helium-3 at meaningful power, though a 1 MW demonstrator running 1,000 hours needs only about 6 g of helium-3."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1175 @@
+{
+ "update": [
+  {
+   "id": "comms-ai-cryptanalysis",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 AI audits of new space security protocols are routine in every scenario, including S1, where public research-grade models arrived in 2028. S4 adds nothing because the work is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High (S1 cognition reaches the S2 2029-30 level by 2035). S4 = S3."
+   }
+  },
+  {
+   "id": "comms-expander-constructions",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "S1 reaches Low by 2035 as its cognition catches up with S2 around 2030. Orbital geometry still rules out Ramanujan laser topologies and the T1 drop still applies, so no scenario rises above Low; S4 adds nothing to a math result.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Speculative -> Low; S2-S4 stay Low (T1 drop and geometric limits). S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-approx-ceilings",
+   "patch": {
+    "earliest_year": {
+     "S1": "2027",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "No change: the ceilings are High by 2031 in every scenario and stay so through 2035. S4 adds nothing to a math result.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. No change to years or bands; note_2035 added. S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-optical-quantum-capacity",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 rises to Medium by 2035 as outside checks of 273 become cheap. Bands stay one step down while 273 is T1, and S4 adds nothing to a math result.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Low -> Medium; S2-S4 stay Medium (T1 drop). S4 = S3."
+   }
+  },
+  {
+   "id": "frontier-lattice-crypto-watch",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "note_2035": "S1 reaches the needed capability around 2033. Bands stay Low or below through 2035 because Module-LWE has a 20-year record and hybrid deployment blunts a partial break; S4 adds nothing to a cryptanalytic result.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2033 (S1 cognition lags S2 by about four years). band_2035 = band_2031 in every scenario. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-certified-network-optimization",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2027",
+     "S3": "2027",
+     "S4": "2027"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 certified gaps at Starlink scale are standard solver output in every scenario, so S1 rises to High. S4 adds nothing because the work is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-code-design-on-demand",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches High by 2035. The next step, AI-designed codes inside a published satellite-to-phone standard, is the new node comms-35-ntn-standard-ai-codes; S4 adds nothing to design work.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-pq-verified-implementations",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 verified post-quantum libraries exist for the main radiation-hardened targets in every scenario, so S1 rises to High. S4 adds nothing because proof labor is cognitive.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-certified-interference-bounds",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 certified showings are common in FCC coordination and feed ITU-R studies for WRC-31, so S1 rises to High. S4 adds nothing because the gate is cognitive and institutional.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-finite-key-qkd-proofs",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Quantum-information coverage in Lean matures by 2035 even in S1, so S1 rises to High. S4 adds nothing to proof work.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-verified-routing-software",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "By 2035 verified routing code is a normal deliverable for SDA-style networks in every scenario, so S1 rises to High. S4 adds nothing because the gate is specification and proof work.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-optical-availability-models",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Multi-site optical networks built around 2029-31 supply the multi-year records that validation needs, so every scenario reaches High by 2035. S4 adds nothing because the data accumulates in real time.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-quantum-receiver-theory",
+   "patch": {
+    "earliest_year": {
+     "S1": "2032",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches the designs around 2032. By 2035 lab tests settle how much gain survives background light, so S2-S4 rise to High; S4 adds nothing because lab robots duplicate the autonomous labs S3 already counts.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2032 (S1 applied math 2029 plus lab validation). band_2035: S1 Low -> Medium, S2-S4 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-hardness-aware-tasking",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches High by 2035 as public models diffuse to Earth-observation and ground-station operators. S4 adds nothing because the gate is operator adoption of software.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-crypto-agile-architecture",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Crypto-agile designs become the default for new long-lived satellites as NIST's 2035 cutoff nears, so S1 rises to High. S4 adds nothing because the gate is design choice and proof work.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-constellation-design-optimizer",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 rises to Medium and S2 to High by 2035 as certified design tools spread to filers. S4 adds nothing to design software; the next step, a shell built from such a design, is comms-35-certified-shell-in-service.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035: S1 Low -> Medium, S2 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-space-qkd-network-demo",
+   "patch": {
+    "earliest_year": {
+     "S1": "2028",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "No change: funded missions run the demonstrations before 2031. S4 adds nothing to a launch-bound node.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. No change to years or bands; note_2035 added. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-pq-ttc-flight-demo",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "With verified libraries and agile designs common by the early 2030s, a disclosed flight with an in-orbit swap is likely by 2035 in S2-S4 and possible in S1. S4 adds nothing because funding, manifesting and disclosure set the date.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035: S2-S4 Medium -> High (the prerequisite architecture is High by 2035); S1 stays Medium. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-holevo-receiver-demo",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 reaches the demo around 2034 at the earliest. S3 rises to Medium by 2035 through faster lab iteration; S4 adds nothing because foundry runs and background-light physics bind and S3 already counts autonomous labs.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2034 (S1 designs 2032 plus about two years of fabrication and test). band_2035: S3 Low -> Medium; S1 Speculative, S2 Low unchanged. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-certified-mesh-operations",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Five more years of adoption and SDA contract cycles make a disclosed deployment likely by 2035 in S2, and possible in S1. S4 adds nothing because the gate is operator adoption.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035: S1 Low -> Medium, S2 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-d2d-coexistence-scheduling",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "After WRC-27 sets direct-to-device rules and these fleets grow, budgeted scheduling becomes standard practice by 2035 in S2-S4. S4 adds nothing because the gate is operator choice.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035: S1 Low -> Medium, S2 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-optical-ground-network-service",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2030",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Site networks committed around 2029-31 are finished by 2033-35, so S2-S4 reach High and S1 Medium. S4 adds nothing: telescope sites are capital- and permit-bound, and construction robots arrive after the node's year.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035: S1 Low -> Medium, S2-S4 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-pq-fleet-migration",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches the norm around 2033. CNSA 2.0 (in force for new national-security acquisitions from 2027) and NIST's 2035 cutoff carry S3 to High once proofs are near-free; S4 adds nothing because mandates and contract lags set the pace.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2033 (S1 architecture 2029 plus the 2-4 year contract lag and slower proof uptake). band_2035: S1 Speculative -> Low, S2 Low -> Medium, S3 Medium -> High (named mechanism: CNSA 2.0). S4 = S3."
+   }
+  },
+  {
+   "id": "comms-space-qkd-backbone",
+   "patch": {
+    "earliest_year": {
+     "S1": "2032",
+     "S2": "2031",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Procurement and accreditation after Eagle-1's in-orbit validation make an accredited service possible from 2031 (2032 in S1), Medium by 2035 in S2-S4. S4 adds nothing because procurement, launch and accreditation bind.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2032 (physical chain plus slower proof support). band_2035: S2-S4 Low -> Medium; S1 stays Low. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-capacity-per-dollar-share",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 reaches the threshold around 2033. Attribution and disclosure keep S2-S4 at Medium through 2035; S4 adds nothing because satellite output is launch-bound and the gain is software.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2033 (prerequisites S1 2030-31 plus measurement and disclosure). band_2035: S2 Low -> Medium. Description: 'by 2031' removed, since the year field carries the date. S4 = S3.",
+    "description": "AI-produced mathematics and software (certified optimization, coexistence scheduling, custom codes) raise a major constellation's usable capacity by at least 10% at fixed hardware and spectrum, compared with the same hardware run with 2026-era software, disclosed by the operator or measured independently."
+   }
+  },
+  {
+   "id": "comms-verified-crypto-procurement-norm",
+   "patch": {
+    "earliest_year": {
+     "S1": "2033",
+     "S2": "2030",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "Two more solicitation cycles by 2035 lift S2 to Medium, and S1 reaches the norm around 2033. The buyer-acceptance cap holds every scenario at Medium, and S4 adds nothing to an institutional decision.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2033 (S1 flight demo 2030 plus one or two solicitation cycles). band_2035: S2 Low -> Medium; cap at Medium (no named mechanism requires proofs). S4 = S3."
+   }
+  },
+  {
+   "id": "comms-performance-based-sharing-regime",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2031",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "WRC-31 is the first decision point and the following conference, expected around 2035, is a second chance, so S2-S4 reach Medium by 2035. Politics set the pace and S4 adds nothing.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept (WRC-31). band_2035: S2-S4 Low -> Medium; capped at Medium (path in motion only as ITU-R studies). S4 = S3."
+   }
+  },
+  {
+   "id": "comms-crqc-before-2031",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2033",
+     "S3": "2031",
+     "S4": "2031"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Speculative",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Low",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "The node now tracks the first code-breaking machine at any date. Vendor roadmaps reach about 2,000 logical qubits around 2033, so S2 can see one from 2033 (Low by 2035) and S3 rises to Medium; S4 adds nothing because quantum chips are fab- and physics-bound.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2034, S2 >2031 -> 2033 (IBM Blue Jay about 2033 on its roadmap). band_2035: S1 Speculative -> Low, S2 Speculative -> Low, S3 Low -> Medium. Title and description generalized from 'before 2031' to 'exists'; id kept for continuity. S4 = S3.",
+    "title": "Code-breaking quantum computer exists",
+    "description": "A quantum computer able to break RSA-2048 or 256-bit elliptic-curve keys exists. The node's year is the first year one exists; the id keeps its old 2031 name for continuity. It would expose legacy satellite links and any recorded traffic protected by them."
+   }
+  },
+  {
+   "id": "comms-ai-crqc-resource-cuts",
+   "patch": {
+    "earliest_year": {
+     "S1": "2029",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "S1 reaches High by 2035. S4 adds nothing because resource estimation is cognitive work.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-multi-operator-dynamic-sharing",
+   "patch": {
+    "earliest_year": {
+     "S1": "2034",
+     "S2": "2031",
+     "S3": "2030",
+     "S4": "2030"
+    },
+    "band_2031": {
+     "S1": "Speculative",
+     "S2": "Low",
+     "S3": "Low",
+     "S4": "Low"
+    },
+    "band_2035": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "note_2035": "S1 reaches it around 2034. Rival operators and a regulator must accept it, so S2-S4 stay capped at Medium by 2035; S4 adds nothing to a commercial and regulatory gate.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. S1 >2031 -> 2034 (S1 math about 2031, then protocols and trials at 1.0x). band_2035: S1 Speculative -> Low, S2-S4 Low -> Medium (regulator cap). S4 = S3."
+   }
+  },
+  {
+   "id": "astro-pnt-integrity-overbounding",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "High",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "LEO navigation fleets accumulate several years of fault history by 2035, so S1 reaches High. S4 adds nothing because the data gate runs in real time.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035 S1 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "astro-leo-pnt-assured-service",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Several LEO navigation constellations are in service by 2035 and timing and maritime buyers ask for integrity data, so S2-S4 reach High and S1 Medium. S4 adds nothing because launch and capital set the pace; aviation approval is the new node comms-35-leo-pnt-aviation-approval.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035: S1 Low -> Medium, S2-S4 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-certified-beamforming",
+   "patch": {
+    "earliest_year": {
+     "S1": "2030",
+     "S2": "2028",
+     "S3": "2028",
+     "S4": "2028"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "High",
+     "S4": "High"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Large phone-to-satellite arrays multiply after 2031 and certified patterns enter showings, so S2 reaches High and S1 Medium by 2035. S4 adds nothing to design software.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035: S1 Low -> Medium, S2 Medium -> High. S4 = S3."
+   }
+  },
+  {
+   "id": "comms-photonic-inverse-design",
+   "patch": {
+    "earliest_year": {
+     "S1": "2031",
+     "S2": "2029",
+     "S3": "2029",
+     "S4": "2029"
+    },
+    "band_2031": {
+     "S1": "Low",
+     "S2": "Medium",
+     "S3": "Medium",
+     "S4": "Medium"
+    },
+    "band_2035": {
+     "S1": "Medium",
+     "S2": "High",
+     "S3": "High",
+     "S4": "High"
+    },
+    "note_2035": "Laser-terminal and imager suppliers have several foundry and qualification cycles by 2035, so S2-S4 reach High and S1 Medium. S4 adds nothing because foundry turns and environmental tests bind.",
+    "needs_2035_review": false,
+    "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. Years kept. band_2035: S1 Low -> Medium, S2-S4 Medium -> High. S4 = S3."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "id": "comms-35-in-orbit-pq-cutover",
+   "title": "Satellites in orbit switch to post-quantum keys with proven update paths",
+   "tier": 7,
+   "kind": "outcome",
+   "binding_gate": "regulatory",
+   "pathway": "P2->P7",
+   "description": "At least one operator of long-lived satellites (GEO, MEO or a government constellation) switches the key exchange and command authentication of several operational satellites from RSA or elliptic-curve algorithms to post-quantum or hybrid algorithms in orbit, using rekey and update protocols with machine-checked proofs. Achieved means the operator discloses the switch and the proofs, or a government buyer confirms them.",
+   "status_oct2026": "No operational fleet has switched in orbit. NIST IR 8547 (initial public draft, Nov 2024) deprecates 112-bit RSA and ECC by 2030 and disallows quantum-vulnerable public-key algorithms by 2035. CNSA 2.0 requires new national-security acquisitions to comply from Jan 1 2027 and aims for quantum-resistant national-security systems by 2035 (general). Telecommand on pre-shared AES-256 keys is already quantum-safe.",
+   "prerequisites": [
+    "comms-crypto-agile-architecture",
+    "comms-pq-ttc-flight-demo"
+   ],
+   "accelerated_by": [
+    "comms-pq-fleet-migration",
+    "verif-constellation-verified-updates",
+    "comms-crqc-before-2031",
+    "comms-ai-crqc-resource-cuts"
+   ],
+   "earliest_year": {
+    "S1": "2034",
+    "S2": "2033",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Low",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "premise_tier": "n/a (mandate deadlines; the AI-math share is the machine-checked update path)",
+   "why": "The deadlines force a switch with or without AI. AI makes the switch on a 15-year asset safe to attempt: the rekey and update protocols carry machine-checked proofs, so a failed swap is unlikely to cost the command link. Only satellites that do public-key operations on board need it; bent-pipe GEO payloads and AES-only telecommand do not. Satellites launched from about 2030 with agile crypto reach their cutover windows as NIST's 2035 date and the CNSA 2.0 milestones approach. S2: architecture 2028, flight demo 2029, contracts and launches 2030-32, first disclosed fleet cutover 2033. S3 2032, because proofs are near-free from 2029. S1 2034. Disclosure is the main risk, which holds S2 at Low.",
+   "strongest_case_small": "Most operators will replace satellites or rely on pre-shared symmetric keys and ground-side controls, so few in-orbit switches happen. Government programs that do switch will not disclose the details.",
+   "signpost": "A GEO or government operator announcing a completed in-orbit post-quantum cutover with published proofs; CNSA 2.0 compliance reports for space systems.",
+   "note_2035": "This is the 2032-35 end of the post-quantum chain, timed by NIST's 2035 cutoff and CNSA 2.0. S4 adds nothing because mandates, contract lags and operator choice bind.",
+   "catalog_families": [],
+   "domain": "comms",
+   "needs_2035_review": false,
+   "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon."
+  },
+  {
+   "id": "comms-35-certified-shell-in-service",
+   "title": "A constellation shell designed with certified tools enters service",
+   "tier": 6,
+   "kind": "mission",
+   "binding_gate": "launch",
+   "pathway": "P1->P6->P7",
+   "description": "A new constellation shell or satellite generation whose orbits, beam plan, spectrum use and laser topology came from a design optimizer with certified interference and capacity bounds (comms-constellation-design-optimizer) is built, launched and in commercial service, and its coordination showings carry those bounds. Achieved means the operator states that a shell in service was designed this way, or its filings show it.",
+   "status_oct2026": "None. More than 10,000 commercial communications satellites operate in LEO and 50,000+ more are planned; design tools are in-house and uncertified. V3 Starlink satellites need Starship (33FG).",
+   "prerequisites": [
+    "comms-constellation-design-optimizer"
+   ],
+   "accelerated_by": [
+    "physclock-satellite-gen-cadence",
+    "physclock-cheap-mass-internal",
+    "comms-certified-mesh-operations",
+    "comms-certified-beamforming"
+   ],
+   "earliest_year": {
+    "S1": "2034",
+    "S2": "2032",
+    "S3": "2031",
+    "S4": "2031"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "High",
+    "S4": "High"
+   },
+   "premise_tier": "n/a (capability premise)",
+   "why": "Design tools act through new satellites. From a filing to a shell in service takes one satellite generation plus deployment: 18-36 months in 2026, 0.5-0.7x of that by 2031, plus launching hundreds of satellites. S2: optimizer used in a filing 2029, satellites built 2030-31, service 2032. S3: 2028 and 2031. S1: 2031 and 2034. Many filings are placeholders and operators may not say how a shell was designed, which holds S2 at Medium for 2035.",
+   "strongest_case_small": "Launch, manufacturing, spectrum rights and business plans shape constellations more than design software. Incumbents' in-house tools are good, and the certified bounds may change a design by a few percent.",
+   "signpost": "An operator or new entrant stating that a shell in service came from a design optimizer with certified bounds; coordination showings for a new shell that cite certified interference bounds.",
+   "note_2035": "Inside the 2035 horizon in S1-S4. S4 adds nothing because satellite output at the leading operators is launch-bound, which the S4 analysis shows for Starlink.",
+   "catalog_families": [],
+   "domain": "comms",
+   "needs_2035_review": false,
+   "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon."
+  },
+  {
+   "id": "comms-35-ntn-standard-ai-codes",
+   "title": "AI-designed codes ship in satellite-to-phone standards",
+   "tier": 5,
+   "kind": "technology",
+   "binding_gate": "adoption",
+   "pathway": "P1->P4->P6",
+   "description": "An AI-designed short-block code, decoder or synchronization scheme with machine-checked finite-blocklength claims is part of a published 3GPP non-terrestrial-network release or a CCSDS standard, and ships in handsets, modems or ground terminals.",
+   "status_oct2026": "No AI-designed code is in any 3GPP or CCSDS standard. LLM-guided search found seven record binary linear codes in Sep 2026 (arXiv 2609.37056). 3GPP's first normative 6G work is expected in Release 21, with commercial 6G around 2030 (general).",
+   "prerequisites": [
+    "comms-code-design-on-demand"
+   ],
+   "accelerated_by": [
+    "frontier-sequence-design-limits",
+    "comms-d2d-coexistence-scheduling"
+   ],
+   "earliest_year": {
+    "S1": "2034",
+    "S2": "2032",
+    "S3": "2032",
+    "S4": "2032"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "Medium"
+   },
+   "premise_tier": "n/a (capability premise)",
+   "why": "Short blocks are where coding gains remain, and 0.5 dB on a handset uplink at the beam edge can decide whether a link closes. Standards cycles take 2-4 years and chipsets 1-2 more, and committees do not speed up with cognition, so S3 equals S2. S2: contributions from 2028, a release freeze around 2030-31, shipping 2032. S1: 2034. Standards bodies are conservative and decoder complexity and patents decide adoption, which holds S2 at Medium.",
+   "strongest_case_small": "Most links already use standardized LDPC, turbo or polar codes within tenths of a dB of finite-blocklength bounds. 6G channel coding may be fixed before AI-designed proposals are ready, leaving the next window after 2035.",
+   "signpost": "A 3GPP or CCSDS contribution with an AI-designed code that is accepted into a release; a chipset vendor shipping it.",
+   "note_2035": "New for the 2035 horizon: standards and chipset cycles put the first shipping AI-designed codes in 2032-34. S4 adds nothing because committees and chipset cycles bind.",
+   "catalog_families": [],
+   "domain": "comms",
+   "needs_2035_review": false,
+   "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon."
+  },
+  {
+   "id": "comms-35-leo-pnt-aviation-approval",
+   "title": "Aviation approves low-orbit navigation with proven integrity",
+   "tier": 7,
+   "kind": "outcome",
+   "binding_gate": "regulatory",
+   "pathway": "P1->P5->P7",
+   "description": "An aviation authority (FAA or EASA) or an ICAO standard accepts a LEO navigation service, alone or combined with GNSS, for an operation that needs integrity, for example through an RTCA or EUROCAE avionics standard, resting on the provider's published integrity overbounds and fault statistics.",
+   "status_oct2026": "No aviation approval of any LEO navigation service. Xona announced on Oct 7 2026 that Pulsar is entering scaled production (Xona). Aviation GNSS integrity standards such as SBAS and ARAIM took about a decade each (general).",
+   "prerequisites": [
+    "astro-leo-pnt-assured-service"
+   ],
+   "accelerated_by": [
+    "infra-tool-qualification",
+    "physclock-regulator-ai-capacity"
+   ],
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2035",
+    "S3": "2034",
+    "S4": "2034"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "premise_tier": "n/a (regulatory acceptance)",
+   "why": "Aviation needs integrity at about 1e-7 per approach (general), and overbounds for a new constellation need years of its own fault history. Chain (S2): service with published bounds 2029, three or more years of fault data, avionics standards drafted in parallel, approval 2035 at the earliest. S3 drafts the proofs and safety case almost for free, so the remaining time is fault data and committee calendar: 2034. Institutions set the pace and no named approval path exists for LEO navigation, so S2 stays Speculative and S3 Low.",
+   "strongest_case_small": "Aviation integrity standards change over a decade. Spoofing pressure may push aviation toward hardened GNSS receivers and inertial sensors before it accepts a new satellite service.",
+   "signpost": "An RTCA or EUROCAE working group opening a standard for LEO navigation; ICAO navigation-systems panel work on LEO signals; a provider publishing several years of fault-rate data.",
+   "note_2035": "New for the 2035 horizon. Fault-history data and aviation committees bind, so the node sits at the edge of the horizon in every scenario and S4 adds nothing.",
+   "catalog_families": [],
+   "domain": "comms",
+   "needs_2035_review": false,
+   "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon."
+  },
+  {
+   "id": "comms-35-joint-detection-ground-station",
+   "title": "A deep-space ground station uses a receiver that beats photon counting",
+   "tier": 6,
+   "kind": "mission",
+   "binding_gate": "capital",
+   "pathway": "P6->P7",
+   "description": "An operational optical ground station receiving from a deep-space or far-cislunar laser terminal uses a joint-detection receiver and returns more bits per received photon than optimized pulse-position modulation with photon counting, under live conditions.",
+   "status_oct2026": "None. NASA's DSOC returned 13.6 Tbit and ended on Sep 2 2025. Joint detection has been shown only in the lab (Green Machine, 2025).",
+   "prerequisites": [
+    "comms-holevo-receiver-demo"
+   ],
+   "accelerated_by": [
+    "comms-optical-ground-network-service",
+    "comms-photonic-inverse-design"
+   ],
+   "earliest_year": {
+    "S1": ">2035",
+    "S2": "2034",
+    "S3": "2033",
+    "S4": "2033"
+   },
+   "band_2031": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Speculative",
+    "S4": "Speculative"
+   },
+   "band_2035": {
+    "S1": "Speculative",
+    "S2": "Speculative",
+    "S3": "Low",
+    "S4": "Low"
+   },
+   "premise_tier": "n/a",
+   "why": "After a ground demo, a station upgrade takes about 2-3 years of engineering and funding, and it needs a laser terminal flying at deep-space range. No committed deep-space optical mission for 2032-35 is known (general), so mission availability and budgets bind. S3: demo 2030, station 2033. S2: 2031 and 2034. S1: after 2035. Background light and optical loss shrink the gain, which keeps every band at Low or below.",
+   "strongest_case_small": "PPM with superconducting detectors keeps improving and is within a few dB of practical limits (general). Agencies may prefer larger apertures, which are proven, over a new receiver.",
+   "signpost": "NASA, ESA or JAXA funding a joint-detection receiver for an operational optical ground station; a deep-space mission with an optical terminal manifested for 2032-35.",
+   "note_2035": "New for the 2035 horizon, extending the receiver chain to operations. S4 adds nothing because flight opportunities, budgets and background-light physics bind.",
+   "catalog_families": [],
+   "domain": "comms",
+   "needs_2035_review": false,
+   "revision_note": "E-networks (2026-10-07): horizon 2035 and S4 review. New node for the 2035 horizon."
+  }
+ ],
+ "add_edges": [],
+ "add_soft_edges": [
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "comms-quantum-receiver-theory"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "comms-holevo-receiver-demo"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "comms-photonic-inverse-design"
+  },
+  {
+   "from": "robo-lab-bench-useful",
+   "to": "comms-35-joint-detection-ground-station"
+  },
+  {
+   "from": "robo-construction-trades",
+   "to": "comms-optical-ground-network-service"
+  },
+  {
+   "from": "robo-aerospace-tolerance-work",
+   "to": "comms-space-qkd-backbone"
+  },
+  {
+   "from": "robo-aerospace-tolerance-work",
+   "to": "comms-35-certified-shell-in-service"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "networks",
+   "nodes": [
+    "comms-35-in-orbit-pq-cutover",
+    "comms-35-certified-shell-in-service",
+    "comms-35-ntn-standard-ai-codes",
+    "comms-35-leo-pnt-aviation-approval",
+    "comms-35-joint-detection-ground-station"
+   ],
+   "spine": [
+    "comms-35-in-orbit-pq-cutover"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "networks",
+   "patch": {
+    "thesis": "Certified routing and interference bounds put meshes and phone-to-satellite service on proven plans by 2029-30 (base case). Through 2035 the rest moves at the pace of WRC-31, NIST's 2035 crypto cutoff, standards cycles and launches. S4 adds nothing over S3, because no gate here is labor-bound.",
+    "reader_hook": "The FCC's 2026 rules judge satellite interference against simulated criteria, such as 3% throughput loss, which turns spectrum rights into a math problem. NIST's draft rules disallow today's public-key encryption in 2035. A GEO satellite launched in 2028 flies to about 2043. Qubit estimates for breaking RSA-2048 fell from 20 million (2019) to under 100,000 (2026).",
+    "revision_note": "C-fix (2026-10-07): spine rebuilt so it forms one connected chain of hard edges that reaches tier 6-7. Trunk nodes ['cap-autoformalization'] are shown as the chain's entry anchors (also listed in roots); they stay members of the trunk branch only. Moved from spine to side_chains (still branch members): ['frontier-approx-ceilings', 'comms-performance-based-sharing-regime', 'comms-ai-cryptanalysis', 'frontier-lattice-crypto-watch']. The post-quantum lane now joins through cap-autoformalization; the cryptanalysis watch item and approximation ceilings are side chains. | E-networks (2026-10-07): horizon 2035 and S4 review. Thesis rewritten for 2026-2035 and S4; reader hook adds the 2035 crypto clock. Spine extended by comms-35-in-orbit-pq-cutover (hard edge from comms-crypto-agile-architecture)."
+   }
+  }
+ ],
+ "notes": "E-networks: all 34 branch nodes reviewed for 2035 and S4; every legacy '>2031' resolved. S4 equals S3 in every node, by year and by band, because the branch's gates are cognitive, adoption, regulatory, launch, capital and data gates (the S4 analysis puts every networks node in no_move). Five new nodes extend chains into 2032-35: in-orbit post-quantum cutover (spine), a certified-design shell in service, AI codes in phone-satellite standards, aviation approval of LEO navigation, and an operational joint-detection ground station. Robot soft edges are accelerators only; none earns S4 credit. comms-crqc-before-2031 is retitled 'exists' and keeps its id."
+}

@@ -1,0 +1,557 @@
+{
+ "update": [
+  {
+   "id": "physclock-credibility-evidence-standard",
+   "patch": {
+    "description": "NASA-STD-7009, ECSS and Space Force test standards, or a faster NASA handbook, interim or engineering directive, or ECSS handbook, gain a defined way to count AI-generated analyses (with independently checked derivations, quantified model error and, where available, certified numerics) as verification evidence, graded by credibility level. How much test credit each level earns stays with programs and their Technical Authorities, as under NASA-STD-7009B.",
+    "status_oct2026": "NASA-STD-7009B (Mar 2024) sets model credibility and leaves acceptance criteria for results to programs (general). A NASA-sponsored aircraft certification-by-analysis guide (contractor report, May 2021) sets a vision for a notional 2040, and a NASA-led UQ position paper (Jan 2024) places widespread certification by analysis in 2040-2050 and calls tool credibility the open challenge; the NASA-FAA CM4QC strategy (Mar 2026) is aviation-focused, for additively manufactured metals. No space standard addresses AI-generated analysis (general). Outside aerospace, FDA issued final guidance on the credibility of computational modeling in medical-device submissions (Nov 2023, built on ASME V&V 40) and a draft risk-based, seven-step credibility framework for AI models used in drug and biologic regulatory decisions (Jan 2025).",
+    "why": "Every test-substitution chain needs a rule saying what analysis evidence is worth. The named base standards revise every 8-10 years (NASA-STD-7009 2008, 2016 and 2024; GSFC-STD-7000 2013 and 2021; ECSS-E-ST-10-03 2012 and 2022, about 19 months from draft to publication), so the next base revision of 7009 falls around 2030-32. The faster route is a NASA handbook, interim or engineering directive, or an ECSS handbook. S2's independent checks (2026-27) and automated statement audits (2027) supply the evidence, so a first directive or handbook naming AI-generated analysis lands around 2029. Verified numerics (2028) strengthen the case but do not gate it: NASA-STD-7009B is already risk-based, and FDA wrote AI-credibility rules without machine-checked numerics. Capped at Medium because it is regulator acceptance.",
+    "strongest_case_small": "NASA-sponsored aircraft studies put widespread certification by analysis at 2040-2050; base standards revise only every 8-10 years and follow experience and accidents, not capability; a single failure traced to AI analysis would freeze adoption.",
+    "revision_note": "B-certification: [skeptic] why: revision cycles corrected from '3-6 years (general)' to the named standards' 8-10 years (7009 2008/2016/2024; GSFC-STD-7000 2013/2021; ECSS-E-ST-10-03 2012/2022); the 2029 date now rests explicitly on the directive/handbook route. [skeptic] description no longer maps credibility levels to allowed test reductions (programs set acceptance). [advocate] infra-verified-numerics hard -> soft (a risk-based credibility rule does not need the toolchain to exist); description names directive and handbook routes; FDA precedents added to status. [auditor] status: the 2021 CbA guide is a contractor report with a 2040 vision, 2040-2050 is from the 2024 UQ paper, CM4QC is aviation-focused. Years kept: skeptic's S2 2030/S3 2029/S1 >2031 and advocate's S2 2028 both rejected (see debates). Bands unchanged."
+   }
+  },
+  {
+   "id": "struct-cert-by-analysis",
+   "patch": {
+    "description": "Agencies (NASA, ESA, Space Force) accept AI-produced, uncertainty-quantified analysis in place of a strength qualification test beyond what NASA-STD-5001B already allows: for composite or bonded primary structure, or for metallic structure at tested-hardware factors of safety instead of the larger no-test factors. Derivative structure with correlated heritage test data comes first.",
+    "status_oct2026": "NASA-STD-7009 provides a credibility framework. NASA-STD-5001B (Change 3, Oct 2022) already allows prototype or protoflight strength testing and, for metallic structures only, an analysis-alone (no-test) option with an engineering rationale and Technical Authority approval, generally at larger factors of safety; its example criteria include similarity to a test-verified predecessor with good test-analysis correlation (FSR 15-16, Sec. 4.1.2.3). It allows probabilistic criteria case by case (FSR 17). Composite, bonded and most new primary structure are still strength-tested (general).",
+    "why": "A dedicated qualification article for launch-vehicle primary structure costs tens of millions of dollars and up to a year (general); a spacecraft unit's qualification model costs far less. The institutional route already exists for metals at a mass penalty, so what is new is credit at standard factors and for composites. It rests on certified UQ, AI-run test correlation and correlated heritage test data (5001B's no-test criteria lean on similarity and test-analysis correlation, hence the hard edge from struct-test-data-commons). Proof-carrying solver bounds help but do not gate, because discretization error is rarely the dominant uncertainty (struct-verified-fe-solvers). Chain (S2): credibility directive 2029 -> first use at a program's test-plan milestone 2030. Needs agency acceptance, so capped at Medium; S2 Low because the re-scoped step is harder than today's allowances and has one or two years of window after the rulebook (judgment, not a computed probability).",
+    "signpost": "A NASA, ESA or Space Force program grants model-based qualification credit, citing AI-produced analysis, in place of a planned strength test for composite or bonded primary structure, or for metallic structure at tested-hardware factors, by 2030-31.",
+    "band_2031": {
+     "S2": "Low"
+    },
+    "revision_note": "B-certification: [skeptic+auditor] Fact fix: the status said tests are mandatory for primary-structure qualification; NASA-STD-5001B Change 3 Sec. 4.1.2.3 (FSR 15-16) already allows metallic no-test verification and FSR 17 allows probabilistic criteria (text checked by resolver). Description and signpost re-scoped to credit beyond those allowances (otherwise the node is met today with no AI attribution). [skeptic+advocate] struct-verified-fe-solvers hard -> soft. [skeptic] struct-test-data-commons added as hard prerequisite (5001B no-test criteria require similarity and correlation evidence). [skeptic] S2 band Medium -> Low because the re-scoped event is strictly harder; skeptic's year slip (S2 2031, S3 2030) not taken because the credibility standard stays at S2 2029; advocate's S2 2029/S3 2028 rejected (depended on a 2028 rulebook)."
+   }
+  },
+  {
+   "id": "physclock-qual-by-analysis-credit",
+   "patch": {
+    "title": "Analysis credit replaces some environmental qualification tests",
+    "description": "NASA, Space Force and ESA mission-assurance practice grants formal test credit to validated, AI-produced analysis for derivative hardware in structures and thermal: reduced or deleted vibration, acoustic or thermal qualification tests (or levels) on derivative units, beyond what qualification by similarity and protoflight practice already allow. Avionics and propulsion qualification, driven by workmanship, parts and life, stay outside.",
+    "status_oct2026": "Protoflight and qualification by similarity are already standard for derivative and heritage hardware (GSFC-STD-7000B GEVS; NASA-STD-5001B Table 1 and Sec. 4.1.2.3). NASA-sponsored aircraft certification-by-analysis studies place wide adoption in 2040-2050; NASA-FAA CM4QC (Mar 2026) addresses additively manufactured metals for aviation; the structures domain places structural certification by analysis at 2030 in S2.",
+    "why": "A full qualification campaign for a major subsystem costs months and often tens of millions of dollars (general), but derivatives already use protoflight and similarity, so the counterfactual saving of AI-backed credit is roughly 1-6 months per derivative unit beyond today's practice (assumption). Chain (S2): credibility directive 2029 -> first structural analysis credit 2030 -> extension to environmental qualification of derivative units 2031. First credit comes on risk-tolerant government buys (SDA tranches, NASA Class C/D missions). Information-optimal test design complements analysis credit but is not a precondition. Capped at Medium; S2 Low because it follows a Low structural precedent with one year of window.",
+    "signpost": "A NASA, Space Force or ESA program formally deletes or reduces a planned environmental qualification test on derivative hardware on the strength of AI-produced analysis, first on a risk-tolerant buy (an SDA tranche or a NASA Class C/D mission).",
+    "earliest_year": {
+     "S2": "2031",
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S2": "Low"
+    },
+    "revision_note": "B-certification: [skeptic] Scope narrowed to structures and thermal environmental qualification; 'protoflight instead of dedicated qualification units' removed (already standard per GEVS and 5001B); saving '6-12 months' -> '1-6 months beyond today's practice (assumption)'; physclock-optimal-test-campaigns hard -> soft; S2 2030 -> 2031, S3 2029 -> 2030 (one year after the structural precedent), S2 Medium -> Low. [advocate] signpost adds risk-tolerant government buys first (SDA, Class C/D); advocate's S2 2029/S3 2028 rejected (depended on a 2028 rulebook). Title changed to match the narrowed scope."
+   }
+  },
+  {
+   "id": "physclock-qual-cycle-compressed",
+   "patch": {
+    "title": "Qualification campaigns 15-30% shorter",
+    "description": "Typical qualification campaigns for derivative spacecraft and launch-vehicle subsystems on programs started in 2028 or later run at least 15% shorter than the pre-2027 baseline of roughly 12-24 months (about 10-20% in S2 and 20-30% in S3, per the physical-gate table; derivatives more, first-of-kind less), through fewer re-tests, analysis credit and faster facilities.",
+    "why": "Chain (S2): information-optimal development tests 2028 -> credibility directive 2029 -> structural analysis credit 2030 -> environmental-qualification credit on derivatives 2031 -> programs started 2028 or later finish qualification and report 2031 or later. The physical-gate table gives spacecraft environmental qualification campaigns 0.8-0.9x in S2 and 0.7-0.8x in S3, and the capability Amdahl table uses 1.2x for qualification and reviews in S2, so the former 30-50% exceeded even the S3 figure. The incompressible core is thermal-vacuum time constants, real-time life and creep tests (a 10,000-hour creep test takes about 14 months), workmanship screening and statistical replicates. Commercial operators that skip tests on their own risk (physclock-commercial-analysis-first-qual), accepted reliability priors (physclock-reliability-priors-credit), autonomous stands and printed-part certification accelerate it but are not preconditions. Capped at Medium; S2 Low because evidence on programs started 2028+ cannot report before about 2031.",
+    "signpost": "GAO, ESA or company schedule data showing shorter qualification phases on programs started in 2028 or later (such data cannot appear before about 2031).",
+    "earliest_year": {
+     "S2": "2031",
+     "S3": "2030"
+    },
+    "band_2031": {
+     "S2": "Low"
+    },
+    "revision_note": "B-certification: [skeptic+auditor] Title and description changed from 30-50% (contradicted by research/physclock.json: qualification campaign 0.8-0.9x S2, 0.7-0.8x S3; capability Amdahl 1.2x) to 15-30% with a 15% threshold. [auditor] tier-7 chain written out. [skeptic] S2 2030 -> 2031, S3 2029 -> 2030, S2 Medium -> Low (signpost cannot report before ~2031; also forced by physclock-qual-by-analysis-credit S2 2031/S3 2030). [skeptic+advocate] materials-am-digital-twin-qual hard -> soft; [skeptic] physclock-ai-run-test-stands hard -> soft. Advocate's S2 2029/S3 2028/S3 High and making qual-by-analysis-credit soft rejected (see debates); advocate's commercial node added as a soft accelerator instead."
+   }
+  },
+  {
+   "id": "struct-certified-uq-margins",
+   "patch": {
+    "description": "Reliability-based structural margins with rigorous rare-event probability estimates and quantified model-form error, as a defensible alternative to stacked deterministic factors (ultimate factors of ~1.25-1.4, model-uncertainty factors, test factors). Acceptance as a substitute for factors of safety is modeled in struct-cert-by-analysis.",
+    "status_oct2026": "Practice is deterministic factors of safety (NASA-STD-5001 family, general) plus model-credibility assessment (NASA-STD-7009); probabilistic design used selectively. The release contains nothing on uncertainty quantification. 139 (subpolynomial-query log-concave sampling, Lean, T3) is theory for the posterior sampling such methods use. NASA-STD-5001B FSR 17 already lets the delegated Technical Authority approve probabilistic criteria case by case, while noting that experience has shown deterministic criteria to be adequate; uptake has been limited (general).",
+    "binding_gate": "data",
+    "pathway": "P1 (method availability; acceptance as a substitute for factors is P6, modeled in struct-cert-by-analysis)",
+    "why": "Reliability methods, multifidelity Monte Carlo and Bayesian calibration are largely solved in principle but expensive and expert-scarce per program; model-form error and high-dimensional rare events remain open. On-demand AI applied math makes doing this properly on every program affordable. Replacing a stacked factor of ~1.4 with a reliability-equivalent margin is worth up to ~10% of mass on strength-critical members only; stiffness-, minimum-gauge- and buckling-critical parts gain less (general). The binding input is validation test data for model-form error, not method, hence the data gate.",
+    "signpost": "A launch provider or NASA/ESA program publishes reliability-based margins with quantified model-form error, computed for a flight structure alongside its factors of safety, by 2029.",
+    "revision_note": "B-certification: [auditor] Signpost re-scoped from a standards revision (regulator acceptance, capped Medium) to method use on a flight structure, so the High band grades capability; description and pathway say acceptance is modeled in struct-cert-by-analysis; FSR 17 added to status. [skeptic] binding_gate cognitive -> data (the node's own strongest case names test data as the bottleneck); mass claim limited to strength-critical members. Skeptic's S2 High -> Medium rejected once the signpost no longer needs acceptance (see debates)."
+   }
+  },
+  {
+   "id": "struct-shell-knockdown-rules",
+   "patch": {
+    "description": "Probabilistic or mechanistic knockdown factors tied to measured imperfection statistics, beyond NASA SP-8007-2020's deterministic analysis-based approach, become routine agency and industry practice for cylinders and cones, including composite shells where a blanket 0.65 is still common.",
+    "status_oct2026": "NASA SP-8007-2020/REV 2 (Dec 2020, NESC) already updates the 1965/1968 monograph with semi-empirical and analysis-based design approaches (Secs. 4.2-4.3) and records analysis-based design buckling loads for the Shuttle SRB cases and External Tank and the SLS core stage; it is a design guideline, not a requirement. NASA SBKF developed and test-validated analysis-based knockdown approaches on 8-ft metallic and composite cylinders (2010s-2022); a NASA review warns the universal 0.65 composite factor can be unconservative; Wagner et al. (2025) report weight savings above 14% and up to 31% in optimized configurations with a mechanistic design curve. Probabilistic knockdowns tied to measured imperfection statistics are not yet standard practice.",
+    "why": "For unstiffened isotropic cylinders SP-8007 gives knockdowns of about 0.22-0.47 (R/t 1000-200), and buckling-critical wall thickness scales as KDF^-1/2, so raising a knockdown from 0.32 to 0.60 cuts that wall mass about 27%. 0.65 is SP-8007's recommended factor for moderately or heavily stiffened cylinders, whose load does not scale as t^2. Stiffened, sandwich and optimized shells see 14-31% with a mechanistic design curve (Wagner et al. 2025). Rules tied to measured imperfection statistics come from Monte Carlo on factory data plus certified margins; a worst-case imperfection theorem helps but is not required, since the analysis-based revision already happened without one. Standards and handbook revision (SP-8007, ECSS buckling handbook) and validation tests on representative shells bind, so the band is capped at Medium.",
+    "revision_note": "B-certification: [skeptic] Fact fix: SP-8007-2020/REV 2 already replaced the 1960s-only approach and analysis-based loads were used on SRB, ET and SLS core stage (text checked by resolver in the NTRS full text); description re-scoped to probabilistic knockdowns beyond it; scaling example corrected (0.65 is the stiffened-cylinder factor; unstiffened 0.22-0.47; 0.32 -> 0.60 cuts ~27%). [skeptic] struct-worst-imperfection-theory hard -> soft. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "struct-worst-imperfection-theory",
+   "patch": {
+    "status_oct2026": "Genuinely open. Ubamanyu, Blond, Hutchinson and Reis (arXiv, Jul 2026) show the localized dimple, nearly worst-case for spheres, is not worst-case for cylinders, and find a statistical size effect; Wagner et al. (Proc. R. Soc. A, 2025) propose a regime-aware mechanistic design curve; NASA SP-8007-2020/REV 2 added semi-empirical and analysis-based design approaches to the 1960s lower bounds, but no worst-case imperfection theory underlies them.",
+    "why": "This is a nonconvex variational and stochastic problem in nonlinear shell theory (Koiter asymptotics, energy barriers, extreme-value statistics of defect populations): bespoke research-grade applied math of the kind S2 makes routine by 2028. A provable lower bound tied to measured imperfection spectra is what lets designers replace empirical lower-bound curves with tighter, defensible knockdowns (see struct-flown-lighter-structure, which it now gates, and struct-shell-knockdown-rules, which it accelerates).",
+    "revision_note": "B-certification: [skeptic, applied for consistency] status fact fix: SP-8007-2020/REV 2 is the current reference, not the 1960s bounds alone. Edges: now a hard prerequisite of struct-flown-lighter-structure [advocate+auditor] and a soft one of struct-shell-knockdown-rules [skeptic]. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "struct-flown-lighter-structure",
+   "patch": {
+    "description": "A launch-vehicle barrel, interstage or large spacecraft primary structure flies after being sized with AI-derived knockdowns tied to measured imperfection statistics and certified uncertainty margins, beyond SP-8007-2020's analysis-based approach, at 10-30% lower mass for its buckling-critical parts. Commercial builders need no standards revision to do this.",
+    "status_oct2026": "No such flight attributed to AI-derived design rules. Human analysis-based design buckling loads were already used for the Shuttle SRB cases and External Tank and for the SLS core stage (first flown Nov 2022), per SP-8007-2020; new-space firms rely on test-to-failure (general).",
+    "why": "Chain (S2): worst-case imperfection theory and certified margins (2028) -> in-house design rule 2029 -> build and validation test of a primary-structure flight article (2-3 years for a new launch-vehicle subsystem, lag ladder) -> flight 2031. A standards revision (struct-shell-knockdown-rules) accelerates but does not gate, because commercial builders are not bound by SP-8007 or ECSS handbooks and the FAA does not certify structure. S3 gains little because the build-and-test cycle binds; its 1.3-1.5x physical speed keeps 2031 but raises the odds to Medium. Since human analysis-based knockdowns have already flown, the AI-attributable step is a further margin cut on a minority of dry mass. Vehicle-level payoff is modest: ~1-3% payload on an upper-stage-limited vehicle (analyst estimate).",
+    "signpost": "A launch or spacecraft program publicly states that a flown structure was sized with AI-derived probabilistic or mechanistic knockdowns (by 2031).",
+    "revision_note": "B-certification: [advocate+auditor] struct-shell-knockdown-rules hard -> soft; struct-worst-imperfection-theory and struct-certified-uq-margins added as hard prerequisites (a flown commercial structure needs no standards revision). [skeptic] description re-scoped beyond SP-8007-2020; status records the human analysis-based SRB/ET/SLS precedent. [auditor] signpost date 2030 -> 2031 to match the S2 year. Advocate's S2 2030/Medium and skeptic's S3 Medium -> Low both rejected; years and bands unchanged (see debates)."
+   }
+  },
+  {
+   "id": "struct-structural-mass-step",
+   "patch": {
+    "description": "Vehicles and spacecraft designed from ~2028 show 5-15% lower structural mass for equivalent loads, spacecraft first and launch-vehicle primary structure later. The gains come from knockdowns (buckling-critical barrels), certified margins (strength-critical members), tighter launch environments (secondary structure and boxes) and design optimization; they apply to different parts of dry mass, so they do not simply add.",
+    "why": "Chain (S2): first flown AI-sized structure 2031 -> several new designs disclosing comparable dry-mass fractions after 2031; an industry-wide trend cannot show up in the year of the first flight. Needs new designs started after the methods exist (2028-29) to finish qualification and fly; most fleets flying in 2031 were designed earlier. Vehicle-level effect is small: structure saved on an upper stage converts ~1:1 to payload, on a booster ~0.1-0.2:1 (general), so a 10% structural cut is a few percent of payload at most. AI-native spacecraft and AI design optimization accelerate the spacecraft side.",
+    "earliest_year": {
+     "S2": ">2031"
+    },
+    "revision_note": "B-certification: [skeptic] S2 2031 -> >2031 (its hard prerequisite is the first flown article in S2 2031; a trend needs several programs); description notes the gains apply to disjoint parts of dry mass. [advocate] description puts spacecraft first; cap-design-optimization and capability-ai-native-spacecraft added as soft accelerators. Advocate's edge removal (flown-lighter-structure hard -> soft), S2/S3 Medium and S3 2030 rejected (see debates). Bands unchanged."
+   }
+  },
+  {
+   "id": "struct-design-cycle-compression",
+   "patch": {
+    "title": "Structures and thermal analysis cycles 2-5x faster",
+    "description": "Time from a requirement change to signed-off stress, loads and thermal analysis (not design-build-test) compresses 2-5x across the industry, cutting non-recurring engineering and allowing more design iterations per program.",
+    "why": "Chain (S2): public applied math 2027 -> agentic FE workflows 2027 -> adoption at vertically integrated firms 2028, primes 6-12 months later -> industry-wide 2-5x 2029. The earliest and most certain effect in this domain. If structures and thermal analysis is ~10-20% of spacecraft non-recurring engineering (general) and agents cut its labor 50-80% (assumption), NRE falls ~5-15%; the larger benefit is more iterations per month, which compounds into lighter, better-margined designs. A 50-80% labor cut is a 2-5x speedup, and human sign-off time stays roughly constant, so turnaround compresses less than the 5-10x cognitive multiplier.",
+    "signpost": "Primes or new-space firms report analysis cycle-time reductions, or stress-analyst hiring shifts toward review roles, by 2029.",
+    "accelerated_by": [],
+    "earliest_year": {
+     "S2": "2029"
+    },
+    "revision_note": "B-certification: [skeptic+auditor] Title now says analysis turnaround, not design cycles; capability-engineering-adoption moved from accelerated_by to a hard prerequisite ('across the industry'); S2 2028 -> 2029 (primes follow 6-12 months after vertically integrated firms). [auditor] 3-10x -> 2-5x to match the node's own 50-80% labor cut; tier-7 chain written out. Bands unchanged."
+   }
+  },
+  {
+   "id": "physclock-optimal-test-campaigns",
+   "patch": {
+    "description": "AI designs development test campaigns, the tests operators control, with Bayesian optimal experimental design and sequential testing, choosing which tests, levels, sensors and replicates buy the most margin knowledge. Development test matrices shrink 10-30% (assumption) and re-tests fall. Formal qualification matrices stay set by GEVS, SMC-S-016 and ECSS-E-ST-10-03; cutting them needs customer acceptance and is modeled in physclock-qual-by-analysis-credit.",
+    "status_oct2026": "The methods exist (Bayesian experimental design, design of experiments, sequential probability-ratio tests) but are expert-scarce; space qualification follows enveloped levels and fixed matrices (GEVS, SMC-S-016, ECSS-E-ST-10-03, general). NASA's certification-by-analysis UQ discussion group published calibration and validation challenge problems (Jul 2025). Design of experiments is not new to aerospace testing: NASA Langley has applied Modern Design of Experiments to wind-tunnel testing since the late 1990s, and DOT&E has required design of experiments in operational test plans since Oct 2010, while space qualification matrices did not shrink.",
+    "why": "A 'solved in principle, expert-scarce' problem: on-demand applied math puts an experimental-design specialist on every development campaign. Design of experiments has been available or mandated for decades, so AI removes the remaining per-campaign expert scarcity rather than inventing a method. If test campaigns are ~25-35% of the critical path and AI trims 10-30% of development test count, schedule gains are ~3-10% before any certification credit. Family 139 (subpolynomial-query log-concave sampling, T3) concerns the posterior sampling these designs use, but practical posteriors are already sampled adequately; it changes theory, not campaigns.",
+    "signpost": "An operator or prime reports a development test matrix cut by 15% or more through information-optimal design, by 2028.",
+    "revision_note": "B-certification: [skeptic+auditor] Re-scoped to development tests operators control (qualification matrices are standards- and customer-set, capped at Medium, and modeled in physclock-qual-by-analysis-credit); signpost changed to match; S2 High kept only with this narrowing. [skeptic] matrix shrink 20-40% -> 10-30% (assumption); DOE precedents (NASA Langley MDOE, DOT&E 2010) added. Advocate's S2 2028 -> 2027 and capability-engineering-adoption hard -> soft rejected: 'typical' matrices are an industry outcome (see debates)."
+   }
+  },
+  {
+   "id": "physclock-ai-run-test-stands",
+   "patch": {
+    "description": "Engine stands, thermal-vacuum chambers, vibration tables and materials rigs run around the clock under AI control with adaptive test sequences and automatic data reduction, cutting test-to-insight time from weeks to hours and raising utilization where scheduling, not demand or article supply, limits it (from roughly 30-50% to 70% or more, assumption).",
+    "why": "Test facilities are the scarcest physical asset; doubling utilization is worth a second facility (2-4 years and tens to hundreds of millions of dollars to build, general). Adaptive sequencing (stop when the information is in) and instant data reduction compress campaign calendar time 10-25%, in line with the experiment-gate multiplier of 1.1-1.3x in S2 (1.3-1.5x in S3). The scarcest facilities (large thermal-vacuum chambers, arc jets, engine stands) stay paced by test-article build, setup, propellant and liquid-nitrogen logistics and hazardous-operations approvals, which is why S2 is Medium and only S3 is High.",
+    "pathway": "P1",
+    "band_2031": {
+     "S2": "Medium"
+    },
+    "revision_note": "B-certification: [skeptic] why: calendar compression 20-40% -> 10-25% (20-40% exceeds the S2 experiment multiplier 1.1-1.3x in research/physclock.json); S2 High -> Medium (S3 High kept); physclock-optimal-test-campaigns hard -> soft (around-the-clock autonomy does not need Bayesian experimental design). [skeptic+auditor] utilization figure marked (assumption). [auditor] pathway P1->P7 -> P1 (an operations change, not a flown-system outcome)."
+   }
+  },
+  {
+   "id": "physclock-range-airspace-scheduling",
+   "patch": {
+    "earliest_year": {
+     "S2": "2028",
+     "S3": "2028"
+    },
+    "band_2031": {
+     "S2": "Medium",
+     "S3": "Medium"
+    },
+    "premise_tier": "n/a; 124 is T1 per the KB catalog, conditional and not load-bearing (the repo's lean/docs/124.md lists a Lean main result with a Comparator challenge, 'Optimal three-machine unit-job scheduling', checked Oct 7 2026; T3 once the catalog is reconciled)",
+    "why": "Launch windows, hazard areas and range assets form a precedence-constrained scheduling problem that mixed-integer programming and heuristics already solve at today's scale; the gap is expert time and integration with FAA air-traffic systems. At 1,000+ flights a year from one coast it becomes a real constraint. Family 124 (polynomial-time scheduling on three identical machines, T1 per KB catalog, conditional) is a theory result; its algorithm will not be what schedules ranges. The outcome is FAA and Space Force adoption inside airspace automation, on federal acquisition cycles, so the regulator-behavior cap used for physclock-regulator-ai-capacity applies.",
+    "revision_note": "B-certification: [skeptic+auditor] S2/S3 High -> Medium (agency adoption; same A3 regulator cap as physclock-regulator-ai-capacity). [skeptic] S2/S3 2027 -> 2028 (FAA acquisition cycles; S3 equals S2 through 2028). [auditor] premise_tier notes the uncatalogued Lean result for 124 (lean/docs/124.md checked by resolver). No dependents."
+   }
+  },
+  {
+   "id": "physclock-regulator-ai-capacity",
+   "patch": {
+    "earliest_year": {
+     "S3": "2028"
+    },
+    "status_oct2026": "The FAA proposed electronic license submissions and four burden-reducing Part 450 changes on Oct 5 2026 and on Jul 30 2026 proposed waiving requirements under 13 laws (Federal Register). The FCC voted on a 'Licensing Assembly Line' replacing Part 25 with Part 100 on Jul 22 2026, aiming to cut satellite licensing from years to months. No agency has announced AI-assisted technical review of launch licenses (general). Outside aerospace, FDA deployed a generative-AI assistant (Elsa) to its scientific reviewers agency-wide in Jun 2025, so a federal safety regulator can adopt internal AI tools within months (Axios, Jun 2025).",
+    "revision_note": "B-certification: [auditor] S3 2027 -> 2028 (S3 equals S2 through 2028; agency procurement runs at ~1.0x); status wording fixed to 'requirements under 13 laws' (FR 2026-15415). [advocate] FDA Elsa precedent added to status; advocate's S2 2027 and S2/S3 High rejected: the node's event includes 2-5x reviewer throughput and published review times, which is regulator behavior under the A3 cap (see debates)."
+   }
+  },
+  {
+   "id": "physclock-licensing-in-weeks",
+   "patch": {
+    "description": "Routine license modifications (new trajectory, cadence or payload class) clear in under 30 days, new vehicle operator licenses in under 90 days from a complete application (against the 180-day statutory maximum), and FCC satellite approvals in months.",
+    "pathway": "P1 (with policy reform)",
+    "why": "Chain (S2): FAA final rules on the Jul 30 and Oct 5 2026 proposals 2027-28 -> AI-assisted FAA review (physclock-regulator-ai-capacity) 2028, fed by AI-drafted Part 450 analyses (physclock-ai-flight-safety-analysis) -> published median modification times under 30 days 2028-29. Reform alone gives about 1.2x (physical-gate table, S1); halving the statutory clock needs reviewer capacity, so regulator AI capacity stays a hard prerequisite, while operator-side drafting mostly shortens the time before the clock starts and is an accelerator. One route is a license that covers a whole analyzed flight envelope, so routine changes need no modification (Part 450 already lets one license cover multiple launches of a vehicle or family, 14 CFR 450.3, general). Capped at Medium because it is regulator behavior.",
+    "revision_note": "B-certification: [skeptic+auditor] Criterion 'under six months from a complete application' (the 180-day statutory maximum, i.e. the status quo) -> 'under 90 days'. [auditor] pathway P1->P2 -> 'P1 (with policy reform)' (P2 is not on the hard path); chain written out. [skeptic] physclock-ai-flight-safety-analysis hard -> soft; skeptic's proposal to also soften physclock-regulator-ai-capacity rejected (the physical-gate table credits reform alone with only 1.2x). [advocate] envelope-licensing idea folded into the why instead of a new node. Years and bands unchanged. [auditor] status wording: the Jul 30 proposal waives requirements under 13 laws.",
+    "status_oct2026": "EO 14335 (Aug 2025) ordered Part 450 reform and NEPA streamlining; FAA proposed rules on Jul 30 2026 (waiving requirements under 13 laws) and Oct 5 2026 (cutting Part 450 analysis burdens); the FCC adopted a Part 100 'Licensing Assembly Line' (vote Jul 22 2026). The statutory review clock for a complete application is 180 days (general)."
+   }
+  },
+  {
+   "id": "physclock-ai-flight-safety-analysis",
+   "patch": {
+    "status_oct2026": "The FAA proposed (Oct 5 2026) consolidating flight-safety-analysis information requirements, dropping overpressure analysis for hypothetical public locations and simplifying containment; a revised draft AC 413.13-1A (Part 450 application guidance) was released for public comment on Jul 20 2026 (FR 2026-14576), alongside a draft AC 413.5-1 on pre-application consultation. Specialist consultancies and in-house teams prepare these analyses today (general).",
+    "why": "These analyses use established methods (Monte Carlo debris dispersion, blast propagation, plume dispersion): expert-scarce, not research-hard. An AI running FAA-accepted methods needs no new acceptance; the FAA evaluates the outputs as it does today. Payoff: license modifications for new trajectories or cadence (for example New Glenn's 12-to-50-per-year review) are prepared in weeks. One operator or consultancy suffices for the signpost, and vertically integrated operators with in-house frontier models need not wait for industry-wide adoption.",
+    "earliest_year": {
+     "S2": "2027"
+    },
+    "revision_note": "B-certification: [auditor] Fact fix: AC 413.13-1A is a comment-stage draft (FR 2026-14576, Jul 20 2026), not an issued revision. [advocate] capability-engineering-adoption hard -> soft and S2 2028 -> 2027: the event needs one adopter using established methods, and S3 (2027) equals S2 through 2028. Bands unchanged."
+   }
+  },
+  {
+   "id": "physclock-ai-mishap-analysis",
+   "patch": {
+    "title": "Anomaly diagnosis 3-10x faster",
+    "description": "AI agents do the cognitive part of anomaly investigations (telemetry forensics, fault-tree pruning, physics re-simulation of candidate causes, corrective-action analysis), so return to flight is set by hardware fixes and verification tests rather than diagnosis. Root-cause confirmation often still needs hardware reproduction tests.",
+    "status_oct2026": "The FAA authorized Falcon 9's return to flight 5 days after the Feb 1 2026 upper-stage deorbit-burn anomaly, with the FAA accepting SpaceX's findings (33FG). Starship loops in 2025 stretched to 82-91 days after the Flight 8 and 9 losses. New Glenn was grounded after an Apr 2026 upper-stage failure, and a May 28 2026 static-fire explosion destroyed a vehicle and damaged its pad (Wikipedia). The FAA accepts operator-led investigations (general).",
+    "why": "Diagnosis is cognitive and sits on the critical path: when the cause is clear, return to flight takes days (Falcon 9, Feb 2026); when it is ambiguous, weeks to months. Searching the cause space 5-10x faster cuts the diagnosis share (illustratively 30-60% of a 60-90 day investigation, general) to days; redesign, requalification tests and FAA acceptance remain. No new regulator acceptance is needed: the FAA reviews findings, not the tools used to reach them. The physical-gate table gives diagnosis 3-10x faster but total return to flight only 0.5-0.8x, and only for non-hardware causes. One operator suffices: SpaceX, which owns a frontier lab and flies most often, generates the anomalies and data.",
+    "earliest_year": {
+     "S2": "2027"
+    },
+    "revision_note": "B-certification: [skeptic] Title 'Root cause in days, not months' -> 'Anomaly diagnosis 3-10x faster'; description notes hardware reproduction tests. [auditor] facts: FAA authorized return to flight 5 days after the anomaly; Starship 2025 gaps 82-91 days. [advocate] capability-engineering-adoption hard -> soft, cap-applied-math added as hard prerequisite, S2 2028 -> 2027 (single-operator event; S3 2027 equals S2 through 2028). Its former dependent physclock-test-loop-monthly was removed as a duplicate. Bands unchanged."
+   }
+  },
+  {
+   "id": "struct-launch-env-margins",
+   "patch": {
+    "description": "Component and spacecraft random-vibration, acoustic and shock test levels set with a reduced qualification margin over a model-predicted maximum predicted environment (MPE), from error-bounded predictions calibrated on early flight data, for new vehicles where flight data are sparse; published by a launch provider or disclosed by a vertically integrated provider-customer for its own payloads.",
+    "status_oct2026": "Maximum predicted environments are already statistical (P95/50 normal tolerance limits per NASA-HDBK-7005, general), and qualification adds about +3 dB (GEVS) to +6 dB (launch-vehicle units) over the acceptance or MPE level (general). Environments are enveloped flight data plus fixed qualification margins (for example qualification at acceptance +3 dB, general); NESC's NTRC methods cut coupled-loads cost (2023-2024); each coupled-loads cycle with a launch provider takes weeks (general).",
+    "why": "Random vibration sizes brackets, secondary structure and electronics boxes; a 3 dB margin doubles the test PSD (about 1.4x g-rms). Stating environments as exceedance probabilities is already practice, and for high-cadence vehicles empirical P95/50 envelopes from abundant flight data do the job without predictive models, so the AI-attributable gain is on new vehicles with sparse data, where calibrated predictions could justify a smaller margin. Forcing uncertainty dominates structural model error, so mid-frequency structural fidelity accelerates rather than gates. Launch-provider user guides and agency test standards gate adoption, so Medium is the cap; S2 Low because providers have little incentive to tighten published environments and a vertically integrated provider (SpaceX launches about three quarters of its own mass to orbit) rarely discloses its own.",
+    "signpost": "A launch provider publishes environments derived from flight-calibrated predictive models with stated exceedance probability and a reduced qualification margin, or a vertically integrated provider discloses such environments for its own payloads.",
+    "band_2031": {
+     "S2": "Low"
+    },
+    "revision_note": "B-certification: [skeptic] Fact: MPEs are already P95/50 statistical; description narrowed to reduced margins over model-predicted MPEs for new vehicles; struct-midfreq-vibroacoustics hard -> soft; S2 Medium -> Low (S3 Medium kept). [advocate] description and signpost add the vertically integrated provider-customer route; advocate's S2 2029/S3 2028 rejected because abundant flight data make predictive models unnecessary for the high-cadence provider the argument relies on (see debates)."
+   }
+  },
+  {
+   "id": "struct-shm-inverse-limits",
+   "patch": {
+    "pathway": "P1 (catalog: P5 via 372, conditional)",
+    "catalog_families": [
+     "372",
+     "365"
+    ],
+    "status_oct2026": "MAPoD for guided-wave SHM on composite cryogenic tanks for reusable launchers is active research (ONERA, Jul 2026); SHM is not yet qualified as an inspection replacement on launch vehicles (general). The release supplies a uniqueness claim (372, T1 per KB catalog, conditional) and a nonuniqueness result (365; only the 3D bounded-measurable scalar-conductivity part is formalized, T3), not stability constants.",
+    "premise_tier": "n/a (capability premise); 372 is T1 per KB catalog, conditional (repo lean/docs/372.md lists a Lean main result with a Comparator challenge, checked Oct 7 2026; T3 once the catalog is reconciled); 365 headline T1, formal scalar-conductivity part T3",
+    "why": "The question that earns inspection credit is not whether damage is identifiable in principle (372 claims yes, for smooth isotropic Lame moduli in 3D with full boundary data; conditional, and it does not cover anisotropic laminates or discontinuous damage) but how small a delamination N sensors detect at 90/95 confidence. That is quantitative stability plus statistics: solved in principle, expert-scarce, ideal for on-demand AI. 365's formal part (T3) shows nonuniqueness only for rough (bounded measurable) scalar conductivities in 3D; thin sensing skins are effectively 2D, where uniqueness for bounded conductivities is classical (Astala-Paivarinta 2006, general), and CFRP is anisotropic, so 365 sets no practical ceiling. The practical limit is the classical logarithmic stability of the Calderon problem (general). The node's main pathway is capability; the catalog adds only conditional confidence.",
+    "signpost": "Published MAPoD/POD curves for a guided-wave SHM layout on a cryogenic composite tank, validated against seeded-defect specimens, by 2029; SHM papers citing 365 or 372.",
+    "calibration_note": "A3: Premise label only: the why says the main pathway is capability and the catalog adds confidence. A4: Hard edge from struct-elasticity-fracture-foundations made soft. That node is T1-premised (Low/Medium/Medium), and this one is capability-driven (Medium/High/High), as its own why says (the catalog adds confidence). A hard edge would have rated the dependent likelier than its prerequisite. B-certification: 'one ceiling' dropped; 365 sets no practical ceiling for 2D or anisotropic sensing.",
+    "revision_note": "B-certification: [auditor+skeptic] Grounding fixes: 372 worded as a conditional T1 claim limited to smooth isotropic moduli; 365's ceiling claim replaced (formal part is rough 3D scalar conductivity only, verified in lean/docs/365.md; sensing skins are 2D and anisotropic); 366 (Mumford-Shah regularity) dropped as irrelevant to detection limits; pathway P3+P5->P6 -> P1 (catalog P5, conditional). [skeptic] acceptance signpost moved to struct-shm-inspection-credit; signpost is now validated POD curves. Skeptic's S2 High -> Medium rejected once the signpost grades method output (see debates)."
+   }
+  },
+  {
+   "id": "materials-am-digital-twin-qual",
+   "patch": {
+    "status_oct2026": "Described as the ideal end-state in 2026 TMS and ASME qualification work; NASA-STD-6030 requires per-machine qualification and statistical process control; no regulator credit for twin-based part certification of the most critical hardware as of Oct 2026. 372 (T1 per KB catalog, conditional: smooth isotropic Lame moduli in 3D are uniquely determined by boundary data) and 365 (headline metric and connection recovery is T1, conditional; only the 3D bounded-measurable scalar-conductivity nonuniqueness is formalized, T3) bear only peripherally on full-field nondestructive evaluation.",
+    "why": "Inspection, witness coupons and proof testing are a large share of the cost and schedule of the most critical printed parts (general). If the defect-physics model predicts part life from sensor data, CT can be targeted and lot testing shrinks. 372 (T1, conditional) claims elastic property maps are identifiable from boundary measurements, but only for smooth isotropic media; printed metals are textured and anisotropic and pores are discontinuities, so it does not bear on reducing CT inspection. 365's nonuniqueness concerns rough 3D scalar conductivities and does not constrain eddy-current inspection (a frequency-domain Maxwell problem) of piecewise-regular defects (general). Acceptance by NASA and customers binds; band capped at Medium.",
+    "premise_tier": "n/a (capability and acceptance chain); 372 T1 per KB catalog (conditional) and 365 headline T1 with formal part T3, both peripheral",
+    "signpost": "NASA, the FAA or a launch provider grants formal credit for in-situ-monitoring-based acceptance of a flight part, by 2030.",
+    "revision_note": "B-certification: [skeptic+auditor] Grounding fixes: 372 worded as a conditional T1 claim limited to smooth isotropic media; 365 split into T1 headline and T3 formal part, and its eddy-current ceiling claim replaced. [auditor] signpost date 2029 -> 2030 to match the S2 year. Skeptic's forced S1 2031 -> >2031 not needed because physclock-credibility-evidence-standard keeps S1 2031. Years and bands unchanged."
+   }
+  },
+  {
+   "id": "materials-allowables-stats-framework",
+   "patch": {
+    "signpost": "An MMPDS or CMH-17 coordination group approves a model-informed or Bayesian allowables method, or a NASA-STD-6030 revision references model-based allowables, by 2029.",
+    "revision_note": "B-certification: [auditor] Signpost date 2028 -> 2029 to match the S2 year. Note: the A3 calibration cited '3-6 year' standards cycles from physclock-credibility-evidence-standard, now corrected to 8-10 years for base standards; this node's years stand because MMPDS and CMH-17 coordination groups can approve methods between base revisions (general)."
+   }
+  },
+  {
+   "id": "struct-shm-inspection-credit",
+   "patch": {
+    "signpost": "An operator or NASA program announces SHM-based inspection credit for a reusable stage or tank (POD curves accepted in place of a scheduled NDE inspection) by 2030.",
+    "revision_note": "B-certification: [auditor] Signpost date 2029 -> 2030 to match the S2 year; [skeptic] acceptance signpost moved here from struct-shm-inverse-limits. Advocate's S2/S3 2030 -> 2029 rejected: the A3 lag ladder (new launch-vehicle subsystem 2-3 years; sensor aging qualification binds) still holds for commercial operators (see debates)."
+   }
+  },
+  {
+   "id": "struct-reusable-life-management",
+   "patch": {
+    "description": "Fully reusable heavy launchers (Starship-class and peers) manage structural life with validated life models (data-driven or physics-based) and built-in sensors, sustaining fast turnaround without routine teardown inspection and with life limits set by analysis rather than fleet-leader experience alone.",
+    "why": "Needs inspection credit (2030 in S2), data-cleared reflight from a probabilistic life twin (physclock-twin-reflight-clearance, 2029), and flight cycles to build confidence (Mach33 base: 8.9 flights per stack in 2029, 18 in 2030). Physics-based damage closure (struct-damage-tolerance-physics) accelerates but does not gate: operators set life with data-driven models and fleet leaders first. Fleet experience accumulates only with flights, which no cognition compresses. S2 Low because it chains two Medium prerequisites and needs a public description of sensor-based inspection; S3 Medium.",
+    "revision_note": "B-certification: [advocate] struct-damage-tolerance-physics hard -> soft; physclock-twin-reflight-clearance added as a hard prerequisite (operators manage life with data-driven twins and fleet leaders before physics closure). Advocate's S2 Low -> Medium rejected: the node still chains two Medium prerequisites and a public-disclosure signpost (see debates). Years unchanged."
+   }
+  },
+  {
+   "id": "materials-qual-cycle-compression",
+   "patch": {
+    "description": "Concept-to-flight insertion of new space materials (alloys, TPS, PV) falls from the historical 10-20+ years to five years or less as an industry pattern, shown by at least three material programs started in 2027 or later that fly by 2031.",
+    "why": "Cognition is perhaps 20-30% of insertion time (Ferrium M54: under one of under six years went to design; assumption generalizing it). The rest is physical evidence: the physical-gate table compresses material qualification only 0.7-0.8x in S2 and 0.5-0.7x in S3 (5-14 years in S3), so three programs started 2027 or later flying by 2031 is at the edge even in S3. Commercial engine builders insert in-house alloys without MMPDS or NASA-STD-6030 gates (SpaceX's SX500 superalloy for Raptor, general), so handbook-accepted allowables and per-part digital-twin certification accelerate rather than gate; real-time creep, fatigue and oxidation tests still bind. Chain (S3): AI alloy design 2027-28 -> in-house allowables 2028 -> first AI-designed alloy flies 2029 -> two more programs fly 2030-31.",
+    "binding_gate": "qualification",
+    "signpost": "A NASA-STD-6030 revision or MMPDS/CMH-17 policy that lets model-based evidence substitute for part of the test matrix, by 2028-29. Or an engine or spacecraft builder discloses a new material flown within five years of program start.",
+    "earliest_year": {
+     "S3": "2031"
+    },
+    "band_2031": {
+     "S3": "Low"
+    },
+    "revision_note": "B-certification: [auditor] Description restricted to programs started 2027 or later (pre-AI fast programs like Ferrium M54 would otherwise satisfy it); S3 2030 -> 2031 and S3 Medium -> Low (physical-gate table S3 0.5-0.7x of 10-20+ years); chain written out. [advocate] materials-am-digital-twin-qual and materials-allowables-stats-framework hard -> soft (commercial in-house insertion needs no handbook acceptance); binding_gate regulatory -> qualification. Advocate's S2 Low -> Medium rejected (S2 material qualification 0.7-0.8x)."
+   }
+  },
+  {
+   "id": "struct-test-data-commons",
+   "patch": {
+    "status_oct2026": "Fragmented. NASA Shell Buckling Knockdown Factor (SBKF) test reports sit in NTRS as PDFs; Wagner released Monte Carlo knockdown databases and code on Zenodo (Jul 2026; doi 10.5281/zenodo.21630428); ISS flow boiling and condensation datasets were published 2024-2025; most company data are proprietary or export-controlled (general).",
+    "revision_note": "B-certification: [auditor] Fact fix: the Zenodo knockdown record (Jul 27 2026) lists Wagner only, not 'Wagner and Huehne'. Now also a hard prerequisite of struct-cert-by-analysis [skeptic]. Years and bands unchanged."
+   }
+  }
+ ],
+ "add_nodes": [
+  {
+   "id": "physclock-commercial-analysis-first-qual",
+   "title": "Operators fly new hardware qualified mainly by AI analysis",
+   "tier": 5,
+   "kind": "technology",
+   "description": "A commercial operator or bus vendor that carries its own risk (no regulator, insurer or government customer accepts the evidence) flies a new-design, not heritage-derived, spacecraft subsystem or structure whose qualification rests mainly on AI-produced analysis with stated uncertainty plus development tests and acceptance-level workmanship screening, skipping protoflight- or qualification-level environmental tests that its own practice would otherwise run. Today's common practice of protoflight testing instead of a dedicated qualification unit does not count.",
+   "status_oct2026": "Not yet attributed to AI. Commercial operators already set their own test programs: FAA Part 450 licenses public safety, not vehicle or payload qualification (CRS R48582), and FCC licensing does not review structural qualification (general). Protoflight testing of new designs is common commercial practice, and some risk-tolerant smallsats skip thermal-vacuum testing (general). Most mass to orbit belongs to an operator that answers to no qualification authority: Starlink carried 1,975 t in 2025 against a contested external market of 347 t, about 5.7:1 (research/physclock.json, Mach33).",
+   "catalog_families": [],
+   "prerequisites": [
+    "struct-agentic-analysis-workflows",
+    "physclock-optimal-test-campaigns"
+   ],
+   "accelerated_by": [
+    "struct-certified-uq-margins",
+    "cap-design-optimization",
+    "physclock-ai-run-test-stands",
+    "capability-ai-native-spacecraft"
+   ],
+   "binding_gate": "adoption",
+   "pathway": "P1 (process outcome; flight step written out as a chain)",
+   "earliest_year": {
+    "S1": "2030",
+    "S2": "2029",
+    "S3": "2029"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "High"
+   },
+   "premise_tier": "n/a (capability premise; no catalog family)",
+   "why": "Chain (S2): AI agents run and check structural and thermal analysis (2027) -> information-optimal development tests (2028) -> a new subsystem designed and qualified mainly on that evidence in 2028 -> 12-18 month smallsat or derivative build (lag ladder) -> flies 2029-30. No Medium cap applies because the operator, not a regulator or customer, accepts the evidence. The AI-attributable step is extending test skipping from heritage derivatives to new designs on the strength of checked analysis. For constellation operators the fleet itself can serve as the test stand (in-orbit statistics from hundreds of units), which counts here when it replaces ground tests on a new design. S2 Medium, not High (judgment, not a computed probability): tests catch workmanship and unmodeled behavior that analysis cannot, a fleet-wide defect costs far more than a protoflight campaign, and the step must be stated publicly to count. S3 High: near-free cognition from 2029 makes analysis-led qualification the default for AI-native builders. Workmanship screening and thermal-vacuum time constants remain.",
+   "strongest_case_small": "Risk-owning operators already skip tests they judge not worth it (protoflight, minimal smallsat testing) without AI, so attribution will be murky; an operator that loses hardware to an analysis miss will revert; insurers of commercial GEO satellites require qualification evidence (general).",
+   "signpost": "An operator or bus vendor states that a new-design subsystem flew without protoflight- or qualification-level environmental testing on the strength of AI-produced analysis, by 2030.",
+   "domain": "physclock",
+   "revision_note": "B-certification: New node from the advocate (commercial self-risk track). Resolver re-scoped it beyond today's protoflight practice (otherwise met today), set S2 High -> Medium, and S3 2028 -> 2029 (S3 equals S2 through 2028; a 2028 flight needs 2027 design). Soft edges into external nodes (capability-program-cycle-compression, physclock-satellite-gen-cadence, physclock-dev-capital-cut) left as cross-branch requests."
+  },
+  {
+   "id": "physclock-reliability-priors-credit",
+   "title": "Fewer certification flights via accepted model-based reliability priors",
+   "tier": 4,
+   "kind": "engineering-tool",
+   "description": "Launch and spacecraft certifiers (Space Force NSSL new-entrant certification, NASA Launch Services Program risk categories, human-rating boards, or component reliability demonstrations) accept AI-produced, credibility-graded physics and flight-data models as Bayesian priors in reliability demonstration, cutting the certification flights or zero-failure trials needed for a stated reliability and confidence.",
+   "status_oct2026": "Reliability demonstration by test needs about 230 zero-failure trials for 0.99 reliability at 90% confidence (n = ln(1-C)/ln R); the physical-gate table marks this unchanged unless model-based priors are accepted (then 0.3-0.6x), and no node used that row. Certifiers already trade flights for insight: Space Force certified Vulcan for NSSL in Mar 2025 after two certification flights, and the New Entrant Certification Guide pairs flight-count options with design review (general). NASA-STD-5001B FSR 17 allows probabilistic structural criteria case by case.",
+   "catalog_families": [],
+   "prerequisites": [
+    "physclock-credibility-evidence-standard",
+    "frontier-rare-event-certified"
+   ],
+   "accelerated_by": [
+    "struct-certified-uq-margins"
+   ],
+   "binding_gate": "qualification",
+   "pathway": "P2->P6",
+   "earliest_year": {
+    "S1": ">2031",
+    "S2": "2030",
+    "S3": "2029"
+   },
+   "band_2031": {
+    "S1": "Low",
+    "S2": "Low",
+    "S3": "Medium"
+   },
+   "premise_tier": "n/a (capability premise)",
+   "why": "Chain (S2): certified rare-event methods 2027-28 -> credibility directive 2029 -> a certifier accepts model priors in a reliability case at its next review cycle 2030. Statistics, not physics, bind: with accepted priors the zero-failure trials needed fall 0.3-0.6x (physical-gate table). Capped at Medium because it is certifier acceptance; S2 Low because it chains on a Medium rulebook with one or two years left, and certifiers already accept two-flight certification with heavy insight, so the next step is small and slow (judgment, not a computed probability).",
+   "strongest_case_small": "Certifiers count flights because priors can be tuned to any answer, and rare-event model-form error is what NASA's 2024 UQ position paper calls unsolved (https://ntrs.nasa.gov/citations/20230016541).",
+   "signpost": "A Space Force, NASA LSP or human-rating certification plan, or a component reliability demonstration, that cites model-based priors from AI-produced analysis to reduce required flights or trials, by 2030.",
+   "domain": "physclock",
+   "revision_note": "B-certification: New node from the auditor (uses the physical-gate table's reliability-demonstration row). Resolver set S2 Medium -> Low (chains on a Medium rulebook with little window). Soft edge into external physclock-critical-payload-reuse-acceptance left as a cross-branch request."
+  }
+ ],
+ "remove_nodes": [
+  "physclock-test-loop-monthly"
+ ],
+ "add_edges": [
+  {
+   "from": "struct-test-data-commons",
+   "to": "struct-cert-by-analysis"
+  },
+  {
+   "from": "capability-engineering-adoption",
+   "to": "struct-design-cycle-compression"
+  },
+  {
+   "from": "struct-worst-imperfection-theory",
+   "to": "struct-flown-lighter-structure"
+  },
+  {
+   "from": "struct-certified-uq-margins",
+   "to": "struct-flown-lighter-structure"
+  },
+  {
+   "from": "cap-applied-math",
+   "to": "physclock-ai-mishap-analysis"
+  },
+  {
+   "from": "physclock-twin-reflight-clearance",
+   "to": "struct-reusable-life-management"
+  }
+ ],
+ "remove_edges": [
+  {
+   "from": "infra-verified-numerics",
+   "to": "physclock-credibility-evidence-standard"
+  },
+  {
+   "from": "struct-verified-fe-solvers",
+   "to": "struct-cert-by-analysis"
+  },
+  {
+   "from": "physclock-optimal-test-campaigns",
+   "to": "physclock-qual-by-analysis-credit"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "physclock-qual-cycle-compressed"
+  },
+  {
+   "from": "materials-am-digital-twin-qual",
+   "to": "physclock-qual-cycle-compressed"
+  },
+  {
+   "from": "struct-worst-imperfection-theory",
+   "to": "struct-shell-knockdown-rules"
+  },
+  {
+   "from": "struct-shell-knockdown-rules",
+   "to": "struct-flown-lighter-structure"
+  },
+  {
+   "from": "physclock-optimal-test-campaigns",
+   "to": "physclock-ai-run-test-stands"
+  },
+  {
+   "from": "physclock-ai-flight-safety-analysis",
+   "to": "physclock-licensing-in-weeks"
+  },
+  {
+   "from": "capability-engineering-adoption",
+   "to": "physclock-ai-flight-safety-analysis"
+  },
+  {
+   "from": "capability-engineering-adoption",
+   "to": "physclock-ai-mishap-analysis"
+  },
+  {
+   "from": "struct-midfreq-vibroacoustics",
+   "to": "struct-launch-env-margins"
+  },
+  {
+   "from": "struct-damage-tolerance-physics",
+   "to": "struct-reusable-life-management"
+  },
+  {
+   "from": "materials-am-digital-twin-qual",
+   "to": "materials-qual-cycle-compression"
+  },
+  {
+   "from": "materials-allowables-stats-framework",
+   "to": "materials-qual-cycle-compression"
+  }
+ ],
+ "add_soft_edges": [
+  {
+   "from": "infra-verified-numerics",
+   "to": "physclock-credibility-evidence-standard"
+  },
+  {
+   "from": "struct-verified-fe-solvers",
+   "to": "struct-cert-by-analysis"
+  },
+  {
+   "from": "physclock-optimal-test-campaigns",
+   "to": "physclock-qual-by-analysis-credit"
+  },
+  {
+   "from": "physclock-ai-run-test-stands",
+   "to": "physclock-qual-cycle-compressed"
+  },
+  {
+   "from": "materials-am-digital-twin-qual",
+   "to": "physclock-qual-cycle-compressed"
+  },
+  {
+   "from": "physclock-commercial-analysis-first-qual",
+   "to": "physclock-qual-cycle-compressed"
+  },
+  {
+   "from": "physclock-reliability-priors-credit",
+   "to": "physclock-qual-cycle-compressed"
+  },
+  {
+   "from": "struct-worst-imperfection-theory",
+   "to": "struct-shell-knockdown-rules"
+  },
+  {
+   "from": "struct-shell-knockdown-rules",
+   "to": "struct-flown-lighter-structure"
+  },
+  {
+   "from": "cap-design-optimization",
+   "to": "struct-structural-mass-step"
+  },
+  {
+   "from": "capability-ai-native-spacecraft",
+   "to": "struct-structural-mass-step"
+  },
+  {
+   "from": "physclock-optimal-test-campaigns",
+   "to": "physclock-ai-run-test-stands"
+  },
+  {
+   "from": "physclock-ai-flight-safety-analysis",
+   "to": "physclock-licensing-in-weeks"
+  },
+  {
+   "from": "capability-engineering-adoption",
+   "to": "physclock-ai-flight-safety-analysis"
+  },
+  {
+   "from": "capability-engineering-adoption",
+   "to": "physclock-ai-mishap-analysis"
+  },
+  {
+   "from": "struct-midfreq-vibroacoustics",
+   "to": "struct-launch-env-margins"
+  },
+  {
+   "from": "struct-damage-tolerance-physics",
+   "to": "struct-reusable-life-management"
+  },
+  {
+   "from": "materials-am-digital-twin-qual",
+   "to": "materials-qual-cycle-compression"
+  },
+  {
+   "from": "materials-allowables-stats-framework",
+   "to": "materials-qual-cycle-compression"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "certification",
+   "nodes": [
+    "physclock-commercial-analysis-first-qual",
+    "physclock-reliability-priors-credit"
+   ],
+   "spine": [
+    "physclock-commercial-analysis-first-qual"
+   ]
+  }
+ ],
+ "branch_update": [
+  {
+   "branch": "certification",
+   "patch": {
+    "thesis": "Two tracks. Operators that carry their own risk can count AI analysis as evidence once they trust it: in the base case a commercial operator flies new-design hardware qualified mainly by analysis from about 2029-30 (Medium; High in S3). Government, crewed and national-security hardware waits for a rulebook (a credibility directive or handbook around 2029, Medium) and then for certification by analysis beyond what NASA-STD-5001B already allows (around 2030, Low in the base case). Structures and thermal analysis turnaround runs 2-5x faster from 2029, but qualification campaigns shorten only 10-20% (S2) to 20-30% (S3) by about 2031, because test stands, workmanship screening and real-time endurance tests, not math, bind.",
+    "binding_gate": "regulatory (government track); adoption (commercial track)",
+    "reader_hook": "Much of what 'certification by analysis' promises already exists without AI: NASA-STD-5001B lets some metallic structures skip strength tests, and SP-8007-2020 records analysis-based buckling loads already used on the SLS core stage. Avoiding a launch-vehicle primary-structure qualification article saves tens of millions of dollars and up to a year; skipping a spacecraft unit's qualification model saves far less (general). The base case puts the first AI-backed government credit beyond today's allowances around 2030-31, against 2040-2050 in NASA-sponsored studies of aircraft certification by analysis."
+   }
+  }
+ ],
+ "notes": "B-certification resolver (2026-10-07), on graph-v1. Lenses: physics/engineering skeptic, exponential advocate, grounding/fact auditor. 25 node updates, 2 new nodes, 1 node removed, 6 hard edges added, 15 hard edges softened, 4 new soft edges; branch thesis, reader_hook and binding_gate rewritten (two tracks). Test apply with --autofix: 0 dangling, 0 cycles, 0 monotonic or scenario-order violations, 0 autofixes; hard-prerequisite band-order breaches 0 before and after.\n\nPRINCIPLES\n- Government track (regulator or customer acceptance) stays capped at Medium and follows the rulebook: credibility directive S2 2029 -> structural credit beyond NASA-STD-5001B S2 2030 (Low) -> environmental-qualification credit S2 2031 (Low) -> qualification campaigns 15%+ shorter S2 2031 (Low). Commercial self-risk track added (physclock-commercial-analysis-first-qual, S2 2029 Medium, S3 High).\n- Counterfactual test: nodes whose v1 wording was already met without AI (5001B no-test and protoflight, SP-8007-2020 analysis-based knockdowns, P95/50 environments, 180-day licensing clock, DOE in test planning) were re-scoped to the step beyond current practice.\n- Numbers tied to research/physclock.json: qualification campaign 0.8-0.9x (S2) / 0.7-0.8x (S3); experiment gate 1.1-1.3x (S2); material qualification 0.7-0.8x / 0.5-0.7x.\n- S3 equals S2 through 2028: applied where lenses raised it (regulator-ai-capacity S3 -> 2028; flight-safety and mishap analysis S2 -> 2027 to match S3; range scheduling both 2028; new commercial node S3 2029).\n\nFACTS CHECKED BY THE RESOLVER\n- NASA-STD-5001B w/Change 3 PDF text: Sec. 4.1.2.3 'For metallic structures only, it may be permissible to verify structural integrity by analysis alone'; FSR 15 (rationale), FSR 16 (Technical Authority approval; no-test hardware generally uses larger factors; example criteria include similarity to a test-verified, well-correlated predecessor), FSR 17 (probabilistic criteria case by case; 'experience has shown these deterministic criteria to be adequate'). Confirms skeptic and auditor.\n- NASA SP-8007-2020/REV 2 (NTRS 20205011530, full text): updates the 1965/1968 monograph; Analysis-Based Design Approach (Sec. 4.3); design buckling loads for Shuttle SRB cases and ET and the SLS core stage; 0.65 recommended for moderately or heavily stiffened cylinders (from TN D-5561). Unstiffened formula gives 0.22-0.47 at R/t 1000-200 (computed). 0.32 -> 0.60 cuts wall mass 27% (t ~ KDF^-1/2).\n- openai/math lean/docs: 124.md (ThreeMachine, 'Optimal three-machine unit-job scheduling' Comparator challenge), 372.md (ElasticityUniqueness, smooth Lame moduli in a bounded 3D domain, Comparator challenge) exist; 365.md formalizes only nonuniqueness of bounded measurable scalar conductivities on a 3D ball (statement gap vs the 'metric and connection recovery' headline). Confirms auditor.\n- Starship 2025 intervals 49, 82, 91, 48 days (Flights 7-11): '82-91 days' is right (general knowledge of the flight list).\n- Starlink 1,975 t vs contested market 347 t in 2025 (research/physclock.json) = 5.7:1, consistent with the advocate's ~6:1.\n- Not checked here (left out of node text): NASA OIG IG-13-008 facility-underuse figures (PDF not extractable); INL/Microsoft licensing analog; FDA Elsa cited to Axios from general knowledge.\n\nNEW NODES\n- Added physclock-commercial-analysis-first-qual (advocate), re-scoped beyond today's protoflight practice; S2 High -> Medium; S3 2028 -> 2029.\n- Added physclock-reliability-priors-credit (auditor), bands Low/Low/Medium (auditor proposed Low/Medium/Medium).\n- Rejected physclock-fleet-statistical-qual (advocate): the launch-cost half is independent of AI (physclock key insight), the cognitive half (fleet reliability statistics) is not scarce at the one operator with such a fleet, Starlink already iterates on fleet data (general), and it sat in the same year as its hard prerequisite. The 'fleet as test stand' route is folded into the commercial node's why.\n- Rejected physclock-envelope-licensing (advocate): near-duplicate of physclock-licensing-in-weeks, and Part 450 already lets one license cover multiple launches of a vehicle family (14 CFR 450.3, general); folded into licensing-in-weeks' why as a route.\n- Removed physclock-test-loop-monthly (skeptic primary, auditor alternative): duplicate of its own hard prerequisite physclock-flight-test-cadence (12+ flights in 2027 is a ~30-day mean interval) and contradicted it.\n\nCROSS-BRANCH REQUESTS (targets outside this branch; not applied here)\n1. physclock-flight-test-cadence owner: add physclock-ai-mishap-analysis to accelerated_by (content of the removed test-loop node); review its 2027 High in all scenarios against research/physclock.json (integrated flight-test interval 0.6-0.8x of 63-66 days in S2 = 38-53 days); status '48-90 days' -> '48-91 days' (also in physclock.json tables[0]).\n2. Add soft edges from physclock-commercial-analysis-first-qual to capability-program-cycle-compression, physclock-satellite-gen-cadence and physclock-dev-capital-cut; from physclock-reliability-priors-credit to physclock-critical-payload-reuse-acceptance.\n3. Doc/paper: research/physclock.json key insight 'certification by analysis lands around 2029-30 in S2, capped at Medium' is now: rulebook 2029 (Medium), structural credit beyond 5001B 2030 (Low), environmental credit 2031 (Low).\n\nGLOBAL FLAGS\n- KB ref-family-catalog undercounts Lean formalization: 124 and 372 have lean/docs entries and Comparator challenges in the repo but no L flag in the KB (auditor reports Lean docs for 235 families vs 127 in the KB). Annotated in premise_tier where cited here; tiers left at T1 (conditional) pending KB reconciliation.\n- Many nodes graph-wide have S3 2027 with S2 2028 (e.g. capability-engineering-adoption, physclock-optimal-test-campaigns), which conflicts with 'S3 equals S2 through 2028'. Needs a global pass."
+}

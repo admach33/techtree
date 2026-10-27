@@ -1,0 +1,1536 @@
+{
+  "domain": "Materials, chemistry, electronics and manufacturing",
+  "bottlenecks": [
+    {
+      "name": "Qualification and design allowables (physical evidence burden)",
+      "description": "Turning a promising material or process into flight-qualified hardware: multi-heat/multi-lot coupon programs for A/B-basis allowables, per-machine qualification under NASA-STD-6030 ('a new process means a new material'), witness testing, CT inspection, handbook (MMPDS, CMH-17) and customer acceptance. Historical insertion takes 10-20+ years (>20 years and ~$400M for aerospace per MGI-era estimates; GE ~2 decades and >$1B for CMCs; GRCop 1987 to 2023 flight).",
+      "share_of_effort": "~30% of materials-program time and cost (analyst estimate, general)",
+      "ondemand_math_help": "Medium. The statistics (hierarchical Bayesian tolerance bounds, transfer across machines and lots) are solved in principle but expert-scarce, so on-demand AI helps quickly; but physical lots and regulator acceptance bind, so calendar savings need the evidence rules to change."
+    },
+    {
+      "name": "Process-structure-property modeling for printed metals and composites",
+      "description": "Predicting porosity, microstructure, residual stress and fatigue/creep scatter from process parameters and sensor data across scales (melt pool to part), for AM alloys (GRCop-42, GRX-810, NASA HR-1), CMCs and ablators.",
+      "share_of_effort": "~20% (analyst estimate, general)",
+      "ondemand_math_help": "Medium-high. Mix of genuinely open math (quantitative homogenization for nonlinear random media, extreme-value defect statistics) and expert-scarce applied work (inverse calibration, UQ). Paired sensor/CT/fatigue data bind once the math is cheap."
+    },
+    {
+      "name": "Long-duration degradation and life prediction",
+      "description": "Creep, oxidation and thermomechanical fatigue of hot-section alloys and TPS; perovskite and III-V PV degradation; battery capacity fade under ~5,500 LEO cycles a year. Real-time tests (a 10,000-hour creep test is ~14 months; a year in orbit is a year) are the physical clock.",
+      "share_of_effort": "~15% (analyst estimate, general)",
+      "ondemand_math_help": "Medium. AI can build mechanism-based kinetic models and quantify acceleration factors, but cannot compress the real-time exposure needed to validate them."
+    },
+    {
+      "name": "Radiation effects in electronics (single-event effects and dose)",
+      "description": "Predicting and mitigating single-event upsets, latch-up, burnout and total-dose effects for rad-hard parts and, increasingly, commercial accelerators (GPUs/TPUs/HBM) for orbital compute; beam-test campaigns at a few facilities; SiC/GaN power-device derating.",
+      "share_of_effort": "~12% overall; much higher for COTS-heavy orbital-compute programs (analyst estimate, general)",
+      "ondemand_math_help": "Medium-high. Hierarchical stochastic error models and formal verification of fault-tolerance layers are bespoke applied math and P2 work that AI does well; beam time and on-orbit statistics bind."
+    },
+    {
+      "name": "Electronic-structure fidelity and cost (the DFT layer)",
+      "description": "Uncontrolled exchange-correlation errors (~3-5 kcal/mol for hybrids), strongly correlated systems (transition-metal oxides, defects), finite-temperature thermodynamics and the cost of high-level reference data; the foundation under alloy, ceramic, PV, battery and propellant screening.",
+      "share_of_effort": "~10% (analyst estimate, general)",
+      "ondemand_math_help": "Low directly (the catalog's 278/275/263 are ceilings, P3), high indirectly: learned functionals, certified MLIP uncertainty and quantum-algorithm resource reduction are where AI math and AI models combine."
+    },
+    {
+      "name": "Synthesis and characterization throughput",
+      "description": "Making and correctly identifying candidate materials: autonomous labs (Periodic Labs, Lila, DeepMind UK, A-Lab), synthesizability prediction, and reliable structure refinement (the A-Lab/GNoME critiques showed automated Rietveld and disorder handling are weak links).",
+      "share_of_effort": "~13% (analyst estimate, general)",
+      "ondemand_math_help": "Medium. Inverse-problem identifiability, Bayesian refinement and experimental design are AI-suited; robots, furnaces and neutron/synchrotron access bind."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "materials-dft-limits",
+      "title": "Proven limits of density functional theory",
+      "tier": 1,
+      "kind": "math",
+      "description": "Theorems marking where Kohn-Sham density functional theory (DFT), and any efficient universal method for electronic energies, must fail: some ensemble densities have no Kohn-Sham representation (278), the ground-state energy of continuum Coulomb systems is QMA-hard (275), and an atom can bind only a bounded number of extra electrons (263).",
+      "status_oct2026": "Claimed in openai/math (Oct 6, 2026). 278 and 275 are manuscript-only (T1); 263 has an agent-written Lean proof in the repo, unchecked by outsiders (T3). No named outside expert endorsement or Comparator run found as of Oct 7, 2026.",
+      "catalog_families": [
+        "278",
+        "275",
+        "263"
+      ],
+      "prerequisites": [
+        "cap-research-math-internal",
+        "verif-independent-check"
+      ],
+      "binding_gate": "formalization",
+      "pathway": "P3",
+      "earliest_year": {
+        "S1": "2028",
+        "S2": "2027",
+        "S3": "2027"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "T1 (278, 275); T3 (263)",
+      "why": "DFT is the workhorse for screening alloys, ceramics, semiconductors, battery electrolytes and propellant chemistry. If 278 holds, some ensemble densities (fractional occupations, open-shell and excited-state ensembles: the regime of transition-metal oxides, defect levels and radiation-damage centres) cannot be reproduced by any Kohn-Sham reference even with the exact functional. If 275 holds, no efficient algorithm computes ground-state energies of all molecules and solids (classically, and on quantum computers unless BQP = QMA). Ceiling results act within months (P3): they tell method developers to stop seeking one universal functional and to invest in domain-specific, data-driven corrections and targeted high-level methods. Band: P3 defaults to High; one band down in S1 because 278 and 275 are T1; S2/S3 assume formalization of continuum quantum mechanics catches up by ~2028 so the premises reach T3-T4.",
+      "strongest_case_small": "Practitioners already treat DFT as an uncontrolled approximation, and QMA-hardness of the universal functional on lattice models has been known since 2009 (general). Worst-case hardness says nothing about the structured instances space engineers compute. No code, workflow or flown material changes because of these theorems.",
+      "signpost": "A named electronic-structure theorist endorses or refutes 278/275 (moving them to T2), or an outside Comparator run of 263, by mid-2027; 278 cited in a functional-development paper as the reason for a design choice."
+    },
+    {
+      "id": "materials-mlip-certified-uq",
+      "title": "Atomistic AI models with trustworthy error bars",
+      "tier": 2,
+      "kind": "applied-math",
+      "description": "Universal machine-learned interatomic potentials (MLIPs) that report calibrated, property-level uncertainty (melting point, diffusion barrier, elastic constants) with coverage guarantees and out-of-distribution flags, so atomistic predictions can feed design decisions without case-by-case DFT checks.",
+      "status_oct2026": "Universal MLIPs are fast but uncertified. Meta's UMA family (trained on ~500M structures; UMA-M F1 = 0.930 on Matbench Discovery) runs 1,000 atoms at ~16 steps/s on one GPU and fits >100,000 atoms in 80 GB. Ensemble and conformal uncertainty methods exist, but without guarantees for properties derived from long molecular-dynamics runs. No catalog family addresses this.",
+      "catalog_families": [],
+      "prerequisites": [
+        "cap-applied-math"
+      ],
+      "binding_gate": "data",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2029",
+        "S2": "2027",
+        "S3": "2027"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "n/a",
+      "why": "MLIPs are roughly 10^4-10^5 times cheaper than DFT for the same atoms (general), enabling nanosecond simulations of 10^5-atom cells, the scale where creep-relevant diffusion, grain-boundary oxidation and radiation-damage cascades happen. What blocks engineering use is trust: errors in unfamiliar configurations propagate unpredictably into derived properties. Bounding that propagation (perturbation bounds for stochastic dynamics, conformal coverage under distribution shift) is bespoke applied math that S2's research-grade capability attacks directly; the binding gate then becomes high-level reference data to test coverage. Unlocks high-throughput alloy, ceramic and electrolyte screening with error bars.",
+      "strongest_case_small": "Certification is only relative to the reference method, which inherits DFT's own errors (see 278); and the properties engineers qualify (creep, fatigue, toughness) are governed by microstructure at micron-to-millimetre scales that atomistics never reaches.",
+      "signpost": "A major MLIP release (UMA, MACE or Orb successors) ships property-level uncertainty with published coverage tests on held-out chemistries by end-2027, and NASA or AFRL ICME workflows adopt it."
+    },
+    {
+      "id": "materials-multiscale-certified",
+      "title": "Certified bridges from microstructure to part properties",
+      "tier": 2,
+      "kind": "applied-math",
+      "description": "Quantitative homogenization and coarse-graining theorems with computable error bounds for nonlinear, inelastic, random microstructures (printed metals, ceramic-matrix composites), so effective properties and their scatter follow from microstructure statistics with certified error.",
+      "status_oct2026": "Quantitative stochastic homogenization exists for linear elliptic problems; plasticity, damage and fatigue in random microstructures remain open (general). No catalog family addresses it, and the release's PDE formalization is thin (3 of 16 PDE families have Lean).",
+      "catalog_families": [],
+      "prerequisites": [
+        "cap-applied-math",
+        "infra-mathlib-applied"
+      ],
+      "binding_gate": "cognitive",
+      "pathway": "P6",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2029",
+        "S3": "2028"
+      },
+      "band_2031": {
+        "S1": "Speculative",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "This is a genuinely open research problem, not an expert-scarcity problem: today engineers bridge scales with calibrated empirical models and test scatter. Under S2, AI does research-grade PDE analysis by 2027-28, making a usable certified bound for one engineering class (for example elasto-viscoplastic polycrystals with porosity) plausible by 2029. Payoff: predicted scatter of fatigue and creep properties from microstructure, the missing link that would let allowables lean on models instead of hundreds of coupons.",
+      "strongest_case_small": "Rigorous bounds for nonlinear problems tend to be loose; engineers already get usable answers from calibrated crystal-plasticity finite elements; and fatigue is governed by rare worst defects (extreme-value statistics), not homogenized averages.",
+      "signpost": "A peer-reviewed or Comparator-checked quantitative homogenization result for a nonlinear inelastic random medium with explicit constants by 2028; Mathlib gains Sobolev-space and homogenization infrastructure."
+    },
+    {
+      "id": "materials-allowables-stats-framework",
+      "title": "Design allowables from far fewer test coupons",
+      "tier": 2,
+      "kind": "applied-math",
+      "description": "Statistical methods with proven coverage (hierarchical Bayesian, ICME-informed, transfer learning across machines and lots) that yield A- and B-basis design allowables from far fewer physical tests, accepted in MMPDS Volume II, CMH-17 and NASA-STD-6030 practice.",
+      "status_oct2026": "MMPDS created Volume II for process-sensitive materials such as additively manufactured (AM) metals; Senvol's machine-learning approach was shown equivalent to the conventional approach in America Makes work; America Makes still funds conventional allowables (GOTHAAM, $5.5M, 2026 call, AM 7075-class aluminium across three machine classes). NASA is characterizing ~50 AM materials across 8,000+ samples. NASA-STD-6030 (2021) ties allowables to statistical process control of each qualified process.",
+      "catalog_families": [
+        "139"
+      ],
+      "prerequisites": [
+        "cap-applied-math",
+        "cap-research-math-public"
+      ],
+      "binding_gate": "regulatory",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2030",
+        "S2": "2028",
+        "S3": "2028"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a (139 is T3 but peripheral)",
+      "why": "Directly computed MMPDS-style A/B values traditionally need about 100 observations from at least 10 heats or lots, and a nonparametric A-basis needs 299 (general). For AM, 'a new process means a new material' (NASA AMRL framework, Apr 2026), so each machine and parameter set restarts the clock. Methods that pool information across machines and lots with provable tolerance-bound coverage could cut coupons 40-60% (assumption) and, more importantly, lots and calendar time. The math is solved in principle but expert-scarce, exactly what on-demand AI supplies; handbook-committee acceptance binds, so the band is capped at Medium. 139 (subpolynomial-query log-concave sampling, Lean, T3) is theory for the posterior sampling these methods use; constants unknown, effect marginal.",
+      "strongest_case_small": "Statistics were never the hard part: regulators want physical lot-to-lot variability that only production time generates; handbook committees revise on multi-year cycles; and any coverage proof rests on assumptions (exchangeability across machines) that reviewers will dispute.",
+      "signpost": "An MMPDS or CMH-17 coordination group approves a model-informed or Bayesian allowables method, or a NASA-STD-6030 revision references model-based allowables, by 2028."
+    },
+    {
+      "id": "materials-autonomous-characterization",
+      "title": "Reliable automated structure identification",
+      "tier": 2,
+      "kind": "applied-math",
+      "description": "Robust, uncertainty-aware solution of the characterization inverse problem (automated Rietveld refinement, disorder-aware phase identification, fusion of X-ray, neutron and electron-microscopy data) so autonomous labs' claims of new materials survive expert scrutiny.",
+      "status_oct2026": "The A-Lab's 43 claimed novel compounds were disputed by Palgrave and Schoop (PRX Energy, 2024), who judged automated Rietveld analysis unreliable and concluded no new materials had been shown; Margraf estimated 80-84% of GNoME's predicted stable compounds would likely be disordered in practice.",
+      "catalog_families": [],
+      "prerequisites": [
+        "cap-applied-math"
+      ],
+      "binding_gate": "data",
+      "pathway": "P1",
+      "earliest_year": {
+        "S1": "2029",
+        "S2": "2027",
+        "S3": "2027"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "n/a",
+      "why": "Autonomous-lab throughput (DeepMind's UK lab plans hundreds of materials per day) is worthless if phase identification is wrong. Structure refinement is a non-convex inverse problem with identifiability limits; AI applied math can supply identifiability analysis, Bayesian refinement with calibrated posteriors and explicit disorder models. This unlocks credible closed-loop discovery, which the space chains (PV absorbers, coatings, electrolytes) need first.",
+      "strongest_case_small": "Some ambiguities are physical (powder X-ray diffraction cannot distinguish certain orderings), so resolving them needs neutron, synchrotron or electron-microscope time, a facility gate that math cannot remove.",
+      "signpost": "A blind round-robin in which automated characterization matches expert refinement on at least 90% of samples, or an autonomous-lab discovery paper that passes a published expert audit, by 2027."
+    },
+    {
+      "id": "materials-learned-functionals",
+      "title": "Chemical accuracy at DFT cost",
+      "tier": 3,
+      "kind": "physics",
+      "description": "Machine-learned exchange-correlation functionals and atomistic models trained on wavefunction-level data that reach about 1 kcal/mol accuracy at semi-local DFT cost, extended from main-group molecules to transition metals, oxides and solids.",
+      "status_oct2026": "Microsoft's Skala (preprint Jun 2025) reaches 2.8 kcal/mol on the GMTKN55 benchmark and chemical accuracy on small-molecule atomization energies at semi-local cost; transition metals and solids are not yet covered. 278 (T1) marks a class of ensemble densities that no Kohn-Sham scheme can represent.",
+      "catalog_families": [
+        "278"
+      ],
+      "prerequisites": [
+        "cap-applied-math"
+      ],
+      "binding_gate": "data",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2029",
+        "S2": "2028",
+        "S3": "2027"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "T1 (278 bounds the scope only)",
+      "why": "Cutting energy errors from ~3-5 kcal/mol (hybrid functionals, general) to ~1 kcal/mol changes the reliability of rankings for propellant decomposition pathways, oxide-scale formation on ceramics and superalloys, defect levels in radiation-damaged semiconductors and electrolyte stability windows. Reference data bind: coupled-cluster and quantum Monte Carlo labels are compute-expensive, so S2 brings the node forward mainly through AI-derived exact constraints and active learning that cut data needs. 278 tells developers where Kohn-Sham-based learning must fail (strong static correlation), steering effort to embedding methods there.",
+      "strongest_case_small": "Most space-materials properties are limited by temperature, kinetics and microstructure, not by 1-3 kcal/mol of electronic energy; and 278/275 imply strongly correlated systems stay out of reach.",
+      "signpost": "A learned functional with documented error of 1 kcal/mol or less on transition-metal and solid-state benchmarks, released openly, by 2028."
+    },
+    {
+      "id": "materials-quantum-chem-advantage",
+      "title": "Quantum computers beat classical chemistry",
+      "tier": 3,
+      "kind": "technology",
+      "description": "A fault-tolerant quantum computation delivers a chemically accurate result for an industrially relevant molecule or material that the best classical methods (DMRG, AFQMC, coupled cluster, neural wavefunctions) cannot match.",
+      "status_oct2026": "Quantinuum Helios (2025): 98 physical qubits, demonstrations of up to 50 logical qubits, about 10 logical spin orbitals usable for chemistry. A Quantinuum-SoftBank white paper (Jul 2026) places chemically accurate simulation with >100 spin orbitals in its 2030s 'Lumos' generation; FeMoco needs 152. FeMoco estimates: ~2,142 logical qubits, ~4M physical qubits, ~4 days (2021), with 2025 algorithmic gains of 4-278x. 275 (T1) implies no universal quantum speedup; 265 (T1, 2D gapped area law) strengthens classical tensor-network methods for gapped 2D systems.",
+      "catalog_families": [
+        "275",
+        "265"
+      ],
+      "prerequisites": [
+        "cap-research-math-public"
+      ],
+      "binding_gate": "fabrication",
+      "pathway": "P4->P7",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2029"
+      },
+      "band_2031": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Medium"
+      },
+      "premise_tier": "T1 (275, 265)",
+      "why": "AI math acts on the algorithm side: resource estimates fell 4-278x in 2025 alone, and S2/S3 assume a further 10-100x (assumption), which would let ~2029 'Apollo'-class machines (~100 spin orbitals) attempt beyond-classical active spaces. Qubit fabrication binds. For space the payoff is indirect: catalysts for propellant decomposition and in-situ resource processing, and correlated-electron materials, not alloys or PV.",
+      "strongest_case_small": "Classical methods, now AI-accelerated, keep moving the goalposts. 275 and 265 cut both ways: there is no universal quantum advantage, and classical tensor networks provably work for gapped 2D systems. Most space-materials problems are not strongly correlated.",
+      "signpost": "A peer-reviewed beyond-classical chemistry result with error bars on logical qubits by 2029; published FeMoco-class resource estimates below 10^5 physical qubits."
+    },
+    {
+      "id": "materials-am-defect-physics",
+      "title": "Predictive physics of 3D-printed metal parts",
+      "tier": 3,
+      "kind": "physics",
+      "description": "Validated process-structure-property models for laser powder-bed fusion and directed-energy deposition that predict porosity, microstructure, residual stress and fatigue scatter from process parameters and in-situ sensor signals, with quantified uncertainty.",
+      "status_oct2026": "Active research, not yet qualification-grade: ASME's 2026 special issue on AM qualification calls for physics-informed machine learning, digital twins and uncertainty quantification; NASA's AMRL framework (Apr 2026) stresses that a new process means a new material; Washington State University used AI to find laser settings that make NASA's GRCop-42 printable on standard commercial machines.",
+      "catalog_families": [],
+      "prerequisites": [
+        "cap-applied-math",
+        "cap-autonomous-labs"
+      ],
+      "binding_gate": "data",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2030",
+        "S2": "2029",
+        "S3": "2028"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "Fatigue life of printed parts is set by the largest lack-of-fusion pores and surface defects, giving one to two orders of magnitude of scatter in cycles to failure (general). A model mapping melt-pool signals to a defect population and then to a life distribution turns AM qualification from 'test every lot' into 'monitor and predict'. The cognitive pieces (multiscale melt-pool models, extreme-value statistics, inverse calibration) compress under S2; the binding gate is paired data (sensor logs, CT scans, fatigue results), generated at autonomous-lab speed from ~2028.",
+      "strongest_case_small": "Melt-pool physics is stochastic (spatter, powder variability, machine drift), so models stay statistical and machine-specific and physical testing remains the evidence regulators accept.",
+      "signpost": "A blind prediction challenge (for example NIST AM-Bench) in which models predict fatigue-life distributions of unseen builds within a factor of two, by 2028."
+    },
+    {
+      "id": "materials-creep-oxidation-life-models",
+      "title": "Long-life predictions from short tests",
+      "tier": 3,
+      "kind": "physics",
+      "description": "Mechanism-based models with validated uncertainty that predict 10,000-hour creep rupture, oxidation and thermomechanical fatigue of high-temperature alloys and coatings from roughly 1,000-hour tests.",
+      "status_oct2026": "Extrapolation relies on empirical parametric methods (for example Larson-Miller) and long tests. NASA's GRX-810, built for temperatures above 2,000 F (~1,100 C), claims more than 1,000 times the creep life of conventional superalloys, a claim that itself needed long tests. No catalog family addresses this.",
+      "catalog_families": [],
+      "prerequisites": [
+        "cap-applied-math",
+        "materials-mlip-certified-uq"
+      ],
+      "binding_gate": "data",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2031",
+        "S2": "2029",
+        "S3": "2028"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "A 10,000-hour creep test takes about 14 months of real time; it is the physical clock on any new hot-section alloy. Models linking atomistic diffusion (from MLIPs with error bars) to dislocation climb, precipitate coarsening and oxide growth could justify qualification decisions at ~1,000 hours with confirmatory long tests running in parallel, saving roughly a year per alloy (assumption).",
+      "strongest_case_small": "New mechanisms (brittle-phase formation, oxide spallation, coarsening) appear only at long times, so practice rarely accepts extrapolation beyond about three times the test duration (general); engine primes and regulators will keep the long tests.",
+      "signpost": "A published blind prediction of 10,000-hour rupture life from 1,000-hour or shorter data, within a factor of two, for a new alloy by 2029."
+    },
+    {
+      "id": "materials-see-system-models",
+      "title": "Predicting radiation errors in commercial AI chips",
+      "tier": 3,
+      "kind": "physics",
+      "description": "Hierarchical stochastic models that turn limited proton and heavy-ion beam data into mission-level rates of silent data corruption and functional interrupts for complex commercial processors, GPUs/TPUs and high-bandwidth memory (HBM) running real AI workloads.",
+      "status_oct2026": "Google tested Trillium TPUs in a 67 MeV proton beam (Nov 2025): HBM irregularities appeared only after 2 krad(Si) versus a 750 rad(Si) shielded five-year dose, with no hard failures up to 15 krad(Si). Starcloud flew an Nvidia H100 in Nov 2025; Nvidia announced the Space-1 Vera Rubin module (GTC, Mar 2026; up to 25x H100 AI compute; 2027). ESA's CORHA-2 project (2024-27) is adding machine learning to radiation hardness assurance.",
+      "catalog_families": [],
+      "prerequisites": [
+        "cap-applied-math"
+      ],
+      "binding_gate": "experiment",
+      "pathway": "P1",
+      "earliest_year": {
+        "S1": "2029",
+        "S2": "2028",
+        "S3": "2027"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "n/a",
+      "why": "With billions of transistors, device-by-device rate prediction is impossible; operators need workload-level error rates to size mitigation. Knowing the true silent-corruption rate lets an orbital-compute operator replace triple modular redundancy (~3x compute and power) with algorithm-based fault tolerance and checkpointing (~5-20% overhead, general): roughly 2.5x more useful compute per watt in a power-limited satellite. The math (composition of Poisson fault processes, fault propagation through architectures, Bayesian fusion of beam and flight data) is bespoke and suited to AI; scarce beam time and on-orbit statistics bind.",
+      "strongest_case_small": "Commercial operators may simply fly, measure and iterate, since on-orbit statistics beat models; and the dose margins Google measured suggest radiation is not binding in benign dawn-dusk sun-synchronous orbits anyway.",
+      "signpost": "Published on-orbit error statistics from the Google/Planet prototypes (launch by early 2027) or Space-1 users, compared with pre-flight model predictions."
+    },
+    {
+      "id": "materials-perovskite-degradation-models",
+      "title": "Knowing how long perovskite cells last in orbit",
+      "tier": 3,
+      "kind": "physics",
+      "description": "Mechanistic, predictive models of perovskite and perovskite-tandem degradation (ion migration, phase segregation, proton and electron damage, ultraviolet, thermal cycling, self-healing) that map accelerated ground tests to on-orbit lifetime.",
+      "status_oct2026": "A perovskite/silicon tandem reached a certified 27.49% AM0 efficiency on 12.56 cm2, kept 93% after 1e12 protons/cm2 (150 keV) and ~80% after 1e14 electrons/cm2 (1 MeV), and flew stably on a 29.7 km balloon (reported Aug 2026). Potsdam/HZB tandems have been in orbit since Jul 2024; RIT is testing cells on a CubeSat; Hanwha Qcells is supplying tandems for a NASA-backed lunar demo. Mechanisms are known qualitatively, not predictively.",
+      "catalog_families": [],
+      "prerequisites": [
+        "cap-applied-math",
+        "materials-learned-functionals",
+        "cap-autonomous-labs"
+      ],
+      "binding_gate": "data",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2030",
+        "S2": "2028",
+        "S3": "2028"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "Perovskites tolerate particle radiation well, but their failure modes are coupled ion-electron-thermal processes with unknown acceleration factors, so no one can yet say what a three-year ground test means for a seven-year mission. AI applied math (coupled drift-diffusion-reaction models, Bayesian model identification) plus autonomous-lab degradation data can make acceleration factors quantitative. On-orbit exposure data to validate the mapping bind.",
+      "strongest_case_small": "Buyers accept flight heritage, not models, and encapsulation and interconnect failures (packaging engineering) often dominate absorber chemistry.",
+      "signpost": "At least one year of published on-orbit current-voltage data from the Potsdam or Chinese tandems with under 10% relative loss, plus a model that predicted it, by 2027-28."
+    },
+    {
+      "id": "materials-microgravity-process-models",
+      "title": "Knowing what is worth making in orbit",
+      "tier": 3,
+      "kind": "physics",
+      "description": "Validated models of microgravity processing (ZBLAN fiber crystallization; vapor-phase growth of GaN, SiC, AlN and diamond; pharmaceutical crystallization) that quantify the quality gain over the best terrestrial processes and predict which products justify launch and return.",
+      "status_oct2026": "Flawless Photonics drew ~12 km of ZBLAN fiber on the ISS (2024; longest continuous length 1,141 m) with lower attenuation than ground-drawn fiber; Space Forge's ForgeStar-1 generated ~1,000 C plasma more than 100 times from Dec 2025 for wide-bandgap crystal growth; Varda re-entered capsules W-5 (Jan 2026) and W-6 (May 2026).",
+      "catalog_families": [],
+      "prerequisites": [
+        "cap-applied-math"
+      ],
+      "binding_gate": "data",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2030",
+        "S2": "2028",
+        "S3": "2028"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "The in-space-manufacturing business case turns on a quantitative quality gain (defect density, optical attenuation) over terrestrial best practice. Models of convection suppression, nucleation and transport are applied math that AI can do on demand; validation data come from a handful of flights a year, which binds.",
+      "strongest_case_small": "Terrestrial processes keep improving and may erase the microgravity advantage; launch, return and volume economics dominate over physics knowledge.",
+      "signpost": "Space Forge or Flawless Photonics publishes measured defect-density or attenuation advantages for a sellable product, with a model that predicted the gain, by 2028."
+    },
+    {
+      "id": "materials-ht-alloy-design",
+      "title": "AI designs new rocket-engine alloys in weeks",
+      "tier": 4,
+      "kind": "engineering-tool",
+      "description": "AI agents run the full integrated computational materials engineering (ICME) loop (composition, phase stability, printability, heat treatment, predicted creep, oxidation and hydrogen resistance) for printed high-temperature alloys, with a high hit rate on first validation coupons.",
+      "status_oct2026": "Human-led ICME is already fast: GRX-810's composition was set by thermodynamic modeling in weeks rather than years (NASA, 2022); a NASA burn-resistant alloy went from concept to test specimens in about three months (AMAA, Jul 2026); QuesTek's Ferrium M54 was designed in under a year. DARPA's METALS program funds multi-objective alloy-and-structure design.",
+      "catalog_families": [],
+      "prerequisites": [
+        "cap-design-optimization",
+        "materials-learned-functionals",
+        "materials-mlip-certified-uq"
+      ],
+      "binding_gate": "experiment",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2030",
+        "S2": "2028",
+        "S3": "2028"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "n/a",
+      "why": "Design is already the short pole (weeks to months); AI agents push it toward days and widen the search to multi-principal-element and oxide-dispersion-strengthened chemistries tuned for printability. The value is hit rate: fewer failed powder lots and builds, each a months-long physical cycle. Validation coupons, creep tests and hot-fire bind.",
+      "strongest_case_small": "Design time is already a small share of the 6-20-year insertion timeline, so compressing it further saves little calendar time on its own.",
+      "signpost": "An engine maker or NASA announces an AI-agent-designed alloy entering AMRL 4-5 (parameter development and property characterization) by 2028."
+    },
+    {
+      "id": "materials-uhtc-tps-design",
+      "title": "AI-designed heat shields and hot structures",
+      "tier": 4,
+      "kind": "engineering-tool",
+      "description": "Computational design of ultra-high-temperature ceramics, high-entropy carbides and borides, ceramic-matrix composites and ablators, with predicted oxidation, ablation and fracture behaviour for reentry and hypersonic thermal protection systems (TPS).",
+      "status_oct2026": "AI-driven, high-throughput design of ultra-high-temperature high-entropy ceramics is an active field (Engineering, 2026); ML-accelerated simulations have predicted high-entropy carbides melting above ~4,400 K (general). Varda manufactures C-PICA heat shields in-house. 366 (Mumford-Shah planar crack regularity, T1) touches the variational theory behind phase-field fracture models.",
+      "catalog_families": [
+        "366"
+      ],
+      "prerequisites": [
+        "cap-design-optimization",
+        "materials-learned-functionals",
+        "materials-mlip-certified-uq"
+      ],
+      "binding_gate": "experiment",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2030",
+        "S2": "2028",
+        "S3": "2028"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "n/a (366 is T1 and peripheral)",
+      "why": "TPS performance is set by surface chemistry (oxide-scale formation and volatilization above ~1,800 C), ablation kinetics and thermal-shock fracture, each a multiphysics model AI can build and optimize. Arc-jet and plasma-torch test capacity binds (general). 366 raises confidence that the phase-field fracture models used for ceramic cracking approximate a well-behaved limit in 2D (P5, small).",
+      "strongest_case_small": "Reusable-TPS gains often come from manufacturing, attachment and inspection (tile gaps, bonding), not chemistry, and arc-jet facility time is scarce.",
+      "signpost": "A new AI-designed ultra-high-temperature ceramic or ablator tested in an arc jet with performance matching pre-test predictions, by 2028."
+    },
+    {
+      "id": "materials-energetics-design",
+      "title": "AI-designed green and high-energy propellants",
+      "tier": 4,
+      "kind": "engineering-tool",
+      "description": "Multi-objective molecular and formulation design of propellants that jointly predicts performance (specific impulse, density), sensitivity, thermal stability, toxicity and synthesizability, closing the loop with automated small-scale synthesis.",
+      "status_oct2026": "Machine learning plus genetic algorithms screened >1,000 candidates down to 7 energetic compounds with predicted specific impulse up to 278 s for solid propellants (NWPU); transfer-learned message-passing networks predict impact sensitivity and vapour pressure from small datasets (UC Irvine seminar, Mar 2026). 149 (T1, permanence of weakly reversible reaction networks) concerns the qualitative behaviour of mass-action kinetics.",
+      "catalog_families": [
+        "149"
+      ],
+      "prerequisites": [
+        "materials-learned-functionals",
+        "cap-autonomous-labs"
+      ],
+      "binding_gate": "experiment",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2029",
+        "S2": "2028",
+        "S3": "2028"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "n/a (149 is T1; negligible effect)",
+      "why": "Propellant design is a constrained multi-objective search in which sensitivity and stability, not specific impulse, eliminate most candidates. Better electronic-structure accuracy improves decomposition-barrier and heat-of-formation predictions; autonomous microsynthesis supplies data. Synthesis and hazard testing in the few labs licensed for energetics bind.",
+      "strongest_case_small": "Chemical propellants sit near thermochemical ceilings; realistic gains are handling, toxicity and density worth single-digit percent; 149's qualitative kinetics result changes no practice.",
+      "signpost": "An AI-designed energetic molecule synthesized and hazard-tested with measured sensitivity matching prediction, by 2028."
+    },
+    {
+      "id": "materials-am-digital-twin-qual",
+      "title": "Certify each printed part from its build data",
+      "tier": 4,
+      "kind": "engineering-tool",
+      "description": "In-situ monitoring plus a validated physics/ML digital twin certifies each printed part ('print and fly') with reduced CT and witness testing, accepted first for non-fracture-critical and then for fracture-critical spaceflight hardware.",
+      "status_oct2026": "Described as the ideal end-state in 2026 TMS and ASME qualification work; NASA-STD-6030 requires per-machine qualification and statistical process control; no regulator credit for twin-based part certification of the most critical hardware as of Oct 2026. 372 (T1: smooth isotropic Lame moduli are uniquely determined by boundary data) and 365 (T3: joint metric and connection recovery, plus conductivity nonuniqueness) bear on full-field nondestructive evaluation.",
+      "catalog_families": [
+        "372",
+        "365"
+      ],
+      "prerequisites": [
+        "materials-am-defect-physics",
+        "materials-allowables-stats-framework"
+      ],
+      "binding_gate": "regulatory",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2031",
+        "S2": "2030",
+        "S3": "2029"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "T1 (372); T3 (365); both peripheral to the main chain",
+      "why": "Inspection, witness coupons and proof testing are a large share of the cost and schedule of the most critical printed parts (general). If the defect-physics model predicts part life from sensor data, CT can be targeted and lot testing shrinks. 372 supports that elastic property maps are identifiable from boundary measurements (P5); 365's conductivity nonuniqueness marks where eddy-current or impedance inspection cannot uniquely locate anomalies (P3). Acceptance by NASA and customers binds; band capped at Medium.",
+      "strongest_case_small": "For fracture-critical engine parts, programs will demand physical evidence for years, so first credit will be partial (less critical parts); uniqueness theorems (372, 365) say nothing about stability under noise, which is the practical inspection limit.",
+      "signpost": "NASA, the FAA or a launch provider grants formal credit for in-situ-monitoring-based acceptance of a flight part, by 2029."
+    },
+    {
+      "id": "materials-verified-fault-tolerance",
+      "title": "Proven radiation-fault tolerance for orbital AI",
+      "tier": 4,
+      "kind": "engineering-tool",
+      "description": "Machine-checked proofs that fault-tolerance layers (error-correcting codes, memory scrubbing, checkpointing, algorithm-based fault tolerance for matrix operations, voting logic) bound the probability of undetected errors under a stated radiation fault model.",
+      "status_oct2026": "Fault tolerance for commercial chips in space is designed with margins and tested empirically. Agentic Lean formalization exists (127 families in the release carry Lean proofs) but verified floating-point and numerics toolchains are immature. No catalog family addresses this.",
+      "catalog_families": [],
+      "prerequisites": [
+        "materials-see-system-models",
+        "cap-autoformalization",
+        "infra-verified-numerics"
+      ],
+      "binding_gate": "adoption",
+      "pathway": "P2",
+      "earliest_year": {
+        "S1": "2030",
+        "S2": "2028",
+        "S3": "2027"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "n/a",
+      "why": "Formal verification is the bridge to safety-critical use. Here the property is crisp (for example, a checksum-protected matrix multiply detects any single-bit fault with probability at least 1 - 1e-9) and the systems are commercial, so no regulator gate binds. Proven bounds let operators choose light mitigation with confidence, capturing the ~2.5x compute-per-watt lever in the radiation-error node.",
+      "strongest_case_small": "Proofs are only as good as the fault model: multi-bit upsets, latch-ups and memory-controller failures may fall outside it, and operators may trust empirical flight data over proofs.",
+      "signpost": "An orbital-compute operator or Nvidia publishes a verified algorithm-based-fault-tolerance or error-correction library used in flight, by 2028."
+    },
+    {
+      "id": "materials-battery-life-qual",
+      "title": "Battery qualification without years of cycling",
+      "tier": 4,
+      "kind": "engineering-tool",
+      "description": "Physics-based and data-driven degradation models (solid-electrolyte-interphase growth, lithium plating, silicon-anode swelling, solid-state interfaces) that predict end-of-life capacity under low-Earth-orbit cycling from early-cycle data, with validated uncertainty.",
+      "status_oct2026": "ISRO qualified 10 Ah silicon-graphite cells at 190 Wh/kg (versus 157 Wh/kg) with a Jan 2024 flight demonstration and expects 35-40% battery mass saving; JAXA is testing an all-solid-state battery on the ISS. Low-Earth-orbit cycling at ~15 orbits/day means ~5,500 cycles a year and ~27,000 over five years (general).",
+      "catalog_families": [],
+      "prerequisites": [
+        "cap-applied-math",
+        "cap-autonomous-labs",
+        "materials-learned-functionals"
+      ],
+      "binding_gate": "data",
+      "pathway": "P1->P6",
+      "earliest_year": {
+        "S1": "2030",
+        "S2": "2028",
+        "S3": "2028"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "Life testing at orbital cadence takes years, and accelerated cycling changes degradation mechanisms, so new chemistries (silicon anodes, solid state) wait for real-time data. Validated early-life prediction could cut qualification life testing from ~3-5 years to ~1-2 (assumption), letting electric-vehicle cell gains reach spacecraft sooner.",
+      "strongest_case_small": "Battery progress is driven by the electric-vehicle industry, and constellations already fly screened commercial cells; the space-specific contribution of AI math is small.",
+      "signpost": "A space battery supplier qualifies a new cell chemistry using model-based life prediction with reduced real-time cycling, by 2029."
+    },
+    {
+      "id": "materials-closed-loop-discovery",
+      "title": "Autonomous labs discover real new materials",
+      "tier": 5,
+      "kind": "technology",
+      "description": "AI-run labs deliver independently replicated new functional materials (PV absorbers, coatings, electrolytes, catalysts, alloys) at more than ten times the human discovery rate.",
+      "status_oct2026": "Periodic Labs ($300M seed, Sep 2025; superconductors as its north star), Lila Sciences (~$450M raised; 'hundreds of thousands' of AI-driven experiments in catalysts, thin films and ultra-stable metals) and Google DeepMind's UK automated lab (announced Dec 2025, opening 2026, planning hundreds of materials per day). No independently replicated space-relevant discovery found as of Oct 2026.",
+      "catalog_families": [],
+      "prerequisites": [
+        "cap-autonomous-labs",
+        "materials-autonomous-characterization",
+        "materials-mlip-certified-uq"
+      ],
+      "binding_gate": "experiment",
+      "pathway": "P1->P7",
+      "earliest_year": {
+        "S1": "2030",
+        "S2": "2028",
+        "S3": "2028"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "n/a",
+      "why": "Robotic powder synthesis is now cheap and repeatable; with reliable characterization and trustworthy screening, discovery rates can rise roughly tenfold. For space, the first beneficiaries are materials made by simple routes (PV absorbers, coatings, electrolytes), not superalloys or ceramic composites whose processing autonomous labs cannot yet do.",
+      "strongest_case_small": "Discovery is not space's bottleneck; insertion is (more than 20 years and ~$400M for aerospace materials by Materials Genome Initiative-era estimates). More candidates only lengthen the qualification queue.",
+      "signpost": "The first independently replicated discovery from Periodic Labs, Lila or DeepMind's UK lab, with full characterization, by end-2027."
+    },
+    {
+      "id": "materials-ai-alloy-flight",
+      "title": "First AI-designed alloy flies in a rocket engine",
+      "tier": 5,
+      "kind": "technology",
+      "description": "An alloy whose composition was primarily proposed by an AI design system flies in flight hardware (combustion chamber, preburner, turbine or nozzle) on a commercial launch vehicle or spacecraft.",
+      "status_oct2026": "No AI-designed alloy has flown (general). Benchmarks: the GRCop family was developed in 1987 and its printed variant GRCop-42 flew on Relativity's Terran 1 in 2023, about eight years after AM work began (~2015); Ferrium M54 went from design to flight qualification in under six years; GRX-810 (2022) and NASA HR-1 are still maturing.",
+      "catalog_families": [],
+      "prerequisites": [
+        "materials-ht-alloy-design"
+      ],
+      "binding_gate": "qualification",
+      "pathway": "P1->P7",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2030",
+        "S3": "2029"
+      },
+      "band_2031": {
+        "S1": "Speculative",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "With design compressed to weeks (S2, from 2028), the floor is physical: powder atomization lots, parameter development, property testing and hot-fire campaigns, roughly 2-3 years for a risk-tolerant commercial engine maker that certifies its own hardware. Value: hotter preburners and turbines and longer-life chambers for reusable engines.",
+      "strongest_case_small": "Primes stick with heritage alloys (Inconel 718, GRCop) because supply chains and data exist; NASA's AMRL framework notes high alloy maturity is not a qualified material; S3's faster cognition cannot speed up hot-fire testing.",
+      "signpost": "An AI-designed alloy enters hot-fire testing at SpaceX, Relativity, Ursa Major or NASA Marshall by 2028."
+    },
+    {
+      "id": "materials-tps-new-material-flight",
+      "title": "AI-designed heat-shield material flies",
+      "tier": 5,
+      "kind": "technology",
+      "description": "An AI-designed thermal-protection material, coating or ablator flies on a reentry vehicle, first as an instrumented test coupon on a commercial capsule and then as a primary heat-shield zone.",
+      "status_oct2026": "Varda's W-5 (Jan 2026) and W-6 (May 2026) capsules re-entered with in-house C-PICA heat shields, a cadence of one reentry every few months; no AI-designed TPS material has flown (general).",
+      "catalog_families": [],
+      "prerequisites": [
+        "materials-uhtc-tps-design"
+      ],
+      "binding_gate": "experiment",
+      "pathway": "P1->P7",
+      "earliest_year": {
+        "S1": "2031",
+        "S2": "2029",
+        "S3": "2029"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "Commercial capsules turn flight testing from a once-a-decade event into a quarterly one, a physical-gate compression independent of AI, so a coupon of an AI-designed ceramic or ablator could fly within about a year of arc-jet screening.",
+      "strongest_case_small": "Flying a coupon is not adoption: crewed and large reusable vehicles demand years of arc-jet data and flight heritage.",
+      "signpost": "A capsule operator announces a flight experiment of an AI-designed TPS coupon, by 2028."
+    },
+    {
+      "id": "materials-perovskite-tandem-flight",
+      "title": "Model-qualified perovskite tandem proves itself in orbit",
+      "tier": 5,
+      "kind": "technology",
+      "description": "A perovskite tandem (on silicon, CIGS or III-V) whose composition and encapsulation were optimized with validated degradation models completes at least one year in low Earth orbit with under 10% relative power loss, as predicted. Non-AI perovskite demonstrations continue regardless; this node is the model-qualified version.",
+      "status_oct2026": "Perovskite tandems in orbit since Jul 2024 (Potsdam/HZB); RIT CubeSat test; certified 27.49% AM0 tandem with balloon flight (Aug 2026). No published one-year on-orbit stability record with a predictive model found as of Oct 2026.",
+      "catalog_families": [],
+      "prerequisites": [
+        "materials-perovskite-degradation-models"
+      ],
+      "binding_gate": "experiment",
+      "pathway": "P1->P7",
+      "earliest_year": {
+        "S1": "2031",
+        "S2": "2030",
+        "S3": "2030"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "Perovskite tandems could beat III-V multijunction cells on cost per watt and specific power, but only on-orbit exposure validates lifetime: models from 2028 (S2), cells flown 2029, one year of data by 2030. S3 cannot compress the year in orbit.",
+      "strongest_case_small": "III-V multijunction cells (commercial >29.5% AM0; 34.2% record triple junction) already serve high-value missions; the perovskite advantage is cost and mass, which matters only at very large array scale.",
+      "signpost": "Published one-year on-orbit data for any perovskite tandem by 2027-28."
+    },
+    {
+      "id": "materials-wbg-rad-hard-power",
+      "title": "Radiation-robust SiC and GaN power electronics",
+      "tier": 5,
+      "kind": "technology",
+      "description": "Wide-bandgap power transistors with a mechanism-level model of heavy-ion single-event burnout and leakage degradation, redesigned to run near rated voltage in space.",
+      "status_oct2026": "SiC power MOSFETs and diodes show heavy-ion-induced leakage degradation and single-event burnout well below rated voltage, forcing heavy derating, often to about half of rated voltage or less (general; NASA NEPP work). The physical mechanism is still debated.",
+      "catalog_families": [],
+      "prerequisites": [
+        "materials-see-system-models",
+        "materials-learned-functionals"
+      ],
+      "binding_gate": "fabrication",
+      "pathway": "P1->P6->P7",
+      "earliest_year": {
+        "S1": "2031",
+        "S2": "2030",
+        "S3": "2029"
+      },
+      "band_2031": {
+        "S1": "Low",
+        "S2": "Medium",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "High-voltage (300-800 V class) buses cut harness mass and losses for 100 kW-class orbital compute and electric propulsion; derating 1,200 V parts to ~50% throws away much of SiC's advantage. Explaining the mechanism (defect physics and impact ionization under ion strikes) is a physics-theory problem; each device redesign then takes about a year per fab cycle plus beam tests, which bind.",
+      "strongest_case_small": "Vendors may fix it empirically with thicker drift layers and derating; the rad-hard power market is small, so fab priority is low.",
+      "signpost": "A vendor releases a SiC MOSFET qualified free of single-event burnout at 80% or more of rated voltage under standard heavy-ion testing, by 2029."
+    },
+    {
+      "id": "materials-new-propellant-flight",
+      "title": "AI-designed propellant flies",
+      "tier": 5,
+      "kind": "technology",
+      "description": "A propellant molecule or formulation primarily proposed by an AI design system is qualified and flown in a spacecraft or launch-vehicle propulsion system.",
+      "status_oct2026": "Benchmark: AFRL's AF-M315E (now ASCENT) originated more than 20 years before NASA's Green Propellant Infusion Mission flew it in Jun 2019. No AI-designed propellant has flown (general).",
+      "catalog_families": [],
+      "prerequisites": [
+        "materials-energetics-design"
+      ],
+      "binding_gate": "qualification",
+      "pathway": "P1->P7",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2030"
+      },
+      "band_2031": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Low"
+      },
+      "premise_tier": "n/a",
+      "why": "After design (S2, 2028), scale-up synthesis, hazard classification, long-duration materials-compatibility tests, catalyst development and thruster qualification set a ~3-5-year floor even for a startup, longer for NASA or ESA.",
+      "strongest_case_small": "A few percent of specific impulse or density rarely justifies requalification, and existing green propellants (ASCENT, LMP-103S) already serve the market.",
+      "signpost": "A propulsion startup announces a thruster qualification program for an AI-designed propellant, by 2029."
+    },
+    {
+      "id": "materials-cots-orbital-compute-ops",
+      "title": "Commercial AI chips running in orbit at scale",
+      "tier": 6,
+      "kind": "mission",
+      "description": "Operational orbital AI compute (clusters of 100 kW class or more with paying customers) on commercial accelerators, with radiation mitigation sized from validated system-level fault models rather than blanket margins.",
+      "status_oct2026": "Starcloud H100 in orbit since Nov 2025; Google/Planet Suncatcher prototypes due by early 2027; Nvidia Space-1 Vera Rubin module targeted for 2027 with six launch partners (Aetherflux, Axiom Space, Kepler, Planet, Sophia Space, Starcloud).",
+      "catalog_families": [],
+      "prerequisites": [
+        "materials-see-system-models"
+      ],
+      "binding_gate": "capital",
+      "pathway": "P1->P2",
+      "earliest_year": {
+        "S1": "2029",
+        "S2": "2028",
+        "S3": "2028"
+      },
+      "band_2031": {
+        "S1": "Medium",
+        "S2": "High",
+        "S3": "High"
+      },
+      "premise_tier": "n/a",
+      "why": "Orbital compute will happen on capital and launch economics; AI math contributes cheaper radiation hardness assurance and lighter mitigation (up to ~2.5x useful compute per watt by using algorithm-based fault tolerance instead of triple redundancy, general), which improves unit economics.",
+      "strongest_case_small": "This proceeds whatever happens in AI math; Google's measured dose margins suggest radiation is not the binding constraint in dawn-dusk sun-synchronous orbit, where 33FG estimates ~100 um coverglass and under 1%/yr PV degradation.",
+      "signpost": "Paying-customer service from an orbital compute cluster of 100 kW or more, with published radiation-error statistics, by 2029."
+    },
+    {
+      "id": "materials-perovskite-primary-power",
+      "title": "Perovskite arrays power operational satellites",
+      "tier": 6,
+      "kind": "mission",
+      "description": "Perovskite-based (tandem or thin-film) arrays serve as primary power on operational spacecraft, for example lightweight arrays for compute or broadband constellations.",
+      "status_oct2026": "Not operational anywhere as of Oct 2026 (general); flight experiments only.",
+      "catalog_families": [],
+      "prerequisites": [
+        "materials-perovskite-tandem-flight"
+      ],
+      "binding_gate": "qualification",
+      "pathway": "P7",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2031"
+      },
+      "band_2031": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Low"
+      },
+      "premise_tier": "n/a",
+      "why": "In 33FG's orbital-compute model, thin-film arrays (~1.7 kW/kg) versus rigid arrays (~0.8 kW/kg) roughly halve the Starship launches needed per 100 GW/yr of orbital compute (~600 versus ~1,200). One to two years of on-orbit lifetime evidence gate adoption; risk-tolerant constellation operators with five-year design lives adopt first.",
+      "strongest_case_small": "Thin-film CIGS, thinned III-V cells and better array structures may deliver the specific-power gain without perovskites, and falling launch costs reduce the value of mass savings.",
+      "signpost": "A constellation operator announces perovskite-based primary arrays on a production satellite batch, by 2030."
+    },
+    {
+      "id": "materials-in-space-mfg-product",
+      "title": "Products made in orbit sold at recurring volume",
+      "tier": 6,
+      "kind": "mission",
+      "description": "In-space-manufactured semiconductor substrates or crystals, or ZBLAN fiber, sold commercially at recurring volume, with quality advantages predicted by validated models.",
+      "status_oct2026": "Demonstrations only: ~12 km of ZBLAN on the ISS (2024), ForgeStar-1 plasma operations (from Dec 2025, deorbit planned 2026), Varda defense and pharmaceutical reentries (W-5, W-6 in 2026).",
+      "catalog_families": [],
+      "prerequisites": [
+        "materials-microgravity-process-models"
+      ],
+      "binding_gate": "capital",
+      "pathway": "P1->P7",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2030"
+      },
+      "band_2031": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Low"
+      },
+      "premise_tier": "n/a",
+      "why": "Models tell investors which products clear the cost of launch and return, but recurring volume needs dedicated free-flyers, frequent return capsules and committed buyers, all physical and capital gates that AI cognition does not compress.",
+      "strongest_case_small": "Economics, not physics knowledge, binds, and terrestrial process improvements may close the quality gap.",
+      "signpost": "A multi-year offtake contract for orbit-made substrates or fiber with published quality metrics, by 2029."
+    },
+    {
+      "id": "materials-hot-section-reuse",
+      "title": "Longer-life reusable engines from new alloys",
+      "tier": 6,
+      "kind": "mission",
+      "description": "Operational reusable engines whose hot-section parts (preburners, turbines, chambers) use AI-designed alloys and model-backed life prediction, extending refurbishment intervals or allowing higher chamber pressure.",
+      "status_oct2026": "Not started (general); depends on the first AI-designed alloy flight.",
+      "catalog_families": [],
+      "prerequisites": [
+        "materials-ai-alloy-flight",
+        "materials-creep-oxidation-life-models"
+      ],
+      "binding_gate": "qualification",
+      "pathway": "P7",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2031"
+      },
+      "band_2031": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Low"
+      },
+      "premise_tier": "n/a",
+      "why": "Hot-section refurbishment is a major reuse cost driver (general); doubling the life of the most-replaced parts would cut turnaround cost, but proving life needs fleet hours and post-flight tear-downs, a physical clock.",
+      "strongest_case_small": "Reuse economics are dominated by vehicle-level design and operations, and engine makers already iterate in-house alloys empirically without AI.",
+      "signpost": "An operator attributes a refurbishment-interval increase to a new hot-section alloy, by 2031."
+    },
+    {
+      "id": "materials-qual-cycle-compression",
+      "title": "Space materials insertion drops below five years",
+      "tier": 7,
+      "kind": "outcome",
+      "description": "Concept-to-flight insertion of new space materials (alloys, TPS, PV) falls from the historical 10-20+ years to five years or less as an industry pattern, shown by at least three materials in 2027-2031.",
+      "status_oct2026": "Historically 10-20 years (Materials Genome Initiative), and more than 20 years and ~$400M for aerospace insertion; GE spent about two decades and over $1B on ceramic-matrix composites; Ferrium M54 (under six years) is the fast exception.",
+      "catalog_families": [],
+      "prerequisites": [
+        "materials-am-digital-twin-qual",
+        "materials-allowables-stats-framework",
+        "materials-ai-alloy-flight"
+      ],
+      "binding_gate": "regulatory",
+      "pathway": "P1->P6->P7",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": "2031",
+        "S3": "2030"
+      },
+      "band_2031": {
+        "S1": "Speculative",
+        "S2": "Low",
+        "S3": "Medium"
+      },
+      "premise_tier": "n/a",
+      "why": "Cognition is perhaps 20-30% of insertion time (Ferrium M54: under one of under six years went to design; assumption generalizing it). The rest is physical evidence. Compression beyond ~30% requires the evidence rules themselves to change (model-informed allowables, part-level digital-twin certification), which is why this outcome waits on regulators even under S3.",
+      "strongest_case_small": "Standards bodies and programs change slowly; a few fast commercial examples will not make an industry norm by 2031.",
+      "signpost": "A NASA-STD-6030 revision or MMPDS/CMH-17 policy that lets model-based evidence substitute for part of the test matrix, by 2028-29."
+    },
+    {
+      "id": "materials-specific-power-step",
+      "title": "A step change in spacecraft power per kilogram",
+      "tier": 7,
+      "kind": "outcome",
+      "description": "A fleet-level gain of 30% or more in power-system specific power (W/kg of arrays, storage and power electronics) on new spacecraft, attributable to new materials: perovskite or thin-film PV, high-voltage radiation-robust wide-bandgap electronics, higher-energy cells.",
+      "status_oct2026": "Gains today come from array architecture (roll-out and flexible blankets) and cell-efficiency increments (general).",
+      "catalog_families": [],
+      "prerequisites": [
+        "materials-perovskite-primary-power",
+        "materials-wbg-rad-hard-power",
+        "materials-battery-life-qual"
+      ],
+      "binding_gate": "qualification",
+      "pathway": "P7",
+      "earliest_year": {
+        "S1": ">2031",
+        "S2": ">2031",
+        "S3": ">2031"
+      },
+      "band_2031": {
+        "S1": "Speculative",
+        "S2": "Speculative",
+        "S3": "Speculative"
+      },
+      "premise_tier": "n/a",
+      "why": "Power-system mass sets launch counts for orbital compute (33FG: compute satellites become power- and thermal-limited), so this is the materials outcome with the largest space-economics leverage. But each material leg needs multi-year flight evidence, so even S2 and S3 land after 2031.",
+      "strongest_case_small": "Array architecture and launch-cost moves dwarf material gains in this window.",
+      "signpost": "Spec sheets of new compute or broadband buses citing new-material arrays, electronics or cells, by 2031."
+    }
+  ],
+  "scenario_contrast": "S1 (plateau): AI math stays mostly in proofs; research-grade applied math reaches outside teams ~2029. The front of the tree (tiers 1-4) is mostly Medium or Low by 2031, AI-designed flight hardware is Low or Speculative, and tiers 6-7 are Speculative; progress continues through existing machine learning (MLIPs, ICME) without the new math layer. S2 (exponential, base case): the cognitive clock compresses hard. Certified MLIP uncertainty, reliable automated characterization and system-level radiation-error models arrive 2027-28; learned functionals and AI alloy, TPS and propellant design by 2028; nearly all tier 2-4 nodes reach High or Medium by 2031. Then physical gates bind on every tier-5+ node: one year in orbit for PV, hot-fire and creep hours for alloys, hazard and compatibility tests for propellants, beam time for electronics, handbook committees for allowables. Result: first AI-designed alloy and TPS flights ~2029-30 (Medium), rad-tolerant commercial orbital compute operating with model-sized mitigation from 2028 (High), and fleet-level outcomes (insertion under five years, a power-per-kilogram step) after 2031. S3 (recursive): adds near-free cognition and autonomous labs at scale from 2028. It moves tier 2-4 nodes ~0-1 year earlier than S2 and pulls a few downstream nodes (alloy flight, SiC power devices, propellant flight, quantum chemistry) forward by about a year, but cannot compress orbital exposure, creep hours, beam time or regulatory cycles, so tier 6-7 bands barely move (only quantum chemistry and insertion-time compression gain a band). The S1-to-S2 gap is large (~1-2 years and about one band on tiers 2-5); the S2-to-S3 gap is small (about a year on a handful of nodes).",
+  "key_insights": [
+    "The catalog barely touches this domain directly. Its three electronic-structure results (278 Kohn-Sham ensemble non-representability, 275 QMA-hardness of continuum Coulomb energy, 263 ionization bounds) are ceilings that formalize what practitioners already believed: DFT is uncontrolled and no efficient universal method exists. They act fast (P3) but change no code or flown material; their practical message is to invest in domain-specific, data-driven methods.",
+    "The capability is what matters (analyst position a): most of the math this domain needs is bespoke and expert-scarce (uncertainty for ML interatomic models, Bayesian allowables, radiation-error models, degradation kinetics), not a famous conjecture. The genuinely open problems are few and specific: quantitative homogenization for nonlinear random microstructures, and the mechanism of single-event burnout in SiC.",
+    "Cognition is a small share of materials insertion time. Ferrium M54 was designed in under a year but took under six years to flight qualification; GRCop went from 1987 to a 2023 flight; AF-M315E took more than 20 years. Even free cognition shortens insertion only ~20-30% unless the evidence rules themselves change, so the highest-value AI-math unlocks here are statistical and verification frameworks that let regulators accept fewer physical tests.",
+    "Under the exponential base case (S2), the cognitive clock compresses hard: nearly all tier 2-4 nodes reach High or Medium by 2031. But every tier-5+ node is bound by a physical clock (a year in orbit for PV, hot-fire and creep hours for alloys, hazard and compatibility testing for propellants, beam time for electronics, handbook committees for allowables). First AI-designed alloy and TPS flights land ~2029-30 at Medium; fleet-level outcomes land after 2031.",
+    "S3 adds little beyond S2 in this domain: across 30 nodes the 2031 band count moves from 11 High / 12 Medium / 6 Low / 1 Speculative (S2) to 11 / 14 / 4 / 1 (S3), versus 0 / 11 / 10 / 9 in S1. The S1-to-S2 gap (~1-2 years and about one band on tiers 2-5) dwarfs the S2-to-S3 gap, the clearest sign that physics and institutions, not cognition, bind.",
+    "The fastest space payoff is in electronics, not materials: rad-tolerant commercial AI chips for orbital compute face commercial (not regulatory) gates and short test cycles, and the math involved (system-level error models, verified fault tolerance) is exactly what AI does well. Knowing true error rates can let operators swap triple redundancy (~3x overhead) for algorithm-based fault tolerance (~5-20%), roughly 2.5x more useful compute per watt (general).",
+    "Discovery is not space's bottleneck; qualification is. Autonomous labs (Periodic Labs, Lila, DeepMind UK) will flood the front of the pipeline, and the A-Lab/GNoME critiques show characterization is the hidden weak link. Without qualification compression, more candidates only lengthen the queue.",
+    "Risk-tolerant commercial actors fly AI-designed materials first (self-certifying engine makers, capsule operators like Varda flying a reentry every few months, orbital-compute startups); NASA Class A and crewed systems trail by 3-5+ years because certification caps their bands at Medium.",
+    "Quantum computing for chemistry stays outside the 2031 window except in S3: Quantinuum-SoftBank (Jul 2026) put chemically accurate >100-spin-orbital simulation in the 2030s, and 275 and 265 cut against universal quantum advantage. AI math's lever is algorithmic resource reduction, which could pull one beyond-classical result to ~2029-30 under S3."
+  ],
+  "nil_effects": [
+    "Real-time physical clocks do not compress: 10,000-hour creep tests, a year of on-orbit PV exposure, ~5,500 LEO battery cycles a year, beam time at a handful of facilities. Under S2/S3 these become the critical path for every tier-5+ node.",
+    "Thermodynamic and detailed-balance limits are untouched: no theorem raises the efficiency ceiling of III-V or perovskite cells (commercial III-V >29.5% AM0, record ~34% triple junction) or the thermochemical ceiling on chemical-propellant specific impulse; AI-designed propellants gain mainly in handling, toxicity and density (single-digit percent).",
+    "Deployed DFT codes and materials workflows will not change because of 278, 275 or 263; ceiling theorems change method-development priorities, not practice.",
+    "The radiation environment does not change: galactic cosmic-ray heavy ions still cause single-event effects in scaled CMOS, and shielding against them remains mass-limited; math can only right-size mitigation.",
+    "Galactic algorithms in the release (107 matrix multiplication, 130 FFT) give no speedup to materials simulation, MLIP training or onboard compute.",
+    "Qualification regimes (NASA-STD-6030, MMPDS, CMH-17, ECSS) change on committee cycles of years; even S3 cannot make a handbook committee meet faster, which caps every certification-dependent node at Medium.",
+    "Supply chains and fabs are untouched: powder atomization lots, the few rad-hard and wide-bandgap fabs, germanium substrates for III-V cells, and energetics-licensed labs set lead times that AI cognition does not shorten.",
+    "No theorem says an ambient-pressure superconductor with Tc above 77 K exists; autonomous labs (Periodic Labs' north star) may search faster, but physics may forbid one, so it stays a speculative wildcard outside this tree.",
+    "Quantum chemistry advantage is not a 2031 story in S1/S2: 275 (QMA-hardness) rules out universal speedups, and fault-tolerant hardware is a fabrication gate."
+  ],
+  "signposts": [
+    {
+      "event": "Outside Comparator run or named-expert endorsement (or refutation) of families 278, 275 or 263, by mid-2027",
+      "what_it_changes": "Moves materials-dft-limits from T1 toward T2-T4; S1 band rises to High. A refutation of 278 removes the 'Kohn-Sham ceiling' argument from the learned-functional node."
+    },
+    {
+      "event": "Public access to a research-grade math model (OpenAI's internal model or equivalent from another lab) by mid-2027",
+      "what_it_changes": "Confirms S2 timing for cap-research-math-public and cap-applied-math; if absent by end-2028, shift every tier 2-4 node in this tree 1-2 years later (toward S1)."
+    },
+    {
+      "event": "A universal MLIP release with property-level calibrated uncertainty and published coverage tests, adopted in NASA or AFRL ICME workflows (2027)",
+      "what_it_changes": "Confirms materials-mlip-certified-uq and pulls the alloy and TPS design nodes forward; failure keeps atomistic screening advisory only."
+    },
+    {
+      "event": "First independently replicated discovery from Periodic Labs, Lila Sciences or DeepMind's UK automated lab (by end-2027)",
+      "what_it_changes": "Confirms closed-loop discovery and cap-autonomous-labs S2 timing; two years of operation without a replicated result points to characterization and synthesis, not cognition, as the binding gate."
+    },
+    {
+      "event": "MMPDS/CMH-17 approval of a model-informed allowables method, or a NASA-STD-6030 revision crediting in-situ monitoring or model-based evidence (2027-29)",
+      "what_it_changes": "The single most important regulatory signpost: lifts materials-qual-cycle-compression from Low to Medium in S2 and materials-am-digital-twin-qual toward its Medium cap."
+    },
+    {
+      "event": "Published on-orbit radiation-error statistics from the Google/Planet Suncatcher prototypes (launch by early 2027), Starcloud or Nvidia Space-1 users, compared with pre-flight predictions",
+      "what_it_changes": "Validates or breaks materials-see-system-models; errors far above prediction raise mitigation overhead and weaken orbital-compute economics."
+    },
+    {
+      "event": "At least one year of on-orbit perovskite tandem data with under 10% relative loss (2027-28)",
+      "what_it_changes": "Gates materials-perovskite-tandem-flight and primary-power; large unexplained losses reset the PV chain by about two years."
+    },
+    {
+      "event": "An AI-designed alloy enters hot-fire testing at a commercial engine maker or NASA Marshall (2027-28)",
+      "what_it_changes": "Confirms a 2030 first flight in S2; absence by end-2029 pushes materials-ai-alloy-flight past 2031."
+    },
+    {
+      "event": "A beyond-classical quantum chemistry result with error bars, or FeMoco-class estimates below 10^5 physical qubits (2027-29)",
+      "what_it_changes": "Moves materials-quantum-chem-advantage up one band in S2/S3."
+    }
+  ],
+  "tables": [
+    {
+      "title": "Assumed earliest year of shared upstream capabilities used in this tree",
+      "columns": [
+        "Shared node",
+        "S1",
+        "S2",
+        "S3",
+        "Note"
+      ],
+      "rows": [
+        [
+          "cap-research-math-internal",
+          "2026",
+          "2026",
+          "2026",
+          "Exists Oct 2026 (openai/math)"
+        ],
+        [
+          "cap-research-math-public",
+          "2028",
+          "2027",
+          "2027",
+          "S2: public access within ~6-12 months"
+        ],
+        [
+          "cap-autoformalization",
+          "2026",
+          "2026",
+          "2026",
+          "Exists; weak in PDE (3/16) and dynamics (2/12)"
+        ],
+        [
+          "cap-applied-math",
+          "2029",
+          "2027",
+          "2027",
+          "S2: research-grade PDE, numerics, UQ by 2027-28"
+        ],
+        [
+          "cap-design-optimization",
+          "2030",
+          "2028",
+          "2028",
+          "S2: multiphysics design with guarantees by 2028-29"
+        ],
+        [
+          "cap-autonomous-labs",
+          "2029",
+          "2028",
+          "2028",
+          "At scale; pilot labs already exist (Lila, Periodic, DeepMind UK)"
+        ],
+        [
+          "infra-mathlib-applied",
+          "2030",
+          "2028",
+          "2027",
+          "Analysis/PDE/probability coverage"
+        ],
+        [
+          "infra-verified-numerics",
+          "2030",
+          "2028",
+          "2027",
+          "Verified floating-point toolchain"
+        ],
+        [
+          "verif-independent-check",
+          "2027",
+          "2027",
+          "2026",
+          "No outside Comparator report found as of Oct 7, 2026"
+        ]
+      ]
+    },
+    {
+      "title": "Physical clocks that bound this domain (cognition cannot compress these)",
+      "columns": [
+        "Gate",
+        "Typical duration",
+        "What compresses it (if anything)",
+        "Source"
+      ],
+      "rows": [
+        [
+          "10,000-hour creep-rupture test",
+          "~14 months real time",
+          "Validated short-test extrapolation models (partial); parallel testing",
+          "(general)"
+        ],
+        [
+          "On-orbit PV lifetime evidence",
+          "1-2 years minimum on orbit before primary-power adoption",
+          "Nothing; more simultaneous flights only add statistics",
+          "(general); Potsdam tandems in orbit since Jul 2024"
+        ],
+        [
+          "LEO battery cycling",
+          "~5,500 cycles/yr; ~27,000 for a 5-year mission",
+          "Validated early-life prediction (partial)",
+          "(general)"
+        ],
+        [
+          "Direct-computed A/B allowables",
+          "~100 observations from >=10 heats/lots; A-basis nonparametric 299",
+          "Model-informed allowables, if handbooks accept them",
+          "(general); MMPDS Vol II"
+        ],
+        [
+          "AM alloy maturation (AMRL 1-9)",
+          "GRCop-42 AM ~2015 to Terran 1 flight 2023 (~8 yrs); concept-to-specimens now ~3 months",
+          "AI design compresses AMRL 1-2 only; powder lots, builds, hot-fire remain",
+          "NASA AMRL framework (Apr 2026); AMAA (Jul 2026)"
+        ],
+        [
+          "Computationally designed alloy to flight qualification",
+          "Ferrium M54: design <1 yr, total <6 yrs",
+          "Design share already small",
+          "Gear Technology (Jan 2014)"
+        ],
+        [
+          "Propellant insertion",
+          "AF-M315E: >20 years from AFRL origins to GPIM flight (2019)",
+          "Startups with self-certified thrusters (partial)",
+          "GPIM (Wikipedia; Spaceflight Now Aug 2020)"
+        ],
+        [
+          "Radiation beam testing",
+          "Weeks-months of scarce facility time per part family",
+          "Better models reduce test matrix; facilities do not scale fast",
+          "Google Suncatcher (Nov 2025); ESA CORHA-2"
+        ],
+        [
+          "Reentry flight test",
+          "Now every few months via commercial capsules (Varda W-5 Jan 2026, W-6 May 2026)",
+          "Already compressing, independent of AI",
+          "SatNow (2026)"
+        ],
+        [
+          "Fault-tolerant quantum hardware",
+          "~100 logical spin orbitals ~2029 (Apollo); >100 at chemical accuracy 2030s",
+          "AI-found algorithm savings reduce what hardware is needed",
+          "Quantinuum-SoftBank white paper (Jul 2026)"
+        ]
+      ]
+    },
+    {
+      "title": "Anatomy of insertion timelines by chain (concept to first flight)",
+      "columns": [
+        "Chain",
+        "Historical concept-to-flight",
+        "Cognitive share today (est.)",
+        "Physical floor under S2/S3",
+        "First flight in this model (S1/S2/S3)"
+      ],
+      "rows": [
+        [
+          "New AM hot-section alloy",
+          "6-10 yrs (Ferrium M54 <6; GRCop-42 AM ~8)",
+          "~20-30%",
+          "~2-3 yrs for a self-certifying commercial engine maker; ~5+ yrs for NASA Class A",
+          ">2031 / 2030 / 2029"
+        ],
+        [
+          "New TPS material or coating",
+          "~8-15 yrs (general)",
+          "~20%",
+          "~1 yr arc-jet screening then capsule coupon flight",
+          "2031 / 2029 / 2029"
+        ],
+        [
+          "New propellant",
+          "13-20+ yrs (AF-M315E >20)",
+          "~10-20%",
+          "~3-5 yrs (scale-up, hazard class, compatibility, thruster qual)",
+          ">2031 / 2031 / 2030"
+        ],
+        [
+          "Perovskite tandem PV (model-qualified)",
+          "~8-12 yrs lab to qualified (general)",
+          "~20%",
+          ">=1 yr on orbit plus ground life tests",
+          "2031 / 2030 / 2030"
+        ],
+        [
+          "Rad-tolerant commercial compute",
+          "1-3 yrs (beam test plus flight)",
+          "~30-40%",
+          "Months of beam time; on-orbit statistics",
+          "2029 / 2028 / 2028 (operational, model-sized)"
+        ],
+        [
+          "Space battery cell chemistry",
+          "~3-5 yrs life testing (general)",
+          "~15%",
+          "~1-2 yrs with validated early-life prediction",
+          "2030 / 2028 / 2028 (method in use)"
+        ]
+      ]
+    },
+    {
+      "title": "2031 band distribution by tier (H/M/L/S = High/Medium/Low/Speculative counts)",
+      "columns": [
+        "Tier",
+        "Nodes",
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "rows": [
+        [
+          "1",
+          "1",
+          "H0/M1/L0/S0",
+          "H1/M0/L0/S0",
+          "H1/M0/L0/S0"
+        ],
+        [
+          "2",
+          "4",
+          "H0/M2/L1/S1",
+          "H2/M2/L0/S0",
+          "H2/M2/L0/S0"
+        ],
+        [
+          "3",
+          "7",
+          "H0/M2/L4/S1",
+          "H2/M4/L1/S0",
+          "H2/M5/L0/S0"
+        ],
+        [
+          "4",
+          "6",
+          "H0/M4/L2/S0",
+          "H4/M2/L0/S0",
+          "H4/M2/L0/S0"
+        ],
+        [
+          "5",
+          "6",
+          "H0/M1/L3/S2",
+          "H1/M4/L1/S0",
+          "H1/M4/L1/S0"
+        ],
+        [
+          "6",
+          "4",
+          "H0/M1/L0/S3",
+          "H1/M0/L3/S0",
+          "H1/M0/L3/S0"
+        ],
+        [
+          "7",
+          "2",
+          "H0/M0/L0/S2",
+          "H0/M0/L1/S1",
+          "H0/M1/L0/S1"
+        ],
+        [
+          "all",
+          "30",
+          "H0/M11/L10/S9",
+          "H11/M12/L6/S1",
+          "H11/M14/L4/S1"
+        ]
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "openai/math repository (722 manuscripts, 372 families)",
+      "url": "https://github.com/openai/math",
+      "date": "2026-10-06",
+      "used_for": "Catalog families 278, 275, 263, 265, 366, 372, 365, 149, 139 and their Lean flags (via analyst knowledge base)"
+    },
+    {
+      "title": "AI math frontier analyst knowledge base: space math map, downstream fields map, positions, trust tiers, pathways",
+      "url": "internal: ai-math-frontier-analyst skill references (ref-space-math-map, ref-downstream-fields-map)",
+      "date": "2026-10-06",
+      "used_for": "Framework codes, family-to-field mapping, analyst positions"
+    },
+    {
+      "title": "Former OpenAI and DeepMind researchers raise $300M seed to automate science (Periodic Labs)",
+      "url": "https://techcrunch.com/2025/09/30/former-openai-and-deepmind-researchers-raise-whopping-300m-seed-to-automate-science",
+      "date": "2025-09-30",
+      "used_for": "Periodic Labs funding and superconductor focus"
+    },
+    {
+      "title": "Lila Sciences raises $235M to build autonomous AI labs",
+      "url": "https://www.biopharmatrend.com/news/lila-sciences-raises-235m-to-build-autonomous-ai-labs-joins-unicorn-ranks-1376/",
+      "date": "2025-09",
+      "used_for": "Lila funding (~$450M total), materials focus, experiment scale"
+    },
+    {
+      "title": "Strengthening our partnership with the UK government (Google DeepMind automated materials lab)",
+      "url": "https://deepmind.google/blog/strengthening-our-partnership-with-the-uk-government-to-support-prosperity-and-security-in-the-ai-era/",
+      "date": "2025-12-10",
+      "used_for": "DeepMind UK automated materials lab in 2026, throughput plans"
+    },
+    {
+      "title": "UMA: A Family of Universal Models for Atoms (arXiv 2506.23971)",
+      "url": "https://arxiv.org/abs/2506.23971",
+      "date": "2025-06-30 (rev. 2026-03-04)",
+      "used_for": "MLIP scale, Matbench F1, simulation speed"
+    },
+    {
+      "title": "Accurate and scalable exchange-correlation with deep learning (Skala, arXiv 2506.14665)",
+      "url": "https://arxiv.org/abs/2506.14665",
+      "date": "2025-06",
+      "used_for": "Learned functional accuracy (2.8 kcal/mol GMTKN55; chemical accuracy on atomization energies)"
+    },
+    {
+      "title": "Challenges in high-throughput inorganic materials prediction and autonomous synthesis (coverage of Palgrave and Schoop critique)",
+      "url": "https://www.theregister.com/2024/01/31/ai_chemistry_research_disputed/",
+      "date": "2024-01-31",
+      "used_for": "A-Lab critique; automated Rietveld unreliability"
+    },
+    {
+      "title": "Google says it discovered millions of new materials with AI; human researchers disagree",
+      "url": "https://www.404media.co/google-says-it-discovered-millions-of-new-materials-with-ai-human-researchers/",
+      "date": "2024",
+      "used_for": "Margraf estimate that 80-84% of GNoME stable predictions would be disordered"
+    },
+    {
+      "title": "NASA-STD-6030 Additive Manufacturing Requirements for Spaceflight Systems",
+      "url": "https://standards.nasa.gov/sites/default/files/standards/NASA/Baseline/0/2021-04-21_nasa-std-6030-approveddocx.pdf",
+      "date": "2021-04-21",
+      "used_for": "AM qualification structure, SPC and allowables"
+    },
+    {
+      "title": "Framework for Additive Manufacturing Material Readiness Levels in Aerospace Applications (Gradl et al., NASA MSFC/GRC, NTRS 20260003255)",
+      "url": "https://ntrs.nasa.gov/api/citations/20260003255/downloads/AMRL%20Framework%20for%20AM%20Alloy%20Readiness.pdf",
+      "date": "2026-04-13",
+      "used_for": "AMRL 1-9, 'new process means new material', GRCop timeline (1987 to 2023 flight), AM lead-time and cost benefits"
+    },
+    {
+      "title": "AMAA 2026: NASA turns rocket alloys into flight-ready hardware through iterative post-processing",
+      "url": "https://3dprintingindustry.com/news/amaa-2026-nasa-turns-rocket-alloys-into-flight-ready-hardware-through-iterative-post-processing-252724/",
+      "date": "2026-07-06",
+      "used_for": "~50 AM materials over 8,000+ samples; ICME concept-to-specimens ~3 months; GRX-810/HR-1 status"
+    },
+    {
+      "title": "NASA's new material built to withstand extreme conditions (GRX-810)",
+      "url": "https://www.nasa.gov/aeronautics/nasas-new-material-built-to-withstand-extreme-conditions",
+      "date": "2022-04",
+      "used_for": "GRX-810 designed with thermodynamic modeling in weeks; >1,000x creep life; >2,000 F"
+    },
+    {
+      "title": "Rapid Analysis and Manufacturing Propulsion Technology (RAMPT)",
+      "url": "https://www.nasa.gov/rapid-analysis-and-manufacturing-propulsion-technology",
+      "date": "n.d. (accessed 2026-10-07)",
+      "used_for": "GRCop-42 maturation and Terran 1 flight; hot-fire statistics"
+    },
+    {
+      "title": "US researchers use AI to unlock low-power printing of rocket engine alloy (WSU, GRCop-42)",
+      "url": "https://www.aerospacetestinginternational.com/news/us-researchers-use-ai-to-unlock-low-power-printing-of-rocket-engine-alloy.html",
+      "date": "n.d. (2025-2026)",
+      "used_for": "AI-found AM process parameters for GRCop-42"
+    },
+    {
+      "title": "QuesTek gets second alloy approved for aerospace applications (Ferrium M54)",
+      "url": "https://www.geartechnology.com/questek-gets-second-alloy-approved-for-aerospace-applications",
+      "date": "2014-01-08",
+      "used_for": "Computationally designed alloy: design <1 yr, <6 yrs to flight qualification"
+    },
+    {
+      "title": "Materials Genome Initiative impact on composites",
+      "url": "https://www.compositesworld.com/articles/materials-genome-initiative-impact-on-composites",
+      "date": "n.d.",
+      "used_for": "10-20 year discovery-to-deployment; >20 years and $400M aerospace insertion"
+    },
+    {
+      "title": "GE develops jet engines made from ceramic matrix composites",
+      "url": "https://www.ge.com/news/reports/ge-develops-jet-engines-made-from-ceramic-matrix",
+      "date": "2015",
+      "used_for": "CMC development ~two decades and >$1B"
+    },
+    {
+      "title": "America Makes announces two AM projects worth $14.5M (GOTHAAM allowables)",
+      "url": "https://www.metal-am.com/america-makes-announces-two-am-projects-worth-14-5m/",
+      "date": "2026",
+      "used_for": "Ongoing conventional MMPDS-compliant AM allowables programs"
+    },
+    {
+      "title": "Senvol machine learning software predicts material performance for AM",
+      "url": "https://3dadept.com/senvols-machine-learning-software-can-accurately-predict-material-performance-for-additive-manufacturing-here-is-how/",
+      "date": "n.d.",
+      "used_for": "ML allowables approach shown equivalent to conventional MMPDS approach"
+    },
+    {
+      "title": "MMPDS Volume 2 framework for material allowables of additively manufactured metals (ASM AeroMat 2023)",
+      "url": "https://asm.confex.com/asm/aero23/webprogram/Paper57589.html",
+      "date": "2023",
+      "used_for": "MMPDS Vol II for process-sensitive materials"
+    },
+    {
+      "title": "ASME special issue on additive manufacturing qualification (call for papers)",
+      "url": "https://www.asme.org/publications-submissions/journals/administration/call-for-papers/special-issue-on-additive-manufacturing-qualification",
+      "date": "2026",
+      "used_for": "State of physics-informed ML, digital twins and UQ for AM qualification"
+    },
+    {
+      "title": "Exploring a space-based, scalable AI infrastructure system design (Project Suncatcher)",
+      "url": "https://research.google/blog/exploring-a-space-based-scalable-ai-infrastructure-system-design/",
+      "date": "2025-11-04",
+      "used_for": "Trillium TPU proton testing: 2 krad(Si) HBM irregularities vs 750 rad(Si) mission dose; no hard failures to 15 krad(Si); Planet prototypes by early 2027"
+    },
+    {
+      "title": "Nvidia announces new hardware to unlock orbital data centers (Space-1 Vera Rubin)",
+      "url": "https://payloadspace.com/nvidia-announces-new-hardware-to-unlock-orbital-data-centers/",
+      "date": "2026-03",
+      "used_for": "Space-1 module, ~25x H100, launch partners, 2027 timing"
+    },
+    {
+      "title": "NVIDIA Vera Rubin Space-1: the hardware behind orbital AI compute",
+      "url": "https://www.softwareseni.com/nvidia-vera-rubin-space-1-the-hardware-behind-orbital-ai-compute/",
+      "date": "2026",
+      "used_for": "Starcloud H100 in orbit Nov 2, 2025"
+    },
+    {
+      "title": "RADHARD 2025 abstract: ESA CORHA-2 radiation hardness assurance for COTS",
+      "url": "https://www.seibersdorf-laboratories.at/en/radhard/program-2025/abstract-tscherne-radhard-2025",
+      "date": "2025",
+      "used_for": "ESA COTS RHA project (Oct 2024-2027) adding ML"
+    },
+    {
+      "title": "Perovskite/silicon tandem hits certified 27.49% efficiency under space conditions",
+      "url": "https://www.perovskite-info.com/perovskitesilicon-tandem-hits-certified-2749-efficiency-space-conditions",
+      "date": "2026-08-04",
+      "used_for": "AM0 efficiency, proton/electron irradiation retention, balloon flight"
+    },
+    {
+      "title": "Positive early results from first test of perovskite tandem solar cells in space (Potsdam/HZB)",
+      "url": "https://pv-magazine.com/2024/10/25/positive-early-results-from-first-test-of-perovskite-tandem-solar-cells-in-space",
+      "date": "2024-10-25",
+      "used_for": "First perovskite tandems in orbit (launched Jul 2024)"
+    },
+    {
+      "title": "Perovskite solar cells move from lab to orbit testing (RIT CubeSat)",
+      "url": "https://taiyangnews.info/technology/perovskite-solar-cells-from-lab-to-space-orbit-testing-rochester-institute-of-technology",
+      "date": "n.d. (2025-2026)",
+      "used_for": "RIT 100-day CubeSat perovskite test"
+    },
+    {
+      "title": "Hanwha Qcells to supply tandem perovskite solar cells for NASA-backed lunar demo",
+      "url": "https://www.perovskite-info.com/hanwha-qcells-supply-tandem-perovskite-solar-cells-nasa-backed-lunar-demo",
+      "date": "n.d. (2025-2026)",
+      "used_for": "Lunar-surface perovskite tandem exposure demo"
+    },
+    {
+      "title": "Triple-junction III-V solar cells with 39.5% AM1.5G and 34.2% AM0 efficiencies (NREL)",
+      "url": "https://research-hub.nrel.gov/en/publications/triple-junction-iii-v-solar-cells-with-395-am15g-and-342-am0-effi/",
+      "date": "2022",
+      "used_for": "III-V AM0 efficiency record context"
+    },
+    {
+      "title": "Machine learning driven discovery of high-performance solid propellants (NWPU)",
+      "url": "https://pure.nwpu.edu.cn/en/publications/machine-learning-driven-discovery-of-high-performance-solid-prope/",
+      "date": "n.d. (2025)",
+      "used_for": "ML+GA screening of >1,000 energetic candidates; Isp up to 278 s"
+    },
+    {
+      "title": "MSE 298 seminar: designing safer energetics under multiple property constraints (UC Irvine)",
+      "url": "https://engineering.uci.edu/events/2026/3/mse-298-seminar-designing-safer-energetics-under-multiple-property-constraints",
+      "date": "2026-03",
+      "used_for": "Transfer-learned D-MPNN prediction of impact sensitivity and vapour pressure"
+    },
+    {
+      "title": "Green Propellant Infusion Mission",
+      "url": "https://en.wikipedia.org/wiki/Green_Propellant_Infusion_Mission",
+      "date": "n.d. (accessed 2026-10-07)",
+      "used_for": "AF-M315E/ASCENT origins >20 years before Jun 2019 flight"
+    },
+    {
+      "title": "NASA satellite set to conclude successful green propellant demo mission",
+      "url": "https://spaceflightnow.com/2020/08/17/nasa-satellite-set-to-conclude-successful-green-propellant-demo-mission/",
+      "date": "2020-08-17",
+      "used_for": "GPIM mission outcome"
+    },
+    {
+      "title": "AI-powered smart design of ultra-high-temperature high-entropy ceramics (Engineering)",
+      "url": "https://www.engineering.org.cn/engi/EN/10.1016/j.eng.2026.01.027",
+      "date": "2026",
+      "used_for": "State of AI design for UHTC/high-entropy ceramics for TPS"
+    },
+    {
+      "title": "Space Forge generates plasma aboard its satellite (ForgeStar-1)",
+      "url": "https://evertiq.com/news/2026-01-06-space-forge-generates-plasma-aboard-its-satellite",
+      "date": "2026-01-06",
+      "used_for": "In-orbit wide-bandgap crystal-growth precursor milestone"
+    },
+    {
+      "title": "First commercial-grade optical fibres manufactured in space (Flawless Photonics ZBLAN)",
+      "url": "https://www.australianmanufacturing.com.au/first-commercial-grade-optical-fibres-manufactured-in-space/",
+      "date": "2024",
+      "used_for": "~12 km ZBLAN on ISS; longest 1,141 m; lower attenuation"
+    },
+    {
+      "title": "Varda Space successfully reenters W-5 capsule using its vertically integrated satellite bus",
+      "url": "https://www.satnow.com/news/details/4618-varda-space-successfully-reenters-w-5-capsule-using-its-vertically-integrated-satellite-bus",
+      "date": "2026-01/02",
+      "used_for": "W-5 reentry Jan 29, 2026; in-house C-PICA heat shield"
+    },
+    {
+      "title": "Varda Space Industries successfully completes W-6 capsule reentry mission",
+      "url": "https://www.satnow.com/news/details/5232-varda-space-industries-successfully-completes-w-6-capsule-reentry-mission",
+      "date": "2026-05",
+      "used_for": "W-6 reentry May 18, 2026; reentry cadence"
+    },
+    {
+      "title": "SoftBank-Quantinuum white paper: use-case timeline for quantum chemistry",
+      "url": "https://postquantum.com/industry-news/softbank-quantinuum-white-paper/",
+      "date": "2026-07-21",
+      "used_for": "Logical spin orbitals by hardware generation; FeMoco 152 spin orbitals post-2029"
+    },
+    {
+      "title": "The Quantum Utility Map: quantum chemistry, drug discovery and catalysis",
+      "url": "https://postquantum.com/quantum-utility-map/quantum-chemistry-drug-discovery-catalysis/",
+      "date": "n.d. (2026)",
+      "used_for": "FeMoco resource estimates (2,142 logical qubits, ~4M physical) and 2025 algorithmic speedups"
+    },
+    {
+      "title": "ISRO flight demonstration of Si-graphite anode Li-ion cells",
+      "url": "https://www.isro.gov.in/FlightDemonstration_Si-Gr_anode.html",
+      "date": "2024-01",
+      "used_for": "190 vs 157 Wh/kg space cells; 35-40% battery mass saving expected"
+    },
+    {
+      "title": "Where should space data centers live? Solar, radiation and capacity benchmarking (33FG)",
+      "url": "https://research.33fg.com/analysis/where-should-space-data-centers-live-the-solar-radiation-and-capacity-benchmarking",
+      "date": "2025-12-10",
+      "used_for": "Dawn-dusk SSO coverglass ~100 um and <1%/yr PV degradation vs MEO"
+    },
+    {
+      "title": "Inside Musk's plan for 100 GW of compute in orbit (33FG)",
+      "url": "https://research.33fg.com/analysis/inside-musk-s-plan-for-100-gw-of-compute-in-orbit",
+      "date": "2025-11-05",
+      "used_for": "Thin-film (~1.7 kW/kg) vs rigid (~0.8 kW/kg) arrays and launch counts per 100 GW/yr"
+    },
+    {
+      "title": "A Human Audit of OpenAI's AI-Generated Mathematical Proofs (arXiv 2608.14673)",
+      "url": "https://arxiv.org/abs/2608.14673",
+      "date": "2026-08",
+      "used_for": "Context on audit status of earlier OpenAI results; no newer independent check of openai/math found"
+    }
+  ],
+  "file_written": "/Users/alex/projects/openai math paper/model/research/materials.json"
+}
