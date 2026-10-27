@@ -1,0 +1,966 @@
+{
+ "notes": "R9 WS1/WS5 branch review: math-frontier",
+ "update": [
+  {
+   "id": "frontier-applied-posing",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Engineering teams posing problems binds; choosing the right statement (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Medium 2028, High 2029 (posing routine a year after public applied math); S1 Medium 2030, High 2032. Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-catalog-dynamics-results",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Formal checks bind; outside expert endorsement of the manuscripts (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium moves to 2028: checks of the Lean parts and expert reads of 146/343/143 take about a year; T1 cap keeps it below High. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-euler-blowup-r3",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Checking the computer-assisted proof binds; the stability estimates themselves (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Discovery 2027 is plausible, acceptance sets the year: S2 Medium 2029, High 2030; S3/S4 a year faster after 2028; S1 Medium 2030, High 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-kinetic-global-regularity",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Formal or expert checking of a PDE result binds; the regularity proof itself (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Acceptance sets the year: S2 Medium 2029 (PDE is the least formalized area), High 2034 when S2 cognition reaches the S3 2031 level; S3/S4 High 2030. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-nn-verification-complexity",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2028"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2027"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2027"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2027"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "The complexity mathematics binds; Lean checks of new results (formalization) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Kept: core hardness results already exist (Katz 2017, Froese 2025) and complexity theory is AI math's strongest area, so High in the earliest year. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-nonuniqueness-map",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "The constructions bind; citation by V&V and DSMC groups (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): A map needs results plus citation a year later: S2 Medium 2029, High 2030; S3/S4 a year faster on High; S1 Medium 2030, High 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "hyper-boltzmann-foundations-check",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Formalizing kinetic PDE results binds; expert review of the manuscripts (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): A published check of 363/364 waits on applied Lean libraries (2028), so Medium 2029 (S1 2030); T1 cap keeps it below High. Bands unchanged."
+   }
+  },
+  {
+   "id": "materials-dft-limits",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Formal checks bind; acceptance by quantum-chemistry experts (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Checking 278 and 275 takes about a year, so Medium 2028 (S1 2029); T1 cap keeps it below High. Bands unchanged."
+   }
+  },
+  {
+   "id": "prop-ns-forced-verified",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "The Comparator run and statement audit bind; experts willing to do the audit (adoption) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): The why expects a check within about 12 months of the Sep 2026 claim, so Medium 2027 and High 2028 (no outside run a month in). Bands unchanged."
+   }
+  },
+  {
+   "id": "struct-elasticity-fracture-foundations",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Formal checks bind; acceptance by mechanics experts (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Medium 2028 (about a year to check); S1 Medium 2032 as Plateau PDE formalization catches up early in the 2030s, not 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "struct-hot-spots-thermal-modes",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Formal checks bind; outside acceptance of family 369 (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Medium 2028; S1 Medium 2032 (Plateau checks family 369 early in the 2030s). Bands unchanged."
+   }
+  },
+  {
+   "id": "verif-game-solving-synthesis",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Formal checks bind; acceptance by the synthesis community (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Checking family 104 takes about a year, so Medium 2028 in every scenario; T1 stochastic-game part keeps it below High. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-mhd-wellposedness",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "The mathematics binds; checking PDE results where Lean coverage is thin (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2029, High 2030 (results plus T4/T2 acceptance); S3/S4 High 2029; S1 Medium 2030, High 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-ns-unforced",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2029",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "The mathematics binds; about a year of Lean or independent checking (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 kept Medium 2029 (the why: capability mid-2027 to early 2028 plus a year of checking), High 2033 when S2 reaches the S3 2031 level; S3/S4 Medium moves to 2029 (2028 is the fast edge), High 2031; S1 Medium 2032 (capability late 2027 to late 2029 plus checking). Skeptic (Tao barrier, later) vs advocate (either answer counts, earlier) resolved as stated. Bands unchanged."
+   }
+  },
+  {
+   "id": "verif-skolem-positivity",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2030",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "The number theory binds; checking the decision procedure (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3/S4 Medium moves 2028 -> 2030 (the order-6 barrier is known and may need Schanuel-type results); S2 Medium kept at 2033, when S2 cognition matches S3 in about 2030. Skeptic (transcendence barrier) vs advocate (logic and number theory show progress) resolved at those years; capped at Medium. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-turbulence-rigorous",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Posing and proving bind; checking the result (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium moves 2030 -> 2031 (2-4 doublings plus posing and checking make 2030 the fast edge, and the zeroth law may be false for natural forcing); S3/S4 Medium 2030, High 2033 on the white-in-time route. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-p-vs-np",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "The mathematics binds (known barriers); a checked formal proof (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Beyond 2035 in every scenario; no change."
+   }
+  },
+  {
+   "id": "frontier-hjb-guarantees",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "The bespoke mathematics binds; adoption and a publication cycle in GNC teams (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): First guidance study lands about 2028, so S2 Medium 2029, High 2030; S3/S4 High 2029; S1 Medium 2031, High 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-rare-event-certified",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Adoption by fleet operators binds; failure and imperfection data (data) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Low-dimensional cases (Pc) first: S2 Medium 2029, High 2030; S3/S4 High 2029; S1 Medium 2031, High 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-scalable-global-certificates",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Exploiting problem structure (cognitive) binds; uptake by mission-design teams (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2029, High 2033 as cognition becomes cheap; S3/S4 High 2030 (near-free cognition from about 2029); S1 Medium kept at 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-certified-pde-error",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Adoption in V&V practice binds; deriving estimators and constants for each nonlinear operator (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Follows infra-verified-numerics: S2 Medium 2029, High 2030; S3/S4 High 2029; S1 Medium 2031, High 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-inverse-stability",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Sensor and flight data bind; deriving stability constants per layout (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (2029) in S2-S4; logarithmic stability keeps it below High; S1 Medium kept at 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-transport-certified",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Nuclear cross-section and beam-test data bind; the open low-rank error theory (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2029 (stays Medium); S3/S4 High 2030; S1 stays Low. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-xc-certified",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "High-accuracy reference data bind; compute to generate them (capital) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2029, High 2034 with cheap cognition and compute; S3/S4 High 2030; S1 Medium kept at 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-math-unbinds",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Adoption by programs binds; the applied mathematics itself (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seven prerequisites must all be Medium first, so S2 Medium 2030 (not the 2029 earliest year), High 2033 as cognitive work becomes cheap; S3/S4 Medium 2029, High 2030; S1 kept. Skeptic (primes and agencies lag, later) vs advocate (vertically integrated leaders need no certifier, earlier) resolved one year after the earliest year. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-ns-clay-cd-ruling",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Clay's unhurried process binds; whether the forced result meets statements (C)/(D) (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Kept Medium 2033 in every scenario: publication about 2027-28, two-year rule, then a board and committee; the only precedent took about seven years. Skeptic (Clay may never rule on a forced claim) vs advocate (dispute forces a statement) resolved as about even by 2035. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-sequence-design-limits",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2027"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2027"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2027"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2027"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Formal checks bind; outside acceptance (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Kept High 2027: short, well-scoped statements and an existing checker. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-35-clay-unforced-ns",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Clay's process binds; the unforced answer itself (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Kept: about four years from the outside check (S3 Medium 2029) to a Clay statement puts S3/S4 Medium at 2034; S2 Low from 2033. Skeptic (seven-year precedent, pre-emption by the forced ruling) vs advocate (either answer counts) resolved at 2034. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-35-math-supply-chain",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2032",
+      "high": "2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2032",
+      "high": "2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "regulatory",
+    "gate_note": "Supplier adoption binds; export-control limits on which models see supplier data (regulatory) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Kept: suppliers lag leaders by about three years (S2 2032 earliest), so S2 Medium 2034; S3/S4 Medium 2032 and High 2035 as near-free cognition and certified commercial tools spread. Skeptic (build-to-print suppliers, later) vs advocate (tool updates carry bounds, earlier) resolved at the seed years. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-35-certification-unbinds",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Certifier rules bind; a delta certification cycle (qualification) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Kept: certifiers re-run the first credited analyses (2030-31), then a 2-3 year delta cycle, so S3/S4 Medium 2034, S2 Low from 2033. Skeptic (6-year human-rating cycle) vs advocate (uncrewed first) resolved at 2034. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-35-second-millennium",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "The mathematics binds; posing and library work before a check (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Kept: S3 near-free cognition about 2029 makes a checked result credible from 2030 and about as likely as not by 2035, so Medium 2033; S2 Low from 2033. Bands unchanged."
+   }
+  }
+ ]
+}

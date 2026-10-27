@@ -33,7 +33,7 @@ TIERS = [
 ]
 SCENARIOS = [
     {'id': 'S1', 'name': 'Plateau', 'blurb': 'AI math stays near today’s level. Task horizon doubles every 12–18 months; research-grade math reaches outside teams around 2028.'},
-    {'id': 'S2', 'name': 'Exponential', 'blurb': 'Base case. Doubling every 6–9 months; public research-grade math in 2027, applied math and verified numerics by 2028, physics theory-building by 2029.'},
+    {'id': 'S2', 'name': 'Exponential', 'blurb': 'Central scenario. Doubling every 6–9 months; public research-grade math in 2027, applied math and verified numerics by 2028, physics theory-building by 2029.'},
     {'id': 'S3', 'name': 'Recursive', 'blurb': 'Exponential until 2028, then AI speeds its own research (about 3-month doubling); cognitive work is near-free from about 2029.'},
     {'id': 'S4', 'name': 'Embodied', 'blurb': 'Recursive cognition plus general-purpose robots at scale: about 6 million in service by 2031 and 60 million by 2035, including robots building robots. Same as Recursive through 2031; differs after.'},
 ]
@@ -123,9 +123,12 @@ def main():
             't': n.get('title'), 'tier': n.get('tier'), 'kind': n.get('kind'),
             'd': n.get('description'), 'st': n.get('status_oct2026'), 'fam': n.get('catalog_families', []),
             'pre': n.get('prerequisites', []), 'acc': n.get('accelerated_by', []), 'unl': n.get('unlocks', []),
-            'gate': n.get('binding_gate'), 'path': n.get('pathway'),
+            'gate': n.get('binding_gate'), 'gate2': n.get('runner_up_gate'), 'gnote': n.get('gate_note'), 'path': n.get('pathway'),
             'ys': n.get('earliest_year', {}), 'y': {s: year((n.get('earliest_year') or {}).get(s)) for s in ('S1', 'S2', 'S3', 'S4')},
             'b': n.get('band_2031', {}), 'b5': n.get('band_2035', {}), 'n35': n.get('note_2035'), 'pt': n.get('premise_tier'),
+            # odds for each year 2026..2035, one letter a year (S, L, M, H), per scenario
+            'by': {s: ''.join(b[0] for b in v) for s, v in (n.get('band_by_year') or {}).items()},
+            'ob': n.get('odds_by', {}),
             'why': n.get('why'), 'small': n.get('strongest_case_small'), 'sign': n.get('signpost'),
             'dom': n.get('domain'), 'br': member.get(k),
         }
@@ -158,7 +161,10 @@ def main():
         'branches': out_br, 'nodes': nodes, 'domains': domains,
     }
     blob = json.dumps(data, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'share'))
+    import brand  # Mach33 brand fonts and wordmarks, shared with the Two Clocks page
     html = open(tpath).read().replace('__VIEWER_DATA__', blob)
+    html = html.replace('/*BRAND-FONTS*/', brand.font_css()).replace('<!--WORDMARK-->', brand.wordmark(16, colour='black') + brand.wordmark(16, colour='white'))
     open(opath, 'w').write(html)
     print(f'wrote {opath}: {len(html)/1e6:.2f} MB, {len(nodes)} nodes, {len(out_br)} branches')
 

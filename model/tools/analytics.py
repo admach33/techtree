@@ -1,4 +1,4 @@
-"""Compute model analytics from a graph file (4 scenarios, checkpoints 2031 and 2035).
+"""Compute model analytics from a graph file (4 scenarios, odds rated for every year 2026-2035).
 
 Usage: python3 analytics.py GRAPH.json OUT.json
 """
@@ -17,12 +17,17 @@ def y(n, s):
 
 
 def band_at(n, s, yr):
-    """Likelihood checkpoint for a calendar year: band_2031 through 2031, band_2035 after."""
-    return n['band_2031'][s] if yr <= 2031 else n['band_2035'][s]
+    """Likelihood of being achieved by the end of a calendar year (band_by_year, derived from odds_by)."""
+    if 'band_by_year' in n:
+        return n['band_by_year'][s][YEARS.index(min(max(yr, YEARS[0]), YEARS[-1]))]
+    return n['band_2031'][s] if yr <= 2031 else n['band_2035'][s]  # graphs before v9
 
 
 def likely(n, s, yr):
     return y(n, s) < BEYOND and int(y(n, s)) <= yr and RANK.get(band_at(n, s, yr), 0) >= 2
+
+
+THINKING = ('cognitive', 'formalization')
 
 
 def reached(n, s, yr):
@@ -138,6 +143,13 @@ def main():
                    'gates': dict(collections.Counter(N[k]['binding_gate'] for k in ids).most_common(3))})
     out['branches'] = bs
 
+    # Binding and runner-up gates of the operational systems and strategic outcomes (tiers 6-7).
+    t67 = [n for n in N.values() if n['tier'] >= 6]
+    out['gates_t67'] = {'binding': dict(collections.Counter(n['binding_gate'] for n in t67).most_common()),
+                        'runner_up': dict(collections.Counter(n.get('runner_up_gate') for n in t67).most_common()),
+                        'runner_up_thinking': sum(1 for n in t67 if n.get('runner_up_gate') in THINKING),
+                        'binding_thinking': sum(1 for n in t67 if n['binding_gate'] in THINKING), 'n': len(t67)}
+
     json.dump(out, open(sys.argv[2], 'w'), indent=1, default=str)
     print('TIER SHIFT (years earlier S1->S2 / S2->S3 / S3->S4; High-or-Medium by 2031 and 2035, S1/S2/S3/S4)')
     for t, r in shift.items():
@@ -147,6 +159,7 @@ def main():
         print('  clock', s, {yr: (v['cognitive'], v['physical']) for yr, v in out['clock_curve'][s].items() if yr in (2028, 2031, 2033, 2035)})
     print('S4 credit:', {k: v for k, v in out['s4_credit'].items() if k != 'nodes'})
     print('critical paths:', {k: len(v) for k, v in out['critical_paths'].items()})
+    print('gates t6-7:', out['gates_t67'])
 
 
 if __name__ == '__main__':

@@ -5,13 +5,14 @@ Usage: python3 share/build_facts.py  (run from model/)
 """
 import json, collections
 
-GRAPH = 'graph-v8.json'
+GRAPH = 'graph-v9.json'
 OUT = 'share/data/facts.json'
 SCEN = ['S1', 'S2', 'S3', 'S4']
 NAMES = {'S1': 'Plateau', 'S2': 'Exponential', 'S3': 'Recursive', 'S4': 'Embodied'}
 YEARS = list(range(2026, 2036))
 BEYOND = 2036.0
 RANK = {'Speculative': 0, 'Low': 1, 'Medium': 2, 'High': 3}
+THINKING = ('cognitive', 'formalization')
 
 # The unlock cards, in story order, with the figure that illustrates each.
 CARDS = [
@@ -42,7 +43,8 @@ def yr(n, s):
 
 
 def band_at(n, s, y):
-    return n['band_2031'][s] if y <= 2031 else n['band_2035'][s]
+    """Odds of being achieved by the end of year y, rated for every year (band_by_year, from odds_by)."""
+    return n['band_by_year'][s][YEARS.index(y)]
 
 
 def unlocked(n, s, y):
@@ -68,6 +70,12 @@ def main():
         curve[s] = rows
     f['clock_curve'] = curve
     f['gap_peak'] = {s: max(curve[s], key=lambda r: r['gap']) for s in SCEN}
+    # The second stat card shows 2035; when a scenario's widest gap is in 2035 itself, show 2031 instead so the two
+    # cards never repeat the same numbers.
+    f['second_stat'] = {s: (curve[s][-1] if f['gap_peak'][s]['year'] != YEARS[-1] else curve[s][YEARS.index(2031)]) for s in SCEN}
+    f['curve_steps'] = {s: {'thinking_max_step_to_2031': max(curve[s][i]['cognitive'] - curve[s][i - 1]['cognitive'] for i in range(1, YEARS.index(2031) + 1)),
+                            'max_step': max(max(abs(curve[s][i][k] - curve[s][i - 1][k]) for k in ('cognitive', 'physical')) for i in range(1, len(YEARS)))}
+                        for s in SCEN}
 
     # What can be proved runs ahead of what can be flown (tiers 1-3 against tiers 5-6).
     proof = [n for n in N.values() if n['tier'] in (1, 2, 3)]
@@ -78,13 +86,19 @@ def main():
 
     outcomes = [n for n in N.values() if n['tier'] in (6, 7)]
     gates = collections.Counter(n['binding_gate'] for n in outcomes)
+    runner = collections.Counter(n.get('runner_up_gate') for n in outcomes)
     f['outcome_gates'] = {'total': len(outcomes), 'counts': dict(gates.most_common()),
-                          'cognition': sum(v for k, v in gates.items() if k in ('cognitive', 'cognition', 'math', 'formalization'))}
+                          'cognition': sum(v for k, v in gates.items() if k in THINKING),
+                          'runner_up': dict(runner.most_common()),
+                          'runner_up_thinking': sum(v for k, v in runner.items() if k in THINKING),
+                          'launch': gates.get('launch-internal', 0) + gates.get('launch-external', 0)}
 
-    def share(ns, s, key):
-        return round(100 * sum(RANK[n[key][s]] >= 2 for n in ns) / len(ns))
-    f['physical_share'] = {s: {'2031': share(phy, s, 'band_2031'), '2035': share(phy, s, 'band_2035')} for s in SCEN}
-    f['cognitive_share'] = {s: {'2031': share(cog, s, 'band_2031'), '2035': share(cog, s, 'band_2035')} for s in SCEN}
+    def share(ns, s, y):
+        return round(100 * sum(RANK[band_at(n, s, y)] >= 2 for n in ns) / len(ns))
+    f['physical_share'] = {s: {'2031': share(phy, s, 2031), '2035': share(phy, s, 2035)} for s in SCEN}
+    f['cognitive_share'] = {s: {'2031': share(cog, s, 2031), '2035': share(cog, s, 2035)} for s in SCEN}
+    # How far one rating change moves a share: one node out of each denominator, in percentage points.
+    f['one_node_pts'] = {'cognitive': round(100 / len(cog), 1), 'physical': round(100 / len(phy), 1)}
 
     am = []
     for i, s in enumerate(['S1', 'S2', 'S3']):
@@ -92,19 +106,31 @@ def main():
         think = [sp[i] for _, _, k, sp in AMDAHL if k == 'think']
         am.append({'scenario': s, 'length': round(length, 3), 'shorter_pct': round(100 * (1 - length)),
                    'speedup': round(1 / length, 1), 'think_min': min(think), 'think_max': max(think)})
+    # The hero's range: thinking a third of the path at 5 to 10x faster, the rest 10 to 20% faster (review IC-1).
+    ts = sum(sh for _, sh, k, _ in AMDAHL if k == 'think')
+    rng = [round(1 / (ts / t + (1 - ts) / d), 1) for t, d in ((5, 1.1), (10, 1.2))]
     f['amdahl'] = {'rows': [{'activity': a, 'share': sh, 'kind': k, 'speedup': sp} for a, sh, k, sp in AMDAHL],
-                   'scenarios': am, 'think_share': sum(sh for _, sh, k, _ in AMDAHL if k == 'think')}
+                   'scenarios': am, 'think_share': ts, 'hero_range': rng}
+
+    # How far the AI path moves the outcomes (tiers 6 and 7), Plateau to Exponential, in years
+    sh = [sum(yr(n, 'S1') - yr(n, 'S2') for n in outcomes if n['tier'] == t) / sum(1 for n in outcomes if n['tier'] == t) for t in (6, 7)]
+    f['outcome_shift'] = [round(min(sh), 1), round(max(sh), 1)]
+    ev = N['physclock-credibility-evidence-standard']
+    f['evidence_rule'] = {'year': ev['earliest_year']['S2'], 'medium': ev['odds_by']['S2']['medium'],
+                          'band_2031': ev['band_2031']['S2'], 'band_2035': ev['band_2035']['S2']}
 
     cards = []
     for nid, fig in CARDS:
         n = N[nid]
         cards.append({'id': nid, 'figure': fig, 'title': n['title'], 'branch': n['domain'], 'gate': n['binding_gate'],
-                      'year': n['earliest_year'], 'band_2031': n['band_2031'], 'band_2035': n['band_2035']})
+                      'runner_up': n.get('runner_up_gate'), 'year': n['earliest_year'], 'odds_by': n['odds_by'],
+                      'band_2031': n['band_2031'], 'band_2035': n['band_2035']})
     f['cards'] = cards
 
     json.dump(f, open(OUT, 'w'), indent=1)
     s2 = f['clock_curve']['S2']
-    print('S2 2028', s2[2], 'peak', f['gap_peak'])
+    print('S2 curve', [(r['year'], r['cognitive'], r['physical']) for r in s2])
+    print('peak', f['gap_peak'], '\nsecond stat', f['second_stat'], '\nsteps', f['curve_steps'])
     print('proved vs flown', f['proved_vs_flown'])
     print('gates', f['outcome_gates'])
     print('physical', f['physical_share'], '\ncognitive', f['cognitive_share'])

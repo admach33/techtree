@@ -1,0 +1,1245 @@
+{
+ "notes": "R9 WS1/WS5 branch review: certification",
+ "update": [
+  {
+   "id": "physclock-regulator-ai-capacity",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Agency procurement and adoption bind; access to controlled and export-restricted data for AI review (data) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2028, Medium 2029: agency procurement needs a year after the first credible pilot (FDA Elsa precedent). Regulator cap keeps it Medium through 2035. S1 Medium 2030."
+   }
+  },
+  {
+   "id": "struct-test-data-commons",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Organizational adoption binds; the curation of legacy test records with known uncertainty (data) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2028 (the incentive is strong and organizing existing evidence is cheap), High 2029 when it is standard at large organizations. S1 Medium 2030, High 2032."
+   }
+  },
+  {
+   "id": "physclock-range-airspace-scheduling",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2030",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "regulatory",
+    "gate_note": "FAA and Space Force acquisition binds; integration with FAA air-traffic systems and airspace rules (regulatory) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Medium 2030: federal acquisition takes about two years from the first credible pilot; S3 equals S2 on an institutional clock. Regulator cap keeps it Medium. S1 Medium 2031."
+   }
+  },
+  {
+   "id": "physclock-optimal-test-campaigns",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Per-campaign adoption binds; running the redesigned campaigns (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2028, Medium 2029, High 2030: development-test design changes campaign by campaign; S3 High 2029. S1 Medium 2030, High 2034 behind capability-engineering-adoption."
+   }
+  },
+  {
+   "id": "struct-certified-uq-margins",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Validation data for model-form error binds; the open model-form and rare-event math (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2028, Medium 2029, High 2030: methods arrive in 2028, use on a flight structure a year later. S1 Medium 2031, High 2034."
+   }
+  },
+  {
+   "id": "struct-shm-inverse-limits",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Seeded-defect specimen data binds; quantitative stability and detection statistics (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2029, High 2031 because seeded-defect campaigns on cryogenic composite tanks are slow; S3 High 2030 with autonomous labs. S1 Medium 2031 and stays Medium."
+   }
+  },
+  {
+   "id": "struct-worst-imperfection-theory",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Research-grade shell theory binds; measured imperfection spectra (data) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2028, Medium 2029, High 2030: a genuinely research-grade result is credible in 2028 but needs a year to be checked; S3 High 2029 with near-free cognition. S1 High 2034."
+   }
+  },
+  {
+   "id": "materials-allowables-stats-framework",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Handbook-committee acceptance binds; lot-to-lot variability from separate heats (data) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030, a year after the first credible coordination-group approval; S3 2029. Medium cap holds. S1 Low only."
+   }
+  },
+  {
+   "id": "materials-multiscale-certified",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Open multiscale analysis (cognitive) binds; proving the bounds in a checkable form (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030, High 2033 as one engineering class gets a usable certified bound; S3 Medium 2029, High 2032 because the gate is cognitive and S3's research is near-free. S1 Low 2034."
+   }
+  },
+  {
+   "id": "physclock-credibility-evidence-standard",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Regulator acceptance binds; the evidence base of independent checks and statement audits (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030, a year after the first credible interim directive or handbook (2029); S3 2029. Medium cap: no space revision naming AI analysis is open. S1 Medium 2033."
+   }
+  },
+  {
+   "id": "struct-midfreq-vibroacoustics",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Chamber and flight data with stated uncertainty bind; error estimators for hybrid methods (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030. S3 High 2034 (not 2033): validated hybrid methods need reverberant-chamber and flight data that facilities pace. S1 Medium 2034."
+   }
+  },
+  {
+   "id": "struct-verified-fe-solvers",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Formal toolchain maturity binds; solver vendors shipping proof-carrying bounds (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030, High 2033 as formal toolchains mature; S3 High 2032 because formalization is cognitive work. S1 Medium 2034."
+   }
+  },
+  {
+   "id": "materials-am-defect-physics",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Paired sensor, CT and fatigue data bind; builds, CT scans and fatigue rigs (experiment) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030. S3 High 2034, tied to the next blind AM-Bench-style challenge after 2031. S1 Medium 2033."
+   }
+  },
+  {
+   "id": "struct-damage-tolerance-physics",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Coupon-to-subcomponent tests bind; AI physics theory for damage closures (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2031, a year after the first credible closure, since each must survive months of load-spectrum testing; S3 2030. S1 Low 2034 only."
+   }
+  },
+  {
+   "id": "struct-agentic-analysis-workflows",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Adoption by analysis groups binds; research-grade applied math reaching outside teams (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2027 at vertically integrated firms, High 2028 as the downstream chain assumes (primes 6-12 months later). S1 a year later."
+   }
+  },
+  {
+   "id": "physclock-ai-flight-safety-analysis",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "One operator's adoption binds; on-demand applied math (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2027, Medium 2028, High 2029: one adopter suffices, but license analyses are prepared on application cycles. S1 Medium 2030, High 2034."
+   }
+  },
+  {
+   "id": "physclock-ai-mishap-analysis",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Hardware reproduction tests bind; searching the cause space (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2027, Medium 2028, High 2029: the speed-up shows only when an ambiguous anomaly occurs, so the odds build over one or two investigations. S1 Medium 2030, High 2034."
+   }
+  },
+  {
+   "id": "physclock-ai-run-test-stands",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Retrofit capital binds; test-article build, propellant logistics and hazardous-operations setup (experiment) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030, High 2033 as retrofits spread on capital cycles; S3 High 2031. S1 Medium 2031."
+   }
+  },
+  {
+   "id": "struct-shell-knockdown-rules",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Standards and handbook revision binds; validation tests on representative shells (experiment) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Medium 2030, a year after the earliest program citation, since commercial programs can cite probabilistic knockdowns before a handbook revision. Medium cap holds. S1 Medium 2033."
+   }
+  },
+  {
+   "id": "materials-am-digital-twin-qual",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "NASA and customer acceptance binds; paired build data behind the defect-physics model (data) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2031, a year after the first credible acceptance and after its rulebook and allowables parents reach Medium in 2030. Medium cap holds."
+   }
+  },
+  {
+   "id": "physclock-qual-by-analysis-credit",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "regulatory",
+    "gate_note": "Mission-assurance acceptance of environmental credit binds; the regulator-side rulebook (regulatory) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2033, one year after its structural precedent reaches Medium in 2032; S3 2031, one year after its 2030 precedent. Medium cap holds. Skeptic (protoflight practice already covers most derivatives, little to gain) vs advocate (SDA and Class C/D buys move fast): chain-dated."
+   }
+  },
+  {
+   "id": "struct-cert-by-analysis",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Agency acceptance binds; correlated heritage test data and certified UQ validation (data) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3 Medium 2030 (rulebook Medium 2029 plus a test-plan milestone); S2 Medium 2032: its rulebook reaches Medium in 2030 and the re-scoped step (credit at standard factors and for composites) is harder than today's allowances. Medium cap. Skeptic (2034: few test-plan milestones) vs advocate (2031: SDA buys): 2032."
+   }
+  },
+  {
+   "id": "struct-launch-env-margins",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Provider and agency acceptance binds; forcing data from flights (data) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2034, late because providers have little incentive to publish tighter environments and the gain is on new vehicles with sparse data; S3 2030. Medium cap. Skeptic (high-cadence providers never need the models) vs advocate (several new vehicles 2030-34): 2034."
+   }
+  },
+  {
+   "id": "struct-shm-inspection-credit",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Sensor qualification under thermal-cryogenic aging binds; an operator choosing and disclosing data-set intervals (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Medium 2031, a year after the first credible operator use; sensor aging qualification does not speed up in S3. S1 Medium 2034."
+   }
+  },
+  {
+   "id": "struct-flown-lighter-structure",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Build and validation test of a flight article binds; the builder adopting and attributing an AI-sized design (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3 Medium 2031 (its 1.3-1.5x physical speed); S2 Medium 2032, one build cycle behind at 1.1-1.3x. S1 Low 2033."
+   }
+  },
+  {
+   "id": "physclock-licensing-in-weeks",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2030",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Regulator review capacity binds; operators filing AI-drafted envelope analyses (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Medium 2030, a year after regulator AI capacity reaches Medium, so published median times can show the effect. Regulator cap holds. S1 Medium 2031."
+   }
+  },
+  {
+   "id": "struct-reusable-life-management",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-internal",
+    "gate_note": "Fleet experience from life data binds; the operator's own flight count (launch-internal) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3 Medium 2031; S2 Medium 2032, a year after its inspection-credit parent and once Starship flights per stack reach double digits. Skeptic (two Medium parents and disclosure) vs advocate (flight counts grow fast): 2032. S1 Low 2033."
+   }
+  },
+  {
+   "id": "struct-design-cycle-compression",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Industry-wide adoption binds; analysis agents' capability (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2029 (industry-wide 2-5x follows vertically integrated firms by 6-12 months), High 2030. S3 High 2029. S1 Medium 2031, High 2034."
+   }
+  },
+  {
+   "id": "physclock-qual-cycle-compressed",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "regulatory",
+    "gate_note": "Qualification physics (thermal-vacuum dwells, creep hours) binds; analysis credit acceptance (regulatory) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3 Medium 2031; S2 Medium 2034, a year after analysis credit reaches Medium in 2033, for programs to report. Skeptic (signpost needs government programs to report) vs advocate (gate table puts typical campaigns past 15% by 2035): 2034."
+   }
+  },
+  {
+   "id": "materials-qual-cycle-compression",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Material qualification binds; real-time creep, fatigue and oxidation tests (experiment) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3-S4 Medium 2034: three programs started 2027 or later flying within five years is a coin flip by 2035, so 30% comes a year earlier. S2 stays Low."
+   }
+  },
+  {
+   "id": "struct-structural-mass-step",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Qualification of new designs binds; new designs started after 2028 and their disclosure (adoption) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3-S4 Medium 2033, two years after the first flown structure reaches Medium (2031), when several post-2028 designs fly. S2 Low 2033."
+   }
+  },
+  {
+   "id": "physclock-commercial-analysis-first-qual",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "An operator's decision to skip tests binds; the 12-18 month build of the new subsystem (fabrication) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030, High 2033 as analysis-led qualification becomes common at AI-native builders; S3 High 2031. No cap (operator accepts its own risk). S1 Medium 2033."
+   }
+  },
+  {
+   "id": "physclock-reliability-priors-credit",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "regulatory",
+    "gate_note": "Certifier acceptance of model priors binds; the credibility rulebook (regulatory) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3 Medium 2030; S2 Medium 2033, three years after its rulebook, because certifiers already accept two-flight certification with insight and the next step is small and slow. Medium cap."
+   }
+  },
+  {
+   "id": "physclock-space-risk-models",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Sparse proprietary failure data binds; insurers adopting the models (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030, High 2033 after a few underwriting cycles; S3 a year earlier on each. S1 Medium 2033."
+   }
+  },
+  {
+   "id": "physclock-space-insurance-capacity",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Market capacity and reinsurance appetite (capital) bind; underwriters trusting the models (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium S2 2034, S3-S4 2033: one disclosed model-priced program is a coin flip by 2035, so 30% is reached a year or two earlier. S1 Low 2034."
+   }
+  },
+  {
+   "id": "physclock-production-acceptance-by-model",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Fleet early-life data binds; the operator adopting sampled acceptance (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030, High 2033 as several lines build thousands of satellites a year; S3 High 2031. S1 Medium 2033."
+   }
+  },
+  {
+   "id": "struct-35-test-standards-codify-ai-credit",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Standards revision cycles bind; precedent programs with credit (adoption) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3-S4 Medium 2034: ECSS-E-ST-10-03 is due about 2032 and takes about 19 months to publish. S2 Low 2033. Medium cap."
+   }
+  },
+  {
+   "id": "struct-35-gov-new-design-analysis-qual",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "A government mission-assurance signature binds; appropriations-bound tranche and mission calendars (capital) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3-S4 Medium 2034: derivative credit reaches Medium in 2031, then a new design at its test-plan milestone and a 12-18 month build. S2 Low 2033. Medium cap."
+   }
+  },
+  {
+   "id": "struct-35-crewed-structure-analysis-credit",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Human-rating acceptance binds; a crewed program choosing to delete a strength test at CDR (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3-S4 Low 2034 only; S2 Speculative through 2035 (its earliest year 2035 is not yet 10% likely). Medium cap not reached."
+   }
+  },
+  {
+   "id": "struct-35-qual-campaigns-30pct-shorter",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": "2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": "2034",
+      "high": "2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Test physics and robot-line requalification (qualification) bind; firms accepting analysis in place of tests (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S4 Medium 2034, High 2035 at robot-first firms (typical S4 programs 33-42% shorter by 2035); S3 Medium only in 2035 because leading firms reach 30% at the top of their range and must disclose. S2 Low 2035."
+   }
+  }
+ ]
+}

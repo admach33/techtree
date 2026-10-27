@@ -1,0 +1,1187 @@
+{
+ "notes": "R9 WS1/WS5 branch review: safe-orbits",
+ "update": [
+  {
+   "id": "astro-nbody-transport-proofs",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "System-specific diffusion and escape theorems (cognitive) bind; validated interval computation behind each computer-assisted proof (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2028, Medium 2029, High 2030: one computer-assisted proof took a group years, so a library for operational orbit families needs two research cycles after public models; S3 High 2029. S1 Medium 2030, High 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-nbody-arnold-diffusion",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "High-order normal forms with realistic constants (cognitive) bind; interval-arithmetic checking of those computations (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (S2 2030, S3 2029), not in it: 1-2 capability doublings plus heavy computation. High S2 2033, S3 2032 (was 2034 for both). S1 unchanged. Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-cislunar-od-uq",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Faint targets and few cislunar sensors (data) bind; methods that keep custody with fewer observations (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Low 2028, Medium 2029, High 2030: methods follow certified non-Gaussian UQ (2028-29); data-bound, so S3 equals S2. S1 Medium 2031, High 2034. Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-coordination-protocols",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Designing multi-agent protocols under timing, loss and asymmetric information (cognitive) binds; machine-checking them (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Low and Medium 2028, High 2029: discrete protocols formalize well, so proofs appear with public models plus the formal astrodynamics library, but High waits a year. S1 Medium 2030, High 2034 (formal astrodynamics library S1 High 2034). Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-nav-filter-guarantees",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Bespoke filter-consistency and fault-detection proofs (cognitive) bind; checking them against the formal astrodynamics library (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2028, Medium 2029, High 2030; S3 High 2029. Proofs for weak-signal lunar geometry take a research cycle after public applied math. S1 Medium 2031, High 2034 (applied math S1 High 2034). Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-nongaussian-uq-certified",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Rigorous Pc error bounds (cognitive) bind; entry into an operational screening tool (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Low 2028, Medium 2029, High 2030: the band scores methods entering at least one operational tool, which takes a year or two after the methods; S3 equals S2. S1 Medium 2031, High 2034 (applied math S1 High 2034). Bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-swx-data-assimilation",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Sparse heliospheric observations (data) bind; ensemble filter design and CME feature alignment (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Low 2028, Medium 2029, High 2030: on-demand applied math from 2027-28 builds the system, and an assimilative ensemble in use takes one to two years; data-bound, so S3 equals S2. S1 Medium 2030, High 2034 (applied math S1 High 2034). Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-stability-atlas",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "New theory for decade-scale chaotic regimes (cognitive) binds; verified numerics over those horizons (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030 (was 2029, the earliest year) and High 2032 (was 2034): the atlas lands a year after the transport proofs (S2 Medium 2029, High 2030). S3 Medium 2029, High 2030 (was 2029). S1 unchanged. Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-debris-evolution-models",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Fragmentation and launch-rate inputs (data) bind; stability thresholds of source-sink models (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Low 2028, Medium 2029, High 2030: proven thresholds with quantified uncertainty follow public applied math by one to two research cycles; S3 equals S2. S1 Medium 2031, High 2034. Bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-thermo-density-uq",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Proprietary attitude, thrust and maneuver logs (data) bind; joint density and ballistic-coefficient estimation (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2029, Medium 2030, High 2031 (was all 2029): methods 2028, an operational product with data access 2029, and calibration over a year of use. S3 a year earlier. S1 Medium 2031, High 2034. Bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-eruption-onset-theory",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Instability-onset theory and coronal-field inversion (cognitive) set the year; observational data cap how much skill is reached and are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Binding gate data -> cognitive: the node text says the data gate binds how much skill is achievable, not whether progress happens, and the S1 year follows its physics theory, so cognition sets the year. Medium a year after the earliest year (S2 2031, S3 2030). S1 unchanged. Bands unchanged.",
+    "binding_gate": "cognitive"
+   }
+  },
+  {
+   "id": "astro-trajectory-design-on-demand",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Flight-dynamics teams trusting agent designs (adoption) binds; the units, boundary-condition and debugging failures seen in GTOC 12 (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Low 2027, Medium 2028, High 2029 (was all 2027): HELIOS-class tools exist, but routine use needs a year of trust-building; adoption-bound, so S3 equals S2. S1 Medium 2029, High 2031. Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-catalog-scale-screening",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Formal verification of production propagator, filter and Pc code binds; the certified Pc methods it rests on (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030, High 2031 (was all 2029): verification takes at least a year after certified Pc and verified numerics (2028) and agent-written formalizations need audit. S3 High 2030. S1 unchanged. Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-autonomous-nav-demo",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Lunar flight opportunities (launch-external) bind; one team choosing to fly the integrity monitor and say so (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Medium 2030 (was 2029, the earliest year): guarantees 2028 plus about 12 months of software puts the 2029 interoperability tests at the edge. High 2033 (was 2034) as Moonlight reaches full operations and base traffic grows. S1 unchanged. Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-ai-designed-trajectory-flown",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2032",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2031",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Customer launch access binds; flight-dynamics teams accepting agent-designed baselines (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): R9-launch values kept: Medium 2031 and High 2033 track customer launch access (Launch Keystone v1.3). S2 earliest year 2029 -> 2030, forced by the hard prerequisite physclock-customer-launch-access (S2 2030) added in R9-launch.",
+    "earliest_year": {
+     "S2": "2030"
+    }
+   }
+  },
+  {
+   "id": "plasma-radbelt-charging-forecast",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Agency research-to-operations and operator uptake (adoption) bind; calibrated physics-coupled forecast methods (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030 (was 2029), High 2033 (was 2034): a pre-operational SWPC or ESA product 2029, then an operator or insurer procedure citing it. S3 Medium 2029, High 2031 (was 2028, the earliest year). S1 unchanged. Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-autonomous-ca-at-scale",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "A shared protocol agreed and rolled out across operators (adoption) binds; certified catalog-scale screening (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2032 (seed 2033): a bilateral maneuver-intent agreement does not need a standards body, and S3 gains only a year on guarantees and rollout, so S2 trails S3 (Medium 2031, was 2030) by one year. Skeptic (free Stargaze screening makes formal guarantees optional, 2034) against advocate (informal bilateral coordination already exists, 2031): 2032. Bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-cme-arrival-skill",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "The event-count clock (data) binds; background-solar-wind modeling and CME reconstruction (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2033 (seed 2033, rechecked as the node asks): methods 2028 and events through the 2028-30 decline give 2031 at the earliest, but if 8 h is not shown by then, the next 40 events fall near solar minimum and take about three years. S3 Medium 2031 (was 2030, the earliest year). Bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-storm-robust-leo-ops",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Operator and catalog adoption binds; storm-driver forecasts and the need for a G4+ test storm (data) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2031 (was 2030, the earliest year): adoption takes 1-2 years after the 2029-30 density product. High S2 2034, S3 2033 as Cycle 26 supplies a test storm. S1 unchanged. Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-cislunar-traffic-management",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-external",
+    "gate_note": "A funded operator (capital) binds; space-based cislunar sensors that must fly (launch-external) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2033: a basic service needs a funded operator and sensors that AI math does not supply, and demand grows with the lunar surface base (S2 Medium 2033). Skeptic (Gateway paused, civil SSA funding cut, 2034) against advocate (a military service on Oracle-Prime-class sensors, 2032): 2033. S3 Medium 2031 (was 2030, the earliest year). S1 unchanged. Bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-vleo-at-scale",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-external",
+    "gate_note": "Capital for sub-300 km fleets binds; launch for customers (launch-external) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3/S4 Medium 2031 (was 2030, the earliest year): capital, production and launch take more than the first year. S2 and S1 Low only (Cycle 26 drag). Bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-bz-forecast",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Observations and the real-time event count (data) bind; source-region chirality and orientation methods (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: Low from S2 2034 and S3 2033, never Medium; S1 Speculative."
+   }
+  },
+  {
+   "id": "astro-capacity-licensing",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Rulemaking (regulatory) binds; defensible debris-evolution inputs (data) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Medium 2034 (seed 2033): Medium needs an aggregate-risk NPRM or a license condition by about 2032, and an order takes two more years at 1.0x politics; the 2026 FCC moved toward faster licensing instead. Skeptic (2035) against advocate (another national regulator acts first, 2032): 2034. Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-leo-safety-at-scale",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Small-debris sensors (data) bind; cross-operator coordination and non-cooperating operators (adoption) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3/S4 Medium 2034 (seed 2033): all three hard prerequisites reach Medium in 2031, and the evidence needs two semiannual reports, so the joint odds pass 30% around 2034. Skeptic (fleet growth outpaces screening) against advocate (Cycle 26 drag clears lower shells): 2034. S2/S1 Low only. Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-small-debris-catalog",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Sensors and data sharing (data) bind; associating uncorrelated tracks and orbit determination at 10^5-10^6 scale (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2032 (seed 2033): sensors are the same in S2 and S3 and S3 is a year earlier only on association, so S2 trails S3 (Medium 2031, was 2030) by one year. Skeptic (no 100,000-object catalog seven years after Kiwi, TraCSS cut, 2034) against advocate (existing radars detect more than is catalogued, 2031): 2032. Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-constellation-hosted-ssa",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "SpaceX choosing to publish realism statistics and share data (adoption) binds; covariance-realism validation and too-short-arc orbit determination (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2029 (was 2028, the earliest year), High 2033; S3 Medium 2029, High 2031 (was 2028). S1 unchanged. Bands unchanged."
+   }
+  },
+  {
+   "id": "plasma-side-view-monitors",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Vigil's Ariane 6 secondary-passenger launch (launch-external) binds; funding of full implementation after the 2028 CDR (capital) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: Low 2033 (quasi-nominal operations on plan), Medium 2034, never High. Skeptic (ESA missions slip a year or two at this stage) against advocate (an operational Space Safety mission with NOAA partnership): Medium 2034."
+   }
+  },
+  {
+   "id": "astro-multitarget-track-fusion-certified",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Scaling and checking Lagrangian gap certificates (cognitive) binds; real proliferated-scene sensor data (SDA tranches, Stargaze) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2028, Medium 2029, High 2030; S3 High 2029. One year of adoption after public applied math gives the earliest year, and routine use at proliferated scale takes one more. S1 Medium 2031, High 2034 (applied math S1 High 2034). Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-proliferated-tracking-custody",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Defense acquisition and classification (adoption) bind; certified fusion methods (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: Low from S2 2030, S3 2029, S1 2033; never Medium because classification limits public attribution."
+   }
+  },
+  {
+   "id": "astro-noncooperative-capture-envelopes",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Contact-model validation on testbeds and in flight (experiment) binds; estimation bounds, reachability and detumble proofs (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Medium 2030 (was 2029, the earliest year): a removal operator must put the tools in a safety case after a testbed campaign. High 2033 (was 2034) as removal missions fly 2027-35. S1 unchanged. Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-adr-large-object-removed",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Launch of the funded missions binds; capturing an unprepared object for the first time (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): All scenarios Low 2028, Medium 2029, High 2030 (was all 2028): with four first tries from three companies 2027-29 at roughly 40-60% each by end-2031, the combined odds pass 70% around 2030, not in the first launch year. Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-35-cm-debris-custody",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Revisit and sensitivity at slant range (data) bind; money for more 2 cm-capable sites (capital) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: Low from S2 2035 and S3 2034, never Medium; S1 beyond 2035."
+   }
+  },
+  {
+   "id": "astro-35-adr-recurring-service",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Payers (capital) bind; servicers built in series (fabrication) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): All scenarios Medium 2032 (seed 2033): three removals in one year is possible from 2030, and the typical two-year slip of removal missions puts 30% at 2032; about even odds by 2035. Skeptic (payers beyond SDA are thin) against advocate (SDA options and Starfish series production): 2032. Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-35-cross-bloc-coordination",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Government decisions on both sides (regulatory) bind; Western machine-to-machine coordination in operation (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: Low from 2033 in S2-S4, never Medium; S1 beyond 2035. Politics runs at 1.0x."
+   }
+  },
+  {
+   "id": "astro-35-l5-storm-arrival-forecast",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-external",
+    "gate_note": "The event-count clock with Vigil side views (data) binds; Vigil's launch date (launch-external) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: Low 2035 in S2-S4 only, never Medium; a year of Vigil slip moves the node beyond 2035."
+   }
+  },
+  {
+   "id": "astro-35-lunar-nav-certified-service",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Lunar launches through customer access (launch-external) bind; a provider adopting machine-checked bounds and three missions using it (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: S3/S4 Low 2032, Medium 2034 (joint odds of the surface base, Moonlight on schedule and a provider adopting bounds); S2 Low 2033 only. Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-35-adr-at-scale",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Payers and their budgets (capital) bind; multi-client servicers built in series (fabrication) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: Low from S2 2035 and S3 2034, never Medium; S4 equals S3 (labor is a small share of cost per removal)."
+   }
+  },
+  {
+   "id": "astro-35-hosted-cm-debris-sensing",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "An operator choosing to fly debris cameras (adoption) binds; associating millions of too-short arcs a day (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: Low 2033 in S2-S4 (no payload announced, so the S3 earliest year 2032 is under 10%), never Medium; S1 beyond 2035."
+   }
+  }
+ ]
+}

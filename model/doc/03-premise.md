@@ -11,7 +11,7 @@ Three features of that record matter for space.
 The model turns the premise into four scenarios. The first three differ in how fast the length of task an AI can complete grows; the fourth adds robots.
 
 - **Plateau** (S1) is the framework's default view. Capability keeps improving, but slowly: the task horizon doubles every 12–18 months, and research-grade mathematics reaches outside teams only in 2028.
-- **Exponential** (S2) is the base case and the premise under test. The task horizon doubles every 6–9 months, close to the long-run trend measured on software tasks. Research-grade mathematics reaches outside teams in 2027.
+- **Exponential** (S2) is the central scenario and the premise under test. The task horizon doubles every 6–9 months, close to the long-run trend measured on software tasks. Research-grade mathematics reaches outside teams in 2027.
 - **Recursive** (S3) adds AI that speeds up its own research from 2028. After that, cognitive work is close to free.
 - **Embodied** (S4) is Recursive cognition plus general-purpose robots at scale, about 6 million in service by 2031 and 60 million by 2035, including robots that help build robots. Exponential and Recursive assume a slow robot path, about 1.4 million by 2031 and 4.6 million by 2035. Plateau runs about a year behind that, because its cognition lags. Section 4 sets out the Embodied case.
 

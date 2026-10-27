@@ -8,7 +8,7 @@ import json, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from build_page import COPY  # noqa: E402  (card copy: wonder titles and the flight-code cost per scenario)
 
-GRAPH = 'graph-v8.json'
+GRAPH = 'graph-v9.json'
 OUT = 'share/data/tree.json'
 SCEN = ['S1', 'S2', 'S3', 'S4']
 RANK = {'Speculative': 0, 'Low': 1, 'Medium': 2, 'High': 3}
@@ -50,7 +50,7 @@ def year(v):
     return LATER if v.startswith('>') else int(v)
 
 
-READER = {'S1': 'Plateau', 'S2': 'the base case', 'S3': 'Recursive', 'S4': 'Embodied'}
+READER = {'S1': 'Plateau', 'S2': 'the central scenario', 'S3': 'Recursive', 'S4': 'Embodied'}
 
 
 WEAK_END = {'a', 'an', 'the', 'of', 'to', 'and', 'or', 'by', 'for', 'in', 'on', 'at', 'with', 'from', 'as', 'than', 'that', 'its', 'is', 'are', 'be'}
@@ -88,8 +88,9 @@ def main():
         nodes.append({
             'id': k, 't': n['title'], 'l': lane_of[k], 'k': 1 if n['tier'] >= 5 else 0, 'tier': n['tier'],
             'y': [year(n['earliest_year'][s]) for s in SCEN],
-            'a': [RANK[n['band_2031'][s]] for s in SCEN], 'b': [RANK[n['band_2035'][s]] for s in SCEN],
-            'g': n['binding_gate'], 'd': first_sentence(n['description'], None if w else 320),
+            # odds rank for each year 2026..2035, one digit a year (0 Speculative .. 3 High), per scenario
+            'o': [''.join(str(RANK[b]) for b in n['band_by_year'][s]) for s in SCEN],
+            'g': n['binding_gate'], 'r': n.get('runner_up_gate'), 'd': first_sentence(n['description'], None),  # full sentence (MO-5)
             **({'w': w[0], 'img': w[1], 'wt': [COPY[k].get('title_by', {}).get(s, COPY[k]['title']) for s in SCEN],
                 **({'wb': [COPY[k]['to'][s] for s in SCEN]} if 'to' in COPY[k] else {})} if w else {}),
         })

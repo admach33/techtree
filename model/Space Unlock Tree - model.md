@@ -7,7 +7,7 @@ Model documentation for the paper · as of 7 October 2026 · companion to the in
 ## Bottom line
 
 - **The release matters to space for what it shows a machine can do.** That is research-grade mathematics on request, and machine-checked proofs at scale. The 372 result families barely touch spacecraft. In the hardware tiers (5–7), only 2 nodes rated Medium or better by 2035 cite a family (“Reflight cleared by data, not teardown”, family 372: manuscript-only, T1 and conditional; “Air-breathing electric propulsion flight test”, family 363, 364: manuscript-only, T1 and conditional), and only as supporting theory.
-- **If the capability keeps compounding (the Exponential base case), the cognitive half of space engineering changes fast.** By about 2028 these become routine, each rated High:
+- **If the capability keeps compounding (the Exponential case, our central scenario), the cognitive half of space engineering changes fast.** By about 2028 these become routine, each rated High:
   - on-demand applied mathematics in space engineering;
   - guaranteed error bars for smooth-regime simulations;
   - verified flight code, 15–120x cheaper per line on the model's cost assumptions;
@@ -19,12 +19,12 @@ Model documentation for the paper · as of 7 October 2026 · companion to the in
 
   | Scenario | By 2031 | By 2035 |
   | --- | --- | --- |
-  | Plateau | 14% | 35% |
-  | Exponential | 32% | 57% |
+  | Plateau | 14% | 37% |
+  | Exponential | 33% | 58% |
   | Recursive | 42% | 69% |
   | Embodied (robots added) | 44% | 74% |
 
-  The robots branch counts toward these shares. Leave it out, and Embodied and Recursive are level by 2031 (44% against 44%). By 2035, Embodied leads by only a few points (74% against 71%).
+  The robots branch counts toward these shares. Leave it out, and Embodied and Recursive are level by 2031 (44% against 44%). By 2035, Embodied leads by only a few points (74% against 72%).
 
   New programs get about 20–30% shorter by 2031 and about a third shorter by 2035. Even with unlimited cognition and robots, a program gets no more than about 70–73% shorter by 2035, roughly 3.5x faster, far from 10x.
 - **The first hardware effects land around 2029–30, where no regulator certifies the work.** Examples are proof-checked software on landers and constellations, hardware qualified mainly by analysis at commercial operators, model-based engine reuse life and AI-designed trajectories. Each is Medium by 2031 except trajectories (High).
@@ -49,7 +49,7 @@ Model documentation for the paper · as of 7 October 2026 · companion to the in
 
 So "2030 (Low / Medium)" means the node could happen as early as 2030. It has roughly a 10–30% chance by the end of 2031 and a 30–70% chance by the end of 2035.
 
-A node counts as **unlocked** in a year once that year has arrived and the node is rated High or Medium at the next checkpoint: end-2031 for years through 2031, end-2035 after. In the robots branch, years follow the base robot path while bands also weigh the faster path. A robot node dated after 2031 can therefore still be Low by 2031. Every table, node count and node date here is generated from the model graph. Figures quoted in the prose come from the graph's node and domain notes. Appendix A lists the figures a writer is likeliest to quote, with their status.
+A node counts as **unlocked** in a year once that year has arrived and its odds for that year are High or Medium. Odds are rated for every year from 2026 to 2035: each node records the first year they reach Low, Medium and High. In the robots branch, years follow the base robot path while odds also weigh the faster path, so a robot node can be Low before its listed year. Every table, node count and node date here is generated from the model graph. Figures quoted in the prose come from the graph's node and domain notes. Appendix A lists the figures a writer is likeliest to quote, with their status.
 
 **How to use this document.** The argument is in this bottom line and sections 1–8.
 
@@ -64,9 +64,9 @@ The interactive Space Unlock Tree shows the same graph with a four-way scenario 
 
 ## 1. What was modeled, and how
 
-The model asks one question of space technology. If AI keeps getting better at research mathematics, and then gets robot hands, which problems become solvable, and what does each solution unlock further down the line? The answer is a skill tree of 478 nodes joined by 694 hard and 1035 soft dependencies, organized in 13 branches.
+The model asks one question of space technology. If AI keeps getting better at research mathematics, and then gets robot hands, which problems become solvable, and what does each solution unlock further down the line? The answer is a skill tree of 482 nodes joined by 707 hard and 1040 soft dependencies, organized in 13 branches.
 
-**Scope.** Space technology and development, including the physics and engineering disciplines that feed it, from October 2026 to the end of 2035. Likelihoods are judged at two checkpoints, the end of 2031 and the end of 2035.
+**Scope.** Space technology and development, including the physics and engineering disciplines that feed it, from October 2026 to the end of 2035. Likelihoods are judged for every year: each node records the first year its odds reach Low, Medium and High, and the end-2031 and end-2035 ratings are read off that series.
 
 **The trigger.** OpenAI's [openai/math](https://github.com/openai/math) release of 6 October 2026, from an unreleased model.
 
@@ -95,7 +95,7 @@ Every node carries, for each of the four scenarios, an **earliest credible year*
 - The earliest credible year is the first year the node is credibly achieved: a result proved, a tool in routine use, a first flight.
 - The two bands are the chance it happens by the end of 2031 and by the end of 2035.
 
-Each node also names its **binding gate** (the slowest thing between it and reality) and its **translation pathway**. It records the **trust tier** of any AI-math result it rests on, the causal chain behind its timing, the strongest case that its effect is small, and a signpost to watch. A node with an early year and a Low band could happen that early but probably will not by the checkpoint the band refers to. A node dated after a checkpoint is rated Speculative for that checkpoint, except in the robots branch, where years follow the base robot path and bands also weigh the faster path. Node tiers are written "tier 0" to "tier 7" throughout, to keep them apart from trust tiers (T1–T5).
+Each node also names its **binding gate** (the slowest thing between it and reality) and its **translation pathway**. It records the **trust tier** of any AI-math result it rests on, the causal chain behind its timing, the strongest case that its effect is small, and a signpost to watch. A node with an early year and a Low band could happen that early but probably will not by the year the band refers to. A node is rated Speculative for every year before its earliest year, except in the robots branch, where years follow the base robot path and odds also weigh the faster path. A node is never rated likelier by a year than any of its hard prerequisites. Node tiers are written "tier 0" to "tier 7" throughout, to keep them apart from trust tiers (T1–T5).
 
 **Edges.** A hard edge means the dependent node cannot be achieved before its prerequisite. A soft edge means the prerequisite speeds the dependent up but is not required. No node is dated earlier than any of its hard prerequisites in any scenario.
 
@@ -117,7 +117,7 @@ Each node also names its **binding gate** (the slowest thing between it and real
    - the physical clock.
 
    Each started from what its field actually spends mathematical effort on, not from the release's catalog, and searched current sources. Together they cited about 600 sources.
-2. *Integration.* Duplicate nodes were merged and cross-domain dependencies added. Timings were calibrated against a lag ladder for the base case, measured from design-complete rather than program start, to first flight:
+2. *Integration.* Duplicate nodes were merged and cross-domain dependencies added. Timings were calibrated against a lag ladder for the central scenario, measured from design-complete rather than program start, to first flight:
    - small satellite or derivative payload: 12–18 months;
    - new launch-vehicle subsystem: 2–3 years;
    - new engine: 4–6 years;
@@ -159,7 +159,7 @@ Each node also names its **binding gate** (the slowest thing between it and real
 1. In the Exponential and Recursive cases, the premise itself lifts many cognitive-tier nodes above their pathway default.
 2. A few hardware nodes are raised with stated reasons, such as commercial capsules that iterate in months.
 3. Exogenous launch anchors take their bands from industry forecasts.
-4. For frontier-mathematics nodes, the bands are the judged chances that the result is independently checked by each checkpoint.
+4. For frontier-mathematics nodes, the bands are the judged chances that the result is independently checked by each year.
 
 Two framework rules are kept:
 
@@ -180,7 +180,11 @@ A third rule would cap at Medium anything that depends on the internal model bec
   - cognitive: the mathematics or design itself;
   - formalization: making it machine-checkable;
   - adoption: organizations choosing to use it;
-  - data, experiment, fabrication, qualification, launch, regulatory or capital.
+  - launch-internal: launch on SpaceX's own manifest (Starlink, SpaceX's orbital compute, lunar-lander tankers and cargo, Mars), which sees SpaceX's internal cost;
+  - launch-external: launch bought by anyone else (outside orbital-compute operators, small lunar and cislunar missions, science missions, other constellations), which waits for customer access and pays customer prices;
+  - data, experiment, fabrication, qualification, regulatory or capital.
+
+  **The rule.** We assign each node the gate whose removal would move its earliest year the most in the central scenario (Exponential). The runner-up gate is the one whose removal would move it the next most. Ties go to the gate later in the physical chain (cognitive, formalization, data, experiment, fabrication, qualification, regulatory, capital, launch, adoption). Each node from tier 5 up records both gates and a one-clause note giving the ranking. Launch splits in two because, in Mach33's Launch Keystone, an activity can become viable for a provider using spare capacity on its own rocket before it becomes viable for a customer buying a flight.
 - *Exogenous* nodes, such as Starship reuse and launch cost, do not depend on AI mathematics. They are in the tree because AI-math nodes depend on them.
 - *General-purpose robots* are humanoids and mobile manipulators run by AI models that can do many tasks. Specialized automation (welding cells, tile installers, lab workcells) is already counted in the Exponential and Recursive cases.
 - *Robot-first firm* is a firm that redesigns its factory, test and integration lines around robots rather than adding robots to human lines.
@@ -210,7 +214,7 @@ Three features of that record matter for space.
 The model turns the premise into four scenarios. The first three differ in how fast the length of task an AI can complete grows; the fourth adds robots.
 
 - **Plateau** (S1) is the framework's default view. Capability keeps improving, but slowly: the task horizon doubles every 12–18 months, and research-grade mathematics reaches outside teams only in 2028.
-- **Exponential** (S2) is the base case and the premise under test. The task horizon doubles every 6–9 months, close to the long-run trend measured on software tasks. Research-grade mathematics reaches outside teams in 2027.
+- **Exponential** (S2) is the central scenario and the premise under test. The task horizon doubles every 6–9 months, close to the long-run trend measured on software tasks. Research-grade mathematics reaches outside teams in 2027.
 - **Recursive** (S3) adds AI that speeds up its own research from 2028. After that, cognitive work is close to free.
 - **Embodied** (S4) is Recursive cognition plus general-purpose robots at scale, about 6 million in service by 2031 and 60 million by 2035, including robots that help build robots. Exponential and Recursive assume a slow robot path, about 1.4 million by 2031 and 4.6 million by 2035. Plateau runs about a year behind that, because its cognition lags. Section 4 sets out the Embodied case.
 
@@ -262,32 +266,32 @@ The exponential premise accelerates the first and touches the second much less. 
 The tree measures it directly.
 
 - **The cognitive layers move a lot, and surely.** Going from Plateau to Exponential pulls tiers 0–4 forward by 1.2–2.5 years on average. Under Exponential, 68–100% of each cognitive tier is rated High or Medium by 2031, and 83–100% by 2035.
-- **The physical layers move later, and less surely.** Tiers 5–7 move 1.3–1.8 years. Under Exponential, the shares of each physical tier rated High or Medium are:
+- **The physical layers move later, and less surely.** Tiers 5–7 move 1.2–1.7 years. Under Exponential, the shares of each physical tier rated High or Medium are:
 
   | Tier | By 2031 | By 2035 |
   | --- | --- | --- |
-  | Validated technologies | 50% | 72% |
-  | Operational systems | 26% | 52% |
-  | Strategic outcomes | 21% | 51% |
+  | Validated technologies | 48% | 72% |
+  | Operational systems | 28% | 54% |
+  | Strategic outcomes | 24% | 52% |
 
-- **Recursive and Embodied add less.** Going from Exponential to Recursive adds 0.1–0.8 years. Going on to Embodied adds 0.00–0.26 years across the tree, or 0.12–0.26 years on the physical tiers. By 2035, Embodied lifts the share of physical tiers rated High or Medium to 78%, 71% and 74%.
+- **Recursive and Embodied add less.** Going from Exponential to Recursive adds 0.1–0.8 years. Going on to Embodied adds 0.00–0.25 years across the tree, or 0.12–0.25 years on the physical tiers. By 2035, Embodied lifts the share of physical tiers rated High or Medium to 78%, 72% and 74%.
 
 The physical layers move at all mainly because their cognitive prerequisites arrive sooner. Tests, factories and launches do not themselves get much faster before robots arrive.
 
-**The two clocks, year by year.** The table shows the share of each half of the tree that is unlocked: its year has arrived and it is rated High or Medium at the next checkpoint (2031 for years through 2031, 2035 after; rows after the checkpoint change are starred). It covers 250 cognitive and 228 physical nodes, and it is the series behind the viewer's headline chart. Most of the jump between 2031 and 2032 comes from the change of checkpoint, not from new events. Many nodes dated 2031 or earlier are Low by 2031 but Medium or better by 2035. The curves flatten after 2033 because nodes that could first happen in 2034–35 are rarely more likely than not by 2035.
+**The two clocks, year by year.** The table shows the share of each half of the tree that is unlocked: its year has arrived and its odds for that year are High or Medium. Every node records the first year its odds reach Low, Medium and High in each scenario, so it carries a rating for every year from 2026 to 2035, not only at end-2031 and end-2035. The table covers 250 cognitive and 232 physical nodes, and it is the series behind the viewer's headline chart. A node that is Low by 2031 and Medium by 2035 crosses into Medium in the year its reviewers judged it passes 30%, so the curves rise through the early 2030s rather than in one step.
 
 | Year | Plateau: cognitive | Plateau: physical | Exponential: cognitive | Exponential: physical | Recursive: cognitive | Recursive: physical | Embodied: cognitive | Embodied: physical |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 2026 | 1% | 0% | 1% | 0% | 1% | 0% | 1% | 0% |
-| 2027 | 6% | 1% | 18% | 1% | 18% | 1% | 18% | 1% |
-| 2028 | 14% | 4% | 56% | 7% | 69% | 10% | 70% | 10% |
-| 2029 | 34% | 9% | 75% | 22% | 87% | 28% | 88% | 30% |
-| 2030 | 51% | 13% | 83% | 29% | 90% | 38% | 91% | 41% |
-| 2031 | 52% | 14% | 83% | 32% | 90% | 42% | 91% | 44% |
-| 2032 * | 71% | 33% | 93% | 53% | 95% | 63% | 95% | 66% |
-| 2033 * | 76% | 35% | 93% | 57% | 95% | 69% | 96% | 73% |
-| 2034 * | 76% | 35% | 93% | 57% | 95% | 69% | 96% | 74% |
-| 2035 * | 76% | 35% | 93% | 57% | 95% | 69% | 96% | 74% |
+| 2027 | 4% | 1% | 10% | 1% | 10% | 1% | 10% | 1% |
+| 2028 | 10% | 3% | 28% | 3% | 31% | 3% | 31% | 3% |
+| 2029 | 15% | 6% | 54% | 8% | 69% | 11% | 70% | 11% |
+| 2030 | 33% | 8% | 75% | 21% | 86% | 27% | 87% | 28% |
+| 2031 | 52% | 14% | 83% | 33% | 90% | 42% | 91% | 44% |
+| 2032 | 57% | 20% | 86% | 39% | 91% | 47% | 92% | 50% |
+| 2033 | 68% | 32% | 91% | 47% | 94% | 56% | 94% | 59% |
+| 2034 | 76% | 36% | 93% | 57% | 95% | 66% | 95% | 70% |
+| 2035 | 76% | 37% | 93% | 58% | 95% | 69% | 96% | 74% |
 
 **Why 5–10 times faster thinking shortens programs by 38% at most by 2031.** Only about a third of a hardware program's critical path is cognitive work: requirements, design, analysis and software. The rest is fabrication, integration and test, qualification and launch. Under Exponential the cognitive slices run 5–10 times faster, but the physical ones compress only 1.0–1.2 times. Amdahl's law says a job cannot speed up by more than its unchanged parts allow, which caps schedule compression for a new program:
 
@@ -304,20 +308,24 @@ The reviewers settled on 20–30% as the realistic Exponential gain by 2031, and
 
 **What can be proved runs ahead of what can be flown.**
 
-- *2029.* Under Exponential, 122 of the 155 frontier-math, applied-math and physics-model nodes have reached their earliest year. Only 44 of the 167 validated technologies and operational systems have.
-- *2031.* The counts are 149 and 103, and only 59 of the hardware nodes are rated High or Medium.
-- *2035.* The counts are 154 of 155 and 154 of 167. Of the hardware nodes, 100 are rated High or Medium under Exponential, 117 under Recursive and 123 under Embodied. Most of the Embodied gain over Recursive is robot milestones themselves.
+- *2029.* Under Exponential, 122 of the 155 frontier-math, applied-math and physics-model nodes have reached their earliest year. Only 43 of the 170 validated technologies and operational systems have.
+- *2031.* The counts are 149 and 106, and only 61 of the hardware nodes are rated High or Medium.
+- *2035.* The counts are 154 of 155 and 157 of 170. Of the hardware nodes, 103 are rated High or Medium under Exponential, 120 under Recursive and 126 under Embodied. Most of the Embodied gain over Recursive is robot milestones themselves.
 
 The exponential shows up first as a stock of solved problems waiting on hardware, data and approval, and the hardware catches up through the early 2030s.
 
-**What binds at the outcome end.** Of the 164 operational systems and strategic outcomes in the tree, the binding gates are capital (34), adoption (33), launch (29), regulatory (19), qualification (18), fabrication (13), data (12) and experiment (6). Cognition binds none of them.
+**What binds at the outcome end.** Of the 168 operational systems and strategic outcomes in the tree, the binding gates are adoption (36), capital (34), regulatory (19), launch-internal (19), qualification (18), fabrication (13), data (12), launch-external (11) and experiment (6). Cognition binds none of them. It is the runner-up gate for 21 of them: removing the binding gate would leave thinking as the next thing holding the date. The runner-up gates are fabrication (22), adoption (20), qualification (20), capital (20), experiment (19), cognitive (15), regulatory (14), data (12), launch-external (10), launch-internal (10), formalization (6). That is how thinking can be about a third of a program's critical path and bind no outcome: a third of the path can run fast without ever being the slowest step.
 
-**Space has its own exponential, and it is physical.** Launch cost is falling fast for reasons that owe nothing to AI mathematics: reuse, larger payloads and production learning.
+**Space has its own exponential, and it is physical.** Launch cost is falling fast for reasons that owe nothing to AI mathematics: reuse, larger payloads and production learning. We pin the launch curve to Mach33 Launch Keystone v1.3: the internal cost path of its wave 44 base (23 Sep 2026) and the customer path of wave 38b (10 Sep 2026). All prices are 2026 dollars.
 
-- Mach33's base case takes SpaceX's internal Starship cost from about $4,900/kg on an expended 2026 flight to about $650/kg in 2027 and about $300/kg in 2028.
-- This model dates each cost threshold about a year after Mach33's path, consistent with the slips seen between announced and actual schedules. It puts internal cost under $300/kg at about 2029 in every scenario. Internal cost under $100/kg comes about 2031 (2032 in Plateau), High by 2035 as long as rapid heat-shield reuse stays on track. It puts 300 or more heavy launches a year at about 2033 (Medium by 2035) in the Exponential case.
+- *Internal cost, delivered to low orbit.* v1.3 takes SpaceX's own Starship cost from $4,915/kg on expended Flight 14 to $656/kg in 2027 and about $300/kg in 2028, then $13/kg in 2035. These are costs to SpaceX, not prices.
+- *Customer prices.* v1.3 opens Starship spare capacity to customers in 2031 in its reference case (tested from 2029 to 2033). The spot price runs $6,200/kg in 2029, $5,634 in 2030, $820 in 2031 and $562 in 2033. The realized price, revenue per customer kilogram, has a median of $5,823/kg in 2030 and $945 in 2035.
+- *Our dates.* We date each threshold about a year after Mach33's path, consistent with the slips seen between announced and actual schedules. Internal cost under $300/kg comes about 2029 in every scenario and under $100/kg about 2031 (2032 in Plateau), High by 2035 as long as rapid heat-shield reuse stays on track. Customers buying under $1,000/kg come about 2031 in the Exponential case, Medium from 2032. Three hundred or more heavy launches a year come about 2033 (Medium by 2035).
+- *Sensitivity.* Wave 45 (v1.4, ratified 21 Oct 2026) moves the customer price hinge from 2031 to 2030 and raises the entry-year internal cost. We do not apply it; it would bring customer-priced nodes about a year earlier.
 
-AI mathematics moves that curve by months, and robots move none of its dates in the model. Orbital compute, orbital refueling and rapid heat-shield reuse are where the two curves meet. There, AI adds confidence, months and a few percent of mass, while the launch curve sets the dates.
+**Cheap launch reaches SpaceX first.** Mach33's thesis is that an activity can become viable for a provider using spare capacity on its own rocket before it becomes viable for a customer buying a flight. So we split the launch gate in two. *Launch-internal* nodes ride SpaceX's own manifest: Starlink, SpaceX's orbital compute, lunar-lander tankers and cargo, and Mars. *Launch-external* nodes are bought by someone else: outside compute operators, small lunar missions, science missions and other constellations. As of late June 2026, SpaceX partners and customers reported new Transporter and Bandwagon bookings beyond late 2028 or early 2029 closed, so the external outcomes that need new SpaceX capacity now wait on a customer-access node dated by v1.3's opening year. Of the 168 operational systems and strategic outcomes, 19 are bound by internal launch and 11 by external launch.
+
+AI mathematics moves the launch curve by months, and robots move none of its dates in the model. Orbital compute, orbital refueling and rapid heat-shield reuse are where the two curves meet. There, AI adds confidence, months and a few percent of mass, while launch cadence sets the dates.
 
 **How far each layer moves between scenarios** (mean years earlier; all nodes in the tree)
 
@@ -328,9 +336,9 @@ AI mathematics moves that curve by months, and robots move none of its dates in 
 | 2 Applied math | 75 | 2028.16 | +1.9 | +0.2 | +0.00 | 69% / 96% / 97% / 97% | 89% / 99% / 99% / 99% |
 | 3 Physics models | 44 | 2029.66 | +2.5 | +0.6 | +0.02 | 16% / 68% / 89% / 89% | 55% / 91% / 93% / 93% |
 | 4 Engineering tools | 68 | 2028.97 | +1.9 | +0.4 | +0.06 | 44% / 76% / 85% / 87% | 69% / 91% / 94% / 96% |
-| 5 Validated tech | 64 | 2030.48 | +1.4 | +0.3 | +0.12 | 23% / 50% / 58% / 59% | 55% / 72% / 77% / 78% |
-| 6 Systems & missions | 103 | 2031.98 | +1.3 | +0.5 | +0.26 | 12% / 26% / 39% / 42% | 30% / 52% / 66% / 71% |
-| 7 Outcomes | 61 | 2032.18 | +1.8 | +0.8 | +0.13 | 8% / 21% / 31% / 31% | 23% / 51% / 66% / 74% |
+| 5 Validated tech | 64 | 2030.48 | +1.4 | +0.3 | +0.12 | 23% / 48% / 56% / 58% | 55% / 72% / 77% / 78% |
+| 6 Systems & missions | 106 | 2031.92 | +1.2 | +0.5 | +0.25 | 11% / 28% / 40% / 42% | 32% / 54% / 67% / 72% |
+| 7 Outcomes | 62 | 2032.13 | +1.7 | +0.8 | +0.13 | 10% / 24% / 32% / 32% | 26% / 52% / 66% / 74% |
 
 **Why 5–10x faster thinking gives about 1.6x faster programs by 2031** (illustrative Amdahl bound; section 4 extends it to robots and 2035)
 
@@ -534,7 +542,7 @@ Robots move no launch date, no lunar or Mars landing date, no regulator or appro
 
 ## 5. Cross-cutting findings
 
-**1. The capability matters; the catalog barely does.** Only 70 of the 478 nodes cite any openai/math family, and only 42 of the release's 372 families are cited by any node. Most of those nodes (48 of 70) sit in the frontier- and applied-mathematics tiers. There they serve as evidence of what the capability can do, as ceilings (P3) or as confidence results (P5). In the hardware tiers (5–7), only 2 nodes rated Medium or better by 2035 cite a family (“Reflight cleared by data, not teardown”, family 372: manuscript-only, T1 and conditional; “Air-breathing electric propulsion flight test”, family 363, 364: manuscript-only, T1 and conditional), and only as supporting theory. What reaches space hardware is the demonstrated ability: research-grade mathematics on request, and machine-checked proofs at scale. Eleven of the thirteen branch main chains start from that capability, and none rests on a catalog result. The orbital-compute chain starts from SpaceX hardware, and the robots chain starts from robot AI models and fleet growth, with AI mathematics only a second-order input.
+**1. The capability matters; the catalog barely does.** Only 70 of the 482 nodes cite any openai/math family, and only 42 of the release's 372 families are cited by any node. Most of those nodes (48 of 70) sit in the frontier- and applied-mathematics tiers. There they serve as evidence of what the capability can do, as ceilings (P3) or as confidence results (P5). In the hardware tiers (5–7), only 2 nodes rated Medium or better by 2035 cite a family (“Reflight cleared by data, not teardown”, family 372: manuscript-only, T1 and conditional; “Air-breathing electric propulsion flight test”, family 363, 364: manuscript-only, T1 and conditional), and only as supporting theory. What reaches space hardware is the demonstrated ability: research-grade mathematics on request, and machine-checked proofs at scale. Eleven of the thirteen branch main chains start from that capability, and none rests on a catalog result. The orbital-compute chain starts from SpaceX hardware, and the robots chain starts from robot AI models and fleet growth, with AI mathematics only a second-order input.
 
 **2. Verified software is the fastest bridge from AI mathematics to hardware.** On the model's cost assumptions, a fully verified line of flight code falls from about $300–600 to about $5–20 by about 2028 (High) under Exponential. A program built to the highest assurance level gets only about 2x cheaper, because integration and test stay physical. Constellations, landers and reusable launchers can fly proof-checked software from about 2029 (Medium). They need no regulator's sign-off for mission software, so they lead. Certification credit waits for regulators to accept AI-written proofs checked by an already-qualified tool: about 2030: Medium by 2031, where the regulatory cap holds, and High by 2035. Crewed-lander autonomy certified with AI proofs is Low by 2031 and Medium by 2035.
 
@@ -544,7 +552,7 @@ Robots move no launch date, no lunar or Mars landing date, no regulator or appro
 - *Checking.* It is slow too: a month after the Navier–Stokes claim, no outside statement audit had been reported.
 - *Data.* Physics models that must be tuned to measurements wait on arc-jet hours, shock-tube time and flight data. For space weather, they wait on observations of the one Sun there is.
 
-Across the tree, the most common binding gates are adoption (85 nodes), data (72) and experiment (52). Cognition binds 47, all but one of them in the capability and mathematics tiers (0–2).
+Across the tree, the most common binding gates are adoption (88 nodes), data (71) and experiment (52). Cognition binds 48, all but one of them in the capability and mathematics tiers (0–2).
 
 **4. Institutions are the biggest lever on the physical clock.** The single most valuable relaxer is a rule for what AI-made analysis is worth as evidence.
 
@@ -552,7 +560,7 @@ Across the tree, the most common binding gates are adoption (85 nodes), data (72
 - *Certification by analysis beyond what NASA standards already allow:* about 2030 (Low).
 - *Commercial operators that carry their own risk move first.* They fly new-design hardware qualified mainly by analysis from about 2029 (Medium).
 
-For comparison, NASA-sponsored studies put certification by analysis for aircraft at 2040–2050. Even so, qualification campaigns shorten only about 10–20% by 2031 in the base case (20–30% in Recursive), and about 17–29% by 2035 (28–37% in Recursive). The model does not expect even its 15% threshold before about 2031 (Low by 2031, Medium by 2035), because workmanship screening, endurance tests and test stands remain. Test standards that write in credit for AI analysis come about 2033, Low by 2035 in the base case. Campaigns 30% shorter at leading firms are High by 2035 only with robots.
+For comparison, NASA-sponsored studies put certification by analysis for aircraft at 2040–2050. Even so, qualification campaigns shorten only about 10–20% by 2031 in the central scenario (20–30% in Recursive), and about 17–29% by 2035 (28–37% in Recursive). The model does not expect even its 15% threshold before about 2031 (Low by 2031, Medium by 2035), because workmanship screening, endurance tests and test stands remain. Test standards that write in credit for AI analysis come about 2033, Low by 2035 in the central scenario. Campaigns 30% shorter at leading firms are High by 2035 only with robots.
 
 **5. Adoption runs in a predictable order.**
 
@@ -586,7 +594,7 @@ Ceilings act within months of being independently checked, because they change w
 
 **9. In security, AI's sharpest early effect favors attackers.** Nothing in the release breaks deployed or post-quantum cryptography. But AI-assisted cryptanalysis and cheaper quantum resource estimates make crypto-agility urgent for satellites launched from 2027 that will operate into the 2040s. The hedge is a machine-checked update path, which AI also makes cheap.
 
-**10. For space through 2035, the physical exponential is the larger story.** Reuse, cadence and cost per kilogram set the dates for refueling, orbital compute, lunar cargo and Mars. In the Exponential case, AI mathematics sets the date for 37 of the 72 technologies, systems and outcomes rated High or Medium by 2031, and for 65 of the 131 rated High or Medium by 2035. Physical gates alone set the rest. The split stays near half as the tree fills in. AI mathematics makes the cognitive work around launch nearly free, verification cheap and analysis abundant. Tests, factories, launch windows and approvals remain the pacing items.
+**10. For space through 2035, the physical exponential is the larger story.** Reuse, cadence and cost per kilogram set the dates for refueling, orbital compute, lunar cargo and Mars. In the Exponential case, AI mathematics sets the date for 34 of the 76 technologies, systems and outcomes rated High or Medium by 2031, and for 60 of the 135 rated High or Medium by 2035. Physical gates alone set the rest. The split stays near half as the tree fills in. AI mathematics makes the cognitive work around launch nearly free, verification cheap and analysis abundant. Tests, factories, launch windows and approvals remain the pacing items.
 
 **11. Robots are the bridge, and the bridge opens after 2031.** Robots are the one mechanism in the model that acts on the physical clock directly. In the Embodied case the fleet reaches about 6 million in 2031 and 60 million in 2035, 0.7% and 9% of global manufacturing labor. Robots raise throughput far more than they shorten any single program.
 
@@ -602,7 +610,7 @@ The findings land differently for each kind of reader. These are readings of the
 
 - **Operators of constellations, landers and launchers.** The first gains are in software assurance, mission planning and analysis turnaround (2027–29). They need no regulator, so the operators who adopt early bank them. The binding resources become reviewed specifications and owned flight data. The model treats both as assets worth building now.
 - **New entrants.** Analysis stops being a moat by about 2028: a small team can carry the analysis load of a large engineering organization. Capital, test facilities and launch access become the gates, and development cost falls by about 10–20%. For a hardware program, that is a meaningful saving but not a different business.
-- **Agencies and regulators.** The biggest lever on the physical clock is theirs. They decide what AI-made analysis and AI-written proofs are worth as evidence. The base case puts a credibility rulebook at about 2029 and acceptance of AI-produced proofs at about 2030, both Medium by 2031. Proof acceptance reaches High by 2035; the rulebook stays Medium. Earlier action would move every certification-gated node in the tree. Agencies also own the one gate AI cannot touch: appropriations.
+- **Agencies and regulators.** The biggest lever on the physical clock is theirs. They decide what AI-made analysis and AI-written proofs are worth as evidence. The central scenario puts a credibility rulebook at about 2029 and acceptance of AI-produced proofs at about 2030, both Medium by 2031. Proof acceptance reaches High by 2035; the rulebook stays Medium. Earlier action would move every certification-gated node in the tree. Agencies also own the one gate AI cannot touch: appropriations.
 - **Insurers and financiers.** Better uncertainty models narrow error bars on some risks, such as collision, drag and heat-shield margins. They do not change the statistics of launch failure or the small number of flights behind them. The model rates a measurable effect on insurance capacity as Low by 2031 and Medium by 2035.
 - **Investors.** Read the two clocks as a guide to where value moves fastest. Software, analysis and verification move fast. Firms that own data, launch and a frontier model together move fastest. Hardware cadence is still set by test, fabrication and launch. Claims of 10x faster space programs from AI mathematics are inconsistent with the model's Amdahl bound of 38% at most by 2031, and about 70–73% even with unlimited robots by 2035. Robots are a 2030s story for space. Before then, the supply chain for robots (actuators, magnets and robot makers' own lines) moves faster than robots' effect on space hardware.
 - **Robot makers.** Aerospace is a small, demanding customer. It accepts robots on flight hardware only after process requalification, an estimated 6–24 months per process per supplier. The early payoff is in refurbishment, inspection and around-the-clock test lines at a few integrated firms, from about 2030–31.
@@ -672,12 +680,12 @@ A credible forecast says where the effect is nil. These hold in every scenario, 
 
 ## 8. Signposts
 
-The model's dates hinge on a handful of shared prerequisites, so a few observable events would move whole branches at once. The first three can be checked within 12–24 months. The rest show whether the later, physical steps arrive on the base-case dates.
+The model's dates hinge on a handful of shared prerequisites, so a few observable events would move whole branches at once. The first three can be checked within 12–24 months. The rest show whether the later, physical steps arrive on the central-scenario dates.
 
-| Event | When the base case expects it | What it would change |
+| Event | When the central scenario expects it | What it would change |
 | --- | --- | --- |
 | An independent Comparator run plus statement audit of openai/math results (Hexagon, Kevin Buzzard's group or another outside team) | Late 2026 to 2027 | Upgrades checked families from T3 to T4. A found error or statement gap downgrades the conditional nodes resting on that family and slows trust in AI results generally. |
-| A model at the release's level becomes available to outside engineering teams, or an open-weight model reaches research grade | 2027 (open weights: 2028) | Switches on the capability channel for everyone. A slip to 2028 or later moves the base case toward Plateau for the 298 nodes downstream of it. |
+| A model at the release's level becomes available to outside engineering teams, or an open-weight model reaches research grade | 2027 (open weights: 2028) | Switches on the capability channel for everyone. A slip to 2028 or later moves the central scenario toward Plateau for the 298 nodes downstream of it. |
 | Lean's library gains real coverage of partial differential equations, Sobolev spaces and numerical analysis | 2027–28 | Lets applied results be formally checked, and so trusted, at the rate of discrete ones. Gates verified numerics, guaranteed error bars and verified guidance code. |
 | A space operator publicly flies proof-checked guidance, collision-avoidance or update software | 2029 (a lander or constellation; Medium) | First evidence that the verification bridge reaches hardware. Earlier would beat every scenario in the model. |
 | A certification body accepts AI-written proofs as evidence through an already-qualified checker (DO-333 plan acceptance, a NASA or ESA project) | About 2030 (Medium) | Opens certified and crewed software to the verification channel. Acceptance in 2028–29 is the main upside case in the tree. |
@@ -793,18 +801,18 @@ The nodes that the most other nodes depend on, directly or through chains:
 | Independent checks of AI math | 0 | 2026 | 61 | 24 |
 | Verified floating-point and numerics toolchain | 0 | 2028 | 36 | 14 |
 | Agents that prove real flight code | 0 | 2027 | 34 | 15 |
+| Both Starship stages caught and reflown | 5 | 2027 | 34 | 30 |
 | Month-long autonomous research tasks | 0 | 2028 | 33 | 5 |
 | AI-drafted formal specifications | 2 | 2027 | 31 | 17 |
 | AI builds validated physics theory | 0 | 2029 | 31 | 5 |
 | AI results audited and trusted in days | 2 | 2028 | 30 | 19 |
+| Monthly flight testing of a fully reusable heavy launcher | 5 | 2028 | 25 | 23 |
 | Ship-to-ship cryogenic transfer demonstrated | 5 | 2027 | 24 | 21 |
-| Both Starship stages caught and reflown | 5 | 2027 | 23 | 20 |
-| AI multiphysics design with guarantees | 0 | 2028 | 22 | 5 |
-| Exhaustive checks of fault logic and configuration | 4 | 2027 | 21 | 15 |
+| Pads and propellant plants for hundreds of heavy flights | 6 | 2029 | 24 | 23 |
 
 ## 10. The tree, branch by branch
 
-The tree has thirteen branches. Each traces one way the capability reaches space technology: from a cognitive unlock to a physical step, then to where things stand by 2031 and by 2035. The table is the whole waterfall at a glance. Entries give the Exponential-case earliest year and the likelihood by 2031 / 2035. In the first two columns one word means both likelihoods are the same; in the 'by 2031' and 'by 2035' columns a single word is the likelihood at that column's checkpoint. The Embodied column says what robots add.
+The tree has thirteen branches. Each traces one way the capability reaches space technology: from a cognitive unlock to a physical step, then to where things stand by 2031 and by 2035. The table is the whole waterfall at a glance. Entries give the Exponential-case earliest year and the likelihood by 2031 / 2035. In the first two columns one word means both likelihoods are the same; in the 'by 2031' and 'by 2035' columns a single word is the likelihood by that column's year. The Embodied column says what robots add.
 
 | Branch | First cognitive unlock | First physical or operational step | Where it stands by 2031 | Where it gets by 2035 | What robots add (Embodied) |
 | --- | --- | --- | --- | --- | --- |
@@ -833,11 +841,11 @@ Each branch section below has the same parts:
 
 ### The engine: AI math and the launch clock
 
-*If research-grade AI math reaches outside teams in 2027 (base case), space engineers use it on demand by 2028. Tests, factories and launches run on physical time, so schedules shrink 20-30% by 2031 and about a third by 2035. In Embodied, leading firms halve cycles about 2034 (Medium by 2035).*
+*If research-grade AI math reaches outside teams in 2027 (central scenario), space engineers use it on demand by 2028. Tests, factories and launches run on physical time, so schedules shrink 20-30% by 2031 and about a third by 2035. In Embodied, leading firms halve cycles about 2034 (Medium by 2035).*
 
 On-demand AI mathematics first lets space engineers pose their own hard problems, such as a stability proof for a control law or an error bound for a solver. We model two to eight weeks of specialist work as hours plus a check, for reduced models only. A result costs about $200 to $2,000 in tokens, so checking sets the price.
 
-Research-grade math for outside teams arrives about 2027 in the Exponential case, our base case (High by 2031). AI results audited and trusted in days, and on-demand applied math in space engineering, follow about 2028 (High by 2031). A spacecraft engineered mostly by AI flies about 2029 (Medium by 2031, High by 2035), held by build and test. Development cycles 20 to 30% shorter arrive about 2031 (Medium by 2031, High by 2035), held by test hardware. Plateau adopts about 2029, pushing hardware outcomes to 2031 or later at Low or below. Recursive matches Exponential through 2028, then reaches shorter cycles about 2030.
+Research-grade math for outside teams arrives about 2027 in the Exponential case, our central scenario (High by 2031). AI results audited and trusted in days, and on-demand applied math in space engineering, follow about 2028 (High by 2031). A spacecraft engineered mostly by AI flies about 2029 (Medium by 2031, High by 2035), held by build and test. Development cycles 20 to 30% shorter arrive about 2031 (Medium by 2031, High by 2035), held by test hardware. Plateau adopts about 2029, pushing hardware outcomes to 2031 or later at Low or below. Recursive matches Exponential through 2028, then reaches shorter cycles about 2030.
 
 By 2035 the Exponential case cuts schedules by about a third for finished programs (analyst judgment), and a launcher or large spacecraft engineered mostly by AI flies about 2033 (Low by 2035). Embodied equals Recursive on every node in this branch through 2031. Robots change nothing on the math nodes, which are cognitive, or on launch cadence, which pads, approvals and airspace bind. They matter only at robot-first firms with requalified processes, where assembly and test labor binds. There, leading firms halve development cycles about 2034 in the Embodied case (Medium by 2035), against 2035 and Low in Recursive, and a three-year launcher rises from Medium to High by 2035.
 
@@ -845,24 +853,26 @@ The openai/math catalog contributes evidence for the first step and little else.
 
 The strongest case for a small effect is that analysis rarely sits on the critical path. Fabrication, procurement, integration and test fill about half the schedule (illustrative); radiation-hardened parts take 12 to 24 months. Amdahl's law caps the Exponential-case cut near 38% by 2031. The skeptic expected 15 to 25%, the advocate 45 to 50%; the analysts settled on 20 to 30%, judging that the advocate double-counted gains already inside the physical speedups. For 2035 the skeptic won on timing, because robot-first gains count only for programs run under 2035 conditions. Watch whether a public model reaches 20% on [FrontierMath Erdos](https://epoch.ai/benchmarks) by end-2027 (GPT-6 Astra: 3% in September 2026).
 
-39 nodes. Rated High or Medium by 2031: Plateau 24, Exponential 32, Recursive 35, Embodied 35. By 2035: Plateau 32, Exponential 36, Recursive 38, Embodied 39. Main binding gate: fabrication.
+The trunk also carries the launch anchors, which run without AI mathematics. We pin them to Mach33 Launch Keystone v1.3: SpaceX's internal cost falls from $4,915/kg on expended Flight 14 to $656/kg in 2027 and about $300/kg in 2028 (wave 44 base, 23 Sep 2026), and customers get Starship spare capacity in 2031 in the reference case, at a spot price of $820/kg that year (wave 38b, 10 Sep 2026). We date each threshold about a year after that path: internal cost under $300/kg about 2029, under $100/kg about 2031, customers under $1,000/kg about 2031 (Medium from 2032). Cheap launch reaches SpaceX's own manifest first, so the tree splits the launch gate into internal and external, and a customer-access node (Medium from 2031, the v1.3 opening year) stands between outside customers and Starship capacity. Wave 45 (v1.4) would move the customer hinge to 2030; we record it as a sensitivity and do not apply it.
+
+40 nodes. Rated High or Medium by 2031: Plateau 24, Exponential 33, Recursive 36, Embodied 36. By 2035: Plateau 33, Exponential 37, Recursive 39, Embodied 40. Main binding gate: fabrication.
 
 **Main chain** (each node: tier · earliest year in the Exponential case · likelihood by 2031 / by 2035; Recursive and Embodied years shown where they differ)
 
-- **Research-grade math inside the labs** (tier 0 · 2026 · High; gate: cognitive)
-  - → **AI turns math into machine-checked proofs at scale** (tier 0 · 2026 · High; gate: formalization)
-    - → **Independent checks of AI math** (tier 0 · 2026 · High; gate: adoption)
-      - → **AI results audited and trusted in days** (tier 2 · 2028 · High; gate: adoption)
-        - → **On-demand applied math in space engineering** (tier 4 · 2028 · High; gate: adoption)
-          - → **Spacecraft engineered mostly by AI flies** (tier 6 · 2029 · Medium / High; gate: fabrication)
-          - → **New satellite generations every year** (tier 7 · 2030 · Medium; Recursive 2029; gate: fabrication)
-          - → **Development cycles 20-30% shorter, not 10x** (tier 7 · 2031 · Medium / High; Recursive 2030; gate: experiment)
-            - → **Leading firms halve development cycles** (tier 7 · >2035 · Speculative; Recursive 2035; Embodied 2034; gate: experiment)
-        - → **Development cycles 20-30% shorter, not 10x** (tier 7 · 2031 · Medium / High; Recursive 2030; gate: experiment) (see above)
-    - → **AI results audited and trusted in days** (tier 2 · 2028 · High; gate: adoption) (see above)
-  - → **Research-grade math for outside teams** (tier 0 · 2027 · High; gate: regulatory)
-    - → **AI does research-grade applied math** (tier 0 · 2027 · High; gate: cognitive)
-      - → **On-demand applied math in space engineering** (tier 4 · 2028 · High; gate: adoption) (see above)
+- **Research-grade math inside the labs** (tier 0 · 2026 · High; gate: cognitive, then capital)
+  - → **AI turns math into machine-checked proofs at scale** (tier 0 · 2026 · High; gate: formalization, then cognitive)
+    - → **Independent checks of AI math** (tier 0 · 2026 · High; gate: adoption, then formalization)
+      - → **AI results audited and trusted in days** (tier 2 · 2028 · High; gate: adoption, then formalization)
+        - → **On-demand applied math in space engineering** (tier 4 · 2028 · High; gate: adoption, then regulatory)
+          - → **Spacecraft engineered mostly by AI flies** (tier 6 · 2029 · Medium / High; gate: fabrication, then qualification)
+          - → **New satellite generations every year** (tier 7 · 2030 · Medium; Recursive 2029; gate: fabrication, then qualification)
+          - → **Development cycles 20-30% shorter, not 10x** (tier 7 · 2031 · Medium / High; Recursive 2030; gate: experiment, then fabrication)
+            - → **Leading firms halve development cycles** (tier 7 · >2035 · Speculative; Recursive 2035; Embodied 2034; gate: experiment, then fabrication)
+        - → **Development cycles 20-30% shorter, not 10x** (tier 7 · 2031 · Medium / High; Recursive 2030; gate: experiment, then fabrication) (see above)
+    - → **AI results audited and trusted in days** (tier 2 · 2028 · High; gate: adoption, then formalization) (see above)
+  - → **Research-grade math for outside teams** (tier 0 · 2027 · High; gate: regulatory, then capital)
+    - → **AI does research-grade applied math** (tier 0 · 2027 · High; gate: cognitive, then data)
+      - → **On-demand applied math in space engineering** (tier 4 · 2028 · High; gate: adoption, then regulatory) (see above)
 
 ```mermaid
 flowchart TD
@@ -972,16 +982,17 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 | Spacecraft engineered mostly by AI flies | 6 | 2031 / 2029 / 2029 / 2029 | L / M / H / H | M / H / H / H | fabrication | P1->P7 |
 | 100+ fully reusable heavy launches a year | 6 | 2030 / 2030 / 2029 / 2029 | M / H / H / H | H / H / H / H | fabrication | P7 (exogenous) |
 | A second reusable heavy-lift fleet at scale | 6 | 2030 / 2030 / 2029 / 2029 | M / M / M / M | H / H / H / H | fabrication | P7 (exogenous) |
+| Outside customers can book launch again after the rideshare closure | 6 | 2030 / 2030 / 2029 / 2029 | L / M / M / M | H / H / H / H | adoption | P7 (exogenous; AI math enters only through competitors' engineering) |
 | Crew and defense payloads fly on data-cleared reused rockets | 6 | 2033 / 2031 / 2030 / 2030 | S / L / M / M | L / M / M / M | qualification | P2->P7 |
 | 300+ fully reusable heavy launches a year | 6 | 2034 / 2033 / 2032 / 2032 | S / S / S / S | L / M / M / M | regulatory | P7 (exogenous) |
 | A launcher or large spacecraft engineered mostly by AI flies | 6 | >2035 / 2033 / 2032 / 2032 | S / S / S / S | S / L / M / M | qualification | P1->P7 |
-| Starship internal cost under $300 per kg | 7 | 2029 / 2029 / 2029 / 2029 | H / H / H / H | H / H / H / H | launch | P7 (exogenous) |
+| Starship internal cost under $300 per kg | 7 | 2029 / 2029 / 2029 / 2029 | H / H / H / H | H / H / H / H | launch-internal | P7 (exogenous) |
 | AI cuts new space hardware development cost by about 10-20% | 7 | 2031 / 2029 / 2029 / 2029 | L / M / H / H | M / H / H / H | adoption | P1 |
 | New satellite generations every year | 7 | 2031 / 2030 / 2029 / 2029 | L / M / M / M | M / M / H / H | fabrication | P1->P7 |
 | AI compute becomes Starship's second anchor customer | 7 | 2031 / 2030 / 2029 / 2029 | L / M / M / M | M / H / H / H | capital | P7 (exogenous) |
 | Development cycles 20-30% shorter, not 10x | 7 | 2035 / 2031 / 2030 / 2030 | S / M / M / M | L / H / H / H | experiment | P1->P7 |
 | Customers buy orbit under $1,000 per kg | 7 | 2032 / 2031 / 2030 / 2030 | S / L / M / M | M / H / H / H | adoption | P7 (exogenous price; AI enters only through competitors' engineering) |
-| Starship internal cost under $100 per kg | 7 | 2032 / 2031 / 2031 / 2031 | S / L / M / M | H / H / H / H | launch | P7 (exogenous) |
+| Starship internal cost under $100 per kg | 7 | 2032 / 2031 / 2031 / 2031 | S / L / M / M | H / H / H / H | launch-internal | P7 (exogenous) |
 | A new reusable launcher from start to orbit in three years | 7 | >2035 / 2035 / 2031 / 2031 | S / S / L / L | S / L / M / H | qualification | P1->P7 |
 | Leading firms halve development cycles | 7 | >2035 / >2035 / 2035 / 2034 | S / S / S / S | S / S / L / M | experiment | P1->P7 |
 
@@ -1005,18 +1016,18 @@ The strongest case for a small effect is that launch binds where automation alre
 
 **Main chain** (each node: tier · earliest year in the Exponential case · likelihood by 2031 / by 2035; Recursive and Embodied years shown where they differ)
 
-- **Robot AI models that work on sites they have never seen** (tier 0 · 2030 · High; Recursive 2029; Embodied 2028; gate: data)
-  - → **Robot fleets run 1,000 hours between interventions** (tier 5 · 2031 · Medium / High; Embodied 2030; gate: data)
-    - → **Robots run integration and test around the clock** (tier 6 · 2033 · Low / Medium; Embodied 2031; gate: qualification)
-  - → **General-purpose robots do multi-task factory work at scale** (tier 5 · 2031 · Medium / High; Embodied 2029; gate: adoption)
-    - → **Robots assemble flight hardware at leading space firms** (tier 6 · 2032 · Low / Medium; Embodied 2030; gate: qualification)
-      - → **Robots run integration and test around the clock** (tier 6 · 2033 · Low / Medium; Embodied 2031; gate: qualification) (see above)
-      - → **Robots supply a quarter of aerospace production labor** (tier 7 · >2035 · Speculative; gate: adoption)
-- **An accepted route to requalify robot-made flight hardware** (tier 4 · 2032 · Low / Medium; Embodied 2029; gate: qualification)
-  - → **Robots assemble flight hardware at leading space firms** (tier 6 · 2032 · Low / Medium; Embodied 2030; gate: qualification) (see above)
-- **One million general-purpose robots in service** (tier 6 · 2031 · Medium / High; Embodied 2029; gate: fabrication)
-  - → **Ten million general-purpose robots in service** (tier 7 · >2035 · Speculative / Low; Embodied 2032; gate: capital)
-    - → **Robots supply a quarter of aerospace production labor** (tier 7 · >2035 · Speculative; gate: adoption) (see above)
+- **Robot AI models that work on sites they have never seen** (tier 0 · 2030 · High; Recursive 2029; Embodied 2028; gate: data, then cognitive)
+  - → **Robot fleets run 1,000 hours between interventions** (tier 5 · 2031 · Medium / High; Embodied 2030; gate: data, then fabrication)
+    - → **Robots run integration and test around the clock** (tier 6 · 2033 · Low / Medium; Embodied 2031; gate: qualification, then data)
+  - → **General-purpose robots do multi-task factory work at scale** (tier 5 · 2031 · Medium / High; Embodied 2029; gate: adoption, then fabrication)
+    - → **Robots assemble flight hardware at leading space firms** (tier 6 · 2032 · Low / Medium; Embodied 2030; gate: qualification, then data)
+      - → **Robots run integration and test around the clock** (tier 6 · 2033 · Low / Medium; Embodied 2031; gate: qualification, then data) (see above)
+      - → **Robots supply a quarter of aerospace production labor** (tier 7 · >2035 · Speculative; gate: adoption, then qualification)
+- **An accepted route to requalify robot-made flight hardware** (tier 4 · 2032 · Low / Medium; Embodied 2029; gate: qualification, then adoption)
+  - → **Robots assemble flight hardware at leading space firms** (tier 6 · 2032 · Low / Medium; Embodied 2030; gate: qualification, then data) (see above)
+- **One million general-purpose robots in service** (tier 6 · 2031 · Medium / High; Embodied 2029; gate: fabrication, then adoption)
+  - → **Ten million general-purpose robots in service** (tier 7 · >2035 · Speculative / Low; Embodied 2032; gate: capital, then fabrication)
+    - → **Robots supply a quarter of aerospace production labor** (tier 7 · >2035 · Speculative; gate: adoption, then qualification) (see above)
 
 ```mermaid
 flowchart TD
@@ -1096,8 +1107,8 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 | Robots do flight-hardware work across the supplier base | 6 | >2035 / 2035 / 2035 / 2033 | S / S / S / S | S / L / L / M | qualification | P7 (exogenous) |
 | Robots do general lab bench work at scale | 6 | >2035 / >2035 / >2035 / 2030 | S / S / S / M | S / L / L / H | adoption | P7 (exogenous) |
 | Robot crews build a launch pad or propellant plant | 6 | >2035 / >2035 / >2035 / 2035 | S / S / S / S | S / S / S / L | capital | P7 (exogenous) |
-| Robots build lunar pads, berms and roads at outpost scale | 6 | >2035 / >2035 / 2035 / 2033 | S / S / S / S | S / S / L / M | launch | P7 (exogenous) |
-| Robots assemble large structures in orbit at scale | 6 | >2035 / >2035 / 2035 / 2033 | S / S / S / S | S / S / L / L | launch | P7 (exogenous) |
+| Robots build lunar pads, berms and roads at outpost scale | 6 | >2035 / >2035 / 2035 / 2033 | S / S / S / S | S / S / L / M | launch-internal | P7 (exogenous) |
+| Robots assemble large structures in orbit at scale | 6 | >2035 / >2035 / 2035 / 2033 | S / S / S / S | S / S / L / L | launch-external | P7 (exogenous) |
 | Ten million general-purpose robots in service | 7 | >2035 / >2035 / >2035 / 2032 | S / S / S / L | S / L / L / H | capital | P7 (exogenous) |
 | Robots supply 10% of global manufacturing labor | 7 | >2035 / >2035 / >2035 / >2035 | S / S / S / S | S / S / S / L | capital | P7 (exogenous) |
 | Robots supply a quarter of aerospace production labor | 7 | >2035 / >2035 / >2035 / >2035 | S / S / S / S | S / S / S / L | adoption | P7 (exogenous) |
@@ -1107,11 +1118,11 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 
 ### The famous problems
 
-*If AI settles famous fluid problems, almost no engine, heat shield or orbit changes. Engineers get proof tools and on-demand error bars from about 2028 (base case). Math stops limiting leading programs about 2029, suppliers about 2032. Certifiers audit AI analysis instead of redoing it about 2033. Embodied adds nothing.*
+*If AI settles famous fluid problems, almost no engine, heat shield or orbit changes. Engineers get proof tools and on-demand error bars from about 2028 (central scenario). Math stops limiting leading programs about 2029, suppliers about 2032. Certifiers audit AI analysis instead of redoing it about 2033. Embodied adds nothing.*
 
 On-demand AI mathematics first serves work that waits on scarce experts, such as a stability certificate for a controller, guaranteed error bars on a thermal simulation or a certified bound on a 1-in-10,000 collision probability. These problems are mostly easier than the catalog's, so stating them is the hard step. An agent workflow formalized a plasma result in 10 days for about $200, and two of its three failure modes were statement errors ([Ilin, 2026](https://arxiv.org/abs/2603.15929)).
 
-The chain has no hardware step. In the Exponential case, the base case, optimal control with proven guarantees, certified rare-event probabilities and guaranteed error bars for smooth-regime simulations arrive about 2028, High by 2031. Math expertise stops limiting space programs about 2029, Medium by 2031 and High by 2035; Plateau delays that to about 2033. By analyst judgment it saves 8-14% of engineering hours, or 2-7% of program cost. An AI answer on unforced Navier–Stokes passes outside checks about 2029, Medium by 2031 and High by 2035.
+The chain has no hardware step. In the Exponential case, our central scenario, optimal control with proven guarantees, certified rare-event probabilities and guaranteed error bars for smooth-regime simulations arrive about 2028, High by 2031. Math expertise stops limiting space programs about 2029, Medium by 2031 and High by 2035; Plateau delays that to about 2033. By analyst judgment it saves 8-14% of engineering hours, or 2-7% of program cost. An AI answer on unforced Navier–Stokes passes outside checks about 2029, Medium by 2031 and High by 2035.
 
 In the Exponential case certified math reaches the supplier base about 2032 (Medium by 2035), and a certifier audits AI analysis instead of redoing it about 2033, first for an uncrewed vehicle (Low by 2035). Clay recognizes an AI answer to unforced Navier–Stokes about 2033 (Low by 2035) on an institutional clock. A second Millennium problem settled by AI is the clearest test of Recursive against Exponential, Medium against Low by 2035 (analyst judgment). Embodied equals Recursive on every node, because robots do no mathematics and each node waits on cognition, adoption or institutions. The one link runs outward, from reachability math to proven safety envelopes for robots working beside people.
 
@@ -1123,26 +1134,26 @@ Settling Navier–Stokes would change no CFD code, since codes already regulariz
 
 **Main chain** (each node: tier · earliest year in the Exponential case · likelihood by 2031 / by 2035; Recursive and Embodied years shown where they differ)
 
-- **Research-grade math inside the labs** (tier 0 · 2026 · High; gate: cognitive)
-  - → **Engineering math posed as precise problems** (tier 0 · 2028 · High; gate: adoption)
-    - → **Math expertise stops limiting space programs** (tier 7 · 2029 · Medium / High; Recursive 2028; gate: adoption)
-      - → **Certified math on demand reaches the supplier base** (tier 7 · 2032 · Speculative / Medium; Recursive 2031; gate: adoption)
-      - → **A certifier audits AI analysis instead of redoing it** (tier 7 · 2033 · Speculative / Low; Recursive 2032; gate: regulatory)
-  - → **Euler fluid equations proven to blow up in open space** (tier 1 · 2028 · High; gate: formalization)
-  - → **AI answer on unforced Navier–Stokes passes outside checks** (tier 1 · 2029 · Medium / High; Recursive 2028; gate: cognitive)
-    - → **Clay recognizes an AI answer to unforced Navier–Stokes** (tier 1 · 2033 · Speculative / Low; Recursive 2032; gate: adoption)
-- **Independent checks of AI math** (tier 0 · 2026 · High; gate: adoption)
-  - → **Classic radar-code problems settled (checked)** (tier 1 · 2027 · High; gate: formalization)
-  - → **Forced Navier–Stokes blowup independently checked** (tier 1 · 2027 · High; gate: formalization)
-    - → **Clay rules on the forced Navier–Stokes breakdown claim** (tier 1 · 2029 · Low / Medium; gate: adoption)
-  - → **Euler fluid equations proven to blow up in open space** (tier 1 · 2028 · High; gate: formalization) (see above)
-  - → **AI answer on unforced Navier–Stokes passes outside checks** (tier 1 · 2029 · Medium / High; Recursive 2028; gate: cognitive) (see above)
-- **Optimal control with proven guarantees** (tier 2 · 2028 · High; gate: cognitive)
-  - → **Math expertise stops limiting space programs** (tier 7 · 2029 · Medium / High; Recursive 2028; gate: adoption) (see above)
-- **Certified rare-event probabilities** (tier 2 · 2028 · High; gate: adoption)
-  - → **Math expertise stops limiting space programs** (tier 7 · 2029 · Medium / High; Recursive 2028; gate: adoption) (see above)
-- **Guaranteed error bars for smooth-regime simulations** (tier 2 · 2028 · High; gate: adoption)
-  - → **Math expertise stops limiting space programs** (tier 7 · 2029 · Medium / High; Recursive 2028; gate: adoption) (see above)
+- **Research-grade math inside the labs** (tier 0 · 2026 · High; gate: cognitive, then capital)
+  - → **Engineering math posed as precise problems** (tier 0 · 2028 · High; gate: adoption, then cognitive)
+    - → **Math expertise stops limiting space programs** (tier 7 · 2029 · Medium / High; Recursive 2028; gate: adoption, then cognitive)
+      - → **Certified math on demand reaches the supplier base** (tier 7 · 2032 · Speculative / Medium; Recursive 2031; gate: adoption, then regulatory)
+      - → **A certifier audits AI analysis instead of redoing it** (tier 7 · 2033 · Speculative / Low; Recursive 2032; gate: regulatory, then qualification)
+  - → **Euler fluid equations proven to blow up in open space** (tier 1 · 2028 · High; gate: formalization, then cognitive)
+  - → **AI answer on unforced Navier–Stokes passes outside checks** (tier 1 · 2029 · Medium / High; Recursive 2028; gate: cognitive, then formalization)
+    - → **Clay recognizes an AI answer to unforced Navier–Stokes** (tier 1 · 2033 · Speculative / Low; Recursive 2032; gate: adoption, then cognitive)
+- **Independent checks of AI math** (tier 0 · 2026 · High; gate: adoption, then formalization)
+  - → **Classic radar-code problems settled (checked)** (tier 1 · 2027 · High; gate: formalization, then adoption)
+  - → **Forced Navier–Stokes blowup independently checked** (tier 1 · 2027 · High; gate: formalization, then adoption)
+    - → **Clay rules on the forced Navier–Stokes breakdown claim** (tier 1 · 2029 · Low / Medium; gate: adoption, then cognitive)
+  - → **Euler fluid equations proven to blow up in open space** (tier 1 · 2028 · High; gate: formalization, then cognitive) (see above)
+  - → **AI answer on unforced Navier–Stokes passes outside checks** (tier 1 · 2029 · Medium / High; Recursive 2028; gate: cognitive, then formalization) (see above)
+- **Optimal control with proven guarantees** (tier 2 · 2028 · High; gate: cognitive, then adoption)
+  - → **Math expertise stops limiting space programs** (tier 7 · 2029 · Medium / High; Recursive 2028; gate: adoption, then cognitive) (see above)
+- **Certified rare-event probabilities** (tier 2 · 2028 · High; gate: adoption, then data)
+  - → **Math expertise stops limiting space programs** (tier 7 · 2029 · Medium / High; Recursive 2028; gate: adoption, then cognitive) (see above)
+- **Guaranteed error bars for smooth-regime simulations** (tier 2 · 2028 · High; gate: adoption, then cognitive)
+  - → **Math expertise stops limiting space programs** (tier 7 · 2029 · Medium / High; Recursive 2028; gate: adoption, then cognitive) (see above)
 
 ```mermaid
 flowchart TD
@@ -1256,11 +1267,11 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 
 ### Software you can prove
 
-*Verified flight code gets 15-120x cheaper per line by 2028-29 and flies on landers and constellations about 2029 (base case). By 2035 certifiers accept AI-written proofs (High). Crewed credit stays Medium and a proof-checked Mars landing Low. In Embodied, robot-run tests halve verification time about 2033, two years early.*
+*Verified flight code gets 15-120x cheaper per line by 2028-29 and flies on landers and constellations about 2029 (central scenario). By 2035 certifiers accept AI-written proofs (High). Crewed credit stays Medium and a proof-checked Mars landing Low. In Embodied, robot-run tests halve verification time about 2033, two years early.*
 
 On-demand AI mathematics first changes who can afford proof. Agents can write contracts, invariants and proofs of flight code for checkers such as GNATprove, check fault logic exhaustively and bound round-off error in guidance code. [seL4's design, implementation and proof took about 25 person-years](https://trustworthy.systems/projects/OLD/l4.verified/numbers) for 8,700 lines. The best tested agent fully solves [27 of 43 repository-scale verification tasks](https://arxiv.org/abs/2608.13522).
 
-In the Exponential base case, proof agents, AI-drafted specifications and fault-logic checks are usable about 2027 (High by 2031). By our cost model, an analyst judgment, a verified line falls from about $300-600 to $5-20 about 2028 (High by 2031). Plateau reaches $50-150. A lander flying proof-checked descent guidance and proof-checked constellation updates follow about 2029 (Medium by 2031, High by 2035), held by adoption and software freezes. Regulators accept AI-produced proofs about 2030 (Medium by 2031, the regulatory cap). Certified crewed lander autonomy stays Low by 2031.
+In the Exponential case, our central scenario, proof agents, AI-drafted specifications and fault-logic checks are usable about 2027 (High by 2031). By our cost model, an analyst judgment, a verified line falls from about $300-600 to $5-20 about 2028 (High by 2031). Plateau reaches $50-150. A lander flying proof-checked descent guidance and proof-checked constellation updates follow about 2029 (Medium by 2031, High by 2035), held by adoption and software freezes. Regulators accept AI-produced proofs about 2030 (Medium by 2031, the regulatory cap). Certified crewed lander autonomy stays Low by 2031.
 
 From 2032 most changes are band steps. Regulator acceptance reaches High by 2035 through DO-333 credit and qualified checkers already in use. Crewed, engine and entry-guidance credit stop at Medium by 2035, the regulatory cap. Fewer missions lost to software logic becomes measurable about 2032 in the Exponential case (Medium by 2035). A proof-checked Mars landing needs a landing, proofs and disclosure together (Low by 2035). Robots change nothing on 35 of 36 nodes, because cognition, adoption, regulators and launch windows bind, and most nodes land before robots reach aerospace. The exception is halving the verification calendar. With cheap proofs, rigs and vehicle tests set about 80% of it (analyst assumption). Robot-run testing at robot-first firms gets there about 2033 in the Embodied case (Medium by 2035), against 2035 in the Recursive case (Low by 2035).
 
@@ -1272,28 +1283,28 @@ The strongest case for a small effect is that proof capacity rarely failed. Of 1
 
 **Main chain** (each node: tier · earliest year in the Exponential case · likelihood by 2031 / by 2035; Recursive and Embodied years shown where they differ)
 
-- **Agents that prove real flight code** (tier 0 · 2027 · High; gate: formalization)
-  - → **Guidance code with proven floating-point math** (tier 2 · 2028 · High; gate: formalization)
-    - → **Lander flies proof-checked descent guidance and fault logic** (tier 5 · 2029 · Medium / High; gate: adoption)
-      - → **A Mars lander flies proof-checked landing and fault logic** (tier 5 · 2031 · Speculative / Low; gate: launch)
-      - → **Crewed lander autonomy certified with AI proofs** (tier 6 · 2031 · Low / Medium; Recursive 2030; gate: regulatory)
-      - → **Fewer missions lost to software logic (hard to see by 2031)** (tier 7 · 2032 · Speculative / Medium; Recursive 2031; gate: launch)
-  - → **Verified flight code 15-120x cheaper per line** (tier 7 · 2028 · High; gate: adoption)
-  - → **Proof-checked software updates across constellations** (tier 6 · 2029 · Medium / High; gate: adoption)
-    - → **Fewer missions lost to software logic (hard to see by 2031)** (tier 7 · 2032 · Speculative / Medium; Recursive 2031; gate: launch) (see above)
-  - → **Regulators accept AI-produced proofs** (tier 0 · 2030 · Medium / High; Recursive 2029; gate: regulatory)
-    - → **Crewed lander autonomy certified with AI proofs** (tier 6 · 2031 · Low / Medium; Recursive 2030; gate: regulatory) (see above)
-- **AI-drafted formal specifications** (tier 2 · 2027 · High; gate: adoption)
-  - → **Exhaustive checks of fault logic and configuration** (tier 4 · 2027 · High; gate: data)
-    - → **Verified flight code 15-120x cheaper per line** (tier 7 · 2028 · High; gate: adoption) (see above)
-    - → **Lander flies proof-checked descent guidance and fault logic** (tier 5 · 2029 · Medium / High; gate: adoption) (see above)
-    - → **Proof-checked software updates across constellations** (tier 6 · 2029 · Medium / High; gate: adoption) (see above)
-    - → **Crewed lander autonomy certified with AI proofs** (tier 6 · 2031 · Low / Medium; Recursive 2030; gate: regulatory) (see above)
-  - → **Verified flight code 15-120x cheaper per line** (tier 7 · 2028 · High; gate: adoption) (see above)
-  - → **Validated limits on sensor and terrain behavior** (tier 3 · 2029 · Medium / High; Recursive 2028; gate: experiment)
-    - → **Fewer missions lost to software logic (hard to see by 2031)** (tier 7 · 2032 · Speculative / Medium; Recursive 2031; gate: launch) (see above)
-  - → **Proof-checked software updates across constellations** (tier 6 · 2029 · Medium / High; gate: adoption) (see above)
-- **Flight-software verification takes half the calendar time** (tier 7 · >2035 · Speculative; Recursive 2035; Embodied 2033; gate: qualification)
+- **Agents that prove real flight code** (tier 0 · 2027 · High; gate: formalization, then cognitive)
+  - → **Guidance code with proven floating-point math** (tier 2 · 2028 · High; gate: formalization, then adoption)
+    - → **Lander flies proof-checked descent guidance and fault logic** (tier 5 · 2029 · Medium / High; gate: adoption, then qualification)
+      - → **A Mars lander flies proof-checked landing and fault logic** (tier 5 · 2031 · Speculative / Low; gate: launch-internal, then adoption)
+      - → **Crewed lander autonomy certified with AI proofs** (tier 6 · 2031 · Low / Medium; Recursive 2030; gate: regulatory, then qualification)
+      - → **Fewer missions lost to software logic (hard to see by 2031)** (tier 7 · 2032 · Speculative / Medium; Recursive 2031; gate: launch-external, then data)
+  - → **Verified flight code 15-120x cheaper per line** (tier 7 · 2028 · High; gate: adoption, then cognitive)
+  - → **Proof-checked software updates across constellations** (tier 6 · 2029 · Medium / High; gate: adoption, then cognitive)
+    - → **Fewer missions lost to software logic (hard to see by 2031)** (tier 7 · 2032 · Speculative / Medium; Recursive 2031; gate: launch-external, then data) (see above)
+  - → **Regulators accept AI-produced proofs** (tier 0 · 2030 · Medium / High; Recursive 2029; gate: regulatory, then adoption)
+    - → **Crewed lander autonomy certified with AI proofs** (tier 6 · 2031 · Low / Medium; Recursive 2030; gate: regulatory, then qualification) (see above)
+- **AI-drafted formal specifications** (tier 2 · 2027 · High; gate: adoption, then cognitive)
+  - → **Exhaustive checks of fault logic and configuration** (tier 4 · 2027 · High; gate: data, then formalization)
+    - → **Verified flight code 15-120x cheaper per line** (tier 7 · 2028 · High; gate: adoption, then cognitive) (see above)
+    - → **Lander flies proof-checked descent guidance and fault logic** (tier 5 · 2029 · Medium / High; gate: adoption, then qualification) (see above)
+    - → **Proof-checked software updates across constellations** (tier 6 · 2029 · Medium / High; gate: adoption, then cognitive) (see above)
+    - → **Crewed lander autonomy certified with AI proofs** (tier 6 · 2031 · Low / Medium; Recursive 2030; gate: regulatory, then qualification) (see above)
+  - → **Verified flight code 15-120x cheaper per line** (tier 7 · 2028 · High; gate: adoption, then cognitive) (see above)
+  - → **Validated limits on sensor and terrain behavior** (tier 3 · 2029 · Medium / High; Recursive 2028; gate: experiment, then data)
+    - → **Fewer missions lost to software logic (hard to see by 2031)** (tier 7 · 2032 · Speculative / Medium; Recursive 2031; gate: launch-external, then data) (see above)
+  - → **Proof-checked software updates across constellations** (tier 6 · 2029 · Medium / High; gate: adoption, then cognitive) (see above)
+- **Flight-software verification takes half the calendar time** (tier 7 · >2035 · Speculative; Recursive 2035; Embodied 2033; gate: qualification, then capital)
 
 ```mermaid
 flowchart TD
@@ -1391,8 +1402,8 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 | Proven-correct guidance for entry and landing | 4 | 2033 / 2031 / 2030 / 2030 | S / L / M / M | L / M / M / M | qualification | P2 |
 | Formally verified onboard software stack | 5 | 2030 / 2029 / 2029 / 2029 | L / M / H / H | M / H / H / H | qualification | P2 |
 | Lander flies proof-checked descent guidance and fault logic | 5 | 2030 / 2029 / 2029 / 2029 | L / M / H / H | M / H / H / H | adoption | P2->P7 |
-| Proof-checked autonomous docking, servicing and refueling | 5 | 2031 / 2029 / 2029 / 2029 | L / M / M / M | M / H / H / H | launch | P2->P7 |
-| A Mars lander flies proof-checked landing and fault logic | 5 | 2033 / 2031 / 2031 / 2031 | S / S / S / S | S / L / L / L | launch | P2->P7 |
+| Proof-checked autonomous docking, servicing and refueling | 5 | 2031 / 2029 / 2029 / 2029 | L / M / M / M | M / H / H / H | launch-external | P2->P7 |
+| A Mars lander flies proof-checked landing and fault logic | 5 | 2033 / 2031 / 2031 / 2031 | S / S / S / S | S / L / L / L | launch-internal | P2->P7 |
 | Multicore space chip flies with proven worst-case timing | 5 | >2035 / 2034 / 2033 / 2033 | S / S / S / S | S / L / M / M | qualification | P2->P7 |
 | Proof-checked software updates across constellations | 6 | 2031 / 2029 / 2029 / 2029 | L / M / H / H | M / H / H / H | adoption | P2 |
 | Proof-backed guidance software in operational spacecraft | 6 | 2031 / 2029 / 2029 / 2029 | L / M / H / H | M / H / H / H | adoption | P2 |
@@ -1403,7 +1414,7 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 | Verified flight code 15-120x cheaper per line | 7 | 2030 / 2028 / 2028 / 2028 | M / H / H / H | H / H / H / H | adoption | P2 |
 | Assurance stops being a moat for primes | 7 | 2032 / 2030 / 2029 / 2029 | S / M / M / M | M / H / H / H | adoption | P1->P2 |
 | Verified autonomy becomes cheap | 7 | 2034 / 2031 / 2030 / 2030 | S / M / M / M | L / H / H / H | adoption | P2 |
-| Fewer missions lost to software logic (hard to see by 2031) | 7 | >2035 / 2032 / 2031 / 2031 | S / S / L / L | S / M / M / M | launch | P7 |
+| Fewer missions lost to software logic (hard to see by 2031) | 7 | >2035 / 2032 / 2031 / 2031 | S / S / L / L | S / M / M / M | launch-external | P7 |
 | Flight-software standards write in credit for AI proofs | 7 | >2035 / 2034 / 2033 / 2033 | S / S / S / S | S / L / M / M | regulatory | P2 |
 | Flight-software verification takes half the calendar time | 7 | >2035 / >2035 / 2035 / 2033 | S / S / S / S | S / S / L / M | qualification | P2 |
 
@@ -1411,35 +1422,39 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 
 ### Links, spectrum and codes
 
-*Certified routing and interference bounds put meshes and phone-to-satellite service on proven plans by 2029-30 (base case). Then the 2031 defense post-quantum deadline, WRC-31, standards and launches set the pace, so the base and Recursive cases end close together by 2035. Robots (Embodied) gain one year, on laser-terminal supply.*
+*Certified routing and interference bounds put meshes and phone-to-satellite service on proven plans by 2029-30 (central scenario). Then the 2031 defense post-quantum deadline, WRC-31, standards and launches set the pace, so the base and Recursive cases end close together by 2035. Robots (Embodied) gain one year, on laser-terminal supply.*
 
 On-demand AI mathematics first answers questions that need rare specialists. Pairing laser terminals and routing traffic across 10,000-plus satellites is NP-hard at every snapshot ([arXiv 2601.21914](https://arxiv.org/abs/2601.21914)), so teams can ask how near optimal a plan provably is. The FCC's 2026 rules judge sharing against simulated criteria such as 3% throughput loss ([FCC 26-26](https://research.33fg.com/news/fcc-replaces-26-year-old-epfd-framework-with-performance-based-ngso-rules)), so operators can request certified interference bounds. Agents can also prove routing and encryption code correct.
 
-In the Exponential base case, near-optimal mesh routing with a proven gap arrives about 2027, and verified routing software and certified interference bounds about 2028, all High by 2031. A mesh run with certified optimality and phone-to-satellite service scheduled around interference follow about 2029 (Medium by 2031, High by 2035). Software adding 10% capacity on unchanged hardware comes about 2030 (Low by 2031, Medium by 2035). Upgradeable encryption with proven update paths arrives about 2028 (High by 2031), and fleets able to swap encryption before the 2035 cutoff about 2030 (Low by 2031, Medium by 2035). Plateau lags one to three years. Recursive lifts mesh and phone service to High by 2031.
+In the Exponential case, our central scenario, near-optimal mesh routing with a proven gap arrives about 2027, and verified routing software and certified interference bounds about 2028, all High by 2031. A mesh run with certified optimality and phone-to-satellite service scheduled around interference follow about 2029 (Medium by 2031, High by 2035). Software adding 10% sellable capacity per satellite at fixed spectrum comes about 2030 (Low by 2031, Medium by 2035); it counts capacity an operator can sell, not traffic, since satellites do not run near full. Upgradeable encryption with proven update paths arrives about 2028 (High by 2031), and fleets able to swap encryption before the 2035 cutoff about 2030 (Low by 2031, Medium by 2035). Plateau lags one to three years. Recursive lifts mesh and phone service to High by 2031.
 
 The Department of War's end-2031 post-quantum deadline brings the first disclosed in-orbit switch over proven update paths to about 2032 in the Exponential case (Medium by 2035). A shell designed with certified tools enters service about 2032 (High by 2035), and AI-designed codes ship in a satellite link standard about 2033 (Medium by 2035). Mandates, committees, launches and proof work set these dates, so Recursive ends close to Exponential and robots change nothing, except for merchant laser terminals. Those are hand-aligned and tested, so requalified robots bring output of 3,000 a year, an analyst threshold, to about 2033 in the Embodied case (Medium by 2035) against 2035 in the Exponential case.
+
+Direct to cell is the largest connectivity story, and it runs on its own clock. We follow the naming of Mach33's Connectivity Keystone ([evidence base, Oct 2026](https://research.33fg.com/analysis/state-of-connectivity-where-starlink-sits-in-the-world-s-network)): V1 D2C flies today on about 650 V2 Mini satellites, V2 D2C is the filed next generation and V3 D2C follows on Starship. *V2 D2C in commercial use* comes about 2028 in every scenario (Medium from 2029), *V3 D2C in service* about 2030 (Medium from 2031) and *Starlink Mobile serving 100 million phones a month*, against 22 million in August 2026, about 2029 (Medium from 2030, High from 2033). Handsets, operators, spectrum and Starship cadence set these dates; AI math enters only through scheduling phones around interference. The keystone model is not yet released, so these dates follow public windows and will be replaced by its own (TODO(source)).
 
 The openai/math catalog contributes little beyond ceilings. The claimed Unique Games proof (family 102, T3, Lean proof unaudited), a k-median threshold (125, T3) and sparsest-cut results (117, T3 for the integrality gap, conditional for hardness) steer planners away from general solvers from about 2027 (High by 2031), though real constellation geometry escapes them. Families 120, 273 and 279 are conditional and change no hardware or deployed cryptography.
 
 The strongest case for a small effect is that SpaceX and peers already optimize well. The model judges the remaining gain at 5-20% of capacity, beside a 10x per-satellite step from V3 hardware ([33FG](https://research.33fg.com/analysis/fcc-epfd-ruling-implications-how-it-raises-the-roof-for-v3)), and post-quantum migration is mandated anyway. The skeptic capped fleet encryption swaps at Medium, since no mandate asks for machine-checked update paths, and kept provable international sharing Low by 2035. The advocate won on encryption design, the 2031 deadline and the one robot credit. Watch for an FCC filing citing machine-checked interference bounds by 2028.
 
-40 nodes. Rated High or Medium by 2031: Plateau 15, Exponential 24, Recursive 27, Embodied 27. By 2035: Plateau 24, Exponential 31, Recursive 32, Embodied 33. Main binding gate: adoption.
+43 nodes. Rated High or Medium by 2031: Plateau 17, Exponential 27, Recursive 30, Embodied 30. By 2035: Plateau 27, Exponential 34, Recursive 35, Embodied 36. Main binding gate: adoption.
 
 **Main chain** (each node: tier · earliest year in the Exponential case · likelihood by 2031 / by 2035; Recursive and Embodied years shown where they differ)
 
-- **AI turns math into machine-checked proofs at scale** (tier 0 · 2026 · High; gate: formalization)
-  - → **Proven-correct post-quantum crypto for space processors** (tier 2 · 2028 · High; gate: qualification)
-    - → **Upgradeable satellite encryption with proven update paths** (tier 4 · 2028 · High; gate: adoption)
-      - → **Satellite fleets can swap encryption before the 2035 cutoff** (tier 6 · 2030 · Low / Medium; Recursive 2029; gate: regulatory)
-      - → **Satellites in service switch to post-quantum encryption** (tier 7 · 2032 · Speculative / Medium; gate: regulatory)
-  - → **Formally verified constellation routing software** (tier 2 · 2028 · High; gate: formalization)
-    - → **Mega-constellation mesh run with certified optimality** (tier 6 · 2029 · Medium / High; gate: adoption)
-      - → **Software adds 10%+ capacity on the same hardware** (tier 7 · 2030 · Low / Medium; gate: adoption)
-- **Near-optimal mesh routing with a proven gap** (tier 2 · 2027 · High; gate: cognitive)
-  - → **Mega-constellation mesh run with certified optimality** (tier 6 · 2029 · Medium / High; gate: adoption) (see above)
-- **Provable interference compliance for shared spectrum** (tier 2 · 2028 · High; gate: adoption)
-  - → **Phone-to-satellite service scheduled around interference** (tier 6 · 2029 · Medium / High; Recursive 2028; gate: adoption)
-    - → **Software adds 10%+ capacity on the same hardware** (tier 7 · 2030 · Low / Medium; gate: adoption) (see above)
+- **AI turns math into machine-checked proofs at scale** (tier 0 · 2026 · High; gate: formalization, then cognitive)
+  - → **Proven-correct post-quantum crypto for space processors** (tier 2 · 2028 · High; gate: qualification, then formalization)
+    - → **Upgradeable satellite encryption with proven update paths** (tier 4 · 2028 · High; gate: adoption, then formalization)
+      - → **Satellite fleets can swap encryption before the 2035 cutoff** (tier 6 · 2030 · Low / Medium; Recursive 2029; gate: regulatory, then adoption)
+      - → **Satellites in service switch to post-quantum encryption** (tier 7 · 2032 · Speculative / Medium; gate: regulatory, then adoption)
+  - → **Formally verified constellation routing software** (tier 2 · 2028 · High; gate: formalization, then adoption)
+    - → **Mega-constellation mesh run with certified optimality** (tier 6 · 2029 · Medium / High; gate: adoption, then formalization)
+      - → **Software adds 10%+ capacity per satellite at fixed spectrum** (tier 7 · 2030 · Low / Medium; gate: adoption, then cognitive)
+- **Near-optimal mesh routing with a proven gap** (tier 2 · 2027 · High; gate: cognitive, then data)
+  - → **Mega-constellation mesh run with certified optimality** (tier 6 · 2029 · Medium / High; gate: adoption, then formalization) (see above)
+- **Provable interference compliance for shared spectrum** (tier 2 · 2028 · High; gate: adoption, then cognitive)
+  - → **Phone-to-satellite service scheduled around interference** (tier 6 · 2029 · Medium / High; Recursive 2028; gate: adoption, then regulatory)
+    - → **Software adds 10%+ capacity per satellite at fixed spectrum** (tier 7 · 2030 · Low / Medium; gate: adoption, then cognitive) (see above)
+- **Second-generation direct-to-cell service (V2 D2C) in commercial use** (tier 6 · 2028 · High; gate: adoption, then regulatory)
+  - → **Starlink Mobile serves 100 million phones a month** (tier 7 · 2029 · Medium / High; gate: adoption, then regulatory)
 
 ```mermaid
 flowchart TD
@@ -1449,11 +1464,13 @@ flowchart TD
   n3["Mega-constellation mesh run with certified optimality<br/>tier 6 · 2029 · Medium / High"]
   n4["Provable interference compliance for shared spectrum<br/>tier 2 · 2028 · High"]
   n5["Phone-to-satellite service scheduled around interference<br/>tier 6 · 2029 · Medium / High"]
-  n6["Software adds 10%+ capacity on the same hardware<br/>tier 7 · 2030 · Low / Medium"]
+  n6["Software adds 10%+ capacity per satellite at fixed spectrum<br/>tier 7 · 2030 · Low / Medium"]
   n7["Proven-correct post-quantum crypto for space processors<br/>tier 2 · 2028 · High"]
   n8["Upgradeable satellite encryption with proven update paths<br/>tier 4 · 2028 · High"]
   n9["Satellite fleets can swap encryption before the 2035 cutoff<br/>tier 6 · 2030 · Low / Medium"]
   n10["Satellites in service switch to post-quantum encryption<br/>tier 7 · 2032 · Speculative / Medium"]
+  n11["Second-generation direct-to-cell service (V2 D2C) in commercial use<br/>tier 6 · 2028 · High"]
+  n12["Starlink Mobile serves 100 million phones a month<br/>tier 7 · 2029 · Medium / High"]
   n0 --> n7
   n0 --> n1
   n1 --> n3
@@ -1464,10 +1481,11 @@ flowchart TD
   n7 --> n8
   n8 --> n9
   n8 --> n10
+  n11 --> n12
   classDef cog fill:#dce9fa,stroke:#2a78d6,color:#0f1820
   classDef phys fill:#fbe3d8,stroke:#eb6834,color:#0f1820
   class n0,n1,n2,n4,n7,n8 cog
-  class n3,n5,n6,n9,n10 phys
+  class n3,n5,n6,n9,n10,n11,n12 phys
 ```
 
 **Side lanes** (connected to the branch but off its main chain)
@@ -1532,21 +1550,24 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 | Satellite antenna beams with proven emission limits | 4 | 2030 / 2028 / 2028 / 2028 | L / M / H / H | M / H / H / H | adoption | P1->P4 |
 | Constellation design with proven compliance | 4 | 2031 / 2029 / 2028 / 2028 | L / M / H / H | M / H / H / H | adoption | P1->P6 |
 | AI-designed photonics with proven performance bounds | 4 | 2031 / 2029 / 2029 / 2029 | L / M / M / M | M / H / H / H | fabrication | P1->P4 |
-| Multi-node satellite quantum-key demonstrations | 5 | 2028 / 2028 / 2028 / 2028 | H / H / H / H | H / H / H / H | launch | P7 (exogenous) |
-| Flight demo of verified post-quantum command links | 5 | 2030 / 2029 / 2029 / 2029 | M / M / M / M | M / H / H / H | launch | P2 |
+| Multi-node satellite quantum-key demonstrations | 5 | 2028 / 2028 / 2028 / 2028 | H / H / H / H | H / H / H / H | launch-external | P7 (exogenous) |
+| Flight demo of verified post-quantum command links | 5 | 2030 / 2029 / 2029 / 2029 | M / M / M / M | M / H / H / H | launch-external | P2 |
 | Ground demo: optical receiver beats photon counting | 5 | 2034 / 2031 / 2030 / 2030 | S / L / L / L | S / L / L / L | experiment | P6 |
 | AI-designed codes ship in a satellite link standard | 5 | 2035 / 2033 / 2033 / 2033 | S / S / S / S | S / M / M / M | adoption | P1->P4->P6 |
 | Independent suppliers ship 3,000 laser terminals a year | 5 | >2035 / 2035 / 2034 / 2033 | S / S / S / S | S / L / L / M | fabrication | P1->P4 (plus robots in S4) |
+| Second-generation direct-to-cell service (V2 D2C) in commercial use | 6 | 2028 / 2028 / 2028 / 2028 | H / H / H / H | H / H / H / H | adoption | P7 (exogenous; AI math enters only through coexistence scheduling and link design) |
 | Mega-constellation mesh run with certified optimality | 6 | 2030 / 2029 / 2029 / 2029 | L / M / H / H | M / H / H / H | adoption | P1->P4 + P2 |
 | Phone-to-satellite service scheduled around interference | 6 | 2031 / 2029 / 2028 / 2028 | L / M / H / H | M / H / H / H | adoption | P1->P4 |
-| Low-orbit navigation service with published error bounds | 6 | 2031 / 2029 / 2029 / 2029 | L / M / M / M | M / H / H / H | launch | P1->P7 (service deployment; the integrity layer is the AI-math share) |
 | Weather-robust optical ground network service | 6 | 2031 / 2030 / 2030 / 2030 | L / M / M / M | M / M / M / M | capital | P1->P6 |
 | Satellite fleets can swap encryption before the 2035 cutoff | 6 | 2033 / 2030 / 2029 / 2029 | S / L / M / M | L / M / M / M | regulatory | P2 |
+| Low-orbit navigation service with published error bounds | 6 | 2031 / 2030 / 2029 / 2029 | L / M / M / M | M / H / H / H | launch-external | P1->P7 (service deployment; the integrity layer is the AI-math share) |
+| Third-generation direct-to-cell satellites (V3 D2C) in service | 6 | 2030 / 2030 / 2029 / 2029 | L / M / M / M | H / H / H / H | launch-internal | P7 (exogenous; AI math enters only through coexistence scheduling and link design) |
 | Certified quantum-key service from space | 6 | 2032 / 2031 / 2031 / 2031 | S / L / L / L | L / L / L / L | capital | P2->P7 |
 | Real-time spectrum sharing among rival constellations | 6 | 2034 / 2031 / 2030 / 2030 | S / L / L / L | L / M / M / M | adoption | P1->P2 |
-| Constellation designed with certified tools enters service | 6 | 2034 / 2032 / 2031 / 2031 | S / S / L / L | L / H / H / H | launch | P1->P6->P7 |
+| Constellation designed with certified tools enters service | 6 | 2034 / 2032 / 2031 / 2031 | S / S / L / L | L / H / H / H | launch-external | P1->P6->P7 |
 | Deep-space laser ground station gets more bits per photon | 6 | >2035 / 2034 / 2033 / 2033 | S / S / S / S | S / S / S / S | capital | P6->P7 |
-| Software adds 10%+ capacity on the same hardware | 7 | 2033 / 2030 / 2030 / 2030 | S / L / M / M | L / M / M / M | adoption | P1->P4 |
+| Starlink Mobile serves 100 million phones a month | 7 | 2029 / 2029 / 2029 / 2029 | M / M / M / M | H / H / H / H | adoption | P7 (exogenous; AI math enters only through coexistence scheduling and link design) |
+| Software adds 10%+ capacity per satellite at fixed spectrum | 7 | 2033 / 2030 / 2030 / 2030 | S / L / M / M | L / M / M / M | adoption | P1->P4 |
 | Machine-checked crypto becomes a procurement norm | 7 | 2033 / 2030 / 2030 / 2030 | S / L / M / M | L / M / M / M | regulatory | P2 |
 | International shift to provable spectrum sharing | 7 | 2031 / 2031 / 2031 / 2031 | L / L / L / L | L / L / L / L | regulatory | P2 |
 | Satellites in service switch to post-quantum encryption | 7 | 2033 / 2032 / 2032 / 2032 | S / S / S / S | L / M / M / M | regulatory | P2->P7 |
@@ -1557,9 +1578,9 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 
 ### Fewer tests, faster approvals
 
-*Operators fly hardware qualified mainly by AI analysis about 2029 (base case, High by 2035). Government credit follows in 2030-31. Test standards and new government designs follow about 2033, still Low. Qualification 15% shorter stays capped at Medium by 2035. Embodied lifts 30% shorter campaigns at leading firms to High.*
+*Operators fly hardware qualified mainly by AI analysis about 2029 (central scenario, High by 2035). Government credit follows in 2030-31. Test standards and new government designs follow about 2033, still Low. Qualification 15% shorter stays capped at Medium by 2035. Embodied lifts 30% shorter campaigns at leading firms to High.*
 
-In the Exponential base case, research-grade mathematics reaches outside teams about 2027 (High by 2031). Teams can ask for structural margins with certified uncertainty bounds in place of stacked safety factors of about 1.25–1.4, the most informative tests, and the smallest flaw a sensor layout can detect. Finite-element agents exist as [research prototypes](https://doi.org/10.48550/arxiv.2606.07850).
+In the Exponential case, our central scenario, research-grade mathematics reaches outside teams about 2027 (High by 2031). Teams can ask for structural margins with certified uncertainty bounds in place of stacked safety factors of about 1.25–1.4, the most informative tests, and the smallest flaw a sensor layout can detect. Finite-element agents exist as [research prototypes](https://doi.org/10.48550/arxiv.2606.07850).
 
 AI agents run and check structural and thermal analysis about 2027, and cycles get 2–5x faster about 2029 (both High by 2031). Risk-owning operators fly new hardware qualified mainly by AI analysis about 2029 (Medium by 2031, High by 2035). A rulebook for trusting AI-made analysis comes about 2029 (Medium, regulator-capped through 2035). Analysis replaces some structural tests about 2030 and some environmental tests about 2031, and qualification campaigns at least 15% shorter follow that year (all Low by 2031, Medium by 2035). On the government track, Plateau lags two to three years and Recursive leads by one. Bands are analyst judgments.
 
@@ -1573,28 +1594,28 @@ The strongest case for a small effect is that much of this exists without AI. NA
 
 **Main chain** (each node: tier · earliest year in the Exponential case · likelihood by 2031 / by 2035; Recursive and Embodied years shown where they differ)
 
-- **Research-grade math for outside teams** (tier 0 · 2027 · High; gate: regulatory)
-  - → **AI agents run and check structural and thermal analysis** (tier 4 · 2027 · High; gate: adoption)
-    - → **Operators fly new hardware qualified mainly by AI analysis** (tier 5 · 2029 · Medium / High; gate: adoption)
-      - → **New government designs fly qualified mostly by analysis** (tier 6 · 2033 · Speculative / Low; Recursive 2032; gate: regulatory)
-      - → **Qualification campaigns 30% shorter at leading firms** (tier 7 · 2035 · Speculative / Low; Recursive 2033; gate: qualification)
-    - → **Structures and thermal analysis cycles 2-5x faster** (tier 7 · 2029 · High; Recursive 2028; gate: adoption)
-      - → **5-15% lighter structures on new vehicles and spacecraft** (tier 7 · 2033 · Speculative / Low; Recursive 2031; gate: qualification)
-    - → **Qualification by analysis replaces some structural tests** (tier 4 · 2030 · Low / Medium; Recursive 2029; gate: regulatory)
-      - → **Analysis replaces some environmental qualification tests** (tier 4 · 2031 · Low / Medium; Recursive 2030; gate: qualification)
-        - → **Qualification campaigns at least 15% shorter** (tier 7 · 2031 · Low / Medium; Recursive 2030; gate: qualification)
-        - → **Test standards write in credit for AI analysis** (tier 5 · 2033 · Speculative / Low; Recursive 2032; gate: regulatory)
-        - → **New government designs fly qualified mostly by analysis** (tier 6 · 2033 · Speculative / Low; Recursive 2032; gate: regulatory) (see above)
-  - → **Regulators review with AI tools** (tier 0 · 2028 · Medium; gate: adoption)
-    - → **Launch licensing in weeks** (tier 6 · 2028 · Medium; gate: regulatory)
-- **Structural margins with certified uncertainty bounds** (tier 2 · 2028 · High; gate: data)
-  - → **Qualification by analysis replaces some structural tests** (tier 4 · 2030 · Low / Medium; Recursive 2029; gate: regulatory) (see above)
-- **Tests chosen for information, not habit** (tier 2 · 2028 · High; gate: adoption)
-  - → **Operators fly new hardware qualified mainly by AI analysis** (tier 5 · 2029 · Medium / High; gate: adoption) (see above)
-  - → **Qualification campaigns at least 15% shorter** (tier 7 · 2031 · Low / Medium; Recursive 2030; gate: qualification) (see above)
-- **A rulebook for trusting AI-made analysis** (tier 2 · 2029 · Medium; Recursive 2028; gate: regulatory)
-  - → **Qualification by analysis replaces some structural tests** (tier 4 · 2030 · Low / Medium; Recursive 2029; gate: regulatory) (see above)
-  - → **Analysis replaces some environmental qualification tests** (tier 4 · 2031 · Low / Medium; Recursive 2030; gate: qualification) (see above)
+- **Research-grade math for outside teams** (tier 0 · 2027 · High; gate: regulatory, then capital)
+  - → **AI agents run and check structural and thermal analysis** (tier 4 · 2027 · High; gate: adoption, then cognitive)
+    - → **Operators fly new hardware qualified mainly by AI analysis** (tier 5 · 2029 · Medium / High; gate: adoption, then fabrication)
+      - → **New government designs fly qualified mostly by analysis** (tier 6 · 2033 · Speculative / Low; Recursive 2032; gate: regulatory, then capital)
+      - → **Qualification campaigns 30% shorter at leading firms** (tier 7 · 2035 · Speculative / Low; Recursive 2033; gate: qualification, then adoption)
+    - → **Structures and thermal analysis cycles 2-5x faster** (tier 7 · 2029 · High; Recursive 2028; gate: adoption, then cognitive)
+      - → **5-15% lighter structures on new vehicles and spacecraft** (tier 7 · 2033 · Speculative / Low; Recursive 2031; gate: qualification, then adoption)
+    - → **Qualification by analysis replaces some structural tests** (tier 4 · 2030 · Low / Medium; Recursive 2029; gate: regulatory, then data)
+      - → **Analysis replaces some environmental qualification tests** (tier 4 · 2031 · Low / Medium; Recursive 2030; gate: qualification, then regulatory)
+        - → **Qualification campaigns at least 15% shorter** (tier 7 · 2031 · Low / Medium; Recursive 2030; gate: qualification, then regulatory)
+        - → **Test standards write in credit for AI analysis** (tier 5 · 2033 · Speculative / Low; Recursive 2032; gate: regulatory, then adoption)
+        - → **New government designs fly qualified mostly by analysis** (tier 6 · 2033 · Speculative / Low; Recursive 2032; gate: regulatory, then capital) (see above)
+  - → **Regulators review with AI tools** (tier 0 · 2028 · Medium; gate: adoption, then data)
+    - → **Launch licensing in weeks** (tier 6 · 2028 · Medium; gate: regulatory, then adoption)
+- **Structural margins with certified uncertainty bounds** (tier 2 · 2028 · High; gate: data, then cognitive)
+  - → **Qualification by analysis replaces some structural tests** (tier 4 · 2030 · Low / Medium; Recursive 2029; gate: regulatory, then data) (see above)
+- **Tests chosen for information, not habit** (tier 2 · 2028 · High; gate: adoption, then experiment)
+  - → **Operators fly new hardware qualified mainly by AI analysis** (tier 5 · 2029 · Medium / High; gate: adoption, then fabrication) (see above)
+  - → **Qualification campaigns at least 15% shorter** (tier 7 · 2031 · Low / Medium; Recursive 2030; gate: qualification, then regulatory) (see above)
+- **A rulebook for trusting AI-made analysis** (tier 2 · 2029 · Medium; Recursive 2028; gate: regulatory, then formalization)
+  - → **Qualification by analysis replaces some structural tests** (tier 4 · 2030 · Low / Medium; Recursive 2029; gate: regulatory, then data) (see above)
+  - → **Analysis replaces some environmental qualification tests** (tier 4 · 2031 · Low / Medium; Recursive 2030; gate: qualification, then regulatory) (see above)
 
 ```mermaid
 flowchart TD
@@ -1729,9 +1750,9 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 
 ### Engines, fuels and alloys
 
-*Certified flow and materials models give engines reuse life by analysis from about 2029 (base case). Hot fire and flights set the pace. In 2032-35, 50-flight engines and reusable lunar landers are likeliest. An AI-designed alloy may fly, likely in Recursive. Robots (Embodied) lift one band: a four-year large engine.*
+*Certified flow and materials models give engines reuse life by analysis from about 2029 (central scenario). Hot fire and flights set the pace. In 2032-35, 50-flight engines and reusable lunar landers are likeliest. An AI-designed alloy may fly, likely in Recursive. Robots (Embodied) lift one band: a four-year large engine.*
 
-On-demand AI mathematics first supplies expert-scarce analysis solved in principle. From about 2028 in the Exponential case, our base case, propulsion teams get certified stability margins for every injector variant in days, checked flow simulations, life models updated after each flight and alloy screening with error bars (all High by 2031).
+On-demand AI mathematics first supplies expert-scarce analysis solved in principle. From about 2028 in the Exponential case, our central scenario, propulsion teams get certified stability margins for every injector variant in days, checked flow simulations, life models updated after each flight and alloy screening with error bars (all High by 2031).
 
 Model-based engine reuse life arrives about 2029 (Medium by 2031, High by 2035), but each life data point costs a flight, so life extension comes only 6-12 months sooner. Designing out combustion instability before hot fire needs predicted flame response at engine pressures, about 2031 (Low by 2031). AI designs alloys in weeks; powder lots, print-parameter work and hot fire set the floor. [NASA's GRCop alloy](https://ntrs.nasa.gov/api/citations/20260003255/downloads/AMRL%20Framework%20for%20AM%20Alloy%20Readiness.pdf) took from 1987 to 2023 to fly. The first AI-designed alloy flies in an engine about 2030 (Low by 2031, Medium by 2035, High in Recursive). Plateau runs two to four years behind.
 
@@ -1745,23 +1766,23 @@ The strongest case for a small effect is that testing is already cheap. SpaceX b
 
 **Main chain** (each node: tier · earliest year in the Exponential case · likelihood by 2031 / by 2035; Recursive and Embodied years shown where they differ)
 
-- **AI does research-grade applied math** (tier 0 · 2027 · High; gate: cognitive)
-  - → **Atomistic AI models with trustworthy error bars** (tier 2 · 2028 · High; gate: data)
-    - → **AI designs new rocket-engine alloys in weeks** (tier 4 · 2028 · High; gate: experiment)
-      - → **First AI-agent-designed alloy flies in a rocket engine** (tier 5 · 2030 · Low / Medium; gate: experiment)
-        - → **An engine built around an AI-designed alloy flies** (tier 6 · 2033 · Speculative / Low; Recursive 2032; gate: experiment)
-  - → **Certified combustion-stability models** (tier 2 · 2028 · High; gate: cognitive)
-    - → **Design out combustion instability before hot fire** (tier 4 · 2031 · Low / Medium; gate: experiment)
-      - → **Engine development time and cost cut** (tier 7 · 2033 · Speculative / Low; Recursive 2031; gate: experiment)
-  - → **Automated checks that engine flow simulations are right** (tier 2 · 2028 · High; gate: adoption)
-    - → **Design out combustion instability before hot fire** (tier 4 · 2031 · Low / Medium; gate: experiment) (see above)
-    - → **Engine development time and cost cut** (tier 7 · 2033 · Speculative / Low; Recursive 2031; gate: experiment) (see above)
-  - → **AI designs new rocket-engine alloys in weeks** (tier 4 · 2028 · High; gate: experiment) (see above)
-  - → **Probabilistic engine life prediction for reuse** (tier 4 · 2028 · High; gate: data)
-    - → **Model-based engine reuse life** (tier 6 · 2029 · Medium / High; gate: data)
-      - → **Engines fly 50 missions without overhaul** (tier 7 · 2033 · Speculative / Medium; Recursive 2032; gate: data)
-  - → **Validated models of cryogenic propellant in microgravity** (tier 3 · 2029 · High; Recursive 2028; gate: data)
-    - → **Routine orbital refueling economy** (tier 7 · 2030 · Medium / High; Recursive 2029; gate: launch)
+- **AI does research-grade applied math** (tier 0 · 2027 · High; gate: cognitive, then data)
+  - → **Atomistic AI models with trustworthy error bars** (tier 2 · 2028 · High; gate: data, then cognitive)
+    - → **AI designs new rocket-engine alloys in weeks** (tier 4 · 2028 · High; gate: experiment, then fabrication)
+      - → **First AI-agent-designed alloy flies in a rocket engine** (tier 5 · 2030 · Low / Medium; gate: experiment, then fabrication)
+        - → **An engine built around an AI-designed alloy flies** (tier 6 · 2033 · Speculative / Low; Recursive 2032; gate: experiment, then fabrication)
+  - → **Certified combustion-stability models** (tier 2 · 2028 · High; gate: cognitive, then data)
+    - → **Design out combustion instability before hot fire** (tier 4 · 2031 · Low / Medium; gate: experiment, then adoption)
+      - → **Engine development time and cost cut** (tier 7 · 2033 · Speculative / Low; Recursive 2031; gate: experiment, then qualification)
+  - → **Automated checks that engine flow simulations are right** (tier 2 · 2028 · High; gate: adoption, then cognitive)
+    - → **Design out combustion instability before hot fire** (tier 4 · 2031 · Low / Medium; gate: experiment, then adoption) (see above)
+    - → **Engine development time and cost cut** (tier 7 · 2033 · Speculative / Low; Recursive 2031; gate: experiment, then qualification) (see above)
+  - → **AI designs new rocket-engine alloys in weeks** (tier 4 · 2028 · High; gate: experiment, then fabrication) (see above)
+  - → **Probabilistic engine life prediction for reuse** (tier 4 · 2028 · High; gate: data, then cognitive)
+    - → **Model-based engine reuse life** (tier 6 · 2029 · Medium / High; gate: data, then adoption)
+      - → **Engines fly 50 missions without overhaul** (tier 7 · 2033 · Speculative / Medium; Recursive 2032; gate: data, then launch-internal)
+  - → **Validated models of cryogenic propellant in microgravity** (tier 3 · 2029 · High; Recursive 2028; gate: data, then cognitive)
+    - → **Routine orbital refueling economy** (tier 7 · 2030 · Medium / High; Recursive 2029; gate: launch-internal, then capital)
 
 ```mermaid
 flowchart TD
@@ -1870,30 +1891,30 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 | Predictive turbopump cavitation and stability | 4 | 2032 / 2029 / 2028 / 2028 | S / M / M / M | M / H / H / H | experiment | P1->P6 |
 | Gradient design of turbulent and chaotic systems | 4 | >2035 / 2030 / 2029 / 2029 | S / L / L / L | S / L / M / M | experiment | P6 |
 | Design out combustion instability before hot fire | 4 | 2035 / 2031 / 2031 / 2031 | S / L / L / L | S / M / M / M | experiment | P1->P6 |
-| Ship-to-ship cryogenic transfer demonstrated | 5 | 2027 / 2027 / 2027 / 2027 | H / H / H / H | H / H / H / H | launch | P7 (exogenous) |
-| Public flight data on storing cryogenic propellant in orbit | 5 | 2028 / 2028 / 2028 / 2028 | M / M / M / M | M / M / M / M | launch | P7 (exogenous) |
+| Ship-to-ship cryogenic transfer demonstrated | 5 | 2027 / 2027 / 2027 / 2027 | H / H / H / H | H / H / H / H | launch-internal | P7 (exogenous) |
+| Public flight data on storing cryogenic propellant in orbit | 5 | 2028 / 2028 / 2028 / 2028 | M / M / M / M | M / M / M / M | launch-external | P7 (exogenous) |
 | Autonomous labs discover real new materials | 5 | 2030 / 2029 / 2029 / 2029 | L / M / H / H | M / H / H / H | experiment | P1->P7 |
 | Detonation engine flies in space | 5 | 2029 / 2029 / 2029 / 2029 | M / M / M / M | M / M / M / M | qualification | P7 (exogenous) |
 | First AI-agent-designed alloy flies in a rocket engine | 5 | 2032 / 2030 / 2030 / 2030 | S / L / M / M | L / M / H / H | experiment | P1->P7 |
 | AI-designed propellant flies | 5 | 2034 / 2031 / 2030 / 2030 | S / L / L / L | L / L / M / M | qualification | P1->P7 |
-| Full lunar-lander refueling campaign | 6 | 2029 / 2029 / 2028 / 2028 | M / M / H / H | H / H / H / H | launch | P7 (exogenous) |
+| Full lunar-lander refueling campaign | 6 | 2029 / 2029 / 2028 / 2028 | M / M / H / H | H / H / H / H | launch-internal | P7 (exogenous) |
 | Model-based engine reuse life | 6 | 2031 / 2029 / 2029 / 2029 | L / M / M / M | M / H / H / H | data | P1->P6->P7 |
 | Detonation engines in operational service | 6 | 2033 / 2031 / 2031 / 2031 | S / S / L / L | L / L / L / L | qualification | P1->P6->P7 |
 | Longer-life reusable engines from new alloys | 6 | 2034 / 2032 / 2031 / 2031 | S / S / L / L | S / L / M / M | data | P7 |
 | An engine built around an AI-designed alloy flies | 6 | 2035 / 2033 / 2032 / 2032 | S / S / S / S | S / L / M / M | experiment | P1->P6->P7 |
-| One lunar lander makes three landings, refueled in space | 6 | 2034 / 2033 / 2032 / 2032 | S / S / S / S | L / M / M / M | launch | P7 (exogenous) |
-| Routine orbital refueling economy | 7 | 2032 / 2030 / 2029 / 2029 | S / M / M / M | H / H / H / H | launch | P1->P6->P7 |
+| One lunar lander makes three landings, refueled in space | 6 | 2034 / 2033 / 2032 / 2032 | S / S / S / S | L / M / M / M | launch-internal | P7 (exogenous) |
+| Routine orbital refueling economy | 7 | 2032 / 2030 / 2029 / 2029 | S / M / M / M | H / H / H / H | launch-internal | P1->P6->P7 |
 | Engine development time and cost cut | 7 | >2035 / 2033 / 2031 / 2031 | S / S / L / L | S / L / M / M | experiment | P1->P6 |
 | Engines fly 50 missions without overhaul | 7 | 2034 / 2033 / 2032 / 2032 | S / S / S / S | L / M / M / M | data | P1->P6->P7 |
 | Propellant sold in orbit to outside customers | 7 | 2034 / 2033 / 2032 / 2032 | S / S / S / S | L / L / L / L | capital | P1->P7 |
-| Tankers fuel five Mars ships for one window | 7 | 2035 / 2033 / 2033 / 2033 | S / S / S / S | L / M / M / M | launch | P7 (exogenous) |
+| Tankers fuel five Mars ships for one window | 7 | 2035 / 2033 / 2033 / 2033 | S / S / S / S | L / M / M / M | launch-internal | P7 (exogenous) |
 | A new large engine flies four years after program start | 7 | >2035 / 2035 / 2033 / 2033 | S / S / S / S | S / L / L / M | experiment | P1->P6->P7 |
 
 </details>
 
 ### Getting through the atmosphere
 
-*AI uncertainty analysis lets commercial capsules fly thinner heat shields around 2030 (base case, Medium). Ship heat shields reach five reflights by 2030. Three-day turnaround and crewed reusable ships stay Low by 2035. Windows, budgets and certifiers pace Mars landings and crewed margins. Robots (Embodied) speed only arc-jet testing.*
+*AI uncertainty analysis lets commercial capsules fly thinner heat shields around 2030 (central scenario, Medium). Ship heat shields reach five reflights by 2030. Three-day turnaround and crewed reusable ships stay Low by 2035. Windows, budgets and certifiers pace Mars landings and crewed margins. Robots (Embodied) speed only arc-jet testing.*
 
 On-demand AI mathematics first changes how heat-shield margins are set and arc-jet tests planned. A team can swap stacked factors, such as 1.5 on radiative heating, for one probabilistic budget ending in a bondline reliability figure. A preliminary [NASA study](https://ntrs.nasa.gov/api/citations/20260005218/downloads/SRL_TPS_IPPW.pdf) for the cancelled Mars Sample Retrieval Lander, an 8 km/s entry, kept the bondline within limits in about 99% of cases at about 75% of baseline thickness, at one location.
 
@@ -1905,22 +1926,22 @@ The openai/math catalog contributes little. Families 365, 372 and 366 bear on fi
 
 The strongest case for a small effect is that the mathematics was never the barrier. Probabilistic heat-shield methods are about 20 years old, and Artemis I's char loss pushes NASA toward more margin. The NASA study capped heating error at existing factors, yet radiation models under-predicted shock-tube data for that entry by up to 2x ([Hansson, 2026](https://indico.esa.int/event/594/contributions/12539/)). The advocate's High for the thinner shield failed at both checkpoints, since operators may spend margin on reliability and stay silent. The skeptic removed Embodied's credit on three-day turnaround, a one-off record people can staff, and ship reuse keeps High by 2035 only while tiles work. Watch the first Starship ship catch and reflight, with published tile-replacement counts.
 
-37 nodes. Rated High or Medium by 2031: Plateau 11, Exponential 19, Recursive 23, Embodied 23. By 2035: Plateau 19, Exponential 25, Recursive 28, Embodied 29. Main binding gate: experiment.
+37 nodes. Rated High or Medium by 2031: Plateau 11, Exponential 18, Recursive 22, Embodied 22. By 2035: Plateau 19, Exponential 25, Recursive 28, Embodied 29. Main binding gate: experiment.
 
 **Main chain** (each node: tier · earliest year in the Exponential case · likelihood by 2031 / by 2035; Recursive and Embodied years shown where they differ)
 
-- **AI does research-grade applied math** (tier 0 · 2027 · High; gate: cognitive)
-  - → **Heat-shield margins from on-demand uncertainty analysis** (tier 2 · 2028 · High; gate: cognitive)
-    - → **Probabilistic heat-shield sizing adopted in practice** (tier 4 · 2029 · Medium / High; gate: adoption)
-      - → **Flown heat shield sized with reduced, model-based margins** (tier 5 · 2030 · Medium; gate: launch)
-  - → **Damage-accumulation model for reusable ceramic tiles** (tier 3 · 2029 · Medium / High; gate: data)
-- **High-cadence instrumented reentry flights** (tier 0 · 2027 · High; gate: launch)
-  - → **Flown heat shield sized with reduced, model-based margins** (tier 5 · 2030 · Medium; gate: launch) (see above)
-  - → **Routine, cheap reentry: 50+ commercial returns a year** (tier 7 · 2031 · Low / Medium; Recursive 2030; gate: capital)
-- **Both Starship stages caught and reflown** (tier 5 · 2027 · High; gate: experiment)
-  - → **Damage-accumulation model for reusable ceramic tiles** (tier 3 · 2029 · Medium / High; gate: data) (see above)
-  - → **Rapidly reusable orbital heat shield (ship scale)** (tier 5 · 2030 · Medium / High; Recursive 2029; gate: launch)
-    - → **Ship heat shield turned around in three days** (tier 6 · 2034 · Speculative / Low; Recursive 2033; gate: data)
+- **AI does research-grade applied math** (tier 0 · 2027 · High; gate: cognitive, then data)
+  - → **Heat-shield margins from on-demand uncertainty analysis** (tier 2 · 2028 · High; gate: cognitive, then data)
+    - → **Probabilistic heat-shield sizing adopted in practice** (tier 4 · 2029 · Medium / High; gate: adoption, then cognitive)
+      - → **Flown heat shield sized with reduced, model-based margins** (tier 5 · 2030 · Low / Medium; gate: launch-external, then adoption)
+  - → **Damage-accumulation model for reusable ceramic tiles** (tier 3 · 2029 · Medium / High; gate: data, then adoption)
+- **High-cadence instrumented reentry flights** (tier 0 · 2027 · High; gate: launch-internal, then capital)
+  - → **Flown heat shield sized with reduced, model-based margins** (tier 5 · 2030 · Low / Medium; gate: launch-external, then adoption) (see above)
+  - → **Routine, cheap reentry: 50+ commercial returns a year** (tier 7 · 2031 · Low / Medium; Recursive 2030; gate: capital, then launch-external)
+- **Both Starship stages caught and reflown** (tier 5 · 2027 · High; gate: experiment, then fabrication)
+  - → **Damage-accumulation model for reusable ceramic tiles** (tier 3 · 2029 · Medium / High; gate: data, then adoption) (see above)
+  - → **Rapidly reusable orbital heat shield (ship scale)** (tier 5 · 2030 · Medium / High; Recursive 2029; gate: launch-internal, then fabrication)
+    - → **Ship heat shield turned around in three days** (tier 6 · 2034 · Speculative / Low; Recursive 2033; gate: data, then fabrication)
 
 ```mermaid
 flowchart TD
@@ -1929,7 +1950,7 @@ flowchart TD
   n2["High-cadence instrumented reentry flights<br/>tier 0 · 2027 · High"]
   n3["Heat-shield margins from on-demand uncertainty analysis<br/>tier 2 · 2028 · High"]
   n4["Probabilistic heat-shield sizing adopted in practice<br/>tier 4 · 2029 · Medium / High"]
-  n5["Flown heat shield sized with reduced, model-based margins<br/>tier 5 · 2030 · Medium"]
+  n5["Flown heat shield sized with reduced, model-based margins<br/>tier 5 · 2030 · Low / Medium"]
   n6["Routine, cheap reentry: 50+ commercial returns a year<br/>tier 7 · 2031 · Low / Medium"]
   n7["Damage-accumulation model for reusable ceramic tiles<br/>tier 3 · 2029 · Medium / High"]
   n8["Rapidly reusable orbital heat shield (ship scale)<br/>tier 5 · 2030 · Medium / High"]
@@ -2002,7 +2023,7 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 
 | Node | Tier | Year | By 2031 | By 2035 | Binding gate | Pathway |
 | --- | --- | --- | --- | --- | --- | --- |
-| High-cadence instrumented reentry flights | 0 | 2027 / 2027 / 2027 / 2027 | H / H / H / H | H / H / H / H | launch | n/a (physical enabler; feeds P5/P6 calibration) |
+| High-cadence instrumented reentry flights | 0 | 2027 / 2027 / 2027 / 2027 | H / H / H / H | H / H / H / H | launch-internal | n/a (physical enabler; feeds P5/P6 calibration) |
 | Information-optimal ground and flight test design | 2 | 2029 / 2028 / 2028 / 2028 | M / H / H / H | H / H / H / H | adoption | P1 |
 | On-demand airflow stability analysis for any vehicle | 2 | 2029 / 2028 / 2028 / 2028 | M / H / H / H | H / H / H / H | cognitive | P1 |
 | Heat-shield margins from on-demand uncertainty analysis | 2 | 2029 / 2028 / 2028 / 2028 | M / H / H / H | H / H / H / H | cognitive | P1->P5 |
@@ -2024,17 +2045,17 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 | Fleet-trained reentry heating model for one reusable vehicle | 4 | 2029 / 2029 / 2029 / 2029 | M / M / M / M | H / H / H / H | data | P1->P6 (owner data; AI effect ~months) |
 | Arc-jet test runs per year double | 4 | >2035 / 2035 / 2034 / 2033 | S / S / S / S | S / L / L / M | capital | P7 (test infrastructure; S4 lever is robot labor at the facilities) |
 | First aerocapture flight demonstration | 5 | 2030 / 2030 / 2030 / 2030 | L / L / L / L | L / L / L / L | capital | P1->P7 |
-| Rapidly reusable orbital heat shield (ship scale) | 5 | 2031 / 2030 / 2029 / 2029 | M / M / M / M | H / H / H / H | launch | P7 (exogenous) |
-| Flown heat shield sized with reduced, model-based margins | 5 | 2031 / 2030 / 2030 / 2030 | L / M / M / M | M / M / M / M | launch | P5->P7 |
+| Rapidly reusable orbital heat shield (ship scale) | 5 | 2031 / 2030 / 2029 / 2029 | M / M / M / M | H / H / H / H | launch-internal | P7 (exogenous) |
+| Flown heat shield sized with reduced, model-based margins | 5 | 2031 / 2030 / 2030 / 2030 | L / L / L / L | M / M / M / M | launch-external | P5->P7 |
 | AI-designed heat-shield material flies | 5 | 2031 / 2030 / 2030 / 2030 | L / M / H / H | M / H / H / H | experiment | P1->P7 |
 | Next large inflatable or folding heat shield flies | 5 | 2030 / 2030 / 2030 / 2030 | L / L / L / L | L / L / L / L | capital | P1->P7 |
 | Ground-validated design basis for 12-14 km/s Earth return | 5 | >2035 / 2031 / 2030 / 2030 | S / L / L / L | S / L / L / L | capital | P6 |
-| First landing of 20 t or more on Mars | 6 | 2031 / 2031 / 2031 / 2031 | L / L / L / L | M / M / M / M | launch | P1->P7 |
+| First landing of 20 t or more on Mars | 6 | 2031 / 2031 / 2031 / 2031 | L / L / L / L | M / M / M / M | launch-internal | P1->P7 |
 | Point-to-point rocket cargo, repeated demonstration flights | 6 | 2032 / 2031 / 2030 / 2030 | S / L / L / L | L / L / L / L | regulatory | P7 |
-| Second heavy Mars lander lands within 1 km of the first | 6 | 2033 / 2033 / 2033 / 2033 | S / S / S / S | S / L / L / L | launch | P7 (launch windows; AI-math effect through guidance and plume-surface models) |
+| Second heavy Mars lander lands within 1 km of the first | 6 | 2033 / 2033 / 2033 / 2033 | S / S / S / S | S / L / L / L | launch-internal | P7 (launch windows; AI-math effect through guidance and plume-surface models) |
 | Ship heat shield turned around in three days | 6 | 2035 / 2034 / 2033 / 2033 | S / S / S / S | S / L / M / M | data | P7 (exogenous launch clock; AI-math effect through damage and inspection models, P1->P6) |
 | AI-designed heat-shield material in regular service | 6 | 2035 / 2034 / 2033 / 2033 | S / S / S / S | S / L / M / M | qualification | P1->P7 |
-| People return from orbit on a reusable ship | 6 | 2035 / 2034 / 2033 / 2033 | S / S / S / S | S / L / M / M | launch | P7 (exogenous launch clock; AI-math effect through tile damage models and reliability priors, P1->P6) |
+| People return from orbit on a reusable ship | 6 | 2035 / 2034 / 2033 / 2033 | S / S / S / S | S / L / M / M | launch-internal | P7 (exogenous launch clock; AI-math effect through tile damage models and reliability priors, P1->P6) |
 | First aerocapture into orbit around another planet | 6 | >2035 / 2035 / 2034 / 2034 | S / S / S / S | S / S / S / S | capital | P1->P7 |
 | Crewed heat shield sized by probabilistic margins flies | 6 | >2035 / 2035 / 2034 / 2034 | S / S / S / S | S / S / L / L | regulatory | P1->P5->P7 |
 | Routine, cheap reentry: 50+ commercial returns a year | 7 | 2033 / 2031 / 2030 / 2030 | S / L / L / L | L / M / M / M | capital | P7 (market and physical clock; AI-math effect marginal) |
@@ -2046,30 +2067,34 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 
 *SpaceX's launch, hardware and capital clock paces orbital compute. Base case: 100-kW-class satellites fly about 2028, 1 GW is Low by 2031 and Medium by 2035, and 10 GW comes after 2035. AI math adds a few percent. Arrays and chip temperatures matter more. Robots (Embodied) change nothing: launch binds.*
 
-On-demand AI mathematics first turns limited beam-test data into mission-level error rates for AI chips and memory. It also designs radiators and cold plates together and lets weeks of hot testing stand in for years. In the Exponential base case, *Predicting radiation errors in commercial AI chips* and *AI-optimized radiators and heat transport* arrive about 2028 (High by 2031).
+On-demand AI mathematics first turns limited beam-test data into mission-level error rates for AI chips and memory. It also designs radiators and cold plates together and lets weeks of hot testing stand in for years. In the Exponential case, our central scenario, *Predicting radiation errors in commercial AI chips* and *AI-optimized radiators and heat transport* arrive about 2028 (High by 2031).
 
-The main chain is hardware on SpaceX's clock. *100-kW-class deployable radiators fly on compute satellites* about 2028 in every scenario, and *Commercial AI chips running in orbit at scale* follow about 2029 (both High by 2031). *AI chips and memory qualified to run hot in orbit* come about 2029 (Medium by 2031, High by 2035). *1 GW of compute operating in orbit*, about 4,000 satellites and 110-180 Starship flights, and *100 kW-per-tonne compute satellites in serial production* come about 2031 (Low by 2031, Medium by 2035). Plateau pushes both to about 2033; Recursive lifts both to Medium by 2031 through faster cadence, generations and demand. Bands are analyst judgments.
+The main chain is hardware on SpaceX's clock, and we size it on one satellite: SpaceX's AI1, the compute satellite of its Starmind program, as Mach33 reconstructed it ([Jun 2026](https://research.33fg.com/analysis/spacex-ai1-a-subsystem-level-reconstruction)). AI1 delivers 150 kW peak and 120 kW average, weighs about 2.1 t (71 kW/t) and flies in dawn-dusk sun-synchronous orbit (SSO), where a Starship carries about 60-90 t. A gigawatt is then about 6,700 satellites at peak (8,300 at average) and about 14,000 t, or 155-235 flights; at the 100 kW/t SpaceX's S-1 cites it is about 10,000 t and 110-170 flights. A 250 kW unit would be a later generation at S-1 density, not AI1.
 
-After 2031 the Exponential case trains *a large AI model in orbit* about 2032 and flies *megawatt-class compute satellites* about 2033 (both Medium by 2035). Long training runs make silent errors costly, so *proven radiation-fault tolerance for orbital AI* reaches High by 2035. *10 GW of compute operating in orbit* comes after 2035 in the Exponential case, with 4-5 GW by end-2035 (calculation), and about 2035 in Recursive (Low by 2035). Embodied equals Recursive on every node. Launch binds, factory lines already outrun flights, and satellites deploy their own arrays. Robot-built pads arrive only about 2035 in Embodied (Low), too late to add compute by end-2035.
+*100-kW-class deployable radiators fly on compute satellites* about 2028 in every scenario, and *Commercial AI chips running in orbit at scale*, rated on AI1 on SpaceX's own manifest, follow about 2029 (both High by 2031); outside operators buy launch and come later. *AI chips and memory qualified to run hot in orbit* come about 2029 (Medium by 2031, High by 2035). *1 GW of compute operating in orbit* comes about 2031, Medium from 2031 and High from 2034 in the Exponential case; Recursive and Embodied start a year earlier on faster cadence. Plateau pushes it to about 2033, Medium only in 2035. Bands are analyst judgments.
+
+Mach33's [AI Compute Keystone](https://research.33fg.com/analysis/ai-compute-keystone-model-download) measures something different: a modeled build-out path, not the odds that a milestone has happened. Its base case installs 1.5 GW in orbit in 2028 (2029 in its cadence-bound lens) and 437.9 GW by 2040. We slip SpaceX's dates by our usual one to two years, so the tree's odds pass 30% in 2031. In that model launch price barely moves the cost crossover (x1.5 leaves it in 2029), so launch cadence, not price, sets our dates. The SSO figures rest on the keystone's 1.5x SSO delivery placeholder while its SSO re-base is open.
+
+After 2031 the Exponential case trains *a large AI model in orbit* about 2032 and flies *megawatt-class compute satellites* about 2033 (both Medium by 2035). Long training runs make silent errors costly, so *proven radiation-fault tolerance for orbital AI* reaches High by 2035. *10 GW of compute operating in orbit*, about 67,000 AI1-class satellites and 1,100-2,350 SSO flights, comes after 2035 in the Exponential case, with 4-5 GW by end-2035 (calculation), and about 2035 in Recursive (Low by 2035). Embodied equals Recursive on every node. Launch binds, factory lines already outrun flights, and satellites deploy their own arrays. Robot-built pads arrive only about 2035 in Embodied (Low), too late to add compute by end-2035.
 
 The openai/math catalog contributes nothing; no node here cites it. Family 107 (matrix multiplication exponent at most 9/4, T3) is a galactic algorithm. Families 177 and 178 (expander graphs) and 369 (hot spots) are T1 and conditional and change no fault-tolerance or radiator design.
 
-The strongest case for a small effect is that other levers are bigger. Solar arrays are about 56% of the June design's mass ([33FG](https://research.33fg.com/analysis/spacex-ai1-a-subsystem-level-reconstruction)). Qualifying hotter chips would save about 1,900 t per GW, more than the 350-1,400 t (2-9% of launched mass) assumed for AI radiator design. Google saw memory irregularities only beyond a shielded five-year dose ([Google](https://research.google/blog/exploring-a-space-based-scalable-ai-infrastructure-system-design/)), so better error models add about 5-20% compute per watt (assumption). The skeptic won on 1 GW by 2031, 10 GW and Embodied credit. Mach33 places scaled deployment in the early 2030s ([Mach33](https://research.33fg.com/analysis/orbital-data-centers-report-the-comprehensive-institutional-analysis)); its September case implies 10 GW in 2032 at about three times the model's launch rate. The advocate won earlier training in orbit. Watch Starmind production. Above about 1,000 satellites a year, 1 GW by 2035 moves to High in the Exponential case.
+The strongest case for a small effect is that other levers are bigger. Solar arrays are about 56% of AI1's mass ([33FG](https://research.33fg.com/analysis/spacex-ai1-a-subsystem-level-reconstruction)). Qualifying hotter chips would save more mass per GW than the 2-9% of launched mass assumed for AI radiator design, and neither moves the launch market. Google saw memory irregularities only beyond a shielded five-year dose ([Google](https://research.google/blog/exploring-a-space-based-scalable-ai-infrastructure-system-design/)), so better error models add about 5-20% compute per watt (assumption). The skeptic won on 1 GW by 2031, 10 GW and Embodied credit. Mach33 places scaled deployment in the early 2030s ([Mach33](https://research.33fg.com/analysis/orbital-data-centers-report-the-comprehensive-institutional-analysis)); the AI Compute Keystone's base reaches about 9 GW in 2032 on a launch clock several times faster than ours. Mach33's Nov 2025 estimate of 100 GW from about 1,200 launches counted solar-array power, not whole-satellite mass, and predates AI1. The advocate won earlier training in orbit. Watch AI1 production and dedicated SSO flights. At about 2,000 satellites a year, 1 GW by 2033 moves to High in the Exponential case.
 
-31 nodes. Rated High or Medium by 2031: Plateau 7, Exponential 17, Recursive 19, Embodied 19. By 2035: Plateau 18, Exponential 26, Recursive 26, Embodied 26. Main binding gate: launch.
+31 nodes. Rated High or Medium by 2031: Plateau 7, Exponential 18, Recursive 18, Embodied 18. By 2035: Plateau 19, Exponential 26, Recursive 26, Embodied 26. Main binding gate: launch.
 
 **Main chain** (each node: tier · earliest year in the Exponential case · likelihood by 2031 / by 2035; Recursive and Embodied years shown where they differ)
 
-- **100-kW-class deployable radiators fly on compute satellites** (tier 5 · 2028 · High; gate: fabrication)
-  - → **AI chips and memory qualified to run hot in orbit** (tier 5 · 2029 · Medium / High; gate: qualification)
-  - → **Commercial AI chips running in orbit at scale** (tier 6 · 2029 · High; gate: launch)
-    - → **1 GW of compute operating in orbit** (tier 7 · 2031 · Low / Medium; gate: launch)
-      - → **10 GW of compute operating in orbit** (tier 7 · >2035 · Speculative; Recursive 2035; gate: launch)
-  - → **Ultralight radiators in serial production** (tier 5 · 2030 · Medium; gate: fabrication)
-  - → **100 kW-per-tonne compute satellites in serial production** (tier 6 · 2031 · Low / Medium; gate: fabrication)
-  - → **1 GW of compute operating in orbit** (tier 7 · 2031 · Low / Medium; gate: launch) (see above)
-- **Lightweight solar arrays at compute-constellation volume** (tier 5 · 2029 · Medium; gate: fabrication)
-  - → **100 kW-per-tonne compute satellites in serial production** (tier 6 · 2031 · Low / Medium; gate: fabrication) (see above)
+- **100-kW-class deployable radiators fly on compute satellites** (tier 5 · 2028 · High; gate: fabrication, then qualification)
+  - → **AI chips and memory qualified to run hot in orbit** (tier 5 · 2029 · Medium / High; gate: qualification, then fabrication)
+  - → **Commercial AI chips running in orbit at scale** (tier 6 · 2029 · High; gate: launch-internal, then fabrication)
+    - → **1 GW of compute operating in orbit** (tier 7 · 2031 · Medium / High; Recursive 2030; gate: launch-internal, then fabrication)
+      - → **10 GW of compute operating in orbit** (tier 7 · >2035 · Speculative; Recursive 2035; gate: launch-internal, then fabrication)
+  - → **Ultralight radiators in serial production** (tier 5 · 2030 · Medium; gate: fabrication, then adoption)
+  - → **100 kW-per-tonne compute satellites in serial production** (tier 6 · 2031 · Low / Medium; gate: fabrication, then qualification)
+  - → **1 GW of compute operating in orbit** (tier 7 · 2031 · Medium / High; Recursive 2030; gate: launch-internal, then fabrication) (see above)
+- **Lightweight solar arrays at compute-constellation volume** (tier 5 · 2029 · Medium; gate: fabrication, then adoption)
+  - → **100 kW-per-tonne compute satellites in serial production** (tier 6 · 2031 · Low / Medium; gate: fabrication, then qualification) (see above)
 
 ```mermaid
 flowchart TD
@@ -2079,7 +2104,7 @@ flowchart TD
   n3["Ultralight radiators in serial production<br/>tier 5 · 2030 · Medium"]
   n4["Commercial AI chips running in orbit at scale<br/>tier 6 · 2029 · High"]
   n5["100 kW-per-tonne compute satellites in serial production<br/>tier 6 · 2031 · Low / Medium"]
-  n6["1 GW of compute operating in orbit<br/>tier 7 · 2031 · Low / Medium"]
+  n6["1 GW of compute operating in orbit<br/>tier 7 · 2031 · Medium / High"]
   n7["10 GW of compute operating in orbit<br/>tier 7 · >2035 · Speculative"]
   n0 --> n2
   n0 --> n4
@@ -2153,24 +2178,24 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 | Model-qualified perovskite tandem proves itself in orbit | 5 | 2033 / 2030 / 2030 / 2030 | S / L / L / L | L / M / M / M | experiment | P1->P7 |
 | Radiation-robust high-voltage power electronics | 5 | 2031 / 2030 / 2029 / 2029 | L / M / M / M | M / H / H / H | fabrication | P7 (exogenous) |
 | A 1,000 m2-class solar sail flies | 5 | 2034 / 2031 / 2031 / 2031 | S / L / L / L | L / L / L / L | capital | P6->P7 |
-| Commercial AI chips running in orbit at scale | 6 | 2029 / 2029 / 2029 / 2029 | M / H / H / H | H / H / H / H | launch | P7 (exogenous) |
+| Commercial AI chips running in orbit at scale | 6 | 2029 / 2029 / 2029 / 2029 | M / H / H / H | H / H / H / H | launch-internal | P7 (exogenous) |
 | Tight-formation compute clusters operate in orbit | 6 | 2030 / 2029 / 2029 / 2029 | L / M / M / M | M / H / H / H | fabrication | P7 (exogenous) |
-| 100 kW-per-tonne compute satellites in serial production | 6 | 2033 / 2031 / 2031 / 2031 | S / L / M / M | L / M / M / M | fabrication | P7 (AI math second-order via P1 thermal and structural design and P5 chip-life evidence) |
+| 100 kW-per-tonne compute satellites in serial production | 6 | 2033 / 2031 / 2031 / 2031 | S / L / L / L | L / M / M / M | fabrication | P7 (AI math second-order via P1 thermal and structural design and P5 chip-life evidence) |
 | Perovskite arrays power operational satellites | 6 | 2034 / 2031 / 2031 / 2031 | S / L / L / L | L / M / M / M | qualification | P7 |
-| A 100 kW-electric fission reactor operating on the Moon | 6 | 2033 / 2033 / 2033 / 2033 | S / S / S / S | L / L / L / L | launch | P7 (not AI-math-driven) |
+| A 100 kW-electric fission reactor operating on the Moon | 6 | 2033 / 2033 / 2033 / 2033 | S / S / S / S | L / L / L / L | launch-external | P7 (not AI-math-driven) |
 | Megawatt-class compute satellites fly | 6 | 2034 / 2033 / 2032 / 2032 | S / S / S / S | L / M / M / M | qualification | P7 (exogenous) |
 | 100 MW of orbital compute outside dawn-dusk orbits | 6 | >2035 / 2035 / 2034 / 2034 | S / S / S / S | S / L / L / L | capital | P1->P7 |
 | Kilometre-scale monolithic structure in orbit | 6 | >2035 / >2035 / >2035 / >2035 | S / S / S / S | S / S / S / S | capital | P6->P7 |
-| 1 GW of compute operating in orbit | 7 | 2033 / 2031 / 2031 / 2031 | S / L / M / M | L / M / H / H | launch | P7 (not AI-math-driven; AI math second-order via P1 thermal and reliability design) |
+| 1 GW of compute operating in orbit | 7 | 2033 / 2031 / 2030 / 2030 | S / M / M / M | M / H / H / H | launch-internal | P7 (not AI-math-driven; AI math second-order via P1 thermal and reliability design) |
 | A step change in spacecraft power per kilogram | 7 | 2035 / 2032 / 2032 / 2032 | S / S / S / S | L / M / M / M | qualification | P7 |
 | A large AI model is trained in orbit | 7 | 2035 / 2032 / 2031 / 2031 | S / S / L / L | L / M / H / H | adoption | P2->P7 |
-| 10 GW of compute operating in orbit | 7 | >2035 / >2035 / 2035 / 2035 | S / S / S / S | S / S / L / L | launch | P7 (exogenous) |
+| 10 GW of compute operating in orbit | 7 | >2035 / >2035 / 2035 / 2035 | S / S / S / S | S / S / L / L | launch-internal | P7 (exogenous) |
 
 </details>
 
 ### Living and working off Earth
 
-*AI-planned, machine-checked operations give Moon and Mars robots severalfold more work per operator about 2029 (base case). A self-running Moon base and tonne-scale lunar oxygen are Medium by 2035. Landed mass, night power, funding and Mars windows set the pace. Robots (Embodied) lift one band, on lunar robot fleet size.*
+*AI-planned, machine-checked operations give Moon and Mars robots severalfold more work per operator about 2029 (central scenario). A self-running Moon base and tonne-scale lunar oxygen are Medium by 2035. Landed mass, night power, funding and Mars windows set the pace. Robots (Embodied) lift one band, on lunar robot fleet size.*
 
 On-demand AI mathematics first gives lunar and Mars teams expert analysis they now ration. From about 2027 in the Exponential (base) case, teams get a rover-task planner with a machine-checked certificate within days (High by 2031). Oxygen-reactor models with error bounds follow about 2028. [Perseverance's AI-planned drives](https://www.jpl.nasa.gov/news/nasas-perseverance-rover-completes-first-ai-planned-drive-on-mars/) in December 2025 show the channel works.
 
@@ -2186,29 +2211,29 @@ The strongest case for a small effect is that AI planning works without new math
 
 **Main chain** (each node: tier · earliest year in the Exponential case · likelihood by 2031 / by 2035; Recursive and Embodied years shown where they differ)
 
-- **Research-grade math for outside teams** (tier 0 · 2027 · High; gate: regulatory)
-  - → **AI does research-grade applied math** (tier 0 · 2027 · High; gate: cognitive)
-    - → **Fast, trustworthy models of oxygen reactors** (tier 2 · 2028 · High; gate: data)
-      - → **Tonne-per-year lunar oxygen plant** (tier 6 · 2032 · Speculative / Medium; Recursive 2031; gate: capital)
-        - → **Lunar oxygen fuels landers at 10 t a year** (tier 7 · 2035 · Speculative / Low; Recursive 2034; gate: capital)
-  - → **Mission planners that are correct by design** (tier 2 · 2027 · High; gate: adoption)
-    - → **Proof-checked autonomy software for lunar robots** (tier 4 · 2028 · High; gate: adoption)
-      - → **A lunar robot operates with proof-checked autonomy** (tier 5 · 2029 · Medium / High; gate: launch)
-  - → **Honest reliability numbers for life support** (tier 2 · 2028 · Medium / High; gate: data)
-    - → **Mars-class closed-loop life support, demonstrated** (tier 6 · 2033 · Speculative / Low; Recursive 2031; gate: qualification)
-  - → **AI plans rover operations, machines check the plans** (tier 6 · 2028 · High; gate: adoption)
-    - → **Severalfold more robot work per operator** (tier 7 · 2029 · Medium / High; gate: adoption)
-      - → **A hundred robots work on the Moon at once** (tier 7 · 2033 · Speculative / Low; Recursive 2032; gate: fabrication)
-    - → **Lunar base runs itself between crew visits** (tier 6 · 2031 · Low / Medium; gate: capital)
-      - → **Crews stay on the Moon for 90 days or more** (tier 7 · 2033 · Speculative / Low; Recursive 2032; gate: capital)
-- **First oxygen made on the Moon** (tier 5 · 2029 · Medium / High; Recursive 2028; gate: launch)
-  - → **Tonne-per-year lunar oxygen plant** (tier 6 · 2032 · Speculative / Medium; Recursive 2031; gate: capital) (see above)
-- **Heavy cargo landed on the Moon** (tier 6 · 2029 · Medium / High; Recursive 2028; gate: launch)
-  - → **Moon Base Phase 2 infrastructure on the surface** (tier 6 · 2031 · Low / Medium; Recursive 2030; gate: capital)
-    - → **Lunar base runs itself between crew visits** (tier 6 · 2031 · Low / Medium; gate: capital) (see above)
-    - → **Crews stay on the Moon for 90 days or more** (tier 7 · 2033 · Speculative / Low; Recursive 2032; gate: capital) (see above)
-    - → **A hundred robots work on the Moon at once** (tier 7 · 2033 · Speculative / Low; Recursive 2032; gate: fabrication) (see above)
-  - → **A hundred robots work on the Moon at once** (tier 7 · 2033 · Speculative / Low; Recursive 2032; gate: fabrication) (see above)
+- **Research-grade math for outside teams** (tier 0 · 2027 · High; gate: regulatory, then capital)
+  - → **AI does research-grade applied math** (tier 0 · 2027 · High; gate: cognitive, then data)
+    - → **Fast, trustworthy models of oxygen reactors** (tier 2 · 2028 · High; gate: data, then experiment)
+      - → **Tonne-per-year lunar oxygen plant** (tier 6 · 2032 · Speculative / Medium; Recursive 2031; gate: capital, then experiment)
+        - → **Lunar oxygen fuels landers at 10 t a year** (tier 7 · 2035 · Speculative / Low; Recursive 2034; gate: capital, then experiment)
+  - → **Mission planners that are correct by design** (tier 2 · 2027 · High; gate: adoption, then formalization)
+    - → **Proof-checked autonomy software for lunar robots** (tier 4 · 2028 · High; gate: adoption, then formalization)
+      - → **A lunar robot operates with proof-checked autonomy** (tier 5 · 2029 · Medium / High; gate: launch-external, then adoption)
+  - → **Honest reliability numbers for life support** (tier 2 · 2028 · Medium / High; gate: data, then adoption)
+    - → **Mars-class closed-loop life support, demonstrated** (tier 6 · 2033 · Speculative / Low; Recursive 2031; gate: qualification, then fabrication)
+  - → **AI plans rover operations, machines check the plans** (tier 6 · 2028 · High; gate: adoption, then formalization)
+    - → **Severalfold more robot work per operator** (tier 7 · 2029 · Medium / High; gate: adoption, then formalization)
+      - → **A hundred robots work on the Moon at once** (tier 7 · 2033 · Speculative / Low; Recursive 2032; gate: fabrication, then capital)
+    - → **Lunar base runs itself between crew visits** (tier 6 · 2031 · Low / Medium; gate: capital, then launch-internal)
+      - → **Crews stay on the Moon for 90 days or more** (tier 7 · 2033 · Speculative / Low; Recursive 2032; gate: capital, then qualification)
+- **First oxygen made on the Moon** (tier 5 · 2029 · Medium / High; Recursive 2028; gate: launch-external, then capital)
+  - → **Tonne-per-year lunar oxygen plant** (tier 6 · 2032 · Speculative / Medium; Recursive 2031; gate: capital, then experiment) (see above)
+- **Heavy cargo landed on the Moon** (tier 6 · 2029 · Medium / High; Recursive 2028; gate: launch-internal, then qualification)
+  - → **Moon Base Phase 2 infrastructure on the surface** (tier 6 · 2031 · Low / Medium; Recursive 2030; gate: capital, then launch-internal)
+    - → **Lunar base runs itself between crew visits** (tier 6 · 2031 · Low / Medium; gate: capital, then launch-internal) (see above)
+    - → **Crews stay on the Moon for 90 days or more** (tier 7 · 2033 · Speculative / Low; Recursive 2032; gate: capital, then qualification) (see above)
+    - → **A hundred robots work on the Moon at once** (tier 7 · 2033 · Speculative / Low; Recursive 2032; gate: fabrication, then capital) (see above)
+  - → **A hundred robots work on the Moon at once** (tier 7 · 2033 · Speculative / Low; Recursive 2032; gate: fabrication, then capital) (see above)
 
 ```mermaid
 flowchart TD
@@ -2321,30 +2346,30 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 | Reliable recipes for sintering regolith | 4 | 2031 / 2029 / 2028 / 2028 | L / M / H / H | M / H / H / H | experiment | P1->P6 |
 | Robot assembly skills with proven safety envelopes | 4 | 2034 / 2030 / 2029 / 2029 | S / M / M / M | L / H / H / H | experiment | P2->P6 |
 | Design excavators from models, not guesses | 4 | 2032 / 2030 / 2029 / 2029 | S / M / M / M | M / H / H / H | data | P6 |
-| First measurements of how hard polar ice is to dig | 5 | 2028 / 2028 / 2028 / 2028 | M / M / M / M | H / H / H / H | launch | P7 (exogenous) |
-| First oxygen made on the Moon | 5 | 2030 / 2029 / 2028 / 2028 | M / M / H / H | H / H / H / H | launch | P7 (exogenous) |
-| A lunar robot operates with proof-checked autonomy | 5 | 2031 / 2029 / 2029 / 2029 | L / M / M / M | M / H / H / H | launch | P2 |
+| First measurements of how hard polar ice is to dig | 5 | 2028 / 2028 / 2028 / 2028 | M / M / M / M | H / H / H / H | launch-external | P7 (exogenous) |
+| First oxygen made on the Moon | 5 | 2030 / 2029 / 2028 / 2028 | M / M / H / H | H / H / H / H | launch-external | P7 (exogenous) |
+| A lunar robot operates with proof-checked autonomy | 5 | 2031 / 2029 / 2029 / 2029 | L / M / M / M | M / H / H / H | launch-external | P2 |
 | Long closed life-support test run by certified control | 5 | 2034 / 2030 / 2030 / 2030 | S / L / M / M | L / M / M / M | capital | P5->P6->P7 |
-| Kilogram-per-hour propellant production on Mars | 5 | 2034 / 2031 / 2031 / 2031 | S / S / S / S | S / L / L / L | launch | P1->P6->P7 |
-| Robotic assembly in space with certified skills | 5 | 2035 / 2031 / 2030 / 2030 | S / L / L / L | L / M / M / M | launch | P2->P6->P7 |
-| First robot-built landing pad or blast berm on the Moon | 5 | 2033 / 2031 / 2030 / 2030 | S / L / L / L | L / M / M / M | launch | P1->P6->P7 |
+| Kilogram-per-hour propellant production on Mars | 5 | 2034 / 2031 / 2031 / 2031 | S / S / S / S | S / L / L / L | launch-internal | P1->P6->P7 |
+| Robotic assembly in space with certified skills | 5 | 2035 / 2031 / 2030 / 2030 | S / L / L / L | L / M / M / M | launch-external | P2->P6->P7 |
+| First robot-built landing pad or blast berm on the Moon | 5 | 2033 / 2031 / 2030 / 2030 | S / L / L / L | L / M / M / M | launch-external | P1->P6->P7 |
 | AI-found air-scrubber or fuel-plant material qualified | 5 | 2033 / 2031 / 2030 / 2030 | S / L / L / L | L / M / M / M | qualification | P1->P7 |
 | AI plans rover operations, machines check the plans | 6 | 2029 / 2028 / 2028 / 2028 | H / H / H / H | H / H / H / H | adoption | P1->P2 |
-| Heavy cargo landed on the Moon | 6 | 2030 / 2029 / 2028 / 2028 | M / M / M / M | H / H / H / H | launch | P7 (exogenous) |
+| Heavy cargo landed on the Moon | 6 | 2030 / 2029 / 2028 / 2028 | M / M / M / M | H / H / H / H | launch-internal | P7 (exogenous) |
 | Lunar base runs itself between crew visits | 6 | 2033 / 2031 / 2031 / 2031 | S / L / M / M | L / M / M / M | capital | P1->P2->P7 |
 | Products made in orbit sold at recurring volume | 6 | 2033 / 2031 / 2030 / 2030 | S / L / L / L | L / M / M / M | capital | P1->P7 |
 | Moon Base Phase 2 infrastructure on the surface | 6 | 2031 / 2031 / 2030 / 2030 | L / L / M / M | M / M / M / M | capital | P7 (physical and appropriations gate) |
 | Tonne-per-year lunar oxygen plant | 6 | 2034 / 2032 / 2031 / 2031 | S / S / L / L | L / M / M / M | capital | P1->P6->P7 |
-| Robots prepare a Mars landing site and power | 6 | 2034 / 2032 / 2032 / 2032 | S / S / S / S | S / L / L / L | launch | P1->P2->P7 |
+| Robots prepare a Mars landing site and power | 6 | 2034 / 2032 / 2032 / 2032 | S / S / S / S | S / L / L / L | launch-internal | P1->P2->P7 |
 | Mars-class closed-loop life support, demonstrated | 6 | 2035 / 2033 / 2031 / 2031 | S / S / L / L | L / L / M / M | qualification | P1->P7 |
 | First water mined from lunar polar ice | 6 | 2035 / 2033 / 2032 / 2032 | S / S / S / S | L / L / M / M | capital | P1->P6->P7 |
-| Ten heavy cargo landings on the Moon in one year | 6 | 2034 / 2033 / 2032 / 2032 | S / S / S / S | L / M / M / M | launch | P7 (exogenous) |
+| Ten heavy cargo landings on the Moon in one year | 6 | 2034 / 2033 / 2032 / 2032 | S / S / S / S | L / M / M / M | launch-internal | P7 (exogenous) |
 | Crops grown through repeated harvests on the Moon | 6 | >2035 / 2034 / 2033 / 2033 | S / S / S / S | S / L / L / L | capital | P5->P6->P7 |
-| Starship-scale propellant plant on Mars | 6 | >2035 / >2035 / >2035 / >2035 | S / S / S / S | S / S / S / S | launch | P7 |
+| Starship-scale propellant plant on Mars | 6 | >2035 / >2035 / >2035 / >2035 | S / S / S / S | S / S / S / S | launch-internal | P7 |
 | Severalfold more robot work per operator | 7 | 2031 / 2029 / 2029 / 2029 | M / M / H / H | H / H / H / H | adoption | P1->P2 |
 | A hundred robots work on the Moon at once | 7 | 2035 / 2033 / 2032 / 2032 | S / S / S / S | S / L / L / M | fabrication | P1->P2->P7 |
 | Crews stay on the Moon for 90 days or more | 7 | 2035 / 2033 / 2032 / 2032 | S / S / S / S | S / L / L / L | capital | P1->P2->P7 |
-| Mars outpost logistics cut by local resources and recycling | 7 | >2035 / 2034 / 2032 / 2032 | S / S / S / S | S / S / S / S | launch | P1->P6->P7 |
+| Mars outpost logistics cut by local resources and recycling | 7 | >2035 / 2034 / 2032 / 2032 | S / S / S / S | S / S / S / S | launch-internal | P1->P6->P7 |
 | Lunar oxygen fuels landers at 10 t a year | 7 | >2035 / 2035 / 2034 / 2034 | S / S / S / S | S / L / L / L | capital | P1->P6->P7 |
 
 </details>
@@ -2355,7 +2380,7 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 
 On-demand AI mathematics first reaches mission theory and inference that wait on scarce experts. Teams can ask which molecules an exoplanet spectrum can determine, or for the waveforms LISA needs to hear a small black hole spiral into a giant one. Those waveforms exist only for circular orbits around non-spinning black holes ([arXiv 2606.04998](https://arxiv.org/abs/2606.04998)).
 
-*AI mines the space-science archive at scale* arrives about 2027 in every scenario (High by 2031). In the Exponential base case, *More science per mission dollar* follows about 2028 (Medium by 2031, High by 2035), held by referees and budget cuts. *LISA's hardest waveforms computed for spinning black holes* land about 2030 (Medium by 2031, High by 2035), three to five years early (our judgment). *LISA analysis stack passes its accuracy tests* follows about 2031 (Low by 2031, Medium by 2035). *Satellite methane data used as compliance evidence* comes about 2030 (Low by 2031, Medium by 2035), held by regulators. Recursive runs a year ahead on most steps; Plateau lags two to three years.
+*AI mines the space-science archive at scale* arrives about 2027 in every scenario (High by 2031). In the Exponential case, our central scenario, *More science per mission dollar* follows about 2028 (Medium by 2031, High by 2035), held by referees and budget cuts. *LISA's hardest waveforms computed for spinning black holes* land about 2030 (Medium by 2031, High by 2035), three to five years early (our judgment). *LISA analysis stack passes its accuracy tests* follows about 2031 (Low by 2031, Medium by 2035). *Satellite methane data used as compliance evidence* comes about 2030 (Low by 2031, Medium by 2035), held by regulators. Recursive runs a year ahead on most steps; Plateau lags two to three years.
 
 *LISA launches* is planned for 2035 ([ESA](https://www.esa.int/Science_Exploration/Space_Science/LISA)) but is Low by 2035 in every scenario, since any slip moves it out. ARIEL now launches in 2031, so an *Exoplanet atmosphere census with honest error bars* lands about 2033 in the Exponential case (Medium by 2035). A second private space telescope returns data about 2034 (Low by 2035). Embodied equals Recursive on every node. Photons, budgets, launch dates, referees and regulators set the pace, and robots supply none of them. Lab robots arrive about 2030, no earlier than the Recursive dates for the lab-bound work. On that telescope, robots save about 2-4 months (model estimate), since mirror and detector suppliers get them only after 2031.
 
@@ -2367,26 +2392,26 @@ The strongest case for a small effect is that space science is short of photons 
 
 **Main chain** (each node: tier · earliest year in the Exponential case · likelihood by 2031 / by 2035; Recursive and Embodied years shown where they differ)
 
-- **AI does research-grade applied math** (tier 0 · 2027 · High; gate: cognitive)
-  - → **Earth-observation retrievals with honest error bars** (tier 2 · 2028 · Medium / High; gate: data)
-    - → **Satellite methane data used as compliance evidence** (tier 6 · 2030 · Low / Medium; Recursive 2029; gate: regulatory)
-      - → **Satellite methane data routinely correct reported emissions** (tier 7 · 2034 · Speculative / Low; Recursive 2033; gate: regulatory)
-  - → **Exoplanet atmosphere readings with honest error bars** (tier 2 · 2028 · High; gate: adoption)
-    - → **More science per mission dollar** (tier 7 · 2028 · Medium / High; gate: adoption)
-      - → **Space science shifts money from analysis to photons** (tier 7 · 2031 · Low / Medium; gate: capital)
-  - → **LISA's hardest waveforms computed for spinning black holes** (tier 2 · 2030 · Medium / High; Recursive 2029; gate: cognitive)
-    - → **LISA analysis stack passes its accuracy tests** (tier 5 · 2031 · Low / Medium; Recursive 2030; gate: adoption)
-      - → **LISA does precision strong-gravity science from day one** (tier 6 · >2035 · Speculative; gate: launch)
-  - → **LISA analysis stack passes its accuracy tests** (tier 5 · 2031 · Low / Medium; Recursive 2030; gate: adoption) (see above)
-- **Warp drives: sharp no-go theorems** (tier 1 · 2027 · High; gate: cognitive)
-  - → **No-go theorems redirect breakthrough-propulsion money** (tier 7 · 2028 · Low; gate: adoption)
-- **Extraordinary claims audited in weeks** (tier 4 · 2027 · High; gate: adoption)
-  - → **No-go theorems redirect breakthrough-propulsion money** (tier 7 · 2028 · Low; gate: adoption) (see above)
-  - → **More science per mission dollar** (tier 7 · 2028 · Medium / High; gate: adoption) (see above)
-- **AI mines the space-science archive at scale** (tier 4 · 2027 · High; gate: adoption)
-  - → **More science per mission dollar** (tier 7 · 2028 · Medium / High; gate: adoption) (see above)
-- **LISA launches** (tier 6 · 2035 · Speculative / Low; gate: launch)
-  - → **LISA does precision strong-gravity science from day one** (tier 6 · >2035 · Speculative; gate: launch) (see above)
+- **AI does research-grade applied math** (tier 0 · 2027 · High; gate: cognitive, then data)
+  - → **Earth-observation retrievals with honest error bars** (tier 2 · 2028 · Medium / High; gate: data, then adoption)
+    - → **Satellite methane data used as compliance evidence** (tier 6 · 2030 · Low / Medium; Recursive 2029; gate: regulatory, then data)
+      - → **Satellite methane data routinely correct reported emissions** (tier 7 · 2034 · Speculative / Low; Recursive 2033; gate: regulatory, then data)
+  - → **Exoplanet atmosphere readings with honest error bars** (tier 2 · 2028 · High; gate: adoption, then data)
+    - → **More science per mission dollar** (tier 7 · 2028 · Medium / High; gate: adoption, then capital)
+      - → **Space science shifts money from analysis to photons** (tier 7 · 2031 · Low / Medium; gate: capital, then adoption)
+  - → **LISA's hardest waveforms computed for spinning black holes** (tier 2 · 2030 · Medium / High; Recursive 2029; gate: cognitive, then capital)
+    - → **LISA analysis stack passes its accuracy tests** (tier 5 · 2031 · Low / Medium; Recursive 2030; gate: adoption, then cognitive)
+      - → **LISA does precision strong-gravity science from day one** (tier 6 · >2035 · Speculative; gate: launch-external, then adoption)
+  - → **LISA analysis stack passes its accuracy tests** (tier 5 · 2031 · Low / Medium; Recursive 2030; gate: adoption, then cognitive) (see above)
+- **Warp drives: sharp no-go theorems** (tier 1 · 2027 · High; gate: cognitive, then formalization)
+  - → **No-go theorems redirect breakthrough-propulsion money** (tier 7 · 2028 · Low; gate: adoption, then cognitive)
+- **Extraordinary claims audited in weeks** (tier 4 · 2027 · High; gate: adoption, then formalization)
+  - → **No-go theorems redirect breakthrough-propulsion money** (tier 7 · 2028 · Low; gate: adoption, then cognitive) (see above)
+  - → **More science per mission dollar** (tier 7 · 2028 · Medium / High; gate: adoption, then capital) (see above)
+- **AI mines the space-science archive at scale** (tier 4 · 2027 · High; gate: adoption, then data)
+  - → **More science per mission dollar** (tier 7 · 2028 · Medium / High; gate: adoption, then capital) (see above)
+- **LISA launches** (tier 6 · 2035 · Speculative / Low; gate: launch-external, then capital)
+  - → **LISA does precision strong-gravity science from day one** (tier 6 · >2035 · Speculative; gate: launch-external, then adoption) (see above)
 
 ```mermaid
 flowchart TD
@@ -2506,8 +2531,8 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 | Exoplanet atmosphere census with honest error bars | 6 | 2034 / 2033 / 2033 / 2033 | S / S / S / S | L / M / M / M | data | P1->P5 (exogenous data supply plus identifiability) |
 | Science mission built to downlink onboard answers flies | 6 | >2035 / 2033 / 2033 / 2033 | S / S / S / S | S / L / M / M | capital | P1->P4 |
 | A second privately funded space telescope returns data | 6 | 2035 / 2034 / 2033 / 2033 | S / S / S / S | S / L / L / L | capital | P7 (exogenous) |
-| LISA launches | 6 | 2035 / 2035 / 2035 / 2035 | S / S / S / S | L / L / L / L | launch | P7 (exogenous) |
-| LISA does precision strong-gravity science from day one | 6 | >2035 / >2035 / >2035 / >2035 | S / S / S / S | S / S / S / S | launch | P7 |
+| LISA launches | 6 | 2035 / 2035 / 2035 / 2035 | S / S / S / S | L / L / L / L | launch-external | P7 (exogenous) |
+| LISA does precision strong-gravity science from day one | 6 | >2035 / >2035 / >2035 / >2035 | S / S / S / S | S / S / S / S | launch-external | P7 |
 | Sun-watching fleet built to map the solar wind in 3D flies | 6 | >2035 / >2035 / >2035 / >2035 | S / S / S / S | S / S / S / S | capital | P1->P6 |
 | No-go theorems redirect breakthrough-propulsion money | 7 | 2029 / 2028 / 2028 / 2028 | L / L / L / L | L / L / L / L | adoption | P3 |
 | More science per mission dollar | 7 | 2030 / 2028 / 2028 / 2028 | M / M / H / H | H / H / H / H | adoption | P1 |
@@ -2518,11 +2543,11 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 
 ### Crowded orbits and space weather
 
-*AI makes orbit, collision and storm forecasts honest. Certified million-object screening and AI-designed trajectories arrive by 2029 (base case), recurring paid debris removal about 2030. Safe low orbit waits on small-debris sensors, standards and US-China politics through 2035. Storm forecasts reach 8 hours, then need Vigil. Embodied adds nothing.*
+*AI makes orbit, collision and storm forecasts honest. Certified million-object screening and AI-designed trajectories arrive by 2029 (central scenario), recurring paid debris removal about 2030. Safe low orbit waits on small-debris sensors, standards and US-China politics through 2035. Storm forecasts reach 8 hours, then need Vigil. Embodied adds nothing.*
 
 On-demand AI mathematics first supplies scarce uncertainty expertise. Teams can get proven error bounds on collision probabilities for skewed orbit uncertainty, where NASA uses brute-force Monte Carlo, and screening filters that provably miss no dangerous conjunction. In July 2026 the [HELIOS agent](https://arxiv.org/abs/2607.24051), on its best model, wrote compiling trajectory solvers for all 11 test problems.
 
-In the Exponential base case, *Trajectory design on demand* arrives about 2027 and *Certified collision-probability math* about 2028. *Certified screening that scales to a million objects* and *Missions fly AI-designed trajectories* follow about 2029, all High by 2031. *Autonomous cross-operator collision avoidance*, the *Screening-grade catalog of small debris* and a *Solar-storm arrival forecast within about 8 hours* arrive about 2031 (Low by 2031, Medium by 2035). Recursive moves these three a year earlier, to Medium by 2031. Plateau lags one to three years.
+In the Exponential case, our central scenario, *Trajectory design on demand* arrives about 2027 and *Certified collision-probability math* about 2028. *Certified screening that scales to a million objects* and *Missions fly AI-designed trajectories* follow about 2029, all High by 2031. *Autonomous cross-operator collision avoidance*, the *Screening-grade catalog of small debris* and a *Solar-storm arrival forecast within about 8 hours* arrive about 2031 (Low by 2031, Medium by 2035). Recursive moves these three a year earlier, to Medium by 2031. Plateau lags one to three years.
 
 *Low Earth orbit stays safe at 100,000 satellites* comes about 2032 in the Exponential case. The skeptic held it Low by 2035, because fleets grow fastest in 2032-35. Recursive dates it 2031, Medium by 2035. *Chinese and Western fleets coordinate maneuvers automatically* about 2033 even in Recursive, since politics does not speed up. *Debris tracked down to about 2 cm in the busiest shells* and *Vigil side views time storm arrivals to within 6 hours* land about 2035. These three are Low by 2035. ESA plans to launch Vigil in 2031. Embodied equals Recursive on every node here, because sensors, standards, payers, politics and launches set the pace. For removal at scale, labor is about 20% of a servicer's build, so robots cut costs by well under 10% (analyst estimate).
 
@@ -2530,28 +2555,28 @@ The openai/math catalog contributes almost nothing. Family 139 (T3) links weakly
 
 The strongest case for a small effect is that data limit this field. A precise collision probability from a wrong orbit uncertainty is still wrong. About 1.2 million 1-10 cm fragments go untracked ([ESA, 2026](https://www.sdo.esoc.esa.int/publications/Space_Environment_Report_I10R0_20260501.pdf)). LeoLabs designed a 2 cm radar in 2019, yet no 2 cm catalog exists. Storm arrival forecasts have missed by about 13 hours on average for 11 years ([Kay et al., 2024](https://predsci.com/~epalmerio/pubs/Kay2024b.pdf)). The skeptic won most disputes, cutting a claimed 2-5x drop in avoidance maneuvers to 1.5-1.8x (analyst arithmetic), and only if operators relax thresholds. The advocate moved recurring paid removal to about 2030 in every scenario (Medium by 2035) and lost its claim that robots matter at scale. Watch whether close approaches under 1 km per satellite flatten through 2028 as fleets grow.
 
-38 nodes. Rated High or Medium by 2031: Plateau 12, Exponential 21, Recursive 26, Embodied 26. By 2035: Plateau 23, Exponential 28, Recursive 31, Embodied 31. Main binding gate: data.
+38 nodes. Rated High or Medium by 2031: Plateau 11, Exponential 21, Recursive 26, Embodied 26. By 2035: Plateau 23, Exponential 28, Recursive 31, Embodied 31. Main binding gate: data.
 
 **Main chain** (each node: tier · earliest year in the Exponential case · likelihood by 2031 / by 2035; Recursive and Embodied years shown where they differ)
 
-- **Research-grade math for outside teams** (tier 0 · 2027 · High; gate: regulatory)
-  - → **AI does research-grade applied math** (tier 0 · 2027 · High; gate: cognitive)
-    - → **Certified collision-probability math** (tier 2 · 2028 · High; gate: cognitive)
-      - → **Certified screening that scales to a million objects** (tier 4 · 2029 · High; gate: formalization)
-        - → **Autonomous cross-operator collision avoidance** (tier 6 · 2031 · Low / Medium; Recursive 2030; gate: adoption)
-          - → **Low Earth orbit stays safe at 100,000 satellites** (tier 7 · 2032 · Speculative / Low; Recursive 2031; gate: data)
-          - → **Chinese and Western fleets coordinate maneuvers by machine** (tier 7 · 2033 · Speculative / Low; gate: regulatory)
-    - → **Sun-to-Earth ensemble forecasting with honest uncertainty** (tier 2 · 2028 · High; gate: data)
-      - → **Knowing a solar storm's magnetic punch a day ahead** (tier 6 · 2034 · Speculative / Low; Recursive 2033; gate: data)
-    - → **Upper-atmosphere density and drag with honest error bars** (tier 3 · 2029 · High; Recursive 2028; gate: data)
-      - → **Storm-proof low-orbit operations** (tier 6 · 2030 · Medium / High; Recursive 2029; gate: adoption)
-      - → **Low Earth orbit stays safe at 100,000 satellites** (tier 7 · 2032 · Speculative / Low; Recursive 2031; gate: data) (see above)
-    - → **Radiation-belt and charging risk forecasts days ahead** (tier 6 · 2029 · Medium / High; Recursive 2028; gate: adoption)
-  - → **Trajectory design on demand** (tier 4 · 2027 · High; gate: adoption)
-    - → **Missions fly AI-designed trajectories** (tier 6 · 2029 · High; gate: launch)
-- **Screening-grade catalog of small debris** (tier 6 · 2031 · Low / Medium; Recursive 2030; gate: data)
-  - → **Low Earth orbit stays safe at 100,000 satellites** (tier 7 · 2032 · Speculative / Low; Recursive 2031; gate: data) (see above)
-  - → **Debris tracked down to about 2 cm in the busiest shells** (tier 6 · 2035 · Speculative / Low; Recursive 2034; gate: data)
+- **Research-grade math for outside teams** (tier 0 · 2027 · High; gate: regulatory, then capital)
+  - → **AI does research-grade applied math** (tier 0 · 2027 · High; gate: cognitive, then data)
+    - → **Certified collision-probability math** (tier 2 · 2028 · High; gate: cognitive, then adoption)
+      - → **Certified screening that scales to a million objects** (tier 4 · 2029 · High; gate: formalization, then cognitive)
+        - → **Autonomous cross-operator collision avoidance** (tier 6 · 2031 · Low / Medium; Recursive 2030; gate: adoption, then formalization)
+          - → **Low Earth orbit stays safe at 100,000 satellites** (tier 7 · 2032 · Speculative / Low; Recursive 2031; gate: data, then adoption)
+          - → **Chinese and Western fleets coordinate maneuvers by machine** (tier 7 · 2033 · Speculative / Low; gate: regulatory, then adoption)
+    - → **Sun-to-Earth ensemble forecasting with honest uncertainty** (tier 2 · 2028 · High; gate: data, then cognitive)
+      - → **Knowing a solar storm's magnetic punch a day ahead** (tier 6 · 2034 · Speculative / Low; Recursive 2033; gate: data, then cognitive)
+    - → **Upper-atmosphere density and drag with honest error bars** (tier 3 · 2029 · High; Recursive 2028; gate: data, then cognitive)
+      - → **Storm-proof low-orbit operations** (tier 6 · 2030 · Medium / High; Recursive 2029; gate: adoption, then data)
+      - → **Low Earth orbit stays safe at 100,000 satellites** (tier 7 · 2032 · Speculative / Low; Recursive 2031; gate: data, then adoption) (see above)
+    - → **Radiation-belt and charging risk forecasts days ahead** (tier 6 · 2029 · Medium / High; Recursive 2028; gate: adoption, then cognitive)
+  - → **Trajectory design on demand** (tier 4 · 2027 · High; gate: adoption, then cognitive)
+    - → **Missions fly AI-designed trajectories** (tier 6 · 2030 · Medium / High; Recursive 2029; gate: launch-external, then adoption)
+- **Screening-grade catalog of small debris** (tier 6 · 2031 · Low / Medium; Recursive 2030; gate: data, then cognitive)
+  - → **Low Earth orbit stays safe at 100,000 satellites** (tier 7 · 2032 · Speculative / Low; Recursive 2031; gate: data, then adoption) (see above)
+  - → **Debris tracked down to about 2 cm in the busiest shells** (tier 6 · 2035 · Speculative / Low; Recursive 2034; gate: data, then capital)
 
 ```mermaid
 flowchart TD
@@ -2568,7 +2593,7 @@ flowchart TD
   n10["Knowing a solar storm's magnetic punch a day ahead<br/>tier 6 · 2034 · Speculative / Low"]
   n11["Radiation-belt and charging risk forecasts days ahead<br/>tier 6 · 2029 · Medium / High"]
   n12["Trajectory design on demand<br/>tier 4 · 2027 · High"]
-  n13["Missions fly AI-designed trajectories<br/>tier 6 · 2029 · High"]
+  n13["Missions fly AI-designed trajectories<br/>tier 6 · 2030 · Medium / High"]
   n14["Chinese and Western fleets coordinate maneuvers by machine<br/>tier 7 · 2033 · Speculative / Low"]
   n15["Debris tracked down to about 2 cm in the busiest shells<br/>tier 6 · 2035 · Speculative / Low"]
   n0 --> n1
@@ -2639,15 +2664,15 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 | Certified map of stable Earth-Moon orbits | 2 | 2031 / 2029 / 2029 / 2029 | L / M / H / H | M / H / H / H | cognitive | P1->P6 |
 | Debris-cascade tipping-point models with error bars | 3 | 2030 / 2028 / 2028 / 2028 | M / H / H / H | H / H / H / H | data | P1->P5 |
 | Upper-atmosphere density and drag with honest error bars | 3 | 2030 / 2029 / 2028 / 2028 | M / H / H / H | H / H / H / H | data | P1->P6 |
-| Predicting when the Sun erupts | 3 | 2033 / 2030 / 2029 / 2029 | S / M / M / M | L / M / M / M | data | P1->P6 |
+| Predicting when the Sun erupts | 3 | 2033 / 2030 / 2029 / 2029 | S / M / M / M | L / M / M / M | cognitive | P1->P6 |
 | Trajectory design on demand | 4 | 2028 / 2027 / 2027 / 2027 | H / H / H / H | H / H / H / H | adoption | P1 |
 | Certified screening that scales to a million objects | 4 | 2031 / 2029 / 2029 / 2029 | L / H / H / H | M / H / H / H | formalization | P2+P4 |
 | Proven safe capture of tumbling debris | 4 | 2031 / 2029 / 2029 / 2029 | L / M / M / M | M / H / H / H | experiment | P1->P2 |
-| Autonomous Earth-Moon navigation with proven error bounds | 5 | 2031 / 2029 / 2029 / 2029 | L / M / M / M | M / H / H / H | launch | P2->P7 |
+| Autonomous Earth-Moon navigation with proven error bounds | 5 | 2031 / 2029 / 2029 / 2029 | L / M / M / M | M / H / H / H | launch-external | P2->P7 |
 | Constellations track debris with honest error bars | 6 | 2029 / 2028 / 2028 / 2028 | L / M / H / H | M / H / H / H | adoption | P1 (association, orbit determination and covariance realism); the sensor network itself is not AI-math-driven |
-| First large debris object removed from orbit | 6 | 2028 / 2028 / 2028 / 2028 | H / H / H / H | H / H / H / H | launch | P7 (exogenous) |
-| Missions fly AI-designed trajectories | 6 | 2030 / 2029 / 2029 / 2029 | M / H / H / H | H / H / H / H | launch | P1 (operational adoption; no hardware change) |
+| First large debris object removed from orbit | 6 | 2028 / 2028 / 2028 / 2028 | H / H / H / H | H / H / H / H | launch-external | P7 (exogenous) |
 | Radiation-belt and charging risk forecasts days ahead | 6 | 2030 / 2029 / 2028 / 2028 | L / M / H / H | M / H / H / H | adoption | P1->P6 |
+| Missions fly AI-designed trajectories | 6 | 2030 / 2030 / 2029 / 2029 | L / M / M / M | H / H / H / H | launch-external | P1 (operational adoption; no hardware change) |
 | Storm-proof low-orbit operations | 6 | 2031 / 2030 / 2029 / 2029 | L / M / M / M | M / H / H / H | adoption | P1->P6 |
 | Missile-tracking satellites cite certified track merging | 6 | 2033 / 2030 / 2029 / 2029 | S / L / L / L | L / L / L / L | adoption | P1->P4 (ground software; sensors and launch are not AI-math-driven) |
 | Autonomous cross-operator collision avoidance | 6 | 2033 / 2031 / 2030 / 2030 | S / L / M / M | L / M / M / M | adoption | P2 |
@@ -2655,8 +2680,8 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 | Traffic management service for Earth-Moon space | 6 | 2032 / 2031 / 2030 / 2030 | S / L / M / M | M / M / M / M | capital | P1->P7 |
 | Commercial constellations below 300 km | 6 | 2033 / 2031 / 2030 / 2030 | S / L / M / M | L / L / M / M | capital | P1->P7 |
 | Screening-grade catalog of small debris | 6 | 2032 / 2031 / 2030 / 2030 | S / L / M / M | L / M / M / M | data | P1 (track association and orbit determination); sensor build-out and data sharing are not AI-math-driven |
-| Lunar navigation with proven error bounds in routine use | 6 | 2034 / 2032 / 2032 / 2032 | S / S / S / S | L / L / M / M | launch | P2->P7 |
-| Side-view and upstream solar-wind monitoring | 6 | 2033 / 2033 / 2033 / 2033 | S / S / S / S | M / M / M / M | launch | P7 (not AI-math-driven) |
+| Lunar navigation with proven error bounds in routine use | 6 | 2034 / 2032 / 2032 / 2032 | S / S / S / S | L / L / M / M | launch-external | P2->P7 |
+| Side-view and upstream solar-wind monitoring | 6 | 2033 / 2033 / 2033 / 2033 | S / S / S / S | M / M / M / M | launch-external | P7 (not AI-math-driven) |
 | Constellation cameras detect debris down to about 2 cm | 6 | >2035 / 2033 / 2032 / 2032 | S / S / S / S | S / L / L / L | adoption | P1 (too-short-arc orbit determination and association at millions of detections a day) |
 | Knowing a solar storm's magnetic punch a day ahead | 6 | >2035 / 2034 / 2033 / 2033 | S / S / S / S | S / L / L / L | data | P6 |
 | Debris tracked down to about 2 cm in the busiest shells | 6 | >2035 / 2035 / 2034 / 2034 | S / S / S / S | S / L / L / L | data | P1 (association and orbit determination at 10^5-10^6 scale); sensor build-out and data sharing are not AI-math-driven |
@@ -2671,9 +2696,9 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 
 ### Plasma, nuclear and fusion propulsion
 
-*If AI and diagnostics solve Hall-thruster electron transport around 2030 (base case), thrusters are designed before being built. Cheap full-thruster simulations add a second design route by 2033 (Recursive). Analysis-based life credit and a U.S. reactor launch stay Low by 2035. Fusion propulsion waits past 2035. Robots (Embodied) move nothing.*
+*If AI and diagnostics solve Hall-thruster electron transport around 2030 (central scenario), thrusters are designed before being built. Cheap full-thruster simulations add a second design route by 2033 (Recursive). Analysis-based life credit and a U.S. reactor launch stay Low by 2035. Fusion propulsion waits past 2035. Robots (Embodied) move nothing.*
 
-On-demand AI mathematics first gives thruster teams kinetic algorithms and transport models with error bars. *Full-thruster kinetic simulation becomes affordable* about 2028 in the Exponential case, our base case (Medium by 2031, High by 2035), if algorithms cut a 5 kW Hall thruster run from weeks or months to days on an exascale machine (analyst estimate). Stellarator design loops come then (High by 2031).
+On-demand AI mathematics first gives thruster teams kinetic algorithms and transport models with error bars. *Full-thruster kinetic simulation becomes affordable* about 2028 in the Exponential case, our central scenario (Medium by 2031, High by 2035), if algorithms cut a 5 kW Hall thruster run from weeks or months to days on an exascale machine (analyst estimate). Stellarator design loops come then (High by 2031).
 
 *Solving the 60-year Hall-thruster electron transport puzzle* and *Design-before-build electric thrusters* follow about 2030 in the Exponential case (both Low by 2031, Medium by 2035). *AI-designed thruster flies and performs as predicted* skips the transport model and lands about 2031 (Low by 2031, High by 2035). *Thruster life proven with shorter wear tests* and *A U.S. fission reactor launched* also come about 2031, Low at both checkpoints. Life credit needs agency acceptance. The reactor has $10M recommended against a $2.1B estimate and launches only in Mars windows. Recursive moves the transport model and design to 2029 (Medium by 2031).
 
@@ -2687,23 +2712,23 @@ The strongest case for a small effect is that a crewed Mars thruster needs 23,00
 
 **Main chain** (each node: tier · earliest year in the Exponential case · likelihood by 2031 / by 2035; Recursive and Embodied years shown where they differ)
 
-- **AI builds validated physics theory** (tier 0 · 2029 · Medium / High; gate: data)
-  - → **Solving the 60-year Hall-thruster electron transport puzzle** (tier 3 · 2030 · Low / Medium; Recursive 2029; gate: experiment)
-    - → **Thruster life proven with shorter wear tests** (tier 4 · 2031 · Low; gate: qualification)
-  - → **Nuclear thermal fuel behavior model** (tier 3 · 2030 · Low; gate: experiment)
-    - → **Nuclear thermal stage for crewed Mars** (tier 6 · >2035 · Speculative; gate: capital)
-  - → **A credible paper design of a fusion rocket** (tier 4 · 2031 · Low; Recursive 2030; gate: experiment)
-    - → **Fusion-drive ground prototype makes fusion and thrust** (tier 5 · >2035 · Speculative; Recursive 2035; gate: experiment)
-      - → **Fusion-powered thrust in space** (tier 5 · >2035 · Speculative; gate: experiment)
-    - → **Fusion-powered thrust in space** (tier 5 · >2035 · Speculative; gate: experiment) (see above)
-- **Full-thruster kinetic simulation becomes affordable** (tier 2 · 2028 · Medium / High; gate: cognitive)
-  - → **Solving the 60-year Hall-thruster electron transport puzzle** (tier 3 · 2030 · Low / Medium; Recursive 2029; gate: experiment) (see above)
-  - → **How plasma leaves a magnetic nozzle, settled** (tier 3 · 2030 · Low / Medium; Recursive 2029; gate: experiment)
-    - → **A credible paper design of a fusion rocket** (tier 4 · 2031 · Low; Recursive 2030; gate: experiment) (see above)
-  - → **Design-before-build electric thrusters** (tier 4 · 2030 · Low / Medium; Recursive 2029; gate: data)
-    - → **Faster, cheaper electric-propulsion development** (tier 7 · 2034 · Speculative / Low; Recursive 2033; gate: qualification)
-- **Nuclear thermal engine ground hot fire** (tier 5 · 2033 · Speculative / Low; Recursive 2032; gate: capital)
-  - → **Nuclear thermal stage for crewed Mars** (tier 6 · >2035 · Speculative; gate: capital) (see above)
+- **AI builds validated physics theory** (tier 0 · 2029 · Medium / High; gate: data, then cognitive)
+  - → **Solving the 60-year Hall-thruster electron transport puzzle** (tier 3 · 2030 · Low / Medium; Recursive 2029; gate: experiment, then cognitive)
+    - → **Thruster life proven with shorter wear tests** (tier 4 · 2031 · Low; gate: qualification, then experiment)
+  - → **Nuclear thermal fuel behavior model** (tier 3 · 2030 · Low; gate: experiment, then capital)
+    - → **Nuclear thermal stage for crewed Mars** (tier 6 · >2035 · Speculative; gate: capital, then experiment)
+  - → **A credible paper design of a fusion rocket** (tier 4 · 2031 · Low; Recursive 2030; gate: experiment, then cognitive)
+    - → **Fusion-drive ground prototype makes fusion and thrust** (tier 5 · >2035 · Speculative; Recursive 2035; gate: experiment, then capital)
+      - → **Fusion-powered thrust in space** (tier 5 · >2035 · Speculative; gate: experiment, then fabrication)
+    - → **Fusion-powered thrust in space** (tier 5 · >2035 · Speculative; gate: experiment, then fabrication) (see above)
+- **Full-thruster kinetic simulation becomes affordable** (tier 2 · 2028 · Medium / High; gate: cognitive, then fabrication)
+  - → **Solving the 60-year Hall-thruster electron transport puzzle** (tier 3 · 2030 · Low / Medium; Recursive 2029; gate: experiment, then cognitive) (see above)
+  - → **How plasma leaves a magnetic nozzle, settled** (tier 3 · 2030 · Low / Medium; Recursive 2029; gate: experiment, then cognitive)
+    - → **A credible paper design of a fusion rocket** (tier 4 · 2031 · Low; Recursive 2030; gate: experiment, then cognitive) (see above)
+  - → **Design-before-build electric thrusters** (tier 4 · 2030 · Low / Medium; Recursive 2029; gate: data, then cognitive)
+    - → **Faster, cheaper electric-propulsion development** (tier 7 · 2034 · Speculative / Low; Recursive 2033; gate: qualification, then experiment)
+- **Nuclear thermal engine ground hot fire** (tier 5 · 2033 · Speculative / Low; Recursive 2032; gate: capital, then regulatory)
+  - → **Nuclear thermal stage for crewed Mars** (tier 6 · >2035 · Speculative; gate: capital, then experiment) (see above)
 
 ```mermaid
 flowchart TD
@@ -2826,7 +2851,7 @@ Years and likelihoods are listed for Plateau / Exponential / Recursive / Embodie
 
 ## 11. The waterfall by year, 2026–2035
 
-Read down the years to see the waterfall unfold in the Exponential case. Bands in parentheses are likelihoods at the next checkpoint: end-2031 for years through 2031, end-2035 after.
+Read down the years to see the waterfall unfold in the Exponential case. Bands in parentheses are the likelihoods by end-2031 and end-2035, read off each node's year-by-year odds.
 
 - **2026.** The capability exists inside the labs. Agents formalize mathematics at scale, and outside checking of AI results begins. None of this is yet available to space engineers.
 - **2027.** Research-grade mathematics reaches outside teams, and with it research-grade applied mathematics (High). The first engineering uses are the ones with no physical gate, all High:
@@ -2952,6 +2977,7 @@ The full list follows. It gives every tier 4–7 node rated High or Medium by 20
 - First large debris object removed from orbit (tier 6, High; Plateau 2028, Recursive 2028, Embodied 2028)
 - Launch licensing in weeks (tier 6, Medium; Plateau 2029, Recursive 2028, Embodied 2028)
 - Next-generation dark-energy survey data in hand (tier 6, High; Plateau 2028, Recursive 2028, Embodied 2028)
+- Second-generation direct-to-cell service (V2 D2C) in commercial use (tier 6, High; Plateau 2028, Recursive 2028, Embodied 2028)
 - More science per mission dollar (tier 7, Medium / High; Plateau 2030, Recursive 2028, Embodied 2028)
 - Verified flight code 15-120x cheaper per line (tier 7, High; Plateau 2030, Recursive 2028, Embodied 2028)
 
@@ -2994,9 +3020,7 @@ The full list follows. It gives every tier 4–7 node rated High or Medium by 20
 - Commercial AI chips running in orbit at scale (tier 6, High; Plateau 2029, Recursive 2029, Embodied 2029)
 - Full lunar-lander refueling campaign (tier 6, Medium / High; Plateau 2029, Recursive 2028, Embodied 2028)
 - Heavy cargo landed on the Moon (tier 6, Medium / High; Plateau 2030, Recursive 2028, Embodied 2028)
-- Low-orbit navigation service with published error bounds (tier 6, Medium / High; Plateau 2031, Recursive 2029, Embodied 2029)
 - Mega-constellation mesh run with certified optimality (tier 6, Medium / High; Plateau 2030, Recursive 2029, Embodied 2029)
-- Missions fly AI-designed trajectories (tier 6, High; Plateau 2030, Recursive 2029, Embodied 2029)
 - Model-based engine reuse life (tier 6, Medium / High; Plateau 2031, Recursive 2029, Embodied 2029)
 - Onboard AI agents fly under proof-checked command guards (tier 6, Medium / High; Plateau 2031, Recursive 2029, Embodied 2029)
 - Pads and propellant plants for hundreds of heavy flights (tier 6, High; Plateau 2029, Recursive 2029, Embodied 2029)
@@ -3010,6 +3034,7 @@ The full list follows. It gives every tier 4–7 node rated High or Medium by 20
 - AI cuts new space hardware development cost by about 10-20% (tier 7, Medium / High; Plateau 2031, Recursive 2029, Embodied 2029)
 - Math expertise stops limiting space programs (tier 7, Medium / High; Plateau 2033, Recursive 2028, Embodied 2028)
 - Severalfold more robot work per operator (tier 7, Medium / High; Plateau 2031, Recursive 2029, Embodied 2029)
+- Starlink Mobile serves 100 million phones a month (tier 7, Medium / High; Plateau 2029, Recursive 2029, Embodied 2029)
 - Starship internal cost under $300 per kg (tier 7, High; Plateau 2029, Recursive 2029, Embodied 2029)
 - Structures and thermal analysis cycles 2-5x faster (tier 7, High; Plateau 2030, Recursive 2028, Embodied 2028)
 
@@ -3025,7 +3050,7 @@ The full list follows. It gives every tier 4–7 node rated High or Medium by 20
 - AI-designed heat-shield material flies (tier 5, Medium / High; Plateau 2031, Recursive 2030, Embodied 2030)
 - AI-designed radiation-tolerant space processor (tier 5, Medium / High; Plateau 2032, Recursive 2029, Embodied 2029)
 - First AI-agent-designed alloy flies in a rocket engine (tier 5, Low / Medium; Plateau 2032, Recursive 2030, Embodied 2030)
-- Flown heat shield sized with reduced, model-based margins (tier 5, Medium; Plateau 2031, Recursive 2030, Embodied 2030)
+- Flown heat shield sized with reduced, model-based margins (tier 5, Low / Medium; Plateau 2031, Recursive 2030, Embodied 2030)
 - Lightweight 600 K radiators qualified for fission power (tier 5, Low / Medium; Plateau 2030, Recursive 2030, Embodied 2030)
 - Long closed life-support test run by certified control (tier 5, Low / Medium; Plateau 2034, Recursive 2030, Embodied 2030)
 - Model-qualified perovskite tandem proves itself in orbit (tier 5, Low / Medium; Plateau 2033, Recursive 2030, Embodied 2030)
@@ -3036,9 +3061,13 @@ The full list follows. It gives every tier 4–7 node rated High or Medium by 20
 - Ultralight radiators in serial production (tier 5, Medium; Plateau 2031, Recursive 2030, Embodied 2030)
 - 100+ fully reusable heavy launches a year (tier 6, High; Plateau 2030, Recursive 2029, Embodied 2029)
 - A second reusable heavy-lift fleet at scale (tier 6, Medium / High; Plateau 2030, Recursive 2029, Embodied 2029)
+- Low-orbit navigation service with published error bounds (tier 6, Medium / High; Plateau 2031, Recursive 2029, Embodied 2029)
+- Missions fly AI-designed trajectories (tier 6, Medium / High; Plateau 2030, Recursive 2029, Embodied 2029)
+- Outside customers can book launch again after the rideshare closure (tier 6, Medium / High; Plateau 2030, Recursive 2029, Embodied 2029)
 - Satellite fleets can swap encryption before the 2035 cutoff (tier 6, Low / Medium; Plateau 2033, Recursive 2029, Embodied 2029)
 - Satellite methane data used as compliance evidence (tier 6, Low / Medium; Plateau 2033, Recursive 2029, Embodied 2029)
 - Storm-proof low-orbit operations (tier 6, Medium / High; Plateau 2031, Recursive 2029, Embodied 2029)
+- Third-generation direct-to-cell satellites (V3 D2C) in service (tier 6, Medium / High; Plateau 2030, Recursive 2029, Embodied 2029)
 - Weather-robust optical ground network service (tier 6, Medium; Plateau 2031, Recursive 2030, Embodied 2030)
 - AI compute becomes Starship's second anchor customer (tier 7, Medium / High; Plateau 2031, Recursive 2029, Embodied 2029)
 - Assurance stops being a moat for primes (tier 7, Medium / High; Plateau 2032, Recursive 2029, Embodied 2029)
@@ -3046,7 +3075,7 @@ The full list follows. It gives every tier 4–7 node rated High or Medium by 20
 - Machine-checked crypto becomes a procurement norm (tier 7, Low / Medium; Plateau 2033, Recursive 2030, Embodied 2030)
 - New satellite generations every year (tier 7, Medium; Plateau 2031, Recursive 2029, Embodied 2029)
 - Routine orbital refueling economy (tier 7, Medium / High; Plateau 2032, Recursive 2029, Embodied 2029)
-- Software adds 10%+ capacity on the same hardware (tier 7, Low / Medium; Plateau 2033, Recursive 2030, Embodied 2030)
+- Software adds 10%+ capacity per satellite at fixed spectrum (tier 7, Low / Medium; Plateau 2033, Recursive 2030, Embodied 2030)
 
 **2031** (High or Medium by 2031 or by 2035; likelihoods shown as 2031 / 2035)
 - Analysis replaces some environmental qualification tests (tier 4, Low / Medium; Plateau 2034, Recursive 2030, Embodied 2030)
@@ -3079,7 +3108,7 @@ The full list follows. It gives every tier 4–7 node rated High or Medium by 20
 - Sensors and models track wear on reusable stages (tier 6, Low / Medium; Plateau 2033, Recursive 2031, Embodied 2031)
 - Solar-storm arrival forecast within about 8 hours (tier 6, Low / Medium; Plateau 2034, Recursive 2030, Embodied 2030)
 - Traffic management service for Earth-Moon space (tier 6, Low / Medium; Plateau 2032, Recursive 2030, Embodied 2030)
-- 1 GW of compute operating in orbit (tier 7, Low / Medium; Plateau 2033, Recursive 2031, Embodied 2031)
+- 1 GW of compute operating in orbit (tier 7, Medium / High; Plateau 2033, Recursive 2030, Embodied 2030)
 - Customers buy orbit under $1,000 per kg (tier 7, Low / High; Plateau 2032, Recursive 2030, Embodied 2030)
 - Development cycles 20-30% shorter, not 10x (tier 7, Medium / High; Plateau 2035, Recursive 2030, Embodied 2030)
 - Licensing satellites against an orbital capacity budget (tier 7, Low / Medium; Plateau 2032, Recursive 2031, Embodied 2031)
@@ -3143,25 +3172,25 @@ The full list follows. It gives every tier 4–7 node rated High or Medium by 20
 
 This section looks at every validated technology, operational system and outcome (tiers 5–7) that has reached its year and is rated High or Medium at the checkpoint. For each, it follows the latest prerequisite back at every step. That path sets the node's date. It also satisfies the framework's rule that any hardware or physical outcome forecast must have its chain written out.
 
-**Exponential case, by 2031: 72 nodes.**
+**Exponential case, by 2031: 76 nodes.**
 
-- AI mathematics lies on the date-setting path for 37; 21 of those paths run through public access in 2027.
-- 35 date-setting paths have no AI-mathematics step. They run on launch, pads, propellant transfer and hardware alone, which is the two-clocks finding in its plainest form.
-- 32 nodes have no AI-mathematics prerequisite anywhere. They are physical anchors that AI-math nodes depend on.
-- The final binding gates are adoption (22), launch (19), fabrication (15), experiment (5), qualification (4), data (4), capital (2), regulatory (1).
+- AI mathematics lies on the date-setting path for 34; 18 of those paths run through public access in 2027.
+- 42 date-setting paths have no AI-mathematics step. They run on launch, pads, propellant transfer and hardware alone, which is the two-clocks finding in its plainest form.
+- 37 nodes have no AI-mathematics prerequisite anywhere. They are physical anchors that AI-math nodes depend on.
+- The final binding gates are adoption (25), fabrication (15), launch-external (11), launch-internal (9), experiment (5), qualification (4), data (4), capital (2), regulatory (1).
 
-**Exponential case, by 2035: 131 nodes.**
+**Exponential case, by 2035: 135 nodes.**
 
-- AI mathematics lies on the date-setting path for 65; 41 of those paths run through public access in 2027.
-- 66 date-setting paths have no AI-mathematics step.
-- The final binding gates are adoption (31), launch (30), fabrication (19), qualification (15), capital (12), experiment (8), data (8), regulatory (8).
+- AI mathematics lies on the date-setting path for 60; 37 of those paths run through public access in 2027.
+- 75 date-setting paths have no AI-mathematics step.
+- The final binding gates are adoption (34), fabrication (19), launch-external (17), qualification (15), launch-internal (14), capital (12), experiment (8), data (8), regulatory (8).
 
-**Embodied case, by 2035: 168 nodes.**
+**Embodied case, by 2035: 172 nodes.**
 
-- AI mathematics lies on the date-setting path for 89.
+- AI mathematics lies on the date-setting path for 85.
 - Robots lie on the date-setting path for 13, and appear somewhere upstream of 50.
-- 65 nodes have no AI-mathematics prerequisite anywhere.
-- The final binding gates are adoption (34), launch (33), qualification (26), fabrication (23), capital (16), regulatory (13), experiment (12), data (11).
+- 69 nodes have no AI-mathematics prerequisite anywhere.
+- The final binding gates are adoption (37), qualification (26), fabrication (23), launch-external (18), launch-internal (16), capital (16), regulatory (13), experiment (12), data (11).
 
 Even by 2035, every date-setting path that robots lie on ends at a robots-branch milestone. Outside that branch robots enter only through soft dependencies: they make a node earlier or more likely, but they are never its latest hard prerequisite.
 
@@ -3170,30 +3199,29 @@ Even by 2035, every date-setting path that robots lie on ends at a robots-branch
 | Technology, system or outcome | Tier | Exponential year | By 2031 | Binding gate | AI-math step on the date-setting path | Robots | Path (latest prerequisite at each step, Exponential years) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Both Starship stages caught and reflown | 5 | 2027 | High | experiment | none |  | Both Starship stages caught and reflown (2027) |
-| Ship-to-ship cryogenic transfer demonstrated | 5 | 2027 | High | launch | none |  | Ship-to-ship cryogenic transfer demonstrated (2027) |
-| First measurements of how hard polar ice is to dig | 5 | 2028 | Medium | launch | none |  | First measurements of how hard polar ice is to dig (2028) |
-| Multi-node satellite quantum-key demonstrations | 5 | 2028 | High | launch | none |  | Multi-node satellite quantum-key demonstrations (2028) |
+| Ship-to-ship cryogenic transfer demonstrated | 5 | 2027 | High | launch-internal | none |  | Ship-to-ship cryogenic transfer demonstrated (2027) |
+| First measurements of how hard polar ice is to dig | 5 | 2028 | Medium | launch-external | none |  | First measurements of how hard polar ice is to dig (2028) |
+| Multi-node satellite quantum-key demonstrations | 5 | 2028 | High | launch-external | none |  | Multi-node satellite quantum-key demonstrations (2028) |
 | Monthly flight testing of a fully reusable heavy launcher | 5 | 2028 | High | fabrication | none |  | Monthly flight testing of a fully reusable heavy launcher (2028) |
 | First magnetic-fusion net energy gain | 5 | 2028 | Medium | fabrication | none |  | First magnetic-fusion net energy gain (2028) |
 | 100-kW-class deployable radiators fly on compute satellites | 5 | 2028 | High | fabrication | none |  | 100-kW-class deployable radiators fly on compute satellites (2028) |
-| Public flight data on storing cryogenic propellant in orbit | 5 | 2028 | Medium | launch | none |  | Public flight data on storing cryogenic propellant in orbit (2028) |
-| Autonomous Earth-Moon navigation with proven error bounds | 5 | 2029 | Medium | launch | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Navigation filters with proven error bounds (2028) → Autonomous Earth-Moon navigation with proven error bounds (2029) |
-| First oxygen made on the Moon | 5 | 2029 | Medium | launch | none |  | First oxygen made on the Moon (2029) |
-| A lunar robot operates with proof-checked autonomy | 5 | 2029 | Medium | launch | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Machine-checked stability for guidance and control (2027) → Proven safety wrappers for unverifiable autonomy (2028) → Proof-checked autonomy software for lunar robots (2028) → A lunar robot operates with proof-checked autonomy (2029) |
-| Flight demo of verified post-quantum command links | 5 | 2029 | Medium | launch | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Proven-correct post-quantum crypto for space processors (2028) → Upgradeable satellite encryption with proven update paths (2028) → Flight demo of verified post-quantum command links (2029) |
+| Public flight data on storing cryogenic propellant in orbit | 5 | 2028 | Medium | launch-external | none |  | Public flight data on storing cryogenic propellant in orbit (2028) |
+| Autonomous Earth-Moon navigation with proven error bounds | 5 | 2029 | Medium | launch-external | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Navigation filters with proven error bounds (2028) → Autonomous Earth-Moon navigation with proven error bounds (2029) |
+| First oxygen made on the Moon | 5 | 2029 | Medium | launch-external | none |  | First oxygen made on the Moon (2029) |
+| A lunar robot operates with proof-checked autonomy | 5 | 2029 | Medium | launch-external | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Machine-checked stability for guidance and control (2027) → Proven safety wrappers for unverifiable autonomy (2028) → Proof-checked autonomy software for lunar robots (2028) → A lunar robot operates with proof-checked autonomy (2029) |
+| Flight demo of verified post-quantum command links | 5 | 2029 | Medium | launch-external | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Proven-correct post-quantum crypto for space processors (2028) → Upgradeable satellite encryption with proven update paths (2028) → Flight demo of verified post-quantum command links (2029) |
 | Autonomous labs discover real new materials | 5 | 2029 | Medium | experiment | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Atomistic AI models with trustworthy error bars (2028) → Autonomous labs discover real new materials (2029) |
 | Detonation engine flies in space | 5 | 2029 | Medium | qualification | none |  | Detonation engine flies in space (2029) |
 | Formally verified onboard software stack | 5 | 2029 | Medium | qualification | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Agents that prove real flight code (2027) → Formally verified onboard software stack (2029) |
 | Lander flies proof-checked descent guidance and fault logic | 5 | 2029 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Verified floating-point and numerics toolchain (2028) → Guidance code with proven floating-point math (2028) → Toolchain that ships guidance code with its proofs (2028) → Lander flies proof-checked descent guidance and fault logic (2029) |
-| Proof-checked autonomous docking, servicing and refueling | 5 | 2029 | Medium | launch | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Machine-checked stability for guidance and control (2027) → Proven safety wrappers for unverifiable autonomy (2028) → Proof-checked autonomous docking, servicing and refueling (2029) |
+| Proof-checked autonomous docking, servicing and refueling | 5 | 2029 | Medium | launch-external | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Machine-checked stability for guidance and control (2027) → Proven safety wrappers for unverifiable autonomy (2028) → Proof-checked autonomous docking, servicing and refueling (2029) |
 | Operators fly new hardware qualified mainly by AI analysis | 5 | 2029 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Independent checks of AI math (2026) → AI results audited and trusted in days (2028) → On-demand applied math in space engineering (2028) → Tests chosen for information, not habit (2028) → Operators fly new hardware qualified mainly by AI analysis (2029) |
 | AI chips and memory qualified to run hot in orbit | 5 | 2029 | Medium | qualification | none |  | 100-kW-class deployable radiators fly on compute satellites (2028) → AI chips and memory qualified to run hot in orbit (2029) |
 | Lightweight solar arrays at compute-constellation volume | 5 | 2029 | Medium | fabrication | none |  | Lightweight solar arrays at compute-constellation volume (2029) |
 | Spacecraft send answers, not raw data, with error bounds | 5 | 2029 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Error-rate guarantees for onboard machine learning (2028) → Spacecraft send answers, not raw data, with error bounds (2029) |
 | 12 kW Gateway thruster passes a three-year wear test | 5 | 2029 | High | experiment | none |  | 12 kW Gateway thruster passes a three-year wear test (2029) |
 | AI-designed radiation-tolerant space processor | 5 | 2030 | Medium | fabrication | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → AI-drafted formal specifications (2027) → Proof agents verify space processors and chip logic (2028) → AI-designed radiation-tolerant space processor (2030) |
-| Rapidly reusable orbital heat shield (ship scale) | 5 | 2030 | Medium | launch | none | helps | Both Starship stages caught and reflown (2027) → Rapidly reusable orbital heat shield (ship scale) (2030) |
-| Flown heat shield sized with reduced, model-based margins | 5 | 2030 | Medium | launch | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Heat-shield margins from on-demand uncertainty analysis (2028) → Probabilistic heat-shield sizing adopted in practice (2029) → Flown heat shield sized with reduced, model-based margins (2030) |
+| Rapidly reusable orbital heat shield (ship scale) | 5 | 2030 | Medium | launch-internal | none | helps | Both Starship stages caught and reflown (2027) → Rapidly reusable orbital heat shield (ship scale) (2030) |
 | AI-designed heat-shield material flies | 5 | 2030 | Medium | experiment | yes | helps | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Atomistic AI models with trustworthy error bars (2028) → AI-designed heat shields and hot structures (2029) → AI-designed heat-shield material flies (2030) |
 | Radiation-robust high-voltage power electronics | 5 | 2030 | Medium | fabrication | none |  | Radiation-robust high-voltage power electronics (2030) |
 | Reflight cleared by data, not teardown | 5 | 2030 | Medium | data | off the date-setting path | helps | Both Starship stages caught and reflown (2027) → Rapidly reusable orbital heat shield (ship scale) (2030) → Reflight cleared by data, not teardown (2030) |
@@ -3205,42 +3233,47 @@ Even by 2035, every date-setting path that robots lie on ends at a robots-branch
 | Launch licensing in weeks | 6 | 2028 | Medium | regulatory | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → Frontier math on export-controlled and classified networks (2028) → Regulators review with AI tools (2028) → Launch licensing in weeks (2028) |
 | Next-generation dark-energy survey data in hand | 6 | 2028 | High | data | none |  | Next-generation dark-energy survey data in hand (2028) |
 | Constellations track debris with honest error bars | 6 | 2028 | Medium | adoption | none |  | Constellations track debris with honest error bars (2028) |
-| First large debris object removed from orbit | 6 | 2028 | High | launch | none |  | First large debris object removed from orbit (2028) |
-| Missions fly AI-designed trajectories | 6 | 2029 | High | launch | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → Trajectory design on demand (2027) → Missions fly AI-designed trajectories (2029) |
+| First large debris object removed from orbit | 6 | 2028 | High | launch-external | none |  | First large debris object removed from orbit (2028) |
+| Second-generation direct-to-cell service (V2 D2C) in commercial use | 6 | 2028 | High | adoption | none |  | Second-generation direct-to-cell service (V2 D2C) in commercial use (2028) |
 | Proof-backed guidance software in operational spacecraft | 6 | 2029 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Verified floating-point and numerics toolchain (2028) → Guidance code with proven floating-point math (2028) → Toolchain that ships guidance code with its proofs (2028) → Proof-backed guidance software in operational spacecraft (2029) |
 | Spacecraft engineered mostly by AI flies | 6 | 2029 | Medium | fabrication | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Independent checks of AI math (2026) → AI results audited and trusted in days (2028) → On-demand applied math in space engineering (2028) → Spacecraft engineered mostly by AI flies (2029) |
 | Mega-constellation mesh run with certified optimality | 6 | 2029 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → Formally verified constellation routing software (2028) → Mega-constellation mesh run with certified optimality (2029) |
 | Phone-to-satellite service scheduled around interference | 6 | 2029 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Provable interference compliance for shared spectrum (2028) → Phone-to-satellite service scheduled around interference (2029) |
-| Commercial AI chips running in orbit at scale | 6 | 2029 | High | launch | none |  | 100-kW-class deployable radiators fly on compute satellites (2028) → Commercial AI chips running in orbit at scale (2029) |
+| Commercial AI chips running in orbit at scale | 6 | 2029 | High | launch-internal | none |  | 100-kW-class deployable radiators fly on compute satellites (2028) → Commercial AI chips running in orbit at scale (2029) |
 | Pads and propellant plants for hundreds of heavy flights | 6 | 2029 | High | fabrication | none |  | Pads and propellant plants for hundreds of heavy flights (2029) |
 | Radiation-belt and charging risk forecasts days ahead | 6 | 2029 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Radiation-belt and charging risk forecasts days ahead (2029) |
-| Full lunar-lander refueling campaign | 6 | 2029 | Medium | launch | none |  | Ship-to-ship cryogenic transfer demonstrated (2027) → Full lunar-lander refueling campaign (2029) |
+| Full lunar-lander refueling campaign | 6 | 2029 | Medium | launch-internal | none |  | Ship-to-ship cryogenic transfer demonstrated (2027) → Full lunar-lander refueling campaign (2029) |
 | Model-based engine reuse life | 6 | 2029 | Medium | data | yes | helps | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Probabilistic engine life prediction for reuse (2028) → Model-based engine reuse life (2029) |
 | Proof-checked software updates across constellations | 6 | 2029 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → AI-drafted formal specifications (2027) → Exhaustive checks of fault logic and configuration (2027) → Proof-checked software updates across constellations (2029) |
 | Reusable launchers re-prove flight software every flight | 6 | 2029 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → AI-drafted formal specifications (2027) → Exhaustive checks of fault logic and configuration (2027) → Reusable launchers re-prove flight software every flight (2029) |
 | Onboard AI agents fly under proof-checked command guards | 6 | 2029 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Machine-checked stability for guidance and control (2027) → Proven safety wrappers for unverifiable autonomy (2028) → Onboard AI agents fly under proof-checked command guards (2029) |
 | Tight-formation compute clusters operate in orbit | 6 | 2029 | Medium | fabrication | none |  | 100-kW-class deployable radiators fly on compute satellites (2028) → Tight-formation compute clusters operate in orbit (2029) |
-| Heavy cargo landed on the Moon | 6 | 2029 | Medium | launch | none |  | Ship-to-ship cryogenic transfer demonstrated (2027) → Full lunar-lander refueling campaign (2029) → Heavy cargo landed on the Moon (2029) |
+| Heavy cargo landed on the Moon | 6 | 2029 | Medium | launch-internal | none |  | Ship-to-ship cryogenic transfer demonstrated (2027) → Full lunar-lander refueling campaign (2029) → Heavy cargo landed on the Moon (2029) |
 | A privately funded space telescope returns data | 6 | 2029 | Medium | fabrication | none |  | A privately funded space telescope returns data (2029) |
-| Low-orbit navigation service with published error bounds | 6 | 2029 | Medium | launch | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Certified rare-event probabilities (2028) → Proven error and spoofing bounds for satellite navigation (2028) → Low-orbit navigation service with published error bounds (2029) |
+| Missions fly AI-designed trajectories | 6 | 2030 | Medium | launch-external | off the date-setting path |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2030) → Outside customers can book launch again after the rideshare closure (2030) → Missions fly AI-designed trajectories (2030) |
 | Weather-robust optical ground network service | 6 | 2030 | Medium | capital | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Certified availability for optical ground networks (2029) → Weather-robust optical ground network service (2030) |
 | 100+ fully reusable heavy launches a year | 6 | 2030 | High | fabrication | none | helps | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2030) |
 | A second reusable heavy-lift fleet at scale | 6 | 2030 | Medium | fabrication | none |  | A second reusable heavy-lift fleet at scale (2030) |
 | Storm-proof low-orbit operations | 6 | 2030 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Upper-atmosphere density and drag with honest error bars (2029) → Storm-proof low-orbit operations (2030) |
+| Low-orbit navigation service with published error bounds | 6 | 2030 | Medium | launch-external | off the date-setting path |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2030) → Outside customers can book launch again after the rideshare closure (2030) → Low-orbit navigation service with published error bounds (2030) |
+| Outside customers can book launch again after the rideshare closure | 6 | 2030 | Medium | adoption | none |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2030) → Outside customers can book launch again after the rideshare closure (2030) |
+| Third-generation direct-to-cell satellites (V3 D2C) in service | 6 | 2030 | Medium | launch-internal | none |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2030) → Third-generation direct-to-cell satellites (V3 D2C) in service (2030) |
 | One million general-purpose robots in service | 6 | 2031 | Medium | fabrication | none | yes | One million general-purpose robots in service (2031) |
 | More science per mission dollar | 7 | 2028 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Cosmology inference that knows its own errors (2028) → More science per mission dollar (2028) |
 | Verified flight code 15-120x cheaper per line | 7 | 2028 | High | adoption | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → AI-drafted formal specifications (2027) → Exhaustive checks of fault logic and configuration (2027) → Verified flight code 15-120x cheaper per line (2028) |
 | Severalfold more robot work per operator | 7 | 2029 | Medium | adoption | yes | helps | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → AI-drafted formal specifications (2027) → Exhaustive checks of fault logic and configuration (2027) → AI plans rover operations, machines check the plans (2028) → Severalfold more robot work per operator (2029) |
 | Math expertise stops limiting space programs | 7 | 2029 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Independent checks of AI math (2026) → AI results audited and trusted in days (2028) → On-demand applied math in space engineering (2028) → Math expertise stops limiting space programs (2029) |
-| Starship internal cost under $300 per kg | 7 | 2029 | High | launch | none |  | Both Starship stages caught and reflown (2027) → Starship internal cost under $300 per kg (2029) |
+| Starship internal cost under $300 per kg | 7 | 2029 | High | launch-internal | none |  | Both Starship stages caught and reflown (2027) → Starship internal cost under $300 per kg (2029) |
 | AI cuts new space hardware development cost by about 10-20% | 7 | 2029 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Independent checks of AI math (2026) → AI results audited and trusted in days (2028) → On-demand applied math in space engineering (2028) → AI cuts new space hardware development cost by about 10-20% (2029) |
 | Structures and thermal analysis cycles 2-5x faster | 7 | 2029 | High | adoption | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Independent checks of AI math (2026) → AI results audited and trusted in days (2028) → On-demand applied math in space engineering (2028) → Structures and thermal analysis cycles 2-5x faster (2029) |
+| Starlink Mobile serves 100 million phones a month | 7 | 2029 | Medium | adoption | none |  | Second-generation direct-to-cell service (V2 D2C) in commercial use (2028) → Starlink Mobile serves 100 million phones a month (2029) |
 | New satellite generations every year | 7 | 2030 | Medium | fabrication | yes | helps | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Independent checks of AI math (2026) → AI results audited and trusted in days (2028) → On-demand applied math in space engineering (2028) → New satellite generations every year (2030) |
-| Routine orbital refueling economy | 7 | 2030 | Medium | launch | off the date-setting path |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2030) → Routine orbital refueling economy (2030) |
+| Routine orbital refueling economy | 7 | 2030 | Medium | launch-internal | off the date-setting path |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2030) → Routine orbital refueling economy (2030) |
 | Assurance stops being a moat for primes | 7 | 2030 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → AI-drafted formal specifications (2027) → Exhaustive checks of fault logic and configuration (2027) → Verified flight code 15-120x cheaper per line (2028) → Assurance stops being a moat for primes (2030) |
 | AI compute becomes Starship's second anchor customer | 7 | 2030 | Medium | capital | none |  | 100-kW-class deployable radiators fly on compute satellites (2028) → AI compute becomes Starship's second anchor customer (2030) |
 | Verified autonomy becomes cheap | 7 | 2031 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Verified floating-point and numerics toolchain (2028) → Guidance code with proven floating-point math (2028) → Toolchain that ships guidance code with its proofs (2028) → Proof-backed guidance software in operational spacecraft (2029) → Verified autonomy becomes cheap (2031) |
 | Development cycles 20-30% shorter, not 10x | 7 | 2031 | Medium | experiment | yes | helps | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Independent checks of AI math (2026) → AI results audited and trusted in days (2028) → On-demand applied math in space engineering (2028) → Development cycles 20-30% shorter, not 10x (2031) |
+| 1 GW of compute operating in orbit | 7 | 2031 | Medium | launch-internal | none |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2030) → 1 GW of compute operating in orbit (2031) |
 
 </details>
 
@@ -3249,26 +3282,26 @@ Even by 2035, every date-setting path that robots lie on ends at a robots-branch
 | Technology, system or outcome | Tier | Embodied year | By 2035 | Binding gate | AI-math step on the date-setting path | Robots | Path (latest prerequisite at each step, Embodied years) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Both Starship stages caught and reflown | 5 | 2027 | High | experiment | none |  | Both Starship stages caught and reflown (2027) |
-| Ship-to-ship cryogenic transfer demonstrated | 5 | 2027 | High | launch | none |  | Ship-to-ship cryogenic transfer demonstrated (2027) |
-| First measurements of how hard polar ice is to dig | 5 | 2028 | High | launch | none |  | First measurements of how hard polar ice is to dig (2028) |
-| First oxygen made on the Moon | 5 | 2028 | High | launch | none |  | First oxygen made on the Moon (2028) |
-| Multi-node satellite quantum-key demonstrations | 5 | 2028 | High | launch | none |  | Multi-node satellite quantum-key demonstrations (2028) |
+| Ship-to-ship cryogenic transfer demonstrated | 5 | 2027 | High | launch-internal | none |  | Ship-to-ship cryogenic transfer demonstrated (2027) |
+| First measurements of how hard polar ice is to dig | 5 | 2028 | High | launch-external | none |  | First measurements of how hard polar ice is to dig (2028) |
+| First oxygen made on the Moon | 5 | 2028 | High | launch-external | none |  | First oxygen made on the Moon (2028) |
+| Multi-node satellite quantum-key demonstrations | 5 | 2028 | High | launch-external | none |  | Multi-node satellite quantum-key demonstrations (2028) |
 | Monthly flight testing of a fully reusable heavy launcher | 5 | 2028 | High | fabrication | none |  | Monthly flight testing of a fully reusable heavy launcher (2028) |
 | First magnetic-fusion net energy gain | 5 | 2028 | High | fabrication | none |  | First magnetic-fusion net energy gain (2028) |
 | 100-kW-class deployable radiators fly on compute satellites | 5 | 2028 | High | fabrication | none |  | 100-kW-class deployable radiators fly on compute satellites (2028) |
-| Public flight data on storing cryogenic propellant in orbit | 5 | 2028 | Medium | launch | none |  | Public flight data on storing cryogenic propellant in orbit (2028) |
-| Autonomous Earth-Moon navigation with proven error bounds | 5 | 2029 | High | launch | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Navigation filters with proven error bounds (2028) → Autonomous Earth-Moon navigation with proven error bounds (2029) |
-| A lunar robot operates with proof-checked autonomy | 5 | 2029 | High | launch | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Machine-checked stability for guidance and control (2027) → Proven safety wrappers for unverifiable autonomy (2028) → Proof-checked autonomy software for lunar robots (2028) → A lunar robot operates with proof-checked autonomy (2029) |
+| Public flight data on storing cryogenic propellant in orbit | 5 | 2028 | Medium | launch-external | none |  | Public flight data on storing cryogenic propellant in orbit (2028) |
+| Autonomous Earth-Moon navigation with proven error bounds | 5 | 2029 | High | launch-external | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Navigation filters with proven error bounds (2028) → Autonomous Earth-Moon navigation with proven error bounds (2029) |
+| A lunar robot operates with proof-checked autonomy | 5 | 2029 | High | launch-external | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Machine-checked stability for guidance and control (2027) → Proven safety wrappers for unverifiable autonomy (2028) → Proof-checked autonomy software for lunar robots (2028) → A lunar robot operates with proof-checked autonomy (2029) |
 | AI-designed radiation-tolerant space processor | 5 | 2029 | High | fabrication | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → AI-drafted formal specifications (2027) → Proof agents verify space processors and chip logic (2028) → AI-designed radiation-tolerant space processor (2029) |
-| Flight demo of verified post-quantum command links | 5 | 2029 | High | launch | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Proven-correct post-quantum crypto for space processors (2028) → Upgradeable satellite encryption with proven update paths (2028) → Flight demo of verified post-quantum command links (2029) |
-| Rapidly reusable orbital heat shield (ship scale) | 5 | 2029 | High | launch | none | helps | Both Starship stages caught and reflown (2027) → Rapidly reusable orbital heat shield (ship scale) (2029) |
+| Flight demo of verified post-quantum command links | 5 | 2029 | High | launch-external | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Proven-correct post-quantum crypto for space processors (2028) → Upgradeable satellite encryption with proven update paths (2028) → Flight demo of verified post-quantum command links (2029) |
+| Rapidly reusable orbital heat shield (ship scale) | 5 | 2029 | High | launch-internal | none | helps | Both Starship stages caught and reflown (2027) → Rapidly reusable orbital heat shield (ship scale) (2029) |
 | Autonomous labs discover real new materials | 5 | 2029 | High | experiment | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Atomistic AI models with trustworthy error bars (2028) → Autonomous labs discover real new materials (2029) |
 | Radiation-robust high-voltage power electronics | 5 | 2029 | High | fabrication | none |  | Radiation-robust high-voltage power electronics (2029) |
 | Reflight cleared by data, not teardown | 5 | 2029 | High | data | off the date-setting path | helps | Both Starship stages caught and reflown (2027) → Rapidly reusable orbital heat shield (ship scale) (2029) → Reflight cleared by data, not teardown (2029) |
 | Detonation engine flies in space | 5 | 2029 | Medium | qualification | none |  | Detonation engine flies in space (2029) |
 | Formally verified onboard software stack | 5 | 2029 | High | qualification | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Agents that prove real flight code (2027) → Formally verified onboard software stack (2029) |
 | Lander flies proof-checked descent guidance and fault logic | 5 | 2029 | High | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Verified floating-point and numerics toolchain (2028) → Guidance code with proven floating-point math (2028) → Toolchain that ships guidance code with its proofs (2028) → Lander flies proof-checked descent guidance and fault logic (2029) |
-| Proof-checked autonomous docking, servicing and refueling | 5 | 2029 | High | launch | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Machine-checked stability for guidance and control (2027) → Proven safety wrappers for unverifiable autonomy (2028) → Proof-checked autonomous docking, servicing and refueling (2029) |
+| Proof-checked autonomous docking, servicing and refueling | 5 | 2029 | High | launch-external | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Machine-checked stability for guidance and control (2027) → Proven safety wrappers for unverifiable autonomy (2028) → Proof-checked autonomous docking, servicing and refueling (2029) |
 | Operators fly new hardware qualified mainly by AI analysis | 5 | 2029 | High | adoption | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Independent checks of AI math (2026) → AI results audited and trusted in days (2028) → On-demand applied math in space engineering (2028) → Tests chosen for information, not habit (2028) → Operators fly new hardware qualified mainly by AI analysis (2029) |
 | AI chips and memory qualified to run hot in orbit | 5 | 2029 | High | qualification | none |  | 100-kW-class deployable radiators fly on compute satellites (2028) → AI chips and memory qualified to run hot in orbit (2029) |
 | Lightweight solar arrays at compute-constellation volume | 5 | 2029 | High | fabrication | none |  | Lightweight solar arrays at compute-constellation volume (2029) |
@@ -3277,8 +3310,8 @@ Even by 2035, every date-setting path that robots lie on ends at a robots-branch
 | Precision actuators for 1 million robots a year | 5 | 2029 | High | fabrication | none | yes | Precision actuators for 1 million robots a year (2029) |
 | General-purpose robots do multi-task factory work at scale | 5 | 2029 | High | adoption | none | yes | Robot AI models that work on sites they have never seen (2028) → General-purpose robots do multi-task factory work at scale (2029) |
 | Long closed life-support test run by certified control | 5 | 2030 | Medium | capital | yes |  | Research-grade math inside the labs (2026) → Month-long autonomous research tasks (2028) → AI builds validated physics theory (2029) → Biological life-support loops with stability guarantees (2029) → Long closed life-support test run by certified control (2030) |
-| Robotic assembly in space with certified skills | 5 | 2030 | Medium | launch | yes | helps | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Machine-checked stability for guidance and control (2027) → Proven safety wrappers for unverifiable autonomy (2028) → Robot assembly skills with proven safety envelopes (2029) → Robotic assembly in space with certified skills (2030) |
-| Flown heat shield sized with reduced, model-based margins | 5 | 2030 | Medium | launch | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Heat-shield margins from on-demand uncertainty analysis (2028) → Probabilistic heat-shield sizing adopted in practice (2029) → Flown heat shield sized with reduced, model-based margins (2030) |
+| Robotic assembly in space with certified skills | 5 | 2030 | Medium | launch-external | yes | helps | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Machine-checked stability for guidance and control (2027) → Proven safety wrappers for unverifiable autonomy (2028) → Robot assembly skills with proven safety envelopes (2029) → Robotic assembly in space with certified skills (2030) |
+| Flown heat shield sized with reduced, model-based margins | 5 | 2030 | Medium | launch-external | off the date-setting path |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → Outside customers can book launch again after the rideshare closure (2029) → Flown heat shield sized with reduced, model-based margins (2030) |
 | First AI-agent-designed alloy flies in a rocket engine | 5 | 2030 | High | experiment | yes | helps | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Atomistic AI models with trustworthy error bars (2028) → AI designs new rocket-engine alloys in weeks (2028) → First AI-agent-designed alloy flies in a rocket engine (2030) |
 | AI-designed heat-shield material flies | 5 | 2030 | High | experiment | yes | helps | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Atomistic AI models with trustworthy error bars (2028) → AI-designed heat shields and hot structures (2029) → AI-designed heat-shield material flies (2030) |
 | Model-qualified perovskite tandem proves itself in orbit | 5 | 2030 | Medium | experiment | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Knowing how long perovskite cells last in orbit (2028) → Model-qualified perovskite tandem proves itself in orbit (2030) |
@@ -3289,7 +3322,7 @@ Even by 2035, every date-setting path that robots lie on ends at a robots-branch
 | Sensor-based inspection credit for reusable stages | 5 | 2030 | Medium | qualification | off the date-setting path |  | AI-ready structural and thermal test data (2028) → Damage detection with proven detection limits (2028) → Sensor-based inspection credit for reusable stages (2030) |
 | Ultralight radiators in serial production | 5 | 2030 | Medium | fabrication | none | helps | 100-kW-class deployable radiators fly on compute satellites (2028) → Ultralight radiators in serial production (2030) |
 | Lightweight 600 K radiators qualified for fission power | 5 | 2030 | Medium | qualification | none |  | Lightweight 600 K radiators qualified for fission power (2030) |
-| First robot-built landing pad or blast berm on the Moon | 5 | 2030 | Medium | launch | yes | helps | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Reliable recipes for sintering regolith (2028) → First robot-built landing pad or blast berm on the Moon (2030) |
+| First robot-built landing pad or blast berm on the Moon | 5 | 2030 | Medium | launch-external | yes | helps | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Reliable recipes for sintering regolith (2028) → First robot-built landing pad or blast berm on the Moon (2030) |
 | AI-found air-scrubber or fuel-plant material qualified | 5 | 2030 | Medium | qualification | yes | helps | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Atomistic AI models with trustworthy error bars (2028) → Autonomous labs discover real new materials (2029) → AI-found air-scrubber or fuel-plant material qualified (2030) |
 | Robot fleets run 1,000 hours between interventions | 5 | 2030 | High | data | none | yes | Robot AI models that work on sites they have never seen (2028) → Robot fleets run 1,000 hours between interventions (2030) |
 | AI-co-designed quantum sensor flies | 5 | 2031 | High | qualification | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Quantum sensors designed against full error budgets (2028) → AI-co-designed quantum sensor flies (2031) |
@@ -3302,17 +3335,18 @@ Even by 2035, every date-setting path that robots lie on ends at a robots-branch
 | Phone-to-satellite service scheduled around interference | 6 | 2028 | High | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Provable interference compliance for shared spectrum (2028) → Phone-to-satellite service scheduled around interference (2028) |
 | Launch licensing in weeks | 6 | 2028 | Medium | regulatory | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → Frontier math on export-controlled and classified networks (2028) → Regulators review with AI tools (2028) → Launch licensing in weeks (2028) |
 | Radiation-belt and charging risk forecasts days ahead | 6 | 2028 | High | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Radiation-belt and charging risk forecasts days ahead (2028) |
-| Full lunar-lander refueling campaign | 6 | 2028 | High | launch | none |  | Ship-to-ship cryogenic transfer demonstrated (2027) → Full lunar-lander refueling campaign (2028) |
-| Heavy cargo landed on the Moon | 6 | 2028 | High | launch | none |  | Ship-to-ship cryogenic transfer demonstrated (2027) → Full lunar-lander refueling campaign (2028) → Heavy cargo landed on the Moon (2028) |
+| Full lunar-lander refueling campaign | 6 | 2028 | High | launch-internal | none |  | Ship-to-ship cryogenic transfer demonstrated (2027) → Full lunar-lander refueling campaign (2028) |
+| Heavy cargo landed on the Moon | 6 | 2028 | High | launch-internal | none |  | Ship-to-ship cryogenic transfer demonstrated (2027) → Full lunar-lander refueling campaign (2028) → Heavy cargo landed on the Moon (2028) |
 | Next-generation dark-energy survey data in hand | 6 | 2028 | High | data | none |  | Next-generation dark-energy survey data in hand (2028) |
 | Constellations track debris with honest error bars | 6 | 2028 | High | adoption | none |  | Constellations track debris with honest error bars (2028) |
-| First large debris object removed from orbit | 6 | 2028 | High | launch | none |  | First large debris object removed from orbit (2028) |
-| Missions fly AI-designed trajectories | 6 | 2029 | High | launch | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → Trajectory design on demand (2027) → Missions fly AI-designed trajectories (2029) |
+| First large debris object removed from orbit | 6 | 2028 | High | launch-external | none |  | First large debris object removed from orbit (2028) |
+| Second-generation direct-to-cell service (V2 D2C) in commercial use | 6 | 2028 | High | adoption | none |  | Second-generation direct-to-cell service (V2 D2C) in commercial use (2028) |
+| Missions fly AI-designed trajectories | 6 | 2029 | High | launch-external | off the date-setting path |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → Outside customers can book launch again after the rideshare closure (2029) → Missions fly AI-designed trajectories (2029) |
 | Proof-backed guidance software in operational spacecraft | 6 | 2029 | High | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Verified floating-point and numerics toolchain (2028) → Guidance code with proven floating-point math (2028) → Toolchain that ships guidance code with its proofs (2028) → Proof-backed guidance software in operational spacecraft (2029) |
 | Spacecraft engineered mostly by AI flies | 6 | 2029 | High | fabrication | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Independent checks of AI math (2026) → AI results audited and trusted in days (2028) → On-demand applied math in space engineering (2028) → Spacecraft engineered mostly by AI flies (2029) |
 | Mega-constellation mesh run with certified optimality | 6 | 2029 | High | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → Formally verified constellation routing software (2028) → Mega-constellation mesh run with certified optimality (2029) |
 | Satellite fleets can swap encryption before the 2035 cutoff | 6 | 2029 | Medium | regulatory | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Proven-correct post-quantum crypto for space processors (2028) → Upgradeable satellite encryption with proven update paths (2028) → Satellite fleets can swap encryption before the 2035 cutoff (2029) |
-| Commercial AI chips running in orbit at scale | 6 | 2029 | High | launch | none |  | 100-kW-class deployable radiators fly on compute satellites (2028) → Commercial AI chips running in orbit at scale (2029) |
+| Commercial AI chips running in orbit at scale | 6 | 2029 | High | launch-internal | none |  | 100-kW-class deployable radiators fly on compute satellites (2028) → Commercial AI chips running in orbit at scale (2029) |
 | Pads and propellant plants for hundreds of heavy flights | 6 | 2029 | High | fabrication | none |  | Pads and propellant plants for hundreds of heavy flights (2029) |
 | 100+ fully reusable heavy launches a year | 6 | 2029 | High | fabrication | none | helps | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) |
 | A second reusable heavy-lift fleet at scale | 6 | 2029 | High | fabrication | none |  | A second reusable heavy-lift fleet at scale (2029) |
@@ -3325,9 +3359,11 @@ Even by 2035, every date-setting path that robots lie on ends at a robots-branch
 | Tight-formation compute clusters operate in orbit | 6 | 2029 | High | fabrication | none |  | 100-kW-class deployable radiators fly on compute satellites (2028) → Tight-formation compute clusters operate in orbit (2029) |
 | A privately funded space telescope returns data | 6 | 2029 | Medium | fabrication | none |  | A privately funded space telescope returns data (2029) |
 | Satellite methane data used as compliance evidence | 6 | 2029 | Medium | regulatory | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Earth-observation retrievals with honest error bars (2028) → Satellite methane data used as compliance evidence (2029) |
-| Low-orbit navigation service with published error bounds | 6 | 2029 | High | launch | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Certified rare-event probabilities (2028) → Proven error and spoofing bounds for satellite navigation (2028) → Low-orbit navigation service with published error bounds (2029) |
+| Low-orbit navigation service with published error bounds | 6 | 2029 | High | launch-external | off the date-setting path |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → Outside customers can book launch again after the rideshare closure (2029) → Low-orbit navigation service with published error bounds (2029) |
 | One million general-purpose robots in service | 6 | 2029 | High | fabrication | none | yes | One million general-purpose robots in service (2029) |
 | Robots inspect and refurbish rockets between flights | 6 | 2029 | High | adoption | none | yes | Robot AI models that work on sites they have never seen (2028) → General-purpose robots do multi-task factory work at scale (2029) → Robots inspect and refurbish rockets between flights (2029) |
+| Outside customers can book launch again after the rideshare closure | 6 | 2029 | High | adoption | none |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → Outside customers can book launch again after the rideshare closure (2029) |
+| Third-generation direct-to-cell satellites (V3 D2C) in service | 6 | 2029 | High | launch-internal | none |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → Third-generation direct-to-cell satellites (V3 D2C) in service (2029) |
 | Autonomous cross-operator collision avoidance | 6 | 2030 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Certified collision-probability math (2028) → Certified screening that scales to a million objects (2029) → Autonomous cross-operator collision avoidance (2030) |
 | Traffic management service for Earth-Moon space | 6 | 2030 | Medium | capital | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Certified collision-probability math (2028) → Tracking objects in chaotic Earth-Moon space (2028) → Traffic management service for Earth-Moon space (2030) |
 | Weather-robust optical ground network service | 6 | 2030 | Medium | capital | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Certified availability for optical ground networks (2029) → Weather-robust optical ground network service (2030) |
@@ -3344,31 +3380,31 @@ Even by 2035, every date-setting path that robots lie on ends at a robots-branch
 | Lunar base runs itself between crew visits | 6 | 2031 | Medium | capital | off the date-setting path |  | Ship-to-ship cryogenic transfer demonstrated (2027) → Full lunar-lander refueling campaign (2028) → Heavy cargo landed on the Moon (2028) → Moon Base Phase 2 infrastructure on the surface (2030) → Lunar base runs itself between crew visits (2031) |
 | Tonne-per-year lunar oxygen plant | 6 | 2031 | Medium | capital | off the date-setting path | helps | First oxygen made on the Moon (2028) → Tonne-per-year lunar oxygen plant (2031) |
 | Mars-class closed-loop life support, demonstrated | 6 | 2031 | Medium | qualification | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → Honest reliability numbers for life support (2028) → Mars-class closed-loop life support, demonstrated (2031) |
-| First landing of 20 t or more on Mars | 6 | 2031 | Medium | launch | none |  | Ship-to-ship cryogenic transfer demonstrated (2027) → First landing of 20 t or more on Mars (2031) |
+| First landing of 20 t or more on Mars | 6 | 2031 | Medium | launch-internal | none |  | Ship-to-ship cryogenic transfer demonstrated (2027) → First landing of 20 t or more on Mars (2031) |
 | Perovskite arrays power operational satellites | 6 | 2031 | Medium | qualification | none |  | Perovskite arrays power operational satellites (2031) |
 | Longer-life reusable engines from new alloys | 6 | 2031 | Medium | data | yes | helps | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Atomistic AI models with trustworthy error bars (2028) → AI designs new rocket-engine alloys in weeks (2028) → First AI-agent-designed alloy flies in a rocket engine (2030) → Longer-life reusable engines from new alloys (2031) |
 | Sensors and models track wear on reusable stages | 6 | 2031 | Medium | experiment | off the date-setting path | helps | AI-ready structural and thermal test data (2028) → Damage detection with proven detection limits (2028) → Sensor-based inspection credit for reusable stages (2030) → Sensors and models track wear on reusable stages (2031) |
 | 100 kW-per-tonne compute satellites in serial production | 6 | 2031 | Medium | fabrication | none | helps | Lightweight solar arrays at compute-constellation volume (2029) → 100 kW-per-tonne compute satellites in serial production (2031) |
 | Robots run integration and test around the clock | 6 | 2031 | High | qualification | none | yes | Robot AI models that work on sites they have never seen (2028) → General-purpose robots do multi-task factory work at scale (2029) → Robots assemble flight hardware at leading space firms (2030) → Robots run integration and test around the clock (2031) |
-| Constellation designed with certified tools enters service | 6 | 2031 | High | launch | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Provable interference compliance for shared spectrum (2028) → Constellation design with proven compliance (2028) → Constellation designed with certified tools enters service (2031) |
+| Constellation designed with certified tools enters service | 6 | 2031 | High | launch-external | off the date-setting path |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → Outside customers can book launch again after the rideshare closure (2029) → Constellation designed with certified tools enters service (2031) |
 | Robots work in the plants that make robot parts | 6 | 2032 | High | fabrication | none | yes | Robot AI models that work on sites they have never seen (2028) → General-purpose robots do multi-task factory work at scale (2029) → Robots work in the plants that make robot parts (2032) |
 | General-purpose robots do construction trade work at scale | 6 | 2032 | High | adoption | none | yes | Robot AI models that work on sites they have never seen (2028) → General-purpose robots do multi-task factory work at scale (2029) → General-purpose robots do construction trade work at scale (2032) |
 | 300+ fully reusable heavy launches a year | 6 | 2032 | Medium | regulatory | none | helps | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → 300+ fully reusable heavy launches a year (2032) |
 | A launcher or large spacecraft engineered mostly by AI flies | 6 | 2032 | Medium | qualification | yes | helps | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Independent checks of AI math (2026) → AI results audited and trusted in days (2028) → On-demand applied math in space engineering (2028) → Spacecraft engineered mostly by AI flies (2029) → A launcher or large spacecraft engineered mostly by AI flies (2032) |
 | First water mined from lunar polar ice | 6 | 2032 | Medium | capital | none |  | Ship-to-ship cryogenic transfer demonstrated (2027) → Full lunar-lander refueling campaign (2028) → Heavy cargo landed on the Moon (2028) → First water mined from lunar polar ice (2032) |
-| Ten heavy cargo landings on the Moon in one year | 6 | 2032 | Medium | launch | none | helps | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → Ten heavy cargo landings on the Moon in one year (2032) |
+| Ten heavy cargo landings on the Moon in one year | 6 | 2032 | Medium | launch-internal | none | helps | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → Ten heavy cargo landings on the Moon in one year (2032) |
 | An engine built around an AI-designed alloy flies | 6 | 2032 | Medium | experiment | yes | helps | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Atomistic AI models with trustworthy error bars (2028) → AI designs new rocket-engine alloys in weeks (2028) → First AI-agent-designed alloy flies in a rocket engine (2030) → An engine built around an AI-designed alloy flies (2032) |
-| One lunar lander makes three landings, refueled in space | 6 | 2032 | Medium | launch | off the date-setting path | helps | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → Routine orbital refueling economy (2029) → One lunar lander makes three landings, refueled in space (2032) |
+| One lunar lander makes three landings, refueled in space | 6 | 2032 | Medium | launch-internal | off the date-setting path | helps | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → Routine orbital refueling economy (2029) → One lunar lander makes three landings, refueled in space (2032) |
 | Megawatt-class compute satellites fly | 6 | 2032 | Medium | qualification | none | helps | 100-kW-class deployable radiators fly on compute satellites (2028) → Commercial AI chips running in orbit at scale (2029) → Megawatt-class compute satellites fly (2032) |
 | New government designs fly qualified mostly by analysis | 6 | 2032 | Medium | regulatory | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Structural margins with certified uncertainty bounds (2028) → Qualification by analysis replaces some structural tests (2029) → Analysis replaces some environmental qualification tests (2030) → New government designs fly qualified mostly by analysis (2032) |
-| Lunar navigation with proven error bounds in routine use | 6 | 2032 | Medium | launch | off the date-setting path |  | Ship-to-ship cryogenic transfer demonstrated (2027) → Full lunar-lander refueling campaign (2028) → Heavy cargo landed on the Moon (2028) → Moon Base Phase 2 infrastructure on the surface (2030) → Lunar navigation with proven error bounds in routine use (2032) |
+| Lunar navigation with proven error bounds in routine use | 6 | 2032 | Medium | launch-external | off the date-setting path |  | Ship-to-ship cryogenic transfer demonstrated (2027) → Full lunar-lander refueling campaign (2028) → Heavy cargo landed on the Moon (2028) → Moon Base Phase 2 infrastructure on the surface (2030) → Lunar navigation with proven error bounds in routine use (2032) |
 | AI-designed thrusters fly across a whole constellation | 6 | 2032 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → AI multiphysics design with guarantees (2028) → AI-designed thruster flies and performs as predicted (2030) → AI-designed thrusters fly across a whole constellation (2032) |
-| Side-view and upstream solar-wind monitoring | 6 | 2033 | Medium | launch | none |  | Side-view and upstream solar-wind monitoring (2033) |
-| Robots build lunar pads, berms and roads at outpost scale | 6 | 2033 | Medium | launch | yes | yes | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Reliable recipes for sintering regolith (2028) → First robot-built landing pad or blast berm on the Moon (2030) → Robots build lunar pads, berms and roads at outpost scale (2033) |
+| Side-view and upstream solar-wind monitoring | 6 | 2033 | Medium | launch-external | none |  | Side-view and upstream solar-wind monitoring (2033) |
+| Robots build lunar pads, berms and roads at outpost scale | 6 | 2033 | Medium | launch-internal | yes | yes | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Reliable recipes for sintering regolith (2028) → First robot-built landing pad or blast berm on the Moon (2030) → Robots build lunar pads, berms and roads at outpost scale (2033) |
 | Robots do flight-hardware work across the supplier base | 6 | 2033 | Medium | qualification | none | yes | Robot AI models that work on sites they have never seen (2028) → General-purpose robots do multi-task factory work at scale (2029) → Robots assemble flight hardware at leading space firms (2030) → Robots do flight-hardware work across the supplier base (2033) |
 | Ship heat shield turned around in three days | 6 | 2033 | Medium | data | off the date-setting path | helps | Both Starship stages caught and reflown (2027) → Rapidly reusable orbital heat shield (ship scale) (2029) → Ship heat shield turned around in three days (2033) |
 | AI-designed heat-shield material in regular service | 6 | 2033 | Medium | qualification | yes | helps | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Atomistic AI models with trustworthy error bars (2028) → AI-designed heat shields and hot structures (2029) → AI-designed heat-shield material flies (2030) → AI-designed heat-shield material in regular service (2033) |
-| People return from orbit on a reusable ship | 6 | 2033 | Medium | launch | none |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → People return from orbit on a reusable ship (2033) |
+| People return from orbit on a reusable ship | 6 | 2033 | Medium | launch-internal | none |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → People return from orbit on a reusable ship (2033) |
 | Exoplanet atmosphere census with honest error bars | 6 | 2033 | Medium | data | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Exoplanet atmosphere readings with honest error bars (2028) → Exoplanet atmosphere census with honest error bars (2033) |
 | Science mission built to downlink onboard answers flies | 6 | 2033 | Medium | capital | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Error-rate guarantees for onboard machine learning (2028) → Spacecraft send answers, not raw data, with error bounds (2029) → Science mission built to downlink onboard answers flies (2033) |
 | Math expertise stops limiting space programs | 7 | 2028 | High | adoption | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Independent checks of AI math (2026) → AI results audited and trusted in days (2028) → On-demand applied math in space engineering (2028) → Math expertise stops limiting space programs (2028) |
@@ -3376,19 +3412,21 @@ Even by 2035, every date-setting path that robots lie on ends at a robots-branch
 | Structures and thermal analysis cycles 2-5x faster | 7 | 2028 | High | adoption | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Independent checks of AI math (2026) → AI results audited and trusted in days (2028) → On-demand applied math in space engineering (2028) → Structures and thermal analysis cycles 2-5x faster (2028) |
 | Verified flight code 15-120x cheaper per line | 7 | 2028 | High | adoption | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → AI-drafted formal specifications (2027) → Exhaustive checks of fault logic and configuration (2027) → Verified flight code 15-120x cheaper per line (2028) |
 | Severalfold more robot work per operator | 7 | 2029 | High | adoption | yes | helps | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → AI-drafted formal specifications (2027) → Exhaustive checks of fault logic and configuration (2027) → AI plans rover operations, machines check the plans (2028) → Severalfold more robot work per operator (2029) |
-| Starship internal cost under $300 per kg | 7 | 2029 | High | launch | none |  | Both Starship stages caught and reflown (2027) → Starship internal cost under $300 per kg (2029) |
+| Starship internal cost under $300 per kg | 7 | 2029 | High | launch-internal | none |  | Both Starship stages caught and reflown (2027) → Starship internal cost under $300 per kg (2029) |
 | AI cuts new space hardware development cost by about 10-20% | 7 | 2029 | High | adoption | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Independent checks of AI math (2026) → AI results audited and trusted in days (2028) → On-demand applied math in space engineering (2028) → AI cuts new space hardware development cost by about 10-20% (2029) |
 | New satellite generations every year | 7 | 2029 | High | fabrication | yes | helps | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Independent checks of AI math (2026) → AI results audited and trusted in days (2028) → On-demand applied math in space engineering (2028) → New satellite generations every year (2029) |
-| Routine orbital refueling economy | 7 | 2029 | High | launch | off the date-setting path |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → Routine orbital refueling economy (2029) |
+| Routine orbital refueling economy | 7 | 2029 | High | launch-internal | off the date-setting path |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → Routine orbital refueling economy (2029) |
 | Assurance stops being a moat for primes | 7 | 2029 | High | adoption | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → AI-drafted formal specifications (2027) → Exhaustive checks of fault logic and configuration (2027) → Verified flight code 15-120x cheaper per line (2028) → Assurance stops being a moat for primes (2029) |
 | AI compute becomes Starship's second anchor customer | 7 | 2029 | High | capital | none |  | 100-kW-class deployable radiators fly on compute satellites (2028) → AI compute becomes Starship's second anchor customer (2029) |
+| Starlink Mobile serves 100 million phones a month | 7 | 2029 | High | adoption | none |  | Second-generation direct-to-cell service (V2 D2C) in commercial use (2028) → Starlink Mobile serves 100 million phones a month (2029) |
 | Verified autonomy becomes cheap | 7 | 2030 | High | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Verified floating-point and numerics toolchain (2028) → Guidance code with proven floating-point math (2028) → Toolchain that ships guidance code with its proofs (2028) → Proof-backed guidance software in operational spacecraft (2029) → Verified autonomy becomes cheap (2030) |
 | Development cycles 20-30% shorter, not 10x | 7 | 2030 | High | experiment | yes | helps | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Independent checks of AI math (2026) → AI results audited and trusted in days (2028) → On-demand applied math in space engineering (2028) → Development cycles 20-30% shorter, not 10x (2030) |
-| Software adds 10%+ capacity on the same hardware | 7 | 2030 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → Formally verified constellation routing software (2028) → Mega-constellation mesh run with certified optimality (2029) → Software adds 10%+ capacity on the same hardware (2030) |
+| Software adds 10%+ capacity per satellite at fixed spectrum | 7 | 2030 | Medium | adoption | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → Formally verified constellation routing software (2028) → Mega-constellation mesh run with certified optimality (2029) → Software adds 10%+ capacity per satellite at fixed spectrum (2030) |
 | Machine-checked crypto becomes a procurement norm | 7 | 2030 | Medium | regulatory | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Proven-correct post-quantum crypto for space processors (2028) → Upgradeable satellite encryption with proven update paths (2028) → Flight demo of verified post-quantum command links (2029) → Machine-checked crypto becomes a procurement norm (2030) |
 | Routine, cheap reentry: 50+ commercial returns a year | 7 | 2030 | Medium | capital | none |  | High-cadence instrumented reentry flights (2027) → Routine, cheap reentry: 50+ commercial returns a year (2030) |
 | Customers buy orbit under $1,000 per kg | 7 | 2030 | High | adoption | none |  | Both Starship stages caught and reflown (2027) → Starship internal cost under $300 per kg (2029) → Customers buy orbit under $1,000 per kg (2030) |
 | Qualification campaigns at least 15% shorter | 7 | 2030 | Medium | qualification | yes | helps | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Structural margins with certified uncertainty bounds (2028) → Qualification by analysis replaces some structural tests (2029) → Analysis replaces some environmental qualification tests (2030) → Qualification campaigns at least 15% shorter (2030) |
+| 1 GW of compute operating in orbit | 7 | 2030 | High | launch-internal | none |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → 1 GW of compute operating in orbit (2030) |
 | Model-priced insurance for new rockets and constellations | 7 | 2030 | Medium | capital | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Certified rare-event probabilities (2028) → Insurance-grade models of launch and in-orbit risk (2028) → Model-priced insurance for new rockets and constellations (2030) |
 | Debris removal becomes a recurring paid service | 7 | 2030 | Medium | capital | none |  | First large debris object removed from orbit (2028) → Debris removal becomes a recurring paid service (2030) |
 | Low Earth orbit stays safe at 100,000 satellites | 7 | 2031 | Medium | data | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Certified collision-probability math (2028) → Certified screening that scales to a million objects (2029) → Autonomous cross-operator collision avoidance (2030) → Low Earth orbit stays safe at 100,000 satellites (2031) |
@@ -3399,9 +3437,8 @@ Even by 2035, every date-setting path that robots lie on ends at a robots-branch
 | Engine development time and cost cut | 7 | 2031 | Medium | experiment | yes | helps | Research-grade math inside the labs (2026) → Month-long autonomous research tasks (2028) → AI builds validated physics theory (2029) → Predictive flame response at engine pressures (2030) → Design out combustion instability before hot fire (2031) → Engine development time and cost cut (2031) |
 | Space science shifts money from analysis to photons | 7 | 2031 | Medium | capital | yes |  | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Cosmology inference that knows its own errors (2028) → More science per mission dollar (2028) → Space science shifts money from analysis to photons (2031) |
 | 5-15% lighter structures on new vehicles and spacecraft | 7 | 2031 | Medium | qualification | off the date-setting path |  | AI-ready structural and thermal test data (2028) → Worst-case imperfection theory for thin shells (2028) → First flight structure sized with AI-certified margins (2031) → 5-15% lighter structures on new vehicles and spacecraft (2031) |
-| 1 GW of compute operating in orbit | 7 | 2031 | High | launch | none |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → 1 GW of compute operating in orbit (2031) |
-| Fewer missions lost to software logic (hard to see by 2031) | 7 | 2031 | Medium | launch | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → AI-drafted formal specifications (2027) → Exhaustive checks of fault logic and configuration (2027) → Proof-checked software updates across constellations (2029) → Fewer missions lost to software logic (hard to see by 2031) (2031) |
-| Starship internal cost under $100 per kg | 7 | 2031 | High | launch | none | helps | Both Starship stages caught and reflown (2027) → Starship internal cost under $300 per kg (2029) → Starship internal cost under $100 per kg (2031) |
+| Fewer missions lost to software logic (hard to see by 2031) | 7 | 2031 | Medium | launch-external | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → AI-drafted formal specifications (2027) → Exhaustive checks of fault logic and configuration (2027) → Proof-checked software updates across constellations (2029) → Fewer missions lost to software logic (hard to see by 2031) (2031) |
+| Starship internal cost under $100 per kg | 7 | 2031 | High | launch-internal | none | helps | Both Starship stages caught and reflown (2027) → Starship internal cost under $300 per kg (2029) → Starship internal cost under $100 per kg (2031) |
 | Certified math on demand reaches the supplier base | 7 | 2031 | High | adoption | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Independent checks of AI math (2026) → AI results audited and trusted in days (2028) → On-demand applied math in space engineering (2028) → Math expertise stops limiting space programs (2028) → Certified math on demand reaches the supplier base (2031) |
 | A large AI model is trained in orbit | 7 | 2031 | High | adoption | none |  | 100-kW-class deployable radiators fly on compute satellites (2028) → Commercial AI chips running in orbit at scale (2029) → A large AI model is trained in orbit (2031) |
 | A step change in spacecraft power per kilogram | 7 | 2032 | Medium | qualification | none |  | Lightweight solar arrays at compute-constellation volume (2029) → A step change in spacecraft power per kilogram (2032) |
@@ -3413,7 +3450,7 @@ Even by 2035, every date-setting path that robots lie on ends at a robots-branch
 | Flight-software standards write in credit for AI proofs | 7 | 2033 | Medium | regulatory | yes |  | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Agents that prove real flight code (2027) → Regulators accept AI-produced proofs (2029) → Flight-software standards write in credit for AI proofs (2033) |
 | Flight-software verification takes half the calendar time | 7 | 2033 | Medium | qualification | yes | helps | Research-grade math inside the labs (2026) → Research-grade math for outside teams (2027) → AI does research-grade applied math (2027) → Verified floating-point and numerics toolchain (2028) → Guidance code with proven floating-point math (2028) → Toolchain that ships guidance code with its proofs (2028) → Proof-backed guidance software in operational spacecraft (2029) → Verified autonomy becomes cheap (2030) → Flight-software verification takes half the calendar time (2033) |
 | A new large engine flies four years after program start | 7 | 2033 | Medium | experiment | yes | helps | Research-grade math inside the labs (2026) → Month-long autonomous research tasks (2028) → AI builds validated physics theory (2029) → Predictive flame response at engine pressures (2030) → Design out combustion instability before hot fire (2031) → A new large engine flies four years after program start (2033) |
-| Tankers fuel five Mars ships for one window | 7 | 2033 | Medium | launch | off the date-setting path |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → Routine orbital refueling economy (2029) → Tankers fuel five Mars ships for one window (2033) |
+| Tankers fuel five Mars ships for one window | 7 | 2033 | Medium | launch-internal | off the date-setting path |  | Pads and propellant plants for hundreds of heavy flights (2029) → 100+ fully reusable heavy launches a year (2029) → Routine orbital refueling economy (2029) → Tankers fuel five Mars ships for one window (2033) |
 | Qualification campaigns 30% shorter at leading firms | 7 | 2033 | High | qualification | yes | helps | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Independent checks of AI math (2026) → AI results audited and trusted in days (2028) → On-demand applied math in space engineering (2028) → Tests chosen for information, not habit (2028) → Operators fly new hardware qualified mainly by AI analysis (2029) → Qualification campaigns 30% shorter at leading firms (2033) |
 | Leading firms halve development cycles | 7 | 2034 | Medium | experiment | yes | helps | Research-grade math inside the labs (2026) → AI turns math into machine-checked proofs at scale (2026) → Independent checks of AI math (2026) → AI results audited and trusted in days (2028) → On-demand applied math in space engineering (2028) → Development cycles 20-30% shorter, not 10x (2030) → Leading firms halve development cycles (2034) |
 
@@ -3421,11 +3458,11 @@ Even by 2035, every date-setting path that robots lie on ends at a robots-branch
 
 ## 13. Assumptions, limits and open questions
 
-**The premise is an assumption.** Exponential is the base case because it is the premise this study was asked to test, and the capability record supports it. The analyst framework's own default is closer to Plateau. Readers should treat Exponential as a conditional forecast: if capability keeps compounding at about the measured rate, this is what follows.
+**The premise is an assumption.** Exponential is the central scenario because it is the premise this study was asked to test, and the capability record supports it. The analyst framework's own default is closer to Plateau. Readers should treat Exponential as a conditional forecast: if capability keeps compounding at about the measured rate, this is what follows.
 
 **Bands are judgments.** They are not probabilities, and they are not independent. Many nodes share prerequisites, above all public access to research-grade models in 2027 and applied math the same year. If those slip, up to 298 nodes, about three-fifths of the tree, slip together. Do not multiply bands along a chain.
 
-**Earliest year is optimistic by construction.** It marks the first credible year, not the expected year, and the likelihood band carries the expectation. The viewer counts a node as unlocked only when its year has arrived and it is rated at least Medium at the next checkpoint (2031 for years through 2031, 2035 after).
+**Earliest year is optimistic by construction.** It marks the first credible year, not the expected year, and the likelihood band carries the expectation. The viewer counts a node as unlocked only when its year has arrived and its odds for that year are at least Medium.
 
 **The catalog is unverified.** Every openai/math result used here is T1, T2 or T3. An independent check might find a statement gap or an error. The nodes resting on that family (mostly P3 ceilings and P5 confidence effects) would then weaken. The main conclusions would not, because they rest on the capability rather than the catalog.
 
@@ -3441,7 +3478,7 @@ Even by 2035, every date-setting path that robots lie on ends at a robots-branch
 
 **The Embodied case rests on one assumption more than any other.** It assumes that Recursive-grade AI makes robot dexterity mainly a software problem by about 2028. Field reliability still accrues on the physical clock, so usefulness is dated by hardware generation. Plateau, Exponential and Recursive use a slow robot path. The robots branch places Plateau slightly behind the other two, because its cognition lags. In the robots branch, years follow the base robot path while bands also weigh the faster path, so a robot node dated after 2031 can still be Low by 2031. Robot fleet numbers come from shipment data through mid-2026 and from production-ramp analogues. The 2035 values are scenario estimates, not forecasts of record.
 
-**The 2035 checkpoint is less certain than the 2031 one.** A nine-year horizon compounds every uncertainty in the model. Nodes first credible in 2034–35 are almost never rated more likely than not by 2035, and the tree says little about what happens just after its horizon.
+**Odds for the 2030s are less certain than those for the 2020s.** A nine-year horizon compounds every uncertainty in the model. Nodes first credible in 2034–35 are almost never rated more likely than not by 2035, and the tree says little about what happens just after its horizon.
 
 **Coverage limits.** The model does not cover:
 
@@ -3454,7 +3491,7 @@ Sectors judged to change little are listed in section 7.
 
 **Open questions the model cannot settle.**
 
-- *Certification route.* Certification bodies may accept AI-written proofs checked by an already-qualified tool early (2028–29, the upside case) or on the base-case date (about 2030). Or they may wait until the AI toolchain itself is qualified, which would come later still.
+- *Certification route.* Certification bodies may accept AI-written proofs checked by an already-qualified tool early (2028–29, the upside case) or on the central-scenario date (about 2030). Or they may wait until the AI toolchain itself is qualified, which would come later still.
 - *Posing.* The binding constraint for applied work may stay posing and trust, or labs may start posing applied problems at the scale they posed pure ones.
 - *Data versus theory.* It is open how much proprietary flight data, rather than theory, closes the physics models that gate heat shields, engines and space weather.
 - *The recursive case.* It may not arrive at all, and if it does, labs may hold capability back.
@@ -3481,11 +3518,14 @@ The figures a writer is most likely to quote, with where each comes from and how
 | About 355,000 Starlink avoidance maneuvers a year, at a 3-in-10-million threshold | Collision-avoidance burden today | Reported (operator figures via press) | [Space.com via N2YO](https://www.n2yo.com/satellite-news/Every-SpaceX-Starlink-satellite-has-to-dodge-a-collision-almost-weekly-and-experts-fear-the-worst/11012) |
 | About 1.2 million untracked 1–10 cm fragments | Why sensors, not math, bound debris safety | Verified | [ESA Space Environment Report 2026](https://www.sdo.esoc.esa.int/publications/Space_Environment_Report_I10R0_20260501.pdf) |
 | About 13 h average CME arrival error (about 10 h for the best ensemble) | Space-weather forecast skill, flat for 11 years | Verified | [Kay et al. 2024](https://predsci.com/~epalmerio/pubs/Kay2024b.pdf) |
-| About $4,900, $650 and $300 per kg | Mach33 base-case SpaceX internal Starship cost, 2026 to 2028 (this model dates under $300/kg to about 2029) | Verified against Mach33; Mach33 discloses SpaceX equity holdings | [Mach33, Starship's first orbital cargo](https://research.33fg.com/analysis/starship-s-first-orbital-cargo) |
+| $4,915, $656 and about $300 per kg | SpaceX internal Starship cost delivered to low orbit (not a price), expended Flight 14 in 2026, then 2027 and 2028; Mach33 Launch Keystone v1.3, wave 44 base (this model dates under $300/kg to about 2029) | Verified against Mach33, post of 23 Sep 2026; Mach33 discloses SpaceX equity holdings | [Mach33, Starship's first orbital cargo](https://research.33fg.com/analysis/starship-s-first-orbital-cargo) |
+| $6,200, $5,634, $820 and $562 per kg | Customer spot price in 2029, 2030, 2031 and 2033, reference case (Starship opens to customers in 2031, tested 2029 to 2033); Mach33 Launch Keystone v1.3, wave 38b | Verified against Mach33, post of 10 Sep 2026 | [Mach33, Launch providers earn $945 per customer kilogram](https://research.33fg.com/analysis/launch-providers-earn-945-per-customer-kilogram-in-our-median-2035-case) |
+| $5,823 and $945 per kg | Customer realized price (revenue per customer kilogram, median) in 2030 and 2035; Mach33 Launch Keystone v1.3, wave 38b | Verified against Mach33, post of 10 Sep 2026 | [Mach33, Launch providers earn $945 per customer kilogram](https://research.33fg.com/analysis/launch-providers-earn-945-per-customer-kilogram-in-our-median-2035-case) |
 | About 230 zero-failure trials | Test-only demonstration of 0.99 reliability at 90% confidence | Arithmetic | Binomial calculation |
 | 23,000 hours = 2.6 years of firing | Hall-thruster life requirement | Verified | [Williams et al. 2026 (NTRS)](https://ntrs.nasa.gov/api/citations/20260002899/downloads/20260002899%20Final.pdf) |
-| About 4,000 satellites, 16,000–18,000 t and 110–180 Starship flights per GW | Scale of a gigawatt of orbital compute | Model (reconstruction from 33FG/Mach33 data) | Section 10, Orbital compute and power |
-| 2–9% of launched mass | Saving from AI-optimized radiator design | Model (assumption) | Section 10, Orbital compute and power |
+| About 6,700 satellites (8,300 at average power), 14,000 t and 155–235 Starship flights per GW | Scale of a gigawatt of orbital compute on AI1 (150 kW peak, 120 kW average, about 2.1 t) in dawn-dusk sun-synchronous orbit at 60–90 t a flight; about 10,000 t and 110–170 flights at the S-1's 100 kW/t | Model (from Mach33's AI1 reconstruction, Jun 2026) | [Mach33, SpaceX AI1](https://research.33fg.com/analysis/spacex-ai1-a-subsystem-level-reconstruction); section 10, Orbital compute and power |
+| 1.5 GW in 2028 (2029 cadence-bound), 437.9 GW by 2040 | Mach33 AI Compute Keystone v1.0 orbital build-out path, base case; a model path, not milestone odds | Verified against the model's series file | [Mach33, AI Compute Keystone](https://research.33fg.com/analysis/ai-compute-keystone-model-download) |
+| 2–9% of launched mass | Saving from AI-optimized radiator design; small against launch-market volumes, not a launch driver | Model (assumption) | Section 10, Orbital compute and power |
 | 0.07 kg/h (molten-regolith rig), 12 g/h (MOXIE), against about 0.11 kg/h for a 1 t/yr lunar plant | Scale gap for lunar and Mars oxygen | Verified | [MRE demonstration (ICES 2026)](https://doi.org/10.32865/2346/108973); [MOXIE](https://en.wikipedia.org/wiki/Mars_Oxygen_ISRU_Experiment) |
 | 2040–2050 | NASA-sponsored studies' date for aircraft certification by analysis | Verified | [NASA NTRS 20230016541](https://ntrs.nasa.gov/citations/20230016541) |
 | 3% throughput loss; 0.1% (GSO) or 0.4% (NGSO) added unavailability | FCC's 2026 performance-based spectrum-sharing criteria | Verified via 33FG summary of FCC documents | [33FG news](https://research.33fg.com/news/fcc-replaces-26-year-old-epfd-framework-with-performance-based-ngso-rules) |

@@ -1,9 +1,9 @@
-The model's dates hinge on a handful of shared prerequisites, so a few observable events would move whole branches at once. The first three can be checked within 12–24 months. The rest show whether the later, physical steps arrive on the base-case dates.
+The model's dates hinge on a handful of shared prerequisites, so a few observable events would move whole branches at once. The first three can be checked within 12–24 months. The rest show whether the later, physical steps arrive on the central-scenario dates.
 
-| Event | When the base case expects it | What it would change |
+| Event | When the central scenario expects it | What it would change |
 | --- | --- | --- |
 | An independent Comparator run plus statement audit of openai/math results (Hexagon, Kevin Buzzard's group or another outside team) | Late 2026 to 2027 | Upgrades checked families from T3 to T4. A found error or statement gap downgrades the conditional nodes resting on that family and slows trust in AI results generally. |
-| A model at the release's level becomes available to outside engineering teams, or an open-weight model reaches research grade | 2027 (open weights: 2028) | Switches on the capability channel for everyone. A slip to 2028 or later moves the base case toward Plateau for the {{reach_public}} nodes downstream of it. |
+| A model at the release's level becomes available to outside engineering teams, or an open-weight model reaches research grade | 2027 (open weights: 2028) | Switches on the capability channel for everyone. A slip to 2028 or later moves the central scenario toward Plateau for the {{reach_public}} nodes downstream of it. |
 | Lean's library gains real coverage of partial differential equations, Sobolev spaces and numerical analysis | 2027–28 | Lets applied results be formally checked, and so trusted, at the rate of discrete ones. Gates verified numerics, guaranteed error bars and verified guidance code. |
 | A space operator publicly flies proof-checked guidance, collision-avoidance or update software | 2029 (a lander or constellation; Medium) | First evidence that the verification bridge reaches hardware. Earlier would beat every scenario in the model. |
 | A certification body accepts AI-written proofs as evidence through an already-qualified checker (DO-333 plan acceptance, a NASA or ESA project) | About 2030 (Medium) | Opens certified and crewed software to the verification channel. Acceptance in 2028–29 is the main upside case in the tree. |

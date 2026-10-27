@@ -1,7 +1,7 @@
 ## Bottom line
 
 - **The release matters to space for what it shows a machine can do.** That is research-grade mathematics on request, and machine-checked proofs at scale. The 372 result families barely touch spacecraft. {{fam_hw_sentence}}
-- **If the capability keeps compounding (the Exponential base case), the cognitive half of space engineering changes fast.** By about 2028 these become routine, each rated High:
+- **If the capability keeps compounding (the Exponential case, our central scenario), the cognitive half of space engineering changes fast.** By about 2028 these become routine, each rated High:
   - on-demand applied mathematics in space engineering;
   - guaranteed error bars for smooth-regime simulations;
   - verified flight code, 15–120x cheaper per line on the model's cost assumptions;
@@ -43,7 +43,7 @@
 
 So "2030 (Low / Medium)" means the node could happen as early as 2030. It has roughly a 10–30% chance by the end of 2031 and a 30–70% chance by the end of 2035.
 
-A node counts as **unlocked** in a year once that year has arrived and the node is rated High or Medium at the next checkpoint: end-2031 for years through 2031, end-2035 after. In the robots branch, years follow the base robot path while bands also weigh the faster path. A robot node dated after 2031 can therefore still be Low by 2031. Every table, node count and node date here is generated from the model graph. Figures quoted in the prose come from the graph's node and domain notes. Appendix A lists the figures a writer is likeliest to quote, with their status.
+A node counts as **unlocked** in a year once that year has arrived and its odds for that year are High or Medium. Odds are rated for every year from 2026 to 2035: each node records the first year they reach Low, Medium and High. In the robots branch, years follow the base robot path while odds also weigh the faster path, so a robot node can be Low before its listed year. Every table, node count and node date here is generated from the model graph. Figures quoted in the prose come from the graph's node and domain notes. Appendix A lists the figures a writer is likeliest to quote, with their status.
 
 **How to use this document.** The argument is in this bottom line and sections 1–8.
 

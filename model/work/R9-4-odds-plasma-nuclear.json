@@ -1,0 +1,1090 @@
+{
+ "notes": "R9 WS1/WS5 branch review: plasma-nuclear",
+ "update": [
+  {
+   "id": "frontier-landau-damping-general",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "The mathematics (cognitive) binds; formal checking of the result (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (S2/S3 2028) and High in 2030 (S2) and 2029 (S3/S4), not in 2027: human programs settle about one setting a year and a correct magnetized result may be negative. S1 Medium 2030, High 2033."
+   }
+  },
+  {
+   "id": "plasma-vm-wellposed",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "The statement audit (formalization) binds; expert judgment that the Lean definitions match the physics (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in 2027 (the Lean proof exists; Hexagon launched Oct 2026), High in 2028 once the statement audit has had a year; the March 2026 VML case found definition-alignment bugs, so not High in 2027. S1 a year slower on High."
+   }
+  },
+  {
+   "id": "plasma-gk-surrogates",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2030"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Training data and validation (data) bind; out-of-distribution error bounds from applied math (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in 2027 (GX surrogates already inside stellarator optimization, Sep 2026); High as design-of-record input in 2028 in S2-S4 and 2030 in S1, where principled error bounds come later."
+   }
+  },
+  {
+   "id": "plasma-kinetic-solvers-at-scale",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Algorithm invention (cognitive) binds; accelerator hardware generations (fabrication) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 passes 30% in 2029, not its earliest year: another 10-100x from algorithms is needed on top of implicit PIC; High in 2033 with four years of algorithms and hardware. S3/S4 High 2030 (seed 2028). S1 Medium 2033."
+   }
+  },
+  {
+   "id": "plasma-lean-kinetic-library",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Agreeing on shared definitions (formalization) binds; community uptake of the library (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in 2028 with applied Mathlib; High in 2030 (S2) and 2029 (S3/S4) after a year or two of definition agreement, not in 2028. S1 Medium 2031, High 2034 with its Mathlib prerequisite."
+   }
+  },
+  {
+   "id": "plasma-verified-kinetic-numerics",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Machine-checked numerics (formalization) bind; deriving certified error bounds for kinetic solvers (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (S2 2030, S3 2029); High in 2033 in S2 and 2030 in S3/S4 (seed 2028), after the formal library is High. S1 Medium 2034."
+   }
+  },
+  {
+   "id": "plasma-kinetic-closures",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Kinetic simulation and diagnostic data bind; the closure theory itself (cognitive, cap-physics-theory) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in 2030, a year after the earliest year, because validation needs kinetic data that only becomes affordable 2029; S3/S4 High 2034 with physics theory; S2 stays Medium (closures may not exist in closed form). S1 Low from 2034."
+   }
+  },
+  {
+   "id": "plasma-hall-anomalous-closure",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "A multi-thruster validation campaign with non-invasive diagnostics (experiment) binds; reducing kinetic physics to a closure (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 crosses 30% in 2032: data-driven closures exist (Jorns 2018), kinetic hero runs arrive 2029 and AEPS QM-2 long-duration data in 2029, against a 60-year problem and a three-thruster validation bar. S3/S4 Medium 2030, a year after the earliest year (seed had 2029). Skeptic (facility coupling, wall physics) vs advocate (data-driven route already published): 2032, not the seed's 2033."
+   }
+  },
+  {
+   "id": "plasma-magnetic-nozzle-theory",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "An in-space far-field measurement (experiment) binds; kinetic simulation of detachment (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium in 2034: no diagnostic flight is committed and a funded smallsat measurement takes two to three years once cheap launch makes it worth doing. S3/S4 Medium 2030, a year after the earliest year, settled mainly by near-free kinetic simulation with lab data. Skeptic (ground chambers distort the far plume) vs advocate (cheap launch): late in the window for S2."
+   }
+  },
+  {
+   "id": "prop-ntp-fuel-model",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Test-reactor fluence and post-irradiation exams (experiment) bind; the lack of an NTP program to fund them (capital) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: Low from 2030 (2034 in S1), never Medium by 2035, because irradiation and hot-cell work take 1-3 years and no program of record exists."
+   }
+  },
+  {
+   "id": "plasma-dhe3-burn-physics",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2032",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Plasma heating to D-He3 temperatures (experiment) binds; building an Orion-class device and securing He-3 (fabrication) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Low from the earliest year in each scenario (S2 2032, seed had 2033); one company carries the attempt, so never Medium by 2035."
+   }
+  },
+  {
+   "id": "physclock-nuclear-safety-case-ai",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "INSRB review and launch authorization (regulatory) bind; appropriations for a reactor mission to analyze (capital) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in 2030 (S2) and 2029 (S3/S4), not the 2028 earliest year: controlled-network access arrives 2028 and a real reactor safety case must then use it. Capped at Medium; S1 Low throughout."
+   }
+  },
+  {
+   "id": "plasma-stellarator-design-loop",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Validated surrogates and benchmarks (data) bind; multiphysics design optimization (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in 2028 (the pieces exist: StellFoundry, surrogates in loops, ConStellaration); High a year later, 2029, once the surrogates are trusted for design. S1 Medium 2030, High 2034 with its design-optimization prerequisite."
+   }
+  },
+  {
+   "id": "plasma-ep-predictive-design",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Test data across several designs (data) bind; the transport closure (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Follows the closure plus a year of cross-design test data: S2 Medium 2033 (closure 2032), S3/S4 2031 (closure 2030; seed had 2029). The kinetic design loop (S2 2034) is a second route that cannot pull S2 earlier. No scenario reaches High."
+   }
+  },
+  {
+   "id": "plasma-ep-life-by-analysis",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "An agency accepting less than a full wear test (qualification) binds; about 10,000 h of partial wear test (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: Low from 2031 in S2-S4, never Medium by 2035; no agency has accepted partial wear-test credit since the 2009 standard."
+   }
+  },
+  {
+   "id": "plasma-fusion-propulsion-design-closure",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Data from plasma regimes no device has reached (experiment) bind; the paper design itself (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: Low from the earliest year in S2-S4, never Medium, because the design cannot sit above its D-He3 burn premise (Low)."
+   }
+  },
+  {
+   "id": "plasma-fusion-net-gain",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Magnets, vessel and assembly (fabrication) bind; the D-T campaign after first plasma (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Low in 2028 (SPARC and Helion targets), Medium in 2030 (S1/S2) and 2029 (S3/S4): SPARC first plasma has already slipped twice, so 30% at the earliest year (seed) was too high. High 2033 (S2), 2032 (S3/S4), 2034 (S1) with two independent attempts."
+   }
+  },
+  {
+   "id": "physclock-reactor-in-space",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Appropriations (capital) bind; HALEU fuel, reactor fabrication and criticality testing, 4-6 years from a funded start (fabrication), are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: Low from the early-2031 Mars window, never Medium by 2035 (SR-1 has $10M recommended against a $2.1B estimate). Raise if FY2027-28 appropriations fund SR-1."
+   }
+  },
+  {
+   "id": "plasma-abep-demo",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "An atomic-oxygen-tolerant discharge (fabrication) binds; funding for a demo (capital) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in 2034 (S2) and 2033 (S3/S4), three years after the earliest year: no demo is funded and the discharge must survive atomic oxygen. Skeptic (no committed mission) vs advocate (very-low-orbit operators multiplying, cheap rideshare): Medium by 2035 kept, late in the window."
+   }
+  },
+  {
+   "id": "plasma-active-shielding",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "The field-times-length mass floor of HTS coils (fabrication) binds; multi-year space qualification of coils and cryogenics (qualification) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: after 2035 everywhere."
+   }
+  },
+  {
+   "id": "plasma-ai-designed-thruster-flight",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2032",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-external",
+    "gate_note": "Build-test iterations (fabrication) bind; a smallsat ride (launch-external) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2032, a year after the earliest year, as several smallsat thruster makers can fly without a certifier; High 2034 (seed 2035). S3/S4 Medium 2031 (seed 2030, the earliest year) and High 2033. Skeptic (operators may not disclose AI design) vs advocate (no certifier, short cycles): disclosure keeps each crossing a year after the chain allows."
+   }
+  },
+  {
+   "id": "plasma-fusion-propulsion-flight",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Experiments in unreached regimes bind; a flight-mass net-gain device (fabrication) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: after 2035 everywhere; a ground prototype (2035 at the earliest in S3) comes first."
+   }
+  },
+  {
+   "id": "plasma-high-power-ep-life",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Wear hours on a flight-like 100 kW unit (experiment) bind; a funded program (capital) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: Low from 2033 (2034 in S1), never Medium, because no funded program targets 5,000 h."
+   }
+  },
+  {
+   "id": "prop-ntp-ground-test",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "regulatory",
+    "gate_note": "A program of record (capital) binds; the environmental impact statement and nuclear approval (regulatory) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: Low from 2033 in S2-S4 and after 2035 in S1; no program of record."
+   }
+  },
+  {
+   "id": "plasma-nep-mars-cargo",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "A funded reactor and MW-class program (capital) binds; life-testing MW-class thrusters (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: after 2035 everywhere."
+   }
+  },
+  {
+   "id": "prop-ntp-crewed-mars",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Funding (capital) binds; ground test and flight demo (experiment) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: after 2035 everywhere."
+   }
+  },
+  {
+   "id": "plasma-outcome-ep-cycle-time",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "A full wear test on a program started after predictive design (qualification) binds; chamber time for build-test iterations (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Low from the earliest year (S2 2034, S3/S4 2033), never Medium. Skeptic (the cut must be shown and published on a real program) vs advocate (commercial programs iterate fast with no certifier): Low kept; predictive design is only Medium by 2033 in S2."
+   }
+  },
+  {
+   "id": "plasma-aeps-life-qual",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Real-time wear hours (experiment) bind; the qualification review after the test (qualification) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in 2029 when QM-2 is planned to finish (Sep 2029); High from 2030 rather than 2029, since wear tests and their reviews slip. Scenario-invariant."
+   }
+  },
+  {
+   "id": "plasma-ai-fusion-operations",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Device availability (experiment) binds; operators handing campaign design to AI (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in 2028 (tooling exists; DeepMind-CFS partnership), High in 2029 because SPARC's first plasma has slipped twice. Scenario-invariant."
+   }
+  },
+  {
+   "id": "materials-hts-magnet-models",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Full-coil tests (experiment) bind; turning quench and screening-current theory into design tools (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium in 2032 once SPARC's 18 TF coils and other fusion coil programs have supplied several years of test data; S3/S4 Medium 2030 (a year after the earliest year) and High 2034; S1 Medium 2034. Skeptic (validated quench prediction across designs is hard) vs advocate (abundant fusion-coil data): 2032 for S2."
+   }
+  },
+  {
+   "id": "plasma-35-kinetic-design-loop",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Algorithm gains (cognitive) bind; hardware for memory-bound particle-in-cell codes (fabrication) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: S3/S4 Medium 2034, a year after the earliest year; S2 Low from 2034. Skeptic (gains may stall, surrogates may make it unnecessary) vs advocate (recursive algorithm work from 2029): Medium kept in S3."
+   }
+  },
+  {
+   "id": "plasma-35-ai-thruster-constellation",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-internal",
+    "gate_note": "Operators adopting and disclosing AI-designed thrusters (adoption) bind; satellite generations and their launches (launch-internal) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: S3/S4 Medium 2034, two years after the earliest year; S2 Low from 2033. Disclosure holds the band down."
+   }
+  },
+  {
+   "id": "plasma-35-abep-service",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "A customer for orbits below 250 km (adoption) binds; on-orbit endurance data including atomic-oxygen erosion (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: Low from 2034 in S3/S4 only."
+   }
+  },
+  {
+   "id": "plasma-35-nep-year-of-thrust",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-external",
+    "gate_note": "Appropriations for SR-1 (capital) bind; Mars launch windows (launch-external) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Low from 2034 (seed 2033): a year of thrust by 2032 needs the early-2031 window, which the reactor launch itself reaches only at about 10%, so 10% is first passed via the Apr 2033 window in 2034. Never Medium."
+   }
+  },
+  {
+   "id": "plasma-35-fusion-drive-ground-test",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Building and commissioning a new device (experiment) binds; fusion-propulsion funding (capital) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: after 2035 everywhere (Speculative even in S3's 2035 earliest year)."
+   }
+  }
+ ]
+}

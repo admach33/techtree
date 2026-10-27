@@ -1,0 +1,935 @@
+{
+ "notes": "R9 WS1/WS5 branch review: orbital-compute-power",
+ "update": [
+  {
+   "id": "materials-perovskite-degradation-models",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "On-orbit exposure data to validate acceleration factors bind; the coupled ion-electron-thermal modelling itself (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 reaches 30% in 2029, a year after its earliest year, once a year of Potsdam/HZB and RIT flight data can check a model; S3 does it in 2028 on near-free modelling; High in 2034 in S2-S4 when several tandem flights have years of data (the data clock binds S3 too). S1 Medium from 2032."
+   }
+  },
+  {
+   "id": "materials-see-system-models",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Beam-test campaigns bind; fleet error statistics from orbit (data) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium from 2028 (Google beam data, Starcloud and Suncatcher already flying); High waits for a year or two of 100-kW-class fleet error statistics: 2030 in S2, 2029 in S3/S4, 2034 in S1 (with its applied-math prerequisite). Was High from 2028 in the seed."
+   }
+  },
+  {
+   "id": "struct-deployment-mechanics",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Flight deployments for validation bind; the physics theory behind the models (cognitive, cap-physics-theory) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): 30% one year after the earliest year (S2 2031, S3 2030) because validation needs the first year of Starmind array deployments; S3/S4 High in 2034, no earlier than validated physics theory; S2 stays Medium by 2035 as its physics-theory prerequisite does."
+   }
+  },
+  {
+   "id": "struct-two-phase-microgravity-models",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Microgravity flight data bind; the physics theory (cognitive, cap-physics-theory) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (S2 2031, S3 2030): fleet telemetry may be single-phase (AI1's liquid radiator), so the first year after the earliest date is below 30%; S3/S4 High in 2034 with its physics-theory prerequisite."
+   }
+  },
+  {
+   "id": "materials-battery-life-qual",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Customer acceptance of model-based life prediction binds; real-time cycling data to validate predictions is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in 2030, a year after the earliest year, because a supplier must first win a customer for model-based qualification; S3 equals S2 since acceptance, not cognition, binds; High 2034. S1 Medium 2033."
+   }
+  },
+  {
+   "id": "materials-verified-fault-tolerance",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Weak operator demand (adoption) binds; the proofs and verified numerics (formalization) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Demand is weak until orbital training runs make silent corruption costly, so 30% comes a year after the earliest year (S2 2030, S3 2029) and High in S3 in 2031 (seed had 2028) and S2 in 2034 with training runs. S1 Medium only in 2034. Skeptic (no demand) vs advocate (cheap proofs): resolved by tying High to the training-run node."
+   }
+  },
+  {
+   "id": "struct-radiator-optimization",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Uptake of AI designs over SpaceX's conventionally optimized second iteration (adoption) binds; the design optimization itself (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium from 2028 (the design problem is well-posed and the tools exist); High once a second hardware iteration carries AI-optimized thermal design, 2030 in S2 and 2029 in S3/S4 (seed had 2028). S1 Medium 2031, High 2034 with its design-optimization prerequisite."
+   }
+  },
+  {
+   "id": "struct-fsp-next-gen-design",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Appropriations and a first unit under contract (capital) bind; mature AI multiphysics and shield design (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): 30% needs a Lunar Reactor-1 award (procurement inactive since Mar 2026) plus a frozen first design before a follow-on study: S2 2034, S3/S4 2033 where design tools are ready a year sooner. Skeptic (no RFP, SR-1 unfunded) vs advocate (a second-generation study is cheap): Medium by 2035 kept, crossing late in the window."
+   }
+  },
+  {
+   "id": "struct-highflux-radiator-flight",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Building the first AI1-class radiator and satellite (fabrication) binds; flight acceptance of a derivative payload (qualification) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): SpaceX targets Q4 2027, so the odds pass 30% in 2028, but announced SpaceX schedules run 1.5-3x long: High (over 70%) from 2029, not 2028. Scenario-invariant hardware anchor."
+   }
+  },
+  {
+   "id": "struct-fsp-radiator-qual",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Qualification testing binds; program funding (capital) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in 2032 in every scenario: heat-pipe panels already passed freeze-thaw and MMOD work (ACT SBIR Phase III, 2026), so a qualified panel needs only a funded provider, which a 2027-28 LR-1 restart gives about four years later. Skeptic (procurement reset) vs advocate (radiators do not need the reactor): 2032, not the seed's 2033."
+   }
+  },
+  {
+   "id": "struct-radiator-lightweight-production",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "The manufacturing ramp binds; weak economic pull (adoption: the design is short of radiator area, not areal density) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in 2031, a year after the earliest year: the first new panel flies 2029 and a production ramp needs a year, and demand is modest; S3/S4 tie S2 because demand sets the pace. S1 Medium 2034."
+   }
+  },
+  {
+   "id": "capability-ai-eda-space-processor",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Fab runs bind; scarce heavy-ion beam time (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (S2 2031, S3 2030): first silicon plus a heavy-ion test, and disclosure of the AI share is uncertain; High 2034 in S2 and 2033 in S3/S4 as agentic design becomes standard. S1 Medium 2034."
+   }
+  },
+  {
+   "id": "materials-perovskite-tandem-flight",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "A year of on-orbit exposure (experiment) binds; building and flight-accepting the cell and encapsulation (qualification) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Low from 2030 (the chain reaches the horizon with no slack); Medium from 2032 in S2-S4 because several tandems are already in orbit or manifested (Potsdam/HZB, RIT, Hanwha lunar, Chinese programs), so two years of slack and several attempts pass 30%. A year in orbit cannot be compressed, so S3 equals S2. Skeptic (needs a model that predicted the data) vs advocate (many flights): 2032, not the seed's 2033."
+   }
+  },
+  {
+   "id": "materials-wbg-rad-hard-power",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Fab cycles bind; heavy-ion beam time (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (S2 2031, S3 2030): one or two more fab-and-beam cycles after CoolCAD's 2026 result; High in 2034 (S2) and 2033 (S3/S4) as megawatt-class satellites pull 300-800 V parts. S1 Medium 2032: the node is on vendors' clock, not AI math."
+   }
+  },
+  {
+   "id": "struct-large-sail-flight",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "A funded mission (capital) binds; validating deployment at 10-25x today's area (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: Low from 2031 in S2-S4 and 2034 in S1, never Medium by 2035, because no 1,000 m2 sail mission is funded."
+   }
+  },
+  {
+   "id": "materials-cots-orbital-compute-ops",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "SpaceX's own launch (launch-internal) binds; building and commissioning AI1 satellites (fabrication) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in 2029 in S2-S4 (first AI1 flight 2028, paying workloads 2029) and High in 2030, not 2029: several independent attempts but schedules that slip; consistent with struct-gw-orbital-compute (S2 Medium 2031). S1 Medium 2030 and High 2033 because a plateau may defer paying service."
+   }
+  },
+  {
+   "id": "struct-100kw-per-tonne-fleet",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Array specific power at production volume (fabrication) binds; qualifying chips to run hot (qualification) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Band change: S3/S4 band_2031 Medium -> Low. The node's own note says 100 kW/t needs arrays near twice AI1's 127 W/kg, which rests on thin-film or perovskite cells that are Low by 2031 in S3, and the 30% array step (materials-specific-power-step) cannot come before 2032; S3/S4 now cross 30% in 2033 with that step and yearly satellite generations, S2 in 2034. Skeptic (designs have grown heavier, 55-62 kW/t) vs advocate (the S-1 cites 100 kW/t): the S-1 figure is a target, not a fleet."
+   }
+  },
+  {
+   "id": "materials-perovskite-primary-power",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "One to two years of on-orbit lifetime evidence (qualification) binds; operators choosing to switch arrays (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in 2034 in S2, two years after tandem flights pass 30% (2032), and 2033 in S3/S4 where yearly satellite generations adopt a generation sooner. Skeptic (no operational perovskite anywhere) vs advocate (self-certifying compute operators and Chinese programs near the supply base): Medium by 2035 kept, late in the window."
+   }
+  },
+  {
+   "id": "struct-fsp-lunar-100kwe",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "A heavy cargo lander and launch (launch-external) bind; appropriations for a Lunar Reactor-1 award (capital) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: Low from 2033 everywhere (an LR-1 award around 2027-28 plus 4-6 years, behind SR-1 and a heavy lander), never Medium by 2035. Skeptic (procurement inactive, so even 10% by 2033 is generous) vs advocate (directive's 2030 target): kept at the earliest year, since the earliest year already assumes an award by 2028."
+   }
+  },
+  {
+   "id": "struct-km-monolith",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Capital and a buyer bind; in-orbit assembly at 100 times today's 100 m class (fabrication) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: after 2035 everywhere, since formation flying meets the compute need and no km-scale program is funded."
+   }
+  },
+  {
+   "id": "materials-specific-power-step",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2032",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2032",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "A year of flight evidence before fleet adoption (qualification) binds; array production at volume (fabrication) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in 2034 in S2 (thin-film array generation 2030-31, a year of flight data, fleet adoption from 2032 at the earliest, and SpaceX may prefer heavier arrays within its 4,000 kg envelope) and 2033 in S3/S4, where yearly satellite generations adopt a generation sooner. Skeptic (designs trending heavier) vs advocate (flights per GW bind at 1 GW, which is now Medium by 2031): 2034 in S2. S1 Low in 2035."
+   }
+  },
+  {
+   "id": "struct-hot-chip-hbm-qualification",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Life tests and flight telemetry (qualification) bind; vendors building a higher-rated GPU and HBM package (fabrication) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (S2/S3 2030, S1 2031): no flight-qualified hot part exists and the first must be built and life-tested; High in 2034 (S2) and 2033 (S3/S4) after several chip generations built for orbit."
+   }
+  },
+  {
+   "id": "struct-light-solar-array-production",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "The production ramp (fabrication) binds; SpaceX's choice of a heavier 1,500 m2 array within its 4,000 kg envelope (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in 2030, a year after the earliest year, because serial production follows the first 2028 flights and SpaceX may not need the light blanket; S3/S4 High 2034 with 1 GW High (2033). S1 Medium 2031."
+   }
+  },
+  {
+   "id": "struct-formation-compute-clusters",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2032"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-internal",
+    "gate_note": "Optical terminals and the fleet itself (fabrication) bind; launching and phasing a ten-satellite batch on SpaceX's own manifest (launch-internal) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in 2030 (first flights 2028, a phased batch 2029-30, Google's 2027 link test as precursor); High in 2033 in S2 and 2032 in S3/S4 because SpaceX has stated the need. S1 Medium 2032."
+   }
+  },
+  {
+   "id": "struct-hv-power-bus-stability",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Power engineers' uptake over working conservative methods (adoption) binds; the large-signal stability certificates themselves (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (2029) because power engineers already have working conservative methods; High in S3 by 2031 (seed had 2028) and in S2 in 2034 as megawatt-class satellites make stability a design driver. S1 Medium 2032."
+   }
+  },
+  {
+   "id": "verif-hardware-proof-agents",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Space-program uptake (adoption) binds; reliable agent-written properties and proofs (formalization) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium in 2028 (the bar is agent-written proofs in one space processor or FPGA program); High in 2030 in S2 and 2029 in S3/S4, since 2025-26 benchmarks still found LLM-written assertions unreliable (seed had 2028). S1 Medium 2030, High 2033."
+   }
+  },
+  {
+   "id": "struct-35-mw-class-compute-satellite",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2032",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2032",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "regulatory",
+    "gate_note": "Qualifying high-voltage parts and 4,000-6,000 m2 arrays binds; the FCC modification for a satellite three to four times the filed envelope (regulatory) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (S2 2034, S3/S4 2033). Skeptic (FCC modification of about 16 months, Starlink size steps took 3-4 years) vs advocate (the design point already rose from 150 to 250 kW in two months; Starcloud-3 is about 200 kW): one year after the earliest year, not two."
+   }
+  },
+  {
+   "id": "struct-35-10gw-orbital-compute",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "SpaceX's launch cadence to SSO (launch-internal) binds; satellite and chip supply (fabrication; Musk names chips the main limit) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged and consistent with struct-gw-orbital-compute (S3 High 2033): 10 GW is Low in 2035 in S3/S4 and after 2035 in S2 on the trunk's launch clock. Advocate (the AI Compute Keystone books hundreds of GW by 2040) vs skeptic (1,100-2,350 SSO flights): the keystone is a model path, the tree's cadence binds."
+   }
+  },
+  {
+   "id": "struct-35-orbital-training-run",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2032",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2032",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2032",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-internal",
+    "gate_note": "The operator's choice to train in orbit and say so (adoption) binds; a fleet of several hundred MW on SpaceX's own launches (launch-internal) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Re-checked against the AI1 re-base that raised 1 GW to Medium by 2031 in S2: S2 Medium in 2033 (seed 2034) and S3/S4 High in 2034 (seed 2035), since a 1e26 FLOP run needs only about 25 MW. Skeptic (inference pays better, multi-satellite training unproven) vs advocate (SpaceXAi runs both fleet and lab): S2 stays Medium, not High, by 2035."
+   }
+  },
+  {
+   "id": "struct-35-beyond-dawn-dusk-compute",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "regulatory",
+    "gate_note": "The cost of batteries and shielding off dawn-dusk orbit (capital) binds; a new FCC filing for non-SSO orbits (regulatory) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Unchanged: Low in 2035 (S2) and 2034 (S3/S4); crowding needs several GW in dawn-dusk orbit, which 10 GW's odds put after 2035 in S2."
+   }
+  }
+ ]
+}

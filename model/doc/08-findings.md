@@ -16,7 +16,7 @@ Across the tree, the most common binding gates are adoption ({{n_gate_adoption}}
 - *Certification by analysis beyond what NASA standards already allow:* about 2030 (Low).
 - *Commercial operators that carry their own risk move first.* They fly new-design hardware qualified mainly by analysis from about 2029 (Medium).
 
-For comparison, NASA-sponsored studies put certification by analysis for aircraft at 2040–2050. Even so, qualification campaigns shorten only about 10–20% by 2031 in the base case (20–30% in Recursive), and about 17–29% by 2035 (28–37% in Recursive). The model does not expect even its 15% threshold before about 2031 (Low by 2031, Medium by 2035), because workmanship screening, endurance tests and test stands remain. Test standards that write in credit for AI analysis come about 2033, Low by 2035 in the base case. Campaigns 30% shorter at leading firms are High by 2035 only with robots.
+For comparison, NASA-sponsored studies put certification by analysis for aircraft at 2040–2050. Even so, qualification campaigns shorten only about 10–20% by 2031 in the central scenario (20–30% in Recursive), and about 17–29% by 2035 (28–37% in Recursive). The model does not expect even its 15% threshold before about 2031 (Low by 2031, Medium by 2035), because workmanship screening, endurance tests and test stands remain. Test standards that write in credit for AI analysis come about 2033, Low by 2035 in the central scenario. Campaigns 30% shorter at leading firms are High by 2035 only with robots.
 
 **5. Adoption runs in a predictable order.**
 

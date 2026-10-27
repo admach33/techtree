@@ -7,35 +7,40 @@ import json, os, sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 from build_page import COPY  # noqa: E402
+import brand  # noqa: E402
 
 HERE = 'share'
 SITE = os.path.join(HERE, 'site')
-GATE = {'launch': 'launch', 'capital': 'capital', 'adoption': 'adoption', 'data': 'flight data',
+GATE = {'launch-internal': 'launch (SpaceX)', 'launch-external': 'launch (customers)', 'capital': 'capital', 'adoption': 'adoption', 'data': 'flight data',
         'qualification': 'qualification', 'regulatory': 'regulators', 'fabrication': 'fabrication', 'experiment': 'experiments'}
 RANK = {'Speculative': 1, 'Low': 2, 'Medium': 3, 'High': 4}
 # Every image travels without the page, so each carries the disclosure and, where odds appear, their key.
 DISCLOSE = 'Mach33, its affiliates and its employees hold SpaceX equity, including pre-IPO positions.'
-ODDS_KEY = 'Odds are analyst ratings: High over 70%, Medium 30–70%, Low 10–30%, Speculative under 10%.'
-UNLOCKED = 'Unlocked = earliest year reached and rated Medium or better (over 30%) at the next checkpoint, end-2031 or end-2035.'
+ODDS_KEY = 'Odds are analyst ratings: High over 70%, Medium 30 to 70%, Low 10 to 30%, Speculative under 10%.'
+UNLOCKED = 'Unlocked = earliest year reached and odds for that year Medium or better (over 30%); odds are rated for every year.'
 
 CSS = """
-:root { --page:#08090B; --card:#0C0E11; --ink:#f1f5f9; --ink-2:#94a3b8; --ink-3:#7A8999; --ink-4:#5F6C7C;
-  --think:#22CFFF; --ink-4:#728091; --do:#E6EBF3; --rule:rgba(255,255,255,.07);
-  --f-body:'Hanken Grotesk',ui-sans-serif,system-ui,sans-serif; --f-num:'Turret Road','Hanken Grotesk',sans-serif; color-scheme:dark;
-  --card-2:#101318; --rule-2:rgba(255,255,255,.10); }
+:root { --page:#030911; --card:#0A1018; --ink:#FAFEFF; --accent:#1C79D6; --on-accent:#FAFEFF; --ink-2:#B7CFE5; --ink-3:#94B4D2;
+  --think:#5B9FE2; --ink-4:#7299BE; --do:#DAEBF9; --rule:rgba(250,254,255,.07);
+  --f-body:'Mach 33 Grotesk Body','Hanken Grotesk',ui-sans-serif,system-ui,sans-serif; --f-title:'Mach 33 Grotesk Titles','Hanken Grotesk',sans-serif;
+  --f-cap:'Mach 33 Grotesk Captions','Hanken Grotesk',sans-serif; --f-num:'Turret Road','Hanken Grotesk',sans-serif; color-scheme:dark;
+  --card-2:#0E1622; --rule-2:rgba(250,254,255,.10); }
+h1, h2, h3 { font-family:var(--f-title); } .eyebrow, .foot, .tt-k { font-family:var(--f-cap); }
+.wordmark { vertical-align:-3px; margin-right:12px; } .wordmark svg { display:block; height:100%; width:auto; }
 .switch { display:flex; flex-wrap:wrap; gap:8px; }
 .switch button { font:500 12px/1 var(--f-body); color:var(--ink-2); background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:999px; padding:7px 10px; }
-.switch button[aria-pressed="true"] { color:#04121a; background:var(--think); border-color:var(--think); font-weight:600; }
+.switch button[aria-pressed="true"] { color:var(--on-accent); background:var(--accent); border-color:var(--accent); font-weight:600; }
 .treebox { position:relative; }
 * { box-sizing:border-box; }
-body { margin:0; background:#08090B; color:var(--ink); font-family:var(--f-body); -webkit-font-smoothing:antialiased; }
+body { margin:0; background:#030911; color:var(--ink); font-family:var(--f-body); -webkit-font-smoothing:antialiased; }
 .share { position:relative; overflow:hidden; background:var(--page); margin:0 0 40px; display:flex; flex-direction:column; }
 .p45 { width:1080px; height:1350px; padding:72px 72px 56px; }
 .p169 { width:1200px; height:675px; padding:56px 60px 44px; }
 .eyebrow { font-size:16px; letter-spacing:3px; text-transform:uppercase; color:var(--ink-3); font-weight:500; }
 .eyebrow b { color:var(--ink-2); font-weight:600; }
 .think { color:var(--think); } .do { color:var(--do); }
-h1 { margin:0; font-weight:800; letter-spacing:-.045em; line-height:.96; }
+a { color:var(--think); text-underline-offset:3px; }
+h1 { margin:0; font-weight:700; letter-spacing:-.03em; line-height:1.08; }
 .foot { margin-top:auto; display:flex; justify-content:space-between; align-items:flex-end; gap:20px; padding-top:22px;
   border-top:1px solid var(--rule); font-size:15px; color:var(--ink-4); letter-spacing:.2px; }
 .foot .disc { display:block; margin-top:6px; font-size:13px; color:var(--ink-4); }
@@ -94,34 +99,30 @@ def chart(rows, W, H, fs):
     s = [f'<svg viewBox="0 0 {W} {H}" width="{W}" height="{H}" xmlns="http://www.w3.org/2000/svg">']
     for v in (0, 50, 100):
         s.append(f'<line x1="{m["l"]}" x2="{W - m["r"]}" y1="{y(v)}" y2="{y(v)}" stroke="rgba(255,255,255,{0.08 if v == 0 else 0.04})"/>')
-        s.append(f'<text x="{m["l"] - 12}" y="{y(v) + 5}" text-anchor="end" fill="#7A8999" font-size="{fs}" font-family="Hanken Grotesk">{v}%</text>')
+        s.append(f'<text x="{m["l"] - 12}" y="{y(v) + 5}" text-anchor="end" fill="#94B4D2" font-size="{fs}" font-family="Mach 33 Grotesk Captions, Hanken Grotesk">{v}%</text>')
     for i, r in enumerate(rows):
         if i % 3 == 0 or i == n - 1:
-            s.append(f'<text x="{x(i)}" y="{H - 8}" text-anchor="middle" fill="#7A8999" font-size="{fs}" font-family="Hanken Grotesk">{r["year"]}</text>')
-    ci = next(i for i, r in enumerate(rows) if r['year'] == 2032)
-    cx = (x(ci) + x(ci - 1)) / 2
-    s.append(f'<line x1="{cx}" x2="{cx}" y1="{m["t"]}" y2="{H - m["b"]}" stroke="rgba(255,255,255,0.14)" stroke-dasharray="3 4"/>')
-    s.append(f'<text x="{cx + 8}" y="{H - m["b"] - 10}" fill="#7A8999" font-size="{fs}" font-family="Hanken Grotesk">odds rated to end-2035</text>')
+            s.append(f'<text x="{x(i)}" y="{H - 8}" text-anchor="middle" fill="#94B4D2" font-size="{fs}" font-family="Mach 33 Grotesk Captions, Hanken Grotesk">{r["year"]}</text>')
     top = [f'{x(i)},{y(r["cognitive"])}' for i, r in enumerate(rows)]
     bot = [f'{x(i)},{y(r["physical"])}' for i, r in enumerate(rows)][::-1]
-    s.append(f'<polygon points="{" ".join(top + bot)}" fill="rgba(34,207,255,0.11)"/>')
+    s.append(f'<polygon points="{" ".join(top + bot)}" fill="rgba(91,159,226,0.11)"/>')
     pk = max(rows, key=lambda r: r['gap'])
     pi = rows.index(pk)
-    s.append(f'<line x1="{x(pi)}" x2="{x(pi)}" y1="{y(pk["cognitive"]) + 5}" y2="{y(pk["physical"]) - 5}" stroke="rgba(34,207,255,.6)" stroke-dasharray="3 4"/>')
+    s.append(f'<line x1="{x(pi)}" x2="{x(pi)}" y1="{y(pk["cognitive"]) + 5}" y2="{y(pk["physical"]) - 5}" stroke="rgba(91,159,226,.6)" stroke-dasharray="3 4"/>')
     ly = y(pk['cognitive']) + (H - m['t'] - m['b']) * 0.13
     for j, t in enumerate(('ready on paper,', 'not yet built')):
-        s.append(f'<text x="{x(pi) + 12}" y="{ly + j * (fs + 8)}" fill="#22CFFF" font-size="{fs + 4}" font-weight="600" font-family="Hanken Grotesk">{t}</text>')
-    for k, c in (('physical', '#E6EBF3'), ('cognitive', '#22CFFF')):
+        s.append(f'<text x="{x(pi) + 12}" y="{ly + j * (fs + 8)}" fill="#5B9FE2" font-size="{fs + 4}" font-weight="600" font-family="Mach 33 Grotesk Captions, Hanken Grotesk">{t}</text>')
+    for k, c in (('physical', '#DAEBF9'), ('cognitive', '#5B9FE2')):
         d = ''.join(f'{"L" if i else "M"}{x(i)},{y(r[k])}' for i, r in enumerate(rows))
         s.append(f'<path d="{d}" fill="none" stroke="{c}" stroke-width="3.5" stroke-linejoin="round"/>')
         for i, r in enumerate(rows):
-            s.append(f'<circle cx="{x(i)}" cy="{y(r[k])}" r="4.5" fill="{c}" stroke="#08090B" stroke-width="2.5"/>')
+            s.append(f'<circle cx="{x(i)}" cy="{y(r[k])}" r="4.5" fill="{c}" stroke="#030911" stroke-width="2.5"/>')
     last = rows[-1]
     lx = W - m['r'] + 16
-    for k, c, lab, dy in (('cognitive', '#22CFFF', 'thinking', 0), ('physical', '#E6EBF3', 'hardware', 0)):
+    for k, c, lab, dy in (('cognitive', '#5B9FE2', 'thinking', 0), ('physical', '#DAEBF9', 'hardware', 0)):
         yy = y(last[k])
-        s.append(f'<text x="{lx}" y="{yy + 2}" fill="{c}" font-size="{fs + 16}" font-weight="700" font-family="Hanken Grotesk">{last[k]}%</text>')
-        s.append(f'<text x="{lx}" y="{yy + 24}" fill="#7A8999" font-size="{fs}" font-family="Hanken Grotesk">{lab}</text>')
+        s.append(f'<text x="{lx}" y="{yy + 2}" fill="{c}" font-size="{fs + 16}" font-weight="700" font-family="Mach 33 Grotesk Captions, Hanken Grotesk">{last[k]}%</text>')
+        s.append(f'<text x="{lx}" y="{yy + 24}" fill="#94B4D2" font-size="{fs}" font-family="Mach 33 Grotesk Captions, Hanken Grotesk">{lab}</text>')
     s.append('</svg>')
     return ''.join(s)
 
@@ -134,46 +135,46 @@ def main():
     G = F['outcome_gates']
     out = [f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Two Clocks share kit</title>'
            '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Turret+Road:wght@500;700;800&display=swap">'
-           f'<style>{CSS}</style></head><body>'
+           f'<style>{brand.font_css()}{CSS}</style></head><body>'
            '<script>const o=new URLSearchParams(location.search).get("only");if(o){document.body.classList.add("one");'
            'addEventListener("DOMContentLoaded",()=>document.getElementById(o).classList.add("on"))}</script>']
 
     # Poster, 4:5
     out.append(f'''<section class="share p45" id="poster">
-  <div class="eyebrow"><b>Mach33 Research</b> · Two Clocks of Space</div>
-  <h1 style="font-size:100px;margin-top:30px"><span class="think" style="display:block">The proof is ready.</span><span class="do">The rocket isn’t.</span></h1>
+  <div class="eyebrow">{brand.wordmark(19)}<b>Research</b> · Two Clocks of Space</div>
+  <h1 style="font-size:76px;margin-top:30px;letter-spacing:-.03em"><span class="think" style="display:block">The proof is ready.</span><span class="do">The rocket isn’t.</span></h1>
   <div style="margin-top:24px;font-size:24px;color:var(--ink-2)">AI math, traced through {F["n_nodes"]} space milestones to 2035.</div>
   <div class="clocks" style="margin-top:36px">
-    <div class="clock"><div class="num think" style="font-size:96px">5–10×</div><div class="lbl" style="font-size:20px"><b>faster thinking with AI</b><br>math, design, software</div></div>
+    <div class="clock"><div class="num think" style="font-size:96px">5 to 10×</div><div class="lbl" style="font-size:20px"><b>faster thinking with AI</b><br>math, design, software</div></div>
     <div class="arrow" style="font-size:44px;padding-bottom:40px">→</div>
-    <div class="clock"><div class="num do" style="font-size:96px">1.6×</div><div class="lbl" style="font-size:20px"><b>faster new programs by 2031, at most</b><br>build, test and launch set the pace</div></div>
+    <div class="clock"><div class="num do" style="font-size:96px">1.6×</div><div class="lbl" style="font-size:20px"><b>faster new programs by 2031: a ceiling</b><br>build, test and launch set the pace</div></div>
   </div>
   <div style="margin-top:40px;font-size:19px;color:var(--ink-2)"><b style="color:var(--ink)">Share of milestones unlocked by each year:</b> <span class="think">thinking</span> (math, models, design) vs <span class="do">hardware</span> (tested, flown, in service)</div>
   <div class="chart" style="margin-top:12px">{chart(rows, 936, 360, 16)}</div>
   <div style="margin-top:6px;font-size:14px;color:var(--ink-4)">{UNLOCKED}</div>
-  <div class="bn" style="margin-top:22px"><div class="z">{G["cognition"]}</div><div class="t">of the tree’s {G["total"]} end results have thinking as their bottleneck. <span>Money, adoption and launch hold back the most.</span></div></div>
-  <div class="foot"><span>Base case: AI capability keeps compounding. Years are earliest credible years, not forecasts.<span class="disc">{DISCLOSE}</span></span><span class="brand">research.33fg.com</span></div>
+  <div class="bn" style="margin-top:22px"><div class="z">{G["cognition"]}</div><div class="t">of the tree’s {G["total"]} end results have thinking as their bottleneck. <span>Adoption, capital and launch hold back the most.</span></div></div>
+  <div class="foot"><span>Central scenario: AI capability keeps compounding. Each year is the earliest credible year; the odds carry the expectation.<span class="disc">{DISCLOSE}</span></span><span class="brand">research.33fg.com</span></div>
 </section>''')
 
     # Social card, 16:9
     out.append(f'''<section class="share p169" id="social">
-  <div class="eyebrow" style="font-size:14px"><b>Mach33 Research</b> · Two Clocks of Space</div>
+  <div class="eyebrow" style="font-size:14px">{brand.wordmark(15)}<b>Research</b> · Two Clocks of Space</div>
   <div style="display:grid;grid-template-columns:1fr 470px;gap:30px;margin-top:34px;align-items:start">
     <div>
-      <h1 style="font-size:64px"><span class="think" style="display:block">The proof is ready.</span><span class="do">The rocket isn’t.</span></h1>
+      <h1 style="font-size:44px;letter-spacing:-.03em"><span class="think" style="display:block">The proof is ready.</span><span class="do">The rocket isn’t.</span></h1>
       <div style="margin-top:18px;font-size:19px;color:var(--ink-2)">AI labs now produce research-grade math (not yet independently checked). We traced it through {F["n_nodes"]} space milestones to 2035.</div>
       <div class="clocks" style="margin-top:28px">
-        <div class="clock"><div class="num think" style="font-size:66px">5–10×</div><div class="lbl" style="font-size:16px"><b>faster thinking with AI</b></div></div>
+        <div class="clock"><div class="num think" style="font-size:50px">5 to 10×</div><div class="lbl" style="font-size:16px"><b>faster thinking with AI</b></div></div>
         <div class="arrow" style="font-size:32px;padding-bottom:30px">→</div>
-        <div class="clock"><div class="num do" style="font-size:66px">1.6×</div><div class="lbl" style="font-size:16px"><b>faster new programs by 2031, at most</b></div></div>
+        <div class="clock"><div class="num do" style="font-size:50px">1.6×</div><div class="lbl" style="font-size:16px"><b>faster new programs by 2031: a ceiling</b></div></div>
       </div>
-      <div style="margin-top:30px;font-size:18px;color:var(--ink-2);display:flex;align-items:center;gap:14px"><span class="think" style="font-weight:800;font-size:48px;line-height:1">{G["cognition"]}</span><span>of {G["total"]} end results have thinking as their bottleneck.<br>Money, adoption and launch hold back the most.</span></div>
+      <div style="margin-top:30px;font-size:18px;color:var(--ink-2);display:flex;align-items:center;gap:14px"><span class="think" style="font-weight:800;font-size:48px;line-height:1">{G["cognition"]}</span><span>of {G["total"]} end results have thinking as their bottleneck.<br>Adoption, capital and launch hold back the most.</span></div>
     </div>
     <div><div style="font-size:15px;color:var(--ink-2)"><b style="color:var(--ink)">Share of milestones unlocked by each year</b><br><span class="think">thinking</span> (math, models, design) vs <span class="do">hardware</span> (tested, flown)</div>
       <div class="chart" style="margin-top:10px">{chart(rows, 470, 350, 13)}</div>
       <div style="margin-top:2px;font-size:12px;color:var(--ink-4);max-width:470px">{UNLOCKED}</div></div>
   </div>
-  <div class="foot" style="font-size:13px"><span>Base case: AI capability keeps compounding · earliest credible years, not forecasts<span class="disc" style="font-size:12px">{DISCLOSE}</span></span><span class="brand" style="font-size:12px">research.33fg.com</span></div>
+  <div class="foot" style="font-size:13px"><span>Central scenario: AI capability keeps compounding · earliest credible years<span class="disc" style="font-size:12px">{DISCLOSE}</span></span><span class="brand" style="font-size:12px">research.33fg.com</span></div>
 </section>''')
 
     # One card per unlock
@@ -185,12 +186,12 @@ def main():
             img = k.get('img')
             fig = f'<img src="{img}" alt="">' if img else '<span style="color:var(--ink-4);letter-spacing:2px">ILLUSTRATION IN PROGRESS</span>'
         else:
-            fig = '<div class="code"><div class="from">$300–600</div><div class="to">$5–20</div><div class="per">per machine-checked line of flight code</div></div>'
+            fig = '<div class="code"><div class="from">$300 to 600</div><div class="to">$5 to 20</div><div class="per">per machine-checked line of flight code</div></div>'
         s = 'S2'
         out.append(f'''<section class="share p45 u{' thinking' if think else ''}" id="card-{i}">
   <div class="eyebrow"><b>Two Clocks of Space</b> · Unlock {i} of {total}</div>
   <div class="fig">{fig}</div>
-  <div class="row"><div class="yr">{c["year"][s]}</div><div class="yrl"><span style="color:var(--ink-2);font-weight:600">{k["lane"]}</span><br>earliest credible year, base case</div></div>
+  <div class="row"><div class="yr">{c["year"][s]}</div><div class="yrl"><span style="color:var(--ink-2);font-weight:600">{k["lane"]}</span><br>earliest credible year, central scenario</div></div>
   <h2>{k["title"]}</h2>
   <p>{k["line"]}</p>
   <div class="chips">
@@ -201,7 +202,7 @@ def main():
   <div class="odds">{ODDS_KEY}</div>
   <div class="foot" style="margin-top:22px"><span>Mach33 Research · Two Clocks of Space<span class="disc">{DISCLOSE}</span></span><span class="brand">research.33fg.com</span></div>
 </section>''')
-    # Tech tree, frozen at turn 2030 in the base case (the widest gap), as 4:5 and 16:9 images
+    # Tech tree, frozen at turn 2030 in the central scenario (the widest gap), as 4:5 and 16:9 images
     tdata = open(os.path.join(HERE, 'data', 'tree.json')).read()
     td = json.loads(tdata)
     pills = ''.join(f'<button type="button" aria-pressed="{str(s == "S2").lower()}">{n}</button>'
@@ -210,19 +211,19 @@ def main():
              .replace('<div class="switch" data-switch role="group" aria-label="Scenario"></div>', f'<div class="switch">{pills}</div>'))
     c30 = [r for r in F['clock_curve']['S2'] if r['year'] == 2030][0]
     out.append(f'''<section class="share p45" id="tree45">
-  <div class="eyebrow"><b>Mach33 Research</b> · Two Clocks of Space</div>
+  <div class="eyebrow">{brand.wordmark(19)}<b>Research</b> · Two Clocks of Space</div>
   <h1 style="font-size:64px;margin-top:22px"><span class="think">The proof is ready.</span> <span class="do">The rocket isn’t.</span></h1>
-  <div style="margin-top:14px;font-size:19px;line-height:1.45;color:var(--ink-2)">All {len(td["nodes"])} milestones of the Space Unlock Tree, as a game tech tree, at turn 2030 in the base case: <span class="think">{c30["cognitive"]}% of thinking techs</span> unlocked, <span class="do">{c30["physical"]}% of hardware</span>.</div>
+  <div style="margin-top:14px;font-size:19px;line-height:1.45;color:var(--ink-2)">All {len(td["nodes"])} milestones of the Space Unlock Tree, as a game tech tree, at turn 2030 in the central scenario: <span class="think">{c30["cognitive"]}% of thinking milestones</span> unlocked, <span class="do">{c30["physical"]}% of hardware</span>.</div>
   <div class="treebox" id="tb45" style="margin-top:20px;width:936px;overflow:hidden"><div id="tb45i" style="width:1080px;transform-origin:top left">{tmark.replace('id="tree"', 'id="tree45t"')}</div></div>
-  <div class="foot" id="tb45f" style="margin-top:16px;padding-top:14px"><span>{UNLOCKED} Years are earliest credible years, not forecasts.<span class="disc">{DISCLOSE}</span></span><span class="brand">research.33fg.com</span></div>
+  <div class="foot" id="tb45f" style="margin-top:16px;padding-top:14px"><span>{UNLOCKED} Years are earliest credible years.<span class="disc">{DISCLOSE}</span></span><span class="brand">research.33fg.com</span></div>
 </section>''')
     out.append(f'''<section class="share" id="tree169" style="width:1600px;height:900px;padding:40px 44px 34px;display:grid;grid-template-columns:400px 1fr;grid-template-rows:minmax(0,1fr);gap:36px;overflow:hidden">
   <div style="display:flex;flex-direction:column">
-    <div class="eyebrow" style="font-size:13px"><b>Mach33 Research</b> · Two Clocks of Space</div>
-    <h1 style="font-size:50px;margin-top:26px"><span class="think" style="display:block">The proof is ready.</span><span class="do">The rocket isn’t.</span></h1>
+    <div class="eyebrow" style="font-size:12px;letter-spacing:2px">{brand.wordmark(15)}<b>Research</b> · Two Clocks of Space</div>
+    <h1 style="font-size:38px;margin-top:26px"><span class="think" style="display:block">The proof is ready.</span><span class="do">The rocket isn’t.</span></h1>
     <div style="margin-top:22px;font-size:19px;line-height:1.5;color:var(--ink-2)">AI labs now produce research-grade math (not yet independently checked). We traced it through all {len(td["nodes"])} milestones of the Space Unlock Tree, to 2035.</div>
-    <div style="margin-top:22px;font-size:19px;line-height:1.5;color:var(--ink-2)">At turn 2030 in the base case, <b class="think">{c30["cognitive"]}%</b> of thinking techs are unlocked and <b class="do">{c30["physical"]}%</b> of hardware. Thinking is the bottleneck for none of the tree’s {F["outcome_gates"]["total"]} end results.</div>
-    <div class="foot" style="font-size:13px"><span>{UNLOCKED} Earliest credible years, not forecasts.<span class="disc" style="font-size:12px">{DISCLOSE}</span></span></div>
+    <div style="margin-top:22px;font-size:19px;line-height:1.5;color:var(--ink-2)">At turn 2030 in the central scenario, <b class="think">{c30["cognitive"]}%</b> of thinking milestones are unlocked and <b class="do">{c30["physical"]}%</b> of hardware. Thinking is the bottleneck for none of the tree’s {F["outcome_gates"]["total"]} end results.</div>
+    <div class="foot" style="font-size:13px"><span>{UNLOCKED} Earliest credible years.<span class="disc" style="font-size:12px">{DISCLOSE}</span></span></div>
     <div style="margin-top:10px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink-3)">research.33fg.com</div>
   </div>
   <div id="tb169w" style="align-self:start;overflow:hidden"><div class="treebox" id="tb169" style="width:1080px;transform-origin:top left">{tmark.replace('id="tree"', 'id="tree169t"')}</div></div>
@@ -230,21 +231,21 @@ def main():
     # Video frames: the same tree, live (toasts on, no hover hint), driven turn by turn by share/video/record.mjs
     out.append(f'''<section class="share video" id="vid169" style="width:1600px;height:900px;padding:40px 44px 34px;display:grid;grid-template-columns:400px 1fr;grid-template-rows:minmax(0,1fr);gap:36px;overflow:hidden">
   <div style="display:flex;flex-direction:column">
-    <div class="eyebrow" style="font-size:13px"><b>Mach33 Research</b> · Two Clocks of Space</div>
-    <h1 style="font-size:50px;margin-top:26px"><span class="think" style="display:block">The proof is ready.</span><span class="do">The rocket isn’t.</span></h1>
+    <div class="eyebrow" style="font-size:12px;letter-spacing:2px">{brand.wordmark(15)}<b>Research</b> · Two Clocks of Space</div>
+    <h1 style="font-size:38px;margin-top:26px"><span class="think" style="display:block">The proof is ready.</span><span class="do">The rocket isn’t.</span></h1>
     <div style="margin-top:22px;font-size:19px;line-height:1.5;color:var(--ink-2)">AI labs now produce research-grade math (not yet independently checked). This is every one of the {len(td["nodes"])} milestones in the Space Unlock Tree, played turn by turn to 2035.</div>
-    <div style="margin-top:22px;font-size:19px;line-height:1.5;color:var(--ink-2)">Watch the two rows: <b class="think">research</b> lights up years before <b class="do">build</b>. Base case.</div>
-    <div class="foot" style="font-size:13px"><span>{UNLOCKED} Earliest credible years, not forecasts.<span class="disc" style="font-size:12px">{DISCLOSE}</span></span></div>
+    <div style="margin-top:22px;font-size:19px;line-height:1.5;color:var(--ink-2)">Watch the two rows: <b class="think">thinking</b> lights up years before <b class="do">hardware</b>. Central scenario.</div>
+    <div class="foot" style="font-size:13px"><span>{UNLOCKED} Earliest credible years.<span class="disc" style="font-size:12px">{DISCLOSE}</span></span></div>
     <div style="margin-top:10px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink-3)">research.33fg.com</div>
   </div>
   <div id="vb169w" style="align-self:start;overflow:hidden"><div class="treebox" id="vb169" style="width:1080px;transform-origin:top left">{tmark.replace('id="tree"', 'id="vid169t"')}</div></div>
 </section>''')
     out.append(f'''<section class="share p45 video" id="vid45">
-  <div class="eyebrow"><b>Mach33 Research</b> · Two Clocks of Space</div>
+  <div class="eyebrow">{brand.wordmark(19)}<b>Research</b> · Two Clocks of Space</div>
   <h1 style="font-size:64px;margin-top:22px"><span class="think">The proof is ready.</span> <span class="do">The rocket isn’t.</span></h1>
-  <div style="margin-top:14px;font-size:19px;line-height:1.45;color:var(--ink-2)">All {len(td["nodes"])} milestones of the Space Unlock Tree, played turn by turn to 2035 in the base case. <span class="think">Research</span> lights up years before <span class="do">build</span>.</div>
+  <div style="margin-top:14px;font-size:19px;line-height:1.45;color:var(--ink-2)">All {len(td["nodes"])} milestones of the Space Unlock Tree, played turn by turn to 2035 in the central scenario. <span class="think">Thinking</span> lights up years before <span class="do">hardware</span>.</div>
   <div class="treebox" id="vb45" style="margin-top:20px;width:936px;overflow:hidden"><div id="vb45i" style="width:1080px;transform-origin:top left">{tmark.replace('id="tree"', 'id="vid45t"')}</div></div>
-  <div class="foot" id="vb45f" style="margin-top:16px;padding-top:14px"><span>{UNLOCKED} Years are earliest credible years, not forecasts.<span class="disc">{DISCLOSE}</span></span><span class="brand">research.33fg.com</span></div>
+  <div class="foot" id="vb45f" style="margin-top:16px;padding-top:14px"><span>{UNLOCKED} Years are earliest credible years.<span class="disc">{DISCLOSE}</span></span><span class="brand">research.33fg.com</span></div>
 </section>''')
     # the clip never changes scenario or steps back, so those controls stay out of the frame
     out.append('<style>.video .tt-hint, .video [data-tt="prev"], .video .switch button[aria-pressed="false"] { display: none; }</style>')

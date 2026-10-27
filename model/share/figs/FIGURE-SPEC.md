@@ -21,10 +21,12 @@ launch and paperwork set the dates.** Readers are space and AI investors and eng
 
 - **Theme: dark only.** Override these tokens after the kit's CSS, everywhere the figure renders
   (the review page and the standalone SVG):
-  `--anatomy-page:#08090B; --anatomy-card:#0C0E11; --anatomy-paper:#0C0E11; --anatomy-lit:#22CFFF;`
-  Leave every other token at the kit's dark values. `#22CFFF` (Mach33 Highlight Blue) is the one lit
+  `--anatomy-page:#030911; --anatomy-card:#0A1018; --anatomy-paper:#0A1018; --anatomy-lit:#5B9FE2;`
+  Leave every other token at the kit's dark values. `#5B9FE2` (Mach33 data blue, Brand MCP token per the 26 Oct review, VI-1; it replaced the off-palette `#22CFFF`) is the one lit
   accent: exactly one part is lit, the part the reader should watch. No other colour unless colour is
-  the subject.
+  the subject. Page tokens around the figures: Black Space `#030911` background, Mission White `#FAFEFF`
+  text, Orbital Signal Blue `#1C79D6` for buttons and focus; never Deep Orbit Blue as a background (OOTWD rule,
+  9 Oct 2026). Role colours when a card needs one: ODC blue `#3C8CDC`, lunar-Mars red `#902005`, Starlink green `#00A57C`.
 - **"Museum models of the next decade."** Each unlock object stands on a low display plinth or its
   real ground-handling fixture (a base plate on feet, bevel, groove, corner screws, halo), like a
   scale model in a gallery. The plinth carries at most one tiny engraved label: the earliest year

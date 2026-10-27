@@ -1,0 +1,544 @@
+{
+ "notes": "R9 WS2: launch pinned to Mach33 Launch Keystone v1.3 (wave 44 internal path, 23 Sep 2026; wave 38b customer path, 10 Sep 2026); gate value launch split into launch-internal and launch-external; customer access node added.",
+ "meta": {
+  "version": 9,
+  "launch_source": "Mach33 Launch Keystone v1.3 (wave 44 internal path, 23 Sep 2026; wave 38b customer path, 10 Sep 2026)"
+ },
+ "add_nodes": [
+  {
+   "id": "physclock-customer-launch-access",
+   "title": "Outside customers can book launch again after the rideshare closure",
+   "tier": 6,
+   "kind": "system",
+   "domain": "physclock",
+   "description": "SpaceX reopens capacity to outside customers beyond the 2028-29 manifest: Starship spare capacity offered for sale, and rideshare and dedicated slots bookable again for missions that want to fly after early 2029. Until then an outside operator, lunar-mission team or constellation without an existing contract buys from other launchers or waits.",
+   "status_oct2026": "As of late June 2026, at least nine SpaceX partners and customers told SpaceNews that new Transporter and Bandwagon bookings beyond late 2028 or early 2029 are closed (SpaceNews, via Mach33's launch research handoff; TODO(source): link the SpaceNews item). Bandwagon-5 flew in Oct 2026. Mach33 Launch Keystone v1.3 opens Starship spare capacity to customers in 2031 in its reference case and tests 2029 to 2033; opening in 2029 gives a 2030 spot price of $921/kg, opening in 2033 keeps 2031 at $6,236/kg. Starship carries 1,644 customer tonnes in 2029 and 9,820 in 2031 in the reference case (Mach33, 10 Sep 2026). A dedicated Falcon 9 costs about $5,300/kg today.",
+   "prerequisites": [
+    "physclock-heavy-cadence-100"
+   ],
+   "accelerated_by": [
+    "physclock-reusable-competition"
+   ],
+   "catalog_families": [],
+   "binding_gate": "adoption",
+   "runner_up_gate": "launch-internal",
+   "gate_note": "SpaceX's decision to release spare capacity binds; internal demand (Starlink, own orbital compute, lunar tankers) is the runner-up because it absorbs the flights that would be sold.",
+   "pathway": "P7 (exogenous; AI math enters only through competitors' engineering)",
+   "earliest_year": {
+    "S1": "2030",
+    "S2": "2030",
+    "S3": "2029",
+    "S4": "2029"
+   },
+   "odds_by": {
+    "S1": {
+     "low": "2030",
+     "medium": "2032",
+     "high": "2034"
+    },
+    "S2": {
+     "low": "2030",
+     "medium": "2031",
+     "high": "2033"
+    },
+    "S3": {
+     "low": "2029",
+     "medium": "2031",
+     "high": "2033"
+    },
+    "S4": {
+     "low": "2029",
+     "medium": "2031",
+     "high": "2033"
+    }
+   },
+   "odds_source": "review",
+   "premise_tier": "n/a",
+   "launch_source": "Mach33 Launch Keystone v1.3 (wave 44 internal path, 23 Sep 2026; wave 38b customer path, 10 Sep 2026)",
+   "why": "Not an AI-math implication: an exogenous launch anchor. Mach33's Launch Keystone thesis is that an activity becomes viable for a provider using spare capacity on its own rocket before it becomes viable for a customer buying a flight. v1.3 opens Starship spare capacity to customers in 2031 in its reference case and varies the year from 2029 to 2033, so the odds cross Medium in 2031 and High in 2033, the end of the tested range. The earliest year needs 100+ heavy flights a year first (physclock-heavy-cadence-100: S2 2030, S3 2029), because spare capacity exists only once cadence outruns Starlink and SpaceX's own compute. S3 and S4 open a year earlier on that cadence, not because of mathematics; S1 follows a year later because a plateau weakens the cadence case. Competing reusable fleets (physclock-reusable-competition) accelerate release rather than gate it. Wave 45 (v1.4) moves the price hinge to 2030; the model stays pinned to v1.3. Mach33 projections are a single commercial forecaster's model estimates, not independent research (Mach33 discloses SpaceX equity holdings).",
+   "strongest_case_small": "Other launchers (Rocket Lab, Blue Origin, Arianespace, Chinese providers) sell capacity today, so a determined customer never fully loses access; the closure bites hardest on rideshare-priced small missions.",
+   "signpost": "A published Starship rideshare or customer price list; Transporter or Bandwagon slots offered for 2030 or later; the number of non-SpaceX payloads on Starship in 2029-30.",
+   "note_2035": "Medium by 2031 and High by 2033 in S2 to S4, following the v1.3 opening year and its tested range; S1 a year later. S4 equals S3 because cadence and allocation bind.",
+   "revision_note": "R9-launch (2026-10-27): new node for the launch-internal / launch-external split (review LK-2, PRD WS2). Dated against Mach33 Launch Keystone v1.3 (wave 44 internal path, 23 Sep 2026; wave 38b customer path, 10 Sep 2026).",
+   "revisions": [],
+   "year_num": {},
+   "unlocks": []
+  }
+ ],
+ "add_edges": [
+  {
+   "from": "physclock-customer-launch-access",
+   "to": "astro-ai-designed-trajectory-flown"
+  },
+  {
+   "from": "physclock-customer-launch-access",
+   "to": "astro-leo-pnt-assured-service"
+  },
+  {
+   "from": "physclock-customer-launch-access",
+   "to": "comms-35-certified-shell-in-service"
+  },
+  {
+   "from": "physclock-customer-launch-access",
+   "to": "verif-mission-loss-rate"
+  },
+  {
+   "from": "physclock-customer-launch-access",
+   "to": "struct-fsp-lunar-100kwe"
+  },
+  {
+   "from": "physclock-customer-launch-access",
+   "to": "astro-35-lunar-nav-certified-service"
+  },
+  {
+   "from": "physclock-customer-launch-access",
+   "to": "robo-in-space-assembly"
+  },
+  {
+   "from": "physclock-customer-launch-access",
+   "to": "hyper-thinner-tps-flown"
+  },
+  {
+   "from": "physclock-customer-launch-access",
+   "to": "physclock-cheap-mass-customer"
+  }
+ ],
+ "branch_add": [
+  {
+   "branch": "trunk",
+   "nodes": [
+    "physclock-customer-launch-access"
+   ]
+  }
+ ],
+ "update": [
+  {
+   "id": "hyper-flight-data-pipeline",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "hyper-rapid-reuse-heatshield",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "hyper-mars-heavy-landing",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "materials-cots-orbital-compute-ops",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "physclock-cheap-mass-internal",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "prop-ship-transfer-demo",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "prop-hls-refuel-campaign",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "prop-cislunar-propellant-economy",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "struct-gw-orbital-compute",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "auton-lunar-heavy-cargo-landing",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "capability-35-internal-cost-100",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "hyper-35-mars-pinpoint-landing",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "hyper-35-crewed-ship-reentry",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "auton-35-mars-robot-site-prep",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "auton-35-lunar-cargo-cadence",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "prop-35-mars-window-fueling",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "prop-35-lunar-lander-reuse",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "struct-35-10gw-orbital-compute",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "auton-mars-isru-demo",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "auton-mars-propellant-plant",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "auton-mars-architecture-close",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "robo-lunar-construction",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "verif-35-mars-verified-landing",
+   "patch": {
+    "binding_gate": "launch-internal",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-internal (SpaceX's own manifest; Mach33 Launch Keystone v1.3 books Starlink, SpaceX's orbital compute, Moon and Mars cargo and NASA's lunar tanker flights in the internal account)."
+   }
+  },
+  {
+   "id": "astro-autonomous-nav-demo",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight)."
+   }
+  },
+  {
+   "id": "astro-ai-designed-trajectory-flown",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight). Hard prerequisite physclock-customer-launch-access added: customers wait for capacity to reopen (v1.3 reference 2031, tested 2029 to 2033)."
+   }
+  },
+  {
+   "id": "auton-icy-regolith-ground-truth",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight)."
+   }
+  },
+  {
+   "id": "auton-lunar-o2-flight-demo",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight)."
+   }
+  },
+  {
+   "id": "auton-verified-autonomy-lunar-flight",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight)."
+   }
+  },
+  {
+   "id": "auton-assembly-flight-demo",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight)."
+   }
+  },
+  {
+   "id": "comms-pq-ttc-flight-demo",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight)."
+   }
+  },
+  {
+   "id": "comms-space-qkd-network-demo",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight)."
+   }
+  },
+  {
+   "id": "science-lisa-precision-science",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight). LISA flies on Ariane 6, so customer access to SpaceX capacity does not bind it."
+   }
+  },
+  {
+   "id": "struct-fsp-lunar-100kwe",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight). Hard prerequisite physclock-customer-launch-access added: customers wait for capacity to reopen (v1.3 reference 2031, tested 2029 to 2033)."
+   }
+  },
+  {
+   "id": "verif-rpo-assured-autonomy",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight)."
+   }
+  },
+  {
+   "id": "verif-mission-loss-rate",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight). Hard prerequisite physclock-customer-launch-access added: customers wait for capacity to reopen (v1.3 reference 2031, tested 2029 to 2033)."
+   }
+  },
+  {
+   "id": "prop-loxsat-cfm-flight-data",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight)."
+   }
+  },
+  {
+   "id": "auton-robotic-landing-pad",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight)."
+   }
+  },
+  {
+   "id": "plasma-side-view-monitors",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight). ESA plans Vigil on Ariane 6, so customer access to SpaceX capacity does not bind it."
+   }
+  },
+  {
+   "id": "astro-leo-pnt-assured-service",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight). Hard prerequisite physclock-customer-launch-access added: customers wait for capacity to reopen (v1.3 reference 2031, tested 2029 to 2033)."
+   }
+  },
+  {
+   "id": "astro-adr-large-object-removed",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight). The first removals are contracted on non-SpaceX launchers (ADRAS-J2 in 2027; ClearSpace-1 on Vega-C in 2028), so customer access to SpaceX capacity does not bind them."
+   }
+  },
+  {
+   "id": "robo-in-space-assembly",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight). Hard prerequisite physclock-customer-launch-access added: customers wait for capacity to reopen (v1.3 reference 2031, tested 2029 to 2033)."
+   }
+  },
+  {
+   "id": "comms-35-certified-shell-in-service",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight). Hard prerequisite physclock-customer-launch-access added: customers wait for capacity to reopen (v1.3 reference 2031, tested 2029 to 2033)."
+   }
+  },
+  {
+   "id": "science-35-lisa-launch",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight). ESA launches LISA on Ariane 6, so customer access to SpaceX capacity does not bind it."
+   }
+  },
+  {
+   "id": "astro-35-lunar-nav-certified-service",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight). Hard prerequisite physclock-customer-launch-access added: customers wait for capacity to reopen (v1.3 reference 2031, tested 2029 to 2033)."
+   }
+  },
+  {
+   "id": "hyper-thinner-tps-flown",
+   "patch": {
+    "binding_gate": "launch-external",
+    "revision_note_add": "R9-launch (2026-10-27): gate launch -> launch-external (an outside customer buys the flight). Hard prerequisite physclock-customer-launch-access added: customers wait for capacity to reopen (v1.3 reference 2031, tested 2029 to 2033)."
+   }
+  },
+  {
+   "id": "physclock-cheap-mass-internal",
+   "patch": {
+    "launch_source": "Mach33 Launch Keystone v1.3 (wave 44 internal path, 23 Sep 2026; wave 38b customer path, 10 Sep 2026)",
+    "why_add": "Pinned to Mach33 Launch Keystone v1.3 (wave 44 base, 23 Sep 2026), internal cost delivered to low orbit: $4,915/kg on expended Flight 14, $656/kg in 2027 (bull $412, bear $1,436), about $300/kg in 2028 (bull $141, bear about $560), $13/kg in 2035. The model keeps its convention of dating a threshold a year after Mach33's base: v1.3 crosses $300/kg in 2028, so this node is 2029 in every scenario."
+   }
+  },
+  {
+   "id": "capability-35-internal-cost-100",
+   "patch": {
+    "launch_source": "Mach33 Launch Keystone v1.3 (wave 44 internal path, 23 Sep 2026; wave 38b customer path, 10 Sep 2026)",
+    "why_add": "Against Mach33 Launch Keystone v1.3 (wave 44 base, 23 Sep 2026): 8.9 flights per stack in 2029 and 18 in 2030 take internal cost through $100/kg in 2030; the model's one-year lag puts the node at 2031."
+   }
+  },
+  {
+   "id": "physclock-cheap-mass-customer",
+   "patch": {
+    "launch_source": "Mach33 Launch Keystone v1.3 (wave 44 internal path, 23 Sep 2026; wave 38b customer path, 10 Sep 2026)",
+    "why_add": "Pinned to Mach33 Launch Keystone v1.3 customer side (wave 38b, 10 Sep 2026): the reference case opens Starship spare capacity to customers in 2031 (tested 2029 to 2033), with spot price $6,200/kg in 2029, $5,634 in 2030, $820 in 2031 and $562 in 2033, and a realized price (revenue per customer kilogram) median of $5,823/kg in 2030 and $945 in 2035. Opening in 2029 gives a 2030 spot of $921/kg. The node is the spot or dedicated price, so v1.3 crosses $1,000/kg in 2031; with the model's one-year lag the odds reach Medium in 2032 and High in 2034 in S2. It now needs customer access (physclock-customer-launch-access) as a hard prerequisite. Sensitivity: wave 45 (v1.4, ratified 21 Oct 2026) moves the hinge to 2030 (passed by 2030 in 53% of worlds); on that basis this node would move about a year earlier. The model stays pinned to v1.3."
+   }
+  },
+  {
+   "id": "physclock-flight-test-cadence",
+   "patch": {
+    "launch_source": "Mach33 Launch Keystone v1.3 (wave 44 internal path, 23 Sep 2026; wave 38b customer path, 10 Sep 2026)",
+    "why_add": "Launch Keystone v1.3 (23 Sep 2026) does not date this threshold directly; its 2027 base of 3.3 flights per stack is consistent with a dozen flights in 2028."
+   }
+  },
+  {
+   "id": "physclock-starship-full-reuse",
+   "patch": {
+    "launch_source": "Mach33 Launch Keystone v1.3 (wave 44 internal path, 23 Sep 2026; wave 38b customer path, 10 Sep 2026)",
+    "why_add": "Consistent with Mach33 Launch Keystone v1.3 (wave 44 base, 23 Sep 2026): 3.3 flights per stack in 2027 and 4.8 in 2028."
+   }
+  },
+  {
+   "id": "physclock-heavy-cadence-100",
+   "patch": {
+    "launch_source": "Mach33 Launch Keystone v1.3 (wave 44 internal path, 23 Sep 2026; wave 38b customer path, 10 Sep 2026)",
+    "why_add": "Against Mach33 Launch Keystone v1.3 (wave 44 base, 23 Sep 2026): 4.8 flights per stack in 2028, 8.9 in 2029 and 18 in 2030; the reference case carries 31,100 t of Starlink and 38,600 t of SpaceX's own compute in 2030 (10 Sep 2026), which is several hundred flights a year at 100 t, so the model's 2030 is a year behind Mach33's path."
+   }
+  },
+  {
+   "id": "capability-35-heavy-cadence-300",
+   "patch": {
+    "launch_source": "Mach33 Launch Keystone v1.3 (wave 44 internal path, 23 Sep 2026; wave 38b customer path, 10 Sep 2026)",
+    "why_add": "Mach33 Launch Keystone v1.3's reference tonnage (10 Sep 2026: 71,500 t of own compute alone in 2031) implies far more than 300 flights a year; approved site caps, not demand, date this node."
+   }
+  },
+  {
+   "id": "physclock-pad-propellant-infra",
+   "patch": {
+    "launch_source": "Mach33 Launch Keystone v1.3 (wave 44 internal path, 23 Sep 2026; wave 38b customer path, 10 Sep 2026)",
+    "why_add": "Launch Keystone v1.3 assumes the pads its cadence needs; the model dates them on construction records instead."
+   }
+  },
+  {
+   "id": "physclock-reusable-competition",
+   "patch": {
+    "launch_source": "Mach33 Launch Keystone v1.3 (wave 44 internal path, 23 Sep 2026; wave 38b customer path, 10 Sep 2026)",
+    "why_add": "Mach33 Launch Keystone v1.3 (10 Sep 2026) treats competitor cadence as a driver of when SpaceX releases spare capacity to customers."
+   }
+  },
+  {
+   "id": "capability-compute-launch-demand",
+   "patch": {
+    "launch_source": "Mach33 Launch Keystone v1.3 (wave 44 internal path, 23 Sep 2026; wave 38b customer path, 10 Sep 2026)",
+    "why_add": "Against Mach33 Launch Keystone v1.3 (10 Sep 2026): the reference case books 38,600 t of SpaceX's own orbital compute in 2030 and 71,500 t in 2031, far above the 10 flights this node needs; the model's 2030 keeps its slip convention against that path."
+   }
+  },
+  {
+   "id": "physclock-cheap-mass-customer",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2032",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2032",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-internal",
+    "gate_note": "SpaceX's capacity-release decision binds; internal demand that absorbs spare capacity is the runner-up.",
+    "revision_note_add": "R9-launch (2026-10-27): re-derived against Launch Keystone v1.3's customer side (opening 2031, tested 2029 to 2033; spot $820/kg in 2031); hard prerequisite physclock-customer-launch-access added; wave-45 hinge recorded as a sensitivity only."
+   }
+  },
+  {
+   "id": "astro-ai-designed-trajectory-flown",
+   "patch": {
+    "why_add": "Small lunar and cislunar missions are outside customers: as of late June 2026 SpaceX had closed new Transporter and Bandwagon bookings beyond late 2028 or early 2029 (SpaceNews; TODO(source)), and Mach33 Launch Keystone v1.3 opens Starship spare capacity to customers in 2031. Designing the path stays cheap; flying it now waits on customer access (physclock-customer-launch-access), so these missions slip months to years and the odds reach Medium in 2031, not 2029."
+   }
+  },
+  {
+   "id": "materials-cots-orbital-compute-ops",
+   "patch": {
+    "why_add": "The node rates SpaceX's AI1 on its own manifest (launch-internal). Outside operators (Starcloud, Google's Suncatcher and others) buy launch and face customer access and customer prices (launch-external), which v1.3 puts at 2031 for Starship spare capacity, so their 100 kW-class service would come later than SpaceX's."
+   }
+  }
+ ]
+}

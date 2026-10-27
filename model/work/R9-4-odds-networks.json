@@ -1,0 +1,1269 @@
+{
+ "notes": "R9 WS1/WS5 branch review: networks",
+ "update": [
+  {
+   "id": "comms-ai-cryptanalysis",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Vendor and standards-body uptake binds; agents able to audit whole protocol suites (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Low 2027, Medium 2028, High 2029: public research-grade models arrive 2027, but routine vendor audits and a standards body citing one take one to two review cycles, so High is not reached in the release year. S1 Medium 2029, High 2033 (S1 cognition catches up around 2033). Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-expander-constructions",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Formal checking of the two T1 premises binds; uptake in network or code design (adoption), which line-of-sight geometry limits, is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: Low from the earliest year (S1 2033, S2-S4 2027) and never Medium, because orbital geometry rules out Ramanujan laser topologies and both premises are T1."
+   }
+  },
+  {
+   "id": "frontier-approx-ceilings",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2027",
+      "high": "2028"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "An outside check of the Lean proofs binds; for the T3 parts only the shift of operations-research effort (adoption) is left as runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): All scenarios Low and Medium 2027, High 2028: the T3 parts (102, 125) are Lean-formalized but no outside Comparator run existed in Oct 2026, so High waits a year for an independent check. Scenario-independent because the result already exists. Bands unchanged. Integrator: dependent auton-ops-planning-ceilings (moon-mars) has High 2027 and must move to 2028."
+   }
+  },
+  {
+   "id": "frontier-optical-quantum-capacity",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Formal checking of the T1 inequality (273) binds; proving the broadcast and minimum-output-entropy consequences, which lie outside the Lean (cognitive), is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Medium 2028, not 2027: an outside check needs quantum-information coverage in Lean, which only began in 2026 (Lean-QIT) and which comms-finite-key-qkd-proofs dates to 2027-29. S1 Medium 2032 (was 2033): checks become cheap as S1 cognition reaches the S2 2029-30 level. Bands unchanged."
+   }
+  },
+  {
+   "id": "frontier-lattice-crypto-watch",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Finding a real attack (cognitive) binds; independent confirmation that a claimed break holds at standard parameters (formalization) is the runner-up, as the withdrawn 2024 and rebutted 2026 claims show.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: Low from S2 2029 and S3 2028, never Medium; S1 stays Speculative. Skeptic (Module-LWE has a 20-year record; hybrid deployment blunts a partial break) and advocate (agents already break bespoke constructions) both support a watch item at Low."
+   }
+  },
+  {
+   "id": "comms-certified-network-optimization",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2027",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Bespoke decomposition and gap proofs (cognitive) bind; realistic constellation topology and traffic data, which operators keep proprietary, is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Low 2027, Medium 2028, High 2029: the math is easier than catalog problems, but certified gaps at Starlink scale take a research cycle after public models (2027). S1 Medium 2029, High 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-code-design-on-demand",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Standards and operator uptake bind; fixed-function decoder ASICs that need a hardware cycle (fabrication) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Low and Medium 2028, High 2029: proprietary physical layers can take firmware codes a year after public models, but High needs more than one operator. S1 Medium 2030, High 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-pq-verified-implementations",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Flight-software baseline freeze and qualification bind; re-proving the libraries on radiation-hardened targets (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Low 2028, Medium 2029, High 2030: re-targeted proofs arrive 2028 but flight-program adoption trails them by about a year (qualification compresses only 1.2-1.5x), so S3 equals S2. S1 Medium 2030, High 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-certified-interference-bounds",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Operator and FCC uptake of certified showings binds; the geometry, order-statistics and interval math (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Low 2028, Medium 2029, High 2030: first certified showings appear 2028, and becoming common in coordination takes one or two filing cycles; S3 equals S2 because filing preparation, not cognition, sets the pace. S1 Medium 2031, High 2034. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-finite-key-qkd-proofs",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Quantum-information coverage in Lean (formalization) binds; finite-key proofs with device imperfections (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2028, Medium 2029, High 2030 as Lean quantum-information coverage catches up during 2027-29; S3 High 2029 because agent formalization compresses. S1 Medium 2031, High 2034 (S1 Lean coverage matures by 2035). Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-verified-routing-software",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Writing specifications of dynamic topologies (formalization) binds; operators making verified code a deliverable (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Low 2028, Medium 2029, High 2030; S3 High 2029 (specification work compresses). Verified routing as a normal deliverable needs more than the first agent-written proofs. S1 Medium 2030, High 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-optical-availability-models",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Multi-year multi-site availability records (data) bind; the correlated-weather modeling (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Low 2029, Medium 2030, High 2031: validation records accumulate only in real time from networks built about 2029-30, so High comes two years after the earliest year and S3 equals S2. S1 Medium 2031, High 2034. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-quantum-receiver-theory",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2032",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Lab experiments under background light, loss and jitter bind; designing structured quantum measurements (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Medium a year after the earliest year (S2 2030, S3 2029), not in it: designs arrive with applied math but evidence that gains survive needs a lab round. S1 Medium 2034. High never (the experiments may show little gain survives). Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-hardness-aware-tasking",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Operator adoption binds; formulating and proving bespoke schedulers (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Low 2028, Medium 2029, High 2030: reported use trails public models by about a year and spreads across Earth-observation and ground-station operators over the next two; adoption-bound, so S3 equals S2. S1 Medium 2030, High 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-crypto-agile-architecture",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Design choice by operators and buyers (adoption) binds; proving update and rekey protocols (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Low 2028, Medium 2029, High 2031: verified libraries reach flight programs 2029-30 and agile designs become the default as CNSA 2.0 and the 2030-31 DoW deadlines bite; S3 equals S2 because adoption binds. S1 Medium 2030, High 2034. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-constellation-design-optimizer",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2030",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Filers adopting certified design tools binds; multiphysics design optimization with guarantees (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030, High 2033; S3 Low 2028, Medium 2030, High 2031 (was High 2028, the earliest year: the node trails its certified-bound prerequisites by about a year). S1 unchanged (Medium 2033). Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-space-qkd-network-demo",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Launch dates of funded missions bind; in-orbit validation campaigns (experiment) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): All scenarios Low and Medium 2028, High 2029: several funded programs (Eagle-1, SPOQC, SpeQtre, QEYSSat, Jinan-1 successors) make one multi-country campaign likely by 2028, and a year of slip margin gets it above 70%. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-pq-ttc-flight-demo",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Rideshare manifest and integration lead times (launch-external) bind; someone funding a specific mission, none yet known (capital), is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Low 2029, Medium 2030, High 2033: architecture 2028 plus 12-18 months of integration and commissioning puts 30% at 2030, not 2029. S1 Medium 2031, never High. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-holevo-receiver-demo",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Background light and loss in the test (experiment) bind; photonic-circuit foundry runs of 6-9 months each (fabrication) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: Low from S2 2031 and S3 2030, never Medium; S1 Speculative. The physics limit does not move with iteration speed."
+   }
+  },
+  {
+   "id": "comms-certified-mesh-operations",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "One operator adopting, validating and disclosing binds; a verified control plane for dynamic topologies (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2031 (was 2029, the earliest year) and High 2034: a staged rollout on a live 10,000-satellite network and disclosure take two years after the 2029 prerequisites. S3 Medium 2030, High 2031 (vertically integrated operator with its own model). Skeptic (proprietary operators rarely disclose) holds S2 High to 2034; advocate (SDA deliverables) keeps S2 Medium by 2031. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-d2d-coexistence-scheduling",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2030",
+      "high": "2031"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2030",
+      "high": "2031"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "regulatory",
+    "gate_note": "Operator choice binds; WRC-27 direct-to-device rules and weak regulation of harmonic emissions (regulatory) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2030, High 2033 (after WRC-27 rules and the V2/V3 direct-to-cell build-out); S3 Medium 2030, High 2031 (was High 2028, the earliest year). S1 unchanged. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-optical-ground-network-service",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Capital for a 10-site network with no named anchor buyer binds; 18-36 months of site construction (fabrication) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Medium 2031 (was 2030): sites committed after the 2029 availability models take 18-36 months, so an SLA service is under 30% in 2030. Never High (no anchor buyer). S1 unchanged. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-pq-fleet-migration",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "Buyer demand for machine-checked update paths (regulatory) binds; operators choosing and disclosing them (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2033: post-quantum crypto arrives with the 2030-31 DoW deadlines, but the machine-checked path follows buyer demand (comms-verified-crypto-procurement-norm, S2 Medium 2032) by a year. Skeptic (mandates say nothing about proofs, 2034) and advocate (SpaceX/SDA lines turn over in 12-24 months, 2032) resolved at 2033. S3 Medium 2031 (was 2029, the earliest year). Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-space-qkd-backbone",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "regulatory",
+    "gate_note": "Procurement, build and launch of operational satellites (capital) bind; security accreditation (regulatory) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: Low from 2031 (S1 2033), never Medium; the post-Eagle-1 chain of procurement, build, launch and accreditation does not compress."
+   }
+  },
+  {
+   "id": "comms-capacity-per-dollar-share",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Operator adoption and disclosure bind; certified beam scheduling across overlapping satellites under the coordination criteria (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Redefined node (sellable capacity per satellite at fixed spectrum). S2 Medium 2033: certified mesh operations reach Medium in 2031, and a 10% gain needs a year of operations to measure and a year to disclose; the node cannot be likelier than its two prerequisites jointly. Skeptic (attribution and disclosure, gains centred near 10%) against advocate (V3 makes dense cells reuse-bound): 2033. S3 Medium 2031 (was 2030, the earliest year). Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-verified-crypto-procurement-norm",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2032",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2031",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "launch-external",
+    "gate_note": "An institutional buyer decision on the solicitation calendar (regulatory) binds; the flight demo it waits for (launch-external) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2032: the first SDA or ESA solicitation after the 2030 flight demo and the Dec 2031 DoW use deadline; one buyer requirement satisfies the definition, so a second cycle is not needed for 30%. Skeptic (politics 1.0x, 2033) and advocate (DoW deadline, 2031) resolved at 2032. S3 Medium 2031 (was 2030, the earliest year). Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-performance-based-sharing-regime",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "The ITU conference calendar and consensus (regulatory) bind; administrations and GSO incumbents accepting performance-based criteria (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: Low from WRC-31 (2031), never Medium (WRC-35 at the very end of the horizon is the only other decision point). Raise if WRC-27 adopts an Article 22 agenda item."
+   }
+  },
+  {
+   "id": "comms-crqc-before-2031",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Fabrication, yield and error rates bind; AI-cut resource estimates that lower the bar (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S3/S4 Medium 2034 (seed 2033): a Blue Jay-class machine on the 2033 roadmap plus a year for AI-cut estimates to fit its budget. Skeptic (roadmaps slip; 1e9 operations fall short, 2035) and advocate (10,000-26,000 atom estimates, 2032) resolved at 2034. S1/S2 Low only. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-ai-crqc-resource-cuts",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2028",
+      "high": "2029"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "formalization",
+    "gate_note": "Expert-scarce search over codes, factories and layouts (cognitive) binds; independent checking of the circuits and code distances in a published estimate (formalization) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Low and Medium 2028, High 2029: a resource-estimate paper takes about a research cycle after public applied math, and no published Shor estimate yet credits an AI-found code. S1 Medium 2030, High 2034 (applied math S1 High 2034). Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-multi-operator-dynamic-sharing",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2031",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Rival operators and a regulator accepting the arrangement (adoption) bind; tight guarantees for three or more equal-priority operators, still open math (cognitive), are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2034, S3/S4 2033 (seed 2033 for both): acceptance runs at 1.0x, and from a 2031 (S2) or 2030 (S3) first operation it takes about three years before a multi-operator arrangement is more likely than not to be under way at 30%. Skeptic (rivals do not share beam plans) against advocate (FCC 24-117 fallback criteria push sharing): 2034 in S2. Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-pnt-integrity-overbounding",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "Fault history that accumulates with operating years (data) binds; tail-probability overbounding math (cognitive) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Low 2028, Medium 2029, High 2030: certified rare-event methods arrive 2028, but overbounds for a LEO constellation need its own fault statistics, so High waits two years; data-bound, so S3 equals S2. S1 Medium 2031, High 2034. Bands unchanged."
+   }
+  },
+  {
+   "id": "astro-leo-pnt-assured-service",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2030",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2031",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2031",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Launch for hundreds of satellites through customer access (launch-external) binds; one to two years of fault-rate history for a published integrity specification (data) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: S2 Medium 2031 (tracks customer launch access, Medium 2031), High 2034 a year after access reaches High; S1 Medium 2033. S2 earliest year 2029 -> 2030, forced by the hard prerequisite physclock-customer-launch-access (S2 2030) added in R9-launch. Bands unchanged.",
+    "earliest_year": {
+     "S2": "2030"
+    }
+   }
+  },
+  {
+   "id": "comms-certified-beamforming",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2030",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2033"
+     },
+     "S3": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     },
+     "S4": {
+      "low": "2028",
+      "medium": "2029",
+      "high": "2030"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "cognitive",
+    "gate_note": "A visible showing, filing or operator paper (adoption) binds; worst-case error models at thousand-element scale (cognitive) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 Medium 2029 (was 2028, the earliest year), High 2033 as phone-to-satellite arrays multiply; S3 High 2030 (was 2028). S1 unchanged. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-photonic-inverse-design",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2031",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2034"
+     },
+     "S3": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     },
+     "S4": {
+      "low": "2029",
+      "medium": "2030",
+      "high": "2033"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "qualification",
+    "gate_note": "Foundry turns bind; environmental qualification (radiation, thermal cycling) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Medium 2030 (was 2029, the earliest year): design tools arrive 2028 and a foundry turn takes the first part to 2029-30. High S2 2034, S3/S4 2033 (several foundry and qualification cycles). S1 unchanged. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-35-in-orbit-pq-cutover",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2033",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2032",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2032",
+      "medium": "2033",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2032",
+      "medium": "2033",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "adoption",
+    "gate_note": "The DoW Dec 2031 use deadline and CNSA 2.0 (regulatory) set the date; operators performing and disclosing the switch (adoption) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2-S4 Medium 2033 (seed 2034): the Dec 2031 DoW use deadline forces switches in 2031-32 and CNSA 2.0 phases out legacy equipment by 2033, a second forcing date with compliance reporting as a disclosure path. Skeptic (government crypto operations are rarely disclosed, 2034-35) against advocate (a real population of in-service switches, 2032): 2033. Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-35-certified-shell-in-service",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2032",
+      "medium": "2033",
+      "high": "2035"
+     },
+     "S3": {
+      "low": "2031",
+      "medium": "2032",
+      "high": "2034"
+     },
+     "S4": {
+      "low": "2031",
+      "medium": "2032",
+      "high": "2034"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Launching hundreds of satellites through customer access (launch-external) binds; building one satellite generation (fabrication) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): S2 kept (Low 2032, Medium 2033, High 2035): optimizer used in filings 2029-30, satellites built 2030-31, service 2032, and Medium a year later once launch access is High (2033). S3/S4 High 2034 (was 2035, so S3 now leads S2 as its earlier dates imply). Bands unchanged."
+   }
+  },
+  {
+   "id": "comms-35-ntn-standard-ai-codes",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "fabrication",
+    "gate_note": "Committee freezes (adoption) bind; chipsets and modems that ship 1-2 years after a freeze (fabrication) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: Low 2033 (first shipping after a 2030-31 freeze), Medium 2034 (a control-channel or CCSDS short-block code is the likely entry); committees do not compress, so S3 equals S2. S1 beyond 2035."
+   }
+  },
+  {
+   "id": "comms-35-leo-pnt-aviation-approval",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "data",
+    "gate_note": "Aviation committees and approval (regulatory) bind; years of constellation fault history (data) are the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: Speculative through 2035 in every scenario (approval 2035 at the earliest, no named approval path)."
+   }
+  },
+  {
+   "id": "comms-35-joint-detection-ground-station",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "experiment",
+    "gate_note": "Funding a station upgrade and a deep-space laser target (capital) binds; whether the receiver gain survives background light in the demo (experiment) is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: Speculative through 2035 (the demo is Low by 2035 and no committed mission has disclosed a deep-space laser terminal)."
+   }
+  },
+  {
+   "id": "comms-35-merchant-laser-terminals",
+   "patch": {
+    "odds_by": {
+     "S1": {
+      "low": ">2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S2": {
+      "low": "2035",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S3": {
+      "low": "2034",
+      "medium": ">2035",
+      "high": ">2035"
+     },
+     "S4": {
+      "low": "2033",
+      "medium": "2034",
+      "high": ">2035"
+     }
+    },
+    "odds_source": "review",
+    "runner_up_gate": "capital",
+    "gate_note": "Hand alignment, bonding and test-chamber hours (fabrication) bind; capital for specialized automation at merchant suppliers is the runner-up.",
+    "revision_note_add": "R9-odds (2026-10-27): Seed kept: S4 Low 2033 and Medium 2034 (robots requalified at suppliers from about 2033), S3 Low 2034, S2 Low 2035, S1 beyond 2035."
+   }
+  },
+  {
+   "id": "comms-d2c-v2-service",
+   "patch": {
+    "runner_up_gate": "regulatory",
+    "gate_note": "Handset silicon and operator go-to-market bind (Mach33's named gating items); spectrum approvals are the runner-up."
+   }
+  },
+  {
+   "id": "comms-d2c-v3",
+   "patch": {
+    "runner_up_gate": "regulatory",
+    "gate_note": "V3 D2C rides Starship on SpaceX's own manifest, so internal launch cadence binds; spectrum for broadband to phones is the runner-up."
+   }
+  },
+  {
+   "id": "comms-starlink-mobile",
+   "patch": {
+    "runner_up_gate": "regulatory",
+    "gate_note": "Operator bundling and handset support bind the user count; spectrum approvals are the runner-up."
+   }
+  }
+ ]
+}
