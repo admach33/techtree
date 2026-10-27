@@ -199,6 +199,8 @@ def gen(g, an, debates31, debates35):
     blocks['n_t67'] = str(len(t67))
     gc = collections.Counter(n['binding_gate'] for n in t67).most_common()
     blocks['gates_t67'] = ', '.join(f'{k} ({v})' for k, v in gc[:-1]) + f' and {gc[-1][0]} ({gc[-1][1]})'
+    blocks['n_t67_launch_internal'] = str(sum(1 for n in t67 if n['binding_gate'] == 'launch-internal'))
+    blocks['n_t67_launch_external'] = str(sum(1 for n in t67 if n['binding_gate'] == 'launch-external'))
     ru = collections.Counter(n.get('runner_up_gate') for n in t67 if n.get('runner_up_gate'))
     blocks['runner_up_thinking_t67'] = str(sum(v for k, v in ru.items() if k in ('cognitive', 'formalization')))
     blocks['runner_up_t67'] = ', '.join(f'{k} ({v})' for k, v in ru.most_common())

@@ -6,7 +6,7 @@ const TechTree = (() => {
   const NS = 'http://www.w3.org/2000/svg';
   const BAND = ['Speculative', 'Low', 'Medium', 'High'];
   const NAMES = { S1: 'Plateau', S2: 'Exponential', S3: 'Recursive', S4: 'Embodied' };
-  const GATE = { launch: 'launch', capital: 'capital', adoption: 'adoption', data: 'data', qualification: 'qualification',
+  const GATE = { 'launch-internal': "launch (SpaceX's own)", 'launch-external': 'launch (customers)', capital: 'capital', adoption: 'adoption', data: 'data', qualification: 'qualification',
     regulatory: 'regulators', fabrication: 'fabrication', experiment: 'experiments', cognitive: 'thinking', formalization: 'formal proof' };
   // 24-unit line icons, one per lane
   const ICONS = {

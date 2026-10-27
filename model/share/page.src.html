@@ -366,8 +366,8 @@ const COPY = /*COPY*/null;
     S4: 'Embodied: Recursive thinking plus general-purpose robots at scale, about 6 million by 2031 and 60 million by 2035.'
   };
   const RANK = { Speculative: 1, Low: 2, Medium: 3, High: 4 };
-  const GATE = { launch: 'launch', capital: 'capital', adoption: 'adoption', data: 'flight data', qualification: 'qualification',
-    regulatory: 'regulators', fabrication: 'fabrication', experiment: 'experiments' };
+  const GATE = { 'launch-internal': 'launch (SpaceX)', 'launch-external': 'launch (customers)', capital: 'capital', adoption: 'adoption', data: 'flight data', qualification: 'qualification',
+    regulatory: 'regulators', fabrication: 'fabrication', experiment: 'experiments', cognitive: 'thinking', formalization: 'formal proof' };
   let scen = 'S2';
   try { const s = localStorage.getItem('tc-scen'); if (ORDER.includes(s)) scen = s; } catch (e) {}
 
@@ -517,7 +517,7 @@ const COPY = /*COPY*/null;
   }
 
   // ---- Gates ----
-  const gnames = { capital: 'Capital', adoption: 'Adoption', launch: 'Launch', regulatory: 'Regulators', qualification: 'Qualification',
+  const gnames = { capital: 'Capital', adoption: 'Adoption', 'launch-internal': "Launch, SpaceX's own", 'launch-external': 'Launch, customers', regulatory: 'Regulators', qualification: 'Qualification',
     fabrication: 'Fabrication', data: 'Data', experiment: 'Experiments' };
   const G = F.outcome_gates;
   document.getElementById('gates').innerHTML = Object.entries(G.counts).map(([k, n]) =>

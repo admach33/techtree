@@ -25,7 +25,8 @@ Edit file format (every key optional):
 {
   "merge":        [{"keep": "id", "drop": ["id", ...], "patch": {...}}],
   "update":       [{"id": "id", "patch": {"field": value, "earliest_year": {"S4": "2033"}, "odds_by": {"S2": {"medium": "2032"}},
-                                          "revision_note_add": "R9-odds: appended to revision_note with ' | '"}}],
+                                          "revision_note_add": "R9-odds: appended to revision_note with ' | '",
+                                          "why_add": "appended to why with a space"}}],
   "add_nodes":    [{...full node...}],
   "remove_nodes": ["id", ...],
   "add_edges":    [{"from": "prereq-id", "to": "node-id"}],          # hard prerequisite
@@ -435,6 +436,8 @@ def patch_node(n, patch):
         if f == 'odds_by' and isinstance(v, dict):
             for s_, ob in v.items():
                 n.setdefault('odds_by', {}).setdefault(s_, {}).update(ob)
+        elif f == 'why_add':
+            n['why'] = (str(n.get('why') or '').rstrip() + ' ' + v).strip()
         elif f == 'revision_note_add':
             n['revision_note'] = (str(n.get('revision_note') or '') + ' | ' + v).lstrip(' |')
         elif f in NESTED and isinstance(v, dict):
