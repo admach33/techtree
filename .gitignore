@@ -2,3 +2,6 @@
 __pycache__/
 *.pyc
 model/share/video/encode
+
+# Mach 33 Grotesk is licensed: keep the font files out of this public repo
+model/share/brand/fonts/

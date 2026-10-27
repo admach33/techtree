@@ -21,7 +21,7 @@ launch and paperwork set the dates.** Readers are space and AI investors and eng
 
 - **Theme: dark only.** Override these tokens after the kit's CSS, everywhere the figure renders
   (the review page and the standalone SVG):
-  `--anatomy-page:#08090B; --anatomy-card:#0C0E11; --anatomy-paper:#0C0E11; --anatomy-lit:#5B9FE2;`
+  `--anatomy-page:#030911; --anatomy-card:#0A1018; --anatomy-paper:#0A1018; --anatomy-lit:#5B9FE2;`
   Leave every other token at the kit's dark values. `#5B9FE2` (Mach33 data blue, Brand MCP token per the 26 Oct review, VI-1; it replaced the off-palette `#22CFFF`) is the one lit
   accent: exactly one part is lit, the part the reader should watch. No other colour unless colour is
   the subject. Page tokens around the figures: Black Space `#030911` background, Mission White `#FAFEFF`

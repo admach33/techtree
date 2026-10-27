@@ -1,34 +1,47 @@
 <title>Space Unlock Tree</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Saira+Condensed:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Turret+Road:wght@500;700&display=swap">
 <style>
+
 /* Layout: controls -> two-clocks chart beside a branch-by-year overview -> one branch drawn as a waterfall
-   (tier rows top to bottom, earliest-credible-year columns left to right) with a detail panel. */
+   (tier rows top to bottom, earliest-credible-year columns left to right) with a detail panel.
+   Brand (Mach33 Brand MCP, brand version 2026-10-23): Black Space #030911, Mission White #FAFEFF, Orbital Signal Blue #1C79D6,
+   chart blues and greys (brand book p.15). Thinking is blue and hardware is ink (black in light, near-white in dark), as on the
+   Two Clocks page. Mach 33 Grotesk for type (p.6), Turret Road only for number call-outs (p.7-8). Deep Orbit Blue is never a
+   background (OOTWD rule, Eugene, 2026-10-09). */
 :root {
-  --bg: #f2f4f5; --surface: #fbfcfc; --surface-2: #e9edf0; --ink: #0f1820; --ink-2: #44515d; --muted: #6f7b86;
-  --line: #d8dee3; --line-2: #bcc6ce; --hatch: rgba(15, 24, 32, .055);
-  --cog: #2a78d6; --cog-ink: #1c5cab; --cog-soft: #dce9fa; --phys: #eb6834; --phys-ink: #a9441a; --phys-soft: #fbe3d8;
-  --sel: #0f1820; --shadow: 0 1px 2px rgba(15, 24, 32, .08);
-  --f-display: "Saira Condensed", "Arial Narrow", system-ui, sans-serif;
-  --f-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --bg: #FAFEFF; --surface: #FFFFFF; --surface-2: #DAEBF9; --ink: #030911; --ink-2: #2C6297; --muted: #4F7DAA;
+  --line: #DAEBF9; --line-2: #B7CFE5; --hatch: rgba(3, 9, 17, .05);
+  --cog: #1C79D6; --cog-ink: #2C6297; --cog-soft: #DAEBF9; --phys: #030911; --phys-ink: #030911; --phys-soft: #CEC9D0;
+  --sel: #030911; --shadow: 0 1px 2px rgba(3, 9, 17, .08); --accent: #1C79D6; --on-accent: #FAFEFF;
+  --f-display: "Mach 33 Grotesk Titles", "Hanken Grotesk", system-ui, sans-serif;
+  --f-body: "Mach 33 Grotesk Body", "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "Mach 33 Grotesk Captions", "Hanken Grotesk", system-ui, sans-serif;
+  --f-num: "Turret Road", "Hanken Grotesk", system-ui, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0c1014; --surface: #131920; --surface-2: #1b232b; --ink: #e8edf1; --ink-2: #a9b4be; --muted: #7d8994;
-    --line: #232d36; --line-2: #34424e; --hatch: rgba(232, 237, 241, .05);
-    --cog: #3987e5; --cog-ink: #8dbaf0; --cog-soft: #142d4a; --phys: #d95926; --phys-ink: #f2a582; --phys-soft: #3a1e12;
-    --sel: #e8edf1; --shadow: none; color-scheme: dark;
+    --bg: #030911; --surface: #0A1018; --surface-2: #0E1622; --ink: #FAFEFF; --ink-2: #B7CFE5; --muted: #94B4D2;
+    --line: #16202C; --line-2: #2A3747; --hatch: rgba(250, 254, 255, .05);
+    --cog: #5B9FE2; --cog-ink: #9BC5ED; --cog-soft: #0B2036; --phys: #DAEBF9; --phys-ink: #FAFEFF; --phys-soft: #1A2532;
+    --sel: #FAFEFF; --shadow: none; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0c1014; --surface: #131920; --surface-2: #1b232b; --ink: #e8edf1; --ink-2: #a9b4be; --muted: #7d8994;
-  --line: #232d36; --line-2: #34424e; --hatch: rgba(232, 237, 241, .05);
-  --cog: #3987e5; --cog-ink: #8dbaf0; --cog-soft: #142d4a; --phys: #d95926; --phys-ink: #f2a582; --phys-soft: #3a1e12;
-  --sel: #e8edf1; --shadow: none; color-scheme: dark;
+  --bg: #030911; --surface: #0A1018; --surface-2: #0E1622; --ink: #FAFEFF; --ink-2: #B7CFE5; --muted: #94B4D2;
+  --line: #16202C; --line-2: #2A3747; --hatch: rgba(250, 254, 255, .05);
+  --cog: #5B9FE2; --cog-ink: #9BC5ED; --cog-soft: #0B2036; --phys: #DAEBF9; --phys-ink: #FAFEFF; --phys-soft: #1A2532;
+  --sel: #FAFEFF; --shadow: none; color-scheme: dark;
 }
 * { box-sizing: border-box; }
+.wordmark { margin-right: 10px; vertical-align: -3px; }
+/* the black wordmark on light, the white one on dark: two brand files, never a recolour */
+.wordmark-white { display: none !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .wordmark-black { display: none !important; } :root:not([data-theme="light"]) .wordmark-white { display: inline-block !important; } }
+:root[data-theme="dark"] .wordmark-black { display: none !important; }
+:root[data-theme="dark"] .wordmark-white { display: inline-block !important; }
+.wordmark svg { display: block; height: 100%; width: auto; }
 body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5; }
 .wrap { max-width: 1480px; margin: 0 auto; padding-inline: clamp(16px, 3vw, 40px); padding-block: 28px 72px; display: grid; gap: 28px; }
 h1, h2, h3 { font-family: var(--f-display); font-weight: 600; letter-spacing: .01em; text-wrap: balance; margin: 0; }
@@ -48,13 +61,14 @@ header { display: grid; gap: 12px; }
 .controls { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: end; padding-block: 14px; border-block: 1px solid var(--line); position: sticky; top: env(safe-area-inset-top, 0px); background: var(--bg); z-index: 20; }
 .ctl { display: grid; gap: 6px; min-width: 0; }
 .ctl label, .ctl .lbl { font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-.seg { display: inline-flex; border: 1px solid var(--line-2); border-radius: 6px; overflow: hidden; background: var(--surface); }
-.seg button { border: 0; background: transparent; padding: 7px 12px; cursor: pointer; font-size: 14px; white-space: nowrap; }
+.seg { display: inline-flex; border: 1px solid var(--line-2); border-radius: 2px; overflow: hidden; background: var(--surface); }
+.seg button { border: 0; background: transparent; padding: 8px 12px; cursor: pointer; font: 500 11.5px/1.2 var(--f-mono); letter-spacing: 1.2px; text-transform: uppercase; white-space: nowrap; color: var(--ink-2); }
 .seg button + button { border-left: 1px solid var(--line-2); }
-.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
+.seg button[aria-pressed="true"]::before { content: ""; display: inline-block; width: 5px; height: 5px; background: currentColor; margin-right: 7px; vertical-align: 1px; }
 .yearctl { display: flex; align-items: center; gap: 12px; }
 .yearctl input[type=range] { width: min(260px, 52vw); accent-color: var(--ink); }
-.yearval { font-family: var(--f-display); font-size: 26px; font-weight: 700; min-width: 3.2ch; line-height: 1; }
+.yearval { font-family: var(--f-num); font-size: 26px; font-weight: 700; min-width: 3.2ch; line-height: 1; }
 .search { position: relative; }
 .search input { width: min(280px, 80vw); padding: 7px 10px; border: 1px solid var(--line-2); border-radius: 6px; background: var(--surface); }
 .results { position: absolute; top: calc(100% + 4px); left: 0; width: min(420px, 86vw); background: var(--surface); border: 1px solid var(--line-2); border-radius: 6px; box-shadow: 0 6px 24px rgba(0,0,0,.14); z-index: 40; max-height: 320px; overflow: auto; }
@@ -97,8 +111,8 @@ header { display: grid; gap: 12px; }
 /* branch section */
 .branchhead { display: grid; gap: 8px; }
 .tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
-.tab { border: 1px solid var(--line-2); background: var(--surface); border-radius: 999px; padding: 6px 12px; cursor: pointer; white-space: nowrap; font-size: 13px; display: inline-flex; gap: 8px; align-items: center; }
-.tab[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.tab { border: 1px solid var(--line-2); background: var(--surface); border-radius: 2px; padding: 6px 12px; cursor: pointer; white-space: nowrap; font-size: 13px; display: inline-flex; gap: 8px; align-items: center; }
+.tab[aria-selected="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 .tab .mono { font-size: 11px; opacity: .75; }
 .thesis { font-size: 17px; max-width: 78ch; }
 .branchmeta { display: grid; gap: 8px; }
@@ -122,7 +136,7 @@ header { display: grid; gap: 12px; }
 .canvas .colh.late { background: var(--surface); }
 .canvas .corner { left: 0; z-index: 8; justify-content: flex-start; padding-left: 12px; color: var(--muted); font-size: 11px; }
 .canvas .rowl { position: sticky; left: 0; z-index: 5; background: var(--surface); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 8px 10px; display: grid; align-content: start; gap: 2px; }
-.rowl .tn { font-family: var(--f-display); font-size: 22px; font-weight: 700; line-height: 1; }
+.rowl .tn { font-family: var(--f-num); font-size: 22px; font-weight: 700; line-height: 1; }
 .rowl .tname { font-size: 12px; color: var(--ink-2); line-height: 1.2; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .rowl.cog .tn { color: var(--cog-ink); } .rowl.phys .tn { color: var(--phys-ink); }
 .canvas .cell { border-bottom: 1px solid var(--line); border-right: 1px dashed var(--line); }
@@ -228,7 +242,65 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 
 <div class="wrap">
   <header>
-    <div class="eyebrow">AI mathematics and space technology · as of 7 Oct 2026</div>
+    <div class="eyebrow" style="display:flex;align-items:center;flex-wrap:wrap;gap:4px 0"><span class="wordmark wordmark-black" role="img" aria-label="Mach33" style="display:inline-block;height:16px;line-height:0"><svg height="16" aria-hidden="true" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1000 258.41" style="enable-background:new 0 0 1000 258.41;" xml:space="preserve">
+<style type="text/css">
+	.wm-black{fill:#FFFFFF;}
+</style>
+<g>
+	<path d="M148.23,170.83L203.92,24.2h63.1v7.66h-10.22l-7.92,8.94l6.9,180.09h18.9v7.66h-78.93v-7.66h10.98l7.92-8.94l-6.39-170.13
+		l-71.27,186.73h-7.92L58.06,44.13L51.42,220.9h18.39v7.66H22.29v-7.66h10.22l8.94-8.94L48.09,35.7l-6.13-3.83H31.75V24.2H92.8
+		L148.23,170.83z"/>
+	<path d="M286.17,197.14c0-28.35,34.74-43.68,77.4-56.2v-29.12c0-9.2-2.55-21.97-13.03-21.97c-5.62,0-10.98,3.58-18.65,8.94
+		c-6.13,15.84-15.58,25.8-27.08,25.8c-8.43,0-13.79-5.36-13.79-14.05l47.51-33.21c36.27,0,63.35,15.07,63.35,34.49v86.34
+		c0,7.66,4.6,12.26,12.26,12.26l6.9-4.6l4.34,6.13l-26.31,18.14c-17.88,0-30.4-8.17-34.23-21.97l-29.38,20.44
+		C304.56,228.56,286.17,217.58,286.17,197.14z M345.95,208.13l17.63-7.41v-2.55v-48.02c-11.24,4.6-40.1,17.88-40.1,40.36
+		C323.47,200.46,331.39,205.57,345.95,208.13z"/>
+	<path d="M503.82,231.63c-33.21,0-67.95-27.84-67.95-74.34c0-49.3,37.81-79.19,79.44-79.19c19.92,0,33.72,7.15,33.72,18.65
+		c0,6.64-4.6,9.96-8.43,9.96l-26.06-18.14h-9.96c-18.39,0-29.89,26.06-29.89,62.33c0,40.11,11.5,60.29,39.34,60.29
+		c17.11,0,24.52-7.92,31.42-12.77l4.6,5.88l-20.95,22.48C523.74,228.56,514.54,231.63,503.82,231.63z"/>
+	<path d="M637.16,220.9v7.66h-75.61v-7.66h10.22l8.43-8.94V43.87l-19.41-2.55v-6.64l44.96-10.47h12.77v77.91l35.51-24.78
+		c32.19,0,55.43,19.67,55.43,51.6v69.23c0,7.66,4.6,12.26,12.26,12.26l7.15-4.6l4.09,6.13l-26.31,18.14
+		c-21.97,0-35.51-12.26-35.51-31.93v-69.23c0-21.71-8.17-32.19-25.29-32.19l-27.33,14.05v110.1H637.16z"/>
+	<path d="M856.34,63.29c0,27.33-26.31,42.4-38.83,45.21c11.75,0,50.83,5.88,50.83,43.43c0,50.07-80.47,75.87-114.95,80.72
+		l-3.58-8.43c35.25-6.39,78.93-27.33,78.93-63.1c0-30.14-31.93-39.08-49.3-39.08l-2.3-6.9c29.63-21.46,41.38-34.49,41.38-53.13
+		c0-17.11-9.96-19.41-16.35-19.41c-10.73,0-23.5,6.13-35.25,14.05l-5.11-7.41l35.51-25.03C814.19,24.2,856.34,30.08,856.34,63.29z
+		 M933.48,161.12c0-30.14-31.93-39.08-49.3-39.08l-2.3-6.9c29.63-21.46,41.38-34.49,41.38-53.13c0-17.11-9.96-19.41-16.35-19.41
+		c-10.73,0-23.5,6.13-35.25,14.05l-5.11-7.41l35.51-25.03c16.86,0,59.01,5.88,59.01,39.08c0,27.33-26.31,42.4-38.83,45.21
+		c11.75,0,50.83,5.88,50.83,43.43c0,50.07-80.47,75.87-114.95,80.72l-3.58-8.43C889.8,217.83,933.48,196.89,933.48,161.12z"/>
+</g>
+</svg>
+</span><span class="wordmark wordmark-white" role="img" aria-label="Mach33" style="display:inline-block;height:16px;line-height:0"><svg height="16" aria-hidden="true" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1000 258.41" style="enable-background:new 0 0 1000 258.41;" xml:space="preserve">
+<style type="text/css">
+	.wm-white{fill:#FFFFFF;}
+</style>
+<g>
+	<path class="wm-white" d="M148.23,170.83l55.69-146.63h63.1v7.66h-10.22l-7.92,8.94l6.9,180.09h18.9v7.66h-78.93v-7.66h10.98l7.92-8.94
+		l-6.39-170.13l-71.27,186.73h-7.92L58.06,44.13L51.42,220.9h18.39v7.66H22.29v-7.66h10.22l8.94-8.94L48.09,35.7l-6.13-3.83H31.75
+		v-7.66H92.8L148.23,170.83z"/>
+	<path class="wm-white" d="M286.17,197.14c0-28.35,34.74-43.68,77.4-56.2v-29.12c0-9.2-2.55-21.97-13.03-21.97
+		c-5.62,0-10.98,3.58-18.65,8.94c-6.13,15.84-15.58,25.8-27.08,25.8c-8.43,0-13.79-5.36-13.79-14.05l47.51-33.21
+		c36.27,0,63.35,15.07,63.35,34.49v86.34c0,7.66,4.6,12.26,12.26,12.26l6.9-4.6l4.34,6.13l-26.31,18.14
+		c-17.88,0-30.4-8.17-34.23-21.97l-29.38,20.44C304.56,228.56,286.17,217.58,286.17,197.14z M345.95,208.13l17.63-7.41v-2.55v-48.02
+		c-11.24,4.6-40.1,17.88-40.1,40.36C323.47,200.46,331.39,205.57,345.95,208.13z"/>
+	<path class="wm-white" d="M503.82,231.63c-33.21,0-67.95-27.84-67.95-74.33c0-49.3,37.81-79.19,79.44-79.19
+		c19.92,0,33.72,7.15,33.72,18.65c0,6.64-4.6,9.96-8.43,9.96l-26.06-18.14h-9.96c-18.39,0-29.89,26.06-29.89,62.33
+		c0,40.11,11.5,60.29,39.34,60.29c17.11,0,24.52-7.92,31.42-12.77l4.6,5.88l-20.95,22.48C523.74,228.56,514.54,231.63,503.82,231.63
+		z"/>
+	<path class="wm-white" d="M637.16,220.9v7.66h-75.61v-7.66h10.22l8.43-8.94V43.87l-19.41-2.55v-6.64l44.96-10.47h12.77v77.91
+		l35.51-24.78c32.19,0,55.43,19.67,55.43,51.6v69.23c0,7.66,4.6,12.26,12.26,12.26l7.15-4.6l4.09,6.13l-26.31,18.14
+		c-21.97,0-35.51-12.26-35.51-31.93v-69.23c0-21.71-8.17-32.19-25.29-32.19l-27.33,14.05v110.1H637.16z"/>
+	<path class="wm-white" d="M856.34,63.29c0,27.33-26.31,42.4-38.83,45.21c11.75,0,50.83,5.88,50.83,43.43
+		c0,50.07-80.47,75.87-114.95,80.72l-3.58-8.43c35.25-6.39,78.93-27.33,78.93-63.09c0-30.14-31.93-39.08-49.3-39.08l-2.3-6.9
+		c29.63-21.46,41.38-34.49,41.38-53.13c0-17.11-9.96-19.41-16.35-19.41c-10.73,0-23.5,6.13-35.25,14.05l-5.11-7.41l35.51-25.03
+		C814.19,24.21,856.34,30.08,856.34,63.29z M933.48,161.13c0-30.14-31.93-39.08-49.3-39.08l-2.3-6.9
+		c29.63-21.46,41.38-34.49,41.38-53.13c0-17.11-9.96-19.41-16.35-19.41c-10.73,0-23.5,6.13-35.25,14.05l-5.11-7.41l35.51-25.03
+		c16.86,0,59.01,5.88,59.01,39.08c0,27.33-26.31,42.4-38.83,45.21c11.75,0,50.83,5.88,50.83,43.43c0,50.07-80.47,75.87-114.95,80.72
+		l-3.58-8.43C889.8,217.83,933.48,196.89,933.48,161.13z"/>
+</g>
+</svg>
+</span>Research · AI mathematics and space technology · graph v9, 27 Oct 2026</div>
     <h1>Space Unlock Tree</h1>
     <p class="lede">What becomes solvable in space technology when AI can do research mathematics on request? Each card is a problem, method, technology or outcome. Each line says one must come before the other. Cards sit in the year they first become credible under the chosen scenario. Move the year to see what has unlocked, through 2035. A card counts as unlocked once its year arrives and its odds for that year are High or Medium. Odds are rated for every year from 2026 to 2035. The year is the earliest credible year, not a forecast date.</p>
   </header>
@@ -394,7 +466,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
   /* ---------- controls ---------- */
   function buildControls() {
     const seg = $('scen');
-    SC.forEach(s => seg.appendChild(el('button', { 'data-v': s.id, 'aria-pressed': String(s.id === st.scen), text: s.name + (s.id === 'S2' ? ' (base)' : ''), onclick: () => { st.scen = s.id; renderAll(true); } })));
+    SC.forEach(s => seg.appendChild(el('button', { 'data-v': s.id, 'aria-pressed': String(s.id === st.scen), text: s.name + (s.id === 'S2' ? ' (central)' : ''), onclick: () => { st.scen = s.id; renderAll(true); } })));
     $('year').addEventListener('input', e => { st.year = +e.target.value; renderAll(false); });
     $('showseg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; st.show = b.dataset.v; renderBranch(true); });
     $('viewseg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; st.view = b.dataset.v; renderBranch(true); });

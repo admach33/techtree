@@ -3,7 +3,10 @@
 Usage: python3 share/build_page.py  (run from model/; run build_facts.py first)
 Writes share/site/two-clocks.html and copies figure files into share/site/figs/.
 """
-import json, os, re, shutil, subprocess
+import json, os, re, shutil, subprocess, sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import brand  # noqa: E402
 
 HERE = 'share'
 SITE = os.path.join(HERE, 'site')
@@ -159,6 +162,7 @@ def main():
     page = page.replace('/*COPY*/null', json.dumps(copy, ensure_ascii=False, separators=(',', ':')))
     page = page.replace('<!--HERO-->', tree_html())
     page = page.replace('<!--TREECAP-->', tree_caption())
+    page = page.replace('/*BRAND-FONTS*/', brand.font_css()).replace('<!--WORDMARK-->', brand.wordmark(17))
     os.makedirs(SITE, exist_ok=True)
     out = os.path.join(SITE, 'two-clocks.html')
     open(out, 'w').write(page)

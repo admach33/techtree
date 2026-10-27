@@ -161,7 +161,10 @@ def main():
         'branches': out_br, 'nodes': nodes, 'domains': domains,
     }
     blob = json.dumps(data, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'share'))
+    import brand  # Mach33 brand fonts and wordmarks, shared with the Two Clocks page
     html = open(tpath).read().replace('__VIEWER_DATA__', blob)
+    html = html.replace('/*BRAND-FONTS*/', brand.font_css()).replace('<!--WORDMARK-->', brand.wordmark(16, colour='black') + brand.wordmark(16, colour='white'))
     open(opath, 'w').write(html)
     print(f'wrote {opath}: {len(html)/1e6:.2f} MB, {len(nodes)} nodes, {len(out_br)} branches')
 

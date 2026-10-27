@@ -2,6 +2,8 @@
 
 Integration of [two-clocks-space-review-2026-10-26.md](two-clocks-space-review-2026-10-26.md) per [PRD-two-clocks-review-oct26.md](../PRD-two-clocks-review-oct26.md), 27 Oct 2026. Model: `model/graph-v9.json` (482 nodes, `meta.version` 9, `meta.launch_source` = Mach33 Launch Keystone v1.3). Page: `model/share/site/two-clocks.html`. Every page number comes from `model/share/data/facts.json`.
 
+**Canonical links (Alex, 27 Oct):** page https://claude.ai/artifact/XezndTCNwFEz3iwzEcVGya, viewer https://claude.ai/artifact/WzFYYjTtBtkpk9VeFgSWzS. The page's "Explore the full tree" link points to the new viewer. The earlier URLs (CDb9dUrYcXHCHRjztx2wVy, 1ppfto5R4NFusiEDjWiFvB) belong to another account and still show v8.
+
 **Status key:** fixed · partly (what is missing is named) · deferred (with reason) · needs Alex.
 
 ## Findings
@@ -40,10 +42,10 @@ Integration of [two-clocks-space-review-2026-10-26.md](two-clocks-space-review-2
 | IN-2 | 🟡 | "OpenAI's October 2026 mathematics release", linked. | lede; footer | fixed (needs Alex: the release's exact public title, if it has one beyond the repository) |
 | IN-3 | 🟢 | Caption: "One dot per operational system or strategic outcome". | bottleneck note | fixed |
 | IN-4 | 🟢 | Not changed. | artifact sharing | needs Alex: should the artifact link stay open? The brief is public, so this is only about the link. |
-| VI-1 | 🟡 | Tokens from the review's Brand MCP reading: Black Space `#030911` page, Mission White `#FAFEFF` text, Orbital Signal Blue `#1C79D6` for buttons and focus, data blue `#5B9FE2` for the thinking clock and lit parts. `#22CFFF` is gone from the page, tree, kit and all six figure SVGs (one `--anatomy-lit` token each). `FIGURE-SPEC.md` is updated. | `page.src.html`, `tree.css`, `tree.html`, `build_kit.py`, `figs/*/*.svg`, `FIGURE-SPEC.md` | partly: TODO(source), confirm against `get_brand_tokens` (the Brand MCP is not connected here) |
+| VI-1 | 🟡 | Tokens from the review's Brand MCP reading: Black Space `#030911` page, Mission White `#FAFEFF` text, Orbital Signal Blue `#1C79D6` for buttons and focus, data blue `#5B9FE2` for the thinking clock and lit parts. `#22CFFF` is gone from the page, tree, kit and all six figure SVGs (one `--anatomy-lit` token each). `FIGURE-SPEC.md` is updated. | `page.src.html`, `tree.css`, `tree.html`, `build_kit.py`, `figs/*/*.svg`, `FIGURE-SPEC.md` | fixed: confirmed against the Brand MCP (`get_brand_tokens`, brand version 2026-10-23). Brand pass on 27 Oct: secondary text in chart greys `#B7CFE5`/`#94B4D2`/`#7299BE`, hardware `#DAEBF9`, cards `#0A1018` (Black Space with a 3% Mission White tint; Deep Orbit Blue never a background), figure plates on Black Space. Viewer re-tokened in both themes. |
 | VI-2 | 🟢 | Role colours: ODC blue top rule on the orbital compute card; lunar-Mars red (`#902005`) on the refuelling and lunar oxygen cards. No Starlink card on the page, so green is defined but unused. | card CSS | fixed |
-| VI-3 | 🟡 | Hanken Grotesk stays as a stand-in. | `page.src.html` head | needs Alex: Mach 33 Grotesk woff2 (TODO(source)) |
-| VI-4 | 🟢 | Wordmark slot marked in the header. | hero eyebrow | needs Alex: white wordmark SVG (TODO(source)) |
+| VI-3 | 🟡 | Mach 33 Grotesk (Titles, Body, Captions woff2 from the Brand MCP) is embedded as base64 in the published page, viewer and kit; Turret Road is kept for number call-outs only, set as outline numerals on hero and card years (brand book p.4, p.9 to 11). The font is licensed and this repository is public, so the font files stay out of git (`model/share/brand/fonts/`, git-ignored) and are embedded only when building with `M33_EMBED_FONTS=1`; committed builds fall back to Hanken Grotesk. | `share/brand.py`, `build_page.py`, `build_kit.py`, `tools/build_viewer.py` | fixed |
+| VI-4 | 🟢 | The official Mach33 wordmark from the Brand MCP is embedded unchanged: white on the page and kit, black and white swapped by theme in the viewer (two brand files, no recolouring). Buttons follow the book's mockups: rectangular, uppercase, letter-spaced, Orbital Signal Blue fill with a small square bullet when selected. | `share/brand/`, page header, kit, viewer header | fixed |
 | VI-5 | 🟡 | Tested the lunar oxygen card at 375 px on a cold load (headless Chrome, fresh profile): the illustration renders. `fig_file()` copies the SVG only above 2,000 bytes; the file is well above that. Not reproduced. | `shots/review3/m-card-lunar-o2-coldload.png` | fixed (not reproduced) |
 | ST-1 | 🟡 | "to" in every range in prose, and also in the display numerals ("5 to 10×", "$5 to 20"), pending Aaron's call. No en-dash ranges remain in the page, tree, kit or card copy. | page, COPY, kit | partly: Aaron's hyphen-or-"to" ruling for display numerals pending |
 | ST-2 | 🟡 | The headline stays as the logged exception. Rewritten: "a ceiling, not a forecast", "the earliest credible year, not a forecast", "analyst judgments, not computed probabilities", "launch, not labor", "That curve, not the math", "not any company's design". | page | fixed |
@@ -144,7 +146,6 @@ The public brief (post 160) quotes "478 milestones in 13 branches". With v9 it s
 | AI Compute Keystone SSO re-base and 16 Oct orbit ruling | `struct-gw-orbital-compute.why` | `claude/note-for-ai-compute-keystone-orbit-1016.md` |
 | Connectivity Keystone D2C dates, odds and user path | `comms-d2c-v2-service`, `comms-d2c-v3`, `comms-starlink-mobile`; `doc/branches/networks.md` | keystone release or the team's figures |
 | Connectivity Keystone model page | `work/R9-3-d2c.json` (`link`), networks narrative | URL once released |
-| Brand tokens, Mach 33 Grotesk woff2, wordmark SVG | `page.src.html` head and header (HTML comments) | Brand MCP `get_brand_tokens` (brand version 23 Oct 2026) |
 
 ## Open questions for Alex (PRD section 6, updated)
 
@@ -164,12 +165,12 @@ The public brief (post 160) quotes "478 milestones in 13 branches". With v9 it s
 - [x] The orbital compute card names one generation (AI1), the orbit (dawn-dusk SSO), payload per flight, peak and average power, and bridges to the AI Compute model.
 - [x] Hero, bridge chart and realized figures each carry one labelled frame; the kicker makes one closing claim.
 - [x] No internal tooling names on the page; the three hook figures are cited; the author is named ("we", Mach33); the Launch Keystone version is named.
-- [~] Brand: colour tokens applied from the review's Brand MCP reading, and `FIGURE-SPEC.md` updated. Fonts and wordmark await the Brand MCP (TODO(source)).
+- [x] Brand tokens, fonts and wordmark applied from the Brand MCP (brand version 2026-10-23) to the page, viewer, kit and figures; `FIGURE-SPEC.md` updated.
 - [x] Style sweep: no en-dash ranges in page prose, the listed contrasts rewritten (headline excepted), US English.
 - [x] 375 px pass: sticky year row, labels kept off the edges and lane names, slim toast, stacked odds rows; End turn, Play, Skip and wonder-jump tested; screenshots in `model/share/shots/review3/`.
 - [x] Kit PNGs regenerated; both MP4s regenerated (the hero changed).
 - [x] This file covers every finding ID.
-- [~] `Space Unlock Tree - model.md` and the viewer are rebuilt from v9. **Not republished at the existing URLs:** both CDb9dUrYcXHCHRjztx2wVy (page) and 1ppfto5R4NFusiEDjWiFvB (viewer) belong to an account outside the one this session runs as (alex.darvishian@gmail.com sees them as public or shared, with no edit access), so the tool refused to update them. The v9 builds are published as separate private artifacts: page https://claude.ai/artifact/XezndTCNwFEz3iwzEcVGya, viewer https://claude.ai/artifact/WzFYYjTtBtkpk9VeFgSWzS. To keep the public URLs, the owning account republishes `model/share/site/two-clocks.html` (with `figs/*`) and `model/viewer/space-unlock-tree.html` to them. The page's 'Explore the full tree' link still points to the existing viewer URL.
+- [~] `Space Unlock Tree - model.md` and the viewer are rebuilt from v9. Per Alex (27 Oct) the new private artifacts are now canonical. **Not republished at the old URLs:** both CDb9dUrYcXHCHRjztx2wVy (page) and 1ppfto5R4NFusiEDjWiFvB (viewer) belong to an account outside the one this session runs as (alex.darvishian@gmail.com sees them as public or shared, with no edit access), so the tool refused to update them. The v9 builds are published as separate private artifacts: page https://claude.ai/artifact/XezndTCNwFEz3iwzEcVGya, viewer https://claude.ai/artifact/WzFYYjTtBtkpk9VeFgSWzS. To keep the public URLs, the owning account republishes `model/share/site/two-clocks.html` (with `figs/*`) and `model/viewer/space-unlock-tree.html` to them. The page's 'Explore the full tree' link still points to the existing viewer URL.
 
 ## How the per-year odds were set
 
