@@ -1,5 +1,5 @@
 /* Tech tree hero: the whole Space Unlock Tree as a game research screen.
-   Lanes are branches; each lane has a research row (thinking techs) and a build row (hardware techs).
+   Lanes are branches; each lane has a thinking row and a hardware row of milestones.
    A tech sits in the column of its earliest credible year; it is unlocked once that year has come and its odds for
    that year are Medium or better (odds are rated for every year; the same rule as the gap chart). */
 const TechTree = (() => {
@@ -49,6 +49,11 @@ const TechTree = (() => {
     let si = Math.max(0, D.scenarios.indexOf(o.scenario)), turn = o.turn;
     let W, H, colW, perRow, lanesY, pos, svg, gCols, gHead, gEdges, gNodes, gLabels, gSticky, front;
     let compact = false, LW = 168, frontX = 0, focusI = -1, timer = null, toastTimer = null, toastTurn = null, edgeTimer = null, touchAt = 0;
+    const yrbar = root.querySelector('.tt-yrs'), more = root.querySelector('.tt-more');
+    // a returning reader starts at the last turn instead of waiting through the replay (MO-4); per viewer, best effort
+    let seen = false;
+    try { seen = !o.still && localStorage.getItem('tc-tree-seen') === '1'; localStorage.setItem('tc-tree-seen', '1'); } catch (e) {}
+    if (seen) turn = LAST;
     const PAD_R = 14, HEAD = 32, STEP = 11;
 
     const scen = () => D.scenarios[si];
@@ -66,6 +71,7 @@ const TechTree = (() => {
       const vw = Math.floor(stage.clientWidth || o.minWidth);
       // Below the full width the side column keeps only icons and the names ride inside the lanes.
       compact = !o.still && vw < o.minWidth;
+      root.classList.toggle('compact', compact);
       LW = compact ? 34 : 168;
       W = Math.max(compact ? 660 : o.minWidth, vw);
       colW = (W - LW - PAD_R) / YEARS.length;
@@ -138,7 +144,16 @@ const TechTree = (() => {
           : el('text', { class: 'tt-lane-name', x: 34, y: L.sTop + 9 }, gLanes);
         nm.textContent = lane.name;
       });
-      stage.onscroll = compact ? () => { gSticky.style.transform = `translateX(${stage.scrollLeft}px)`; } : null;
+      let lt = null;
+      stage.onscroll = compact ? () => {
+        gSticky.style.transform = `translateX(${stage.scrollLeft}px)`;
+        if (yrbar) yrbar.style.transform = `translateX(${-stage.scrollLeft}px)`;
+        if (more) {
+          more.classList.toggle('gone', stage.scrollLeft + stage.clientWidth >= stage.scrollWidth - 8);
+          more.textContent = stage.scrollLeft < 24 ? 'Later years →' : '→';
+        }
+        clearTimeout(lt); lt = setTimeout(placeLabels, 80);
+      } : null;
       gEdges = el('g', {}, svg);
       front = el('line', { class: 'tt-front', x1: 0, x2: 0, y1: HEAD - 8, y2: H - 16 }, svg);
       gNodes = el('g', {}, svg);
@@ -150,7 +165,7 @@ const TechTree = (() => {
         if (n.w) {
           el('polygon', { class: 'sh', points: '0,-6.5 6.5,0 0,6.5 -6.5,0' }, g);
           g.setAttribute('tabindex', '0'); g.setAttribute('role', 'button');
-          g.setAttribute('aria-label', `Wonder: ${n.w}. Show its tech card.`);
+          g.setAttribute('aria-label', `Wonder: ${n.w}. Show its card.`);
           const lab = el('g', { class: 'tt-wl', 'data-i': i }, gLabels);
           const tw = n.w.length * 6.1 + 24;
           lab.dataset.w = tw;
@@ -167,7 +182,11 @@ const TechTree = (() => {
       paint(null);
       bindNodes();
       const hint = root.querySelector('.tt-hint');
-      if (hint && !o.still) hint.textContent = compact && W > stage.clientWidth ? 'Swipe the tree sideways · tap a tech to light its research path' : 'Hover or tap a tech to light its research path';
+      if (hint && !o.still) hint.textContent = compact && W > stage.clientWidth ? 'Swipe the tree sideways · tap a milestone to light the path to it' : 'Tap or hover a milestone to light the path that leads to it';
+      if (yrbar) {
+        yrbar.style.width = W + 'px';
+        yrbar.innerHTML = YEARS.map((y, c) => `<span data-y="${y}" style="left:${LW + c * colW + colW / 2}px">${y > LAST ? 'Later' : y}</span>`).join('');
+      }
       follow(true);
       if (stage.onscroll) stage.onscroll();
     }
@@ -177,11 +196,15 @@ const TechTree = (() => {
       E.forEach(([a, b], k) => el('path', { class: `tt-e${N[b].k ? ' p' : ''}`, d: edgeD(pos[a], pos[b]), 'data-k': k }, gEdges));
     }
 
-    // Wonder name pills: try four spots around the diamond and keep the one covering the fewest techs and not the front line.
+    // Wonder name pills: try six spots around the diamond and keep the one covering the fewest milestones, off the front line,
+    // inside the visible tree and, at phone width, off the lane names that ride along the left edge (MO-2).
     function placeLabels() {
+      const vx = compact ? stage.scrollLeft : 0, vw = compact ? stage.clientWidth : W;
       gLabels.querySelectorAll('.tt-wl').forEach(lab => {
         const i = +lab.dataset.i, [x, y] = pos[i], w = +lab.dataset.w, h = 17;
-        const cands = [[9, -h - 4], [-w - 9, -h - 4], [9, 5], [-w - 9, 5]];
+        // a wonder scrolled out of view drops its label rather than leave a clipped pill at the edge
+        lab.style.opacity = compact && (x < vx + 6 || x > vx + vw - 6) ? '0' : '';
+        const cands = [[9, -h - 4], [-w - 9, -h - 4], [9, 5], [-w - 9, 5], [-w / 2, -h - 9], [-w / 2, 10]];
         let best = null, bestScore = Infinity;
         cands.forEach(([dx, dy], c) => {
           const x0 = x + dx, y0 = y + dy, x1 = x0 + w, y1 = y0 + h;
@@ -189,6 +212,8 @@ const TechTree = (() => {
           for (let j = 0; j < N.length; j++) if (j !== i) { const [px, py] = pos[j]; if (px > x0 - 5 && px < x1 + 5 && py > y0 - 5 && py < y1 + 5) score += 1; }
           if (frontX > x0 && frontX < x1) score += 6;
           if (x0 < LW || x1 > W - 4) score += 50;
+          if (compact && (x0 < vx + 4 || x1 > vx + vw - 4)) score += 100;
+          if (compact) lanesY.forEach(L => { if (x0 < vx + 160 && y0 < L.top + 19 && y1 > L.top) score += 30; });
           if (score < bestScore) { bestScore = score; best = [x0, y0]; }
         });
         lab.style.transform = `translate(${best[0]}px, ${best[1]}px)`;
@@ -215,6 +240,7 @@ const TechTree = (() => {
       gEdges.querySelectorAll('.tt-e').forEach(e => { const [a, b] = E[+e.dataset.k]; e.classList.toggle('on', st[a] === 'on' && st[b] === 'on'); });
       gCols.querySelectorAll('.tt-col').forEach(r => r.classList.toggle('past', +r.dataset.y <= turn));
       gHead.querySelectorAll('.tt-yr').forEach(t => t.classList.toggle('now', +t.dataset.y === turn));
+      if (yrbar) yrbar.querySelectorAll('span').forEach(t => t.classList.toggle('now', +t.dataset.y === turn));
       frontX = LW + (YEARS.indexOf(turn) + 1) * colW;
       front.style.transform = `translateX(${frontX}px)`;
       placeLabels();
@@ -225,7 +251,7 @@ const TechTree = (() => {
       $('s-fill').style.width = `${100 * c.s / c.sT}%`;
       $('p-fill').style.width = `${100 * c.p / c.pT}%`;
       const live = $('live');
-      if (live) live.textContent = `Turn ${turn}: thinking leads hardware by ${c.sp - c.pp} pts`;
+      if (live) live.textContent = `Turn ${turn} (one turn is one year): thinking leads hardware by ${c.sp - c.pp} pts`;
       // move focus off a button before it is disabled, so keyboard users keep their place
       const atStart = turn <= FIRST, atEnd = turn >= LAST;
       if (atEnd && document.activeElement === $('next')) $('play').focus();
@@ -233,7 +259,8 @@ const TechTree = (() => {
       $('prev').disabled = atStart;
       $('next').disabled = atEnd;
       if (!timer) $('play').textContent = atEnd ? '↺ Replay' : '▶ Play';
-      svg.setAttribute('aria-label', `Tech tree of ${N.length} techs, turn ${turn}, ${NAMES[scen()]} case: ${c.s} of ${c.sT} thinking techs and ${c.p} of ${c.pT} hardware techs unlocked.`);
+      if ($('skip')) $('skip').disabled = atEnd;
+      svg.setAttribute('aria-label', `Tree of ${N.length} milestones, turn ${turn}, ${NAMES[scen()]} case: ${c.s} of ${c.sT} thinking milestones and ${c.p} of ${c.pT} hardware milestones unlocked.`);
       if (prev) announce(prev, st, fromTurn);
       if (focusI >= 0) highlight(focusI);
     }
@@ -255,8 +282,8 @@ const TechTree = (() => {
         N.forEach(n => { if (n.k && state(n) !== 'on') wait[n.g] = (wait[n.g] || 0) + 1; });
         const top = Object.entries(wait).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([g, k]) => `${GATE[g] || g} (${k})`);
         const left = c.pT - c.p;
-        rows.push(`<div class="sum"><b>${NAMES[scen()]} case, turn ${turn}:</b> thinking ${c.sp}% · hardware ${c.pp}%. ${left} hardware techs still wait, mostly on ${top.slice(0, -1).join(', ')} and ${top[top.length - 1]}.</div>`);
-        if (!fresh.length) head = `End of the decade · ${turn}`;
+        rows.push(`<div class="sum"><b>${NAMES[scen()]} case, turn ${turn}:</b> thinking ${c.sp}% · hardware ${c.pp}%. ${left} hardware milestones are still unlit, mostly waiting on ${top.slice(0, -1).join(', ')} and ${top[top.length - 1]}.</div>`);
+        if (!fresh.length) head = `By 2035 · ${turn}`;
         ms = 7000;
       }
       if (!rows.length) return;
@@ -304,15 +331,15 @@ const TechTree = (() => {
       const status = st === 'on' ? 'Unlocked' : st === 'res' ? 'Year reached, odds under 30%' : 'Not yet';
       const toCard = n.w && sheet && document.getElementById('h-' + n.id) ? `<button class="go" type="button" data-go="${esc(n.id)}">See its card ↓</button>` : '';
       card.innerHTML = `<button class="close" type="button" aria-label="Close">×</button>
-        <div class="kind ${n.k ? 'p' : 's'}"><span>${n.w ? '★ Wonder · ' : ''}${n.k ? 'Build · hardware' : 'Research · thinking'}</span><span>${esc(D.tiers[n.tier])}</span></div>
+        <div class="kind ${n.k ? 'p' : 's'}"><span>${n.w ? '★ Wonder · ' : ''}${n.k ? 'Hardware' : 'Thinking'}</span><span>${esc(D.tiers[n.tier])}</span></div>
         <h4>${esc(n.w ? wTitle(n) : n.t)}</h4>
         ${n.img ? `<div class="img"><img src="${esc(n.img)}" alt=""></div>` : ''}
         <div>${esc(n.d)}</div>
         <dl><dt>Earliest</dt><dd>${yr} <span class="dim">(${NAMES[scen()]})</span></dd>
         <dt>Odds</dt><dd>${BAND[odds(n)]} in ${turn}${oddsLine(n)}</dd>
-        <dt>Waits on</dt><dd>${GATE[n.g] || n.g}</dd>
+        <dt>Waits on</dt><dd>${GATE[n.g] || n.g}${n.r ? `<span class="dim">, then ${GATE[n.r] || n.r}</span>` : ''}</dd>
         <dt>Turn ${turn}</dt><dd>${status}</dd></dl>
-        <div class="path">${nPath ? `Lit: the ${nPath} tech${nPath === 1 ? '' : 's'} on its research path.` : 'A root tech: nothing comes before it.'}${n.w && !sheet ? ' Click the wonder to see its card.' : ''}</div>${toCard}`;
+        <div class="path">${nPath ? `Lit: the ${nPath} milestone${nPath === 1 ? '' : 's'} on the path to it.` : 'A root milestone: nothing comes before it.'}${n.w && !sheet ? ' Click the wonder to see its card.' : ''}</div>${toCard}`;
       card.classList.toggle('sheet', !!sheet);
       card.style.left = card.style.top = '';
       if (!sheet) {
@@ -333,7 +360,14 @@ const TechTree = (() => {
       ['Low', 'Medium', 'High'].forEach((b, k) => { if (c[k] != null && c[k] > turn && (k === 0 || c[k] !== c[k - 1])) parts.push(`${b} from ${c[k]}`); });
       return parts.length ? ' · ' + parts.join(' · ') : '';
     }
-    const toCardOf = id => { const h = document.getElementById('h-' + id); if (h) h.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' }); };
+    // smooth scrolling can be dropped (some phone browsers, background tabs); fall back to a jump if the card is not on screen
+    const toCardOf = id => {
+      const h = document.getElementById('h-' + id);
+      if (!h) return;
+      h.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
+      const y0 = scrollY;
+      setTimeout(() => { const r = h.getBoundingClientRect(); if (scrollY === y0 && (r.top < 0 || r.bottom > innerHeight)) h.scrollIntoView({ block: 'center' }); }, 450);
+    };
 
     // ---------- turns and play ----------
     function follow(jump) {
@@ -364,7 +398,7 @@ const TechTree = (() => {
     }
 
     // ---------- autoplay once, handing control to the reader at the first touch ----------
-    let autoDone = !o.autoplay || reduced || o.still, autoRun = false, autoT = null;
+    let autoDone = !o.autoplay || reduced || o.still || seen, autoRun = false, autoT = null;
     function stopAuto() { autoDone = true; clearTimeout(autoT); if (autoRun) { autoRun = false; stop(); } }
     if (!autoDone && 'IntersectionObserver' in window) {
       const io = new IntersectionObserver(es => {
@@ -421,6 +455,7 @@ const TechTree = (() => {
     $('prev').addEventListener('click', () => { stopAuto(); stop(); setTurn(turn - 1, false); });
     $('next').addEventListener('click', () => { stopAuto(); stop(); setTurn(turn + 1, true); });
     $('play').addEventListener('click', () => { stopAuto(); timer ? stop() : play(); });
+    if ($('skip')) $('skip').addEventListener('click', () => { stopAuto(); stop(); setTurn(LAST, true); });
 
     function setScenario(s) {
       const k = D.scenarios.indexOf(s);

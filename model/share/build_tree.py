@@ -90,7 +90,7 @@ def main():
             'y': [year(n['earliest_year'][s]) for s in SCEN],
             # odds rank for each year 2026..2035, one digit a year (0 Speculative .. 3 High), per scenario
             'o': [''.join(str(RANK[b]) for b in n['band_by_year'][s]) for s in SCEN],
-            'g': n['binding_gate'], 'r': n.get('runner_up_gate'), 'd': first_sentence(n['description'], None if w else 320),
+            'g': n['binding_gate'], 'r': n.get('runner_up_gate'), 'd': first_sentence(n['description'], None),  # full sentence (MO-5)
             **({'w': w[0], 'img': w[1], 'wt': [COPY[k].get('title_by', {}).get(s, COPY[k]['title']) for s in SCEN],
                 **({'wb': [COPY[k]['to'][s] for s in SCEN]} if 'to' in COPY[k] else {})} if w else {}),
         })
