@@ -106,7 +106,7 @@
 @media (max-width:560px){.iso-plate{padding:48px 12px 70px}.iso-plate-corner[data-corner="hint"]{bottom:18px}}
 @media (prefers-reduced-motion:reduce){.iso-line[data-flow],.iso-dots circle[data-pulse]{animation:none}}
 
-.iso{--anatomy-page:#08090B;--anatomy-card:#0C0E11;--anatomy-paper:#0C0E11;--anatomy-lit:#22CFFF;}
+.iso{--anatomy-page:#08090B;--anatomy-card:#0C0E11;--anatomy-paper:#0C0E11;--anatomy-lit:#5B9FE2;}
 .tcm-glass .tcm-pane{fill:var(--anatomy-hi);fill-opacity:.035;stroke:none}
 .tcm-void{fill:var(--anatomy-halo);stroke:none}
 .tcm-pincap{fill:var(--anatomy-dot);opacity:.7;stroke:none}
