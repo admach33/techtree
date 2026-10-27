@@ -5,9 +5,9 @@
   "S3": "Recursive",
   "S4": "Embodied"
  },
- "n_nodes": 478,
+ "n_nodes": 482,
  "n_cognitive": 250,
- "n_physical": 228,
+ "n_physical": 232,
  "n_branches": 13,
  "clock_curve": {
   "S1": [
@@ -19,27 +19,27 @@
    },
    {
     "year": 2027,
-    "cognitive": 6,
+    "cognitive": 4,
     "physical": 1,
-    "gap": 5
+    "gap": 3
    },
    {
     "year": 2028,
-    "cognitive": 14,
-    "physical": 4,
-    "gap": 10
+    "cognitive": 10,
+    "physical": 3,
+    "gap": 7
    },
    {
     "year": 2029,
-    "cognitive": 34,
-    "physical": 9,
-    "gap": 25
+    "cognitive": 15,
+    "physical": 6,
+    "gap": 9
    },
    {
     "year": 2030,
-    "cognitive": 51,
-    "physical": 13,
-    "gap": 38
+    "cognitive": 33,
+    "physical": 8,
+    "gap": 25
    },
    {
     "year": 2031,
@@ -49,27 +49,27 @@
    },
    {
     "year": 2032,
-    "cognitive": 71,
-    "physical": 33,
-    "gap": 38
+    "cognitive": 57,
+    "physical": 20,
+    "gap": 37
    },
    {
     "year": 2033,
-    "cognitive": 76,
-    "physical": 35,
-    "gap": 41
+    "cognitive": 68,
+    "physical": 31,
+    "gap": 37
    },
    {
     "year": 2034,
     "cognitive": 76,
-    "physical": 35,
-    "gap": 41
+    "physical": 36,
+    "gap": 40
    },
    {
     "year": 2035,
     "cognitive": 76,
-    "physical": 35,
-    "gap": 41
+    "physical": 37,
+    "gap": 39
    }
   ],
   "S2": [
@@ -81,45 +81,45 @@
    },
    {
     "year": 2027,
-    "cognitive": 18,
+    "cognitive": 10,
     "physical": 1,
-    "gap": 17
+    "gap": 9
    },
    {
     "year": 2028,
-    "cognitive": 56,
-    "physical": 7,
-    "gap": 49
+    "cognitive": 28,
+    "physical": 3,
+    "gap": 25
    },
    {
     "year": 2029,
-    "cognitive": 75,
-    "physical": 22,
-    "gap": 53
+    "cognitive": 54,
+    "physical": 8,
+    "gap": 46
    },
    {
     "year": 2030,
-    "cognitive": 83,
-    "physical": 29,
+    "cognitive": 75,
+    "physical": 21,
     "gap": 54
    },
    {
     "year": 2031,
     "cognitive": 83,
-    "physical": 32,
-    "gap": 51
+    "physical": 33,
+    "gap": 50
    },
    {
     "year": 2032,
-    "cognitive": 93,
-    "physical": 53,
-    "gap": 40
+    "cognitive": 86,
+    "physical": 39,
+    "gap": 47
    },
    {
     "year": 2033,
-    "cognitive": 93,
-    "physical": 57,
-    "gap": 36
+    "cognitive": 91,
+    "physical": 47,
+    "gap": 44
    },
    {
     "year": 2034,
@@ -130,8 +130,8 @@
    {
     "year": 2035,
     "cognitive": 93,
-    "physical": 57,
-    "gap": 36
+    "physical": 58,
+    "gap": 35
    }
   ],
   "S3": [
@@ -143,27 +143,27 @@
    },
    {
     "year": 2027,
-    "cognitive": 18,
+    "cognitive": 10,
     "physical": 1,
-    "gap": 17
+    "gap": 9
    },
    {
     "year": 2028,
-    "cognitive": 69,
-    "physical": 10,
-    "gap": 59
+    "cognitive": 31,
+    "physical": 3,
+    "gap": 28
    },
    {
     "year": 2029,
-    "cognitive": 87,
-    "physical": 29,
+    "cognitive": 69,
+    "physical": 11,
     "gap": 58
    },
    {
     "year": 2030,
-    "cognitive": 90,
-    "physical": 38,
-    "gap": 52
+    "cognitive": 86,
+    "physical": 27,
+    "gap": 59
    },
    {
     "year": 2031,
@@ -173,21 +173,21 @@
    },
    {
     "year": 2032,
-    "cognitive": 95,
-    "physical": 63,
-    "gap": 32
+    "cognitive": 91,
+    "physical": 47,
+    "gap": 44
    },
    {
     "year": 2033,
-    "cognitive": 95,
-    "physical": 69,
-    "gap": 26
+    "cognitive": 94,
+    "physical": 56,
+    "gap": 38
    },
    {
     "year": 2034,
     "cognitive": 95,
-    "physical": 69,
-    "gap": 26
+    "physical": 66,
+    "gap": 29
    },
    {
     "year": 2035,
@@ -205,27 +205,27 @@
    },
    {
     "year": 2027,
-    "cognitive": 18,
+    "cognitive": 10,
     "physical": 1,
-    "gap": 17
+    "gap": 9
    },
    {
     "year": 2028,
-    "cognitive": 70,
-    "physical": 10,
-    "gap": 60
+    "cognitive": 31,
+    "physical": 3,
+    "gap": 28
    },
    {
     "year": 2029,
-    "cognitive": 88,
-    "physical": 30,
-    "gap": 58
+    "cognitive": 70,
+    "physical": 11,
+    "gap": 59
    },
    {
     "year": 2030,
-    "cognitive": 91,
-    "physical": 41,
-    "gap": 50
+    "cognitive": 87,
+    "physical": 28,
+    "gap": 59
    },
    {
     "year": 2031,
@@ -235,21 +235,21 @@
    },
    {
     "year": 2032,
-    "cognitive": 95,
-    "physical": 66,
-    "gap": 29
+    "cognitive": 92,
+    "physical": 50,
+    "gap": 42
    },
    {
     "year": 2033,
-    "cognitive": 96,
-    "physical": 73,
-    "gap": 23
+    "cognitive": 94,
+    "physical": 59,
+    "gap": 35
    },
    {
     "year": 2034,
-    "cognitive": 96,
-    "physical": 74,
-    "gap": 22
+    "cognitive": 95,
+    "physical": 70,
+    "gap": 25
    },
    {
     "year": 2035,
@@ -261,72 +261,132 @@
  },
  "gap_peak": {
   "S1": {
-   "year": 2033,
+   "year": 2034,
    "cognitive": 76,
-   "physical": 35,
-   "gap": 41
+   "physical": 36,
+   "gap": 40
   },
   "S2": {
    "year": 2030,
-   "cognitive": 83,
-   "physical": 29,
+   "cognitive": 75,
+   "physical": 21,
    "gap": 54
   },
   "S3": {
-   "year": 2028,
-   "cognitive": 69,
-   "physical": 10,
+   "year": 2030,
+   "cognitive": 86,
+   "physical": 27,
    "gap": 59
   },
   "S4": {
-   "year": 2028,
+   "year": 2029,
    "cognitive": 70,
-   "physical": 10,
-   "gap": 60
+   "physical": 11,
+   "gap": 59
+  }
+ },
+ "second_stat": {
+  "S1": {
+   "year": 2035,
+   "cognitive": 76,
+   "physical": 37,
+   "gap": 39
+  },
+  "S2": {
+   "year": 2035,
+   "cognitive": 93,
+   "physical": 58,
+   "gap": 35
+  },
+  "S3": {
+   "year": 2035,
+   "cognitive": 95,
+   "physical": 69,
+   "gap": 26
+  },
+  "S4": {
+   "year": 2035,
+   "cognitive": 96,
+   "physical": 74,
+   "gap": 22
+  }
+ },
+ "curve_steps": {
+  "S1": {
+   "thinking_max_step_to_2031": 19,
+   "max_step": 19
+  },
+  "S2": {
+   "thinking_max_step_to_2031": 26,
+   "max_step": 26
+  },
+  "S3": {
+   "thinking_max_step_to_2031": 38,
+   "max_step": 38
+  },
+  "S4": {
+   "thinking_max_step_to_2031": 39,
+   "max_step": 39
   }
  },
  "proved_vs_flown": {
   "2029": {
    "proof_reached": 122,
    "proof_total": 155,
-   "hardware_reached": 44,
-   "hardware_total": 167
+   "hardware_reached": 43,
+   "hardware_total": 170
   },
   "2031": {
    "proof_reached": 149,
    "proof_total": 155,
-   "hardware_reached": 103,
-   "hardware_total": 167
+   "hardware_reached": 106,
+   "hardware_total": 170
   },
   "2035": {
    "proof_reached": 154,
    "proof_total": 155,
-   "hardware_reached": 154,
-   "hardware_total": 167
+   "hardware_reached": 157,
+   "hardware_total": 170
   }
  },
  "outcome_gates": {
-  "total": 164,
+  "total": 168,
   "counts": {
+   "adoption": 36,
    "capital": 34,
-   "adoption": 33,
-   "launch": 29,
    "regulatory": 19,
+   "launch-internal": 19,
    "qualification": 18,
    "fabrication": 13,
    "data": 12,
+   "launch-external": 11,
    "experiment": 6
   },
-  "cognition": 0
+  "cognition": 0,
+  "runner_up": {
+   "fabrication": 22,
+   "adoption": 20,
+   "qualification": 20,
+   "capital": 20,
+   "experiment": 19,
+   "cognitive": 15,
+   "regulatory": 14,
+   "data": 12,
+   "launch-external": 10,
+   "launch-internal": 10,
+   "formalization": 6
+  },
+  "runner_up_thinking": 21,
+  "launch": 30
  },
  "physical_share": {
   "S1": {
    "2031": 14,
-   "2035": 35
+   "2035": 37
   },
   "S2": {
-   "2031": 32,
-   "2035": 57
+   "2031": 33,
+   "2035": 58
   },
   "S3": {
    "2031": 42,
@@ -354,6 +414,10 @@
    "2031": 91,
    "2035": 96
   }
+ },
+ "one_node_pts": {
+  "cognitive": 0.4,
+  "physical": 0.4
  },
  "amdahl": {
   "rows": [
@@ -454,7 +518,21 @@
     "think_max": 50
    }
   ],
-  "think_share": 0.35
+  "think_share": 0.35,
+  "hero_range": [
+   1.5,
+   1.7
+  ]
+ },
+ "outcome_shift": [
+  1.2,
+  1.7
+ ],
+ "evidence_rule": {
+  "year": "2029",
+  "medium": "2030",
+  "band_2031": "Medium",
+  "band_2035": "Medium"
  },
  "cards": [
   {
@@ -463,11 +541,34 @@
    "title": "Verified flight code 15-120x cheaper per line",
    "branch": "verif",
    "gate": "adoption",
+   "runner_up": "cognitive",
    "year": {
     "S1": "2030",
     "S2": "2028",
     "S3": "2028",
     "S4": "2028"
+   },
+   "odds_by": {
+    "S1": {
+     "low": "2030",
+     "medium": "2031",
+     "high": "2033"
+    },
+    "S2": {
+     "low": "2028",
+     "medium": "2029",
+     "high": "2030"
+    },
+    "S3": {
+     "low": "2028",
+     "medium": "2029",
+     "high": "2030"
+    },
+    "S4": {
+     "low": "2028",
+     "medium": "2029",
+     "high": "2030"
+    }
    },
    "band_2031": {
     "S1": "Medium",
@@ -487,18 +588,41 @@
    "figure": "orrery",
    "title": "Missions fly AI-designed trajectories",
    "branch": "astro",
-   "gate": "launch",
+   "gate": "launch-external",
+   "runner_up": "adoption",
    "year": {
     "S1": "2030",
-    "S2": "2029",
+    "S2": "2030",
     "S3": "2029",
     "S4": "2029"
    },
+   "odds_by": {
+    "S1": {
+     "low": "2030",
+     "medium": "2032",
+     "high": "2034"
+    },
+    "S2": {
+     "low": "2030",
+     "medium": "2031",
+     "high": "2033"
+    },
+    "S3": {
+     "low": "2029",
+     "medium": "2031",
+     "high": "2033"
+    },
+    "S4": {
+     "low": "2029",
+     "medium": "2031",
+     "high": "2033"
+    }
+   },
    "band_2031": {
-    "S1": "Medium",
-    "S2": "High",
-    "S3": "High",
-    "S4": "High"
+    "S1": "Low",
+    "S2": "Medium",
+    "S3": "Medium",
+    "S4": "Medium"
    },
    "band_2035": {
     "S1": "High",
@@ -512,12 +636,35 @@
    "figure": "compute-sat",
    "title": "Commercial AI chips running in orbit at scale",
    "branch": "materials",
-   "gate": "launch",
+   "gate": "launch-internal",
+   "runner_up": "fabrication",
    "year": {
     "S1": "2029",
     "S2": "2029",
     "S3": "2029",
     "S4": "2029"
+   },
+   "odds_by": {
+    "S1": {
+     "low": "2029",
+     "medium": "2030",
+     "high": "2033"
+    },
+    "S2": {
+     "low": "2029",
+     "medium": "2029",
+     "high": "2030"
+    },
+    "S3": {
+     "low": "2029",
+     "medium": "2029",
+     "high": "2030"
+    },
+    "S4": {
+     "low": "2029",
+     "medium": "2029",
+     "high": "2030"
+    }
    },
    "band_2031": {
     "S1": "Medium",
@@ -537,12 +684,35 @@
    "figure": "refuel",
    "title": "Routine orbital refueling economy",
    "branch": "prop",
-   "gate": "launch",
+   "gate": "launch-internal",
+   "runner_up": "capital",
    "year": {
     "S1": "2032",
     "S2": "2030",
     "S3": "2029",
     "S4": "2029"
+   },
+   "odds_by": {
+    "S1": {
+     "low": "2032",
+     "medium": "2033",
+     "high": "2035"
+    },
+    "S2": {
+     "low": "2030",
+     "medium": "2031",
+     "high": "2034"
+    },
+    "S3": {
+     "low": "2029",
+     "medium": "2030",
+     "high": "2033"
+    },
+    "S4": {
+     "low": "2029",
+     "medium": "2030",
+     "high": "2033"
+    }
    },
    "band_2031": {
     "S1": "Speculative",
@@ -563,11 +733,34 @@
    "title": "Tonne-per-year lunar oxygen plant",
    "branch": "auton",
    "gate": "capital",
+   "runner_up": "experiment",
    "year": {
     "S1": "2034",
     "S2": "2032",
     "S3": "2031",
     "S4": "2031"
+   },
+   "odds_by": {
+    "S1": {
+     "low": "2034",
+     "medium": ">2035",
+     "high": ">2035"
+    },
+    "S2": {
+     "low": "2032",
+     "medium": "2034",
+     "high": ">2035"
+    },
+    "S3": {
+     "low": "2031",
+     "medium": "2033",
+     "high": ">2035"
+    },
+    "S4": {
+     "low": "2031",
+     "medium": "2033",
+     "high": ">2035"
+    }
    },
    "band_2031": {
     "S1": "Speculative",
@@ -588,11 +781,34 @@
    "title": "Engines fly 50 missions without overhaul",
    "branch": "prop",
    "gate": "data",
+   "runner_up": "launch-internal",
    "year": {
     "S1": "2034",
     "S2": "2033",
     "S3": "2032",
     "S4": "2032"
+   },
+   "odds_by": {
+    "S1": {
+     "low": "2034",
+     "medium": ">2035",
+     "high": ">2035"
+    },
+    "S2": {
+     "low": "2033",
+     "medium": "2034",
+     "high": ">2035"
+    },
+    "S3": {
+     "low": "2032",
+     "medium": "2033",
+     "high": ">2035"
+    },
+    "S4": {
+     "low": "2032",
+     "medium": "2033",
+     "high": ">2035"
+    }
    },
    "band_2031": {
     "S1": "Speculative",
@@ -613,11 +829,34 @@
    "title": "Robots run integration and test around the clock",
    "branch": "robots",
    "gate": "qualification",
+   "runner_up": "data",
    "year": {
     "S1": "2035",
     "S2": "2033",
     "S3": "2033",
     "S4": "2031"
+   },
+   "odds_by": {
+    "S1": {
+     "low": "2035",
+     "medium": ">2035",
+     "high": ">2035"
+    },
+    "S2": {
+     "low": "2031",
+     "medium": "2035",
+     "high": ">2035"
+    },
+    "S3": {
+     "low": "2031",
+     "medium": "2035",
+     "high": ">2035"
+    },
+    "S4": {
+     "low": "2030",
+     "medium": "2032",
+     "high": "2035"
+    }
    },
    "band_2031": {
     "S1": "Speculative",

@@ -105,7 +105,7 @@
 .iso-swatch-crease{stroke:var(--anatomy-lo)!important}
 @media (max-width:560px){.iso-plate{padding:48px 12px 70px}.iso-plate-corner[data-corner="hint"]{bottom:18px}}
 @media (prefers-reduced-motion:reduce){.iso-line[data-flow],.iso-dots circle[data-pulse]{animation:none}}
-.iso{--anatomy-page:#08090B;--anatomy-card:#0C0E11;--anatomy-paper:#0C0E11;--anatomy-lit:#22CFFF}
+.iso{--anatomy-page:#08090B;--anatomy-card:#0C0E11;--anatomy-paper:#0C0E11;--anatomy-lit:#5B9FE2}
 .iso-plate{--anatomy-paper:#0C0E11}
 .orr-window{fill:var(--anatomy-shade-0);stroke:var(--anatomy-lo);stroke-width:var(--anatomy-weight);stroke-linejoin:round}
 .orr-lit .tb-body{fill:color-mix(in srgb,var(--anatomy-lit) 46%,var(--anatomy-paper))}
